@@ -1,0 +1,356 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="__HOME_CSS__/mui.min.css" rel="stylesheet" />
+
+	 <!--   <script type="text/javascript" src="/static/js/jquery.min.js"></script> -->
+      <script type="text/javascript"> 
+		var id='';
+		var str=''
+ 
+     </script>  
+	 <script src="__HOME_JS__/mui.min.js"></script>
+	<script type="text/javascript">
+			mui.init();
+	</script>		
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background:#3c7fff;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"style="color:#fff;"></a>
+			<h1 class="mui-title" style="color:#fff;">订单详情</h1>
+		</header>
+	     <div>  
+         <span id="_d">00</span>  
+         <span id="_h">00</span>  
+         <span id="_m">00</span>  
+         <span id="_s">00</span>  
+		</div> 
+		<div class="mui-card" style="margin-bottom: 5px; margin-top: 15%; font-size: 0.7em; color: #888888;">
+			<ul class="mui-table-view">
+				 <li class="mui-table-view-cell">{$title}数量：{$order.amount}币</li>
+				 <li class="mui-table-view-cell">总金额：<font style="color:red;">{$order.total_money}</font></li>
+		         <li class="mui-table-view-cell">
+				 
+					当前状态：
+					{if condition="$order.status eq '0'"}
+						<font style="color:red;">已冻结</font>
+					{/if}
+					
+					{if condition="$order.status eq '1'"}
+						<font style="color:green;">已完成</font>
+					{/if}
+					
+					{if condition="$order.status eq '2'"}
+						<font style="color:#0062cc;">等待中</font>
+					{/if}
+					
+					{if condition="$order.status eq '3'"}
+						<font style="color:#cf05ff;">完成匹配</font>
+					{/if}
+					
+					{if condition="$order.status eq '4'"}
+						<font style="color:red;">已取消</font>
+					{/if}
+					
+				 </li>
+		         <li class="mui-table-view-cell">
+					
+					{if condition="$order.status eq '0'"}
+						建立时间：{$order.addtime|date="Y-m-d H:i:s",###}
+					{/if}
+					
+					{if condition="$order.status eq '1'"}
+						完成时间：{$order.endtime|date="Y-m-d H:i:s",###}
+					{/if}
+					
+					{if condition="$order.status eq '2'"}
+						建立时间：{$order.addtime|date="Y-m-d H:i:s",###}
+					{/if}
+					
+					{if condition="$order.status eq '3'"}
+						匹配时间：{$order.matetime|date="Y-m-d H:i:s",###}
+					{/if}
+					
+					{if condition="$order.status eq '4'"}
+						建立时间：{$order.addtime|date="Y-m-d H:i:s",###}
+					{/if}
+				 
+				 </li>
+		         <li class="mui-table-view-cell">交易单号：{$order.orderid}</li>
+			</ul>
+		</div>
+		{in name="order.status" value="1,3"}
+		{foreach name="market_list" id="vo"}
+		<div class="mui-card" style="margin-bottom: 5px; font-size: 0.7em; color: #888888;">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell" style="background-color: #007bc3;color:#fff;font-weight:600;">（{$key+1}）匹配信息</li>
+				<li class="mui-table-view-cell">匹配单号：{$vo.orderid}</li>
+				<li class="mui-table-view-cell">数量：{$vo.amount}</li>
+				<li class="mui-table-view-cell">金额：<font style="color:red;">{$vo.price}</font></li>	
+				<li class="mui-table-view-cell">
+				状态：
+				{if condition="$vo.status eq '0'"}
+					<font style="color:red;">冻结交易</font>
+				{/if}
+				{if condition="$vo.status eq '1'"}
+					<font style="color:green;">成功交易</font>
+				{/if}
+				{if condition="$vo.status eq '2'"}
+					<font style="color:#c57502;">等待买家付款</font>
+				{/if}
+				{if condition="$vo.status eq '3'"}
+					<font style="color:#0284c5;">等待卖家确认收款</font>
+				{/if}				
+				</li>
+				<li class="mui-table-view-cell">匹配时间：{$vo.addtime|date="Y-m-d H:i:s",###}</li>
+				<li class="mui-table-view-cell">
+				付款时间：
+				{if condition="$vo.status eq '3'"}
+					{$vo.paytime|date="Y-m-d H:i:s",###}
+				{else /}
+					--
+				{/if}	
+				
+				</li>
+				<li class="mui-table-view-cell">
+				完成时间：
+				{if condition="$vo.status eq '1'"}
+					{$vo.endtime|date="Y-m-d H:i:s",###}
+				{else /}
+					--
+				{/if}	
+				
+				</li>
+			</ul>
+		</div>
+		
+		<div class="mui-card" style="margin-bottom: 5px; font-size: 0.7em; color: #888888;">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">对方信息</li>
+				<li class="mui-table-view-cell">用户名：{$vo.user.account}</li>
+				<li class="mui-table-view-cell">姓名：{$vo.user.fullname}</li>
+				<li class="mui-table-view-cell">手机号：{$vo.user.myphone}</li>
+				<li class="mui-table-view-cell">微信：{$vo.user.weixin}</li>
+				<li class="mui-table-view-cell">支付宝：{$vo.user.aiplay}</li>
+				<li class="mui-table-view-cell">ETH钱包：{$vo.user.eth_purse}</li>
+			</ul>
+		</div>
+		
+	{if condition="$type eq 'buy'"}	
+		{if condition="$vo.status eq '2'"}		
+		<div class="mui-card" style="margin-bottom: 5px;">
+			<ul class="mui-table-view">		
+				<li class="mui-table-view-cell">付款倒计时：<font id="u{$vo.id}">00天00时00分00秒</font></li>
+			</ul>		
+		</div>		
+		<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined" style="margin-left: 70%;color:#007314;border-color:#007314;" id="payment_{$vo.id}">
+			确认付款
+		</button>	
+		<script type="text/javascript">
+		
+
+		 
+			(function($) {
+				//监听点击事件
+				var id = "{$vo.id}";
+				document.getElementById("payment_"+id).addEventListener('tap',function(){
+					var op = "588cmmphp";	
+
+					console.log(op);
+					//return false;				
+					$.ajax('/payment.html',{
+						data:{op:op,orderid:"{$vo.orderid}",type:"buy"},
+						dataType:'json',//服务器返回json格式数据
+						type:'post',//HTTP请求类型
+						async:false,
+						timeout:50000,//超时时间设置为50秒；	              
+						success:function(data){
+							if(data.s=='ok'){
+									$.toast('确认成功');
+									setTimeout(function(){
+										//页面刷新
+										window.location.href = "/xiangqing.html?orderid={$order.orderid}";	
+									},2000);
+							}else{
+								$.toast(data.s);
+							}
+							event.stopPropagation();
+						}
+					});
+					event.stopPropagation();
+				
+				});
+				
+         function countTime(){  
+              //获取当前时间  
+              var date = new Date();  
+              var now = date.getTime();  
+			 // console.log(now);
+            //设置截止时间  
+
+             var str = new Date("{$vo.pay_end|date='Y-m-d H:i:s',###}"); 
+			 var endDate = new Date(str); 
+             var end = endDate.getTime();  
+            
+             //时间差  
+             var leftTime = end-now; 
+             //定义变量 d,h,m,s保存倒计时的时间  
+             var d,h,m,s;  
+             if (leftTime>=0) {  
+                 d = Math.floor(leftTime/1000/60/60/24);  
+                 h = Math.floor(leftTime/1000/60/60%24);  
+                 m = Math.floor(leftTime/1000/60%60);  
+                 s = Math.floor(leftTime/1000%60);                     
+             }  
+             //将倒计时赋值到div中  
+			// var times = d+"天" + h+"时" + m+"分" + s+"秒";
+			 document.getElementById('u{$vo.id}').innerHTML = d+"天" + h+"时" + m+"分" + s+"秒";
+             setTimeout(countTime,1000);  
+  
+         }
+		 countTime(); 
+			})(mui);
+		</script>
+		{/if}
+	{/if}
+	
+	{if condition="$type eq 'sell'"}		
+		{if condition="$vo.status eq '3'"}	
+		<div class="mui-card" style="margin-bottom: 5px;">
+			<ul class="mui-table-view">	
+				<li class="mui-table-view-cell">确认收款倒计时：<font id="sell{$vo.id}">00天00时00分00秒</font></li>			
+			</ul>		
+		</div>		
+		<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined" style="margin-left: 70%; color:#007314;border-color:#007314;" id="make_m{$vo.id}">
+			确认收款
+		</button>	
+		<script type="text/javascript">
+			(function($) {
+				//监听点击事件
+				var id = "{$vo.id}";
+				document.getElementById("make_m"+id).addEventListener('tap',function(){
+					var op = "588cmmphp";	
+					
+					//return false;	
+						console.log("{$vo.orderid}");
+					$.ajax('/make_order.html',{
+						data:{op:op,orderid:"{$vo.orderid}",type:"sell"},
+						dataType:'json',//服务器返回json格式数据
+						type:'post',//HTTP请求类型
+						async:false,
+						timeout:50000,//超时时间设置为50秒；	              
+						success:function(data){
+							console.log(data.s);
+							if(data.s=='ok'){
+									//alert('确认成功，订单完成');
+									$.toast('确认成功，订单交易完成');
+									setTimeout(function(){
+										//页面刷新
+										window.location.href = "/xiangqing.html?orderid={$order.orderid}";	
+									},2000);
+							}else{
+								alert(data.s);
+							}
+							event.stopPropagation();
+						}
+					});
+					event.stopPropagation();
+				
+				});
+			 function countTime_sell(){  
+				  //获取当前时间  
+				  var date = new Date();  
+				  var now = date.getTime();  
+				 // console.log(now);
+				//设置截止时间  
+
+				 var str = new Date("{$vo.yes_end|date='Y-m-d H:i:s',###}"); 
+				 var endDate = new Date(str); 
+				 var end = endDate.getTime();  
+				
+				 //时间差  
+				 var leftTime = end-now; 
+				 //定义变量 d,h,m,s保存倒计时的时间  
+				 var d,h,m,s;  
+				 if (leftTime>=0) {  
+					 d = Math.floor(leftTime/1000/60/60/24);  
+					 h = Math.floor(leftTime/1000/60/60%24);  
+					 m = Math.floor(leftTime/1000/60%60);  
+					 s = Math.floor(leftTime/1000%60); 
+					
+					 //将倒计时赋值到div中  
+					// var times = d+"天" + h+"时" + m+"分" + s+"秒";
+					 document.getElementById('sell{$vo.id}').innerHTML = d+"天" + h+"时" + m+"分" + s+"秒";
+					 setTimeout(countTime_sell,1000);  					 
+				 }else{
+					console.log(leftTime);
+					document.getElementById('sell{$vo.id}').innerHTML = "<font style='color:red;'>已超时，账号将被冻结</font>"; return false;
+				 }
+
+	  
+			 }
+			 countTime_sell();
+		 
+			})(mui);
+		</script>
+		{/if}
+	{/if}
+		
+		{/foreach}
+
+		<div class="mui-card" style="margin-bottom: 5px;">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">投诉该订单</li>
+			</ul>
+		</div>
+		{/in}
+		
+		{if condition="$order.status eq '2'"}
+		<div class="mui-card" style="margin-bottom: 5px;">
+			<ul class="mui-table-view">					         
+			</ul>		
+		</div>		
+		<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined" style="margin-left: 70%;" id="cancel">
+			取消此订单
+		</button>
+		
+		<script type="text/javascript">
+			mui.init();
+			(function($) {
+				//监听点击事件
+				document.getElementById("cancel").addEventListener('tap',function(){
+					var op = "588cmmphp";	
+
+					console.log(op);
+					//return false;				
+					$.ajax('/cancel_order.html',{
+						data:{op:op,orderid:"{$order.orderid}",type:"{$type}"},
+						dataType:'json',//服务器返回json格式数据
+						type:'post',//HTTP请求类型
+						timeout:50000,//超时时间设置为50秒；
+						/*headers:{'Content-Type':'application/json'},*/	              
+						success:function(data){
+							if(data.s=='ok'){
+								alert('取消成功');
+								window.location.href = "/xiangqing.html?orderid={$order.orderid}";
+							}else{
+								alert(data.s);
+							}
+							event.stopPropagation();
+						}
+					});
+					event.stopPropagation();
+				
+				});
+			})(mui);
+		</script>
+		{/if}
+
+	</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>支付中心 - <?php echo $cfg_webname; ?></title>
+<link href="/css/v2_index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<style type="text/css">
+.order-detail{padding-bottom:20px;}
+.order-detail li{font-size:16px;}
+.section{margin-top:15px;}
+.button3{margin-top:30px;font-weight:700;}
+.pay-method{overflow:hidden;border-top:1px solid #ddd;padding-top:20px;}
+ul.clearfix.jjpaytype{border-bottom:1px solid #ddd;padding-bottom:40px;}
+.pay-method .pay-method-title{height:46px;line-height:30px;font-size:16px;color:#333;}
+.pay-method li{float:left;margin-right:18px;position:relative;border-radius:8px;overflow:hidden;width:192px;height:86px;background-color:#f3f5f7;border:2px solid #f3f5f7;cursor:pointer;background-image:url(/images/pay_s.png);}
+.pay-method li:hover{border-color:#00bca1;}
+.pay-method .btn-grey-weixin{background-position:30px -423px;background-repeat:no-repeat;}
+.pay-method .btn-grey-weixin.on{border-color:#00bca1;}
+.pay-method .btn-grey-alipay{background-position:33px -304px;background-repeat:no-repeat;}
+.pay-method .btn-grey-alipay.on{border-color:#00bca1;}
+.summary .total{height:24px;line-height:24px;font-size:14px;margin-top:30px;text-align:right;}
+.summary span.price{font-size:24px;color:#f01414;}
+</style>
+</head>
+<body>
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+<?php include(DEDEMEMBER."/templets/left.htm"); ?>
+
+<!-- 右侧功能定位 -->
+<div class="user-right">
+<div class="uc-box uc-main-box">
+<div class="uc-content-box order-list-box">
+
+<div class="box-hd"><h1 class="title">支付中心</h1></div>
+
+<div class="section">
+<form method="post" name="E_FORM" action="buy_action.php">
+<input type="hidden" name="pd_encode" value="<?php echo $pr_encode;?>">
+<input type="hidden" name="pd_verify" value="<?php echo $pr_verify;?>">
+<input type="hidden" name="aid" value="<?php echo $buyid;?>">
+
+<!-- 隐藏 -->
+<input name="paytype" class="paytypeinp" type="hidden" value="10" />
+<!-- 隐藏 End -->
+
+<div class="order-detail">
+<ul>
+
+<li class="clearfix">
+<div class="label">订单编号：</div>
+<div class="content"><?php echo $buyid?></div>
+</li>
+
+<li class="clearfix">
+<div class="label">商品名称：</div>
+<div class="content"><?php echo $pname?></div>
+</li>
+
+</ul>
+</div>
+
+
+<!-- 支付中心 -->
+<div class="pay-method">
+<h2 class="pay-method-title">支付方式：</h2>
+
+<ul class="clearfix jjpaytype">
+<li class="btn-grey-weixin on" val="10"></li>
+<li class="btn-grey-alipay" val="3"></li>
+</ul>
+
+<!-- 支付按钮 -->
+<div class="summary" style="float:right;">
+<div class="clearfix total"><span class="label">应付金额：</span><span class="price">￥<?php echo $price;?></span></div>
+<div class="actions"><button type="submit" class="button3">立即支付</button></div>
+</div>
+<!-- 支付按钮 End -->
+
+</div>
+<!-- 支付中心 End -->
+
+
+</form>
+</div>
+
+
+
+</div>
+</div>
+</div>
+<!-- 右侧功能定位 End -->
+
+
+
+</div>
+
+
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+
+
+<script>
+$(".jjpaytype li").click(function(){
+	var aid = $(this).attr("val");	
+	$(".paytypeinp").val(aid);
+	$(".jjpaytype li").removeClass("on");
+	$(this).addClass("on");
+})
+</script>
+
+</body>
+</html>

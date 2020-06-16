@@ -1,0 +1,42 @@
+{extend name="layout:home" /}
+{block name="container"}
+<div class="layui-tab layui-tab-card">
+    {include file="layout/admin_items" /}
+    <div class="layui-tab-content page-tab-content">
+        <table class="layui-table lay-even">
+            <colgroup>
+                <col width="150">
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>{$Think.lang.message_customer}</th>
+                    <th>{$Think.lang.message_title}</th>
+                    <th>{$Think.lang.message_readok}</th>
+                    <th>{$Think.lang.message_useinfo}</th>
+                    <th>{$Think.lang.message_addtime}</th>
+                    <th>{$Think.lang.ds_operation}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {volist name="message_list" id="message"}
+            <tr>
+                <td>{$message.message_customer ?: '匿名'}</td>
+                <td>{$message.message_title}</td>
+                <td>{if condition="$message.message_readok eq 0"}否{else}是{/if}</td>
+                <td>{$message.message_useinfo ?: '暂未回复'}</td>
+                <td>{$message.message_addtime|date='Y-m-d H:i:s',###}</td>
+                <td>
+                    <a href="javascript:dsLayerOpen('{:url('message/reply',['message_id'=>$message.message_id])}','{$Think.lang.ds_reply}-{$message.message_title}')"class="layui-btn layui-btn-xs"><i class="layui-icon layui-icon-edit"></i>{$Think.lang.ds_view}</a>
+                    <a href="javascript:dsLayerConfirm('{:url('message/del',['message_id'=>$message.message_id])}','{$Think.lang.ds_confirm_cancel}')" class="layui-btn layui-btn-danger layui-btn-xs"><i class="layui-icon layui-icon-delete"></i>{$Think.lang.ds_del}</a>
+
+                </td>
+            </tr>
+            {/volist}
+        </tbody>
+        </table>
+        {$show_page}
+    </div>
+</div>
+<script type="text/javascript" src="{$Think.ADMIN_SITE_ROOT}/js/jquery.edit.js"></script>
+{/block}

@@ -1,0 +1,124 @@
+*,*:before,*:after{box-sizing:border-box;outline:none;}
+html,body{height:100%;}
+body{background-color:#F5F5F5;font-size:12px;-webkit-font-smoothing:antialiased;font-family:arial,sans-serif;}
+*{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+img{border:0;}
+i,em{font-style:normal;font-weight:normal;}
+ul{list-style:none;}
+a{text-decoration:none;color:inherit;}
+a:hover {text-decoration:none;}
+a{-webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
+.g-flexview {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 750px;
+  min-width: 300px;
+  padding-bottom:52px;
+}
+.g-scrollview {
+  width: 100%;
+  height: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  margin-bottom: -1px;
+}
+.g-scrollview:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0.5rem;
+}
+.ios .g-scrollview {
+  margin-top: 1px;
+}
+.hairline .g-scrollview {
+  margin-top: 0.5px;
+}
+.g-fix-ios-overflow-scrolling-bug {
+  -webkit-overflow-scrolling: auto;
+}
+.m-scrolltab {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.scrolltab-nav {
+  height: 100%;
+  background-color: #F5F5F5;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  z-index: 1;
+}
+.scrolltab-nav:after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  height: 100%;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5);
+  -webkit-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+}
+.scrolltab-item {
+  padding: 0 30px;
+  height: 56px;
+  font-size: 16px;
+  color: #999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.scrolltab-item.crt {background-color: #FFF;font-size:16px;font-weight:700;color: #333;}
+.scrolltab-item.crt:active {background-color: #FFF;}
+.scrolltab-item:active {background: none; }
+.scrolltab-content {
+  height: 100%;
+  background-color: #FFF;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 0 15px;
+  position: relative;
+}
+.scrolltab-content-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  display: block;
+  padding: 15px 0 5px;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>商品评价 -<?php echo $cfg_webname; ?></title>
+<script type="text/javascript" src="templets/js/j.js"></script>
+<script type="text/javascript" src="templets/js/jquery.boxy.js"></script>
+<script type="text/javascript" src="templets/js/load_index.js"></script>
+<script type="text/javascript" src="templets/js/Dialog.js"></script>
+<script type="text/javascript" src="templets/js/inputAutoClear.js"></script>
+<script type="text/javascript" src="templets/js/jquery.js"></script>
+<script type="text/javascript" src="templets/js/main.js"></script>
+<script type="text/javascript" src="templets/js/ping.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+</head>
+<body>
+
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+
+<div class="container">
+
+<!-- 商品评价 -->
+<div class="mycomment-detail">
+<div class="detail-hd">
+<div class="orderinfo">
+<h3 class="o-title">商品评价</h3>
+<div class="o-info"><span class="mr20">订单号：<?php echo $oid;?></span><span><?php echo GetDateTimeMk($pingjia['stime']); ?></span></div>
+</div>		
+</div>
+<div class="mycomment-form">
+
+<!-- page -->
+<div class="form-part1">
+<div class="f-item f-goods">
+<div class="fi-info">
+<div class="comment-goods">
+<div class="p-img"><a href="../plus/view.php?aid=<?php echo $aid;?>" target="_blank"><img src="<?php echo $lll['litpic'];?>"></a></div>
+<div class="p-name"><a href="../plus/view.php?aid=<?php echo $aid;?>" target="_blank"><?php echo $lll['title'];?></a></div>
+<div class="p-price"><strong><?php echo $lll['trueprice'];?>元</strong></div>
+</div>
+</div>
+
+<div class="fi-operate">
+
+<div class="fop-item fop-star">
+<div class="fop-label">商品满意度</div>
+
+<!-- 商品满意度 -->
+<form action="pingjia.php" method="post" enctype="multipart/form-data" name="feedback">
+<input type="hidden" name="dopost" value="save">
+<input type="hidden" name="oid" value="<?php echo $oid; ?>">
+<input type="hidden" name="aid" value="<?php echo $aid; ?>">
+<div class="fop-main">
+<div class="comment-filter">
+<div class="f-rc-list">
+<label class="f-radio checked"><input type="radio" class="icon-radio" name="feedbacktype" checked="1" value="good"><span class="f-rc-text">好评</span></label>
+<label class="f-radio"><input type="radio" class="icon-radio" name="feedbacktype" value="feedback"><span class="f-rc-text">中评</span></label>
+<label class="f-radio"><input type="radio" class="icon-radio" name="feedbacktype" value="bad"><span class="f-rc-text">差评</span></label>
+</div>
+</div>
+</div>		
+<!-- 商品满意度 End -->
+
+</div>
+
+
+<!-- 评价晒图 -->
+<div class="fop-item">
+<div class="fop-label">评价晒图</div>
+<div class="fop-main">
+<div class="f-textarea">
+<textarea name="msg" id="" placeholder="商品是否给力？快分享你的购买心得吧~"></textarea>
+<div class="textarea-ext">仅限300字以内</div>
+</div>
+
+
+<!-- 商品上传图片 -->
+<div class="m-imgshow f-imgshow">
+<div class="thumbnail-list" style="position:relative;">
+
+          <p>
+
+            <label>我要晒图：</label>
+
+            图片数目：<input name="picnum" type="text" id="picnum" size="6" value="3" maxlength="100" class="intxt"/>
+
+                      <button class="buttonGary2" name='kkkup' type='button' id='kkkup2' onclick="MakeUpload(0);">增加</button>(最大60幅)
+
+          </p>
+
+          <p>
+
+            <div id="uploadfield"></div>
+
+            <script language="JavaScript">MakeUpload(2);</script>
+
+          </p>
+
+
+
+<span class="upload-num">最多上传<em>4</em>张</span>
+</div>
+</div>
+<!-- 商品上传图片 End -->
+
+</div>
+</div>			
+</div>
+</div>
+</div>
+<!-- page -->
+
+<!-- 评价提交 -->
+<div class="f-btnbox"><button type="button" class="btn-submit"  onClick='javascript:if(document.feedback.msg.value!="") document.feedback.submit(); else alert("评论内容不能为空！");' >提交</button></div>	
+<!-- 评价提交 -->
+
+</div>
+</div>
+</form>
+<!-- 商品评价 End -->
+
+</div>
+
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+
+</body>
+</html>

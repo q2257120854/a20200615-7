@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DSCMS(php)企业站系统后台</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="{$Think.PLUGINS_SITE_ROOT}/layui/css/layui.css">
+    <link rel="stylesheet" href="{$Think.ADMIN_SITE_ROOT}/css/admin.css">
+    <script src="{$Think.PLUGINS_SITE_ROOT}/jquery-2.1.4.min.js"></script>
+    <script src="{$Think.ADMIN_SITE_ROOT}/js/admin.js"></script>
+    <script type="text/javascript" src="{$Think.PLUGINS_SITE_ROOT}/layui/layui.js"></script>
+    <script type="text/javascript">
+        var BASESITEROOT = "{$Think.BASE_SITE_ROOT}";
+        var ADMINSITEROOT = "{$Think.ADMIN_SITE_ROOT}";
+        var BASESITEURL = "{$Think.BASE_SITE_URL}";
+        var HOMESITEURL = "{$Think.HOME_SITE_URL}";
+        var ADMINSITEURL = "{$Think.ADMIN_SITE_URL}";
+    </script>
+</head>
+<body>
+<style type="text/css">
+    .layui-tab {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 10;
+        margin: 0;
+        border: none;
+        overflow: hidden;
+    }
+
+    .layui-tab-content {
+        padding: 0 0 0 10px;
+        height: 100%;
+    }
+
+    .layui-tab-item {
+        height: 100%;
+    }
+</style>
+<div class="admincp-header">
+    <div class="logo">
+        <img width="200" src="{$Think.ADMIN_SITE_ROOT}/images/backlogo.png"/>
+    </div>
+    <div class="navbar">
+        <ul class="fr" style="float:right" id="nav">
+            <li><span>{$Think.lang.ds_shalom},{$Think.session.admin_name}</span></li>
+            <li><a href="javascript:dsLayerOpen('{:url('Index/modifypw')}','{$Think.lang.ds_change_password}')">{$Think.lang.ds_change_password}</a></li>
+            <li><a href="javascript:dsLayerConfirm('{:url('Index/clear')}','{$Think.lang.ds_clear_cache_confirm}')">{$Think.lang.ds_clear_cache}</a></li>
+            <li><a href="{:url('Home/index/index')}" target="_blank">{$Think.lang.ds_visit_home}</a></li>
+            <li><a href="javascript:dsLayerConfirm('{:url('Login/logout')}','您确定退出吗?')">{$Think.lang.ds_safe_withdrawing}</a>
+            </li>
+            <li class="treeview">
+                <span id="nav1">{$Think.lang.ds_language_switch}{$Think.cookie.language }</span>
+                <ul style="display:none;" id="nav2">
+                    {foreach name="language_list" item="language"}
+                    <li class="nav-style">
+                        <a href="javascript:dsLayerGet('{:url('Index/setLanguageCookie',['language'=>$language.lang_mark])}')">{$language.lang_name}</a>
+                    </li>
+                    </br>
+                    {/foreach}
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="admincp-container">
+    <div class="admincp-container-left">
+        <ul class="sidebar-menu" id="gloMenu">
+            {foreach name="menu_list" item="menu" key="fe_menu"}
+            <li class="treeview">
+                <div class="title" id="navT"><i class="iconfont icon-{$fe_menu}"></i><span> {$menu.text}</span></div>
+                <ul class="treeview-menu" id="navC" style="display:none;">
+                    {foreach name="menu.children" item="submenu" key="fe_submenu" }
+                    <li><a data-id="{$fe_menu}-{$fe_submenu}" href="{$submenu.url}" class="admin-nav-item">{$submenu.text}</a></li>
+                    {/foreach}
+                </ul>
+            </li>
+            {/foreach}
+        </ul>
+    </div>
+
+    <div class="admincp-container-right">
+        <div class="layui-tab layui-tab-card" lay-filter="dsTab" lay-allowclose="true">
+            <ul class="layui-tab-title">
+                <li class="layui-this" lay-id="0">
+                    <cite>{$Think.lang.ds_welcome}</cite>
+                </li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <iframe lay-id="0" src="{:url('Index/welcome')}" width="100%" height="100%" frameborder="0" scrolling="yes"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    {block name="container"}{/block}
+</div>
+
+<script type="text/javascript">
+    layui.use(['jquery', 'element', 'layer'], function () {
+        var $ = layui.jquery, element = layui.element, layer = layui.layer;
+        $('.layui-tab-content').height($(window).height() - 145);
+        var tab = {
+            add: function (title, url, id) {
+                element.tabAdd('dsTab', {
+                    title: title,
+                    content: '<iframe width="100%" height="100%" lay-id="' + id + '" frameborder="0" src="' + url + '" scrolling="yes" class="x-iframe"></iframe>',
+                    id: id
+                });
+            }, change: function (id) {
+                element.tabChange('dsTab', id);
+            }
+        };
+        $('.admin-nav-item').click(function (event) {
+            var that = $(this);
+            if ($('iframe[src="' + that.attr('href') + '"]')[0]) {
+                tab.change(that.attr('data-id'));
+                event.stopPropagation();
+                return false;
+            }
+            if ($('iframe').length == 20) {
+                layer.msg('最多可打开20个标签页');
+                return false;
+            }
+            that.css({color: '#fff'});
+            tab.add(that.text(), that.attr('href'), that.attr('data-id'));
+            tab.change(that.attr('data-id'));
+            event.stopPropagation();
+            return false;
+        });
+        $(document).on('click', '.layui-tab-close', function () {
+            $('.layui-nav-child a[data-id="' + $(this).parent('li').attr('lay-id') + '"]').css({color: 'rgba(255,255,255,.7)'});
+        });
+    });
+    $('#gloMenu').on('click', '#navT', function () {
+        var parent = $(this).closest('li');
+        var index = parent.index();
+        if (parent.find('#navC').find('li').length) {
+            if (parent.hasClass('open')) {
+                parent.find('#navC').stop(true).slideUp(300, function () {
+                    parent.removeClass('open')
+                });
+            } else {
+                var openLi = $('.sidebar-menu').find('li.open');
+                openLi.removeClass('open').find('#navC').stop(true).slideUp(300);
+                parent.addClass('open').find('#navC').stop(true).slideDown(300);
+            }
+        }
+    })
+    $('#nav').on('click', '#nav1', function () {
+        var parent = $(this).closest('li');
+        var index = parent.index();
+        if (parent.find('#nav2').find('li').length) {
+            if (parent.hasClass('open')) {
+                parent.find('#nav2').stop(true).slideUp(300, function () {
+                    parent.removeClass('open')
+                });
+            } else {
+                var openLi = $('.sidebar-menu').find('li.open');
+                openLi.removeClass('open').find('#nav2').stop(true).slideUp(300);
+                parent.addClass('open').find('#nav2').stop(true).slideDown(300);
+            }
+        }
+    })
+</script>
+</body>
+
+
+</html>
+
+
+

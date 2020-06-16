@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sousuo</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/icons-extra.css" rel="stylesheet"/>
+	<link href="css/swiper.min.css" rel="stylesheet"/>
+	<link href="css/aui.css" rel="stylesheet"/>
+    <style type="text/css">
+        body{background-color:#FFFFFF;}
+    </style>
+<style type="text/css">
+    .aui-content-padded {
+        padding: 0.75rem;
+        background-color: #ffffff;
+        margin-top: 0.75rem;
+    }
+    </style>
+
+</head>
+<body>
+	<header id="标题栏1" class="mui-bar mui-bar-nav" style="background:#FFFFFF;">
+		<a class="mui-icon mui-icon-left-nav mui-pull-left" style="color:#FFFFFF;"></a>
+		<h1 class="mui-title" style="color:#0088FF;"></h1>
+		<a class="mui-icon mui-icon-bars mui-pull-right" style="color:#FFFFFF;"></a>
+	</header>
+
+
+	<div class="mui-content" style="background-color:transparent;">
+<div id="轮播图1" style="margin:0px auto;display:block">
+  <style>
+    .swiper-slide .title {
+      font-size: 26px;
+      font-weight: 300;
+	  margin-top:5px;
+	  margin-left:5px;
+    }
+    .swiper-slide .subtitle {
+      font-size: 20px;
+	  line-height: 1.3;
+	  margin-left:5px;
+    }
+    .swiper-slide .text {
+      font-size: 14px;
+      max-width: 400px;
+      line-height: 1.3;
+	  margin-left:5px;
+    }
+    .parallax-bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 130%;
+      height: 100%;
+      -webkit-background-size: cover;
+      background-size: cover;
+      background-position: center;
+    }
+      .swiper-pagination-bullet {
+	  width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      font-size: 12px;
+      color:#FFFFFF;
+      opacity: 1;
+      background: rgba(0,0,0,0.2);
+	}
+	.swiper-pagination-bullet-active {
+	  color:#fff;
+      background: #007aff;
+	}
+  </style>
+  <!-- Swiper -->
+  <div id="轮播图1swiper-container" class="swiper-container">
+    <div id="轮播图1parallax-bg" class="parallax-bg" style="background-image:url('')" data-swiper-parallax="-23%"></div>
+    <div id="轮播图1ull" class="swiper-wrapper" >
+      
+    </div>
+    <!-- Add Pagination -->
+    <div id="轮播图1swiper-pagination" class="swiper-pagination"></div>
+  </div>
+
+</div>
+
+<div class="aui-searchbar" id="列表哥AUI搜索框1">
+        <div class="aui-searchbar-input aui-border-radius">
+            <i class="aui-iconfont aui-icon-search"></i>
+            <input type="search" placeholder="请输入搜索内容" id="search-input">
+            <div class="aui-searchbar-clear-btn">
+                <i class="aui-iconfont aui-icon-close"></i>
+            </div>
+        </div>
+        <div class="aui-searchbar-btn" tapmode>取消</div>
+    </div>
+
+
+
+		<div class="mui-input-row" style="margin:0px;display:block">
+			<ul id="高级列表框1" class="mui-table-view">
+			</ul>
+		</div>
+
+	</div>
+
+</body>
+<script src="js/mui.min.js"></script>
+<script src="js/mui.lazyload.js"></script>
+<script src="js/mui.lazyload.img.js"></script>
+<script src="gongyongmokuai.js"></script>
+<script src="js/bluebird_string.js"></script>
+<script src="js/bluebird_localStorage.js"></script>
+<script src="js/bluebird_window.js"></script>
+<script src="js/bluebird_convert.js"></script>
+<script src="js/bluebird_math.js"></script>
+<script src="js/bluebird_date.js"></script>
+<script src="js/bluebird_array.js"></script>
+<script src="js/bluebird_titleBar.js"></script>
+<script src="js/bluebird_ajax.js"></script>
+<script src="js/bluebird_extraList.js"></script>
+<script src="js/picture_Carousel.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/api.js"></script>
+<script src="js/List_brother_AUI_search_box.js"></script>
+<script src="js/zzlib.js"></script>
+<script src="sousuo.js"></script>
+</html>

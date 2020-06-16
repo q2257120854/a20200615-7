@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>{dede:field name='typename'/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<meta http-equiv="mobile-agent" content="format=html5; url={dede:global.mcfg_basehost/}{dede:type typeid='0′ row=1}[field:typelink/]{/dede:type}">
+<link href="{dede:global.cfg_basehost/}/css/v2_index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{dede:global.cfg_basehost/}/js/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_basehost/}/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<script type="text/javascript">
+var bForcepc = fGetQuery("dv") == "pc";    
+function fBrowserRedirect(){    
+    var sUserAgent = navigator.userAgent.toLowerCase();    
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";      
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";    
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";    
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";    
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";    
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";    
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";    
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";    
+   
+    if(bIsIphoneOs || bIsAndroid){    
+        var sUrl = location.href;        
+        if(!bForcepc){    
+            window.location.href = "{dede:global.mcfg_basehost/}{dede:type typeid='0′ row=1}[field:typelink/]{/dede:type}";    
+        }    
+    }    
+    if(bIsMidp||bIsUc7||bIsUc||bIsCE||bIsWM){    
+        var sUrl = location.href;        
+        if(!bForcepc){    
+            window.location.href = "{dede:global.mcfg_basehost/}{dede:type typeid='0′ row=1}[field:typelink/]{/dede:type}";    
+        }    
+    }    
+}    
+function fGetQuery(name){//获取参数值    
+    var sUrl = window.location.search.substr(1);    
+    var r = sUrl.match(new RegExp("(^|&)" + name + "=([^&]*)(&|$)"));    
+    return (r == null ? null : unescape(r[2]));    
+}    
+function fShowVerBlock(){       
+    if(bForcepc){    
+        document.getElementById("dv_block").style.display = "block";    
+    }    
+    else{    
+        document.getElementById("ad_block").style.display = "block";    
+    }    
+}    
+fBrowserRedirect();    
+</script>
+<style type="text/css">
+.yin{display:none !important;}
+
+/*课程封面图*/
+.container{width:1180px;}
+.course-cover{background:#fff;padding:20px 0 20px 20px;position:relative;-webkit-box-shadow:0px 1px 2px #bbb;box-shadow:0px 1px 2px #bbb;border-radius:8px;}
+.course-thum{float:left;}
+.course-thum img{width:450px;height:253px;}
+.course-info{float:left;width:600px;height:253px;padding-left:25px;position:relative;}
+.course-info h1{line-height:36px;color:#333;font-size:24px;padding:0 0 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+/*课程价格/进入学习*/
+.course-zj-djl{color:#999;font-size:14px;line-height:20px;padding-bottom:15px;}
+.curr-price,.old-price{font-size:28px;color:#f30;}
+.old-price{vertical-align:top;line-height:42px;font-size:14px;color:#999;text-decoration:line-through;margin-left:10px;}
+.yxw-list-jineuxuexi{position:absolute;bottom:0;overflow:hidden;padding-top:20px;}
+.yxw-list-jineuxuexi a{width:125px;height:40px;line-height:40px;display:inline-block;text-align:center;color:#ff700a;border:1px solid #ff700a;font-size:18px;margin-right:3px;border-radius:3px;}
+.yxw-list-jineuxuexi a:hover{background:#ff700a;color:#fff;transition:0.3s;}
+
+/*列表课程内容*/
+.course-cover-2{width:1200px;margin:0 auto;margin-top:20px;padding-bottom:50px;}
+.course-cover-fl{width:900px;min-height:400px;background:#fff;float:left;border:1px solid #e5e5e5;border-radius:8px;}
+.course-cover-fr{width:270px;background:#fff;float:right;border:1px solid #e5e5e5;border-radius:8px;}
+
+/*TAB切换*/
+.aui-nav-list-box{overflow:hidden;border-bottom:1px solid #e5e5e5;background:linear-gradient(#fff,#fafafa);border-top-right-radius:8px;border-top-left-radius:8px;}
+.aui-nav-list-box ul li{float:left;cursor:pointer;color:#333;height:48px;line-height:48px;border-right:solid 1px #e5e5e5;font-size:16px;}
+.aui-nav-list-box ul li span{display:block;padding:0 25px;}
+.aui-nav-list-box ul li span:hover{color:#ff700a;}
+.aui-nav-list-box .aui-current{color:#ff700a;background:#fff;font-weight:bold;}
+.aui-nav-list-item{display:none;}
+
+/*课程详情介绍*/
+.yxw-kc-jianjie{padding:25px 25px;}
+.yxw-kc-jianjie h3{font-size:18px;color:#333;font-weight:700;margin-bottom:10px;}
+.yxw-kc-jianjie p{color:#333;font-size:14px;padding-bottom:20px;line-height:24px;text-align:justify;}
+.yxw-kc-jianjie p img{display:block;margin-top:-20px;}
+
+/*课程目录*/
+.aui-nav-list-h3{overflow:hidden;font-size:14px;color:#333;line-height:50px;text-align:center;}
+.task-task-list .task-task-item{position:relative;width:100%;line-height:50px;background:#fff;border-bottom:1px solid #eee;box-sizing:border-box;padding:0 30px 0 25px;display:block;color:#333;}
+.task-task-list .task-task-item:hover{background-color:#fcfcfc;color:#000;}
+.task-task-list .task-task-item .yxw-ks{width:55px;color:#999;font-size:14px;display:inline-block;padding-right:10px;}
+.yxw-kc-s{position:absolute;top:15px;right:25px;width:20px;height:20px;background:url({dede:global.mcfg_basehost/}/m-images/yxw-kc-s.png) center no-repeat;background-size:20px 20px;}
+.keshikan{font-size:14px;color:#393;position:absolute;top:0;right:25px;}
+
+/*右边信息*/
+.course-cover-fr h3{color:#333;font-size:16px;padding:0 25px;line-height:50px;border-bottom:1px solid #e5e5e5;background:linear-gradient(#fff,#fafafa);border-top-right-radius:8px;border-top-left-radius:8px;}
+.course-cover-fr ul{padding:10px 25px 20px;}
+.course-cover-fr li{position:relative;-webkit-transition:-webkit-box-shadow 0.5s linear;transition:box-shadow 0.5s linear;border-bottom-right-radius:8px;border-bottom-left-radius:8px;}
+.course-cover-fr li:hover{-webkit-box-shadow:0 5px 15px rgba(0,0,0,0.2);box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+.course-cover-fr li img{width:220px;height:124px;display:block;border-top-right-radius:8px;border-top-left-radius:8px;}
+.course-cover-fr li .link{display:block;}
+.course-cover-fr li .title{line-height:20px;color:#333;font-size:14px;display:block;padding:10px 15px 15px;background:#f7f8f9;margin-bottom:10px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;}
+.course-cover-fr li .title:hover{color:#00bca1;}
+.course-cover-fr li span{position:absolute;top:95px;right:10px;background:rgba(0,0,0,0.6);color:#fff;font-size:12px;border-radius:4px;padding:2px 6px;}
+</style>
+</head>
+<body>
+
+{dede:include filename="head.htm"/}
+
+<!-- 面包削 -->
+<div class="mianbaoxiao clearfix"><div class="mianbao-min"><a href="{dede:global.cfg_basehost/}/" rel="nofollow">首页</a> / <a href="{dede:global.cfg_basehost/}/courses/" rel="nofollow">课程</a> / {dede:type}[field:typename /]{/dede:type}</div></div>
+<!-- 面包削End -->
+
+
+<!-- 列表 -->
+<div class="course-head">
+<div class="course-cover container">
+
+<!-- 课程缩略图 -->
+<div class="course-thum"><img class="course-img-bg lazy-img" data-original="{dede:field.ico function='mstrone(@me)'/}"></div>
+<!-- 课程缩略图 End -->
+
+<div class="course-info">
+<h1>{dede:field.typename/}</h1>
+<div class="course-zj-djl"><span class="jishu" style="padding-right:10px;">共{dede:type}[field:ID function='GetTotalArc(@me)'/] {/dede:type}节课</span><span class="xuexicisu">{dede:field.id function="JJgetCliak(@me)"/}次学习</span></div>
+
+<!-- 课程价格 -->
+<li class="price needBuy yin">
+<span class="curr-price">{dede:field.array runphp='yes'}
+global $cfg_dazhe,$kc_miaosha,$cfg_zhekou;
+if($cfg_dazhe == 'Y'){
+@me = '￥'.@me['price'] / 100 * $cfg_zhekou.'<em class="old-price">￥'.@me['price'].'</em>';
+}else{
+@me = '￥'.@me['price'] ;
+}
+{/dede:field.array} </span>
+</li>
+<!-- 课程价格 End -->
+
+
+<!-- 课程购买/进入学习 -->
+<div class="yxw-list-jineuxuexi">
+<a href="{dede:global.cfg_basehost/}/member/buyke.php?tid={dede:field.typeid/}" class="list-kc-goumai yin" target="_blank">立即购买</a>
+<a href="{dede:global.cfg_basehost/}/member/buyhui.php" class="list-kc-goumai huiyuan-mf yin" target="_blank" style="font-size:16px;color:#fff !important;background:#ff700a !important;">VIP免费学</a>
+{dede:arclist row='1' orderby='id' orderway='asc'}
+<a href="[field:arcurl/]" class="link vipxian yin" target="_blank" rel="nofollow">进入学习</a>
+{/dede:arclist}
+</div>
+<!-- 课程购买/进入学习 End -->
+
+
+</div>
+</div>
+</div>
+<!-- 列表 End -->
+
+
+<!-- 课程列表内容 -->
+<div class="course-head">
+<div class="course-cover-2 clearfix">
+
+
+<!-- 左边信息 -->
+<div class="course-cover-fl">
+<div class="aui-nav-content-box">
+
+<!-- TAB -->
+<div class="aui-nav-list-box">
+<ul>
+<li class="aui-current"><span>课程信息</span></li>
+<li><span>课程目录</span></li>
+</ul>
+</div>
+<!-- TAB End -->
+
+
+<!-- 切换 -->
+<div class="aui-nav-list-tab">
+
+<!-- 课程简介 -->
+<div class="aui-nav-list-item" style="display:block">
+<div class="yxw-kc-jianjie">
+{dede:field.content/}
+</div>
+</div>
+<!-- 课程简介 End -->
+
+
+<!-- 课程目录 -->
+<div class="aui-nav-list-item">
+{dede:list orderby='id' orderway='asc'}
+<div class="task-task-list">
+<a href="[field:arcurl/]" class="task-task-item needBuy_kelist" rank="[field:arcrank/]" target="_blank">
+<p class="task-tt" style="overflow:hidden;">
+<span class="task-tt-text fl"><span class="yxw-ks">课时[field:global.autoindex/]</span>[field:fulltitle/]</span>
+<span class="yxw-kc-s needBuy yin fr"></span>
+</p>
+</a>
+</div>
+{/dede:list}
+</div>
+<!-- 课程目录 End -->
+
+
+</div>
+<!-- 切换 End -->
+
+
+</div>
+</div>
+<!-- 左边信息 End -->
+
+
+
+<!-- 右边信息 -->
+<div class="course-cover-fr">
+<h3>精选好课</h3>
+<ul>
+{dede:sql sql="select * from #@__arctype where reid = '18' and  isrecommend = '0' order by id desc limit 8"}
+<li><a href="[field:typelink/]" class="link" rel="nofollow"><img class="course-img-bg lazy-img" data-original="[field:ico function='mstrone(@me)'/]"></a><p><a href="[field:typelink/]" class="title">[field:typename/]</a></p><span>[field:ID function='GetTotalArc(@me)'/]集全</span></li>
+{/dede:sql}
+</ul>
+</div>
+<!-- 右边信息 End -->
+
+
+
+
+</div>
+</div>
+<!-- 课程列表内容 End -->
+
+
+{dede:include filename="footer.htm"/}
+
+
+<script>
+function GetMemRank(){
+	$.post("{dede:global.cfg_basehost/}/member/jjajax.php",{a:"GetRank",tid:"{dede:field.typeid/}"},function(result){
+ 	        if(result == 'ok'){
+			$(".vipxian").removeClass("yin");
+		    }else{		
+            $(".list-kc-goumai").removeClass("yin");  
+			$(".needBuy").removeClass("yin");
+			$(".needBuy_kelist").each(function(index, element) {
+                if($(element).attr("rank") == '0' ){
+					$(element).find(".needBuy").removeClass("yxw-kc-s");
+					$(element).find(".needBuy").html('<em class="keshikan">免费</em>');	
+					if(result == 'notlogin'){
+					$(element).attr("href","{dede:global.cfg_basehost/}/member/");
+					}
+				}else{
+				$(element).attr("href","javascript:;");
+				}
+            });			 						
+		} 
+	});	
+}
+GetMemRank();
+</script>
+
+<script type="text/javascript"> 
+//tab切换
+$(function(){
+$('.aui-nav-list-box ul li').click(function(){
+$(this).addClass('aui-current').siblings().removeClass('aui-current');
+$('.aui-nav-list-tab>div:eq('+$(this).index()+')').show().siblings().hide();
+})
+});
+</script>
+
+<script type="text/javascript" src="{dede:global.cfg_basehost/}/js/jquery.lazyload.js"></script>
+<script type="text/javascript">
+!function(){var n,f={};f.curr=1,n=20;var a=function(){},c=function(){$(".lazy-img").lazyload({effect:"fadeIn"})},i=function(){a(),c()};i()}();
+</script>
+
+</body>
+</html>

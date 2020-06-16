@@ -1,0 +1,30 @@
+html,body {background: #f5f4f9;}
+
+.list-thead {
+	margin-top: .2rem;
+}
+.mui-bar-nav {
+    padding-top: 20px;
+    box-sizing: content-box;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+.mui-table-view.mui-grid-view .mui-table-view-cell {
+	font-size: .20rem;
+	background: ##F4F3F1;
+	border: 0;
+	color: #888;
+}
+
+.list-item .mui-table-view.mui-grid-view .mui-table-view-cell {
+	background: #fff;
+	color: #444;
+}
+
+.mui-bar.mui-bar-nav {
+	background: #fff;
+}
+
+.no-data-box {
+	background-color: #f5f4f9;
+}

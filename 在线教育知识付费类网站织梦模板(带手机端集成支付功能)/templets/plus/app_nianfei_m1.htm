@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+
+<title><?php echo $arctitle; ?></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+<meta content="yes" name="apple-mobile-web-app-capable" />
+
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+
+<meta content="telephone=no" name="format-detection" />
+
+<link href="<?php echo $mcfg_basehost; ?>/m-css/m-index.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="<?php echo $cfg_basehost; ?>/js/jquery.js" ></script>
+
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-css/app.css.php?format=js&v=1.01"></script>
+
+<script language="javascript" type="text/javascript" src="<?php echo $cfg_basehost; ?>/include/dedeajax2.js"></script>
+
+<script language="javascript" type="text/javascript">
+
+var aid = <?php echo $aid; ?>;
+
+<!--
+
+	function CheckLogintop(){
+
+	  var taget_obj = document.getElementById('_userlogin');
+
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+
+	  DedeXHTTP = null;
+
+	}
+
+function CheckLogin(){
+
+	  var taget_obj = document.getElementById('_ajax_feedback');
+
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+
+	  myajax.SendGet2("/member/ajax_feedback.php");
+
+	  DedeXHTTP = null;
+
+}
+
+function postBadGood(ftype,fid)
+
+{
+
+	var taget_obj = document.getElementById(ftype+fid);
+
+	var saveid = GetCookie('badgoodid');
+
+	if(saveid != null)
+
+	{
+
+		var saveids = saveid.split(',');
+
+		var hasid = false;
+
+		saveid = '';
+
+		j = 1;
+
+		for(i=saveids.length-1;i>=0;i--)
+
+		{
+
+			if(saveids[i]==fid && hasid) continue;
+
+			else {
+
+				if(saveids[i]==fid && !hasid) hasid = true;
+
+				saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+
+				j++;
+
+				if(j==10 && hasid) break;
+
+				if(j==9 && !hasid) break;
+
+			}
+
+		}
+
+		if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+
+		else saveid += ','+fid;
+
+		SetCookie('badgoodid',saveid,1);
+
+	}
+
+	else
+
+	{
+
+		SetCookie('badgoodid',fid,1);
+
+	}
+
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+
+	myajax.SendGet2("/shoppingpp.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+
+}
+
+function postDigg(ftype,aid)
+
+{
+
+	var taget_obj = document.getElementById('newdigg');
+
+	var saveid = GetCookie('diggid');
+
+	if(saveid != null)
+
+	{
+
+		var saveids = saveid.split(',');
+
+		var hasid = false;
+
+		saveid = '';
+
+		j = 1;
+
+		for(i=saveids.length-1;i>=0;i--)
+
+		{
+
+			if(saveids[i]==aid && hasid) continue;
+
+			else {
+
+				if(saveids[i]==aid && !hasid) hasid = true;
+
+				saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+
+				j++;
+
+				if(j==20 && hasid) break;
+
+				if(j==19 && !hasid) break;
+
+			}
+
+		}
+
+		if(hasid) { alert("您已经顶过该帖，请不要重复顶帖！"); return; }
+
+		else saveid += ','+aid;
+
+		SetCookie('diggid',saveid,1);
+
+	}
+
+	else
+
+	{
+
+		SetCookie('diggid',aid,1);
+
+	}
+
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+
+	var url = "/digg_ajax.php?action="+ftype+"&id="+aid;
+
+	myajax.SendGet2(url);
+
+}
+
+function getDigg(aid)
+
+{
+
+	var taget_obj = document.getElementById('newdigg');
+
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+
+	myajax.SendGet2("/digg_ajax.php?id="+aid);
+
+	DedeXHTTP = null;
+
+}
+
+-->
+
+</script>
+
+<script type="text/javascript">
+
+pageCount = '1',
+
+NewsTitleList=new Array();
+
+</script>
+
+<style type="text/css">
+
+body{background:#fff;}
+
+.m-video-cotainer .course-shicai{padding-bottom:20px;}
+
+.cmt-top-title .join-txt-qb{display:none;}
+
+.course-discuss .pl-list-btm .ok-btn{display:none;}
+
+.gd_comment_fabu{float:right;width:12%;text-align:right;line-height:34px;-webkit-appearance:none;color:#598BDD;font-size:14px;cursor:pointer;border:0;background-color:#fff;outline:0;}
+
+.yxw-courses-dayi{padding-bottom:53px;}
+
+
+
+/*评论弹出*/
+
+.cmt-top-title3 .join-txt{display:inline-block;padding:0 15px;font-size:18px;color:#333;font-weight:700;}
+
+.cmt-top-title3{margin-top:10px;background:#fff;padding:15px 0;}
+
+.input-txt-box{padding:0 15px;width:100%;height:53px;background:#fff;position:fixed;bottom:0;left:0;box-sizing:border-box;box-shadow:0 -1px 10px 0 rgba(0,0,0,0.05);}
+
+.input-txt-box .gd_comment{width:100%;height:30px;line-height:30px;font-size:14px;background:#f0f0f0;border-radius:4px;text-indent:10px;color:#999;display:block;margin-top:12px;}
+
+.gd_comment_box{background:#fff;width:100%;position:fixed;left:0px;bottom:-250px;height:260px;z-index:20001;}
+
+.cmt-top-title .shut{left:0;position:absolute;color:#598BDD;padding:0 15px;font-size:16px;cursor:pointer;}
+
+.cmt-top-title .gd_comment_fabu{right:0;-webkit-appearance:none;position:absolute;color:#598BDD;padding:0 15px;font-size:16px;cursor:pointer;border:0;line-height:50px;background-color:#fff;outline:0;}
+
+
+
+/*无评论内容时显示的*/
+
+.m-yxw-pl-wushuju{padding:30px 0;}
+
+.m-yxw-pl-wushuju img{width:100px;height:100%;margin:0 auto;display:block;}
+
+.m-yxw-pl-wushuju .wu-pl-title{text-align:center;font-size:14px;color:#757575;padding-top:10px;}
+
+
+
+/*加载中*/
+
+.yxw-list-loading{width:100%;height:50px;line-height:50px;color:#757575;background:#f0f0f0;text-align:center;font-size:14px;}
+
+.m-yxw-pl-wushuju{display:none;}
+
+.yin{position:absolute;left:-9999px;font-size:0px;}
+
+
+
+/*课程目录*/
+
+.yxw-courses-mulu{background-color:#fff;margin-bottom:10px;}
+
+.yxw-courses-mulu .jjseotitle{padding:25px 15px 10px;color:#333;font-size:18px;line-height:26px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+
+.yxw-courses-mulu .content_list li{margin-bottom:10px;}
+
+.yxw-courses-mulu .content_list li a{line-height:50px;padding:0 15px;display:block;border:1px solid #e5e5e5;color:#333;font-size:14px;background:#f0f0f0;border-radius:3px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+
+.yxw-courses-mulu .content_list li .on{color:#00bca1;border:1px solid #00bca1;background:#fff;}
+
+.yxw-courses-mulu .content_list{padding:15px 15px 15px 15px;}
+
+.yxw-courses-mulu .content_list .content_item_2{width:200px;position:relative;padding:0 0 0 10px;box-sizing:border-box;display:inline-block;}
+
+.yxw-courses-mulu .content_list .content_item_2 a{display:block;}
+
+
+
+/*TAB切换*/
+
+.aui-nav-list-box{border-bottom:1px solid #f5f5f5;background:#fff;height:50px;}
+
+.aui-nav-list-box li{float:left;width:33.33333%;line-height:50px;font-size:16px;text-align:center;}
+
+.aui-nav-list-box a{display:block;color:#333;}
+
+.aui-nav-list-box span{display:inline-block;height:48px;}
+
+.aui-nav-list-box li.aui-current a{color:#333;}
+
+.aui-nav-list-box li.aui-current span{color:#00bca1;border-bottom:2px solid #00bca1;}
+
+.aui-nav-list-item{display:none;}
+
+
+
+/*APP视频播放器*/
+
+.m-header-more{display:none;}
+
+.m-video-vip-lst{height:220px;}
+
+.header{position:relative;}
+
+.hide{display:none;}
+
+
+
+/*无权限的文字*/
+
+.m-video-vip-lst .m-yxw-vipsm{padding-top:85px;}
+
+</style>
+
+</head>
+
+<body onscroll="scroll()">
+
+<?php $vneedgo = $needgo; ?>
+
+<div class="wrapper-app">
+
+<?php //print_r($arc); ?>
+
+<div id="playerBox" <?php if($vneedgo){echo 'class="hide"';} ?>style="width:100%;height:auto;"></div>
+
+
+
+<div class="aui-nav-content-box">
+
+
+
+<!-- TAB -->
+
+<div class="aui-nav-list-box">
+
+<ul>
+
+<li class="aui-current"><a href="javascript:;"><span>章节</span></a></li>
+
+<li class=""><a href="javascript:;"><span>课件</span></a></li>
+
+<li class=""><a href="javascript:;"><span>问答</span></a></li>
+
+</ul>
+
+</div>
+
+<!-- TAB End -->
+
+
+
+<!-- 内容切换 -->
+
+<div class="aui-nav-list-tab">
+
+<div class="aui-nav-list-item" style="display:block;">
+
+
+
+
+
+
+
+<!-- 喜欢隐藏 -->
+
+<span class="yxw-sc-list" style="display:none;">
+
+<div id="xihuan"></div>
+
+<script language="javascript">
+
+function Loadxihuans(stype)
+
+{
+
+var taget_obj = document.getElementById("xihuan");
+
+var waithtml = "";
+
+var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+
+myajax.SendGet2("/shouchang.php?dopost=getlist&aid="+aid+"&stype="+stype);
+
+DedeXHTTP = null;
+
+}
+
+function quotexihuan(stype)
+
+{
+
+document.Loadxihuans.stype.value = stype;
+
+}
+
+Loadxihuans("all");
+
+</script>
+
+</span>
+
+<!-- 喜欢隐藏 End -->
+
+
+
+
+
+
+
+
+
+<!-- 课程目录 -->
+
+<div class="yxw-courses-mulu">
+
+<ul class="content_list">
+
+<?php
+
+	global $dsql;
+
+	$posts = array();
+
+	$sql = "select a.shorttitle,a.source,b.body,b.le_vod2,a.litpic,a.typeid,a.mid,a.money,a.arcrank,a.id,a.title,b.spmm from #@__archives a left join #@__addonvideo b on a.id = b.aid where a.typeid = '$tid' order by a.id asc";
+
+	$dsql->Execute('me',$sql);
+
+	$jg = '';
+
+	$i = 0;
+
+	while($arr = $dsql->GetArray('me'))
+
+	{
+
+		//$row = array();
+
+		$sneedRank = $arr['arcrank'];
+
+		$sneedMoney = $arr['money'];
+
+		$stid = JJarctype($arr['id']);
+
+		$arr['url']  = $mcfg_basehost.aaurl($arr['id']);
+
+		$arr['jjseotitle']  = JJseoTitle($stid);
+
+		$arr['jjtypeurl']  = $mcfg_basehost.JJtypeurl($stid);
+
+		$needgo = 0;
+
+		if($arr['id'] == $arc->Fields['id']){
+
+		   $videourl = $arr['le_vod2'];
+
+		}
+
+		if($sneedMoney>0 || $sneedRank>1){
+
+		   //会员级别不足
+
+		   if(($sneedRank>1 && $arr['mid']!=$cfg_ml->M_ID)){
+
+		       
+
+              if ($cfg_ml->M_Rank != $sneedRank){ 
+
+	               $needgo = 1;
+
+	          }else if($arr['typeid'] == 3 ){  
+
+			       $needgo = 1;
+
+			  }
+
+		   }
+
+		   
+
+		   //需要金币的情况
+
+		   if($sneedMoney > 0  && $arr['mid'] != $cfg_ml->M_ID){
+
+			   $sql = "SELECT aid,money FROM `#@__member_operation` WHERE buyid='ARCHIVE".$arr['id']."' AND mid='".$cfg_ml->M_ID."'";
+
+               $row1 = $dsql->GetOne($sql);
+
+			   if(!is_array($row1)){
+
+			      $needgo = 1;
+
+			   }
+
+		   }  
+
+		}
+
+		$arr['body'] = str_replace("/uploads","/uploads",$arr['body']);
+
+		$posts[$arr['id']] = $arr;
+
+		$i++;
+
+		$jg .= '<li><a onclick="set_play(this)" href="javascript:;" data-title="'.$arr['title'].'" data-cover="http://www.test.com/images/video-bj.jpg" data-video="'.$arr['le_vod2'].'" data-needgo="'.$needgo.'" data-href="'.aaurl($arr['id']).'" data-id="'.$arr['id'].'" class="jjdd'.$arr['id'].'"><span style="padding-right:3px;">'.$i.'.</span>'.$arr['title'].'</a></li>';
+
+	}
+
+	echo $jg;
+
+?>
+
+</ul>
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- 课程课件 -->
+
+<div class="aui-nav-list-item" style="display:none;">
+
+<div <?php if($vneedgo){echo 'style="display:none;"';} ?> class="m-video-cotainer">
+
+<?php $content = str_replace("/uploads","/uploads",$arc->addTableRow['body']); echo $content; ?>
+
+</div>
+
+</div>
+
+<!-- 课程课件 End -->
+
+
+
+
+
+<!-- 课程答疑 -->
+
+<div class="aui-nav-list-item" style="display:none;">
+
+<div class="yxw-courses-dayi">
+
+
+
+<!-- 我是没有数据显示的样式 -->
+
+<div class="m-yxw-pl-wushuju"><img src="<?php echo $mcfg_basehost; ?>/m-images/kc-wu-pl.png"><p class="wu-pl-title">~暂时还没有人提问~</p></div>
+
+<!-- 我是没有数据显示的样式 End -->
+
+
+
+<!-- 评论内容区 -->
+
+<div class="course-discuss"><dd id='commetcontent'></dd></div>
+
+<div class="yxw-list-loading" page="1"></div>
+
+<script language='javascript'>
+
+var f = true; 
+
+function LoadCommets(page)
+
+{
+
+$(".yxw-list-loading").html('没有更多了');	
+
+$.post("/shopping_ajaxpp.php?dopost=getlist&aid="+aid+"&page="+page,{a:""},function(result){
+
+	if(result.indexOf("参数错误！") > -1 )
+
+	{
+
+		$(".yxw-list-loading").html('没有更多了');
+
+	}
+
+	else
+
+	{
+
+		   if(page==1){
+
+		     $("#commetcontent").html(result);	
+
+		   }else{
+
+		     $("#commetcontent").append(result);	
+
+		   }
+
+		  
+
+		
+
+			if($(".pl-list").length < 1){
+
+				$(".m-yxw-pl-wushuju").show();
+
+				$(".yxw-list-loading").addClass("yin");
+
+			}else{
+
+			    $(".m-yxw-pl-wushuju").hide();
+
+				$(".yxw-list-loading").removeClass("yin");
+
+			}
+
+
+
+		
+
+		f = true; 
+
+	}		
+
+});	
+
+ 
+
+
+
+}
+
+
+
+function getcommentcount(){
+
+   
+
+   $.get("<?php echo $mcfg_basehost; ?>/plus/goodlv_app.php?view=yes&type=nokuo&aid="+aid,{a:""},function(result){
+
+	if(result.indexOf("参数错误！") > -1 )
+
+	{
+
+		$("#commentcount").html('');	
+
+	}
+
+	else
+
+	{
+
+		 $("#commentcount").html(result);	
+
+	}		
+
+});	
+
+
+
+}
+
+
+
+function getlearncount(){
+
+
+
+   api.ajax({
+
+    url: "<?php echo $cfg_basehost; ?>/plus/count_app.php?view=yes&aid="+aid+"&mid="+aid,
+
+    method: 'get',
+
+	dataType:'text',
+
+    data: {
+
+        body: {
+
+            a: ''
+
+        }
+
+    }
+
+}, function(ret, err) {
+
+    if (ret) {
+
+       $("#learncount").html(ret);	
+
+    } else {
+
+        $("#learncount").html('');	
+
+    }
+
+});
+
+}
+
+
+
+
+
+function getfavecount(){
+
+
+
+ api.ajax({
+
+    url: "<?php echo $cfg_basehost; ?>/plus/stowtj_app.php?view=yes&type=all&aid="+aid,
+
+    method: 'get',
+
+	dataType:'text',
+
+    headers: {
+
+        'Content-Type': 'application/json;charset=utf-8'
+
+    },
+
+    data: {
+
+        body: {
+
+            a: ''
+
+        }
+
+    }
+
+}, function(ret, err) {
+
+    if (ret) {
+
+       $("#favecount").html(ret);	
+
+    } else {
+
+        $("#favecount").html('');	
+
+    }
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+function PostComment()
+
+{
+
+var f = document.feedback;
+
+var nface = '6';
+
+var nfeedbacktype = 'good';
+
+var nvalidate = '';
+
+var nnotuser = '';
+
+var nusername = '';
+
+var npwd = '';
+
+var taget_obj = $DE('commetcontentNew');
+
+var waithtml = "发送中...";
+
+if(f.username.value=='') {
+
+//window.location.href = '/member/';
+
+api.execScript({name: 'root',script: 'openurlwin("http://m.test.com/member/")'}); 
+
+return;
+
+}
+
+if(f.msg.value=='')
+
+{
+
+alert("您还没有写内容哦");
+
+return;
+
+}
+
+
+
+if(f.msg.value.length > 100)
+
+{
+
+alert("请填写100字以内的内容");
+
+return;
+
+}
+
+if(f.feedbacktype) {
+
+for(var i=0; i < f.feedbacktype.length; i++)
+
+if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+
+}
+
+if(f.face) {
+
+for(var j=0; j < f.face.length; j++)
+
+if(f.face[j].checked) nface = f.face[j].value;
+
+}
+
+if(f.notuser.checked) nnotuser = '1';
+
+if(f.username) nusername = f.username.value;
+
+if(f.pwd) npwd = f.pwd.value;
+
+
+
+var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+
+myajax.sendlang = 'utf-8';
+
+myajax.AddKeyN('dopost', 'send');
+
+myajax.AddKeyN('aid', aid);
+
+myajax.AddKeyN('fid', f.fid.value);
+
+myajax.AddKeyN('face', nface);
+
+myajax.AddKeyN('feedbacktype', nfeedbacktype);
+
+myajax.AddKeyN('validate', nvalidate);
+
+myajax.AddKeyN('notuser', nnotuser);
+
+myajax.AddKeyN('username', nusername);
+
+myajax.AddKeyN('pwd', npwd);
+
+myajax.AddKeyN('msg', f.msg.value);
+
+myajax.SendPost2('/shopping_ajaxpp.php');
+
+f.msg.value = '';
+
+f.fid.value = 0;
+
+if(f.validate)
+
+{
+
+if($DE('validateimg')) $DE('validateimg').src = "/include/vdimgck.php?"+f.validate.value;
+
+f.validate.value = '';
+
+}
+
+}
+
+function quoteCommet(fid)
+
+{
+
+document.feedback.fid.value = fid;
+
+}
+
+
+
+getcommentcount();
+
+LoadCommets(1);
+
+
+
+$(document).scroll(function(){
+
+            //滚动条滑动的时候获取滚动条距离顶部的距离
+
+            var scroll=$(document).scrollTop();
+
+            //屏幕的高度
+
+            var client=$(window).height();
+
+            var h=$(document).height();
+
+            var flag=true;
+
+			var bih = scroll+client+100 ;		
+
+            if (h<= bih) { // 到达底部时,加载新内容	 
+
+					if(f){
+
+						f  = false;
+
+						var page = parseInt($(".yxw-list-loading").attr("page")) + 1;
+
+						$(".yxw-list-loading").attr("page",page);
+
+						LoadCommets(page);	
+
+					}
+
+					  
+
+			}
+
+});
+
+</script>
+
+<!-- 评论内容区 End -->
+
+</div>
+
+
+
+<!-- 评论底部跟随条 -->
+
+<div class="input-txt-box ico-share" data-action="popup-share"><a href="javascript:void(0);" class="gd_comment">听说爱提问的学员，进步更快哦...</a></div>
+
+<!-- 评论底部跟随条 End -->
+
+
+
+</div>
+
+<!-- 课程答疑 End -->
+
+
+
+
+
+</div>
+
+<!-- 内容切换 End -->
+
+
+
+
+
+</div>
+
+</div>
+
+<!-- wrapper End -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- 视频播放器JS -->
+
+<script type="text/javascript">
+
+var pageheader = document.getElementById("page-header");
+
+var safetop = 0;
+
+var speedPlayer;
+
+var spid;
+
+var pos = 0;
+
+var opened = 0;
+
+var viewappear = 1;
+
+var vh = 240;
+
+var is_full = 0;
+
+var is_play = 0;
+
+var videoindex;
+
+var sharedata = {};
+
+var playModule;
+
+    apiready = function(){
+
+        //api.setStatusBarStyle({style: 'light'});
+
+        safetop = api.safeArea.top;
+
+        $("#titlebar").attr("style","padding-top:"+api.safeArea.top+'px;');
+
+        vh = api.winWidth/1.78;
+
+        var headerh = safetop+vh;
+
+		
+
+		headerh = vh + $(".m-header-faxian").height();
+
+		//alert(headerh);
+
+        $("#playerBox").attr("style","height:"+headerh+'px;');
+
+		$(".m-video-vip-lst").attr("style","height:"+headerh+'px;');
+
+
+
+
+
+        api.parseTapmode();
+
+        var bounces = false;
+
+        playModule = api.require('playModule');
+
+          //playModule.init({});
+
+
+
+          //alert(spid);
+
+
+
+
+
+         //open_header_frame();
+
+		 var videourl = '<?php echo $videourl; ?>';
+
+         var videtitle = '<?php echo $arc->Fields['title']; ?>';
+
+	     var img = 'http://www.test.com/images/video-bj.jpg';
+
+		 sharedata.title = videtitle+'';
+
+         sharedata.text = $('meta[name=description]').attr("content");
+
+         sharedata.cacheimg  = img;
+
+         sharedata.url = window.location.href;
+
+		 
+
+		 if(!needgo){
+
+		 fnijkplayer_open(videourl,videtitle,img);
+
+		 }
+
+		 getlearncount();
+
+         getfavecount();
+
+
+
+
+
+
+
+api.addEventListener({
+
+    name:'viewdisappear'
+
+}, function(ret, err){
+
+  playModule.pause(); 
+
+  viewappear = 0;
+
+  opened = 0;
+
+  //api.execScript({frameName: 'frm_video_'+spid,script: "viewdisappear()"});
+
+
+
+
+
+});
+
+
+
+api.addEventListener({
+
+     name:'viewappear'
+
+}, function(ret, err){
+
+
+
+  if(!viewappear){
+
+     viewappear = 1;
+
+     //fnijkplayer_open();
+
+  }
+
+});
+
+
+
+api.addEventListener({
+
+    name:'pause'
+
+}, function(ret, err){
+
+    playModule.pause(); 
+
+    if(!is_play){
+
+	  
+
+	}
+
+    
+
+});
+
+
+
+
+
+api.addEventListener({
+
+    name:'resume'
+
+}, function(ret, err){
+
+    //playModule.pause(); 
+
+});
+
+
+
+
+
+api.addEventListener({
+
+     name:'scrolltobottom',
+
+     extra:{
+
+        threshold:0 //设置距离底部多少距离时触发，默认值为0，数字类型
+
+     }
+
+   },function(ret,err){
+
+           if(nopost == 0){
+
+              load_post();
+
+           }
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+    };
+
+function closeWin(){
+
+   api.closeWin({});
+
+}
+
+
+
+
+
+function closeVWin(){
+
+  if(is_full){
+
+    playModule.unfull(function(ret, err) {
+
+	
+
+    });
+
+  }else{
+
+    closeWin();
+
+  }
+
+  
+
+}
+
+    
+
+
+
+
+
+
+
+    function fnijkplayer_open(videourl,videtitle,img) {
+
+	
+
+
+
+
+
+if(img){
+
+        
+
+       api.imageCache({
+
+             url: img
+
+       }, function(ret, err) {
+
+         if(ret.url){
+
+		   //playModule.init({ background: ret.url,});
+
+		   //alert(ret.url);
+
+           open_video(videourl,videtitle,ret.url); 
+
+         }
+
+       });
+
+       
+
+}	
+
+
+
+      
+
+    
+
+
+
+
+
+playModule.addEventListener({
+
+    name: 'backBtn'
+
+}, function(ret, err) {
+
+   //alert(JSON.stringify(ret));
+
+    if(ret){
+
+      closeWin();
+
+    }
+
+});
+
+
+
+playModule.addEventListener({
+
+    name: 'play'
+
+}, function(ret, err) {
+
+   //alert(JSON.stringify(ret));
+
+    if(ret){
+
+	  is_play = 1;
+
+      api.setFrameAttr({name: 'frm_video_header',hidden: true});
+
+    }
+
+});
+
+
+
+playModule.addEventListener({
+
+    name: 'pause'
+
+}, function(ret, err) {
+
+   //alert(JSON.stringify(ret));
+
+   
+
+    if(ret){
+
+	  is_play = 0;
+
+	  if(parseInt(needgo)){
+
+	     api.setFrameAttr({name: 'frm_video_header',hidden: true});
+
+	  }else{	     
+
+	  }
+
+      
+
+    }
+
+});
+
+
+
+
+
+playModule.addEventListener({
+
+    name: 'full'
+
+}, function(ret, err) {
+
+   //alert(JSON.stringify(ret));
+
+    if(ret){
+
+      is_full = 1;
+
+	  api.setFrameAttr({name: 'frm_video_header',hidden: true});
+
+    }
+
+});
+
+
+
+
+
+playModule.addEventListener({
+
+    name: 'unfull'
+
+}, function(ret, err) {
+
+    if(ret){
+
+	  is_full = 0;
+
+      api.setScreenOrientation({orientation: 'portrait_up'});
+
+    }
+
+});
+
+
+
+
+
+        }
+
+
+
+
+
+function play_video(){
+
+   playModule.start(); 
+
+}
+
+		
+
+function open_video(videourl,videtitle,cover){
+
+
+
+      
+
+      if(!videourl || !videtitle){
+
+        api.toast({msg : '抱歉~该视频失效了!',location: 'middle'});
+
+        return;
+
+      }
+
+      if(opened == 1){
+
+        return;
+
+      }
+
+
+
+//alert(videourl+videtitle+opened+pos+safetop);
+
+playModule.play({
+
+    rect:
+
+    {    x: 0,
+
+        y : $(".m-header-faxian").height(),
+
+        w : api.winWidth,
+
+        h: vh
+
+    },
+
+    title: videtitle,
+
+    url: videourl,
+
+    isBackBtn:true,
+
+    process:pos,
+
+	background:cover,
+
+    defaultBtn:true,
+
+    enableFull:false,
+
+	isAutoPlay:false,
+
+    isTopView:true,
+
+    isShowProcessView:true,
+
+    isLongShowBackBtn:true,
+
+    isLive:false,
+
+	fixedOn:api.winName,
+
+	fixed:true
+
+     }, function(ret, err) {
+
+    //alert(JSON.stringify(ret));
+
+    if(ret.status){
+
+      videoindex = ret.index;
+
+      opened = 1;
+
+	  setTimeout(function(){ open_header_frame(); }, 1000);
+
+	  
+
+	   
+
+    }
+
+});
+
+
+
+}
+
+
+
+    function getCurrent(){
+
+      if(!opened){
+
+        return;
+
+      }
+
+
+
+      playModule.getCurrentPosition(function(ret, err) {
+
+        if(ret.status){
+
+          pos = ret.currentPosition ;
+
+          playModule.stop(function(ret, err) {});
+
+        }
+
+      });
+
+
+
+    }
+
+
+
+    function video_setpath(videourl,videtitle,img){
+
+	
+
+api.setFrameAttr({name: 'frm_video_header',hidden: true});
+
+if(img){
+
+        
+
+       api.imageCache({
+
+             url: img
+
+       }, function(ret, err) {
+
+         if(ret.url){
+
+		   //playModule.init({ background: ret.url,});
+
+		    if(!opened){
+
+                fnijkplayer_open(videourl,videtitle,ret.url);
+
+                return;
+
+            }else{
+
+			
+
+			 playModule.playUrl({
+
+       title: videtitle,
+
+       url: videourl,
+
+	   background: ret.url,
+
+       isBackBtn: true,
+
+       defaultBtn: true,
+
+	   isAutoPlay:false,
+
+        isShowProcessView:true,
+
+        isLive:false,
+
+      }, function(ret, err) {
+
+            if(ret){
+
+			    api.execScript({frameName: 'frm_video_header', script: 'set_title("'+videtitle+'")'});
+
+				setTimeout(function(){ api.setFrameAttr({name: 'frm_video_header',hidden: false}); }, 1000); 
+
+            }
+
+      });
+
+			
+
+			
+
+			}
+
+
+
+         
+
+         }
+
+       });
+
+       
+
+}
+
+
+
+}
+
+
+
+
+
+function open_header_frame(){
+
+      api.openFrame({
+
+          name: 'frm_video_header',
+
+          url: api.wgtRootDir+'/html/vbank_header.html',
+
+          bounces: false,
+
+          pageParam:{height:vh,frameName:api.frameName,title:'<?php echo $arc->Fields['title']; ?>'},
+
+          rect: {
+
+              x: 0,
+
+              y: safetop,
+
+              w: 'auto',
+
+              h: vh-40
+
+          }
+
+      });
+
+    }
+
+	
+
+function scroll(){
+
+    //console.log("打印log日志");实时看下效果
+
+	return;
+
+	var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+
+	api.setFrameAttr({name: 'frm_video_header',rect: {
+
+              x: 0,
+
+              y: safetop-scrollTop,
+
+              w: 'auto',
+
+              h: vh
+
+          }});
+
+    console.log("开始滚动！");
+
+}	
+
+</script>
+
+
+
+
+
+<!-- 弹出评论 -->
+
+<div class="leftmask mark2 unicon" style="display:none;"></div>
+
+<div id="popup_share" class="leftPopup share-bottom popup-share popup-share1" data-back="mark2" style="display:none;">
+
+<div class="swipeLeft bdsharebuttonbox" data-tag="share_2">
+
+<form id="form1" name="feedback" method="post" class="comment-form" action="#">
+
+<input type="hidden" name="dopost" value="send" />
+
+<input type="hidden" name="comtype" value="comments">
+
+<input type="hidden" name="aid" value="<?php echo $aid; ?>" />
+
+<input type="hidden" name="fid" id='feedbackfid' value="0" />
+
+<!-- 写内容/账号登录检测 -->
+
+<div class="article-course-pl">
+
+<input name="msg" class="form-contro" placeholder="来说点什么吧...">
+
+<input name="" type="button" value="发送" class="gd_comment_fabu" onClick='PostComment()'>
+
+<div class="other-login clearfix" id="_ajax_feedback" style="display:none;">
+
+<input type="hidden" name="username" value="">
+
+<script language="javascript" type="text/javascript">CheckLogin();</script>
+
+</div>
+
+</div>
+
+<!-- 写内容/账号登录检测 End -->
+
+</form>
+
+<!-- 评论反馈 -->
+
+<div id="commetcontentNew"></div>
+
+<!-- 评论反馈 End -->
+
+</div>
+
+</div>
+
+<!-- 弹出评论 End -->
+
+
+
+
+
+
+
+<!-- 返回顶部 -->
+
+<div class="mall-totop" onclick="window.scrollTo(0,0);"></div>
+
+<script src="<?php echo $mcfg_basehost; ?>/m-js/mall-top.js"></script>
+
+<!-- 返回顶部 End -->
+
+
+
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/model.js"></script>
+
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/m.Favorite.js"></script>
+
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/News.js"></script>
+
+
+
+<!-- tab切换 -->
+
+<script type="text/javascript"> 
+
+$(function(){
+
+$('.aui-nav-list-box ul li').click(function(){
+
+$(this).addClass('aui-current').siblings().removeClass('aui-current');
+
+$('.aui-nav-list-tab>div:eq('+$(this).index()+')').show().siblings().hide();
+
+})
+
+});
+
+</script>
+
+
+
+
+
+<!-- 课程目录JS -->
+
+<script>
+
+var posts = <?php echo json_encode($posts); ?>;
+
+var needgo = <?php echo $vneedgo; ?>;
+
+$(".jjdd<?php echo $arcID; ?>").addClass("on");
+
+function set_play(ob){
+
+  needgo = $(ob).attr("data-needgo");
+
+  var href = $(ob).attr("data-href");
+
+  var video = $(ob).attr("data-video");
+
+  var title = $(ob).attr("data-title");
+
+  var img = $(ob).attr("data-cover");
+
+  var id = $(ob).attr("data-id");
+
+  $(".content_list .on").removeClass("on");
+
+  $(".jjdd"+id).addClass("on");
+
+  aid = id;
+
+  $("#shorttitle").html(posts[id].shorttitle);
+
+	 $("#jjseotitle").html(posts[id].jjseotitle);
+
+	 $("#jjtypeurl").attr("href",posts[id].jjtypeurl);
+
+	 $("#shorttitle").attr("class",posts[id].source);
+
+  getlearncount()
+
+	 getfavecount()
+
+	 getcommentcount();
+
+	 Loadxihuans("all");
+
+	 
+
+	 $(".yxw-list-loading").attr("page",1);
+
+	 $(".yxw-list-loading").html("加载更多");
+
+	 $("#commetcontentNew").html("");
+
+	 $(".form-contro").val("");
+
+	 LoadCommets(1);
+
+	 
+
+	 sharedata.title = title+'';
+
+     sharedata.text = $('meta[name=description]').attr("content");
+
+     sharedata.cacheimg  = img;
+
+     sharedata.url = posts[id].url;
+
+	 
+
+  if(needgo == 1){
+
+	 $("#videocover").attr("src",img);
+
+	 $(".header").show();
+
+	 $("#playerBox").hide();
+
+	  $(".m-video-cotainer").hide();
+
+	 playModule.pause(function(ret, err) {
+
+});
+
+	 playModule.hidePlayer(function(ret, err) {
+
+     });
+
+	 
+
+  }else{
+
+      $(".header").hide();
+
+     $("#playerBox").show();
+
+	 playModule.showPlayer(function(ret, err) {
+
+	    if(ret){
+
+		}
+
+    });
+
+	 var content = posts[id].body;
+
+	 $(".m-video-cotainer").html(content);
+
+	 $(".m-video-cotainer").show();
+
+     video_setpath(video,title,img); 
+
+}
+
+}
+
+</script>
+
+<!-- 课程目录 End -->
+
+
+
+</body>
+
+</html>

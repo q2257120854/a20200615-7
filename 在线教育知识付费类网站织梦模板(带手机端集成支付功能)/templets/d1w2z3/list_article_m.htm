@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+
+<title>{dede:field.seotitle /}</title>
+
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+<meta content="yes" name="apple-mobile-web-app-capable" />
+
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+
+<meta content="telephone=no" name="format-detection" />
+
+<link href="{dede:global.mcfg_basehost/}/m-css/m-index.css" rel="stylesheet" type="text/css">
+
+<script src="{dede:global.mcfg_basehost/}/m-js/header.mini.js"></script>
+
+<style type="text/css">
+
+.wrapper{padding-bottom:0;}
+
+
+
+/*头部*/
+
+.m-header .fx{width:70%;height:44px;line-height:44px;margin:0 auto;display:block;color:#333;font-size:18px;text-align:center;}
+
+
+
+/*资讯列表*/
+
+.moudle-list-info{background:#fff;overflow:hidden;}
+
+.moudle-list-info .link{display:block;overflow:hidden;padding:15px 0;margin:0 15px;border-bottom:solid #f5f5f5 1px;}
+
+.moudle-list-info .link img{width:140px;height:79px;display:block;float:right;margin-left:15px;border-radius:5px;}
+
+.moudle-list-info h4{font-size:16px;color:#333;max-height:48px;height:48px;line-height:24px;margin-bottom:10px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+
+.moudle-list-info .m-list-box-w{overflow:hidden;}
+
+.moudle-list-info .m-list-box-w .date{float:left;color:#aaa;line-height:20px;font-size:12px;}
+
+.moudle-list-info .m-list-box-w .frequency{float:right;color:#aaa;line-height:20px;font-size:12px;}
+
+
+
+/*加载更多*/
+
+.list-linmore{height:45px;line-height:45px;padding:10px 0;}
+
+.list-linmore img{width:45px;height:45px;}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<!-- TOP -->
+
+<div class="m-header"><h1 class="fx">干货分享</h1></div>
+
+<!-- TOP End -->
+
+
+
+<div class="wrapper">
+
+
+
+
+
+<!-- 资讯列表 -->
+
+<div class="moudle-list-info">
+
+{dede:list pagesize='10'}
+
+<a href="[field:arcurl/]" class="link">
+
+<img src="http://www.test.com/images/yxw-sc-bg.gif" data-original="[field:litpic function='mstrone(@me)'/]">
+
+<h4>[field:fulltitle/]</h4>
+
+<div class="m-list-box-w">
+
+<span class="date">[field:pubdate function='strftime("%m-%d",@me)'/]</span>
+
+<span class="frequency">[field:click function='click_round_number(@me)'/]人看过</span>
+
+</div>
+
+</a>
+
+{/dede:list}
+
+<div id="add_more" class="list-linmore" data-offset="2"></div>
+
+<script type="text/javascript">
+
+if($(".m-article-ul .no").length < 1){
+
+$(".quanbu").addClass("no");
+
+}
+
+
+
+var isTrue = true;
+
+$(window).scroll(function(){
+
+if ($(window).scrollTop() >= $(document).height() - $(window).height() -100 )
+
+{
+
+if(isTrue){//tur = false;   
+
+setTimeout(recipelist(),1000);isTrue = false; 
+
+}
+
+}
+
+});
+
+function recipelist(){
+
+$("#add_more").html('<img src="{dede:global.mcfg_basehost/}/m-images/list-loading.gif">');
+
+$("#add_more").attr('href','#');
+
+var offset = parseInt($('#add_more').attr('data-offset'));
+
+$.ajax({
+
+type: 'get',
+
+url: '{dede:global.mcfg_basehost/}/listajax.php?tid={dede:type}[field:ID /]{/dede:type}&PageNo='+offset,
+
+dataType: 'json',
+
+success: function(res){
+
+var text = '';
+
+if ( res.status == 'OK' ) {
+
+var cooklist = res.data.cooklist;
+
+for( var i in cooklist ){
+
+text += '<a href="'+cooklist[i].cook_url+'" class="link"><img src="{dede:global.cfg_basehost/}/images/yxw-sc-bg.gif" data-original="'+cooklist[i].cook_image+'"><h4>'+cooklist[i].cook_name+'</h4><div class="m-list-box-w"><span class="date">'+cooklist[i].date+'</span><span class="frequency">'+cooklist[i].click+'人看过</span></div></a>';
+
+}
+
+$('#add_more').before(text);
+
+var last_offset = parseInt($('#add_more').attr('data-offset'));
+
+$('#add_more').attr('data-offset',last_offset+1);
+
+$("#add_more").html('');
+
+$("#add_more").attr('href','#');
+
+init_app_alink();
+
+} else {
+
+$('#add_more').html('没有更多内容了');
+
+$('#add_more').attr('id','nono');
+
+}
+
+isTrue = true;}
+
+});
+
+}
+
+</script>
+
+</div>
+
+<!-- 资讯列表 End -->
+
+
+
+
+
+</div>
+
+
+
+
+
+<!-- 返回顶部 -->
+
+<div class="mall-totop" onclick="window.scrollTo(0,0);"></div>
+
+<script src="{dede:global.mcfg_basehost/}/m-js/mall-top.js"></script>
+
+<!-- 返回顶部 End -->
+
+
+
+
+
+<script type="text/javascript">
+
+$(function(){
+
+    lazyRender();
+
+})
+
+$(window).on('scroll',function () {
+
+    lazyRender();
+
+})
+
+function lazyRender () {
+
+    $('img').each(function () {
+
+        //解决没缩略图的
+
+        if($(this).attr('src') == undefined)
+
+        {
+
+            $(this).attr("src","{dede:global.cfg_basehost/}/images/yxw-sc-bg.gif");
+
+        }
+
+        if (checkShow($(this)) && !isLoaded($(this)) ){
+
+            loadImg($(this));
+
+        }
+
+        if($(this).attr('src') == '{dede:global.cfg_basehost/}'){$(this).attr("src","{dede:global.cfg_basehost/}/images/yxw-sc-bg.gif");}
+
+    })
+
+}
+
+function checkShow($img) { // 传入一个img的jq对象
+
+    var scrollTop = $(window).scrollTop();  //即页面向上滚动的距离
+
+    var windowHeight = $(window).height(); // 浏览器自身的高度
+
+    var offsetTop = $img.offset().top;  //目标标签img相对于document顶部的位置
+
+    if (offsetTop < (scrollTop + windowHeight) && offsetTop > scrollTop) { //在2个临界状态之间的就为出现在视野中的
+
+        return true;
+
+    }
+
+    return false;
+
+}
+
+function isLoaded ($img) {
+
+    return $img.attr('data-src') === $img.attr('src'); //如果data-src和src相等那么就是已经加载过了
+
+}
+
+function loadImg ($img) {
+
+    // $img.css('display','none');
+
+    $img.attr('src',$img.attr('data-original')).fadeIn(300); // 加载就是把自定义属性中存放的真实的src地址赋给src属性
+
+}
+
+</script>
+
+</body>
+
+</html>

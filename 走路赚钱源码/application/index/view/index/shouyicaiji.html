@@ -1,0 +1,657 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>财富天下</title>{/block}
+
+{block name="style"}
+<link rel="stylesheet" href="__HOME_CSS__/iconfont.css" />
+<link rel="stylesheet" href="__HOME_CSS__/style2.css" />
+<style>
+.mui-popover-arrow{
+	display:none ;
+}
+#popover.mui-active{
+	top: 37% !important;
+	left:17% !important;
+}
+.buy-dis{
+	display:none !important;
+}
+@media screen and (max-width: 400px) {
+	#popover.mui-active{
+		left:14% !important;
+	}
+}
+.mui-bar-tab .mui-tab-item2 {
+    display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #929292;
+}
+.mui-bar-tab .mui-tab-item2 .mui-icon~.mui-tab-label {
+    font-size: 11px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mui-bar-tab .mui-tab-item2 .mui-icon {
+    top: 3px;
+    width: 24px;
+    height: 24px;
+    padding-top: 0;
+    padding-bottom: 0;
+	font-size: 20px;
+}
+.mui-bar-nav {
+    top: 0px !important;
+	background-color:#f7f7f7 !important;
+}
+</style>
+{/block}
+
+ 
+{block name="body"}
+ <!--
+	
+	描述：顶部选项卡
+-->
+
+		
+	<!--
+    	
+    	描述：底部选项卡
+   -->
+	<nav class="mui-bar mui-bar-tab" style="background-color: #fff;">
+			<a class="mui-tab-item" href="#tabbar">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">矿机商城</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-chat">
+				<span class="mui-icon mui-icon-search"></span>
+				<span class="mui-tab-label">公告</span>
+			</a>
+	<!--	<a class="mui-tab-item mui-active" href="#tabbar-with-receive">
+				<span class="mui-icon mui-icon-spinner mui-spin"></span>
+				<span class="mui-tab-label">交易大厅</span>
+			</a>  -->
+				<a class="mui-tab-item mui-active" href="#">
+				<span class="mui-icon mui-icon-spinner mui-spin"></span>
+				<span class="mui-tab-label">关盘中</span>
+			</a>
+			<a class="mui-tab-item2" href="/orderlist.html">
+				<span class="mui-icon mui-icon-spinner mui-spin"></span>
+				<span class="mui-tab-label">交易订单</span>
+			</a>
+			<a class="mui-tab-item  " href="#tabbar-with-map">
+				<span class="mui-icon mui-icon-person"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+	</nav>
+
+	<div class="mui-content">
+			<!--
+            	首页
+            -->
+			<div id="tabbar" class="mui-control-content">
+				<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">矿机商城</h1>
+		</header>
+		<br /><br /><br />
+		
+			<!--<div class="mui-btn mui-btn-primary mui-btn-block" style="font-size: 18px;">
+				开采量总数<br />可售额度(￥{$JZ}) &nbsp;购机币(￥{$coin})
+			</div>-->
+			
+		<div id="popover" class="mui-popover">
+			<form class="form" style="margin-bottom: 35px;">
+			  <h4>选择支付钱包</h4>
+			  <div class="inputGroup">
+				<input id="radio2" value="1" name="wallet" type="radio" checked />
+				<label for="radio2">可售额度(￥{$result.ore_wallet})</label>
+			  </div>
+			  <div class="inputGroup">
+				<input id="radio1" value="2" name="wallet" type="radio"/>
+				<label for="radio1">购机币(￥{$result.money_wallet})</label>
+			  </div>
+			  <input id="gid" value="0" name="gid" type="hidden"/>
+			  <button type="button" class="mui-btn mui-btn-warning" style="margin-left: 31%;background-color:#f38e00;border:1px solid #f38e00; " id="paygoods">确认购买</button>
+			</form>
+		</div>
+		
+		{foreach name="oreList" id="vo"}
+		<div class="mui-card" style="border-radius: 8px;">
+			
+				<div class="mui-card-header" style="font-family: '微软雅黑'; color: #777;">{$vo.name}<span style=" color: #777; font-family: '微软雅黑';">周期：{$vo.cyc}天</span></div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<img src="/static/img/1.png" style="width: 60px; margin-left: 5%;" />
+						<span style="position: absolute; margin-left: 12%; font-family: '微软雅黑'; font-size: 1.1em;">总产：{$vo.output}</span>
+						<span style=" position: absolute;font-family: '微软雅黑'; margin-left: 40%; font-size: 1.1em;">总收益：{$vo.profit}%</span>
+						<span style="position: absolute ; font-family: '微软雅黑'; margin-left: 12%;margin-top: 43px; font-size: 1.1em;">日收：{$vo.day_gain}</span>
+						<span style="position: absolute; font-family: '微软雅黑'; margin-left: 40%; margin-top: 43px; font-size: 1.1em;">可售额度：{$vo.ore_coin}</span>
+					</div>
+				</div>
+				<div class="mui-card-footer">
+					<span style="position: absolute; margin-top: 5PX; font-family: '微软雅黑'; font-size: 1.1em; color: #2AC845; " >价格：{$vo.price}&nbsp;</span>
+					
+					<button type="button" class="mui-btn mui-btn-royal mui-btn-outlined buygoods" onclick="buygoods({$vo.id})" style="margin-left: 80%;" >
+					购买
+					</button>
+				</div>
+		</div>
+		{/foreach}
+		
+			<a href="#popover" id="openPopover" class="mui-btn mui-btn-primary mui-btn-block" style="display:none;">打开弹出菜单</a>
+
+			</div>
+			<!--
+            	发现
+            -->
+			<div id="tabbar-with-chat" class="mui-control-content">
+				<html >
+
+	<head>
+		<meta charset="utf-8">
+		<title>财富天下</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="__HOME_CSS__/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="__HOME_CSS__/app.css" />
+		<link rel="stylesheet" href="__HOME_CSS__/style.css" />
+		<style>
+			h5 {
+				margin: 5px 7px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">站内消息</h1>
+		</header>
+		<br>
+		<br>
+			<hr style="margin-left: 10px; margin-right: 10px;" />
+			{foreach name="notice_list" id="vo"}
+			<div class="mui-card" style="border-radius:15px;">
+			<!--	<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(__HOME_IMG__/demo-1-bg.jpg)"></div>-->
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<p>{$vo.addtime|date="Y-m-d H:i:s",###}</p>
+						<p style="color: #333;">{$vo.title}</p>
+					</div>
+				</div>
+				<div class="mui-card-footer">
+					
+					<a href="/news_show.html?notice_id={$vo.id}" class="mui-card-link">查看详情</a>
+				</div>
+			</div>
+			{/foreach}
+
+	</body>
+
+</html>
+			</div>
+			
+
+			<!--
+            	首页
+            -->
+		<div id="tabbar-with-receive" class="mui-control-content mui-active">
+		
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">交易大厅</h1>
+		</header>
+		<br /><br /><br />
+		
+			<div class="mui-btn mui-btn-primary mui-btn-block" style="font-size: 18px;">
+				<!--<span style="display:inline-block;width:50%;">求购总量<br />可售额度({$b_sum}) </span>-->
+				
+				<span style="display:inline-block;width:50%;">我今日出售的总量<br />可售额度(<?php if($sellsum != ''){echo $sellsum;}else{echo '0.00';}?>) </span>
+				
+				
+				
+			</div>
+			
+		<ul class="mui-table-view mui-table-view-chevron" style="">
+	
+				 <li class="mui-table-view-cell" style="width:100%;">
+				 	<!--<span style="float:left;width:47%;">日期</span>-->
+				 	<span style="float:left;width:40%; margin-left:5%;">
+						数量
+					</span>
+				 	<span style="float:left;width:16%;">
+						合计
+					</span>
+					<button type="button" class="mui-btn mui-btn-warning mui-btn-outlined"><a href="http://tmc.cn"><span style="float:right;">刷新订单</span></a></button>
+				 </li>
+				 {foreach name="buylog" id="vo"}
+				 <li class="mui-table-view-cell" style="width:100%; line-height:2em">
+				 <!--	<span style="color:#666;float:left;width:47%;text-align:center; ">{$vo.addtime|date='Y-m-d H:i:s',###}</span>-->
+				 	<span style="float:left;width:40%;margin-left:5%;">
+						{$vo.amount}
+					</span>
+				 	<span style=" float:left;width:16%;color: #2AC845;margin-left:-5%;text-align:center;">
+						{$vo.price * $vo.amount}CNY
+					</span>
+					<!--<button type="button" class="mui-btn mui-btn-warning mui-btn-outlined"><span style="float:right;"onclick="sellIt({$vo.id})">卖给TA</span></button>-->
+				<button type="button" class="mui-btn mui-btn-warning mui-btn-outlined"><span style="float:right;"onclick="">关盘中</span></button>
+				 </li>
+				 {/foreach}
+		         
+			</ul>
+			</div>
+            
+			
+	<div id="tabbar-with-contact" class="mui-control-content">
+		
+		<span style="color:#fff900;position: absolute;font-size:14px;margin-top:0.1rem;margin-left:0.5rem;">
+			可售额度价格(CNY)：<font style="color:red;font-weight:600;">{$price}</font>
+		</span>
+
+<!-- 		<button class="mui-btn mui-btn-success" style="position: absolute; width: 40%; top: 25%; z-index: 999; margin: auto; left: 0px; right: 0px; border-radius: 15px;display:none;" id="fishfry">
+			打捞购机币
+		</button> -->
+		<img src="__HOME_IMG__/top-bg.jpg"  style="width: 100%;"/>
+			
+
+	<!-- <script src="__HOME_JS__/mui.min.js"></script> -->
+	<script>
+		/*mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});*/
+		window.addEventListener('toggle', function(event) {
+			if (event.target.id === 'M_Toggle') {
+				var isActive = event.detail.isActive;
+				var table = document.querySelector('.mui-table-view');
+				var card = document.querySelector('.mui-card');
+				if (isActive) {
+					card.appendChild(table);
+					card.style.display = '';
+				} else {
+					var content = document.querySelector('.mui-content');
+					content.insertBefore(table, card);
+					card.style.display = 'none';
+				}
+			}
+		});
+	</script>
+			
+			
+			</div>
+
+
+
+<!--
+	时间：2018-07-20
+
+--><!--
+
+-->
+
+
+
+
+			<div id="tabbar-with-map" class="mui-control-content ">
+
+			<!------------------------------------------------------------------------->
+			<html  style="font-size: 55px;">
+	<head>
+		<meta charset="utf-8">
+		<title>财富天下</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--Common CSS-->
+		<link rel="stylesheet" href="/home/css/mui.min.css" />
+		<link rel="stylesheet" href="/home/css/reset.css" />
+		<link rel="stylesheet" href="/home/css/page/main.css" />
+		<!--Relate to this page CSS-->
+		<link rel="stylesheet" href="/home/css/page/userCenter.css" />
+		
+	</head>
+	<style>
+	.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+	width:33.3%;
+	}
+	.mui-grid-view.mui-grid-9 .mui-media{
+	color:#0609ff;
+	}
+	</style>
+	<body >
+		<div class="bg-img">
+			<img src="/home/images/userCenter/bg_curve-down@3x.png" width="100%"/>
+		</div>
+		
+		
+		<div class="mui-content">
+	
+			<div class="user-center-header">
+				<div id="headIcon">
+					<div class="iconLeft" id="setting"><a href="/shezhi.html">
+						<img src="/home/images/userCenter/ico_setting@2x.png"/></a>
+					</div>
+					<h1 class="mui-title" id="headCenter">个人中心</h1>
+					<a href="/tuiguang.html"><img class="iconRight" id="qcoreImg" src="/home/img/indexEwm3.png"/></a>
+				</div>
+			</div>
+			<section class="user-info-wrap" style="margin-top: 0;">
+				<div class="user-info-bg">
+					G
+				</div>
+				<div class="user-info-content">
+					<div class="avatar-box">
+						<img src="/home/images/userCenter/ico_avatar@2x.png"/>
+					</div>
+					<div class="user-infomation-box">
+						<div class="member-info">
+							<span class="user-name" id="userName">{$result.account}</span>
+							<div class="member-level" style="margin-left: 0.1rem;">
+								<img id="userlevelmg" style="" src="/home/images/userCenter/ico_bronze@2x.png"/>
+								<span id="userLevel"></span>
+							</div>
+						</div>
+						<div class="invite-code-wrap">
+							<span class="mu-invite-code">购机币</span>
+							<button type="button" id="inbi">{$result.money_wallet}</button>
+							<span class="mu-invite-code">乐豆</span>
+							<button type="button" id="inbi">{$result.ore_wallet}</button>
+							<br>
+							<span class="mu-invite-code">可售额度</span>
+							<button type="button" id="inbi">{$result.forepart_money+$result.fry_data}</button>
+							<!--<span class="mu-invite-code">乐豆种子</span>
+							<button type="button" id="inbi">{$result.release_wallet}</button>-->
+						</div>
+					</div>
+				</div>
+				<div class="user-center-tag" id="memberCenter">
+					<img src="/home/images/userCenter/ico_member@2x.png"/>
+					会员中心
+				</div>
+			</section>
+			<br>
+			<ul class="mui-table-view mui-grid-view mui-grid-9" style="background:#fff;">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="/mairu.html">
+		                    <span class="mui-icon mui-icon-download"></span>
+		                    <div class="mui-media-body">发起求购</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="/kuangjilog.html">
+		                    <span class="mui-icon mui-icon-spinner mui-spin"></span>
+		                    <div class="mui-media-body">我的钻箱</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="/shouyilog.html">
+		                    <span class="mui-icon mui-icon-email-filled"></span>
+		                    <div class="mui-media-body">领取乐豆</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="/teamlog.html">
+		                    <span class="mui-icon mui-icon-list"></span>
+		                    <div class="mui-media-body">团队奖记录</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="./teamlib.html">
+		                    <span class="mui-icon mui-icon-personadd"></span>
+		                    <div class="mui-media-body">我的伙伴</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="/xiugaipass.html">
+		                    <span class="mui-icon mui-icon-locked"></span>
+		                    <div class="mui-media-body">修改密码</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="/myziliao.html">
+		                    <span class="mui-icon mui-icon-compose"></span>
+		                    <div class="mui-media-body">完善资料</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="/kef.html">
+		                    <span class="mui-icon mui-icon-chatboxes"></span>
+		                    <div class="mui-media-body">联系客服</div></a></li>
+		           <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="/tuiguang.html">
+		                    <span class="mui-icon mui-icon-paperplane"></span>
+		                    <div class="mui-media-body">邀请好友</div></a></li>
+		        </ul>
+			<!--<section class="operate-options">
+				<ul>
+					<li><a href="/mairu.html">
+						<div class="mui-pull-left nav-list">
+							<img src="/home/images/userCenter/ico_partner@2x.png"/>
+							<span style="color:#444;">求购中心</span>
+						</div>
+					</a></li>
+					
+					
+					<!--<li><a href="/duihuan.html">
+						<div class="mui-pull-left nav-list">
+							<img src="/home/images/userCenter/ico_myactivity@2x.png"/>
+							<span style="color:#444;">兑换购机币</span>
+						</div>
+					</a></li>-->
+				<!--	<li><a href="/shouyicaiji.html">
+						<div class="mui-pull-left nav-list">
+							<img src="/home/images/userCenter/ico_partner@2x.png"/>
+							<span style="color:#444;">领取收益</span>
+						</div>
+					</a></li>-->
+			<!--	<li class="with-line">
+						<a href="/kuangjilog.html">
+						<div class="mui-pull-left nav-list">
+							<img src="/home/images/userCenter/ico_bonus@2x.png"/>
+							<span style="color:#444;">我的矿机</span>
+						</div>
+						</a>	
+				</li>
+					
+				<li class="with-line"><a href="/shouyilog.html">
+						<div class="mui-pull-left nav-list">
+							<img src="/home/images/userCenter/shouyijilu.png"/>
+							<span style="color:#444;">收益记录</span>
+						</div>
+				</a>	
+				</li>
+				<li class="with-line">
+						<a href="/shifanglog.html">
+						<div class="mui-pull-left nav-list">
+							<img src="/home/images/userCenter/shifangjilu.png"/>
+							<span style="color:#444;">释放记录</span>
+						</div>
+						</a>	
+				</li>
+				<li class="with-line">
+						<a href="/teamlog.html">
+						<div class="mui-pull-left nav-list">
+							<img src="/home/images/userCenter/tuanduijilu.png"/>
+							<span style="color:#444;">团队奖记录</span>
+						</div>
+						</a>	
+				</li>
+				
+					<!--<li class="with-line"><a href="./myfishb.html">
+						<div class="mui-pull-left nav-list">
+							<img src="/home/images/userCenter/ico_bonus@2x.png"/>
+							<span style="color:#444;">会员转账</span>
+						</div>
+				</a>	</li>-->
+			<!--		<li><a href="./teamlib.html">
+						<div class="mui-pull-left nav-list">
+							<img src="/home/images/userCenter/ico_personinfo@2x.png"/>
+							<span style="color:#444;">我的伙伴</span>
+						</div>
+					</a></li>
+					<li><a href="/xiugaipass.html">
+						<div class="mui-pull-left nav-list">
+							<img src="/home/images/userCenter/ico_lock@2x.png"/>
+							<span style="color:#444;">修改密码</span>
+						</div>
+					</a></li>
+					<li><a href="/myziliao.html">
+						<div class="mui-pull-left nav-list">
+							<img src="/home/images/userCenter/ico_lock@2x.png"/>
+							<span style="color:#444;">完善资料</span>
+						</div>
+					</a></li>
+					<li><a href="/kef.html">
+						<div class="mui-pull-left nav-list">
+							<img src="/home/images/userCenter/ico_contact@2x.png"/>
+							<span style="color:#444">联系客服</span>
+						</div>
+					</a></li>
+					<li class="with-line">
+						<div class="mui-pull-left nav-list">
+							<img src="/home/images/userCenter/ico_about@2x.png"/>
+							<span>关于我们</span>
+						</div>
+					</li>
+					<li>
+						<a href="/tuiguang.html">
+						<div class="mui-pull-left nav-list">
+							<img src="/home/images/userCenter/ico_invite@2x.png"/>
+							<span>邀请好友</span>
+						</div>
+						<span class="mui-pull-right nav-list-subtext">邀请送好礼</span>
+						</a>
+					</li>
+					<!--<li class="with-line" >
+						<a href="/quit.html" style="color: #dd524d;">
+						<div class="mui-pull-left nav-list">
+							<img src="/home/images/userCenter/ico_about@2x.png"/>
+							<span>退出登陆</span>
+						</div>
+						</a>
+					</li>-->
+			<!--	</ul>
+			</section>-->
+			<!--二维码蒙版-->
+			<div id="mengban" class="mui-backdrop">
+				<div id="mbCoat">
+					<div id="mbCont">
+						<div id="mbLogo">
+							<img src="/home/img/indexHead2.png"/>
+						</div>
+						<h4>我的钱包</h4>
+						<p id="monkeyAdress">数据同步中..</p>
+						<div id="mbErweima">
+							数据同步中..
+						</div>
+					</div>
+					<span class="mui-icon mui-icon-close" id="mbClose"></span>
+				</div>
+			</div>			
+		</div>
+		
+	</body>
+</html>
+			<!------------------------------------------------------------------------>
+			
+			
+			
+		</div>
+  
+{/block}
+
+
+{block name="script"}
+		<script>
+			mui.init({
+				swipeBack:true //启用右滑关闭功能
+			});
+			
+			(function($) {
+				
+				//paygoods
+				document.getElementById("paygoods").addEventListener('tap',function(){
+					var op = "588cmmphp";
+					var gids = $('#gid')[0].value;
+					var wallet = $('input[name="wallet"]')[0].checked;
+					
+					if(wallet==false){
+						wallet = $('input[name="wallet"]')[1].checked;
+						if(wallet){
+							wallet = $('input[name="wallet"]')[1].value;
+						}
+						
+					}else{						
+						wallet = $('input[name="wallet"]')[0].value;
+					}
+					
+					if(!wallet){
+						$.toast('请选择支付钱包');
+					}					
+					//console.log(wallet);
+					if(gids){					
+ 						$.ajax('/buy_goods.html',{
+							data:{op:op,gid:gids,wallet:wallet},
+							dataType:'json',//服务器返回json格式数据
+							type:'post',//HTTP请求类型
+							timeout:50000,//超时时间设置为50秒；	              
+							success:function(data){
+								console.log(data);
+								if(data.s=='ok'){
+									$.toast('购买成功');
+									setTimeout(function(){
+										//页面刷新
+										window.location.href = "/index.html";	
+									},1500);
+								}else{
+									$.toast(data.s);
+									setTimeout(function(){
+									//页面刷新  
+										window.location.href = "/index.html";
+									},1500);
+								}
+								event.stopPropagation();
+							}
+						}); 
+						event.stopPropagation();
+					}else{
+						$.toast('参数错误');
+					}
+				
+				});
+
+			})(mui);
+				//监听点击事件 购买矿机
+				var gid = 0;
+				
+				function buygoods(gid){
+					//document.getElementById("popover").classList.remove('buy-dis');
+					//document.getElementsByClassName("mui-backdrop").classList.add('mui-backdrop');
+					mui('.mui-popover').popover('toggle',document.getElementById("openPopover"));
+					if(gid){				
+						mui('#gid')[0].value=gid;
+					}				
+				}
+				var sid = 0;
+				function sellIt(sid){
+					var op = "588cmmphp";
+					console.log(sid);
+					if(!sid){
+						mui.toast('请选择要卖给的对象');
+					}		
+ 						mui.ajax('/sellit_do.html',{
+							data:{op:op,gid:sid},
+							dataType:'json',//服务器返回json格式数据
+							type:'post',//HTTP请求类型
+							timeout:50000,//超时时间设置为50秒；	              
+							success:function(data){
+								console.log(data);
+								if(data.s=='ok'){
+									mui.toast('购买成功');
+									setTimeout(function(){
+										//页面刷新
+										window.location.href = "/index.html";	
+									},1500);
+								}else{
+									mui.toast(data.s);
+									setTimeout(function(){
+									//页面刷新  
+										window.location.href = "/index.html";
+									},1500);
+								}
+								event.stopPropagation();
+							}
+						}); 					
+				}
+		</script>
+		
+{/block}	

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改昵称</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="<?php echo $mcfg_basehost; ?>/m-css/m-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/jquery.js"></script>
+<style type="text/css">
+body{background:#fff;}
+input,button{vertical-align:middle;font-size:100%;list-style:none;outline:none;border:0;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-appearance:none;}
+.msg{padding:0 10px;}
+.qrdditem{padding-top:10px}
+.qrdditem .b{padding:10px;}
+.qrdditem .b input{width:100%;line-height:18px;font-size:14px;color:#333;background-color:#f3f7fa;padding:16px 12px;box-sizing:border-box;border-radius:3px;}
+
+.gd_bottom_pay{margin:0 10px;}
+.gdb_buybtn_pay{width:100%;height:44px;line-height:44px;font-size:16px;background:#00bca1;color:#fff;cursor:pointer;padding:0;border-radius:3px;margin-top:15px;}
+</style>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar"><div class="searchbar_index"><a href="javascript:history.go(-1);" class="top_nav_left"></a><h1>修改昵称</h1></div></div>
+<!-- TOP End -->
+
+
+<div class="wrapper">
+
+
+<!-- 修改昵称 -->
+<div class="mima-content">
+<form action="edit_user.php" method="post" enctype="multipart/form-data" id="tijiaoqilaiba" name="form2">
+<input type="hidden" name="dopost" value="save" />
+
+<div class="qrdditem">
+<div class="b"><input name="uname" type="text" id="user" class="newbtn-user" value="<?php echo $cfg_ml->M_UserName;?>" /></div>
+<div class="msg"></div>
+</div>
+
+<!-- 保存 -->
+<div class="gd_bottom_pay"><button class="gdb_buybtn_pay" type="button">保存</button></div>
+<!-- 保存 End -->
+
+</form>
+</div>
+<!-- 修改昵称 End -->
+
+
+</div>
+
+
+<script type="text/javascript">
+function checknicheg(){
+  txt=$("#user").val();
+  $.post("edit_user.php",{a:'checkuname',uname:txt},function(result){
+	  if(result == 'ok'){
+		  result = '<font color="green">当前昵称可用</font>';		  
+	  }   
+	  $(".msg").html(result); 
+  });
+}
+$("#user").keyup(function(){
+	checknicheg();
+});
+$(".gdb_buybtn_pay").click(function(){
+	  txt=$("#user").val();
+  $.post("edit_user.php",{a:'checkuname',uname:txt},function(result){
+	  if(result != 'ok'){
+		  $(".msg").html(result);
+	  } else{
+		$("#tijiaoqilaiba").submit();	 
+	 }   
+  });
+})
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,2 @@
+INSERT INTO `dede_zan` VALUES('1','506','119.134.103.85');
+INSERT INTO `dede_zan` VALUES('2','507','183.255.132.238');

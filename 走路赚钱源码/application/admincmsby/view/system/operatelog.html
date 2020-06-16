@@ -1,0 +1,147 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+<style>
+.pop_cont .pop_cont_input li{
+	margin: 13px 0;
+}
+.pop_cont {
+    border-radius: 5px 5px;
+}
+.pop_cont .pop_cont_input li .textbox{
+	width:218px;
+}
+.rt_content {
+    margin-bottom: 150px;
+}
+.paging{
+   margin-top:30px;
+}
+</style>
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">操作日志</h2>
+      </div>
+      <table class="table">
+       <tr>
+        <th style="width:8%;">Id</th>
+        <th style="width:22%;">地址</th>
+        <th>说明</th>
+        <th>IP</th>
+        <th>时间</th>
+        <th>操作状态</th>
+        <th>操作</th>
+       </tr>
+	   {foreach name="volist.data" id="vo"}
+       <tr class="id_{$vo.id}">
+        <td class="center"><input type="checkbox" value="{$vo.id}" name="id" />  {$vo.id}</td>
+        <td class="center">{$vo.url}</td>
+        <td class="center">{$vo.name}</td>      
+        <td class="center">{$vo.ip}</td>
+		<td class="center">{$vo.addtime|date="Y-m-d H:i:s",###}</td>
+        <td class="center">{if condition="$vo.status eq 1"}<a title="开启" class="link_icon" >&#89;</a>{else/}<a title="关闭" class="link_icon" style="color:red;">&#88;</a>{/if}</td>
+        <td class="center">
+         <a href="#" title="删除" class="link_icon del"  data-id="{$vo.id}">&#100;</a>
+        </td>
+       </tr>
+		{/foreach}
+      </table>
+	  <div>
+	  <aside class="paging_left">
+       <a id="all">全选</a>
+       <a id="nocheck">取消</a>
+       <a id="reverse">反选</a>
+       <a id="delid">删除</a>
+      </aside>	  
+	  {$list->render()}
+	   </div>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+$(document).ready(function() {
+	//全选
+	$("#all").on('click', function() {
+		//全选选中为true，否则为false
+		$("input[type=checkbox]").each(function(){ 
+		//循环checkbox选择或取消
+			$(this).prop("checked",true);
+		});
+	});
+	//取消
+	$("#nocheck").on('click', function() {
+		$("input[type=checkbox]").each(function(){ 
+			$(this).prop("checked",false);
+		});
+	});
+	//反选
+	$("#reverse").click(function () { 
+		$("table :checkbox").each(function () {  
+			$(this).prop("checked", !$(this).prop("checked"));  
+		});
+	});
+	 
+  //删除
+	$('.del').click(function(event){
+		var id = $(this).attr('data-id');
+		
+		$.ajax({
+			url:"{:url('system/operate_del')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			data:{op:'operatedel',id:id},
+			success: function(data) {
+				console.log(data.s);
+				if (data.s=='ok') {				
+					myAlert('删除成功');
+					setTimeout(function(){
+					//页面刷新  
+					window.location.reload();
+					},1000);
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+    //批量删除
+	$('#delid').click(function(event){
+		var id=new Array();  
+		$('input[name="id"]:checked').each(function(){  
+			id.push($(this).val());//向数组中添加元素  
+		});  
+		var id_str = id.join(',');//将数组元素连接起来以构建一个字符串 
+		
+		$.ajax({
+			url:"{:url('system/Op_delmost')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			data:{op:'opDelAll',delid:id_str},
+			success: function(data) {
+				console.log(data.s);
+				if (data.s=='ok') {				
+					myAlert('删除成功');
+					setTimeout(function(){
+					//页面刷新  
+					window.location.reload();
+					},1000);
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+});
+</script>
+
+{/block}	

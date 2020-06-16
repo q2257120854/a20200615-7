@@ -1,0 +1,27 @@
+<div class='editable-page-model'>
+<form id="editable_model_form">
+    <div style='overflow: hidden;padding-top:20px;padding-left: 15px;padding-right: 15px;'>
+    {foreach name='editable_page_model_list' item='model_item'}    
+    <label class='model-item-wrapper'>
+        <input type='radio' name='model_id' value='{$model_item.editable_page_model_id}' />
+        <div class='model-item' title="{$model_item.editable_page_model_intro}">
+            <div class='model-image'><img src='{$Think.UPLOAD_SITE_URL}/home/common/editable-page-model-{if $Request.param.type}{$Request.param.type}-{/if}{$model_item.editable_page_model_id}.jpg'></div>
+            <div class='model-name'>{$model_item.editable_page_model_name}</div>
+        </div>
+    </label>
+    {/foreach}
+    </div>
+    <div class='tc pb20 pt20'><a class="dssc-btn" dstype="select-124" href="javascript:void(0)" onclick="submit_model_add()">{$Think.lang.ds_add}</a></div>
+</form>
+</div>
+
+<script>
+    function submit_model_add(){
+        var model_id=$('input[name=model_id]:checked').val()
+        if(!model_id){
+            layer.msg('{$Think.lang.model_id_empty}')
+            return
+        }
+        addEditableModel(model_id,{$Request.param.config_id|default=0})
+    }
+</script>

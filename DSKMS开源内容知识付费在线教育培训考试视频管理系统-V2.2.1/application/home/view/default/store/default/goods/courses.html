@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>{$html_title|default=$Think.config.site_name}</title>
+        <meta name="renderer" content="webkit|ie-comp|ie-stand" />
+        <meta name="keywords" content="{$seo_keywords|default=''}" />
+        <meta name="description" content="{$seo_description|default=''}" />
+        <link rel="stylesheet" href="{$Think.HOME_SITE_ROOT}/css/common.css">
+        <script src="{$Think.PLUGINS_SITE_ROOT}/jquery-2.1.4.min.js"></script>
+        <script src="{$Think.PLUGINS_SITE_ROOT}/common.js"></script>
+        <script>
+            var HOMESITEURL = "{$Think.HOME_SITE_URL}";
+        </script>
+        <script src="{$Think.PLUGINS_SITE_ROOT}/layer/layer.js"></script>
+        <link rel="stylesheet" href="{$Think.BASE_SITE_ROOT}/static/home/default/store/styles/{$store_theme}/css/goods.css">
+    </head>
+    <body>
+        <div class="course-header">
+            <ul>
+                <li class="nv-goback fl"><a href="javascript:history.go(-1)"><i class="iconfont">&#xe619;</i></a></li>
+                <li class="nv-menu fl">{$goodscourses.goodscourses_name}</li>
+                <li class="nv-follow fl"><i></i><span onclick="collect_goods('{$goods_id}','count','goods_collect');">收藏</span></li>
+            </ul>
+        </div>
+
+        <div class="course-main">
+            <div class="video-con">
+                <div class="course-layout">
+                    <div class="section-list">
+                        <div class="chapter-list">
+                            <ul>
+                                {php}$fe_goodscourses=1;{/php}
+                                {foreach name="goodscourses_list" item="courses"}
+                                <li>
+                                    <a class="clearfix{if $Request.param.goodscourses_id == $courses.goodscourses_id} current{/if}" href="{$courses.goodscourses_view|default='javascript:void(0)'}"><em class="iconfont">&#xe635;</em>{php}echo sprintf("%02d", $fe_goodscourses);{/php} {$courses.goodscourses_name}<em class="iconfont">&#xe635;</em></a>                        
+                                </li>
+                                {php}$fe_goodscourses++;{/php}
+                                {/foreach}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course-sidebar-layout">
+                        <dl>
+                            <dd class="openchapter">
+                                <i class="iconfont">&#xe635;</i>
+                                <span>章节</span>
+                            </dd>
+                            <a href="{:url('Index/index')}" target="_blank">
+                                <dd class="openpanel">
+                                    <i class="iconfont">&#xe702;</i>
+                                    <span>首页</span>
+                                </dd>
+                            </a>
+                            <a href="{:url('Store/index',['store_id'=>$goods.store_id])}" target="_blank">
+                                <dd class="openpanel">
+                                    <i class="iconfont">&#xe6f5;</i>
+                                    <span>机构</span>
+                                </dd>
+                            </a>
+                        </dl>
+                    </div>
+
+                    <div class="course-center-layout">
+                        <video src="{$goodscourses.goodscourses_url}" controls="controls" width="100%" height="100%" >
+                            your browser does not support the video tag
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        $(function () {
+            $(".course-sidebar-layout .openchapter").click(function () {
+                if($(this).hasClass("current")){
+                    $(".section-list").addClass("active");
+                    $(this).removeClass("current");
+                }else{
+                    $(".section-list").removeClass("active");
+                    $(this).addClass("current");
+                }
+            });
+            $(".chapter-list a").click(function(){
+                var href = $(this).attr('href');
+                if(href == "javascript:void(0)"){
+                    alert("您需要先购买课程才能观看本章节")
+                }
+            })
+        });
+    </script>
+    {include file='default/base/mall_footer'/}
+</html>

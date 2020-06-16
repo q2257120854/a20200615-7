@@ -1,0 +1,41 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form layui-form-pane" method="post">
+    <div class="layui-tab layui-tab-card">
+        {include file="layout/admin_items" /}
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.index_modifypw_oldpw}</label>
+                    <div class="layui-input-inline">
+                        <input type="password" class="layui-input field-name" name="old_pw" id="old_pw" value=""  placeholder="{$Think.lang.ds_please_enter}{$Think.lang.index_modifypw_oldpw}" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.index_modifypw_newpw}</label>
+                    <div class="layui-input-inline">
+                        <input type="password" class="layui-input field-name" name="new_pw" id="new_pw" value=""  placeholder="{$Think.lang.ds_please_enter}{$Think.lang.index_modifypw_newpw}" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.index_modifypw_newpw2}</label>
+                    <div class="layui-input-inline">
+                        <input type="password" class="layui-input field-name" name="new_pw2" id="new_pw2" value=""  placeholder="{$Think.lang.ds_please_enter}{$Think.lang.index_modifypw_newpw2}" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-inline">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+    });
+</script>
+{/block}

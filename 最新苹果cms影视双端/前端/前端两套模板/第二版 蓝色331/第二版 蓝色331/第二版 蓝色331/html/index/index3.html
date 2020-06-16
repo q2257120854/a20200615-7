@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>精选</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../../css/auislide.css" />
+    <link rel="stylesheet" type="text/css" href="./css/d.css" />
+</head>
+
+<body>
+    <header id="header">
+        <div id="aui-slide" class="fx-box">
+            <div id="slidebox" class="aui-slide-wrap">
+                
+            </div>
+            <div class="aui-slide-page-wrap">
+			</div>
+        </div>
+    </header>
+    <section id="list">
+        <script type="text/x-dot-template" id="dy_tp">
+        {{ for(var i=0, msglen=it.length; i<msglen; i++) { }}
+        <div class="hot_div">
+            <div class="hot_title"><img src="{{= it[i].type_logo }}" alt=""> {{= it[i].type_name }}
+                <span tapmode onclick="type_more('{{= it[i].type_id }}','{{= it[i].type_name }}','{{= it[i].type_pic }}')">更多&nbsp;<i class=" icon-angle-right"></i></span>
+            </div>
+            <ul>
+                {{ for(var j=0, listlen=it[i]['list'].length; j<listlen; j++) { }}   
+                <li tapmode onclick="vod_play('{{= it[i]['list'][j]. vod_id }}','{{= it[i]['list'][j]. vod_name }}','{{= it[i]['list'][j]. type_id }}','{{= it[i]['list'][j]. vod_area }}')">
+                    <span class="vod_score">{{= it[i]['list'][j].vod_score }}</span>
+                    <div class="bg_img" style="background-image: url('{{= it[i]['list'][j].vod_pic}}');background-size: 100% 100%;"></div>
+                    <div class="vod_remarks">{{= it[i]['list'][j].vod_remarks }}</div>
+                    <div class="vod_title">{{= it[i]['list'][j].vod_name }}</div>
+                </li>
+                {{ } }}
+            </ul>
+        </div>
+        {{ } }}
+        </script>
+    </section>
+</body>
+<script type="text/x-dot-template" id="bannertpl">
+    {{~ it.data : value : index }}
+        <div class="aui-slide-node bg-dark" tapmode onclick="toBanner('{{= value. url }}','{{= value. vod_id }}','{{= value. patternn }}','{{= value. vod_name }}','{{= value. type_id }}','{{= value. vod_area }}')" >
+            <span style="position:absolute;color:#fff;font-size:18px;margin:34% 0 0 0;text-align:center">{{= value. title }}</span>
+            <img width="100%" height="100%"  src="{{= value. image }}" />
+        </div> 
+    {{~}}
+</script>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/doT.js"></script>
+<script type="text/javascript" src="../../script/auislide.js"></script>
+<script src="./js/d.js"></script>
+<script src="../public/public.js"></script>
+</html>

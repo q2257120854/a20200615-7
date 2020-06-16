@@ -1,0 +1,123 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form layui-form-pane" method="post" enctype="multipart/form-data">
+    <div class="layui-tab layui-tab-card">
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.job_name}</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input field-name" id="job_name" name="job_name" value="{$resume_info.job_name}"  type="text" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.resume_name}</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input field-name" id="resume_name" name="resume_name" value="{$resume_info.resume_name}"  type="text" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.resume_sex}</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input field-name" id="resume_sex" name="resume_sex" value="{$resume_info.resume_sex == 1?'男':'女'}"  type="text" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.resume_birthday}</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input field-name" id="resume_birthday" name="resume_birthday" value="{$resume_info.resume_birthday|date='Y-m-d',###}"  type="date" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.resume_resume_place}</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input field-name" id="resume_resume_place" name="resume_resume_place" value="{$resume_info.resume_resume_place}" type="text" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.resume_telephone}</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input field-name" id="resume_telephone" name="resume_telephone" value="{$resume_info.resume_telephone}" type="text" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.resume_zip_code}</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input field-name" id="resume_zip_code" name="resume_zip_code" value="{$resume_info.resume_zip_code}" type="text" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.resume_email}</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input field-name" id="resume_email" name="resume_email" value="{$resume_info.resume_email}" type="text" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.resume_education}</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input field-name" id="resume_education" name="resume_education" value="{$resume_info.resume_education}" type="text" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.resume_professional}</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input field-name" id="resume_professional" name="resume_professional" value="{$resume_info.resume_professional}" type="text" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.resume_school}</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input field-name" id="resume_school" name="resume_school" value="{$resume_info.resume_school}" type="text" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.resume_address}</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input field-name" id="resume_address" name="resume_address" value="{$resume_info.resume_address}" type="text" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.resume_awards}</label>
+                    <div class="layui-input-block">
+                        <textarea class="layui-textarea field-name" name="resume_awards" disabled>{$resume_info.resume_awards}</textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.resume_experience}</label>
+                    <div class="layui-input-block">
+                        <textarea class="layui-textarea field-name" name="resume_experience" disabled>{$resume_info.resume_experience}</textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.resume_hobby}</label>
+                    <div class="layui-input-block">
+                        <textarea class="layui-textarea field-name" name="resume_hobby" disabled>{$resume_info.resume_hobby}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use('form', function() {
+        var form = layui.form;
+    });
+</script>
+<script>
+    //Demo
+    layui.use('form', function() {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function(data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
+
+{/block}
+
+
+

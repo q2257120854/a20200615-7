@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-touch-fullscreen" content="yes" />
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+        <title>DSCMS 手机端</title>
+        <link rel="stylesheet" href="{$Think.MOBILE_SITE_ROOT}/{$template_theme}/styles/{$style_theme}/css/common.css">
+        <link rel="stylesheet" href="{$Think.MOBILE_SITE_ROOT}/{$template_theme}/styles/{$style_theme}/css/home.css">
+        <script src="{$Think.PLUGINS_SITE_ROOT}/zepto.js"></script>
+        <script src="{$Think.MOBILE_SITE_ROOT}/{$template_theme}/styles/{$style_theme}/js/common.js"></script>
+        <link rel="apple-touch-icon" href="images/touch-icon-iphone.png"/>
+    </head>
+    <body>
+        <header class="ds-home-header">
+            <div class="mt">
+                <div class="logo"><a href="{:url('Index/index')}"><img src="{$Think.UPLOAD_SITE_URL}/{$Think.ATTACH_COMMON}/{$Think.config.site_mobile_logo}"/></a></div>
+                <div class="nav-bar"><i class="iconfont">&#xe6c8;</i></div>
+            </div>
+            <div class="mc hide">
+                <div class="nav-list">
+                    <ul>
+                        <a href="{:url('Index/index')}"><li>网站首页</li></a>
+                        {volist name="nav_header" id="nav"}
+                        <a href="{$nav.nav_url}" {$nav.nav_new_open}><li>{$nav.nav_title}</li></a>
+                        {/volist}
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="blank3"></div>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>联系<?php echo $cfg_webname; ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="<?php echo $mcfg_basehost; ?>/m-css/m-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/jquery.js"></script>
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-css/app.css.php?format=js&v=1.01"></script>
+<script src="<?php echo $mcfg_basehost; ?>/m-js/clipboard.min.js"></script>
+<style type="text/css">
+#MEIQIA-BTN-HOLDER{display:none !important;}
+.wrapper{padding-top:0;}
+.yxw-ljh2{color:#666;font-size:16px;padding:0 15px;margin-top:10px;}
+
+.my-item-box{margin:10px 0;}
+.my-item-box img{float:left;display:block;height:20px;width:20px;margin:14px 10px 16px 0;}
+.my-item{position:relative;height:50px;line-height:50px;font-size:16px;color:#333;background:#fff url(<?php echo $mcfg_basehost; ?>/m-images/ms_publis_recipe.png) 96% center no-repeat;background-size:6px 10px;padding-left:15px;display:block;font-weight:700;}
+.my-item2{background-color:#fff;height:50px;line-height:50px;font-size:16px;color:#333;padding-left:15px;display:block;font-weight:700;}
+</style>
+</head>
+<body>
+
+
+<!-- TOP -->
+<div class="topbar">
+<div class="searchbar_index">
+<a href="javascript:history.go(-1);" class="top_nav_left"></a>
+<h1>联系我们</h1>
+</div>
+</div>
+<!-- TOP End -->
+<div style="height:45px;" class="appblank"></div>
+
+<div class="wrapper">
+
+<h2 class="yxw-ljh2">微信客服</h2>
+<!-- 微信客服 -->
+<div class="my-item-box">
+<a href="javascript:void(0)" data-clipboard-target="#foo" aria-label="复制成功，去微信-通讯录-添加好友" class="btn2018 my-item2"><img src="<?php echo $mcfg_basehost; ?>/m-images/m-yxw-ico-wxh.png">官方微信<input id="foo" value="szyixiaowan" style="width:105px;color:#ff700a;font-size:14px;float:right;padding-right:15px;font-weight:400;border:none;text-align:right;line-height:50px;cursor:pointer;"></a>
+</div>
+<!-- 微信客服 End -->
+
+<h2 class="yxw-ljh2">在线客服</h2>
+<!-- 在线客服 -->
+<div class="my-item-box">
+<a href="javascript:void(0)" onclick="_MEIQIA('showPanel')" class="my-item"><img src="<?php echo $mcfg_basehost; ?>/m-images/m-yxw-ico-kf.png">联系客服</a>
+</div>
+<!-- 在线客服 End -->
+
+
+</div>
+
+<!-- 美洽客服 -->
+<script type='text/javascript'>
+    (function(m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function() {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        j = ei.createElement(q),
+            s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    _MEIQIA('entId', 50762);
+</script>
+<!-- 美洽客服 End -->
+
+
+
+<script>
+//new Clipboard('.btn');
+var clipboard = new Clipboard('.btn2018');
+clipboard.on('success', function(e) {
+    var msg = e.trigger.getAttribute('aria-label');
+    alert(msg);
+    console.info('Action:', e.action);
+    console.info('Text:', e.text);
+    console.info('Trigger:', e.trigger);
+    e.clearSelection();
+});
+</script>
+
+
+</body>
+</html>

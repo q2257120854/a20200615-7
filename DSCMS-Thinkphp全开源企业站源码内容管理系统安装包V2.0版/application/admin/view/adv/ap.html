@@ -1,0 +1,50 @@
+{extend name="layout:home" /}
+{block name="container"}
+<div class="layui-tab layui-tab-card">
+    {include file="layout/admin_items" /}
+    <div class="layui-tab-content page-tab-content">
+        <table class="layui-table lay-even">
+            <colgroup>
+                <col width="150">
+                <col width="200">
+                <col width="100">
+                <col width="100">
+                <col width="100">
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" onclick="javascript:$('input[name*=tables]').prop('checked', this.checked);">全选</th>
+                    <th>{$Think.lang.ap_name}</th>
+                    <th>{$Think.lang.ap_width}</th>
+                    <th>{$Think.lang.ap_height}</th>
+                    <th>{$Think.lang.ap_isuse}</th>
+                    <th>{$Think.lang.ds_operation}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {volist name="ap_list" id="ap"}
+            <tr>
+                <td><input type="checkbox" name="tables[]" value="{$ap.ap_name}"></td>
+                <td>{$ap.ap_name}</td>
+                <td><span title="{:lang('ds_editable')}" ajax_branch='ap' datatype="number" fieldid="{$ap.ap_id}" fieldname="ap_width" ds_type="inline_edit" class="editable">{$ap.ap_width}</span></td>
+                <td><span title="{:lang('ds_editable')}" ajax_branch='ap' datatype="number" fieldid="{$ap.ap_id}" fieldname="ap_height" ds_type="inline_edit" class="editable">{$ap.ap_height}</span></td>
+                <td>
+                    <a href="javascript:dsLayerConfirm('{:url('adv/ap_setadv',['ap_id'=>$ap.ap_id,'ap_value'=>$ap.ap_isuse])}','{$Think.lang.ds_confirm_update}')">
+                        {if condition="$ap.ap_isuse eq 1"}<i class="layui-icon">&#xe605;</i>{else}<i class="layui-icon">&#x1006;</i>{/if}
+                    </a>
+                </td>
+                <td>
+                    <a href="{:url('adv/adv_manage',['ap_id'=>$ap.ap_id])}" class="layui-btn layui-btn-xs">{$Think.lang.ds_manage}</a>
+                    <a href="javascript:dsLayerOpen('{:url('adv/ap_edit',['ap_id'=>$ap.ap_id])}','{$Think.lang.ds_edit}-{$ap.ap_name}')"class="layui-btn layui-btn-warm layui-btn-xs">{$Think.lang.ds_edit}</a>
+                    <a href="javascript:dsLayerConfirm('{:url('adv/ap_del',['ap_id'=>$ap.ap_id])}','{$Think.lang.ds_confirm_cancel}')" class="layui-btn layui-btn-danger layui-btn-xs">{$Think.lang.ds_del}</a>
+                </td>
+            </tr>
+            {/volist}
+        </tbody>
+        </table>
+        {$showpage}
+    </div>
+</div>
+<script type="text/javascript" src="{$Think.ADMIN_SITE_ROOT}/js/jquery.edit.js"></script>
+{/block}

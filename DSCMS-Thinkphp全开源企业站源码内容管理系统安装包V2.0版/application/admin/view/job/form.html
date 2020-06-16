@@ -1,0 +1,99 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form layui-form-pane" method="post" enctype="multipart/form-data" >
+    <div class="layui-tab layui-tab-card">
+        {include file="layout/admin_items" /}
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.job_position}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="job_position" id="job_position" value="{$job.job_position|default=''}" lay-verify="job_position" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.job_position}" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.job_count}</label>
+                    <div class="layui-input-inline">
+                        <input type="number" min="0" class="layui-input field-name" name="job_count" id="job_count" value="{$job.job_count|default=''}" lay-verify="job_count" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.job_count}" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.job_place}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="job_place" id="job_place" value="{$job.job_place|default=''}" lay-verify="job_place" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.job_place}" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.job_deal}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="job_deal" id="job_deal" value="{$job.job_deal|default=''}" lay-verify="job_deal" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.job_deal}" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.job_addtime}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="job_addtime" id="job_addtime" value="{$job.job_addtime|date='Y-m-d',###}"/>
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">{$Think.lang.ds_empty_current_time}</div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.job_endtime}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="job_endtime" id="job_endtime" value="{$job.job_endtime|date='Y-m-d',###}"/>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.job_order}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="job_order" id="job_order" value="{$job.job_order|default='255'}" lay-verify="job_order" autocomplete="off" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.job_displaytype}</label>
+                    <div class="layui-input-inline">
+                        <input type="checkbox" name="job_displaytype" lay-skin="switch" lay-text="{$Think.lang.ds_yes}|{$Think.lang.ds_no}" value="1" {if condition="$job.job_displaytype eq '1'"}checked{/if}>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.job_email}</label>
+                    <div class="layui-input-inline">
+                        <input type="email" class="layui-input field-name" name="job_email" id="job_email" value="{$job.job_email|default=''}" lay-verify="job_email" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.job_email}" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.job_content}</label>
+                    <div class="layui-input-block">
+                        {:build_editor(['name'=>'job_content','content'=>isset($job.job_content)?htmlspecialchars_decode($job.job_content):''])}
+                        <textarea name="job_content" id="job_content" style="min-height:400px;"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-inline">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+    });
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#job_addtime'
+        });
+    });
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#job_endtime'
+        });
+    });
+</script>
+{/block}
+
+

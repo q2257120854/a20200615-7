@@ -1,0 +1,57 @@
+{extend name="layout:home" /}
+{block name="container"}
+<div class="layui-tab layui-tab-card">
+    {include file="layout/admin_items" /}
+    <div class="layui-tab-content page-tab-content">
+        <table class="layui-table lay-even">
+            <colgroup>
+                <col width="150">
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>{$Think.lang.job_position}</th>
+                    <th>{$Think.lang.job_count}</th>
+                    <th>{$Think.lang.job_place}</th>
+                    <th>{$Think.lang.job_deal}</th>
+                    <th>{$Think.lang.job_addtime}</th>
+                    <th>{$Think.lang.job_endtime}</th>
+                    <th>{$Think.lang.job_order}</th>
+                    <th>{$Think.lang.job_top_ok}</th>
+                    <th>{$Think.lang.job_displaytype}</th>
+                    <th>{$Think.lang.ds_operation}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {volist name="job_list" id="job"}
+            <tr>
+                <td>{$job.job_position}</td>
+                <td>{$job.job_count}</td>
+                <td>{$job.job_place}</td>
+                <td>{$job.job_deal}</td>
+                <td>{$job.job_addtime|date='Y-m-d H:i:s',###}</td>
+                <td>{$job.job_endtime|date='Y-m-d H:i:s',###}</td>
+                <td><span title="{:lang('ds_editable')}" ajax_branch='job' datatype="number" fieldid="{$job.job_id}" fieldname="job_order" ds_type="inline_edit" class="editable">{$job.job_order}</span></td>
+                <td>
+                    <a href="javascript:dsLayerConfirm('{:url('job/setjob',['job_type'=>'job_top_ok','job_id'=>$job.job_id])}','{$Think.lang.ds_confirm_update}')">
+                        {if condition="$job.job_top_ok eq 1"}<i class="layui-icon">&#xe605;</i>{else}<i class="layui-icon">&#x1006;</i>{/if}
+                    </a>
+                </td>
+                <td>
+                    <a href="javascript:dsLayerConfirm('{:url('job/setjob',['job_type'=>'job_displaytype','job_id'=>$job.job_id])}','{$Think.lang.ds_confirm_update}')">
+                        {if condition="$job.job_displaytype eq 1"}<i class="layui-icon">&#xe605;</i>{else}<i class="layui-icon">&#x1006;</i>{/if}
+                    </a>
+                </td>
+               <td>
+                    <a href="{:url('job/edit',['job_id'=>$job.job_id])}" class="layui-btn layui-btn-xs"><i class="layui-icon layui-icon-edit"></i>{$Think.lang.ds_edit}</a>
+                    <a href="javascript:dsLayerConfirm('{:url('job/del',['job_id'=>$job.job_id])}','{$Think.lang.ds_confirm_cancel}')" class="layui-btn layui-btn-danger layui-btn-xs"><i class="layui-icon layui-icon-delete"></i>{$Think.lang.ds_del}</a>
+               </td>
+            </tr>
+            {/volist}
+        </tbody>
+        </table>
+        {$show_page}
+    </div>
+</div>
+<script type="text/javascript" src="{$Think.ADMIN_SITE_ROOT}/js/jquery.edit.js"></script>
+{/block}

@@ -1,0 +1,535 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>Hello APP</title>
+    <style type="text/css">
+	    html,body{
+	    	margin: 0;
+	    	padding: 0;
+	        height: 100%;
+	        width: 100%;
+	    }
+	    body{
+			background-size: 100%;
+			background-position: bottom center;
+
+	    }
+	    #imageAd{
+	    	width: 100%;height: 80%;
+	    	background-position: center;
+	    	background-size: 100%;
+	    }
+
+      .display-block{
+ 	   display :block ;
+ 	   }
+
+ 	   .display-none{
+ 	   display :none ;
+ 	   }
+
+
+    </style>
+</head>
+<body id="body">
+
+<span style=" background-color: rgba(255,255,255,0.8); border: 1px solid rgba(0, 0, 0, 0); position: absolute; right: 25px; top: 50px; border-radius: 5px; font-size: 0.8rem; padding: 0.1rem 0.3rem 0.1rem 0.3rem; background-image: -moz-linear-gradient(left,#5515ee,#f370af); /* background-image: linear-gradient(to bottom,#c726ff,#bb34ff); */ background-color: rgba(0, 0, 0, 0.3); /* box-shadow: 0 0 19px #dd7fe6; */ color: #ffffff;" id="showTime"></span>
+
+
+	<div id="imageAd"  tapmode onclick="openlaunchImageAd_url();"></div>
+
+
+  <span  class="display-none"  id="display-block"  tapmode onclick="skipAD();"  style="background-color: rgba(255,255,255,0.8); border: 1px solid rgba(0, 0, 0, 0); position: absolute; right: 25px; bottom: 100px; border-radius: 5px; font-size: 0.8rem; padding: 0.2rem 0.5rem 0.2rem 0.5rem; background-image: -moz-linear-gradient(left,#5515ee,#f370af); /* background-image: linear-gradient(to bottom,#c726ff,#bb34ff); */ background-color: rgba(0, 0, 0, 0.3); /* box-shadow: 0 0 19px #dd7fe6; */ color: #ffffff;">跳过</span>
+
+</body> 
+<script type="text/javascript" src="../../script/api.js"></script>
+<script src="../public/public.js"></script>
+<script type="text/javascript">
+
+  var launchImageAd_time = 6;
+
+  var time = 6;
+
+
+	apiready = function(){
+
+
+
+		showTime();//显示时间
+
+
+		  //是否允许跳过  1允许
+			
+
+			var obj = document.getElementById("display-block");
+			obj.setAttribute("class", "display-block");
+		 
+
+
+  //     alert( JSON.stringify( localStorage.getItem('launchImageAd_Cache') ) );
+
+			//var launchImage = $api.getStorage('launchImage_Cache');		// 启动图
+			var launchImageAd = app_config.launchImage_url;	// 读取本地启动广告图
+
+    //      localStorage.setItem('launchImageAd',ret.msg['launchImageAd']);   // 启动页图片地址
+
+
+		//	document.getElementById("body").style.backgroundImage="url("+launchImage+")";
+			document.getElementById("imageAd").style.backgroundImage="url("+launchImageAd+")";
+
+				setTimeout(function(){
+					api.removeLaunchView();
+					console.log("removeLaunchView");
+				},800);
+
+			setTimeout(function(){
+				close();
+				console.log("close launchImageAd");
+			},launchImageAd_time);
+				//监听返回
+			api.addEventListener({
+		　　　　name: 'keyback'
+		　　}, function(ret, err) {
+		　　　　api.closeFrame({
+		　　　　　　name: ''
+		　　　　});
+		　　});
+
+	};
+
+
+  //显示倒数秒数
+  function showTime(){
+      time -= 1;
+      document.getElementById('showTime').innerHTML= ''+time+'秒';
+      if(time==0){
+		api.closeWin({
+　　　　　　});
+
+                  /*      api.toast({
+                        msg : '时间到啦',
+                        duration : 2000,
+                        location : 'middle'
+                        });
+              */
+      }
+      //每秒执行一次,showTime()
+      setTimeout("showTime()",1000);
+  }
+
+
+
+
+
+    //关闭
+    function close(){
+		api.setFullScreen({
+		    fullScreen:false
+		});
+
+
+                //传递数据
+									 api.sendEvent({
+									  name: 'Ryanindex',
+									  extra: {
+										}
+									});
+
+                    api.closeFrame({
+                          name: 'launchImageAd'
+                      });
+
+
+  /*     api.openFrame({
+            name: 'footer_tab',
+            url: 'footer_tab_win.html',
+            bounces: false,
+            rect: {
+		        x:0,
+		        y:0,
+		        w:'auto',
+		        h:api.frameHeight
+            },
+			pageParam: {
+		        frameHeight: api.frameHeight
+		    },
+        });
+*/
+    }
+
+
+
+
+    function skipAD(){
+    //传递数据
+       api.sendEvent({
+        name: 'Ryanindex',
+        extra: {
+        }
+      });
+
+        api.closeFrame({
+              name: 'launchImageAd'
+          });
+    }
+
+
+
+
+
+
+    function openlaunchImageAd_url(){
+		api.setFullScreen({
+		    fullScreen:false
+		});
+
+
+   var url = localStorage.getItem('launchImageAd_url');
+
+    if (url == '') {
+
+	//如果后台填写的跳转链接为空 则无任何操作
+
+    }else{
+
+
+				if(url == '设置中心'){
+
+					api.openWin({
+						name: 'shezhi_win',
+						url: 'widget://html/shezhi_win.html',
+						delay: 300
+					});
+
+				}else if(url == '我的佣金'){
+
+					api.openWin({
+						name: 'yongjin_win',
+						url: 'widget://html/yongjin_win.html',
+						delay: 300
+					});
+				}else if(url == '佣金明细'){
+
+					api.openWin({
+						name: 'yongjinlog_win',
+						url: 'widget://html/yongjinlog_win.html',
+						delay: 300
+					});
+				}else if(url == '私人视频'){
+
+					api.openWin({
+						name: 'video_secret_win',
+						url: 'widget://html/video_secret_win.html',
+						delay: 300
+					});
+				}else if(url == '升级会员'){
+
+					api.openWin({
+						name: 'upgrade_vip_win',
+						url: 'widget://html/upgrade_vip_win.html',
+						delay: 300
+					});
+				}else if(url == '直播专题'){
+
+					api.openWin({
+						name: 'tv_special_win',
+						url: 'widget://html/tv_special_win.html',
+						delay: 300
+					});
+				}else if(url == '我的团队'){
+
+					api.openWin({
+						name: 'tuandui_win',
+						url: 'widget://html/tuandui_win.html',
+						delay: 300
+					});
+				}else if(url == '提现记录'){
+
+					api.openWin({
+						name: 'tixianlog_win',
+						url: 'widget://html/tixianlog_win.html',
+						delay: 300
+					});
+				}else if(url == '邀请好友'){
+
+					api.openWin({
+						name: 'share_win',
+						url: 'widget://html/share_win.html',
+						delay: 300
+					});
+				}else if(url == '搜索页面'){
+
+					api.openWin({
+						name: 'search_win',
+						url: 'widget://html/search_win.html',
+						delay: 300
+					});
+				}else if(url == '观看记录'){
+
+					api.openWin({
+						name: 'look_record_win',
+						url: 'widget://html/look_record_win.html',
+						delay: 300
+					});
+				}else if(url == '我的积分'){
+
+					api.openWin({
+						name: 'jifen_win',
+						url: 'widget://html/jifen_win.html',
+						delay: 300
+					});
+				}else if(url == '帮助中心'){
+
+					api.openWin({
+						name: 'help_win',
+						url: 'widget://html/help_win.html',
+						delay: 300
+					});
+				}else if(url == '我的激活码'){
+
+					api.openWin({
+						name: 'gokalog_win',
+						url: 'widget://html/gokalog_win.html',
+						delay: 300
+					});
+				}else if(url == '游戏直播间'){
+
+					api.openWin({
+						name: 'game_zhubo_list_win',
+						url: 'widget://html/game_zhubo_list_win.html',
+						delay: 300
+					});
+				}else if(url == '公告列表'){
+
+					api.openWin({
+						name: 'artical_win',
+						url: 'widget://html/artical_win.html',
+						delay: 300
+					});
+				}else if(url == '专属客服'){
+
+					api.openWin({
+						name: 'customer_service_win',
+						url: 'widget://html/setup/customer_service_win.html',
+						delay: 300
+					});
+
+
+				}else{       // 否则执行正常H5页面跳转
+
+							//	api.toast({
+							//	msg: url
+							//	});
+
+							var str = localStorage.getItem('launchImageAd_url');
+
+						if(str.indexOf(".m3u8")>-1){   //如果包含 m3u8://  则执行内部页面跳转
+
+								openVideoWin(url,name);
+
+						}else if(str.indexOf(".mp4")>-1){   //如果包含 mp4://  则执行内部页面跳转
+
+								openVideoWin(url,name);
+
+						}else{
+
+			                api.openWin({
+                            name: 'h5',
+                            url: 'widget://html/h5.html',
+                            pageParam: {
+                                 url: url
+							            	}
+                             });
+
+						}
+
+
+
+				}
+
+
+
+	}
+	}
+
+
+
+
+  		//////////////////////   打开推荐影片播放页  方法         S //////////////////////
+  		function openVideoWin(url,name) {
+
+
+  				//播放器判断
+  				//1 本地播放器(V1)   2 本地播放器(V2)
+  				if(localStorage.getItem('Player_selection') == 1){
+
+
+  						var delay = 0;
+  						if(api.systemType != 'ios') {
+  							delay = 300;
+  						}
+
+
+  						api.openWin({
+  							name: 'video_play_win',
+  							url: 'video_play_win.html',
+  							bounces: false,
+  							delay: delay,
+  							slidBackEnabled: true,
+  							vScrollBarEnabled: false,
+
+  							pageParam:{video:url,title:name}
+  						});
+
+
+  				}else if(localStorage.getItem('Player_selection') == 2){
+
+  						 	fnvideoPlayerPlay(url,name);
+
+  				}
+
+
+  		}
+
+  		//////////////////////   打开推荐影片播放页  方法        E //////////////////////
+
+
+
+
+
+          function fnvideoPlayerPlay(video,title) {
+              var videoPlayer = api.require('videoPlayer');
+              videoPlayer.play({
+                  texts: {
+                      head: {
+                          title: title+'播放'
+                      }
+                  },
+					styles: {
+						head: {								 //（可选项）JSON对象；播放器顶部导航条样式
+							bg: 'rgba(0.5,0.5,0.5,0.7)',		 //（可选项）字符串类型；顶部导航条背景，支持#、rgb、rgba、img；默认：rgba(161,161,161,0.5)
+							height: 44,							     //（可选项）数字类型；顶部导航条的高；默认：44
+							titleSize: 15,							  //（可选项）数字类型；顶部标题字体大小；默认：20
+							titleColor: '#fff',							 //（可选项）字符串类型；顶部标题字体颜色；默认：#fff
+							backSize: 25,								//（可选项）数字类型；顶部返回按钮大小；默认：44
+							backImg: 'widget://Ryanimg/user/Close.png',		//（可选项）字符串类型；顶部返回按钮的背景图片，要求本地路径（widget://、fs://）；默认：返回小箭头图标
+							setSize: 25,										//（可选项）数字类型；顶部右边设置按钮大小；默认：44
+							setImg: 'widget://Ryanimg/user/setup.png'			//（可选项）字符串类型；顶部右边设置按钮背景图片，要求本地路径（widget://、fs://）；默认：设置小图标
+						},
+						foot: {							 //（可选项）JSON对象；播放器底部导航条样式
+							bg: 'rgba(0.5,0.5,0.5,0.7)',			//（可选项）字符串类型；底部导航条背景，支持#、rgb、rgba、img；默认：rgba(161,161,161,0.5)
+							height: 44,								//（可选项）数字类型；底部导航条的高；默认：44
+							playSize: 25,							//（可选项）数字类型；底部播放/暂停按钮大小；默认：44
+							playImg: 'widget://Ryanimg/user/play.png',			//（可选项）字符串类型；底部播放按钮的背景图片，要求本地路径（widget://、fs://）；默认：播放按钮图标
+							pauseImg: 'widget://Ryanimg/user/pause.png',			//（可选项）字符串类型；底部暂停按钮的背景图片，要求本地路径（widget://、fs://）；默认：暂停按钮图标
+							nextSize: 25,											//（可选项）数字类型；底部下一集按钮大小；默认：44
+							nextImg:'widget://Ryanimg/user/pns.png',  				//（可选项）字符串类型；底部下一集按钮的背景图片，要求本地路径（widget://、fs://）；默认：下一集按钮图标
+							timeSize: 14,									 //（可选项）数字类型；底部时间标签大小；默认：14
+							timeColor: '#fff',					    //（可选项）字符串类型；底部时间标签颜色，支持#、rgba、rgb；默认：#fff
+							sliderImg: 'widget://image/videoPlayer/unfullscreen.png',					//（可选项）字符串类型；底部进度条滑块背景图片，要求本地路径（widget://、fs://）；默认：滑块小图标((在iOS上需要添加二倍图或者三倍图,否则会出现毛边))
+							progressColor: '#696969',			 //（可选项）字符串类型；进度条背景色，支持#、rgba、rgb；默认：#696969
+							progressSelected: '#1296db',			 //（可选项）字符串类型；滑动后的进度条背景色，支持#、rgb、rgba；默认：#76EE00
+							verticalImg: "widget://Ryanimg/user/ExitFullScreen.png",		 //（可选项）字符串类型；底部竖屏按钮的背景图片，要求本地路径（widget://、fs://）；默认：竖屏按钮图标
+							horizontalImg: "widget://Ryanimg/user/fullscreen.png"			//（可选项）字符串类型；底部横屏按钮的背景图片，要求本地路径（widget://、fs://）；默认：横屏按钮图标
+						}
+					},
+
+                  coverImg: "widget://image/videoPlayer/fullscreen.png",		//	（可选项）封面图路径，播放器打开尚未播放时的封面图，要求本地路径（widget://、fs://）
+                  path: video,		//	（可选项）文档的路径，支持网络和本地（fs://）路径，在 android 平台上不支持 widget
+      			seekBarDragable: true,		//	（可选项） 播放进度条是否可以拖动
+                  autoPlay: true					//（可选项）打开时是否自动播放		默认值：true（自动播放）
+              }, function(ret, err) {
+                  if (ret) {
+
+
+       // alert(JSON.stringify(ret));	    /**/
+
+
+      				if(ret.eventType == 'show'){
+
+
+				/*
+																api.toast({
+																	msg: '打开成功并显示',
+																	duration: 11000,
+																	location : 'middle'
+																});
+				*/
+
+				}else if(ret.eventType == 'back'){
+
+
+														/*		api.toast({
+																	msg: '返回',
+																	duration: 1000,
+																	location : 'middle'
+																});
+																*/
+			var videoPlayer = api.require('videoPlayer');
+			videoPlayer.close();
+
+      				}else if(ret.eventType == 'play'){
+
+
+      																api.toast({
+      																	msg: '播放',
+      																	duration: 1000,
+      																	location : 'middle'
+      																});
+
+
+
+      				}else if(ret.eventType == 'pause'){
+
+
+      																api.toast({
+      																	msg: '暂停',
+      																	duration: 1000,
+      																	location : 'middle'
+      																});
+
+
+
+      				}else if(ret.eventType == 'next'){
+
+
+      																api.toast({
+      																	msg: '下一集',
+      																	duration: 1000,
+      																	location : 'middle'
+      																});
+
+
+
+      				}else if(ret.eventType == 'failed'){
+
+			var videoPlayer = api.require('videoPlayer');
+			videoPlayer.close();
+      																api.toast({
+      																	msg: '播放失败',
+      																	duration: 1000,
+      																	location : 'middle'
+      																});
+
+
+
+      				}
+
+
+
+
+                  } else {
+          alert(JSON.stringify(err));
+                  }
+              });
+          }
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>我购买的课程 - <?php echo $cfg_webname; ?></title>
+<link href="/css/v2_index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<style type="text/css">
+.uc-main-box{min-height:423px;}
+.box-operation{margin-top:15px;}
+.ygkc-ddd-sj{font-size:14px;line-height:20px;height:20px;color:#999;padding-bottom:10px;}
+.ygkc-ddd-sj span{padding-right:10px;}
+.ygkc-list{background:#f5f5f5;overflow:hidden;padding:15px;margin-bottom:15px;border-radius:5px;}
+.ygkc-list img{float:left;width:200px;height:113px;display:block;border-radius:5px;}
+.study-hd{padding-left:215px;height:113px;}
+.study-hd .h2-title{font-size:18px;line-height:26px;display:block;padding:8px 30px 0 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.study-hd .jiage{font-size:20px;color:#f30;display:block;padding-top:10px;}
+.study-hd .btn-tools{display:inline-block;background-color:#0271b6;color:#fff;width:100px;height:30px;line-height:30px;text-align:center;font-size:14px;margin-top:10px;border-radius:15px;}
+</style>
+</head>
+<body>
+
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+<?php include(DEDEMEMBER."/templets/left.htm"); ?>
+
+<!-- 右侧功能定位 -->
+<div class="user-right">
+<div class="uc-box uc-main-box">
+<div class="uc-content-box order-list-box">
+<div class="box-hd"><h1 class="title">我购买的课程</h1></div>
+
+<!-- 已购课程列表 -->
+<div class="box-operation">
+{dede:datalist}   
+<?php $turl = GetTypeDeurl($fields['tid']) ; ?>
+<div class="ygkc-list">
+<div class="ygkc-ddd-sj"><span>订单号：{dede:field.oid/}</span><span>{dede:field.stime function="GetDateTimeMK(@me)" /}</span></div>
+<a href="<?php echo $turl; ?>" target="_blank"><img class="course-img-bg lazy-img" data-original="<?php echo $fields['ico']; ?>"></a>
+<div class="study-hd">
+<a href="<?php echo $turl; ?>" target="_blank" class="h2-title"><?php echo $fields['pname']; ?></a>
+<span class="jiage">￥<?php echo $fields['price']; ?></span>
+</div>
+</div>
+{/dede:datalist}
+</div>
+<!-- 已购课程列表 End -->
+
+
+<!-- 分页 -->
+<div id="showpage_min">
+{dede:pagelist listsize=5 /}
+</div>
+<!-- 分页 End -->
+
+
+</div>
+</div>
+</div>
+<!-- 右侧功能定位 End -->
+
+</div>
+
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+
+<script type="text/javascript" src="/js/jquery.lazyload.js"></script>
+<script type="text/javascript">
+!function(){var n,f={};f.curr=1,n=20;var a=function(){},c=function(){$(".lazy-img").lazyload({effect:"fadeIn"})},i=function(){a(),c()};i()}();
+</script>
+
+</body>
+</html>

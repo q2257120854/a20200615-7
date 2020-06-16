@@ -1,0 +1,102 @@
+{include file="public/header" /}
+
+
+
+<div class="page">
+    <div class="fixed-empty"></div>
+    <form id="examclass_form" method="post" name="articleClassForm">
+        <table class="ds-default-table">
+            <tbody>
+                <tr class="noborder">
+                    <td colspan="2" class="required">
+                        <label class="validation" for="examclass_name">{$Think.lang.examclass_index_name}:</label>
+                    </td>
+                </tr>
+                <tr class="noborder">
+                    <td class="vatop rowform">
+                        <input type="text" value="{$class_array.examclass_name|default=''}" name="examclass_name" id="examclass_name" class="txt">
+                    </td>
+                    <td class="vatop tips">{$Think.lang.examclass_index_name}</td>
+                </tr>
+                {empty name="class_array"}
+                <tr>
+                    <td colspan="2" class="required">
+                        <label for="parent_id">{$Think.lang.examclass_add_sup_class}:</label>
+                    </td>
+                </tr>
+                <tr class="noborder">
+                    <td class="vatop rowform">
+                        <select name="examclass_parent_id" id="examclass_parent_id">
+                            <option value="0">{$Think.lang.ds_please_choose}...</option>
+                            {notempty name="parent_list"}
+                            {foreach name="parent_list" item="v"}
+                            <option {if $examclass_parent_id == $v.examclass_id}selected='selected'{/if} value="{$v.examclass_id}">{$v.examclass_name}</option>
+                            {/foreach}
+                            {/notempty}
+                        </select>
+                    </td>
+                    <td class="vatop tips">{$Think.lang.examclass_add_sup_class_notice}</td>
+                </tr>
+                {/empty}
+                <tr>
+                    <td colspan="2" class="required">
+                        <label for="examclass_sort">{$Think.lang.ds_sort}:</label>
+                    </td>
+                </tr>
+                <tr class="noborder">
+                    <td class="vatop rowform">
+                        <input type="text" value="{$class_array.examclass_sort|default=''}" name="examclass_sort" id="examclass_sort" class="txt"></td>
+                    <td class="vatop tips">{$Think.lang.examclass_add_update_sort}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="tfoot">
+                    <td colspan="15" >
+                        <input class="btn" type="submit" value="{$Think.lang.ds_submit}"/>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#examclass_form').validate({
+            errorPlacement: function (error, element) {
+                error.appendTo(element.parent().parent().prev().find('td:first'));
+            },
+            rules: {
+                examclass_name: {
+                    required: true,
+                    remote: {
+                        url: ADMINSITEURL + '/Examclass/Ajax/branch/check_class_name',
+                        type: 'get',
+                        data: {
+                            examclass_name: function () {
+                                return $('#examclass_name').val();
+                            },
+                            examclass_parent_id: function () {
+                                return $('#examclass_parent_id').val();
+                            },
+                            examclass_id: "{$class_array.examclass_id|default=''}"
+                        }
+                    }
+                },
+                examclass_sort: {
+                    number: true,
+                    range : [0,255]
+                }
+            },
+            messages: {
+                examclass_name: {
+                    required: "{$Think.lang.examclass_add_name_null}",
+                    remote: "{$Think.lang.examclass_add_name_exists}"
+                },
+                examclass_sort: {
+                    number: "{$Think.lang.examclass_add_sort_int}",
+                    range: '{$Think.lang.ds_range_0_255}'
+                }
+            }
+        });
+    });
+</script>

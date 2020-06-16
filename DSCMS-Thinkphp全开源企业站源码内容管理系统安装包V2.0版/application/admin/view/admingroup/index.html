@@ -1,0 +1,32 @@
+{extend name="layout:home" /}
+{block name="container"}
+<div class="layui-tab layui-tab-card">
+    {include file="layout/admin_items" /}
+    <div class="layui-tab-content page-tab-content">
+        <table class="layui-table lay-even">
+            <colgroup>
+                <col width="150">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>{$Think.lang.admin_group_name}</th>
+                <th>{$Think.lang.ds_operation}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {volist name="admin_group_list" id="admin_group"}
+            <tr>
+                <td>{$admin_group.group_name}</td>
+                <td>
+                    <a href="javascript:dsLayerOpen('{:url('Admingroup/edit',['group_id'=>$admin_group.group_id])}','{$Think.lang.ds_edit}-{$admin_group.group_name}')" class="layui-btn layui-btn-xs"><i class="layui-icon layui-icon-edit"></i>{$Think.lang.ds_edit}</a>
+                    <a href="javascript:dsLayerConfirm('{:url('Admingroup/del',['group_id'=>$admin_group.group_id])}','{$Think.lang.admin_group_confirm_del}')" class="layui-btn layui-btn-xs layui-btn-danger"><i class="layui-icon layui-icon-delete"></i>{$Think.lang.ds_del}</a>
+                </td>
+            </tr>
+            {/volist}
+            </tbody>
+        </table>
+    </div>
+</div>
+{/block}

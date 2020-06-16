@@ -1,0 +1,46 @@
+{extend name="layout:home" /}
+{block name="container"}
+<div class="layui-tab layui-tab-card">
+    {include file="layout/admin_items" /}
+    <div class="layui-tab-content page-tab-content">
+        <table class="layui-table lay-even">
+            <colgroup>
+                <col width="150">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>{$Think.lang.admin_name}</th>
+                <th>{$Think.lang.admin_lgoin_num}</th>
+                <th>{$Think.lang.admin_is_super}</th>
+                <th>{$Think.lang.admin_login_time}</th>
+                <th>{$Think.lang.admin_add_time}</th>
+                <th>{$Think.lang.ds_operation}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {volist name="admin_list" id="admin"}
+            <tr>
+                <td>{$admin.admin_name}</td>
+                <td>{$admin.admin_login_num}</td>
+                <td>{$admin.group_name}</td>
+                <td>{if condition="$admin.admin_login_time eq 0"}{$Think.lang.ds_no_login}{else}{$admin.admin_login_time|date='Y-m-d H:i:s',###}{/if}
+                </td>
+                <td>{if condition="$admin.admin_add_time eq 0"}{$Think.lang.ds_no_login}{else}{$admin.admin_add_time|date='Y-m-d H:i:s',###}{/if}</td>
+                <td>
+                    {if condition="$admin.admin_id eq 1"}
+                    {$Think.lang.admin_non_editable}
+                    {else}
+                    <a href="javascript:dsLayerOpen('{:url('Admin/edit',['admin_id'=>$admin.admin_id])}','{$Think.lang.ds_edit}-{$admin.admin_name}')" class="layui-btn layui-btn-xs"><i class="layui-icon layui-icon-edit"></i>{$Think.lang.ds_edit}</a> |
+                    <a href="javascript:dsLayerConfirm('{:url('admin/del',['admin_id'=>$admin.admin_id])}','{$Think.lang.admin_confirm_del}')" class="layui-btn layui-btn-xs layui-btn-danger"><i class="layui-icon layui-icon-delete"></i>{$Think.lang.ds_del}</a>
+                    {/if}
+                </td>
+            </tr>
+            {/volist}
+            </tbody>
+        </table>
+        {$show_page}
+    </div>
+</div>
+{/block}

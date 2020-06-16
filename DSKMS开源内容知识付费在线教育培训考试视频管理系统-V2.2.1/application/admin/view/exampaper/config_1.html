@@ -1,0 +1,242 @@
+{include file="public/header" /}
+
+<link rel="stylesheet" href="{$Think.PLUGINS_SITE_ROOT}/jquery-validation-engine/css/validationEngine.jquery.css" />
+<script src="{$Think.PLUGINS_SITE_ROOT}/jquery-validation-engine/js/jquery.validationEngine.js"></script>
+<script src="{$Think.PLUGINS_SITE_ROOT}/jquery-validation-engine/js/languages/jquery.validationEngine-zh_CN.js"></script>
+<div class="page">
+    <div class="fixed-bar">
+        <div class="item-title">
+            <div class="subject">
+                <h3>{$Think.lang.ds_exampaper}</h3>
+                <h5></h5>
+            </div>
+            {include file="public/admin_items" /}
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        var var_exam_users = "0";
+
+        $(document).ready(function () {
+            tmPaper.pageInit();
+        });
+
+        var tmPaper = {
+            uiInit: function () {
+                $(".tm_adm_paper_body_section").sortable({connectWith: ".tm_adm_paper_body_section"}).disableSelection();
+
+                //绑定计算分数的方法
+                $("#section_score").unbind("change");
+                $("#section_score").bind("change", function () {
+                    tmPaper.countScore();
+                });
+
+                $("#section_nums").unbind("change");
+                $("#section_nums").bind("change", function () {
+                    tmPaper.countScore();
+                });
+
+            },
+
+            addSection: function () {
+                var html = $("#tm_template_section").html();
+                $("#paper_sections").append(html);
+                tmPaper.countScore();
+                tmPaper.uiInit();
+            },
+
+            toggleSection: function (obj) {
+                var pobj = $(obj).parent().parent().parent();
+                var current_ico = $(obj).attr("class");
+
+                if (pobj) {
+                    if (current_ico.indexOf("tm_ico_max") > -1) {
+                        $(obj).removeClass("tm_ico_max");
+                        $(obj).addClass("tm_ico_min");
+                        pobj.children("dd").slideUp();
+                    } else {
+                        $(obj).removeClass("tm_ico_min");
+                        $(obj).addClass("tm_ico_max");
+                        pobj.children("dd").slideDown();
+                    }
+                }
+            },
+
+            removeSection: function (obj) {
+                var pobj = $(obj).parent().parent().parent().parent();
+                if (pobj.is("li")) {
+                    pobj.remove();
+                } else {
+                    pobj.parent().remove();
+                }
+                tmPaper.countScore();
+            },
+
+            expandSection: function () {
+                $(".tm_adm_paper_body_section_dl dd ").slideDown();
+                $(".tm_ico_min").removeClass("tm_ico_min").addClass("tm_ico_max");
+            },
+
+            shrinkSection: function () {
+                $(".tm_adm_paper_body_section_dl dd ").slideUp();
+                $(".tm_ico_max").removeClass("tm_ico_max").addClass("tm_ico_min");
+            },
+            countScore: function () {
+                var totalscore = 0, passscore = 0;
+                $("#paper_sections #section_nums").each(function (i, o) {
+                    var _nums = parseInt($(this).val());
+                    var _score = parseInt($(this).parent().children("#section_score").val());
+                    if (!isNaN(_nums) && !isNaN(_score)) {
+                        var _xscore = _nums * _score;
+                        totalscore += _xscore;
+                    }
+                });
+
+                passscore = Math.ceil(0.6 * totalscore);
+                $("input[name='exampaper_score']").val(totalscore);
+                $("input[name='exampaper_passscore']").val(passscore);
+            },
+
+            pageInit: function () {
+                tmPaper.uiInit();
+            },
+            submit: function () {
+                if (var_exam_users && eval(var_exam_users) > 0) {
+                    if (!window.confirm('该试卷已经有考生答卷，若进行修改可能影响考生成绩，如无特殊原因，不建议进行修改。请确认是否继续修改？')) {
+                        return false;
+                    }
+                }
+                var formcheck = $("#form_paper_detail").validationEngine('validate');
+                if (formcheck) {
+                    $("#form_paper_detail").submit();
+                }
+            }
+        };
+    </script>
+    <table border="0" width="100%" cellpadding="0">
+        <tr>
+            <!-- left -->
+            <td valign="top">
+                <form action="" method="post" id="form_paper_detail">
+                    <div class="tm_adm_paper">
+                        <div class="tm_adm_paper_head">
+                            <h1>{$exampaper.exampaper_name}</h1>
+                            <h2 style="background:#ffa; padding:5px 0;">
+                                <b>随机试卷</b> &nbsp;
+                                各考生试卷随机生成
+                            </h2>
+                            <h2>
+                                <b>考试时长</b> : {$exampaper.exampaper_time} 分钟
+                            </h2>
+                            <h3>
+                                <b>卷面总分</b> : 
+                                <input type="text" class="tm_txt" name="exampaper_score" value="{$exampaper.exampaper_score}" readonly style="background:#eee" /> 
+                                &nbsp;&nbsp;
+                                <b>及格分数</b> : 
+                                <input type="text" class="validate[required,custom[integer],min[1]] tm_txt" name="exampaper_passscore" maxlength="4" value="{$exampaper.exampaper_passscore}" /> 
+                            </h3>
+                        </div>
+                        <div class="tm_adm_paper_tool">
+                            <button class="btn btn-small" type="button" onclick="tmPaper.addSection()">增加章节</button>
+                            <button class="btn btn-small" type="button" onclick="tmPaper.countScore()">计算总分</button>
+                        </div>
+                        <div class="tm_adm_paper_body">
+
+
+                            <ul class="tm_adm_paper_body_section" id="paper_sections">
+                                {foreach name="exampaper.exampaper_setting" item="exampaper_setting_value" key="exampaper_setting_key"}
+                                <li>
+                                    <dl class="tm_adm_paper_body_section_dl">
+                                        <dt>
+                                            <span class="section_title">
+                                                章节名称：
+                                                <input type="text" name="args[section_name][]" maxlength="30" class="validate[required] tm_txt" size="50" value="{$exampaper_setting_value.section_name}">
+                                            </span>
+                                            <span class="section_tools">
+                                                <a href="javascript:void(0);" onclick="javascript:tmPaper.removeSection(this);" class="tm_ico_delete tm_position_adjustment"></a>
+                                            </span>
+                                        </dt>
+                                        <dt>章节描述：<input type="text" class="validate[required] tm_txt" size="50" name="args[section_remark][]" maxlength="30" value="{$exampaper_setting_value.section_remark}"></dt>
+                                        <dt>
+                                            章节设定 :
+                                            <span class="tm_section_setting">
+                                                <select name="args[section_type][]" class="validate[required] tm_select" style="min-width:100px">
+                                                    <option value="">请选择题型</option>
+                                                    {foreach name="examtype_list" item="examtype_item" key="examtype_key"}
+                                                    <option value="{$examtype_key}" {if $examtype_key == $exampaper_setting_value.section_type }selected{/if}>{$examtype_item}</option>
+                                                    {/foreach}
+                                                </select>
+                                                <select name="args[section_level][]"  style="min-width:100px">
+                                                    <option value="">选择难度</option>
+                                                    {foreach name="exambank_level_list" item="exambank_level_item" key="exambank_level_key"}
+                                                    <option value="{$exambank_level_key}" {if $exambank_level_key == $exampaper_setting_value.section_level }selected{/if}>{$exambank_level_item}</option>
+                                                    {/foreach}
+                                                </select>
+                                                &nbsp;
+                                                试题数量 : 
+                                                <input type="text" class="validate[required,custom[integer],min[1],max[500]] tm_txt" size="3" id="section_nums" name="args[section_nums][]" maxlength="3" value="{$exampaper_setting_value.section_nums}">
+                                                &nbsp;
+                                                每题分值 : 
+                                                <input type="text" class="validate[required,custom[integer],min[1]] tm_txt" size="3" id="section_score" name="args[section_score][]" maxlength="2" value="{$exampaper_setting_value.section_score}">
+                                            </span>
+                                        </dt>
+                                    </dl>
+                                </li>
+                                {/foreach}
+                            </ul>
+
+                        </div>
+                        <!-- /tm_adm_paper_body -->
+
+                        <div class="tm_adm_paper_foot">
+                            <button class="btn" type="button" onclick="javascript:tmPaper.submit()">提交</button>
+                            <button class="btn btn-default" type="button" onclick="javascript:history.go(-1);">取消</button>
+                        </div>
+
+
+                    </div>
+                </form>
+            </td><!-- /left -->
+
+        </tr>
+    </table>
+    
+    <div id="tm_template_section" style="display:none">
+        <li>
+            <dl class="tm_adm_paper_body_section_dl">
+                <dt>
+                    <span class="section_title">章节名称：<input type="text" name="args[section_name][]" maxlength="30" class="validate[required] tm_txt" size="50" /></span>
+                    <span class="section_tools">
+                        <a href="javascript:void(0);" onclick="javascript:tmPaper.removeSection(this);" class="tm_ico_delete tm_position_adjustment"></a>
+                    </span>
+                </dt>
+                <dt>章节描述：<input type="text" class="validate[required] tm_txt" size="50" name="args[section_remark][]" maxlength="30" /></dt>
+                <dt>
+                    章节设定 :
+                    <span class="tm_section_setting">
+                        <select name="args[section_type][]" class="validate[required] tm_select" style="min-width:100px">
+                            <option value="">请选择题型</option>
+                            {foreach name="examtype_list" item="examtype_item" key="examtype_key"}
+                            <option value="{$examtype_key}">{$examtype_item}</option>
+                            {/foreach}
+                        </select>
+                        <select name="args[section_level][]"  style="min-width:100px">
+                            <option value="">选择难度</option>
+                            {foreach name="exambank_level_list" item="exambank_level_item" key="exambank_level_key"}
+                            <option value="{$exambank_level_key}">{$exambank_level_item}</option>
+                            {/foreach}
+                        </select>
+                        &nbsp;
+                        试题数量 : 
+                        <input type="text" class="validate[required,custom[integer],min[1],max[500]] tm_txt" size="3" id="section_nums" name="args[section_nums][]" maxlength="3" value="10" />
+                        &nbsp;
+                        每题分值 : 
+                        <input type="text" class="validate[required,custom[integer],min[1]] tm_txt" size="3" id="section_score" name="args[section_score][]" maxlength="2" value="1" />
+                    </span>
+                </dt>
+            </dl>
+        </li>
+    </div>
+
+</div>    

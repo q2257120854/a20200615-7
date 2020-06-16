@@ -1,0 +1,24 @@
+.mui-bar.mui-bar-nav {
+	background: #fff;
+}
+.mui-bar-nav {
+    padding-top: 20px;
+    box-sizing: content-box;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+.list-thead {
+	margin-top: .2rem;
+}
+
+.mui-table-view.mui-grid-view .mui-table-view-cell {
+	font-size: .28rem;
+	background: ##F4F3F1;
+	border: 0;
+	color: #888;
+}
+
+.list-item .mui-table-view.mui-grid-view .mui-table-view-cell {
+	background: #fff;
+	color: #444;
+}

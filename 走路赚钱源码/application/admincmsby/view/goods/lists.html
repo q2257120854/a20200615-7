@@ -1,0 +1,214 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+<style>
+.paging{
+   margin-top:30px;
+}
+.home{
+	color:#fff;border: 1px #b6b6b6 solid;background: #b6b6b6; padding: 15px;height: 38px;line-height: 38px;
+}
+.all{
+	color:#fff;border: 1px #999 solid;background: #999; padding: 15px;height: 38px;line-height: 38px;
+}
+</style>
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">商品列表</h2>
+       <a href="{:url('goods/add')}" class="fr top_rt_btn add_icon">添加商品</a>
+      </div>
+      <section class="mtb">
+	   <form action="" method="get" >
+		选择分类	
+       <select class="select" name="pid">
+        <option value="null">&nbsp;&nbsp;&nbsp;选择分类&nbsp;&nbsp;&nbsp;</option>
+		 {foreach name="class" id="vo"}
+         <option value="{$vo.id}" {if condition="$vo.id eq $pid"} selected{/if}>{$vo.nbsp}{if condition="$vo.html neq ''"}<!-- &#3; -->└{/if}{$vo.html}&nbsp;{$vo.classname}&nbsp;</option>
+		 {/foreach}
+       </select>
+			
+<!--        <select class="select" name="designer">
+        <option value="0">&nbsp;&nbsp;&nbsp;选择设计师&nbsp;&nbsp;&nbsp;</option>
+		 {foreach name="team_list" id="vo"}
+         <option value="{$vo.name}" {if condition="$vo.name eq $designer"} selected{/if}>&nbsp;{$vo.name}&nbsp;</option>
+		 {/foreach}
+       </select> -->
+       <select class="select" name="home">
+        <option value="null">&nbsp;&nbsp;&nbsp;选择首页推荐&nbsp;&nbsp;&nbsp;</option>
+        <option value="1" {if condition="$home eq '1'"} selected{/if}>&nbsp;首页推荐&nbsp;</option>
+		<option value="0" {if condition="$home eq '0'"} selected{/if}>&nbsp;不推荐&nbsp;</option>
+       </select>
+	   
+       <select class="select" name="status">
+        <option value="null">&nbsp;&nbsp;&nbsp;选择状态&nbsp;&nbsp;&nbsp;</option>
+        <option value="1" {if condition="$status eq '1'"} selected{/if}>&nbsp;上架&nbsp;</option>
+		<option value="0" {if condition="$status eq '0'"} selected{/if}>&nbsp;下架&nbsp;</option>
+       </select>
+	   
+       <input type="text" class="textbox textbox_225" placeholder="输入商品名称查询..." name="keyword" value="{$keyword}" />
+       <input type="submit" value="查询" class="group_btn"/>
+	   <!-- <a href="{:url('goods/lists')}?pid={$pid}&designer={$designer}&keyword={$keyword}&nice=1" class="home"/>精品</a> -->
+	   <a href="{:url('goods/lists')}?pid={$pid}&designer={$designer}&keyword={$keyword}&status=1" class="home"/>上架</a>
+	   <a href="{:url('goods/lists')}?pid={$pid}&designer={$designer}&keyword={$keyword}&status=0" class="home"/>下架</a>
+		<a href="{:url('goods/lists')}?pid={$pid}&designer={$designer}&keyword={$keyword}&rec=1" class="home"/>二级推荐</a>	   
+	   <a href="{:url('goods/lists')}" class="all"/>全部</a> 
+	   </form>
+      </section>
+      <table class="table">
+       <tr>
+        <th style="width:80px;">ID</th>		
+        <th>缩略图</th>
+		<th>货号</th>
+        <th>产品名称</th>
+		<th>所属分类</th>
+<!-- 		<th>价格</th>
+		<th>单位</th> 
+		<th>设计师</th>	-->	
+		<th>首页推荐</th>
+		<th>二级推荐</th>
+<!-- 		<th>精品</th>	 -->	
+		<th>状态</th>
+		<th>时间</th>
+        <th>操作</th>
+       </tr>
+       </tr>
+	   {foreach name="volist.data" id="vo"}
+       <tr class="id_{$vo.id}">
+        <td class="center"><input type="checkbox" value="{$vo.id}" name="id" />{$vo.id}</td>
+		<td class="center">
+			{if condition="$vo.pic neq '0'"}
+			<img src="{$vo.pic}" style="max-width:170px;"  height="50" class="mCS_img_loaded">
+			{/if}		
+		</td>
+		<td class="center">{$vo.number}</td>
+		<td class="center">
+			{$vo.name}
+		</td>
+        <td class="center">
+			{$vo.pid}
+		</td>
+<!--         <td class="center">
+			￥{$vo.price}
+		</td>
+        <td class="center">
+			{$vo.unit}
+		</td>
+		<td class="center">
+			{$vo.designer}
+		</td> -->	
+        <td class="center">{if condition="$vo.home eq 1"}<a title="推荐" class="link_icon">&#89;</a>{else/}<a title="不推荐" class="link_icon" style="color:red;">&#88;</a>{/if}
+		</td>
+        <td class="center">{if condition="$vo.rec eq 1"}<a title="推荐" class="link_icon">&#89;</a>{else/}<a title="不推荐" class="link_icon" style="color:red;">&#88;</a>{/if}
+		</td>		
+<!-- 		<td class="center">{if condition="$vo.nice eq 1"}<a title="精品" class="link_icon">&#89;</a>{else/}<a title="非精品" class="link_icon" style="color:red;">&#88;</a>{/if}</td> -->
+		<td class="center">{if condition="$vo.status eq 1"}<a title="上架" class="link_icon">&#89;</a>{else/}<a title="下架" class="link_icon" style="color:red;">&#88;</a>{/if}</td>
+		<td class="center">{$vo.addtime|date="Y-m-d",###}</td>
+        <td class="center">
+         <a href="{:url('goods/edit')}?id={$vo.id}" title="编辑" class="link_icon">&#101;</a>
+         <a href="#" title="删除" class="link_icon del" data-id="{$vo.id}" data-pid="{$vo.pid}">&#100;</a>
+        </td>
+       </tr>
+		{/foreach}
+      </table>
+	  <div>
+		<aside class="paging_left">
+		   <a id="all">全选</a>
+		   <a id="nocheck">取消</a>
+		   <a id="reverse">反选</a>
+		   <a id="delid">删除</a>
+		</aside>
+	  {$list->render()}
+	 </div>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+$(document).ready(function() {
+	//全选
+	$("#all").on('click', function() {
+		//全选选中为true，否则为false
+		$("input[type=checkbox]").each(function(){ 
+		//循环checkbox选择或取消
+			$(this).prop("checked",true);
+		});
+	});
+	//取消
+	$("#nocheck").on('click', function() {
+		$("input[type=checkbox]").each(function(){ 
+			$(this).prop("checked",false);
+		});
+	});
+	//反选
+	$("#reverse").click(function () { 
+		$("table :checkbox").each(function () {  
+			$(this).prop("checked", !$(this).prop("checked"));  
+		});
+	});
+	//删除
+	$('.del').click(function(event){
+		var id = $(this).attr('data-id');
+		var pid = $(this).attr('data-pid');
+		if (confirm("确定要删除吗？")) {
+			$.ajax({
+				url:"{:url('goods/del')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'goods/del',id:id,pid:pid,cmm_home:'cmm_home',cmm_rec:'cmm_rec',cmm_nice:'cmm_nice',all:'all'},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('删除成功');
+						setTimeout(function(){
+							//页面刷新  
+							window.location.reload();
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});		
+		}
+	}); 
+    //批量删除
+	$('#delid').click(function(event){
+		var id=new Array();  
+		$('input[name="id"]:checked').each(function(){  
+			id.push($(this).val());//向数组中添加元素  
+		});  
+		var id_str = id.join(',');//将数组元素连接起来以构建一个字符串 
+		if (confirm("确定要删除吗？")) {
+			$.ajax({
+				url:"{:url('goods/delmost')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'goods/DelAll',delid:id_str,pid:0},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('删除成功');
+						setTimeout(function(){
+						//页面刷新  
+						window.location.reload();
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});
+		}
+	});  
+	
+	
+});
+</script>
+{/block}	

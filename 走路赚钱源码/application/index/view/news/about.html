@@ -1,0 +1,65 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>{$config.WEB_TITLE}-{$title}</title>{/block}
+{block name="keywords"}<meta name="keywords" content="{if condition="$result.keywords neq '0'"}{$result.keywords}{else /}{$config.WEB_KEYWORD}{/if}" />{/block}
+{block name="description"}<meta name="description" content="{if condition="$result.description neq ''"}{$result.description}{else /}{$config.WEB_DESCRIPTION}{/if}" />{/block}
+{block name="style"}
+{/block}
+
+ <!--广告开始-->
+{block name="ad"}
+<div class="banner"> 
+   {foreach name="banner" id="vo"}
+		<img src="{$vo.pic}" /> 
+   {/foreach}
+</div> 
+{/block}
+ <!--广告结束-->
+ 
+{block name="body"}
+
+<!--中间隔断-->
+  <div class="main"> 
+	<!-- 左侧部分 --> 
+	{include file="public/other_left_nav" /}
+	<!-- 左侧部分 end--> 
+	
+	   <!-- 内容部分 --> 
+	   <div id="contentRight"> 
+			<div class="content_com_title"> 
+				 <h2>{$title}</h2> 
+				 <div class="bread">
+				   当前位置：
+				  <a href="/" title="首页">首页</a>-{$title} 
+				 </div> 
+			</div> 
+			<div class="content"> 
+				 <div class="view"> 
+					  <h1 class="view-title">{$result.title}</h1> 
+					  <div class="view-date">
+						<span>作者：{$config.WEB_TITLE}</span> &nbsp;&nbsp;&nbsp;&nbsp; 
+						<span>发布时间：{$result.addtime|date="Y-m-d",###}</span> 
+					  </div>
+					  {if condition="$result.pic neq '0'"}
+					  <center> 	
+						<img src="{$result.pic}" alt="" id="imgs" /> 
+					  </center> 
+					  {/if}
+					  <div class="boxcen">
+						{$result.content|htmlspecialchars_decode}
+					  </div> 
+				 </div> 
+			</div> 
+		  <div class="page"> 
+			 <a href="javascript:void(0);" class="back" onclick="javascript:history.back(-1);">返回</a> 
+		  </div>
+	   </div> 
+
+	   <!-- 内容部分 end--> 
+  </div> 
+
+
+{/block}
+</div>
+{block name="script"}
+{/block}	

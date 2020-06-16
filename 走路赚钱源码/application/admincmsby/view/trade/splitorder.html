@@ -1,0 +1,209 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+
+{/block}
+
+{block name="body"}
+<style>
+.dataStatistic{width:400px;height:200px;border:1px solid #ccc;margin:0 auto;margin:10px;overflow:hidden}
+#cylindrical{width:400px;height:200px;margin-top:-15px}
+#line{width:400px;height:200px;margin-top:-15px}
+#pie{width:400px;height:200px;margin-top:-15px}
+</style>
+
+<section class="rt_wrap content mCustomScrollbar">
+
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">{$title}</h2>
+      </div>
+	<section>
+      <div class="page_title">
+       <h2 class="fl">订单信息</h2>
+      </div>
+      <table class="table">
+       <tr>
+        <td>订单ID：</td>
+        <td>{$info['id']}</td>
+        <td>订单编号：</td>
+        <td>{$info['orderid']}</td>
+        <td>{$usertitle}：</td><!--会员账号-->
+        <td>{$info['username']}</td>
+       </tr>
+       <tr>
+        <td>订单金额：</td>
+        <td>￥{$info['total_money']}</td>
+        <td>订单数量：</td>
+        <td><font style="color:#000;font-weight:600;">{$info['amount']}</font>&nbsp;/币</td>
+        <td>订单时间：</td>
+        <td>{$info['addtime']|date="Y-m-d H:i:s",###}</td>
+        </tr>
+      </table>
+	  
+	   <ul class="ulColumn2">
+		   <li>
+			<span class="item_name" style="width:120px;">拆分方式：</span>
+			<label class="single_selection"><input type="radio" name="split" value="1" checked />等份拆分</label>
+			
+			<label class="single_selection"><input type="radio" name="split" value="2" />手动拆分</label>
+		   </li>
+		   
+		   <li class="order_num" style="display:block;">
+			<span class="item_name" style="width:120px;">等份拆分：</span>
+			<input type="text" class="textbox textbox_195"  name="order_num" value="" placeholder="订单单数..."/>&nbsp;张单
+			<span class="errorTips">如：500条鱼订单平均拆分5张100的订单</span>
+		   </li>
+		   
+		   <li class="order_set" style="display:none;">
+			 <span class="item_name" style="width:120px;">拆分数量设置：</span>
+			<input type="text" class="textbox" name="Num" id="Num" value="1" style="height: 20px;line-height:20px;width:70px;margin-top:-1px;"/> 
+			 <input type="button" value="设定" class="link_btn" onClick="setUrlNum();" />
+			 <span class="errorTips">如：需要手动拆分成3张订单，就输入3，点击设置</span>
+		   </li>
+		   
+		   <li class="order_set" style="display:none;">
+			<span class="item_name" style="width:120px;">拆分订单：</span>
+			<label class="single_selection">
+			<p style="margin:6px 2px;">订单1：<input type="text" class="textbox textbox_195"  name="order[]" value="" placeholder="数量..." id="order1"/>&nbsp;币</p>
+			<div id="UpID"></div>
+			</label>
+		   </li>
+
+		   <li>
+			<input type="hidden" name="id" value="{$info['id']}"/>
+			<span class="item_name" style="width:120px;"></span>
+			<input type="submit" id="submit" class="link_btn submit" value="确认拆分"/>
+			
+		   </li>		   
+			
+	   </ul>
+	  </section>
+	  
+
+</div>
+
+</section>
+
+
+{/block}
+{block name="script"}
+		<script language="JavaScript" type="text/javascript">
+		function setUrlNum(){
+			var str='';
+			
+			if(!document.getElementById('Num').value){
+				document.getElementById('Num').value=1;
+			}
+			//console.log(num);
+			for(var i=2;i<=document.getElementById('Num').value;i++){
+				str+= '<p style="margin:6px 2px;">订单'+i+'：<input name="order[]" type="text"  class="textbox textbox_195" id="order'+i+'" placeholder="数量...">币</p>';
+			}		
+				document.getElementById('UpID').innerHTML=str;
+		}
+		
+		$(document).ready(function() {
+						
+			$("input[name='split']").change(function(){	
+				var split = $('input[name="split"]:checked').val();//选择
+				//console.log(split);
+				
+				if(split=="1"){
+					$(".order_set").css("display","none");
+					$(".order_num").css("display","block");
+				}else{
+					$(".order_num").css("display","none");
+					$(".order_set").css("display","block");
+				}
+			});
+			
+
+		//拆分订单
+		$('#submit').click(function(event){
+		
+			var formData = new FormData(); 
+			var id = $("input[name='id']").val();
+			var split = $('input[name="split"]:checked').val();
+			var order_num = $('input[name="order_num"]').val();
+			var order = new Array();
+			var order_str = '';
+			var orderNun = 0;
+			var type = "{$type}";
+			
+			formData.append('id',id); 
+			formData.append('split',split);
+			
+			if(split=="1"){
+				//等份拆分
+				if(!order_num){
+					myAlert('请输入要拆分的订单单数');return false;
+				}
+				if(order_num<2){
+					myAlert('拆分的订单数量不能少于2');return false;
+				}	
+				formData.append('order_num',order_num); 
+			}else{
+				//手动拆分
+				$("input[name='order[]']").each(function(e) {
+					order.push($(this).val());
+					var i = e+1;
+					var value = $(this).val();
+					orderNun = e+1;
+					//console.log(order[e]);				
+					if(!value){
+						myAlert('请输入【订单'+i+'】的数量');return false;
+					}
+				});
+				order_str = order.join(',');
+				
+				if(orderNun<2){
+					myAlert('拆分订单数不能少与2张订单');return false;
+				}
+				formData.append('order_str',order_str);
+			}
+			
+			console.log(order_str);
+			var url = "";
+			
+			if(type=='buy'){
+				formData.append('op',"split/buy_order"); 
+				 url = "{:url('trade/split_buy')}";
+			}
+			
+			if(type=='sell'){
+				formData.append('op',"split/sell_order"); 
+				 url = "{:url('trade/split_sell')}";
+			}
+			
+			
+			if (confirm("确定要拆分订单吗？")) {
+				$.ajax({
+					url:url,
+					dataType:"json",
+					type:'POST',
+					cache:false,
+					processData: false,//用于对data参数进行序列化处理 这里必须false
+					contentType: false, //必须
+					data:formData,
+					success: function(data) {
+						console.log(data.s);
+						if (data.s=='ok') {				
+							myAlert('拆分成功');
+							setTimeout(function(){
+								//页面刷新  
+								window.location.reload();
+							},1000);
+						}else {
+							myAlert(data.s);
+						}
+					}
+				});		
+			}
+		}); 			
+			
+			
+		});
+		
+		</script>
+{/block}	

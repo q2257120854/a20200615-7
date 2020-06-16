@@ -1,0 +1,3 @@
+update #@__member set shouyi = (shouyi + 67.83) where mid = '1'
+update #@__member set yigoumai = '1' where mid = '18'
+insert into #@__jj_shouyi (`tjrmid`,`mid`,`jine`,`chanpin`,`yongjin`,`time` ) values ('1','18','399','12个月会员','67.83','1548123229')

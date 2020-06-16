@@ -1,0 +1,137 @@
+.img1{
+	width: 100%;
+	border-radius: 3px;
+}
+.divs{
+    width: 30%;
+    position: relative;
+    left: 2.5%;
+    border-radius: 4px;
+    padding: 5px;
+	float: left;
+}
+.div1{
+	top: 25px;
+	background: #FF903B;
+	box-shadow: 0 0 11px #FF903B;
+}
+.div2{
+	top: 0;
+    background: #ff443f;
+    box-shadow: 0 0 11px #ff443f;
+	margin-left: 2.5%;
+}
+.div3{
+	top: 25px;
+    background: #ffc535;
+    box-shadow: 0 0 11px #ffc535;
+	margin-left: 2.5%;
+}
+.img2{
+    position: absolute;
+    left: 4px;
+    width: 30px;
+    z-index: 3;
+}
+.span2{
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 0, rgba(0,0,0,0.5) 100%);
+    background-image: -o-linear-gradient(top, rgba(0,0,0,0) 0, rgba(0,0,0,0.5) 100%);
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0.5) 100%);
+    background-repeat: repeat-x;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    bottom: 5px;	
+}
+.pingfen{
+    position: absolute;
+    right: 4px;
+    bottom: 8px;
+    /* color: #ff903b;	 */
+}
+.p1{
+	margin-top: 5px;
+    color: #f7f7f7;
+    font: 14px/1.5 '\5FAE\8F6F\96C5\9ED1','\5b8b\4f53',sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    margin: 0;
+}
+.span1 {
+    font-size: 12px;
+    color: rgba(0, 0, 0, .3);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+}
+.listimg{
+	z-index: 1;
+	width: 80px;
+	border-radius: 3px;
+}
+.listdiv{
+    position: absolute;
+    top: 18px;
+    left: 10px;
+    width: 85%;
+    height: 83%;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    padding: 10px 10px 10px 110px;
+}
+.a{
+    font-weight: bold;
+    color: #333;
+    max-width: 70%;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;	
+    float: left;
+    margin-right: 10px;	
+	font-size: 14px;
+}
+.listspan1{
+	font-size: 18px;
+    color: #0088FF;	
+}
+.listp{
+	color: #777;
+    font-size: 10px;	
+	margin-top: 7px;
+}
+.listdiv1{
+    position: absolute;
+    left: 110px;	
+}
+.lista{
+    display: block;
+    max-width: 10rem;
+    font-size: 12px;
+    color: #777;
+    margin-top: 3px;
+    max-height: 42px;
+    overflow: hidden;
+    width: 10rem;	
+}
+.listcs{
+	font-size: 15px;
+    color: #ff903b;
+    vertical-align: middle;	
+}
+.listbf{
+    font-size: 12px;
+    color: #777;
+    margin-left: 10px;	
+}
+.listpingfen{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #dd524d;	
+	font-size: 14px;
+}

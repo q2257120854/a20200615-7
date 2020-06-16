@@ -1,0 +1,5 @@
+.detail-intro{padding:0px 10px;line-height:20px;font-size:14px}
+.detail-intro i{float:right;margin-top:-20px;width:14px;height:6px}
+.detail-intro.detail-intro-hide i{margin-top:0px;}
+.detail-intro.detail-intro-hide .detail-intro-text{max-width:94.3662%;overflow:hidden;text-overflow:ellipsis;word-wrap:normal;white-space:nowrap;display:block;display:inline-block;vertical-align:middle}
+

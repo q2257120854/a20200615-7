@@ -1,0 +1,287 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+<style>
+.pop_cont .pop_cont_input li{
+	margin: 13px 0;
+}
+.pop_cont {
+    border-radius: 5px 5px;
+}
+.pop_cont .pop_cont_input li .textbox{
+	width:218px;
+}
+.rt_content {
+    margin-bottom: 150px;
+}
+</style>
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <h1 style="color:red;font-size:20px;font-weight:bold;text-align:center;">操作说明</h1>
+     <p style="color:red;font-size:16px;font-weight:bold;text-align:center;margin:8px 0;background:#FFC;padding:8px;">非程序员请勿擅自删除相关权限，该权限非智能！</p>
+      <div class="page_title">
+       <h2 class="fl">管理权限</h2>
+       <a href="#" class="fr top_rt_btn add_icon" id="showPopTxt">添加权限</a>
+      </div>
+      <table class="table">
+       <tr>
+        <th>Id</th>
+        <th>权限名</th>
+        <th>PID</th>
+        <th>URL</th>
+        <th>排序</th>
+        <th>状态</th>
+        <th>操作</th>
+       </tr>
+	   {foreach name="list" id="vo"}
+       <tr class="id_{$vo.id}" style="{if condition="$vo.pid eq 0"}background:#F9F;{/if}">
+        <td class="center">{$vo.id}</td>
+        <td {if condition="$vo.pid eq 0"}style="background:#F9F;font-weight:600;"{/if}>
+			{$vo.nbsp}{if condition="$vo.html neq ''"}└<!-- &#3; -->{/if}{$vo.html}&nbsp;
+			{$vo.name}	
+		</td>
+        <td class="center">{$vo.pid}</td>      
+        <td class="center">{$vo.url}</td>
+		<td class="center">{$vo.sort}</td>
+        <td class="center">{if condition="$vo.status eq 1"}<a title="开启" class="link_icon" >&#89;</a>{else/}<a title="关闭" class="link_icon" style="color:red;">&#88;</a>{/if}</td>
+        <td class="center">
+         <a href="#" title="编辑" class="link_icon edit"  data-id="{$vo.id}">&#101;</a>
+         <a href="#" title="删除" class="link_icon del"  data-id="{$vo.id}">&#100;</a>
+        </td>
+       </tr>
+		{/foreach}
+      </table>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script src="__ADMIN_JS__/amcharts.js" type="text/javascript"></script>
+<script src="__ADMIN_JS__/serial.js" type="text/javascript"></script>
+<script src="__ADMIN_JS__/pie.js" type="text/javascript"></script>
+<script>
+$(document).ready(function() {		 
+  //测试提交，对接程序删除即可
+	$('.del').click(function(event){
+		var id = $(this).attr('data-id');
+		if (confirm("确定要删除吗？权限删除请谨慎！")) {
+			$.ajax({
+				url:"{:url('power/del')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'powerdel',id:id},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('删除成功');
+						setTimeout(function(){
+						//页面刷新  
+						window.location.reload();
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});
+		}
+	});  
+	
+	//弹出：确认按钮
+	$(".trueBtn").click(function(){
+		var id = $("input[name=id]").val();
+		var name = $("input[name=name]").val();
+		var url = $("input[name=url]").val();
+		var sort = $("input[name=sort]").val();
+		var status = $('input[name="status"]:checked').val();
+		var pid = $("option:selected").val();
+		
+		if(!id){
+		//添加权限
+			$.ajax({
+				url:"{:url('power/add_do')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'poweradd',name:name,url:url,sort:sort,status:status,pid:pid},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('添加成功');
+						setTimeout(function(){
+						//页面刷新  
+						location.href= "{:url('power/lists')}";
+						},1000);
+						
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});			
+		
+		}else{
+		console.log(id);
+		//修改权限
+			$.ajax({
+				url:"{:url('power/edit_do')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'poweredit',name:name,url:url,sort:sort,status:status,pid:pid,id:id},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('修改成功');
+						setTimeout(function(){
+						//页面刷新  
+						location.href= "{:url('power/lists')}";
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});				
+		}
+		$(".pop_bg").fadeOut();
+	});
+	//弹出：取消或关闭按钮
+	$(".falseBtn").click(function(){
+		$(".pop_bg").fadeOut();
+	});	
+	//添加权限
+	$("#showPopTxt").click(function(){
+		$("#title").html('添加权限');
+		$("input[name=name]").val('');
+		$('select').find("option[value='0']").attr("selected",true);
+		$("input[name=url]").val('');
+		$("input[name=sort]").val(0);
+		$(":radio[value=1]").prop("checked",true);
+			$.ajax({
+				url:"{:url('power/add')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:''},
+				success: function(data) {					
+					var list  = data.s;
+					var htm = '<option value="0">&nbsp;顶级&nbsp;</option>';
+					
+					console.log(list);		
+					if(list){
+						for(var i=0;i<list.length;i++){
+							var t = '';
+							if(list[i].html){
+								t = '|';
+							}
+							list[i].html = t+list[i].html;
+							htm += '<option value="'+list[i].id+'">'+list[i].html+'&nbsp;'+list[i].name+'&nbsp;</option>';
+							$("select").html(htm);
+						}									
+					}
+				}
+			});
+			
+		$(".pop_bg").fadeIn();
+	 });
+	//添加权限
+	$(".edit").click(function(){
+		$("#title").html('修改权限');
+		var id = $(this).attr('data-id');
+			$.ajax({
+				url:"{:url('power/edit')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{id:id},
+				success: function(data) {					
+					var list  = data.s;
+					var htm = '<option value="0">&nbsp;顶级&nbsp;</option>';
+					
+					console.log(list);		
+					if(list){
+						for(var i=0;i<list.length;i++){
+							var t = '';
+							if(list[i].html){
+								t = '|';
+							}
+							list[i].html = t+list[i].html;
+							
+							htm += '<option value="'+list[i].id+'" >'+list[i].html+'&nbsp;'+list[i].name+'&nbsp;</option>';
+							$("select").html(htm);
+						}									
+					}					
+					var value  = data.v;
+					console.log(value);
+					$("input[name=name]").val(value.name);
+					$('select').find("option[value='"+value.pid+"']").attr("selected",true);
+					$("input[name=url]").val(value.url);
+					$("input[name=sort]").val(value.sort);
+					$(":radio[value="+value.status+"]").prop("checked",true);
+				}
+			});
+			
+		$('select').find("option[value='0']").attr("selected",true);
+		$("input[name=url]").val('');
+		$("input[name=sort]").val('');
+		$(":radio[value=1]").prop("checked",true);
+		$("input[name=id]").val(id);
+		$(".pop_bg").fadeIn();
+	 });
+	 
+
+	
+});
+</script>
+     <section class="pop_bg">
+      <div class="pop_cont">
+       <!--title-->
+       <h3 id="title">添加权限</h3>
+       <!--content-->
+       <div class="pop_cont_input">
+        <ul>
+         <li>
+          <span>权限名 </span>
+          <input type="text" name="name" value="" placeholder="权限名..." class="textbox"/>
+		  <span style="color:red;">*</span>
+         </li>
+         <li>
+          <span class="ttl">上级&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <select class="select" name="pid">
+		   <option value="0">&nbsp;顶级&nbsp;</option>
+          </select>
+         </li>
+         <li>
+          <span class="ttl">URL&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <input type="text" name="url" value="" placeholder="URL..." class="textbox"/>
+         </li>
+         <li>
+          <span> 排序&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <input type="text" name="sort" value="" placeholder="排序..." class="textbox"/>
+         </li>
+		<li>
+			<span class="item_name" style="width:120px;">状态：</span>
+			<label class="single_selection"><input type="radio" name="status" value="1" checked />开启</label>
+			<label class="single_selection"><input type="radio" name="status" value="0" />关闭</label>
+		</li>
+	   
+        </ul>
+       </div>
+       <!--以pop_cont_text分界-->
+       <div class="pop_cont_text">
+        这里是文字性提示信息！
+       </div>
+       <!--bottom:operate->button-->
+       <div class="btm_btn">
+	    <input type="hidden" value="" name="id"/>
+        <input type="button" value="确认" class="input_btn trueBtn"/>
+        <input type="button" value="关闭" class="input_btn falseBtn"/>
+       </div>
+      </div>
+     </section>
+     <!--结束：弹出框效果-->
+{/block}	

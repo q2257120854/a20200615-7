@@ -1,0 +1,3991 @@
+[ 2019-07-08T01:52:55+08:00 ] 203.189.232.36 54.149.219.164 GET /
+[ log ] yoopay.top/ [运行时间：0.258789s][吞吐率：3.86req/s] [内存消耗：2,660.61kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'accept-encoding' => 'gzip',
+  'user-agent' => 'Go-http-client/1.1',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.007812s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T06:12:29+08:00 ] 203.189.232.36 203.208.60.82 GET /
+[ log ] yoopay.top/ [运行时间：0.300781s][吞吐率：3.32req/s] [内存消耗：2,661.25kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip,deflate,br',
+  'user-agent' => 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+  'from' => 'googlebot(at)googlebot.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012695s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.025390s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.003906s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.016602s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000977s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T06:12:30+08:00 ] 203.189.232.36 203.208.60.112 GET /login
+[ log ] yoopay.top/login [运行时间：0.178711s][吞吐率：5.60req/s] [内存消耗：1,568.00kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip,deflate,br',
+  'user-agent' => 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+  'from' => 'googlebot(at)googlebot.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=c2gga6e8iuk6q154l34t80jaf3',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T06:14:58+08:00 ] 203.189.232.36 188.165.131.4 GET /wp-login.php
+[ log ] yoopay.top/wp-login.php [运行时间：0.095703s][吞吐率：10.45req/s] [内存消耗：1,280.55kb] [文件加载：43]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'wp-login.php',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'accept-encoding' => 'gzip',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T10:38:32+08:00 ] 203.189.232.36 60.11.69.135 GET /
+[ log ] yoopay.top/ [运行时间：0.326172s][吞吐率：3.07req/s] [内存消耗：2,661.89kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=gj9anfhhklnrfluttn3jm29bq4',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.0; ONEPLUS A3000 Build/OPR1.170623.032; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/58.0.3029.124 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/24.0)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000977s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.002929s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.035156s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.006836s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T10:38:32+08:00 ] 203.189.232.36 60.11.69.135 GET /login
+[ log ] yoopay.top/login [运行时间：0.262695s][吞吐率：3.81req/s] [内存消耗：1,568.86kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=gj9anfhhklnrfluttn3jm29bq4',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.0; ONEPLUS A3000 Build/OPR1.170623.032; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/58.0.3029.124 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/24.0)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T12:27:29+08:00 ] 203.189.232.36 61.158.147.91 GET /
+[ log ] yoopay.top/ [运行时间：0.209961s][吞吐率：4.76req/s] [内存消耗：2,661.75kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.013672s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T12:27:29+08:00 ] 203.189.232.36 61.158.147.91 GET /login
+[ log ] yoopay.top/login [运行时间：0.114258s][吞吐率：8.75req/s] [内存消耗：1,568.97kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T12:27:45+08:00 ] 203.189.232.36 61.158.147.91 POST /userland.html
+[ log ] yoopay.top/userland.html [运行时间：0.281250s][吞吐率：3.56req/s] [内存消耗：2,626.77kb] [文件加载：66]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login_do_cmm',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json',
+  'content-length' => '36',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'username' => '14714714714',
+  'password' => '123456',
+)
+[ info ] [ RUN ] app\index\controller\Login->login_do_cmm[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.008789s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.018555s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`myphone`,`money_wallet`,`fry_data`,`refereeid`,`login_ip`,`logintime`,`status`,`rank`,`last_ip`,`logincount`,`forepart_money`,`forepart_time` FROM `cmm_users` WHERE  `account` = '14714714714'  AND `password` = 'f122db007ed655921f98184e4302bba84990ff68' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `login_ip`='61.158.147.91',`logintime`=1562560065,`last_ip`='115.153.115.7'  WHERE  (  id = 4015 ) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `logincount`=logincount+1  WHERE  (  id = 4015 ) [ RunTime:0.000977s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T12:27:47+08:00 ] 203.189.232.36 61.158.147.91 GET /index.html
+[ log ] yoopay.top/index.html [运行时间：0.345703s][吞吐率：2.89req/s] [内存消耗：3,067.27kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.019531s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.016602s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.013672s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.012695s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.013672s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T12:28:13+08:00 ] 203.189.232.36 61.158.147.91 GET /index.html
+[ log ] yoopay.top/index.html [运行时间：0.311523s][吞吐率：3.21req/s] [内存消耗：3,061.25kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2; mblast=1562559946784',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000976s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.019532s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.014648s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.019532s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.007812s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T12:28:31+08:00 ] 203.189.232.36 61.158.147.91 GET /
+[ log ] yoopay.top/ [运行时间：0.207032s][吞吐率：4.83req/s] [内存消耗：3,058.04kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2; mblast=1562559946784',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002929s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.003907s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.003906s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.013672s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.016601s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.003906s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T12:31:12+08:00 ] 203.189.232.36 61.158.147.91 GET /
+[ log ] yoopay.top/ [运行时间：0.243164s][吞吐率：4.11req/s] [内存消耗：3,058.04kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2; mblast=1562559946784',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.016602s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.017579s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T12:31:20+08:00 ] 203.189.232.36 61.158.147.91 GET /reg.html
+[ log ] yoopay.top/reg.html [运行时间：0.124024s][吞吐率：8.06req/s] [内存消耗：1,575.13kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'reg',
+    2 => 'reg',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2; mblast=1562559946784',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Reg->reg[ D:\wwwroot\yoopay.top\application\index\controller\Reg.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\reg\reg.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T12:31:29+08:00 ] 203.189.232.36 61.158.147.91 GET /
+[ log ] yoopay.top/ [运行时间：0.327149s][吞吐率：3.06req/s] [内存消耗：3,064.19kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2; mblast=1562559946784',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013672s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.003906s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.016601s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.004882s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.004882s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T12:31:45+08:00 ] 203.189.232.36 61.158.147.91 GET /
+[ log ] yoopay.top/ [运行时间：0.235351s][吞吐率：4.25req/s] [内存消耗：3,058.04kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2; mblast=1562559946784',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000976s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.011718s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.010743s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000976s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T12:34:29+08:00 ] 203.189.232.36 61.158.147.91 GET /
+[ log ] yoopay.top/ [运行时间：0.453125s][吞吐率：2.21req/s] [内存消耗：3,058.04kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2; mblast=1562559946784',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011718s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.013672s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T14:28:30+08:00 ] 203.189.232.36 222.132.233.240 GET /
+[ log ] yoopay.top/ [运行时间：0.231445s][吞吐率：4.32req/s] [内存消耗：2,661.47kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.014648s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T14:28:30+08:00 ] 203.189.232.36 222.132.233.240 GET /login
+[ log ] yoopay.top/login [运行时间：0.112305s][吞吐率：8.90req/s] [内存消耗：1,568.30kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T14:28:37+08:00 ] 203.189.232.36 222.132.233.240 POST /userland.html
+[ log ] yoopay.top/userland.html [运行时间：0.202148s][吞吐率：4.95req/s] [内存消耗：2,626.73kb] [文件加载：66]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login_do_cmm',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json',
+  'content-length' => '36',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'username' => '14714714714',
+  'password' => '123456',
+)
+[ info ] [ RUN ] app\index\controller\Login->login_do_cmm[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000977s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`myphone`,`money_wallet`,`fry_data`,`refereeid`,`login_ip`,`logintime`,`status`,`rank`,`last_ip`,`logincount`,`forepart_money`,`forepart_time` FROM `cmm_users` WHERE  `account` = '14714714714'  AND `password` = 'f122db007ed655921f98184e4302bba84990ff68' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `login_ip`='222.132.233.240',`logintime`=1562567317,`last_ip`='61.158.147.91'  WHERE  (  id = 4015 ) [ RunTime:0.000976s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `logincount`=logincount+1  WHERE  (  id = 4015 ) [ RunTime:0.000977s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T14:28:39+08:00 ] 203.189.232.36 222.132.233.240 GET /index.html
+[ log ] yoopay.top/index.html [运行时间：0.386719s][吞吐率：2.59req/s] [内存消耗：3,066.95kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011718s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.038086s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000976s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T14:28:42+08:00 ] 203.189.232.36 222.132.233.240 GET /
+[ log ] yoopay.top/ [运行时间：0.231446s][吞吐率：4.32req/s] [内存消耗：3,057.65kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012696s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.004882s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T15:01:42+08:00 ] 203.189.232.36 222.132.233.240 GET /myziliao.html
+[ log ] yoopay.top/myziliao.html [运行时间：0.147461s][吞吐率：6.78req/s] [内存消耗：2,760.15kb] [文件加载：68]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'member',
+    2 => 'my_information',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Member->my_information[ D:\wwwroot\yoopay.top\application\index\controller\Member.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\member\my_information.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'pid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT `account`,`safe_key`,`myphone`,`money_wallet`,`reward_wallet`,`fry_data`,`ping_id`,`fullname`,`weixin`,`aiplay`,`eth_purse`,`refereeid`,`status`,`ore_wallet`,`release_wallet`,`rank` FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T15:01:43+08:00 ] 203.189.232.36 222.132.233.240 GET /
+[ log ] yoopay.top/ [运行时间：0.310547s][吞吐率：3.22req/s] [内存消耗：3,057.65kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011719s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.014648s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.018555s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.019531s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.002930s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T16:54:09+08:00 ] 203.189.232.36 60.11.69.135 GET /
+[ log ] yoopay.top/ [运行时间：0.295899s][吞吐率：3.38req/s] [内存消耗：2,661.86kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=gj9anfhhklnrfluttn3jm29bq4',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.0; ONEPLUS A3000 Build/OPR1.170623.032; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/58.0.3029.124 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/24.0)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000976s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.019531s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000977s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T16:54:09+08:00 ] 203.189.232.36 60.11.69.135 GET /login
+[ log ] yoopay.top/login [运行时间：0.179687s][吞吐率：5.57req/s] [内存消耗：1,568.86kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=gj9anfhhklnrfluttn3jm29bq4',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.0; ONEPLUS A3000 Build/OPR1.170623.032; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/58.0.3029.124 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/24.0)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:32:02+08:00 ] 203.189.232.36 101.24.203.211 GET /
+[ log ] yoopay.top/ [运行时间：0.258789s][吞吐率：3.86req/s] [内存消耗：2,661.72kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012695s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.003906s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000976s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:32:02+08:00 ] 203.189.232.36 101.24.203.211 GET /login
+[ log ] yoopay.top/login [运行时间：0.181641s][吞吐率：5.51req/s] [内存消耗：1,568.87kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:32:10+08:00 ] 203.189.232.36 101.24.203.211 GET /reg.html
+[ log ] yoopay.top/reg.html [运行时间：0.124024s][吞吐率：8.06req/s] [内存消耗：1,575.11kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'reg',
+    2 => 'reg',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Reg->reg[ D:\wwwroot\yoopay.top\application\index\controller\Reg.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\reg\reg.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:32:16+08:00 ] 203.189.232.36 101.24.203.211 POST /msm_send.html
+[ log ] yoopay.top/msm_send.html [运行时间：0.842773s][吞吐率：1.19req/s] [内存消耗：1,516.37kb] [文件加载：48]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'reg',
+    2 => 'regmm_msm_send',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/reg.html',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json',
+  'content-length' => '24',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'mobile' => '15831195605',
+  'code' => '',
+)
+[ info ] [ RUN ] app\index\controller\Reg->regmm_msm_send[ D:\wwwroot\yoopay.top\application\index\controller\Reg.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:32:18+08:00 ] 203.189.232.36 101.24.203.211 POST /msm_send.html
+[ log ] yoopay.top/msm_send.html [运行时间：0.448243s][吞吐率：2.23req/s] [内存消耗：1,516.34kb] [文件加载：48]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'reg',
+    2 => 'regmm_msm_send',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/reg.html',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json',
+  'content-length' => '24',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'mobile' => '15831195605',
+  'code' => '',
+)
+[ info ] [ RUN ] app\index\controller\Reg->regmm_msm_send[ D:\wwwroot\yoopay.top\application\index\controller\Reg.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:32:43+08:00 ] 203.189.232.36 101.24.203.211 GET /jiechu.html
+[ log ] yoopay.top/jiechu.html [运行时间：0.118164s][吞吐率：8.46req/s] [内存消耗：1,282.41kb] [文件加载：43]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'jiechu',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:32:52+08:00 ] 203.189.232.36 101.24.203.211 GET /
+[ log ] yoopay.top/ [运行时间：0.252929s][吞吐率：3.95req/s] [内存消耗：2,661.81kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000977s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.024414s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:32:52+08:00 ] 203.189.232.36 101.24.203.211 GET /login
+[ log ] yoopay.top/login [运行时间：0.135743s][吞吐率：7.37req/s] [内存消耗：1,568.87kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:33:08+08:00 ] 203.189.232.36 101.24.203.211 POST /userland.html
+[ log ] yoopay.top/userland.html [运行时间：0.270508s][吞吐率：3.70req/s] [内存消耗：2,626.85kb] [文件加载：66]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login_do_cmm',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json',
+  'content-length' => '36',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'username' => '14714714714',
+  'password' => '123456',
+)
+[ info ] [ RUN ] app\index\controller\Login->login_do_cmm[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012695s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.010743s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.013672s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`myphone`,`money_wallet`,`fry_data`,`refereeid`,`login_ip`,`logintime`,`status`,`rank`,`last_ip`,`logincount`,`forepart_money`,`forepart_time` FROM `cmm_users` WHERE  `account` = '14714714714'  AND `password` = 'f122db007ed655921f98184e4302bba84990ff68' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `login_ip`='101.24.203.211',`logintime`=1562578388,`last_ip`='222.132.233.240'  WHERE  (  id = 4015 ) [ RunTime:0.002930s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `logincount`=logincount+1  WHERE  (  id = 4015 ) [ RunTime:0.003907s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:33:09+08:00 ] 203.189.232.36 101.24.203.211 GET /index.html
+[ log ] yoopay.top/index.html [运行时间：0.478516s][吞吐率：2.09req/s] [内存消耗：3,067.46kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000977s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.019532s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.002929s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.017578s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.023437s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:34:18+08:00 ] 203.189.232.36 101.24.203.211 GET /index.html
+[ log ] yoopay.top/index.html [运行时间：0.443359s][吞吐率：2.26req/s] [内存消耗：3,061.23kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011719s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.002929s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.019531s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.013672s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.025390s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.004883s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:34:42+08:00 ] 203.189.232.36 101.24.203.211 GET /shezhi.html
+[ log ] yoopay.top/shezhi.html [运行时间：0.204102s][吞吐率：4.90req/s] [内存消耗：2,759.69kb] [文件加载：68]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'member',
+    2 => 'my_uset',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Member->my_uset[ D:\wwwroot\yoopay.top\application\index\controller\Member.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\member\my_uset.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT `account`,`myphone`,`money_wallet`,`reward_wallet`,`fry_data`,`ping_id`,`fullname`,`weixin`,`aiplay`,`eth_purse`,`refereeid`,`status`,`ore_wallet`,`release_wallet`,`rank` FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.015625s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:34:45+08:00 ] 203.189.232.36 101.24.203.211 GET /xiugaipass.html
+[ log ] yoopay.top/xiugaipass.html [运行时间：0.199218s][吞吐率：5.02req/s] [内存消耗：2,751.73kb] [文件加载：68]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'member',
+    2 => 'edit_mypaws',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/shezhi.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Member->edit_mypaws[ D:\wwwroot\yoopay.top\application\index\controller\Member.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\member\edit_mypaws.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'style_op',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000977s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.021485s ]
+[ sql ] [ SQL ] SELECT `myphone`,`safe_key` FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.002930s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:34:48+08:00 ] 203.189.232.36 101.24.203.211 GET /shezhi.html
+[ log ] yoopay.top/shezhi.html [运行时间：0.243164s][吞吐率：4.11req/s] [内存消耗：2,759.69kb] [文件加载：68]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'member',
+    2 => 'my_uset',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Member->my_uset[ D:\wwwroot\yoopay.top\application\index\controller\Member.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\member\my_uset.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003907s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.003906s ]
+[ sql ] [ SQL ] SELECT `account`,`myphone`,`money_wallet`,`reward_wallet`,`fry_data`,`ping_id`,`fullname`,`weixin`,`aiplay`,`eth_purse`,`refereeid`,`status`,`ore_wallet`,`release_wallet`,`rank` FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.002930s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:34:49+08:00 ] 203.189.232.36 101.24.203.211 GET /index.html
+[ log ] yoopay.top/index.html [运行时间：0.269532s][吞吐率：3.71req/s] [内存消耗：3,061.23kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000976s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.003906s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.021484s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:34:55+08:00 ] 203.189.232.36 101.24.203.211 GET /index.html
+[ log ] yoopay.top/index.html [运行时间：0.247071s][吞吐率：4.05req/s] [内存消耗：3,061.23kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.013672s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.003906s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.001953s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:34:56+08:00 ] 203.189.232.36 101.24.203.211 GET /
+[ log ] yoopay.top/ [运行时间：0.276368s][吞吐率：3.62req/s] [内存消耗：3,058.06kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000977s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.018554s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.014648s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000976s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:36:57+08:00 ] 203.189.232.36 101.24.203.211 GET /
+[ log ] yoopay.top/ [运行时间：0.424805s][吞吐率：2.35req/s] [内存消耗：3,058.06kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010742s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001954s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.013672s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:36:59+08:00 ] 203.189.232.36 101.24.203.211 GET /index.html
+[ log ] yoopay.top/index.html [运行时间：0.345703s][吞吐率：2.89req/s] [内存消耗：3,061.23kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000977s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.017578s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.003906s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.016601s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.034179s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000976s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:37:02+08:00 ] 203.189.232.36 101.24.203.211 GET /shezhi.html
+[ log ] yoopay.top/shezhi.html [运行时间：0.207032s][吞吐率：4.83req/s] [内存消耗：2,759.69kb] [文件加载：68]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'member',
+    2 => 'my_uset',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Member->my_uset[ D:\wwwroot\yoopay.top\application\index\controller\Member.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\member\my_uset.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT `account`,`myphone`,`money_wallet`,`reward_wallet`,`fry_data`,`ping_id`,`fullname`,`weixin`,`aiplay`,`eth_purse`,`refereeid`,`status`,`ore_wallet`,`release_wallet`,`rank` FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:37:03+08:00 ] 203.189.232.36 101.24.203.211 GET /quit.html
+[ log ] yoopay.top/quit.html [运行时间：0.149415s][吞吐率：6.69req/s] [内存消耗：2,098.45kb] [文件加载：60]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'quit',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/shezhi.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->quit[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:37:04+08:00 ] 203.189.232.36 101.24.203.211 GET /login
+[ log ] yoopay.top/login [运行时间：0.144531s][吞吐率：6.92req/s] [内存消耗：1,569.09kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/shezhi.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:37:06+08:00 ] 203.189.232.36 101.24.203.211 GET /jiechu.html
+[ log ] yoopay.top/jiechu.html [运行时间：0.076172s][吞吐率：13.13req/s] [内存消耗：1,282.41kb] [文件加载：43]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'jiechu',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:37:48+08:00 ] 203.189.232.36 101.24.203.211 GET /
+[ log ] yoopay.top/ [运行时间：0.280273s][吞吐率：3.57req/s] [内存消耗：2,661.44kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.025390s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.001953s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:37:48+08:00 ] 203.189.232.36 101.24.203.211 GET /login
+[ log ] yoopay.top/login [运行时间：0.127929s][吞吐率：7.82req/s] [内存消耗：1,568.39kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ifiq4a2cv8n5b579l7c4ovhan2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:38:09+08:00 ] 203.189.232.36 101.24.203.211 POST /userland.html
+[ log ] yoopay.top/userland.html [运行时间：0.227539s][吞吐率：4.39req/s] [内存消耗：2,626.73kb] [文件加载：66]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login_do_cmm',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ifiq4a2cv8n5b579l7c4ovhan2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Mobile Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json',
+  'content-length' => '36',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'username' => '14714714714',
+  'password' => '123456',
+)
+[ info ] [ RUN ] app\index\controller\Login->login_do_cmm[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000977s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.016602s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.014648s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`myphone`,`money_wallet`,`fry_data`,`refereeid`,`login_ip`,`logintime`,`status`,`rank`,`last_ip`,`logincount`,`forepart_money`,`forepart_time` FROM `cmm_users` WHERE  `account` = '14714714714'  AND `password` = 'f122db007ed655921f98184e4302bba84990ff68' LIMIT 1 [ RunTime:0.001954s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `login_ip`='101.24.203.211',`logintime`=1562578689,`last_ip`='101.24.203.211'  WHERE  (  id = 4015 ) [ RunTime:0.000977s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `logincount`=logincount+1  WHERE  (  id = 4015 ) [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:38:11+08:00 ] 203.189.232.36 101.24.203.211 GET /index.html
+[ log ] yoopay.top/index.html [运行时间：0.348633s][吞吐率：2.87req/s] [内存消耗：3,066.94kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ifiq4a2cv8n5b579l7c4ovhan2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Mobile Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013672s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.039062s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.008790s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.001953s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:39:08+08:00 ] 203.189.232.36 180.163.220.68 GET /login
+[ log ] yoopay.top/login [运行时间：0.118164s][吞吐率：8.46req/s] [内存消耗：1,568.95kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.baidu.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 8.1.0; zh-CN; EML-AL00 Build/HUAWEIEML-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 baidu.sogo.uc.UCBrowser/11.9.4.974 UWS/2.13.1.48 Mobile Safari/537.36 AliApp(DingTalk/4.5.11) com.alibaba.android.rimet/10487439 Channel/227200 language/zh-CN',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:39:29+08:00 ] 203.189.232.36 42.236.10.75 GET /
+[ log ] yoopay.top/ [运行时间：0.250000s][吞吐率：4.00req/s] [内存消耗：2,661.98kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.baidu.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 8.1.0; zh-CN; EML-AL00 Build/HUAWEIEML-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 baidu.sogo.uc.UCBrowser/11.9.4.974 UWS/2.13.1.48 Mobile Safari/537.36 AliApp(DingTalk/4.5.11) com.alibaba.android.rimet/10487439 Channel/227200 language/zh-CN',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011719s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:39:32+08:00 ] 203.189.232.36 180.163.220.68 GET /index.html
+[ log ] yoopay.top/index.html [运行时间：0.101562s][吞吐率：9.85req/s] [内存消耗：2,094.73kb] [文件加载：60]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 8.1.0; zh-CN; EML-AL00 Build/HUAWEIEML-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 baidu.sogo.uc.UCBrowser/11.9.4.974 UWS/2.13.1.48 Mobile Safari/537.36 AliApp(DingTalk/4.5.11) com.alibaba.android.rimet/10487439 Channel/227200 language/zh-CN',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:39:33+08:00 ] 203.189.232.36 42.236.10.75 GET /login
+[ log ] yoopay.top/login [运行时间：0.081054s][吞吐率：12.34req/s] [内存消耗：1,569.14kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=eg1d0dsqdjos3rbd2hrq5ltv33',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.baidu.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 8.1.0; zh-CN; EML-AL00 Build/HUAWEIEML-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 baidu.sogo.uc.UCBrowser/11.9.4.974 UWS/2.13.1.48 Mobile Safari/537.36 AliApp(DingTalk/4.5.11) com.alibaba.android.rimet/10487439 Channel/227200 language/zh-CN',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:39:36+08:00 ] 203.189.232.36 180.163.220.3 GET /index.html
+[ log ] yoopay.top/index.html [运行时间：0.188476s][吞吐率：5.31req/s] [内存消耗：2,665.12kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.baidu.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 8.1.0; zh-CN; EML-AL00 Build/HUAWEIEML-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 baidu.sogo.uc.UCBrowser/11.9.4.974 UWS/2.13.1.48 Mobile Safari/537.36 AliApp(DingTalk/4.5.11) com.alibaba.android.rimet/10487439 Channel/227200 language/zh-CN',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000976s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.003907s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:39:52+08:00 ] 203.189.232.36 180.163.220.68 GET /login
+[ log ] yoopay.top/login [运行时间：0.098633s][吞吐率：10.14req/s] [内存消耗：1,569.14kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=rbgmahiorluj9i22ve7uv542u3',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.baidu.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 8.1.0; zh-CN; EML-AL00 Build/HUAWEIEML-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 baidu.sogo.uc.UCBrowser/11.9.4.974 UWS/2.13.1.48 Mobile Safari/537.36 AliApp(DingTalk/4.5.11) com.alibaba.android.rimet/10487439 Channel/227200 language/zh-CN',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:40:08+08:00 ] 203.189.232.36 101.24.203.211 GET /index.html
+[ log ] yoopay.top/index.html [运行时间：0.530274s][吞吐率：1.89req/s] [内存消耗：3,066.43kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ifiq4a2cv8n5b579l7c4ovhan2',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003907s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.016601s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.013672s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.024414s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.024414s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.003906s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.018555s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.002929s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.013672s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.001953s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:42:03+08:00 ] 203.189.232.36 101.24.203.211 GET /
+[ log ] yoopay.top/ [运行时间：0.208985s][吞吐率：4.79req/s] [内存消耗：2,092.09kb] [文件加载：60]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:42:03+08:00 ] 203.189.232.36 101.24.203.211 GET /login
+[ log ] yoopay.top/login [运行时间：0.171875s][吞吐率：5.82req/s] [内存消耗：1,568.87kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:42:20+08:00 ] 203.189.232.36 101.24.203.211 GET /reg.html
+[ log ] yoopay.top/reg.html [运行时间：0.116211s][吞吐率：8.61req/s] [内存消耗：1,575.11kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'reg',
+    2 => 'reg',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Reg->reg[ D:\wwwroot\yoopay.top\application\index\controller\Reg.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\reg\reg.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T17:42:27+08:00 ] 203.189.232.36 101.24.203.211 POST /userland.html
+[ log ] yoopay.top/userland.html [运行时间：0.247070s][吞吐率：4.05req/s] [内存消耗：2,626.87kb] [文件加载：66]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login_do_cmm',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json',
+  'content-length' => '36',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'username' => '14714714714',
+  'password' => '123456',
+)
+[ info ] [ RUN ] app\index\controller\Login->login_do_cmm[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010742s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.003906s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`myphone`,`money_wallet`,`fry_data`,`refereeid`,`login_ip`,`logintime`,`status`,`rank`,`last_ip`,`logincount`,`forepart_money`,`forepart_time` FROM `cmm_users` WHERE  `account` = '14714714714'  AND `password` = 'f122db007ed655921f98184e4302bba84990ff68' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `login_ip`='101.24.203.211',`logintime`=1562578947,`last_ip`='101.24.203.211'  WHERE  (  id = 4015 ) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `logincount`=logincount+1  WHERE  (  id = 4015 ) [ RunTime:0.000976s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T17:42:28+08:00 ] 203.189.232.36 101.24.203.211 GET /index.html
+[ log ] yoopay.top/index.html [运行时间：0.353515s][吞吐率：2.83req/s] [内存消耗：3,067.41kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.023437s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.014648s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.003906s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.014649s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T20:21:57+08:00 ] 203.189.232.36 36.98.131.90 GET /
+[ log ] yoopay.top/ [运行时间：0.695313s][吞吐率：1.44req/s] [内存消耗：2,661.92kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006836s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.022461s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.040039s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.001954s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T20:21:58+08:00 ] 203.189.232.36 36.98.131.90 GET /login
+[ log ] yoopay.top/login [运行时间：0.334961s][吞吐率：2.99req/s] [内存消耗：1,568.87kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T20:22:10+08:00 ] 203.189.232.36 36.98.131.90 POST /userland.html
+[ log ] yoopay.top/userland.html [运行时间：0.619140s][吞吐率：1.62req/s] [内存消耗：2,630.75kb] [文件加载：66]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login_do_cmm',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json',
+  'content-length' => '36',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'username' => '14714714747',
+  'password' => '123456',
+)
+[ info ] [ RUN ] app\index\controller\Login->login_do_cmm[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.016602s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.017578s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`myphone`,`money_wallet`,`fry_data`,`refereeid`,`login_ip`,`logintime`,`status`,`rank`,`last_ip`,`logincount`,`forepart_money`,`forepart_time` FROM `cmm_users` WHERE  `account` = '14714714747'  AND `password` = 'f122db007ed655921f98184e4302bba84990ff68' LIMIT 1 [ RunTime:0.022461s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`myphone`,`money_wallet`,`fry_data`,`refereeid`,`login_ip`,`logintime`,`status`,`rank`,`last_ip`,`logincount`,`forepart_money`,`forepart_time` FROM `cmm_users` WHERE  `password` = 'f122db007ed655921f98184e4302bba84990ff68'  AND `myphone` = '14714714747' LIMIT 1 [ RunTime:0.000977s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T20:22:17+08:00 ] 203.189.232.36 36.98.131.90 POST /userland.html
+[ log ] yoopay.top/userland.html [运行时间：0.458007s][吞吐率：2.18req/s] [内存消耗：2,627.02kb] [文件加载：66]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login_do_cmm',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json',
+  'content-length' => '36',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'username' => '14714714774',
+  'password' => '123456',
+)
+[ info ] [ RUN ] app\index\controller\Login->login_do_cmm[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011719s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.029297s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`myphone`,`money_wallet`,`fry_data`,`refereeid`,`login_ip`,`logintime`,`status`,`rank`,`last_ip`,`logincount`,`forepart_money`,`forepart_time` FROM `cmm_users` WHERE  `account` = '14714714774'  AND `password` = 'f122db007ed655921f98184e4302bba84990ff68' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`myphone`,`money_wallet`,`fry_data`,`refereeid`,`login_ip`,`logintime`,`status`,`rank`,`last_ip`,`logincount`,`forepart_money`,`forepart_time` FROM `cmm_users` WHERE  `password` = 'f122db007ed655921f98184e4302bba84990ff68'  AND `myphone` = '14714714774' LIMIT 1 [ RunTime:0.013672s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T20:22:54+08:00 ] 203.189.232.36 36.98.131.90 POST /userland.html
+[ log ] yoopay.top/userland.html [运行时间：0.177734s][吞吐率：5.63req/s] [内存消耗：2,623.20kb] [文件加载：66]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login_do_cmm',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json',
+  'content-length' => '36',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'username' => '14714714714',
+  'password' => '123456',
+)
+[ info ] [ RUN ] app\index\controller\Login->login_do_cmm[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000976s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`myphone`,`money_wallet`,`fry_data`,`refereeid`,`login_ip`,`logintime`,`status`,`rank`,`last_ip`,`logincount`,`forepart_money`,`forepart_time` FROM `cmm_users` WHERE  `account` = '14714714714'  AND `password` = 'f122db007ed655921f98184e4302bba84990ff68' LIMIT 1 [ RunTime:0.003906s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `login_ip`='36.98.131.90',`logintime`=1562588574,`last_ip`='101.24.203.211'  WHERE  (  id = 4015 ) [ RunTime:0.002930s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `logincount`=logincount+1  WHERE  (  id = 4015 ) [ RunTime:0.000976s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T20:22:56+08:00 ] 203.189.232.36 36.98.131.90 GET /index.html
+[ log ] yoopay.top/index.html [运行时间：0.570312s][吞吐率：1.75req/s] [内存消耗：3,067.42kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000977s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.033203s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.025390s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.042969s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.032227s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001954s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.003907s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.004883s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T20:28:15+08:00 ] 203.189.232.36 36.98.131.90 GET /
+[ log ] yoopay.top/ [运行时间：0.518555s][吞吐率：1.93req/s] [内存消耗：3,057.93kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=1pmnc5f5efce812ghiku7tgi10',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 8.1.0; PACM00 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/26.666666)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005859s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.028320s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.020508s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.011718s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.022460s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T22:04:24+08:00 ] 203.189.232.36 54.36.150.13 GET /jiechu.html
+[ log ] yoopay.top/jiechu.html [运行时间：0.096680s][吞吐率：10.34req/s] [内存消耗：1,280.90kb] [文件加载：43]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'jiechu',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'accept-encoding' => 'deflate, gzip',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (compatible; AhrefsBot/6.1; +http://ahrefs.com/robot/)',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T22:55:43+08:00 ] 203.189.232.36 52.89.211.12 GET /
+[ log ] yoopay.top/ [运行时间：0.232422s][吞吐率：4.30req/s] [内存消耗：2,660.65kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'accept-encoding' => 'gzip',
+  'user-agent' => 'Go-http-client/1.1',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001954s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.021485s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.010742s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T23:01:54+08:00 ] 203.189.232.36 61.158.147.81 GET /
+[ log ] yoopay.top/ [运行时间：0.226562s][吞吐率：4.41req/s] [内存消耗：2,092.05kb] [文件加载：60]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T23:01:55+08:00 ] 203.189.232.36 61.158.147.81 GET /login
+[ log ] yoopay.top/login [运行时间：0.158204s][吞吐率：6.32req/s] [内存消耗：1,568.97kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T23:02:24+08:00 ] 203.189.232.36 61.158.147.81 GET /reg.html
+[ log ] yoopay.top/reg.html [运行时间：0.143555s][吞吐率：6.97req/s] [内存消耗：1,575.05kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'reg',
+    2 => 'reg',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Reg->reg[ D:\wwwroot\yoopay.top\application\index\controller\Reg.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\reg\reg.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-08T23:02:36+08:00 ] 203.189.232.36 61.158.147.81 POST /userland.html
+[ log ] yoopay.top/userland.html [运行时间：0.269531s][吞吐率：3.71req/s] [内存消耗：2,626.86kb] [文件加载：66]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login_do_cmm',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json',
+  'content-length' => '36',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'username' => '14714714714',
+  'password' => '123456',
+)
+[ info ] [ RUN ] app\index\controller\Login->login_do_cmm[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000976s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`myphone`,`money_wallet`,`fry_data`,`refereeid`,`login_ip`,`logintime`,`status`,`rank`,`last_ip`,`logincount`,`forepart_money`,`forepart_time` FROM `cmm_users` WHERE  `account` = '14714714714'  AND `password` = 'f122db007ed655921f98184e4302bba84990ff68' LIMIT 1 [ RunTime:0.002930s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `login_ip`='61.158.147.81',`logintime`=1562598156,`last_ip`='36.98.131.90'  WHERE  (  id = 4015 ) [ RunTime:0.000976s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `logincount`=logincount+1  WHERE  (  id = 4015 ) [ RunTime:0.000976s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T23:02:38+08:00 ] 203.189.232.36 61.158.147.81 GET /index.html
+[ log ] yoopay.top/index.html [运行时间：0.397461s][吞吐率：2.52req/s] [内存消耗：3,067.34kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/login',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004883s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.010743s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.023437s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T23:04:08+08:00 ] 203.189.232.36 182.122.27.204 GET /
+[ log ] yoopay.top/ [运行时间：0.451172s][吞吐率：2.22req/s] [内存消耗：3,057.97kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011719s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.012696s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.017578s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.001953s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T23:05:07+08:00 ] 203.189.232.36 182.122.27.204 GET /shezhi.html
+[ log ] yoopay.top/shezhi.html [运行时间：0.346680s][吞吐率：2.88req/s] [内存消耗：2,759.68kb] [文件加载：68]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'member',
+    2 => 'my_uset',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Member->my_uset[ D:\wwwroot\yoopay.top\application\index\controller\Member.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\member\my_uset.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011719s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT `account`,`myphone`,`money_wallet`,`reward_wallet`,`fry_data`,`ping_id`,`fullname`,`weixin`,`aiplay`,`eth_purse`,`refereeid`,`status`,`ore_wallet`,`release_wallet`,`rank` FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.002930s ]
+
+---------------------------------------------------------------
+[ 2019-07-08T23:05:12+08:00 ] 203.189.232.36 182.122.27.204 GET /
+[ log ] yoopay.top/ [运行时间：0.393555s][吞吐率：2.54req/s] [内存消耗：3,057.97kb] [文件加载：78]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qum7sjm0q0b4q37o13rl1k43v2',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; PAR-AL00 Build/HUAWEIPAR-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/29.333334)',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wwwroot\yoopay.top\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\index\index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.022461s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.013672s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.019531s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4015 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.027343s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000977s ]
+
+---------------------------------------------------------------

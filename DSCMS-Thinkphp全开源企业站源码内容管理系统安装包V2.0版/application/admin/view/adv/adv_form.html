@@ -1,0 +1,98 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form layui-form-pane" method="post" enctype="multipart/form-data" >
+    <div class="layui-tab layui-tab-card">
+        {include file="layout/admin_items" /}
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.adv_title}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="adv_title" id="adv_title" value="{$adv.adv_title|default=''}" lay-verify="adv_title" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.adv_title}" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.adv_ap_id}</label>
+                    <div class="layui-input-inline">
+                        <select name="ap_id" id="ap_id">
+                            <option value="">{:lang('adv_ap_id')}</option>
+                            {notempty name="ap_list"}
+                            {volist name="ap_list" id="v"}
+                            <option {if $adv.ap_id == $v.ap_id}selected='selected'{/if} value="{$v.ap_id}">{$v.ap_name}</option>
+                            {/volist}
+                            {/notempty}
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.adv_order}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="adv_order" id="adv_order" value="{$adv.adv_order|default='255'}" lay-verify="adv_order" autocomplete="off" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.adv_start_time}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="adv_starttime" id="adv_starttime" value="{$adv.adv_starttime|date='Y-m-d',###}"/>
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">{$Think.lang.ds_empty_current_time}</div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.adv_end_time}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="adv_endtime" id="adv_endtime" value="{$adv.adv_endtime|date='Y-m-d',###}"/>
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">{$Think.lang.ds_empty_current_time}</div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.adv_img_upload}</label>
+                    <div class="layui-input-inline">
+                        {notempty name="$adv.adv_code"}
+                        <img src="{:get_adv_img($adv['adv_code'])}" height="80"/>
+                        {/notempty}
+                        <input type="file" name="adv_code"/>
+                        <input type="hidden" name="adv_code_ori" value="{$adv.adv_code|default=''}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.adv_enabled}</label>
+                    <div class="layui-input-inline">
+                        <input type="checkbox" name="adv_enabled" lay-skin="switch" lay-text="{$Think.lang.ds_yes}|{$Think.lang.ds_no}" value="1" {if condition="$adv.adv_enabled eq '1'"}checked{/if}>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.adv_link}</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input field-name" name="adv_link" id="adv_link" value="{$adv.adv_link|default=''}" lay-verify="adv_link" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.adv_link}" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-inline">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+    });
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#adv_starttime'
+        });
+    });
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#adv_endtime'
+        });
+    });
+</script>
+{/block}
+
+

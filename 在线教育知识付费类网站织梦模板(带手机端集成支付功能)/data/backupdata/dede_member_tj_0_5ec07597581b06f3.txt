@@ -1,0 +1,2 @@
+INSERT INTO `dede_member_tj` VALUES('1','0','0','0','3','45452','1','0','2','0','0','0');
+INSERT INTO `dede_member_tj` VALUES('2','0','0','0','0','0','0','0','0','0','0','0');

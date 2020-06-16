@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改帖子 - 会员中心 -<?php echo $cfg_webname; ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="apple-touch-icon-precomposed" href="http://m.duoweizi.net/images/57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://m.duoweizi.net/images/72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://m.duoweizi.net/images/144x144.png" />
+<link href="/m-css/m-index.css" rel="stylesheet" type="text/css">
+<link href="/m-css/m-user-index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar" id="topbar">
+<div class="searchbar_index">
+<a href="javascript:history.go(-1);" title="返回上一页" class="top_nav_left"></a>
+<h1>修改帖子</h1>
+</div>
+</div>
+<!-- TOP End -->
+
+<div class="wrapper_doc">
+
+<!-- 帐号密码修改 -->
+<div class="mima-content">
+<form class="mTB10 mL10 mR10" name="addcontent" id="addcontent" action="article_edit.php" method="post" enctype="multipart/form-data" onsubmit="return checkSubmit();">
+          <input type="hidden" name="dopost" value="save" />
+          <input type="hidden" name="aid" value="<?php echo $row['id']; ?>" />
+          <input type="hidden" name="idhash" value="<?php echo md5($row['id'].$cfg_cookie_encode); ?>" />
+          <input type="hidden" name="channelid" value="<?php echo $row['channel']; ?>" />
+          <input type="hidden" name="oldlitpic" value="<?php echo $row['litpic']; ?>" />
+          <input type="hidden" name="sortrank" value="<?php echo $row['sortrank']; ?>" />
+<div class="input_container"> <label>标题：</label>
+            <input  name="title" type="text" id="title" value="<?php echo $row['title']?>" maxlength="100" class="intxt"/>
+          </div>
+         <div class="input_container" style="display:none;"> <label>标签TAG：</label>
+            <input name="tags" type="text" id="tags"  value="<?php echo $row['keywords']; ?>" maxlength="100" class="intxt"/>(用逗号分开) 
+          </div>
+         <div class="input_container"  style="display:none;"> <label>作者：</label>
+            <input type="text" name="writer" id="writer" value="<?php echo $cfg_ml->M_UserName?>" maxlength="100" class="intxt" style="width:219px"/>
+          </div>
+          <p  style="display:none;">
+            <label>隶属栏目：</label>
+            <?php
+    			$typeOptions = GetOptionList($row["typeid"],$row["channel"]);
+   			    echo "<select name='typeid' size='1'>\r\n";
+    			echo $typeOptions;
+    			echo "</select>";
+			?>
+            <span style="color:#F00">*</span>(不能选择带颜色的分类)
+          </p>
+          <p class="cellBg"  style="display:none;">
+            <label>我的分类：</label>
+			<?php
+                $typeOptions = classification($cfg_ml->M_ID, $row['mtypeid'], $channelid);
+                echo "<select name='mtypesid' size='1'>\r\n";
+                echo "<option value='0' selected>请选择分类...</option>\r\n";
+                echo $typeOptions;
+                echo "</select>";
+    		?> 
+          </p>
+          <div class="input_container"  style="display:none;"> <label>信息摘要：</label>
+            <textarea name="description" id="description" style="width:60%;height:50px" ><?php echo $row["description"]; ?></textarea>
+			</div>
+          <div class="input_container" style="display:none;"> <label>缩略图：</label>
+            <input name="litpic" type="file" id="litpic" onchange="SeePicNew('divpicview',this);"  maxlength="100" class="intxt"/>
+          </div>
+          <?php if($row['litpic']!='')
+          { 
+          ?>
+         <div class="input_container" style="display:none;"> <label>原来的缩略图：</label>
+            <img name="nlitpic"  id="nlitpic" src='<?php  echo $row['litpic'];  ?>' style="width: 200px; height:150px" />
+          </div>
+          <?php
+          }
+     	  //自定义字段
+      	  	PrintAutoFieldsEdit($row['fieldset'],$addRow,'autofield');
+      	  ?>
+        <!-- 表单操作区域 -->
+  	<div style="width:90%;margin:0 auto;"><?php mGetEditor("body",$addRow['body'],350,"mMember"); ?></div>
+
+        </div> 
+		<div class="mima-act">
+<button class="formbutton" type="submit">提交</button>
+             <button class="formbutton ml10" type="reset" onclick="location.reload();">重置</button>
+			 </div>
+      </div>
+      </form>
+
+
+    </div>
+    </div>
+  
+	 
+</div>
+<!-- 帐号密码修改 End -->
+
+</div>
+<style>.intxt {
+    width: 50%;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    padding: 5px;
+    line-height: 18px;
+    height: 18px;
+}</style>
+</body>
+</html>

@@ -1,0 +1,44 @@
+#bcid {
+	width: 100%;
+	min-height: 1rem;
+	position: absolute;
+	top: 9.5%;
+	left: 0;
+	background: #393939;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+}
+
+.fbt {
+	color: #0E76E1;
+	width: 50%;
+	background-color: #ffffff;
+	float: left;
+	line-height: 44px;
+	text-align: center;
+}
+
+#turnTheLight {
+	padding-top: 0;
+	padding-bottom: 0;
+	line-height: 50px;
+	float: right;
+	font-size: .5rem;
+}
+
+.mui-bar-nav {
+	box-sizing: content-box;
+	padding-top: 20px;
+	background: #393939;
+}
+
+.mui-bar-nav~.mui-content {
+	background-color: #393939;
+	padding-top: 70px;
+}
+.mui-title, .mui-bar .mui-btn-link,
+.mui-bar .mui-icon {color: #fff;;}

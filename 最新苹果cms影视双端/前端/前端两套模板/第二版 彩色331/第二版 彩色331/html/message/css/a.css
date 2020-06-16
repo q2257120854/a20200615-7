@@ -1,0 +1,31 @@
+.aui-list .aui-list-item-media {
+    width: 3rem;
+}
+.notes-add {
+    position: fixed;
+    left: 0.5rem;
+    bottom: 0.5rem;
+    width: 3rem;
+    z-index: 99;
+}
+textarea {
+    height: 8rem;
+    background-color: #ffffff;
+    padding: 0.5rem;
+}
+
+.list{
+ color: #fff;
+ margin: 0.75rem;
+}
+ul li{
+margin: 10px 0px;
+}
+ul li p{
+margin: 4px;
+}
+.gly_hf{
+ color: #03a9f4 ;
+ font-size: 14px;
+ margin-left: 20px;
+}

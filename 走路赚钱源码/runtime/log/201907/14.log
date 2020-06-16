@@ -1,0 +1,227 @@
+[ 2019-07-14T01:27:41+08:00 ] 203.189.232.36 34.209.48.149 GET /
+[ log ] yoopay.top/ [运行时间：0.195312s][吞吐率：5.12req/s] [内存消耗：2,660.65kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'accept-encoding' => 'gzip',
+  'user-agent' => 'Go-http-client/1.1',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.012695s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-14T06:12:37+08:00 ] 203.189.232.36 203.208.60.94 GET /
+[ log ] yoopay.top/ [运行时间：0.181640s][吞吐率：5.51req/s] [内存消耗：2,661.25kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip,deflate,br',
+  'user-agent' => 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+  'from' => 'googlebot(at)googlebot.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000977s ]
+
+---------------------------------------------------------------
+[ 2019-07-14T06:12:38+08:00 ] 203.189.232.36 203.208.60.0 GET /login
+[ log ] yoopay.top/login [运行时间：0.071289s][吞吐率：14.03req/s] [内存消耗：1,568.00kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip,deflate,br',
+  'user-agent' => 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+  'from' => 'googlebot(at)googlebot.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=gqu4su7ig56sgi959snfcobqq5',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-14T09:26:05+08:00 ] 203.189.232.36 112.32.70.64 GET /
+[ log ] yoopay.top/ [运行时间：0.114258s][吞吐率：8.75req/s] [内存消耗：2,661.59kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qjkni985c3h9v0kse3uokifun7',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1.1; vivo X7Plus Build/LMY47V) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/39.0.0.0 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/24.0)',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000977s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.003906s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-14T09:26:05+08:00 ] 203.189.232.36 112.32.70.64 GET /login
+[ log ] yoopay.top/login [运行时间：0.074219s][吞吐率：13.47req/s] [内存消耗：1,568.47kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'io.dcloud.H568E09CD',
+  'cookie' => 'PHPSESSID=qjkni985c3h9v0kse3uokifun7',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1.1; vivo X7Plus Build/LMY47V) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/39.0.0.0 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/24.0)',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-14T11:40:37+08:00 ] 203.189.232.36 54.36.150.104 GET /jiechu.html
+[ log ] yoopay.top/jiechu.html [运行时间：0.115234s][吞吐率：8.68req/s] [内存消耗：1,280.90kb] [文件加载：43]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'jiechu',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'accept-encoding' => 'deflate, gzip',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (compatible; AhrefsBot/6.1; +http://ahrefs.com/robot/)',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-14T14:40:45+08:00 ] 203.189.232.36 213.142.129.165 GET /wp-login.php
+[ log ] yoopay.top/wp-login.php [运行时间：0.065430s][吞吐率：15.28req/s] [内存消耗：1,280.55kb] [文件加载：43]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'wp-login.php',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'accept-encoding' => 'gzip',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------

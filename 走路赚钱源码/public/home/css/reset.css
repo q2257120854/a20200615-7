@@ -1,0 +1,82 @@
+html, body {
+	background-color: #f1f1f1;
+	font-family: PingFangSC-Medium,helvetica,"microsoft yahei";
+}
+
+.mui-bar-nav~.mui-content {
+	padding-top: 75px;
+}
+
+.mui-bar .mui-btn-link,
+.mui-bar .mui-action-back {
+	line-height: 50px;
+	padding-top: 0;
+	padding-bottom: 0;
+	font-size: .7rem;
+	font-weight: lighter;
+	color: #333;
+}
+
+.mui-bar-nav.mui-bar .mui-icon {
+	padding-left: 0;
+}
+
+.mui-col-xs-12{width:100%}
+.mui-col-xs-11{width:91.66666667%}
+.mui-col-xs-10{width:83.33333333%}
+.mui-col-xs-9{width:75%}
+.mui-col-xs-8{width:66.66666667%}
+.mui-col-xs-7{width:58.33333333%}
+.mui-col-xs-6{width:50%}
+.mui-col-xs-5{width:41.66666667%}
+.mui-col-xs-4{width:33.33333333%}
+.mui-col-xs-3{width:25%}
+.mui-col-xs-2{width:16.66666667%}
+.mui-col-xs-1{width:8.33333333%}
+
+
+.mui-col-sm-12{width:100%}
+.mui-col-sm-11{width:91.66666667%}
+.mui-col-sm-10{width:83.33333333%}
+.mui-col-sm-9{width:75%}
+.mui-col-sm-8{width:66.66666667%}
+.mui-col-sm-7{width:58.33333333%}
+.mui-col-sm-6{width:50%}
+.mui-col-sm-5{width:41.66666667%}
+.mui-col-sm-4{width:33.33333333%}
+.mui-col-sm-3{width:25%}
+.mui-col-sm-2{width:16.66666667%}
+.mui-col-sm-1{width:8.33333333%}
+
+.mui-bar {
+	height: 50px;
+	box-shadow: none;
+}
+
+.mui-title,
+.mui-bar .mui-btn-link {
+	line-height: 50px;
+	font-size: .36rem;
+	color: #333333;
+}
+
+.mui-bar-nav~.mui-content {
+	padding-top: 50px;
+}
+
+img {vertical-align: middle;}
+
+.nav-img-ico {
+	width: .45rem;
+}
+
+.no-data-box {
+	padding-top: 22%;
+	text-align: center;
+}
+
+.no-data-box>div {
+	margin-top: .3rem;
+	color: #aaa;
+	font-size: .36rem;
+}

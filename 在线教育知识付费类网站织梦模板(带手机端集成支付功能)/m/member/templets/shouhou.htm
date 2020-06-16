@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>申请退换货 - <?php echo $cfg_webname; ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="apple-touch-icon-precomposed" href="http://m.duoweizi.net/images/57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://m.duoweizi.net/images/72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://m.duoweizi.net/images/144x144.png" />
+<link href="/m-css/m-index.css" rel="stylesheet" type="text/css">
+<link href="/m-css/m-user-index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar" id="topbar">
+<div class="searchbar_index">
+<a href="javascript:history.go(-1);" title="返回上一页" class="top_nav_left"></a>
+<h1>申请退换货</h1>
+</div>
+</div>
+<!-- TOP End -->
+
+<div class="wrapper_doc">
+
+<div class="m-user-dingdan">
+<div class="m-user-dingdan-box">
+<p class="m-user-dingdan-hao">订单号：<?php echo $oid;?></p>
+<p class="m-user-dd-xinxi"><?php echo GetDateTimeMk($pingjia['stime']); ?><span class="m-user-sep">|</span>覃小华<span class="m-user-sep">|</span>微信支付</p>
+</div>
+<!-- 商品信息 -->
+<div class="m-mall-mall">
+<a href="javascript:history.go(-1);">
+<img src="<?php echo $lll['litpic']=mstrone($lll['litpic']); ?>">
+<div class="m-mall-ming">
+<p class="m-mall-m-title"><?php echo $lll['title'];?> </p>
+</div>
+</a>
+</div>
+<!-- 商品信息 -->
+<!-- 商品数量/金额 -->
+<p class="m-caption-price">共<?php echo $lll['buynum'];?>件商品 合计：<span class="m-num"><?php echo $lll['buynum']*$lll['price'];?></span>元</p>
+<!-- 商品数量/金额 End -->
+</div>
+<!-- 退换货提交 -->
+<div class="m-mall-shouhou">
+<h2 class="wenti-mianshu">问题描述<span>(必填)</span></h2>
+<!-- 填写内容 --><form action="shouhou.php" method="post" enctype="multipart/form-data" name="feedback">
+<input type="hidden" name="dopost" value="save">
+<input type="hidden" name="oid" value="<?php echo $oid; ?>">
+<input type="hidden" name="aid" value="<?php echo $aid; ?>">
+<div class="ware_content">
+<textarea name="msg" class="area" placeholder="请您在此描述详细问题"></textarea>
+<div class="ftx-03"><button type="button" class="mall-sp-qrtj" style="
+    color: #fff;border:0px" onClick='javascript:if(document.feedback.msg.value!="") document.feedback.submit(); else alert("问题描述不能为空！");' >提交</button></div>
+</div> </form>
+<!-- 填写内容 End -->
+<p class="mall-sptj-gs">提交说明：请在问题描述前加入【换货，数量1件】标签，再把您的换货理由描述清楚，提交即可，我们审核通过后会为您做换货处理。</p>
+</div>
+<!-- 退换货提交 End -->
+
+</div>
+</body>
+</html>

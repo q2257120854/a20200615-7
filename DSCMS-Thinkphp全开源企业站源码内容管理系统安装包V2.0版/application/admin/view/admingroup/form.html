@@ -1,0 +1,73 @@
+{extend name="layout:home" /}
+{block name="container"}
+<form method="post">
+    <div class="layui-tab layui-tab-card">
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.admin_group_name}</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input field-name" name="group_name" id="group_name"
+                               value="{$group_info.group_name|default=''}" lay-verify="group_name" autocomplete="off"
+                               placeholder="{:lang('ds_please_enter')}{:lang('admin_group_name')}" />
+                    </div>
+                </div>
+                <table class="ds-default-table">
+                    <thead>
+                    <tr class="space">
+                        <th><input id="limitAll" value="1" type="checkbox">&nbsp;&nbsp;{$Think.lang.admin_group_set_limt}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="limit" item="v" key="k" }
+                    <tr>
+                        <td>
+                            <label style="width:100px">{$v.nav|default=''}</label>
+                            <input id="limit{$k}" type="checkbox" onclick="selectLimit('limit{$k}')">
+                            <label for="limit{$k}"><b>{$v.name}</b></label>
+                            {foreach name="$v.child" item="xv" key="xk" }
+                            {if condition="$admin_array eq 'add'"}
+                            <label><input dstype='limit' class="limit{$k}" type="checkbox" name="permission[]" value="{$xv.action}">{$xv.name}&nbsp;</label>
+                            {else/}
+                            <label><input dstype="limit{$k}" class="limit{$k}" type="checkbox" name="permission[]" value="{$xv.action}" <?php if(in_array(substr($xv['action'],0,($t=strpos($xv['action'],'|'))?$t:100),$group_info['group_limits'])){ echo "checked=\"checked\""; }?>>{$xv.name}&nbsp;</label>
+                            {/if}
+                            {/foreach}
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    function selectLimit(name) {
+        if ($('#' + name).prop('checked')) {
+            $('.' + name).prop('checked', true);
+        } else {
+            $('.' + name).prop('checked', false);
+        }
+    }
+    $(function () {
+        $('#limitAll').on('click', function () {
+            if ($(this).prop('checked')) {
+                $(this).parents('table').find('input:checkbox').prop('checked', true);
+            } else {
+                $(this).parents('table').find('input:checkbox').prop('checked', false);
+            }
+        });
+    });
+    layui.use('form', function () {
+        var form = layui.form;
+    });
+</script>
+{/block}
+
+
+

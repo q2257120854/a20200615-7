@@ -1,0 +1,78 @@
+{extend name="index:base" /}
+{block name="title"}<title>财富天下-我的矿机</title>{/block}
+
+{block name="style"}
+
+<style>
+
+</style>
+
+<style type="text/css">
+			.mui-bar {background: #fff;}
+			.mui-input-row label {
+				font-size: .32rem;
+				color: #444;
+			}
+			.mui-input-group .mui-input-row:after {
+				left: 0;
+				background-color: #E6E6E6;
+			}
+			.mui-bar-nav {
+			    padding-top: 20px;
+			    box-sizing: content-box;
+			    background-color: #fff;
+			    border-bottom: 1px solid #eee;
+			}			
+			.mui-input-group .mui-input-row,
+			.mui-input-row label~input {
+				height: 60px;
+			}
+			.mui-input-row label {
+				line-height: 40px;
+			}
+			.app-btn {
+				padding: 15px;
+				background: #3C7FFF;
+				border: 1px solid #3C7FFF;
+			}
+		</style>
+{/block}
+
+ 
+{block name="body"}
+		<header class="mui-bar mui-bar-nav" style="background:#3c7fff;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:#fff;"></a>
+			<h1 class="mui-title" style="color:#fff; font-family:'微软雅黑';">我的矿机</h1>
+		</header>
+		<br /><br /><br />
+		{foreach name="orderList" id="vo"}
+		<div class="mui-card" style="border-radius: 8px;">
+				<div class="mui-card-header" style="font-family: '微软雅黑'; color: #777;">{$vo.name}</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<img src="/static/img/1.png" style="width: 60px; margin-left: 5%;" />
+						<span style="position: absolute; margin-left: 12%; font-family: '微软雅黑'; font-size: 1em;">编号：<font style="font-size: 1em;">{$vo.orderid}</font></span>
+						<!--<span style=" position: absolute;font-family: '微软雅黑'; margin-left: 48%; font-size: 1em;">时速：10MH/S</span>-->
+						<span style="position: absolute; font-family: '微软雅黑'; margin-left: 12%; margin-top: 30px; font-size: 1em;">获得时间：{$vo.addtime|date="Y-m-d H:i",###}</span>
+						<span style="position: absolute; font-family: '微软雅黑'; margin-left: 12%; margin-top: 50px; font-size: 1em;">到期时间：{$vo.endtime|date="Y-m-d H:i",###}</span>
+					</div>
+				</div>
+				<div class="mui-card-footer">
+					
+					<button type="button" class="mui-btn mui-btn-royal mui-btn-outlined" style="margin-left: 80%;">
+					{if condition="$vo.endtime>=time()"}
+					运行中
+					{else /}
+					已过期
+					{/if}
+					</button>
+				</div>
+			</div>
+			{/foreach}
+
+			
+		
+		<script type="text/javascript">
+			mui.init()
+		</script>
+{/block}

@@ -1,0 +1,82 @@
+{include file="public/header" /}
+
+
+
+<div class="page">
+    <form method="post" id="admin_form">
+        <table class="ds-default-table">
+            <tbody>
+                <tr class="noborder"> 
+                    <td class="required w120">{$Think.lang.examclass_id}</td>
+                    <td class="vatop rowform">{$exambank.examclass_id}</td>
+                </tr>
+                <tr class="noborder"> 
+                    <td class="required w120">{$Think.lang.examtype_id}</td>
+                    <td class="vatop rowform">{$examtype_list[$exambank.examtype_id]}</td>
+                </tr>
+                
+                <tr class="noborder"> 
+                    <td class="required w120">{$Think.lang.exambank_question}</td>
+                    <td class="vatop rowform">{$exambank.exambank_question|htmlspecialchars_decode}</td>
+                </tr>
+                <tr class="noborder"> 
+                    <td class="required w120">{$Think.lang.exambank_answer}</td>
+                    <td class="vatop rowform">{$exambank.exambank_answer}</td>
+                </tr>
+                <tr class="noborder"> 
+                    <td class="required w120">{$Think.lang.exambank_select}</td>
+                    <td class="vatop rowform">
+                        {if $exambank.examtype_id eq '1'}
+                        <!--单选题-->
+                        {php}$exambank_select = unserialize(htmlspecialchars_decode($exambank['exambank_select']));{/php}
+                        {foreach name="$exambank_select" item="exambank_select_item" key="exambank_select_key"}
+                        <div class="select">
+                            <label>
+                                <input disabled="disabled" type="radio" />{$exambank_select_item}
+                            </label>
+                        </div>
+                        {/foreach}
+                        {/if}
+                        {if $exambank.examtype_id eq '2'}
+                        <!--多选题-->
+                        {php}$exambank_select = unserialize(htmlspecialchars_decode($exambank['exambank_select']));{/php}
+                        {foreach name="$exambank_select" item="exambank_select_item" key="exambank_select_key"}
+                        <div class="select">
+                            <label>
+                                <input disabled="disabled" type="checkbox" />{$exambank_select_item}
+                            </label>
+                        </div>
+                        {/foreach}
+                        {/if}
+
+                        {if $exambank.examtype_id eq '3'}
+                        <!--判断题-->
+                        <div class="select">
+                            <label>
+                                <input disabled="disabled" type="radio" />对
+                            </label>
+                        </div>
+                        <div class="select">
+                            <label>
+                                <input disabled="disabled" type="radio" />错误
+                            </label>
+                        </div>
+                        {/if}
+                    </td>
+                </tr>
+                <tr class="noborder"> 
+                    <td class="required w120">{$Think.lang.exambank_describe}</td>
+                    <td class="vatop rowform">{$exambank.exambank_describe|htmlspecialchars_decode}</td>
+                </tr>
+                <tr class="noborder"> 
+                    <td class="required w120">{$Think.lang.exambank_level}</td>
+                    <td class="vatop rowform">{$exambank_level_list[$exambank.exambank_level]}</td>
+                </tr>
+                <tr class="noborder"> 
+                    <td class="required w120">{$Think.lang.exambank_addtime}</td>
+                    <td class="vatop rowform">{$exambank.exambank_addtime|date='Y-m-d',###}</td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>

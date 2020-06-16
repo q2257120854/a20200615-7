@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+{block name="title"}<title>后台管理系统</title>{/block}
+<meta name="author" content="广州是财富天下信息科技有限公司" />
+<link rel="stylesheet" type="text/css" href="__ADMIN_CSS__/style.css">
+
+<!--[if lt IE 9]>
+<script src="__ADMIN_JS__/html5.js"></script>
+<![endif]-->
+<script src="__ADMIN_JS__/jquery.js"></script>
+<script src="__ADMIN_JS__/jquery.mCustomScrollbar.concat.min.js"></script>
+{block name="style"}{/block}
+<style>
+.rt_content{
+	width:auto;
+}
+.table{
+	max-width:100%;
+}
+</style>
+<script>
+
+	(function($){
+		$(window).load(function(){
+			
+			$("a[rel='load-content']").click(function(e){
+				e.preventDefault();
+				var url=$(this).attr("href");
+				$.get(url,function(data){
+					$(".content .mCSB_container").append(data); //load new content inside .mCSB_container
+					//scroll-to appended content 
+					$(".content").mCustomScrollbar("scrollTo","h2:last");
+				});
+			});
+			
+			$(".content").delegate("a[href='top']","click",function(e){
+				e.preventDefault();
+				$(".content").mCustomScrollbar("scrollTo",$(this).attr("href"));
+			});
+			
+		});
+	})(jQuery);
+</script>
+<style>
+.edui-default .edui-editor,.edui-default .edui-editor-iframeholder{
+	position: static !important;
+}
+</style>
+</head>
+
+<body>
+
+{include file="public/header" /}	
+<!-- 导航 -->
+{include file="public/left" /}
+
+{block name="body"}{/block}
+
+{include file="public/footer" /}
+
+{block name="script"}{/block}	
+    </body>
+</html>

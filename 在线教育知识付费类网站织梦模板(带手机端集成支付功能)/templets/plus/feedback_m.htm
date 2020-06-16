@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>全部评论</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="<?php echo $mcfg_basehost; ?>/m-css/m-index.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript" src="<?php echo $cfg_basehost; ?>/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+  function CheckLogintop(){
+    var taget_obj = document.getElementById('_userlogin');
+    myajax = new DedeAjax(taget_obj,false,false,'','','');
+    myajax.SendGet2("/member/ajax_loginsta.php");
+    DedeXHTTP = null;
+  }
+function CheckLogin(){
+    var taget_obj = document.getElementById('_ajax_feedback');
+    myajax = new DedeAjax(taget_obj,false,false,'','','');
+    myajax.SendGet2("/member/ajax_feedback.php");
+    DedeXHTTP = null;
+}
+function postBadGood(ftype,fid)
+{
+  var taget_obj = document.getElementById(ftype+fid);
+  var saveid = GetCookie('badgoodid');
+  if(saveid != null)
+  {
+    var saveids = saveid.split(',');
+    var hasid = false;
+    saveid = '';
+    j = 1;
+    for(i=saveids.length-1;i>=0;i--)
+    {
+      if(saveids[i]==fid && hasid) continue;
+      else {
+        if(saveids[i]==fid && !hasid) hasid = true;
+        saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+        j++;
+        if(j==10 && hasid) break;
+        if(j==9 && !hasid) break;
+      }
+    }
+    if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+    else saveid += ','+fid;
+    SetCookie('badgoodid',saveid,1);
+  }
+  else
+  {
+    SetCookie('badgoodid',fid,1);
+  }
+  myajax = new DedeAjax(taget_obj,false,false,'','','');
+  myajax.SendGet2("/shoppingpp.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+}
+function postDigg(ftype,aid)
+{
+  var taget_obj = document.getElementById('newdigg');
+  var saveid = GetCookie('diggid');
+  if(saveid != null)
+  {
+    var saveids = saveid.split(',');
+    var hasid = false;
+    saveid = '';
+    j = 1;
+    for(i=saveids.length-1;i>=0;i--)
+    {
+      if(saveids[i]==aid && hasid) continue;
+      else {
+        if(saveids[i]==aid && !hasid) hasid = true;
+        saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+        j++;
+        if(j==20 && hasid) break;
+        if(j==19 && !hasid) break;
+      }
+    }
+    if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+    else saveid += ','+aid;
+    SetCookie('diggid',saveid,1);
+  }
+  else
+  {
+    SetCookie('diggid',aid,1);
+  }
+  myajax = new DedeAjax(taget_obj,false,false,'','','');
+  var url = "/digg_ajax.php?action="+ftype+"&id="+aid;
+  myajax.SendGet2(url);
+}
+function getDigg(aid)
+{
+  var taget_obj = document.getElementById('newdigg');
+  myajax = new DedeAjax(taget_obj,false,false,'','','');
+  myajax.SendGet2("/digg_ajax.php?id="+aid);
+  DedeXHTTP = null;
+}
+-->
+</script>
+<script src="<?php echo $mcfg_basehost; ?>/m-js/jquery-2.1.4.min.js"></script>
+<style type="text/css">
+.input-txt-box{padding:0 15px;width:100%;height:53px;background:#fff;position:fixed;bottom:0;box-sizing:border-box;box-shadow:0 0 10px rgba(0,0,0,0.2);}
+.input-txt-box .gd_comment{width:100%;height:30px;line-height:30px;font-size:14px;background:#dedede;border-radius:4px;text-indent:10px;color:#999;display:block;margin-top:12px;}
+.gd_comment_box{background:#fff;width:100%;position:fixed;left:0px;bottom:-250px;height:260px;z-index:20001;}
+.cmt-top-title{margin-top:0;text-align:center;position:relative;}
+.cmt-top-title .shut{left:0;position:absolute;color:#598BDD;padding:0 15px;font-size:16px;cursor:pointer;}
+.cmt-top-title .gd_comment_fabu{right:0;-webkit-appearance:none;position:absolute;color:#598BDD;padding:0 15px;font-size:16px;cursor:pointer;border:0;line-height:50px;background-color:#fff;}
+.article-course-pl .form-contro{height:130px;}
+.article-course-pl{padding:10px 15px;border-top:1px solid #eee;border-bottom:1px solid #eee;}
+</style>
+</head>
+<body>
+
+
+<!-- TOP -->
+<div class="topbar html5plus-hide">
+<div class="searchbar_index">
+<a href="javascript:history.go(-1);" title="返回上一页" class="top_nav_left"></a>
+<h1>全部评论(<script src="/plus/goodlv.php?view=yes&type=nokuo&aid={dede:global.id/}" type="text/javascript" language="javascript"></script>)</h1>
+</div>
+</div>
+<!-- TOP End -->
+
+
+
+<div class="wrapper">
+
+
+
+
+<!-- 评论列表 -->
+<div class="course-discuss">
+<div id="content">
+{dede:datalist}
+<div class="post">
+
+<div class="pl-list clearfix">
+<div class="pl-list-avator"><img src="<?php if(empty($fields['mface'])) {if($fields['sex']=="女") $fields['mface']=$cfg_cmspath."/uploads/dfboy.png"; else $fields['mface']=$cfg_cmspath."/uploads/dfboy.png";} echo mstrone($fields['mface']);?>"></div>
+<div class="pl-list-main">
+<div class="pl-list-nick">{dede:field.username/}</div>
+<div class="pl-list-content"><?php echo RemoveXSS(Quote_replace(parseSmileys($fields['msg'],$cfg_cmspath.'/images/smiley'))); ?></div>
+<div class="pl-list-btm clearfix">
+<span class="pl-list-time fl">{dede:field.dtime function="MyDate('Y-m-d',@me)" /}</span>
+<span class="ok-btn fr" onclick="postBadGood('goodfb',{dede:field.id/})"><em id='goodfb{dede:field.id/}'>{dede:field.good/}</em></span>
+</div>
+
+<!-- 官方回复 -->
+<div class="pl-list-gfhf" <?php if($fields['gtime']=='0'){ echo 'style="display:none;"'; }else { echo 'style="display:block;"';
+}?>>
+<span style="color:#f30;">官方回复：</span>
+<p><?php echo RemoveXSS(Quote_replace(parseSmileys($fields['gmsg'],$cfg_cmspath.'/images/smiley'))); ?></p>
+</div>
+<!-- 官方回复 End -->
+
+</div>
+</div>
+
+</div>
+{/dede:datalist}
+</div>
+</div>
+<!-- 评论列表 End -->
+
+
+
+
+<!-- Pager Begin -->
+<div class="next_page" style="font-size:14px;text-align:center;height:50px;line-height:50px;color:#757575;">
+<span id="dianhuafei" style="display:block;cursor:pointer">点击加载更多</span>
+<div style="display:none;">{dede:pagelist listitem="next"/}</div>
+</div>
+<!-- Pager Ending -->
+
+
+
+
+</div>
+<!-- wrapper End -->
+
+
+
+<!-- 评论 -->
+<div class="input-txt-box"><a href="javascript:void(0);" class="gd_comment" id="gd_share1">来说点什么吧...</a></div>
+<!-- 评论 End -->
+
+
+<!-- 弹出评论 -->
+<div class="gd_comment_box" id="share_box">
+<form id="form1" name="feedback" method="post" class="comment-form" action="#">
+<input type="hidden" name="dopost" value="send" />
+<input type="hidden" name="comtype" value="comments">
+<input type="hidden" name="aid" value="{dede:global.aid/}" />
+<input type="hidden" name="fid" id='feedbackfid' value="0" />
+
+<!-- 评论 -->
+<div class="cmt-top-title">
+<span class="shut" id="share_box_shutbtn">取消</span>
+<h3 class="join-txt">评论</h3>
+<input name="" type="button" value="发布" class="gd_comment_fabu" onClick='PostComment()'>
+</div>
+
+<div class="article-course-pl">
+<textarea name="msg" class="form-contro" placeholder="来说点什么吧..."></textarea>
+
+<!-- 账号登录 -->
+<div class="other-login clearfix" id="_ajax_feedback" style="display:none;">
+<input type="hidden" name="username" value="">
+<script language="javascript" type="text/javascript">CheckLogin();</script>
+</div>
+
+
+</div>
+</form>
+<!-- 评论 End -->
+
+
+<div class="course-discuss">
+<dd id='commetcontentNew'></dd>
+</div>
+<script language='javascript'>
+function LoadCommets(page)
+{
+var taget_obj = document.getElementById('commetcontent');
+var waithtml = "<div style='line-height:50px'><img src='/m-images/loadinglit.gif' />加载...</div>";
+var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+myajax.SendGet2("/shopping_ajaxpp.php?dopost=getlist&aid={dede:global.aid/}&page="+page);
+DedeXHTTP = null;
+}
+function PostComment()
+{
+var f = document.feedback;
+var nface = '6';
+var nfeedbacktype = 'good';
+var nvalidate = '';
+var nnotuser = '';
+var nusername = '';
+var npwd = '';
+var taget_obj = $DE('commetcontentNew');
+var waithtml = "<div style='line-height:30px'><img src='/m-images/loadinglit.gif' />发送中...</div>";
+if(f.username.value=='') {
+alert("登录帐号，才能发布评论");
+return;
+}
+if(f.msg.value=='')
+{
+alert("评论内容不能为空！");
+return;
+}
+
+if(f.msg.value.length > 300)
+{
+alert("请填写300字以内的内容！");
+return;
+}
+if(f.feedbacktype) {
+for(var i=0; i < f.feedbacktype.length; i++)
+if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+}
+if(f.face) {
+for(var j=0; j < f.face.length; j++)
+if(f.face[j].checked) nface = f.face[j].value;
+}
+if(f.notuser.checked) nnotuser = '1';
+if(f.username) nusername = f.username.value;
+if(f.pwd) npwd = f.pwd.value;
+
+var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+myajax.sendlang = 'utf-8';
+myajax.AddKeyN('dopost', 'send');
+myajax.AddKeyN('aid', '{dede:global.aid/}');
+myajax.AddKeyN('fid', f.fid.value);
+myajax.AddKeyN('face', nface);
+myajax.AddKeyN('feedbacktype', nfeedbacktype);
+myajax.AddKeyN('validate', nvalidate);
+myajax.AddKeyN('notuser', nnotuser);
+myajax.AddKeyN('username', nusername);
+myajax.AddKeyN('pwd', npwd);
+myajax.AddKeyN('msg', f.msg.value);
+myajax.SendPost2('/shopping_ajaxpp.php');
+f.msg.value = '';
+f.fid.value = 0;
+if(f.validate)
+{
+if($DE('validateimg')) $DE('validateimg').src = "/include/vdimgck.php?"+f.validate.value;
+f.validate.value = '';
+}
+}
+function quoteCommet(fid)
+{
+document.feedback.fid.value = fid;
+}
+LoadCommets(1);
+</script>
+<!-- 评论内容区 End -->
+</div>
+<!-- 弹出评论 End -->
+
+
+
+
+<!-- 返回顶部 -->
+<div class="mall-totop" title="返回顶部" onclick="window.scrollTo(0,0);"></div>
+<script src="<?php echo $mcfg_basehost; ?>/m-js/mall-top.js"></script>
+<!-- 返回顶部 End -->
+
+
+
+<script>
+  //弹出评论
+    $(function(){
+  $("#gd_share1").on("click",function(){
+        $("body").append("<div style='height:100%;width:100%;position:fixed;top:0px;background:rgba(0,0,0,0.7);z-index:20000;'id='blackbg'></div>");
+        $("body").on('touchmove', function (event) {
+            event.preventDefault();
+        }, false);
+        $("#share_box").animate({"bottom":"0px"},100,function(){
+
+        });
+    });
+    $(document).on("click","#share_box_shutbtn",function(){
+        $("body").unbind('touchmove');
+        $("#share_box").animate({"bottom":"-262px"},100,function(){
+            $("#blackbg").remove();
+        });
+    });
+});
+</script>
+
+
+
+
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/pobuliu-js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/pobuliu-js/jquery.masonry.min.js"></script>
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/pobuliu-js/waterfall.js"></script>
+
+
+
+<!-- APP端-屏蔽手机站DIV元素 -->
+<script type="text/javascript">
+if(navigator.userAgent.indexOf("Html5Plus") > -1) {
+document.body.classList.add("Html5Plus");}
+</script>
+<!-- APP端-屏蔽手机站DIV元素 End -->
+
+
+</body>
+</html>

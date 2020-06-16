@@ -1,0 +1,104 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+	<style>
+	</style>
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">生成兑换码</h2>
+      </div>
+     <section>
+      <ul class="ulColumn2">
+	<!--   <form enctype="multipart/form-data" id="uploadForm"> -->
+
+       <li>
+        <span class="item_name" style="width:120px;">会员账号：&nbsp;</span>
+		<input type="text" class="textbox textbox_295" name="account" value="" placeholder="会员账号..."/>
+        <span class="errorTips">列如：必须是会员账号，没有会员账号只有手机号码禁止</span>
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;">生成数量：</span>
+        <input type="text" class="textbox textbox_195"  name="number" value="" placeholder="生成兑换码数量..." />
+       </li>  
+	   
+       <li>
+        <span class="item_name" style="width:120px;">使用期限：</span>
+        <input type="text" class="textbox textbox_195"  name="term" value="3" placeholder="使用期限..."  style="text-align:center;" disabled="disabled"/>&nbsp;天
+		<span class="errorTips">默认3天</span>
+       </li>  
+
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" id="submit" class="link_btn" value="保存"/>
+       </li>
+	  <!--  </form> -->
+      </ul>
+     </section>
+	 
+ </div>
+</section>
+{/block}
+{block name="script"}
+
+<script>
+$(document).ready(function() {
+
+	$('#submit').click(function(event){		
+		var account = $('input[name="account"]').val();//会员账号
+		var number = $('input[name="number"]').val();//生成数量
+		var term = $('input[name="term"]').val();//使用期限
+		
+        var formData = new FormData(); 
+		//加入对象
+		if(account){
+			formData.append('account',account);  
+		}else{
+			myAlert('请输入会员账号');return false;
+		}
+		if(number){
+			formData.append('number',number);   
+		}else{
+			myAlert('请输入数量');return false;
+		}
+		
+		if(term){
+			formData.append('term',term);   
+		}
+
+		formData.append('op','makecode/add_cmm');		
+			   
+		//console.log(formData.get("op"));
+		
+		$.ajax({
+			url:"{:url('users/makecode_do')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			processData: false,//用于对data参数进行序列化处理 这里必须false
+            contentType: false, //必须
+			data:formData,
+			success: function(data) {
+				console.log(data);
+				if (data.s=='ok') {
+					myAlert('生成成功');
+					setTimeout(function(){
+					//页面刷新  
+					window.location.reload();
+					},1000);
+					
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+	
+});
+</script>
+{/block}	

@@ -1,0 +1,597 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/lang/zh-cn/zh-cn.js"></script>
+    <style type="text/css">
+        div#content{
+			text-align: right;
+			margin-left:120px; 	
+			width:80%;
+        }
+		.textbox_640{
+			width:640px;
+		}
+		.ulColumn2{
+			margin-bottom:50px;
+		}
+		.uploadImg,.texlong{
+			position:static;
+		}
+		.page_title{
+			height: 45px;
+			line-height: 40px;
+			width:86%;
+			position:fixed;
+			top:0;
+			margin-top:70px;
+			background-color:#fff;			
+		}
+		.page_title .top_rt_btn{
+			margin-right:1rem;
+			margin-top:5px;
+		}
+		.ulColumn2{
+			margin-top:70px;
+		}
+		/*** guide ***/
+		.guide{width:60px;margin-left:570px;position:fixed;left:56%;bottom:134px;_position:absolute;_top:expression(documentElement.scrollTop+documentElement.clientHeight - this.clientHeight - 134+'px');display:block;}
+		.guide a{display:block;width:60px;height:50px;background:url(__IMG__/sprite_v2.png) no-repeat;margin-top:10px;text-decoration:none;font:16px/50px "Microsoft YaHei";text-align:center;color:#fff;border-radius:2px;}
+		.guide a span{display:none;text-align:center;}
+		.guide a:hover{text-decoration:none;background-color:#39F;color:#fff;}
+		.guide a:hover span{display:block;width:60px;background:#39F}
+		.guide .find{background-position:-84px -236px;}
+		.guide .report{background-position:-146px -236px;}
+		.guide .edit{background-position:-83px -185px;}
+		.guide .top{background-position:-145px -185px;}
+    </style>	
+	
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">修改商品</h2>
+	   <a href="javascript:;" class="fr top_rt_btn submit" style="background: #302931;color: white;border-radius: 2px;border: 1px #139667 solid;">确认提交</a>
+      </div>
+	  
+      <ul class="ulColumn2">
+
+       <li>
+        <span class="item_name" style="width:120px;">商品名称：</span>
+        <input type="text" class="textbox textbox_640" value="{$result.name}" name="name" placeholder="标题..."/>
+		<span style="color:red;">*必填</span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">货号：</span>
+        <input type="text" class="textbox" value="{$result.number}" name="number" placeholder="货号..."/>
+       </li>
+       <li>
+        <span class="item_name"style="width:120px;">商品分类：</span>
+        <select class="select" name="pid"  data-class="yes" >
+		 {foreach name="class" id="vo"}
+         <option value="{$vo.id}" data-name="{$vo.classname}" {if condition="$vo.id eq $result.pid"}selected{/if} >{$vo.nbsp}{if condition="$vo.html neq ''"}└<!-- &#3; -->{/if}{$vo.html}&nbsp;{$vo.classname}&nbsp;</option>
+		 {/foreach}
+        </select>
+		<span style="color:red;">*必填 [请选择分类]</span>
+       </li>
+	   
+	   <div id="attr">
+	   </div>
+	   
+	   
+<!--        <li>
+        <span class="item_name"style="width:120px;">主设计师：</span>
+        <select class="select" name="designer" >
+		 <option value="">&nbsp;请选择设计师&nbsp;</option>
+		 {foreach name="team_list" id="vo"}
+         <option value="{$vo.name}" data-name="{$vo.name}"  {if condition="$result.designer eq $vo.name"}selected{/if} >&nbsp;{$vo.name}&nbsp;</option>
+		 {/foreach}
+        </select>
+		<span style="color:#999;">请选择设计师</span>
+       </li>
+	   
+	   
+       <li>
+        <span class="item_name" style="width:120px;">单价：</span>
+        <input type="text" class="textbox" value="{$result.price}" name="price" placeholder="单价..."/>元/或万元
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">单位：</span>
+        <input type="text" class="textbox" value="{$result.unit}" name="unit" placeholder="单位..."/>
+       </li> -->
+	    <!--隐藏开始-->
+       <li hidden>
+        <span class="item_name" style="width:120px;">库存：</span>
+        <input type="text" class="textbox" value="{$result.stock}" name="stock" placeholder="库存..."/>
+       </li>
+	    <!--隐藏结束-->
+		
+       <li>
+        <span class="item_name" style="width:120px;">首页推荐：</span>
+        <select class="select" name="home" style="height: 26px;">		
+		 <option value="1" {if condition="$result.home eq '1'"}selected{/if}>&nbsp;是&nbsp;</option>	
+		 <option value="0" {if condition="$result.home eq '0'"}selected{/if}>&nbsp;否&nbsp;</option>
+        </select>
+		<span style="color:#999;">请选择</span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">二级推荐：</span>
+        <select class="select" name="rec" style="height: 26px;">		
+		 <option value="1" {if condition="$result.rec eq '1'"}selected{/if}>&nbsp;是&nbsp;</option>	
+		 <option value="0" {if condition="$result.rec eq '0'"}selected{/if}>&nbsp;否&nbsp;</option>
+        </select>
+		<span style="color:#999;">请选择</span>
+       </li>
+	    <!--隐藏开始-->
+       <li hidden>
+        <span class="item_name" style="width:120px;">精品：</span>
+        <select class="select" name="nice" style="height: 26px;">
+		 <option value="0" {if condition="$result.nice eq '0'"}selected{/if}>&nbsp;否&nbsp;</option>
+		 <option value="1" {if condition="$result.nice eq '1'"}selected{/if}>&nbsp;是&nbsp;</option>		 
+        </select>
+		<span style="color:#999;">请选择</span>
+       </li>
+       <li hidden>
+        <span class="item_name" style="width:120px;">新品：</span>
+        <select class="select" name="new" style="height: 26px;">
+		 <option value="0" {if condition="$result.new eq '0'"}selected{/if}>&nbsp;否&nbsp;</option>
+		 <option value="1" {if condition="$result.new eq '1'"}selected{/if}>&nbsp;是&nbsp;</option>		 
+        </select>
+		<span style="color:#999;">请选择</span>
+       </li>
+       <li hidden>
+        <span class="item_name" style="width:120px;">热销：</span>
+        <select class="select" name="hot" style="height: 26px;">
+		 <option value="0" {if condition="$result.hot eq '0'"}selected{/if}>&nbsp;否&nbsp;</option>
+		 <option value="1" {if condition="$result.hot eq '1'"}selected{/if}>&nbsp;是&nbsp;</option>		 
+        </select>
+		<span style="color:#999;">请选择</span>
+       </li>
+	   <!--隐藏结束-->
+	   
+       <li>
+        <span class="item_name" style="width:120px;">自定义属性：</span>
+        <label class="single_selection">
+			属性1：<input type="text" class="textbox" name="property[]" value="{$property[0]}" placeholder="属性1..."/>&nbsp;属性2：<input type="text" class="textbox" name="property[]" value="{$property[1]}" placeholder="属性2..."/>&nbsp;属性3：<input type="text" class="textbox" name="property[]" value="{$property[2]}" placeholder="属性3..."/>
+		</label>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">&nbsp;</span>
+        <label class="single_selection" style="margin-top:-13px;">
+			属性4：<input type="text" class="textbox" name="property[]" value="{$property[3]}" placeholder="属性4..."/>&nbsp;属性5：<input type="text" class="textbox" name="property[]" value="{$property[4]}" id="property5" placeholder="属性5..."/>&nbsp;属性6：<input type="text" class="textbox" name="property[]" value="{$property[5]}" placeholder="属性6..."/>
+		</label>
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;">缩略图：</span>
+        <label class="uploadImg">
+         <input type="file"  name="pic" />
+		 <img id="pic" src="{$result.pic}" >
+		 <input type="hidden" name="primary_pic" value="{$result.pic}">
+         <span>上传封面图</span>
+        </label>
+       </li>
+	   
+       <li>
+         <span class="item_name" style="width:120px;">主图数量设置：</span>
+		<script language="JavaScript" type="text/javascript">
+		
+		function setUrlNum(){
+			var str='';
+			var count=parseInt("{$count}");
+			var v_ = parseInt(document.getElementById('Num').value);
+			var i = 2;
+			var remov = 0;
+			
+			if(!document.getElementById('Num').value){
+				document.getElementById('Num').value=1;
+			}
+			if(count){				
+				document.getElementById('UpID').innerHTML = '{$photo}';
+				//console.log(count);			
+				if(count < v_){
+					i = count+1 ;
+					console.log(i);	
+				}else{				
+					i = v_;									
+					if(count >= v_){
+						i = v_ + 1;
+						remov = 1;						
+						//移除元素
+						for(var k=i;k<=count;k++){
+							$('#photo_'+k).remove();
+						}
+					}
+				}
+				str = document.getElementById('UpID').innerHTML;			
+			}
+			//原商品主图保留数量
+			$('input[name="photo_num"]').val(i);
+			if(!remov){
+				for(i;i<=document.getElementById('Num').value;i++){
+					str+= '<p style="margin:6px 2px;clear:both;">主图'+i+'：<input name="photo[]" type="file"></p>';
+				}
+				document.getElementById('UpID').innerHTML=str;
+			}			
+		}
+		//删除
+		function imgDel(id,num){
+			num = num-1;
+			console.log(num);
+			if (confirm("确定要删除吗？")) {
+				console.log(id);
+				
+				$.ajax({
+					url:"{:url('goods/delImg')}",
+					dataType:"json",
+					type:'POST',
+					cache:false,
+					data:{op:'goods/delImg',id:id,num:num},
+					success: function(data) {
+						console.log(data.s);
+						if (data.s=='ok') {				
+							myAlert('删除图片成功');
+							setTimeout(function(){
+								//页面刷新  
+								window.history.back(-1); 
+							},1000);
+						}else {
+							myAlert(data.s);
+						}
+					}
+				});		
+			}	
+		}
+		</script>
+        <input type="text" class="textbox" name="Num" id="Num" value="1" style="height: 20px;line-height:20px;width:70px;margin-top:-1px;"/> 
+		 <input type="button" value="设定" class="link_btn" onClick="setUrlNum();" />
+       </li>
+
+       <li>
+			<span class="item_name" style="width:120px;">产品主图：</span>
+			<div class="single_selection" style="clear:both;">
+				{if condition="$photo eq ''"}
+				<p style="margin:6px 2px;">主图1：<input type='file'  name='photo[]' id="photo1"></p>
+				<div id="UpID"></div>
+				{/if}
+				<div id="UpID">
+				{$photo}
+				</div>
+			</div>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">SEO标题：</span>
+        <input type="text" class="textbox textbox_640" value="{$result.title}" name="title" placeholder="SEO标题（160字符以内）..."/>
+		<span style="color:red;">*必填</span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">SEO关键字：</span>
+        <input type="text" class="textbox textbox_640" value="{if condition="$result.keywords neq '0'"}{$result.keywords}{/if}" name="keywords" placeholder="SEO关键字（250字符以内）..."/>
+       </li>	   
+       <li>
+        <span class="item_name texlong" style="width:120px;">SEO描述：</span>
+        <textarea placeholder="SEO描述（250字符以内）" class="textarea"  name="description" style="height:50px;width:640px;">{if condition="$result.description neq '0'"}{$result.description}{/if}</textarea>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">状态：</span>
+        <label class="single_selection"><input type="radio" name="status" value="1"  {if condition="$result.status eq '1'"}checked{/if} />上架</label>
+        <label class="single_selection"><input type="radio" name="status" value="0"  {if condition="$result.status eq '0'"}checked{/if} />下架</label>
+       </li>
+	    <!--内容详情-->
+       <li>
+        <span class="item_name" style="width:120px;">产品内容：</span>
+        <script id="content" type="text/plain" style="height:500px; margin-top: 0px;">{$result.content|htmlspecialchars_decode}</script>
+       </li>		   
+
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+		<input type="hidden" name="photo_num" value="1"/>
+		<input type="hidden" name="id" value="{$result.id}"/>
+		<input type="hidden" name="pidEdit" value="{$result.pid}"/>
+		<input type="hidden" name="attr_num" value=""/>
+		<input type="hidden" name="attr_id" value="{$result.attr_id}"/>
+        <input type="submit" id="submit" class="link_btn submit" value="确认提交"/>
+       </li>
+      </ul>
+		<div class="guide">
+			<div class="guide-wrap">
+				<a href="javascript:;" class="top" title="回顶部"><span>回顶部</span></a>
+			</div>
+		</div>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+//建立一個可存取到該file的url
+function getObjectURL(file) {
+	var url = null ;
+	if (window.createObjectURL!=undefined) { // basic
+		url = window.createObjectURL(file) ;
+	} else if (window.URL!=undefined) { // mozilla(firefox)
+		url = window.URL.createObjectURL(file) ;
+	} else if (window.webkitURL!=undefined) { // webkit or chrome
+		url = window.webkitURL.createObjectURL(file) ;
+	}
+	return url ;
+}
+</script>
+<script>
+$(document).ready(function() {
+	$("select[name='pid']").change(function(){
+		var pid = $(this).val();
+		var pidEdit = $("input[name=pidEdit]").val();
+		var attr_id = 0;
+		if(pidEdit==pid){
+			attr_id = $("input[name=attr_id]").val();
+		}
+		
+		//console.log(pid);
+		if(pid){
+			$.ajax({
+				url:"{:url('goods/g_arrt')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{id:pid,attr_id:attr_id},
+				success: function(data) {
+					var e = data.s;
+					var html = '';
+					$("input[name=attr_num]").val(e.length);	
+					for(var i=0;i<e.length;i++){				
+						html +='<li>';
+						html +=' <span class="item_name" style="width:120px;">'+e[i].classname+'：</span>';
+						var son = e[i].son;
+						
+						for(var k=0;k<son.length;k++){
+							var checked = '';
+							if(k==0){
+								checked = 'checked';
+							}
+							if(son[k].checked==1){
+								checked = 'checked';
+								
+							}
+							//console.log(son[k].id);
+							html +=' <label class="single_selection"><input type="radio" name="attrid_'+i+'" value="'+son[k].id+'" '+checked+'/>'+son[k].classname+'</label>';
+						}
+						html +='</li>';	
+											
+					}
+					$("#attr").html(html)				
+				}
+			});		
+		}
+	});
+
+	var g_pid = $("select[name='pid'] option:selected").val();	
+	var attr_id = $("input[name=attr_id]").val(); 
+	if(g_pid){
+		$.ajax({
+			url:"{:url('goods/g_arrt')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			data:{id:g_pid,attr_id:attr_id},
+			success: function(data) {
+				var e = data.s;
+				var html = '';
+				$("input[name=attr_num]").val(e.length);	
+				for(var i=0;i<e.length;i++){				
+					html +='<li>';
+					html +=' <span class="item_name" style="width:120px;">'+e[i].classname+'：</span>';
+					var son = e[i].son;
+					
+					for(var k=0;k<son.length;k++){
+						var checked = '';
+						if(k==0){
+							checked = 'checked';
+						}
+						//console.log(son[k].checked);
+						if(son[k].checked==1){
+							checked = 'checked';
+							
+						}
+						
+						html +=' <label class="single_selection"><input type="radio" name="attrid_'+i+'" value="'+son[k].id+'" '+checked+'/>'+son[k].classname+'</label>';
+					}
+					html +='</li>';					
+									
+				}
+				$("#attr").html(html)				
+			}
+		});		
+	}	
+});
+</script>
+<script>
+var ue = UE.getEditor('content');
+$(document).ready(function() {
+	var property5 = $('#property5').val();
+	var designer_ = $("select[name='designer'] option:selected").val();//设计师
+	if(!property5 && designer_){
+		$('#property5').val(designer_);
+	}
+	
+	$("select[name='designer']").change(function(){	
+		var designer_ = $("select[name='designer'] option:selected").val();//设计师
+		//console.log(designer_);
+		if(designer_){
+			$('#property5').val(designer_);
+		}		
+	});
+	
+	$(".uploadImg").on("change",function(){
+		//获取图片的路径，该路径不是图片在本地的路径
+		var objUrl = getObjectURL($('input[name="pic"]')[0].files[0]) ; 
+		//console.log(objUrl);
+		if (objUrl) {
+			//将图片路径存入src中，显示出图片
+			$("#pic").attr("src", objUrl) ; 
+		}
+	});
+
+	$('.submit').click(function(event){
+	
+		var formData = new FormData(); 
+		
+		var id = $('input[name="id"]').val();//ID
+		var name = $('input[name="name"]').val();//商品名称
+		var number = $('input[name="number"]').val();//货号
+		var property = new Array();//商品属性
+		$('input[name="property[]"]').each(function(){
+			property.push($(this).val());//向数组中添加元素
+		});  
+		var pidEdit = $('input[name="pidEdit"]').val();//pidEdit
+		var pid = $("select[name='pid'] option:selected").val();
+		//缩略图
+        var pic = $('input[name="pic"]')[0].files[0];		
+		//产品图片集合
+		var photo = new Array();
+		$('input[name="photo[]"]').each(function(e){
+			formData.append('photo_'+e,$(this)[0].files[0]); 
+			formData.append('pic_num',e);
+		});
+		var photo_num = $('input[name="photo_num"]').val();
+		var price = $('input[name="price"]').val();//单价
+		var unit = $('input[name="unit"]').val();//单位
+		var stock = $('input[name="stock"]').val();//库存
+		var content = UE.getEditor('content').getContent();//详情
+		var designer = $("select[name='designer'] option:selected").val();//设计师
+		var home = $("select[name='home'] option:selected").val();//首页推荐
+		var nice = $("select[name='nice'] option:selected").val();//精品
+		var new_ = $("select[name='new'] option:selected").val();//新品
+		var hot = $("select[name='hot'] option:selected").val();//热销
+		var status = $('input[name="status"]:checked').val();//状态
+		
+		var title = $('input[name="title"]').val();//SEO标题
+		var keywords = $('input[name="keywords"]').val();//SEO关键字
+		var description = $('textarea[name="description"]').val();//SEO描述
+		var rec = $("select[name='rec'] option:selected").val();//二级推荐
+		var attr_num = $('input[name="attr_num"]').val();//属性数量
+		//console.log(pidEdit);	
+		
+ 		if(attr_num){
+			for(var i=0;i<attr_num;i++){
+				var attrid=0;
+				attrid = $('input[name="attrid_'+i+'"]:checked').val();//属性ID
+				formData.append('attrid_'+i,attrid); 
+				//console.log(attr_num);
+			}
+			formData.append('attr_num',attr_num);
+		}
+		
+		//加入对象
+		formData.append('id',id);
+		formData.append('photo_num',photo_num);
+		if(name){
+			formData.append('name',name);  
+		}else{
+			myAlert('商品名称不能为空');
+		}
+		if(number){
+			formData.append('number',number);   
+		}
+		if(property){
+			formData.append('property',property);   
+		}
+		formData.append('pidEdit',pidEdit);
+		if(pid){
+			formData.append('pid',pid);   
+		}else{
+			myAlert('分类不能为空');
+		}
+		if(pic){
+			formData.append('pic',pic); 
+		}
+
+		if(price){
+			formData.append('price',price);   
+		}
+		if(unit){
+			formData.append('unit',unit);   
+		}
+		if(stock){
+			formData.append('stock',stock);   
+		}	
+		if(content){
+			formData.append('content',content);   
+		}
+		if(designer){
+			formData.append('designer',designer);   
+		}
+
+		formData.append('home',home); 		
+		if(rec){
+			formData.append('rec',rec);
+		}
+		if(nice){
+			formData.append('nice',nice);
+		}
+		if(new_){
+			formData.append('new',new_);
+		}
+		if(hot){
+			formData.append('hot',hot);
+		}
+		formData.append('status',status);
+			
+		if(title){
+			formData.append('title',title);  
+		}else{
+			myAlert('SEO标题不能为空');
+		}
+		if(keywords){
+			formData.append('keywords',keywords);   
+		}		
+		if(description){
+			formData.append('description',description);   
+		}
+		
+		formData.append('op','goods/edit');
+		formData.append('cmm_home','cmm_home');//首页推荐缓存
+		formData.append('cmm_rec','cmm_rec');//二级推荐缓存
+		formData.append('cmm_nice','cmm_nice');//精品缓存
+		formData.append('all','all');//前台所有分页数据缓存
+		
+		$.ajax({
+			url:"{:url('goods/edit_do')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			processData: false,//用于对data参数进行序列化处理 这里必须false
+            contentType: false, //必须
+			data:formData,
+			success: function(data) {
+				console.log(data);
+				if (data.s=='ok') {
+					myAlert('修改成功');
+					setTimeout(function(){
+					//页面刷新  
+					window.history.back(-1); 
+					},1000);				
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+	
+});
+</script>
+<script>
+	$('.top').click(function(){
+		//console.log(111);
+		//动画效果，平滑滚动回到顶部
+		$('#mCSB_2_container').css('top',0);
+		$("#mCSB_2_dragger_vertical").css('top',0);
+	})
+</script>
+
+{/block}	

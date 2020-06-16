@@ -1,0 +1,20 @@
+<ul class="caipu-shicai">
+	<li class="yxw-yl-li">
+		<span class="yongliao-left">鸡爪</span><span class="yongliao-right">500克</span></li>
+	<li class="yxw-yl-li">
+		<span class="yongliao-left">饮用水</span><span class="yongliao-right">620克</span></li>
+	<li class="yxw-yl-li">
+		<span class="yongliao-left">小米泡椒</span><span class="yongliao-right">100克</span></li>
+	<li class="yxw-yl-li">
+		<span class="yongliao-left">泡椒水</span><span class="yongliao-right">100克</span></li>
+	<li class="yxw-yl-li">
+		<span class="yongliao-left">白醋</span><span class="yongliao-right">150克</span></li>
+	<li class="yxw-yl-li">
+		<span class="yongliao-left">生姜片</span><span class="yongliao-right">35克</span></li>
+	<li class="yxw-yl-li">
+		<span class="yongliao-left">食盐</span><span class="yongliao-right">48克</span></li>
+	<li class="yxw-yl-li">
+		<span class="yongliao-left">味精</span><span class="yongliao-right">15克</span></li>
+	<li class="yxw-yl-li">
+		<span class="yongliao-left">富丽磷2#</span><span class="yongliao-right">2克</span></li>
+</ul>

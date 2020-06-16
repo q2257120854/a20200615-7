@@ -1,0 +1,142 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+<script src="{$Think.PLUGINS_SITE_ROOT}/jquery.validate.min.js"></script>
+<div class="page_register clearfix">
+    <div class="w1200">
+        <div class="r_icon1"></div>
+        <div class="r_icon2"></div>
+        <div class="r_icon3"></div>
+        <div class="r_icon4"></div>
+        <div class="r_icon5"></div>
+        <form method="post" id="post_form" action="">
+            <div class="register_form">
+                <div class="mt">账号注册</div>
+                {if $Think.config.sms_register == '1'}
+                <div class="item clearfix">
+                    <div class="label">手机号</div>
+                    <div class="item-text">
+                        <input type="text" id="sms_mobile" name="sms_mobile" class="text" tabindex="1" placeholder="建议使用常用手机" maxlength="11"/>
+                    </div>
+                </div>
+                <div class="item clearfix">
+                    <div class="label">手机验证码</div>
+                    <div class="item-text">
+                        <input type="text" id="sms_captcha" name="sms_captcha" class="text" tabindex="1" placeholder="请输入手机验证码" maxlength="6"
+                               style="width:120px;"/>
+                        <a class="send_code" id="btn_sms_captcha" ds_type="1">获取验证码</a>
+                    </div>
+                </div>
+                {/if}
+                <div class="item clearfix">
+                    <div class="label">
+                        设置密码
+                    </div>
+                    <div class="item-text">
+                        <input type="password" id="member_password" name="member_password" class="text" tabindex="1" placeholder=""/>
+                    </div>
+                </div>
+                {if $Think.config.captcha_status_register == '1'}
+                <div class="item clearfix">
+                    <div class="label">验证码</div>
+                    <div class="item-text">
+                            <input type="text" name="captcha_normal" maxlength="6" placeholder="请输入6位数验证码" required class="text" style="width:50%;float:left;">
+                            <img src="{:captcha_src()}" style="width:40%;height:38px;" id="change_captcha"/>
+                    </div>
+                </div>
+                {/if}
+                <div class="item clearfix">
+                    <div class="label">&nbsp;</div>
+                    <div class="item-text">
+                        注册即表示同意<a href='{:url("Document/index",["code"=>"agreement"])}' target='_blank'>《德尚软件注册协议》</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <input type="submit" class="btn login-btn" value="注册"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{if $Think.config.sms_register == '1'}
+<script type="text/javascript" src="{$Think.HOME_SITE_ROOT}/default/styles/default/js/connect_sms.js"></script>
+{/if}
+<script>
+    $('#change_captcha').click(function () {
+        $(this).attr('src', '{:url("Seccode/makecode")}');
+    });
+</script>
+<script>
+    $(function () {
+        $("#post_form").validate({
+            errorPlacement: function (error, element) {
+                var error_td = element.parent('.item-text');
+                error_td.append(error);
+                element.parents('.item:first').addClass('error');
+            },
+            success: function (label) {
+                label.parents('.item:first').removeClass('error').find('label').remove();
+            },
+            rules: {
+                member_name: {
+                    required: true,
+                    minlength: 3,
+                    maxlength: 15,
+                    remote: {
+                        url: HOMESITEURL + '/Login/check_member.html',
+                        type: 'get',
+                        data: {
+                            user_name: function () {
+                                return $('#member_name').val();
+                            }
+                        }
+                    }
+                },
+                member_password: {
+                    required: true,
+                    minlength: 6,
+                    maxlength: 20
+                },
+        {if $Think.config.sms_register == '1'}
+        sms_mobile: {required: true, minlength:11, maxlength:11},
+        sms_captcha: {required: true, minlength:6},
+        {/if}
+        agree:{required: true,},
+    },
+        messages: {member_name: {
+            required: '<i class="fa fa-exclamation-circle"></i>{$Think.lang.login_register_input_username}',
+                    minlength:'<i class="fa fa-exclamation-circle"></i>{$Think.lang.login_register_username_range}',
+                    maxlength:'<i class="fa fa-exclamation-circle"></i>{$Think.lang.login_register_username_range}',
+                    remote:'<i class="fa fa-exclamation-circle"></i>{$Think.lang.login_register_username_exists}'
+            },
+            member_password: {
+                required: '<i class="fa fa-exclamation-circle"></i>{$Think.lang.login_register_input_password}',
+                    minlength:'<i class="fa fa-exclamation-circle"></i>{$Think.lang.login_register_password_range}',
+                    maxlength:'<i class="fa fa-exclamation-circle"></i>{$Think.lang.login_register_password_range}'
+            },
+            {if $Think.config.sms_register == '1'}
+            sms_mobile: {
+                required: '<i class="fa fa-exclamation-circle"></i>请输入正确的手机号',
+                    minlength:'<i class="fa fa-exclamation-circle"></i>请输入正确的手机号',
+                    maxlength:'<i class="fa fa-exclamation-circle"></i>请输入正确的手机号'
+            },
+            sms_captcha: {
+                required: '<i class="fa fa-exclamation-circle"></i>请输入六位短信动态码',
+                    minlength:'<i class="fa fa-exclamation-circle"></i>请输入六位短信动态码'},
+            {/if}
+            {if $Think.config.captcha_status_register == '1'}
+            captcha_normal: {
+                required: '<i class="fa fa-exclamation-circle"></i>{$Think.lang.login_index_input_checkcode}',
+                    remote:'<i class="fa fa-exclamation-circle"></i>{$Think.lang.login_index_wrong_checkcode}'
+            },
+            {/if}
+            agree:{
+                required: '<i class="fa fa-exclamation-circle"></i>请同意用户注册协议',
+            },
+        }
+    });
+    });
+
+</script>
+
+{/block}

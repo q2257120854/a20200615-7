@@ -1,0 +1,49 @@
+<div class="container">
+
+<!-- 会员中心左侧 -->
+<div class="user-container">
+<div class="uc-box uc-sub-box">
+
+
+<div class="uc-nav-box">
+<div class="box-hd"><h3 class="title">会员中心</h3></div>
+<div class="box-bd">
+<ul class="uc-nav-list">
+<li <?php echo ($menutype == 'buyhui')? 'class="active"' : "" ;?>>
+<!-- 左侧VIP权限判断 -->
+<?php if ($cfg_ml->M_Rank > 10){echo '<a href="buyhui.php" >续费会员</a>';} else{echo '<a href="buyhui.php">开通会员</a>';} ?>
+<!-- 左侧VIP权限判断 End -->
+</li>
+<li <?php echo ($menutype == 'mydede')? 'class="active"' : "" ;?>><a href="operation.php">会员订单</a></li>
+<li <?php echo ($menutype == 'mydede_ke')? 'class="active"' : "" ;?>><a href="operation_ke.php">已购课程</a></li>
+</ul>
+</div>
+</div>
+
+
+
+<div class="uc-nav-box" style="display:none;">
+<div class="box-hd"><h3 class="title">我的收藏</h3></div>
+<div class="box-bd">
+<ul class="uc-nav-list">
+<li <?php echo ($menutype == 'mystow')? 'class="active"' : "" ;?>><a href="mystow.php">收藏的课程</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="uc-nav-box">
+<div class="box-hd"><h3 class="title">账号管理</h3></div>
+<div class="box-bd">
+<ul class="uc-nav-list">
+<li <?php echo ($menutype == 'mydwz')? 'class="active"' : "" ;?>><a href="/member/">个人信息</a></li>
+<li <?php echo ($menutype == 'mima')? 'class="active"' : "" ;?>><a href="edit_baseinfo.php">修改密码</a></li>
+<li <?php echo ($menutype == 'ghsjh')? 'class="active"' : "" ;?>><a href="resetuserid.php">更换手机号</a></li>
+</ul>
+</div>
+</div>
+
+
+</div>
+</div>
+<!-- 会员中心左侧 End -->

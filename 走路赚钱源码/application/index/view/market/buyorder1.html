@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		  <script src="__HOME_JS__/mui.min.js"></script>
+		<link href="/home/css/mui.min.css" rel="stylesheet" />
+		<link href="/home/css/reset.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-bar {background: #fff;}
+			.mui-input-row label {
+				font-size: .32rem;
+				color: #444;
+			}
+			.mui-input-group .mui-input-row:after {
+				left: 0;
+				background-color: #E6E6E6;
+			}
+			.mui-bar-nav {
+			    padding-top: 20px;
+			    box-sizing: content-box;
+			    background-color: #fff;
+			    border-bottom: 1px solid #eee;
+			}			
+			.mui-input-group .mui-input-row,
+			.mui-input-row label~input {
+				height: 60px;
+			}
+			.mui-input-row label {
+				line-height: 40px;
+			}
+			.app-btn {
+				padding: 15px;
+				background: #3C7FFF;
+				border: 1px solid #3C7FFF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background: #fff;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">贡献值</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group" style="margin-top: .5rem;">
+				<div class="mui-input-row">
+					<label style="font-family: '微软雅黑'; ">单价</label>
+					<input name="number" id="number" type="number" style="color:blue;" class="mui-input-clear mui-input" placeholder="请输入交易价格">
+				</div>
+				<div class="mui-input-row">
+					<label style="font-family: '微软雅黑'; ">数量</label>
+					<input name="number" id="number" type="number" style="color:blue;" class="mui-input-clear mui-input" placeholder="请输入交易数量">
+				</div>
+				<div class="mui-input-row">
+					<label style="font-family: '微软雅黑';">交易密码</label>
+					<input name="pay_pw" id="pay_pw" type="password" style="color:blue;" class="mui-input-clear mui-input" placeholder="请输入交易密码">
+				</div>
+				<div class="mui-input-row mui-radio">
+					<label >当前价格: $ {$price/7|number_format=###,'2'}</label>
+					
+				</div>
+				<!--<div class="mui-input-row">
+					<label>验证码</label>
+					<input id='' type="text" class="mui-input-clear mui-input" placeholder="请输入验证码">
+				</div>-->
+			</form>
+
+			<div class="mui-content-padded">
+				<button id="submit" class="mui-btn mui-btn-block mui-btn-warning app-btn">确认</button>
+			</div>
+		</div>
+                              
+				<script>
+					mui.init({
+						swipeBack: true //启用右滑关闭功能
+					});
+				
+				
+				(function($) {
+						//监听点击事件
+						document.getElementById("submit").addEventListener('tap',function(){
+							var number = $("input[name=number]")[0].value;
+							//var type = $("input[name=radio1]:checked")[0].value;
+							var type = 1;
+							var pay_pw = $("input[name=pay_pw]")[0].value;
+							if(!number){
+								//alert('请输入购买数量！');
+								 $.toast('请输入购买数量！');
+								return false;
+							}
+							var reg=/^[0-9]+.?[0-9]*$/; 
+							if(!reg.test(number)){
+								//alert('购买数量必须是数字！');
+								 $.toast('购买数量必须是数字！');
+								return false;
+							}
+							if(!pay_pw){
+								 $.toast('请输入支付密码！');
+								return false;
+							}							
+							//console.log(type);return false;	
+					
+							$.ajax('/buy_yu.html',{
+								data:{op:'588cmmphp',type:type,number:number,pay_pw:pay_pw},
+								dataType:'json',//服务器返回json格式数据
+								type:'post',//HTTP请求类型
+								async:false,
+								timeout:50000,//超时时间设置为50秒；	              
+								success:function(data){
+									if(data.s=='ok'){
+										$.toast('购买成功');
+											setTimeout(function(){
+											//页面刷新  
+												window.location.href = "/mairu.html";
+											},1500);
+									}else{
+										$.toast(data.s);
+									}
+									//console.log(data);
+									event.stopPropagation();
+								}
+							});
+							event.stopPropagation();
+						
+						});
+						
+					})(mui);
+					 //语音识别完成事件
+					/*document.getElementById("number").addEventListener('input', function(e) {
+						console.log(this.value);
+						if(!isNaN(this.value)){
+							mui("#moeny")[0].innerHTML="￥"+this.value;
+						}
+					});	*/	
+					
+					 //语音识别完成事件
+					document.getElementById("search").addEventListener('recognized', function(e) {
+						console.log(e.detail.value);
+					});
+				</script>
+
+	</body>
+
+</html>

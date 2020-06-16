@@ -1,0 +1,149 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">留言信息管理</h2>
+      </div>
+      <table class="table">
+       <tr>
+        <th style="width:50px;">ID</th>
+		<th style="width:180px;">留言主题</th>
+		<th style="width:180px;">姓名</th>
+        <th style="width:300px;">联系方式</th>
+		<th style="width:100px;">管理员备注</th>
+		<th style="width:50px;">操作员</th>
+		<th style="width:80px;">时间</th>
+        <th style="width:70px;">操作</th>
+       </tr>
+	   {foreach name="volist.data" id="vo"}
+       <tr>
+        <td class="center"><input type="checkbox" value="{$vo.id}" name="id" />{$vo.id}</td>
+		<td class="center">
+			{if condition="$vo.status eq '0'"}<font style="color:red;">【未读】</font>{/if}
+			{if condition="$vo.status eq '1'"}<font style="color:#3c7fff;">【未处理】</font>{/if}
+			{if condition="$vo.status eq '2'"}<font style="color:green;">【已处理】</font>{/if}
+			{$vo.title}
+		</td>
+		<td class="center">
+			{$vo.name}
+		</td>
+		<td class="center">
+			{$vo.tel}
+		</td>
+		<td class="center">
+			<mark style="">{$vo.remark}</mark>
+		</td>		
+        <td class="center">
+		{if condition="$vo.uid neq '0'"}{$vo.username}{/if}
+		</td>
+		<td class="center">{$vo.addtime|date="Y-m-d",###}</td>
+        <td class="center">
+		 <a href="{:url('other/message_view')}?id={$vo.id}" title="查看" class="link_icon">&#118;</a>
+         <a href="#" title="删除" class="link_icon del" data-id="{$vo.id}">&#100;</a>
+        </td>
+       </tr>
+		{/foreach}
+      </table>
+	  <div>
+		<aside class="paging_left">
+		   <a id="all">全选</a>
+		   <a id="nocheck">取消</a>
+		   <a id="reverse">反选</a>
+		   <a id="delid">删除</a>
+		</aside>
+		 {$list->render()}
+	 </div>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+$(document).ready(function() {
+	//全选
+	$("#all").on('click', function() {
+		//全选选中为true，否则为false
+		$("input[type=checkbox]").each(function(){ 
+		//循环checkbox选择或取消
+			$(this).prop("checked",true);
+		});
+	});
+	//取消
+	$("#nocheck").on('click', function() {
+		$("input[type=checkbox]").each(function(){ 
+			$(this).prop("checked",false);
+		});
+	});
+	//反选
+	$("#reverse").click(function () { 
+		$("table :checkbox").each(function () {  
+			$(this).prop("checked", !$(this).prop("checked"));  
+		});
+	});
+  //删除
+	$('.del').click(function(event){
+		var id = $(this).attr('data-id');
+		var pid = $(this).attr('data-pid');
+		
+		if (confirm("确定要删除吗？")) {
+			$.ajax({
+				url:"{:url('other/message_del')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'message/del',id:id,pid:pid},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('删除成功');
+						setTimeout(function(){
+							//页面刷新  
+							window.location.reload();
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});		
+		}
+	});  
+	
+    //批量删除
+	$('#delid').click(function(event){
+		var id=new Array();  
+		$('input[name="id"]:checked').each(function(){  
+			id.push($(this).val());//向数组中添加元素  
+		});  
+		var id_str = id.join(',');//将数组元素连接起来以构建一个字符串 
+		if (confirm("确定要删除吗？")) {
+			$.ajax({
+				url:"{:url('other/message_delmost')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'msg/DelAll',delid:id_str},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('删除成功');
+						setTimeout(function(){
+						//页面刷新  
+						window.location.reload();
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});
+		}
+	}); 	
+	
+});
+</script>
+{/block}	

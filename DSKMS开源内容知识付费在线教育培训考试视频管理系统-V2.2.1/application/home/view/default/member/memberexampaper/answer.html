@@ -1,0 +1,296 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+<link rel="stylesheet" href="{$Think.PLUGINS_SITE_ROOT}/exampaper_answer.css">
+<script type="text/javascript">
+
+    var tm_cost_seconds = 0;
+    var tm_maxtime = eval("{$exampaper.exampaper_time}") * 60;
+    var tm_timer = null;
+
+
+    $(document).ready(function () {
+        tmUserPaper.initPaper();
+        tm_resetPosition();
+
+        //计时器
+        tm_timer = setInterval(function () {
+            tm_countdown();
+        }, 1000);
+
+    });
+
+    function tm_countdown() {
+        //记录消耗的时间
+        tm_cost_seconds = tm_cost_seconds + 1;
+        $("#t_timecost").val(parseInt(tm_cost_seconds / 60));
+
+        //倒计时牌
+        var tm_msg;
+        if (tm_maxtime > 0) {
+            tm_msg = "<span class='tm_label'>" + tm_fn_formatSeconds(tm_maxtime) + "</span>";
+            if (tm_maxtime <= 30) {
+                var ss = '试卷提交中...';
+                tm_msg += "<br/><font color='red'><b>" + ss + "</b></font>";
+            }
+
+            $("#div_processor_timer").html(tm_msg);
+
+            if (tm_maxtime == 5 * 60) {
+                alert('注意，还有5分钟!\n时间结束后，如您没有交卷，试卷将自动提交。');
+            }
+
+            --tm_maxtime;
+
+        } else {
+            clearInterval(tm_timer);
+            $("#div_processor_timer").html('考试时间到，试卷将自动提交!');
+            $("form").submit();
+        }
+    }
+
+    function tm_fn_formatSeconds(value) {
+        var theTime = parseInt(value);// 秒 
+        var theTime1 = 0;// 分 
+        var theTime2 = 0;// 小时 
+        // alert(theTime); 
+        if (theTime > 60) {
+            theTime1 = parseInt(theTime / 60);
+            theTime = parseInt(theTime % 60);
+            // alert(theTime1+"-"+theTime); 
+            if (theTime1 > 60) {
+                theTime2 = parseInt(theTime1 / 60);
+                theTime1 = parseInt(theTime1 % 60);
+            }
+        }
+        var the_second = parseInt(theTime) < 10 ? "0" + theTime : theTime;
+        var the_minute = parseInt(theTime1) < 10 ? "0" + theTime1 : theTime1;
+        var result = theTime2 + ":" + the_minute + ":" + the_second;
+        return result;
+    }
+    function tm_resetPosition() {
+        var nw = $(".tm_paper_head").width() + 45;
+        $("#div_processor").css("left", nw + "px");
+    }
+
+    $(window).resize(function () {
+        tm_resetPosition();
+    });
+
+    $(window).scroll(function () {
+        var tp = $(window).scrollTop();
+        if (tp > 240) {
+            $("#div_processor").css("top", "20px");
+        } else {
+            var ntp = 240 - tp;
+            $("#div_processor").css("top", ntp + "px");
+        }
+    });
+
+
+    var tmUserPaper = {
+        initPaper: function () {
+            //绑定输入提示
+            tmUserPaper.bindQuickTip();
+        },
+
+        submitPaper: function () {
+            var wcm = window.confirm('确定要提交试卷吗？');
+            if (!wcm) {
+                return;
+            }
+            $(".tm_btn").attr("disabled", "disabled");
+            $(".tm_btn").val('试卷提交中...');
+            window.onbeforeunload = null;
+            $("#form_paper_detail").submit();
+        },
+
+        moveToQuestion: function (qid) {
+            var thetop = $("#quick-Q-" + qid).offset().top;
+            $("html:not(:animated),body:not(:animated)").animate({scrollTop: thetop}, 500);
+        },
+
+        bindQuickTip: function () {
+            //选择题绑定
+            $(".qk-choice").click(function () {
+                var thename = $(this).attr("name");
+                var exambank_id = $(this).attr("id");
+                var chval = $('input[name="' + thename + '"]:checked').val();
+                if (chval == null || chval == "") {
+                    $("#fast_" + exambank_id).prop("class", "");
+                } else {
+
+                    $("#fast_" + exambank_id).prop("class", "finished");
+                }
+            });
+            //填空题绑定
+            $(".qk-blank").keyup(function () {
+                var thename = $(this).attr("name");
+                var exambank_id = $(this).attr("id");
+                if (tm_checker_blanker_filled(thename)) {
+                    $("#fast_" + exambank_id).prop("class", "finished");
+                } else {
+                    $("#fast_" + exambank_id).prop("class", "");
+                }
+            });
+            //问答题绑定
+            $(".qk-txt").keyup(function () {
+                var thename = $(this).attr("name");
+                var exambank_id = $(this).attr("id");
+                var chval = $(this).val();
+
+                if (chval == null || chval == "") {
+                    $("#fast_" + exambank_id).prop("class", "");
+                } else {
+                    $("#fast_" + exambank_id).prop("class", "finished");
+                }
+            });
+        }
+    };
+
+    //填空题的输入判断
+    function tm_checker_blanker_filled(n) {
+        var len = $("input[name='" + n + "']").length;
+        var mylen = 0;
+        $("input[name='" + n + "']").each(function () {
+            var chval = $(this).val();
+            if (chval == null || chval == "") {
+
+            } else {
+                mylen++;
+            }
+        });
+        return len == mylen;
+    }
+</script>
+<div class="exampaper pt20 pb20">
+    <div class="w1200">
+        <div class="paper">
+            <div class="exampaper_info">
+                <h1>{$exampaper.exampaper_name}</h1>
+                <h2>试卷信息</h2>
+                <h2><b>考试时长</b> : {$exampaper.exampaper_time} 分钟<b>卷面总分</b> : {$exampaper.exampaper_score}</h2>
+            </div>
+            <form method="post" id="form_paper_detail">
+                <input type="hidden" name="exampaperlog_begintime" value="{$Think.TIMESTAMP}" />
+                {php}$times = 0;{/php}
+                {foreach name="$exampaper.section_list" item="section"}
+                <div class="section_list">
+                    <div class="mt">
+                        <h1>{$section.section_name}</h1>
+                        <h2>{$section.section_remark}</h2>
+                    </div>
+
+                    {foreach name="$section.items" item="item"}
+                    {php}$times++;{/php}
+                    <div class="mc">
+                        <span class="span-quick-nav" id="quick-Q-{$item.exambank_id}"></span>
+                        <div class="exambank_question"><em>{$times}</em>{$item.exambank_question|htmlspecialchars_decode|strip_tags} （{$item.exambank_score}分）</div>
+                        <div class="answers">
+                            {if $item.examtype_id eq '1'}
+                            <!--单选题-->
+                            {php}$exambank_select = unserialize(htmlspecialchars_decode($item['exambank_select']));{/php}
+                            {foreach name="$exambank_select" item="exambank_select_item" key="exambank_select_key"}
+                            <div class="select">
+                                <label>
+                                    <input type="radio" class="qk-choice" value="{$exambank_select_key}" name="member_answer[{$item.exambank_id}][]" id="{$item.exambank_id}"/>{$exambank_select_item}
+                                </label>
+                            </div>
+                            {/foreach}
+                            {/if}
+                            {if $item.examtype_id eq '2'}
+                            <!--多选题-->
+                            {php}$exambank_select = unserialize(htmlspecialchars_decode($item['exambank_select']));{/php}
+                            {foreach name="$exambank_select" item="exambank_select_item" key="exambank_select_key"}
+                            <div class="select">
+                                <label>
+                                    <input type="checkbox" class="qk-choice" value="{$exambank_select_key}" name="member_answer[{$item.exambank_id}][]" id="{$item.exambank_id}"/>{$exambank_select_item}
+                                </label>
+                            </div>
+                            {/foreach}
+                            {/if}
+
+                            {if $item.examtype_id eq '3'}
+                            <!--判断题-->
+                            <div class="select">
+                                <label>
+                                    <input type="radio" class="qk-choice" value="{$exambank_select_key}" name="member_answer[{$item.exambank_id}][]" id="{$item.exambank_id}"/>对
+                                </label>
+                            </div>
+                            <div class="select">
+                                <label>
+                                    <input type="radio" class="qk-choice" value="{$exambank_select_key}" name="member_answer[{$item.exambank_id}][]" id="{$item.exambank_id}"/>错误
+                                </label>
+                            </div>
+                            {/if}
+
+                            {if $item.examtype_id eq '4'}
+                            {php}$exambank_answer = explode('+',$item['exambank_answer']);{/php}
+                            {foreach name="$exambank_answer" item="exambank_answer_item" key="exambank_answer_key"}
+                            <div class="field">
+                                <label>
+                                    <em>{$exambank_answer_key}</em>
+                                    <input type="text" class="qk-blank" value="" name="member_answer[{$item.exambank_id}][]" id="{$item.exambank_id}"/>
+                                </label>
+                            </div>
+                            {/foreach}
+                            {/if}
+
+                            {if $item.examtype_id eq '5'}
+                            <div class="field">
+                                <textarea class="qk-txt" name="member_answer[{$item.exambank_id}][]" id="{$item.exambank_id}"></textarea>
+                            </div>
+                            {/if}
+                        </div>
+                    </div>
+                    {/foreach}
+                </div>
+                {/foreach}
+                {if $exampaper.exampaper_type == 1}
+                <!--随机试题相关题目序列-->
+                <input type="hidden" name="section_list_serialize" value='{$exampaper.section_list_serialize|htmlspecialchars}' />
+                {/if}
+            </form>
+
+        </div>
+    </div>
+
+
+    <div id="div_processor">
+        <div id="div_processor_timer"></div>
+        <div id="div_processor_fastto">
+            {php}$times = 0;{/php}
+            {foreach name="$exampaper.section_list" item="section"}
+            <dl>
+                <dt>{$section.section_name}</dt>
+                <dd>
+                    {foreach name="$section.items" item="item"}
+                    {php}$times++;{/php}
+                    <a href="javascript:void(0);" onclick="tmUserPaper.moveToQuestion('{$item.exambank_id}')" id="fast_{$item.exambank_id}" class="">{$times}</a>
+                    {/foreach}
+                    <div class="tm_clear"></div>
+                </dd>
+            </dl>
+            {/foreach}
+        </div>
+        <div id="div_processor_ops">
+            <button class="btn btn_red" type="button" onclick="tmUserPaper.submitPaper();">提交</button>
+        </div>
+        <div id="div_processor_tips">
+            <em class="finished"></em><span>已答</span>
+            <em></em><span>未答</span>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+{/block}
+
+
+
+
+
+

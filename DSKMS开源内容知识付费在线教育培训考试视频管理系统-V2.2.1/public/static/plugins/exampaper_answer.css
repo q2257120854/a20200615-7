@@ -1,0 +1,47 @@
+/*公用CSS*/
+.exampaper{font-size:14px;background: #EAECEF;}
+.exampaper .paper{color:#3a3e51;background:#fff;border:1px solid #dedede;border-radius:4px}
+.exampaper .exampaper_info{border-bottom:1px solid #dedede;}
+.exampaper .exampaper_info h1{text-align:center;line-height:40px;font-size:16px;font-weight:bold;}
+.exampaper .exampaper_info h2{text-align:center;font-size:14px;line-height:26px;font-weight:normal;}
+.exampaper .section_list .mt{padding:18px 20px;background:#fafafa;border-bottom:1px solid #dedede}
+.exampaper .section_list .mt h1{font-size:18px;line-height:25px}
+.exampaper .section_list .mt h2{font-size:12px;line-height:25px}
+.exampaper .section_list .mc{padding:30px 20px;position:relative;border-bottom:1px solid #DEDEDE;}
+.exampaper .section_list .exambank_operation{width:190px;height:28px;top:22px;right:0;line-height:28px;font-size:15px;position:absolute}
+.exampaper .section_list .exambank_operation i{font-size:14px;display:inline-block;width:36px;height:36px;line-height:36px;text-align:center;background:#fafafa;border:1px solid #d8d8d8;border-radius:4px;color:#d8d8d8}
+.exampaper .section_list .exambank_operation i.icon-right{left:0}
+.exampaper .section_list .exambank_operation i.icon-wrong{left:42px}
+.exampaper .section_list .exambank_operation i.icon-right.icon-checked,.exampaper .section_list .exambank_operation i.icon-right:hover{background:#1a8cfe;color:#fff;border-color:#1a8cfe}
+.exampaper .section_list .exambank_operation i.icon-wrong.icon-checked,.exampaper .section_list .exambank_operation i.icon-wrong:hover{background:red;color:#fff;border-color:red}
+.exampaper .section_list .exambank_operation .input-group{width:100px;display:inline-table}
+.exampaper .section_list .exambank_operation .input-group .form-control{height:28px;padding:4px 10px;width:20px;text-align:center}
+.exampaper .section_list .exambank_operation .input-group .input-group-addon{padding:4px 6px}
+.exampaper .section_list .exambank_question{font-size:16px;line-height:22px;margin-bottom:10px;padding-left:20px;position:relative;padding-right:200px}
+.exampaper .section_list .exambank_question em{height:22px;width:22px;background:#368ee0;display:block;text-align:center;float:left;color:#fff;border-radius:2px;margin-right:10px}
+.exampaper .section_list .answers .select label{width:90%;padding:10px 5%;line-height:20px;border-radius:4px;cursor:pointer;margin:0;position:relative;display:inline-block}
+.exampaper .section_list .answers .select label input{line-height:20px;margin-right:10px}
+.exampaper .section_list .answers .field{padding-left:15px;padding-right:15px;margin-top:20px}
+.exampaper .section_list .answers .field em{float:left;width:10%;height:36px;border:1px solid #d8d8d8;border-right:none;background:#f1f3f8;color:#3a3e51;line-height:36px;text-align:center;font-size:14px}
+.exampaper .section_list .answers .field input{width:80%;height:28px;padding:4px 10px;border:1px solid #d8d8d8}
+.exampaper .section_list .answers .field textarea{width:90%;height:180px;border:1px solid #d8d8d8;border-radius:4px;padding:10px 5%}
+.exampaper .section_list .analysis{background:rgba(222,222,222,.2);border-radius:4px;padding:15px 20px;line-height:24px;margin-top:10px;position:relative}
+.exampaper .section_list .analysis dl{line-height:28px;}
+.exampaper .section_list .analysis dt{float:left;}
+.exampaper .section_list .analysis dd{padding-left:60px;}
+.exampaper .section_list .analysis dd .check_state{float:right;color: #fff;font-size: 14px;width: 48px;height: 28px;border-radius: 2px;line-height: 28px;text-align: center;}
+.exampaper .section_list .analysis dd .icon-error{background:red;}
+.exampaper .section_list .analysis dd .icon-right{background: #3c0}
+#div_processor{position:fixed;top:240px;width:200px;height:auto;background:#fff;border:solid 1px #ddd;padding:5px;z-index:9999;}
+#div_processor a{border:1px solid #b4b6bd;line-height:25px;display:inline-block;width:27px;height:27px;border-radius:50%;color:#b4b6bd;background:#fff;text-align:center}
+#div_processor .finished{background:#3c0;color:#fff}
+#div_processor .wrong{background:red;color:#fff}
+#div_processor_fastto{max-height:450px;overflow-y:scroll}
+#div_processor_fastto dl{padding:0 20px}
+#div_processor_fastto dt{font-size:12px;color:#3a3e51;font-weight:600;line-height:17px;padding:10px 0}
+#div_processor_fastto dd{line-height:25px;padding:5px 0;margin:0;clear:both}
+#div_processor_ops{padding:10px 0;text-align:center}
+#div_processor_tips{text-align:center}
+#div_processor_tips em{width:14px;height:14px;border-radius:50%;display:inline-block;vertical-align:middle;margin-right:2px;background:#fff;border:1px solid #b4b6bd}
+#div_processor_tips span{font-size:12px;color:#6d717c}
+#div_processor_timer{text-align:center;line-height:30px;font-weight:bold;font-size:16px;color:#000}

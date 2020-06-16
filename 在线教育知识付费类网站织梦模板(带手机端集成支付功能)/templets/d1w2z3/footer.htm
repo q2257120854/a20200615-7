@@ -1,0 +1,127 @@
+<!-- 底部版权 -->
+<div class="footer-link">
+
+
+<!-- logo -->
+<div class="layout-cont-logo"><img src="{dede:global.cfg_basehost/}/images/footer-logo.png"></div>
+
+<div class="w1200">
+<ul>
+<li class="link">
+<a href="{dede:global.cfg_basehost/}/about/index/" rel="nofollow">关于我们</a>
+<span class="sep">|</span>
+<a href="{dede:global.cfg_basehost/}/about/banquan/" rel="nofollow">版权声明</a>
+<span class="sep">|</span>
+<a href="{dede:global.cfg_basehost/}/about/lianxi/" rel="nofollow">联系我们</a>
+<span class="sep">|</span>
+<a href="{dede:global.cfg_basehost/}/about/faq/" rel="nofollow">帮助中心</a>
+<span class="sep">|</span>
+<a href="{dede:global.cfg_basehost/}/tequan/" rel="nofollow">VIP特权</a>
+</li>
+</ul>
+<p>{dede:global name='cfg_powerby'/}<a href="http://beian.miit.gov.cn/" rel="nofollow" target="_blank" class="footer-yxw-gxb">{dede:global name='cfg_beian'/}</a></p>
+<p>咨询电话：{dede:global.tlekefu /}，QQ客服：{dede:global.cfg_qqkefu /}</p>
+
+<!-- 手机扫码学习 -->
+<div class="pos-code clearfix">
+<dl class="fl"><dt class="app-code"></dt><dd>手机在线学课</dd></dl>
+<dl class="fl"><dt class="wchat-code"></dt><dd><span class="wchat-icon"></span>官方微信</dd></dl>
+</div>
+
+
+</div>
+</div>
+<!-- 底部版权 End -->
+
+
+<!--右侧信息栏-->
+<div class="cndns-right">
+
+<!-- 在线客服 -->
+<div class="cndns-right-meau meau-fk">
+<a href="javascript:" class="cndns-right-btn"><span class="demo-icon"></span><p>在线<br/>客服</p></a>
+<div class="cndns-right-box">
+<div class="box-border">
+<div class="d-service-item clearfix">
+<h4>官方客服</h4>
+<p>如遇课程或支付问题，请联系客服为您解决</p>
+<p class="d-service-item-p1">电话客服：{dede:global.tlekefu /}</p>
+<p class="d-service-item-p2">Q Q客服：<a rel="nofollow" href="https://wpa.qq.com/msgrd?v=3&uin={dede:global.cfg_qqkefu /}&site=qq&menu=yes" target="_blank" class="tran">联系客服</a></p>
+<p class="d-service-item-p3">工作时间：9:00-18:00，节假日休息</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 在线客服 End -->
+
+<!-- 下载APP -->
+<div class="cndns-right-meau meau-app" style="display:none;">
+<a href="javascript:" class="cndns-right-btn"><span class="demo-icon"></span><p>APP<br/>下载</p></a>
+<div class="cndns-right-box"><div class="box-border"><img src="{dede:global.cfg_basehost/}/images/right-app.jpg"></div></div>
+</div>
+<!-- 下载APP End -->
+
+<!-- 微信公众号 -->
+<div class="cndns-right-meau meau-code" style="display:none;">
+<a href="javascript:" class="cndns-right-btn"><span class="demo-icon"></span><p>官方<br/>微信</p></a>
+<div class="cndns-right-box"><div class="box-border"><img src="{dede:global.cfg_basehost/}/images/right-weixin.jpg"></div></div>
+</div>
+<!-- 微信公众号 End -->
+
+<!-- 返回顶部 -->
+<div class="cndns-right-meau meau-top" id="top-back"><a href="javascript:" class="cndns-right-btn" onclick="topBack()"><span class="demo-icon"></span><i>顶部</i></a></div>
+<!-- 返回顶部 End -->
+
+</div>
+<!-- 右侧信息栏 End -->
+
+
+
+<!-- 会员信息下拉 -->
+<script type="text/javascript">
+       window.onload = function(){
+	var ms = document.getElementById("mainmenu");
+	var mainmenu2 = document.getElementById("mainmenu2");
+	ms.onmouseover = function(){
+		mainmenu2.style.display = "block";
+	};
+	ms.onmouseout = function(){
+		mainmenu2.style.display = "none";
+	};
+       };
+</script>
+
+<script type="text/javascript">
+//返回顶部
+$('#top-back').hide()
+$(window).scroll(function(){
+	 if($(this).scrollTop() > 350){
+		$("#top-back").fadeIn();
+	 }
+	 else{
+		$("#top-back").fadeOut();
+	 }
+})
+function topBack(){
+  $('body,html').animate({scrollTop:0},300);}
+</script>
+
+
+<div class="hint">
+<div class="hint-in1">
+<img src="{dede:global.cfg_basehost/}/images/gzs_app_xz_top.jpg">
+<div class="hint3" title="关闭"></div>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function($){
+$(".btn1").click(function(event){
+$(".hint").css({"display":"block"});
+$(".dwz-box").css({"display":"block"});
+});
+$(".hint3").click(function(event) {
+$(this).parent().parent().css({"display":"none"});
+$(".dwz-box").css({"display":"none"});
+});
+});
+</script>

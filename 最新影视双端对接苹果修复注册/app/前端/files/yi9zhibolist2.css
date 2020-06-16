@@ -1,0 +1,85 @@
+.imgdiv{
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    position: relative;	
+}
+.imgdiv>img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.imgdiv>div{
+    background-image: linear-gradient(rgba(0,0,0,0) 0px, rgba(0, 0, 0, .4) 100%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    font-size: 12px;
+	padding: 0 5px;	
+}
+.imgdiv>div>span{
+	float: left;
+}
+.imgdiv>div>span>i{
+    font-size: 15px;
+    margin-right: 0px;	
+}
+.imgdiv>div>a{
+    color: #fff;
+    float: right;
+}
+.li{
+	width: 48%;
+	/* padding: 10px 0px 0 5px!important; */
+	/* margin: 0 1.3%; */
+	text-align:center;
+	margin: 0px 0 0 2px;
+}
+.lidb{
+    background: #fff;
+    padding: 8px;
+    border-radius: 0 0 6px 6px;
+    box-shadow: rgba(0, 0, 0, .2) 0px 0px 8px;
+    margin-bottom: 5px;	
+	position: relative;
+}
+.lidb>p{
+    font-size: 13px;
+    text-align: -webkit-left;
+    color: #333;
+    line-height: 16px;
+    font-family: 黑体;	
+	margin-bottom: 0px;
+    min-height: 20px;	
+	width: 100%; 
+	overflow: hidden; 
+	white-space: nowrap; 
+	text-overflow: ellipsis;
+    margin-top: 0px;
+}
+.lidb>div{
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+    right: 0;
+    padding: 0 10px;
+    color: #bbb;
+}
+.lidb>div>span{
+    font-size: 12px;
+    float: left;	
+	margin: 0px 0px -4px 0px;	
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #666666;
+}
+.lidb>div>i{
+	float: right;	
+}
+.ul{
+    /* text-align: -webkit-center; */
+    padding: 0;	
+}

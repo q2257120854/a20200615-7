@@ -1,0 +1,193 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+<style>
+.paging{
+   margin-top:30px;
+}
+.home{
+	color:#fff;border: 1px #b6b6b6 solid;background: #b6b6b6; padding: 15px;height: 38px;line-height: 38px;
+}
+.all{
+	color:#fff;border: 1px #999 solid;background: #999; padding: 15px;height: 38px;line-height: 38px;
+}
+</style>
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">会员列表</h2>
+       <a href="{:url('users/add')}" class="fr top_rt_btn add_icon">添加会员</a>
+      </div>
+      <section class="mtb">
+	   <form action="" method="get" >
+			
+<!--    <select class="select" name="designer">
+        <option value="0">&nbsp;&nbsp;&nbsp;选择&nbsp;&nbsp;&nbsp;</option>
+       </select> -->
+	   
+       <input type="text" class="textbox textbox_225" placeholder="输入会员账号查询..." name="keyword" value="{$keyword}" />
+       <input type="submit" value="查询" class="group_btn"/>
+	   <a href="{:url('users/lists')}?status=1" class="home"/>冻结</a>
+	   <a href="{:url('users/lists')}" class="all"/>全部</a>  &nbsp;&nbsp;  <span style=""/>会员总人数：{$userTotal} 人</span> <span style=""/>最新注册：{$newNum} 人</span> 
+	   </form>
+      </section>
+      <table class="table">
+       <tr>
+        <th style="width:80px;">ID</th>		
+		<th>账号</th>
+		<th>手机号码</th>
+		<th>等级</th>
+		<th>上级</th>
+		<th>乐豆钱包</th>
+		<th>乐豆钱包</th>
+        <th>POW额度</th>
+		<th>乐豆种子</th>
+		<th>团队</th>
+		<th>状态</th>
+		<th>时间</th>
+        <th>操作</th>
+       </tr>
+       </tr>
+	   {foreach name="volist.data" id="vo"}
+       <tr class="id_{$vo.id}">
+        <td class="center"><input type="checkbox" value="{$vo.id}" name="id" />{$vo.id}</td>
+		<td class="center">	
+		{if condition="$vo.account eq '0'"}
+			--
+		{else /}
+			{$vo.account}
+		{/if}	
+		</td>
+        <td class="center">
+			{$vo.myphone}
+		</td>
+        <td class="center">
+			{$vo.rank} 级
+		</td>
+        <td class="center">
+			{$vo.parent}
+		</td>
+		<td class="center">
+			￥ {$vo.money_wallet}
+		</td>
+        <td class="center">
+			￥ {$vo.ore_wallet}
+		</td>
+        <td class="center">
+			￥ {$vo.forepart_money} 
+		</td>
+        <td class="center">
+			￥ {$vo.release_wallet} 
+		</td>
+        <td class="center">
+			{$vo.team_num} &nbsp;人
+		</td>
+		<td class="center">{if condition="$vo.status eq 1"}<a title="正常" class="link_icon">&#89;</a>{else/}<a title="冻结" class="link_icon" style="color:red;">&#88;</a>{/if}</td>
+		<td class="center">{$vo.addtime|date="Y-m-d",###}</td>
+        <td class="center">
+         <a href="{:url('users/edit')}?id={$vo.id}" title="编辑" class="link_icon">&#101;</a>
+         <a href="#" title="删除" class="link_icon del" data-id="{$vo.id}">&#100;</a>
+        </td>
+       </tr>
+		{/foreach}
+      </table>
+	  <div>
+		<aside class="paging_left">
+		   <a id="all">全选</a>
+		   <a id="nocheck">取消</a>
+		   <a id="reverse">反选</a>
+		   <a id="delid">删除</a>
+		</aside>
+	  {$list->render()}
+	 </div>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+$(document).ready(function() {
+	//全选
+	$("#all").on('click', function() {
+		//全选选中为true，否则为false
+		$("input[type=checkbox]").each(function(){ 
+		//循环checkbox选择或取消
+			$(this).prop("checked",true);
+		});
+	});
+	//取消
+	$("#nocheck").on('click', function() {
+		$("input[type=checkbox]").each(function(){ 
+			$(this).prop("checked",false);
+		});
+	});
+	//反选
+	$("#reverse").click(function () { 
+		$("table :checkbox").each(function () {  
+			$(this).prop("checked", !$(this).prop("checked"));  
+		});
+	});
+	//删除
+	$('.del').click(function(event){
+		var id = $(this).attr('data-id');
+		if (confirm("确定要删除吗？")) {
+			$.ajax({
+				url:"{:url('users/del')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'users/del_nucm',id:id},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('删除成功');
+						setTimeout(function(){
+							//页面刷新  
+							window.location.reload();
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});		
+		}
+	}); 
+    //批量删除
+	$('#delid').click(function(event){
+		var id=new Array();  
+		$('input[name="id"]:checked').each(function(){  
+			id.push($(this).val());//向数组中添加元素  
+		});  
+		var id_str = id.join(',');//将数组元素连接起来以构建一个字符串 
+		if (confirm("确定要删除吗？")) {
+			$.ajax({
+				url:"{:url('users/delmost')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'users/DelAll_nucm',delid:id_str,pid:0},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('删除成功');
+						setTimeout(function(){
+						//页面刷新  
+						window.location.reload();
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});
+		}
+	});  
+	
+	
+});
+</script>
+{/block}	

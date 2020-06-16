@@ -1,0 +1,19 @@
+[2018-12-01 10:30:32][debug] begin notify
+[2018-12-01 10:31:59][debug] begin notify
+[2018-12-01 10:36:46][debug] begin notify
+[2018-12-01 10:36:46][debug] call back:{"appid":"wx8844d28dd6e8802a","attach":"M8T1543631794RN640","bank_type":"CFT","cash_fee":"100","fee_type":"CNY","is_subscribe":"N","mch_id":"1513157221","nonce_str":"lixd43j8ipye5nucw1qlffm8i0hoxsst","openid":"ox0OI1KF-fSgEtJpP4DU0nokQv1s","out_trade_no":"151315722120181201103637","result_code":"SUCCESS","return_code":"SUCCESS","sign":"850373E3DB2083255F1C80F991E44BFC","time_end":"20181201103645","total_fee":"100","trade_type":"MWEB","transaction_id":"4200000236201812015220253622"}
+[2018-12-01 10:36:46][debug] query:{"appid":"wx8844d28dd6e8802a","attach":"M8T1543631794RN640","bank_type":"CFT","cash_fee":"100","fee_type":"CNY","is_subscribe":"N","mch_id":"1513157221","nonce_str":"Sag31CbPVcYUDP3h","openid":"ox0OI1KF-fSgEtJpP4DU0nokQv1s","out_trade_no":"151315722120181201103637","result_code":"SUCCESS","return_code":"SUCCESS","return_msg":"OK","sign":"04021DE0DD36DE109992AA1CCC05562A","time_end":"20181201103645","total_fee":"100","trade_state":"SUCCESS","trade_state_desc":"\u652f\u4ed8\u6210\u529f","trade_type":"MWEB","transaction_id":"4200000236201812015220253622"}
+[2018-12-01 10:41:08][debug] begin notify
+[2018-12-01 10:41:08][debug] call back:{"appid":"wx8844d28dd6e8802a","attach":"M8T1543632050RN112","bank_type":"CFT","cash_fee":"100","fee_type":"CNY","is_subscribe":"N","mch_id":"1513157221","nonce_str":"5hmwaa28o1mpqwuekmcbqk8q0frwc1a4","openid":"ox0OI1KF-fSgEtJpP4DU0nokQv1s","out_trade_no":"151315722120181201104058","result_code":"SUCCESS","return_code":"SUCCESS","sign":"BFFC408148EBDA6A2C79BD8282F7C664","time_end":"20181201104107","total_fee":"100","trade_type":"MWEB","transaction_id":"4200000230201812015175911731"}
+[2018-12-01 10:41:08][debug] query:{"appid":"wx8844d28dd6e8802a","attach":"M8T1543632050RN112","bank_type":"CFT","cash_fee":"100","fee_type":"CNY","is_subscribe":"N","mch_id":"1513157221","nonce_str":"3OxT6TqmA08AcAw7","openid":"ox0OI1KF-fSgEtJpP4DU0nokQv1s","out_trade_no":"151315722120181201104058","result_code":"SUCCESS","return_code":"SUCCESS","return_msg":"OK","sign":"AA549738E03DAE0BD307FF805FF590C2","time_end":"20181201104107","total_fee":"100","trade_state":"SUCCESS","trade_state_desc":"\u652f\u4ed8\u6210\u529f","trade_type":"MWEB","transaction_id":"4200000230201812015175911731"}
+[2018-12-01 10:58:15][debug] begin notify
+[2018-12-01 10:58:47][debug] begin notify
+[2018-12-01 11:06:41][debug] begin notify
+[2018-12-01 11:07:40][debug] begin notify
+[2018-12-01 11:14:35][debug] begin notify
+[2018-12-01 11:15:01][debug] begin notify
+[2018-12-01 12:08:13][debug] begin notify
+[2018-12-01 12:10:28][debug] begin notify
+[2018-12-01 12:10:59][debug] begin notify
+[2018-12-01 12:29:16][debug] begin notify
+[2018-12-01 12:52:38][debug] begin notify

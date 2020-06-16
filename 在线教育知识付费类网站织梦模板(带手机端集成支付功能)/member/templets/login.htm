@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>欢迎登录<?php echo $cfg_webname; ?></title>
+<link rel="stylesheet" type="text/css" href="<?php echo $cfg_basehost; ?>/css/passport.min.css">
+<script type="text/javascript" src="<?php echo $cfg_basehost; ?>/js/jquery.js"></script>
+<script type="text/javascript">
+    function checkSubmit()
+    {
+	if(document.form2.txtUsername.value=='')
+	{
+		document.form2.txtUsername.focus();
+		alert("请输入手机号");
+		return false;}
+
+    if(document.form2.pwd.value=='')
+	{
+		document.form2.pwd.focus();
+		alert("请输入密码");
+		return false;}
+   }
+</script>
+</head>
+<body>
+
+
+<!-- logo -->
+<div class="passport-header">
+<div class="logo container">
+<a href="<?php echo $cfg_basehost; ?>/" class="logo-link"><img src="<?php echo $cfg_basehost; ?>/images/index-logo.png"></a>
+<div class="logo-title">欢迎登录</div>
+</div>
+</div>
+<!-- logo End -->
+
+
+<div class="passport-wrapper">
+<div class="container">
+<div class="passport-sign fr">
+
+<div class="active">账号登录</div>
+
+<!-- tab-group -->
+<div class="tab-group">
+<form name='form2' method='POST' action='index_do.php' id="login-form" class="passport-form passport-form-sign" onsubmit="return checkSubmit();">
+<input type="hidden" name="fmdo" value="login">
+<input type="hidden" name="dopost" value="login">
+<input type="hidden" value="2592000" name="keeptime">
+
+<div class="form-item"><i class="phone-icon"></i><input type="text" name="userid" class="passport-txt xl w-full" id="txtUsername" placeholder="请输入手机号" maxlength="11" onkeyup="value=value.replace(/[^0-9^.]/g,'');" /></div>
+
+<div class="form-item"><i class="mima-icon"></i><input type="password" name="pwd" class="passport-txt xl w-full" id="pwd" placeholder="请输入密码" maxlength="16" /></div>
+
+<div class="form-item form-group"><button type="submit" class="passport-btn">登 录</button></div>
+
+<div class="form-item form-sevenday">
+<a href="<?php echo $cfg_basehost; ?>/member/index_do.php?fmdo=user&dopost=regnew" style="float:left;color:#ff700a;" title="立即注册">新用户注册</a>
+<a href="<?php echo $cfg_basehost; ?>/member/resetpassword.php" style="float:right;">忘记密码</a>
+</div>
+
+</form>
+</div>
+<!-- tab-group end -->
+
+
+</div>
+</div>
+</div>
+
+
+<?php pasterTempletDiy("d1w2z3/footer-login.htm");?>
+
+
+</body>
+</html>

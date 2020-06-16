@@ -1,0 +1,93 @@
+.index-title-1{background:#fff;}
+.index-title-1 h2{font-size:.9rem;font-weight:400;text-align:center;line-height: 1.7em;letter-spacing: 1px;}
+.index-title-1 p{text-align:center;font-size:.6rem;color: #6e6e6e;}
+.index-list-1{width:100%;background:#fff;}
+.index-list-1 ul{font-size: 0;margin-bottom: 0.5rem;}
+.index-list-1 li{ width: 47%; overflow: hidden; border-radius: 0.2rem;vertical-align: top; display: inline-block;box-shadow: 0 1px 1px rgba(0,0,0,.05);}
+.index-list-1 li:nth-child(odd) { margin: 0.5rem 1% 0 2%;}
+.index-list-1 li:nth-child(even) { margin: 0.5rem 2% 0 1%;}
+.index-list-1 li .p-img{width:100%}
+.index-list-1 li .p-img img{width:100%;}
+.index-list-1 li .p-info{padding: 0.2rem;}
+.index-list-1 li .p-info p{ display: block; font-size: 0.65rem; line-height:1.6rem; color: #000; height: 1.6rem; overflow: hidden;text-align:center;}
+
+.index-list-2{width:96%;padding:2%;}
+.index-list-2 ul{}
+.index-list-2 li{}
+.index-list-2 li i{}
+.index-list-2 li h3{
+    font-size:.6rem;
+    line-height:1rem;
+    color: #a8a8a8;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    left: 10px;width:70%;}
+.index-list-2 li .time {
+    font-size:.6rem;
+    display: inline-block;
+    line-height:1rem;
+    float: right;
+    color: #999999;
+    position: relative;
+}
+
+.index-more{background-color: rgb(54, 150, 30);color:#fff;display: block;border-radius: 5px;text-align:center;line-height:1.4rem;width:4rem;margin:0 auto;font-size:.8rem;}
+.index-more:hover{color:#fff;}
+
+
+/*公共图片*/
+.common-banner{}
+.common-banner img{width:100%}
+
+/*公共分类导航*/
+.common-nav{width:96%;padding:0 2%;overflow:hidden;}
+.common-nav ul{overflow-x: scroll;display:block;width:300%}
+.common-nav li{width: auto;display: inline-block;}
+.common-nav li a{padding:15px;display: block;font-size:.7rem;font-weight: normal;position: relative;}
+
+/*公共列表样式1*/
+.common-list-1{width:96%;padding:0 2%;display:block;}
+.common-list-1 ul{    display: table;}
+.common-list-1 li{width:48%;float:left;margin-left: 2%}
+.common-list-1 li:nth-of-type(2){margin-left:2%;}
+.common-list-1 li .p-img{}
+.common-list-1 li .p-img img{width:100%;}
+.common-list-1 li .p-info{}
+.common-list-1 li .p-info p{text-align:center;line-height:1.2rem;font-size:.7rem;}
+
+
+/*公共详情样式1*/
+.common-detail-1{width:96%;padding:2%;}
+.common-detail-1 .mt{}
+.common-detail-1 .mt h2{line-height: 1.7em;font-weight: 500;text-align:center;}
+.common-detail-1 .mc{font-size:.6rem;}
+.common-detail-1 .mc img{max-width:100%}
+
+
+
+/*招聘列表*/
+.page_job{position: relative;padding:10px;}
+.page_job .joblist dl {margin-top: 10px;padding: 10px 5px 10px;border: 1px solid #ddd;background:#fff;}
+.page_job .joblist dt{padding: 0 10px;font-weight: bold;font-size: 16px;line-height: 1.2;}
+.page_job .joblist dd{margin-top: 0px;}
+.page_job .joblist dd .mis{padding: 5px 10px;border-bottom: 1px solid #ddd;font-size: 12px;}
+.page_job .joblist dd .mis span{margin-right: 15px;color: #999;}
+.page_job .joblist dd .dtail{padding: 5px 10px 0;border-top: 1px solid #ddd;}
+.page_job .joblist dd .dtail span{margin-right: 15px;}
+.page_job .joblist dd .dtail a{color: #1c57c4;}
+
+/*招聘详情*/
+.page_job .jobview{background:#fff;}
+.page_job .jobview h1.title{margin: 0px 10px;margin-bottom: 30px;padding: 15px 5px;border-bottom: 1px solid #ddd;font-size: 24px;}
+.page_job .jobview .paralist{margin: 0px 10px;margin-top: 30px;padding: 5px 10px;background: #8c989f;color: #fff;}
+.page_job .jobview .paralist li{position: relative;padding: 8px 5px 8px 90px;min-height: 20px;border-bottom: 1px solid #ddd;}
+.page_job .jobview .paralist li span{font-size:14px;position: absolute;top: 0;left: 0;overflow: hidden;padding: 8px 5px;width: 80px;word-wrap: break-word;}
+.page_job .jobview .ctitle{margin: 30px 10px 10px;padding: 0 10px;height: 40px;border-bottom: 1px solid #ddd;font-weight: normal;font-size: 16px;line-height: 40px;}
+.page_job .jobview .job_editor{padding: 0 10px;}
+.page_job .jobview .info_cv{margin-top: 30px;margin-left: 10px;}
+.page_job .jobview .info_cv a{display: inline-block;padding: 0 35px;height: 35px;border-radius: 2px;background: #23b7e5;color: #fff;line-height: 35px;}
+
+/*招聘申请*/

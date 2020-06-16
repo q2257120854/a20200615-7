@@ -1,0 +1,58 @@
+{extend name="layout:home" /}
+{block name="container"}
+<div class="layui-tab layui-tab-card">
+    {include file="layout/admin_items" /}
+    <div class="layui-tab-content page-tab-content">
+        <table class="layui-table lay-even">
+            <colgroup>
+                <col>
+                <col width="200">
+                <col width="100">
+                <col width="100">
+                <col width="100">
+                <col width="100">
+                <col width="120">
+                <col width="120">
+                <col width="150">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>{$Think.lang.adv_title}</th>
+                    <th>广告位名称</th>
+                    <th>{$Think.lang.adv_order}</th>
+                    <th>{$Think.lang.adv_clicknum}</th>
+                    <th>{$Think.lang.adv_code}</th>
+                    <th>{$Think.lang.adv_enabled}</th>
+                    <th>{$Think.lang.adv_start_time}</th>
+                    <th>{$Think.lang.adv_end_time}</th>
+                    <th>{$Think.lang.ds_operation}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {volist name="adv_list" id="adv"}
+            <tr>
+                <td>{$adv.adv_title}</td>
+                <td>{$adv.ap_name}</td>
+                <td><span title="{:lang('ds_editable')}" ajax_branch='adv' datatype="number" fieldid="{$adv.adv_id}" fieldname="adv_order" ds_type="inline_edit" class="editable">{$adv.adv_order}</span></td>
+                <td>{$adv.adv_clicknum}</td>
+                <td><img src="{:get_adv_img($adv.adv_code)}"/></td>
+                <td>
+                    <a href="javascript:dsLayerConfirm('{:url('adv/setadv',['adv_id'=>$adv.adv_id,'adv_value'=>$adv.adv_enabled])}','{$Think.lang.ds_confirm_update}')">
+                        {if condition="$adv.adv_enabled eq 1"}<i class="layui-icon">&#xe605;</i>{else}<i class="layui-icon">&#x1006;</i>{/if}
+                    </a>
+                </td>
+                <td>{$adv.adv_starttime|date="Y-m-d",###}</td>
+                <td>{$adv.adv_endtime|date="Y-m-d",###}</td>
+                <td>
+                    <a href="{:url('adv/adv_edit',['adv_id'=>$adv.adv_id])}" class="layui-btn layui-btn-xs"><i class="layui-icon layui-icon-edit"></i>{$Think.lang.ds_edit}</a>
+                    <a href="javascript:dsLayerConfirm('{:url('adv/adv_del',['adv_id'=>$adv.adv_id])}','{$Think.lang.ds_confirm_cancel}')" class="layui-btn layui-btn-danger layui-btn-xs"><i class="layui-icon layui-icon-delete"></i>{$Think.lang.ds_del}</a>
+                </td>
+            </tr>
+            {/volist}
+        </tbody>
+        </table>
+        {$show_page}
+    </div>
+</div>
+<script type="text/javascript" src="{$Think.ADMIN_SITE_ROOT}/js/jquery.edit.js"></script>
+{/block}

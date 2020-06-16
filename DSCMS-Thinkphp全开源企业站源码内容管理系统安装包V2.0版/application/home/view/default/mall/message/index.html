@@ -1,0 +1,58 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+<div class="common-banner mb20">
+    {dstaglib:adv ap_id='5' limit='1' item='v'}
+    <img class="lazy" data-original="{:get_adv_img($v.adv_code)}">
+    {/dstaglib:adv}
+</div>
+
+<div class="cases-search w1200">
+    <div class="mt mb20">
+        <div class="common-localtion w1200">
+            <span class="font-style">＋</span>
+            <span>当前位置：首页 <b>＞</b> 留言</span>
+            <hr>
+        </div>
+    </div>
+    <div class="business_index w1200">
+        <div class="title"><span>在线留言</span></div>    
+<!--    <div class="title">在线留言</div>-->
+    <div class="mt20"></div>
+    <div class="message">
+        
+       <form id="user_form" enctype="multipart/form-data" method="post" action="{:url('Message/index')}">
+        <table class="ds-default-table" style="margin:auto">
+            <tbody>
+                <tr class="noborder">
+                    <td class="required"><label for="message_title">标题:</label></td>
+                    <td class="vatop rowform"><input  type="text" value="" name="message_title" id="message_title" class="text w300" required></td>
+                    <td class="tips"></td>
+                </tr>
+                
+                <tr class="noborder">
+                    <td class="required"><label for="message_ctitle">短标题:</label></td>
+                    <td class="vatop rowform"><input type="text" value="" id="message_ctitle" name="message_ctitle" class="text"></td>
+                    <td class="tips"></td>
+                </tr>
+                <tr class="noborder">
+                    <td class="required"><label for="message_content">联系内容:</label></td>
+                    <td class="vatop rowform"><textarea name="message_content" required lay-verify="required" placeholder="请输入" class="layui-textarea">{$huizhan.message_content|default=''}</textarea></td>
+                    <td class="tips"></td>
+                </tr>
+                
+            </tbody>
+            <tfoot>
+                <tr class="tfoot">
+                    <td class="required"></td>
+                    <td class="submit"><input  type="submit" value="提交留言" class='btn'/></td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+    </div>
+    <div class="mt100"></div>
+</div>
+
+</div>
+
+{/block}

@@ -1,0 +1,2 @@
+INSERT INTO `dede_member_flink` VALUES('1','1','织梦内容管理系统','http://www.dedecms.com');
+INSERT INTO `dede_member_flink` VALUES('2','2','织梦内容管理系统','http://www.dedecms.com');

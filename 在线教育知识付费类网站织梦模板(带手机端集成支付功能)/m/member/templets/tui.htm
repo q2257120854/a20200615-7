@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>课程分销</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="<?php echo $mcfg_basehost; ?>/m-css/tg-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/jquery.js"></script>
+<script src="<?php echo $mcfg_basehost; ?>/m-js/clipboard.min.js"></script>
+<style type="text/css">
+.wrapper{padding-bottom:56px;}
+.yxw-tui-bz{background:#fff;margin-top:10px;padding:15px 15px;}
+.yxw-tui-bz h2{color:#333;font-size:20px;line-height:18px;font-weight:700;margin:25px 0;text-align:center;}
+.yxw-tui-bz h2 span{padding:0 5px;}
+.yxw-tgzn{overflow:hidden;padding-top:10px;padding-bottom:10px;}
+.yxw-tgzn h3{margin-bottom:5px;color:#333;font-size:16px;line-height:22px;}
+.yxw-tgzn p{color:#999;font-size:14px;line-height:24px;text-align:justify;}
+
+.jxjgz{background:rgba(28,31,33,.25);box-shadow:0 2px 17px 0 #FF6C00;border-radius:11px 0 0 11px;position:absolute;height:22px;line-height:22px;top:10px;right:0;font-size:12px;padding:0 10px;color:#fff;}
+</style>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar"><h2 class="logo-tg">课程分销</h2><a href="javascript:history.go(-1);" class="top_nav_left"></a></div><!-- TOP End -->
+
+
+<div class="wrapper">
+
+
+<!-- 提现 -->
+<div class="earningsheight" style="position:relative;">
+<div class="top-earnings">
+<p class="earnings">可提现收益(元)</p>
+<h2 class="money"><?php echo $M['shouyi'];?></h2>   
+<a href="tui.php?a=tixian" class="js-btn-withdraw btn-withdraw" data-title="提现">去提现</a>
+<a href="<?php echo $mcfg_basehost; ?>/kcfx.html" class="jxjgz" data-title="分销规则&帮助">规则&帮助</a>
+</div>
+</div>
+<!-- 提现 End -->
+
+
+
+<!-- 收益/推广人数 -->
+<div class="earnings-item clearfix">
+
+<div class="list">
+<div class="item">
+<span>推广用户数</span>
+<p><?php echo $M['dangqiantuiguang']; ?><em>人</em></p>
+</div>
+<div class="item">
+<span>已购买人数</span>
+<p><?php echo $M['yigoumai']; ?><em>人</em></p>
+</div>
+</div>
+
+<div class="list">
+<div class="item">
+<span>待到帐收益(元)</span>
+<p><?php echo $M['daidaozhang']; ?></p>
+</div>
+<div class="item">
+<span>已领取收益(元)</span>
+<p><?php echo $M['yilingqu']; ?></p>
+</div>
+</div>
+
+</div>
+<!-- 收益/推广人数 End -->
+
+
+<!-- 列表 -->
+<div class="my-item-box">
+<a href="tui.php?a=shouyi" class="my-item">收益明细</a>
+<a href="tui.php?a=txjl" class="my-item">提现记录</a>
+<a href="tui.php?a=mytjr" class="my-item my-item-bottom">我的推荐人</a>
+</div>
+<!-- 列表 End -->
+
+<!-- 我的推广链接 -->
+<div class="yxw-gt-box"><input id="foo" value="<?php echo $mcfg_basehost; ?>/u_<?php echo $mid;?>"></div>
+<!-- 我的推广链接 End -->
+
+
+</div>
+<!-- wrapper End -->
+
+
+<!-- 复制我的推广链接 -->
+<div class="yxw-tglj">
+<div class="yxw-tglj2"><a href="javascript:void(0)" data-clipboard-target="#foo" aria-label="复制成功，快把链接分享给好友吧~" class="btn2018">复制我的邀请链接</a></div>
+</div>
+<!-- 复制我的推广链接 End -->
+
+<script>
+var clipboard = new Clipboard('.btn2018');
+clipboard.on('success', function(e) {
+    var msg = e.trigger.getAttribute('aria-label');
+    alert(msg);
+    console.info('Action:', e.action);
+    console.info('Text:', e.text);
+    console.info('Trigger:', e.trigger);
+    e.clearSelection();
+});
+</script>
+
+</body>
+</html>

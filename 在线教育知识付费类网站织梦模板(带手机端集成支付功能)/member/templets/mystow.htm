@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+
+<title>我收藏的课程 - <?php echo $cfg_webname; ?></title>
+
+<link href="/css/v2_index.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+
+<script language="javascript" type="text/javascript">
+
+<!--
+
+	$(function(){
+
+		$("a[_for]").mouseover(function(){
+
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+
+			$(this).addClass("thisclass").blur();
+
+			$("#"+$(this).attr("_for")).show();
+
+		});
+
+		$("a[_for=uc_member]").mouseover();
+
+		$("a[_for=flink_1]").mouseover();
+
+	});
+
+	
+
+	function CheckLogintop(){
+
+	  var taget_obj = document.getElementById('_userlogin');
+
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+
+	  DedeXHTTP = null;
+
+	}
+
+-->
+
+</script>
+
+<style type="text/css">
+
+.uc-main-box{padding:33px 0 0;}
+
+#showpage_min{padding-bottom:60px;}
+
+
+
+.flow-list.clearfix{width:875px;}
+
+.flow-list .flow-item{position:relative;width:270px;margin:15px 21px 0 0;}
+
+.flow-list .flow-item .item-show img{display:block;width:270px;height:152px;border-top-right-radius:8px;border-top-left-radius:8px;}
+
+.flow-list .flow-item .item-info{border:1px solid #eee;padding:12px;background:#fff;border-bottom:3px solid #ececec;font-size:14px;color:#333;border-bottom-right-radius:8px;border-bottom-left-radius:8px;text-align:center;}
+
+
+
+/*取消按钮*/
+
+.flow-item:hover .closeBtn{display:block;}
+
+.flow-item .closeBtn{width:24px;height:24px;display:none;position:absolute;top:-6px;right:-6px;background:#333 url(../images/sc-delete.png) no-repeat 5px 4px;background-size:15px 15px;border-radius:50px;cursor:pointer;z-index:99;}
+
+.flow-item .closeBtn:hover{background:#ff700a url(../images/sc-delete.png) no-repeat 5px 4px;background-size:15px 15px;}
+
+
+
+/*收藏无数据显示*/
+
+.m-yxw-cs-wushuju{margin:0 auto;width:300px;text-align:center;display:none;}
+
+.m-yxw-cs-wushuju img{width:179px;height:254px;}
+
+.m-yxw-cs-wushuju p{font-size:14px;color:#333;line-height:20px;padding:10px 0;}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+
+<?php include(DEDEMEMBER."/templets/left.htm"); ?>
+
+
+
+<!-- 右侧功能定位 -->
+
+<div class="user-right">
+
+<div class="uc-box uc-main-box">
+
+<div class="uc-content-box order-list-box">
+
+<div class="box-hd"><h1 class="title">我收藏的课程</h1></div>
+
+
+
+<!-- 这里是没有数据显示的内容 -->
+
+<div class="m-yxw-cs-wushuju">
+
+<img src="https://m.test.com/m-images/kc-wu-sc.png">
+
+<p class="wu-sc-title">您还没有收藏课程哦，快去收藏吧！</p>
+
+</div>
+
+<!-- 这里是没有数据显示的内容 End -->
+
+
+
+<div class="flow-list clearfix">
+
+{dede:datalist}
+
+<div class="flow-item fl">
+
+<a href="archives_do.php?dopost=delStow&type={dede:field.type/}&aid={dede:field.aid/}" class="closeBtn" title="删除"></a>
+
+<div class="item-show">
+
+<a href="archives_do.php?dopost=viewArchives&aid={dede:field.aid/}" target="_blank"><img class="course-img-bg lazy-img" data-original="{dede:field.litpic/}"></a>
+
+</div>
+
+<div class="item-info">{dede:field.title/}</div>
+
+</div>
+
+{/dede:datalist}
+
+</div>
+
+
+
+
+
+<!-- 列表分页 -->
+
+<div id="showpage_min">
+
+{dede:pagelist listsize=5 /}
+
+</div>
+
+<!-- 列表分页 Ending -->
+
+
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 右侧功能定位 End -->
+
+
+
+
+
+</div>
+
+
+
+
+
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+
+
+
+
+
+<script type="text/javascript" src="/js/jquery.lazyload.js"></script>
+
+<script type="text/javascript">
+
+!function(){var n,f={};f.curr=1,n=20;var a=function(){},c=function(){$(".lazy-img").lazyload({effect:"fadeIn"})},i=function(){a(),c()};i()}();
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
+
+if($(".flow-item").length < 1){	
+
+$(".m-yxw-cs-wushuju").show();
+
+}
+
+</script>
+
+
+
+
+
+</body>
+
+</html>

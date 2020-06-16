@@ -1,0 +1,14 @@
+@btCCTV-1综合1频道@dzrtsp://113.136.42.45:554/PLTV/88888888/224/3221226087/10000100000000060000000001759104_0.smil@tphttp://mh.pivqa.cn:90/tv/1.png丨
+@btCCTV-2财经频道@dzrtsp://113.136.42.42:554/PLTV/88888888/224/3221226134/10000100000000060000000001794850_0.smil@tphttp://mh.pivqa.cn:90/tv/2.png丨
+@btCCTV-3综艺频道@dzhttp://cctvalih5ca.v.myalicdn.com/live/cctv3_2/index.m3u8?contentid=2820180516001@tphttp://mh.pivqa.cn:90/tv/3.png丨
+@btCCTV-4国际频道@dzhttp://cctvalih5ca.v.myalicdn.com/live/cctv4_2/index.m3u8?contentid=2820180516001@tphttp://mh.pivqa.cn:90/tv/4.png丨
+@btCCTV-5体育频道@dzhttp://cctv5txyh5ca.liveplay.myqcloud.com/live/cctv5_2/index.m3u8@tphttp://mh.pivqa.cn:90/tv/5.png丨
+@btCCTV-6电影频道@dzhttp://mgzb.live.miguvideo.com:8088/ws_w/2018/cctv6/350/01.m3u8?msisdn=migu&mdspid=&spid=699004&netType=0&sid=2200258579&pid=2028597139&timestamp=20191105221147&Channel_ID=H5_&ProgramID=608919883&ParentNodeID=-99&assertID=2200258579&client_ip=110.53.220.50&SecurityKey=20191105221147&promotionId=&mvid=&mcid=&mpid=&playurlVersion=SJ-H1-0.0.3&userid=&jmhm=&videocodec=h264&mtv_session=add0b9b80717d5ae1f6de5216ac921de&HlsSubType=1&HlsProfileId=1&nphaid=0&encrypt=711989d6941a7a44f6ce681328a3ac9f@tphttp://mh.pivqa.cn:90/tv/6.png丨
+@btCCTV-7军事频道@dzhttp://cctvalih5ca.v.myalicdn.com/live/cctv7_2/index.m3u8?contentid=2820180516001@tphttp://mh.pivqa.cn:90/tv/7.png丨
+@btCCTV-8剧场频道@dzhttp://cctvalih5ca.v.myalicdn.com/live/cctv8_2/index.m3u8?contentid=2820180516001@tphttp://mh.pivqa.cn:90/tv/8.png丨
+@btCCTV-9记录频道@dzhttp://hbxx.chinashadt.com:3299/live/stream:di4.stream_360p/playlist.m3u8@tphttp://mh.pivqa.cn:90/tv/9.png丨
+@btCCTV-10科教频道@dzhttp://cctvksc.v.kcdnvip.com/live/cctv10_1/index.m3u8?BR=ud&region=shanghai@tphttp://mh.pivqa.cn:90/tv/10.png丨
+@btCCTV-11戏曲频道@dzhttp://cctvalih5ca.v.myalicdn.com/live/cctv11_2/index.m3u8?time=1572963766733@tphttp://mh.pivqa.cn:90/tv/11.png丨
+@btCCTV-12社会与法频道@dzhttp://cctvalih5ca.v.myalicdn.com/live/cctv12_2/index.m3u8?time=1572963841799@tphttp://mh.pivqa.cn:90/tv/13.png丨
+@btCCTV-14少儿频道@dzhttp://cctvalih5ca.v.myalicdn.com/live/cctvchild_2/index.m3u8?time=1572963913976@tphttp://mh.pivqa.cn:90/tv/14.png丨
+@btCCTV-15音乐频道@dzhttp://cctvalih5ca.v.myalicdn.com/live/cctv15_2/index.m3u8?contentid=2820180516001@tphttp://mh.pivqa.cn:90/tv/15.png丨

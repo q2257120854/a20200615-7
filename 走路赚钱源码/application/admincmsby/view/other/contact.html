@@ -1,0 +1,201 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/lang/zh-cn/zh-cn.js"></script>
+    <style type="text/css">
+        div#content{
+			text-align: right;
+			margin-left:120px; 	
+			width:80%;
+        }
+		.textbox_640{
+			width:640px;
+		}
+		.ulColumn2{
+			margin-bottom:50px;
+		}
+		#edui1_imagescale_cover{
+			position:static !important;
+		}
+		#edui1_imagescale{
+			display:none !important;
+		}
+    </style>
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">联系地址</h2>
+      </div>
+     <section>
+      <ul class="ulColumn2">
+	<!--   <form enctype="multipart/form-data" id="uploadForm"> -->
+
+       <li>
+        <span class="item_name" style="width:120px;">公司名称：</span>
+        <input type="text" class="textbox textbox_295" name="title" value="{$result.title}" placeholder="公司名称..."/>
+        <span class="errorTips">一般不超过80个字符</span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">微信公众号：</span>
+        <label class="uploadImg">
+         <input type="file"  name="weixin_pic" />
+		 {if condition="$result['weixin_pic'] neq '0'"}
+		 <img id="weixin_pic" src="{$result['weixin_pic']}" >
+		 {else /}
+		 <img id="weixin_pic" src="" >
+		 {/if}		 
+		 <input type="hidden" name="primary_weixin" value="{$result['weixin_pic']}">
+         <span>上传站点logo</span>
+        </label>
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;">手机：</span>
+        <input type="text" class="textbox textbox_295"  name="phone" value="{$result.phone}" placeholder="手机..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">固话：</span>
+        <input type="text" class="textbox textbox_295"  name="tel" value="{$result.tel}" placeholder="固话..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">QQ：</span>
+        <input type="text" class="textbox textbox_295" name="qq" value="{$result.qq}"  placeholder="QQ..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">Email：</span>
+        <input type="text" class="textbox textbox_295" name="email" value="{$result.email}"  placeholder="Email..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">联系人：</span>
+        <input type="text" class="textbox textbox_295" name="contacts" value="{$result.contacts}"  placeholder="联系人..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">公司地址：</span>
+        <input type="text" class="textbox textbox_295"  name="address" value="{$result.address}" placeholder="公司地址..."/>
+       </li>
+	    <!--内容详情-->
+       <li>
+        <span class="item_name" style="width:120px;">详情/地图：</span>
+        <script id="content" type="text/plain" style="height:500px; margin-top: 0px;">{$result.content|htmlspecialchars_decode}</script>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" id="submit" class="link_btn" value="保存"/>
+       </li>
+	  <!--  </form> -->
+      </ul>
+     </section>
+	 
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+//建立一個可存取到該file的url
+function getObjectURL(file) {
+	var url = null ;
+	if (window.createObjectURL!=undefined) { // basic
+		url = window.createObjectURL(file) ;
+	} else if (window.URL!=undefined) { // mozilla(firefox)
+		url = window.URL.createObjectURL(file) ;
+	} else if (window.webkitURL!=undefined) { // webkit or chrome
+		url = window.webkitURL.createObjectURL(file) ;
+	}
+	return url ;
+}
+</script>
+<script>
+var ue = UE.getEditor('content');
+$(document).ready(function() {
+$(".uploadImg").on("change",function(){
+	//获取图片的路径，该路径不是图片在本地的路径
+	var objUrl = getObjectURL($('input[name="weixin_pic"]')[0].files[0]) ; 
+	if (objUrl) {
+		//将图片路径存入src中，显示出图片
+		$("#weixin_pic").attr("src", objUrl) ; 
+	}
+});
+
+	$('#submit').click(function(event){
+		
+		var title = $('input[name="title"]').val();
+		var address = $('input[name="address"]').val();	
+		var phone = $('input[name="phone"]').val();		
+		var tel = $('input[name="tel"]').val();
+		var qq = $('input[name="qq"]').val();
+		var email = $('input[name="email"]').val();
+		var contacts = $('input[name="contacts"]').val();
+		var content = UE.getEditor('content').getContent();
+		var primary_weixin = $('input[name="primary_weixin"]').val();
+		//上传图片
+
+        var fileObj = $('input[name="weixin_pic"]')[0].files[0]; 			   
+        var formData = new FormData(); 
+		//加入对象
+		if(title){
+			formData.append('title',title);  
+		}
+		if(address){
+			formData.append('address',address);   
+		}
+		if(phone){
+			formData.append('phone',phone);  
+		}
+		if(tel){
+			formData.append('tel',tel); 
+		}
+		if(qq){
+			formData.append('qq',qq);  
+		}
+		if(email){
+			formData.append('email',email); 
+		}
+		if(contacts){
+			formData.append('contacts',contacts); 
+		}
+		if(content){
+			formData.append('content',content); 
+		}
+		if(fileObj){
+			formData.append('weixin_pic',fileObj); 
+		}
+
+		formData.append('op','address/edit');
+			   
+		console.log(formData.get("op"));
+		
+		$.ajax({
+			url:"{:url('other/contact_edit')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			processData: false,//用于对data参数进行序列化处理 这里必须false
+            contentType: false, //必须
+			data:formData,
+			success: function(data) {
+				console.log(data);
+				if (data.s=='ok') {
+					myAlert('修改成功');
+					setTimeout(function(){
+					//页面刷新  
+					window.location.reload();
+					},1000);
+					
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+	
+});
+</script>
+{/block}	

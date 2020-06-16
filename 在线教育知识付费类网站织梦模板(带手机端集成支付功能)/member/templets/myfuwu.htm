@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>我的售后 - 会员中心 - <?php echo $cfg_webname; ?></title>
+<link href="templets/style/base.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="templets/js/j.js"></script>
+<script type="text/javascript" src="templets/js/load.js"></script>
+<script type="text/javascript" src="templets/js/leftmenu.js"></script>
+<script type="text/javascript" src="templets/js/table_function.js"></script>
+<script type="text/javascript">
+	//获得选中文件的文件名
+	function GetCheckfolderItem()
+	{
+		var allSel='';
+		if(document.form1.deleteid.value) return document.form1.deleteid.value;
+		for(i=0;i<document.form1.deleteid.length;i++)
+		{
+			if(document.form1.deleteid[i].checked)
+			{
+				if(allSel=='')
+				allSel=document.form1.deleteid[i].value;
+				else
+				allSel=allSel+","+document.form1.deleteid[i].value;
+			}
+		}
+		return allSel;
+	}
+	
+	function DoSubmit()
+	{
+		var selid = GetCheckfolderItem();
+		if(selid=='') {
+			alert("你没选中任何信息！");
+			return false;
+		}
+		if(window.confirm("你确定要删除这些消息么？"))
+		{
+			location = "mypay.php?dopost=del&ids="+selid;
+		}
+	}
+</script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+</head>
+<body>
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+ <?php include(DEDEMEMBER."/templets/left.htm"); ?>
+ <!-- 右侧功能定位 -->
+<div class="user-right">
+<div class="uc-box uc-main-box">
+<div class="uc-content-box order-list-box">
+
+
+<div class="box-hd">
+<h1 class="title">我的售后</h1></div>
+
+
+<div class="box-bd">
+<div id="J_orderList">
+<ul class="order-list">
+
+<li class="uc-order-item uc-order-item-finish">
+<div class="order-detail">
+<!--<div class="order-summary"><div class="order-status">我的售后</div></div>-->
+
+ {dede:datalist}
+<table class="order-detail-table">
+<thead>
+<tr>
+<th class="col-main"><p class="caption-info">售后商品:<?php echo $fields['arctitle'].'   时间:'.GetDateTimeMk($fields['dtime']); ?><span class="sep">|</span>订单：<?php echo $fields['oid']; ?></p></th>
+<th class="col-sub"><!--<p class="caption-price">售价：<span class="num"><?php echo $fields['money']; ?></span>金币</p>--></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="order-items">
+<ul class="goods-list2">
+<li style="height:auto;padding-left:10px">
+<p class="name" style="    line-height: 24px;">问题反馈:<?php
+echo $fields['msg'];
+					   ?></p><p class="name"style="    line-height: 24px;color:red">官方回复:<?php
+echo $fields['gmsg'];
+					   ?></p> </li>
+</ul>
+</td>
+<td class="order-actions2">
+</td>
+</tr>
+</tbody>
+</table>
+{/dede:datalist}
+
+
+
+</div>
+</li>
+</ul>
+</div>
+
+
+<!-- 列表分页 -->
+<div id="showpage_min">
+{dede:pagelist listsize=5/}
+</div>
+<!-- 列表分页 Ending -->
+
+
+</div>
+</div>
+</div>
+
+
+</div>
+<!-- 右侧功能定位 End -->
+</div>
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+
+</body>
+</html>

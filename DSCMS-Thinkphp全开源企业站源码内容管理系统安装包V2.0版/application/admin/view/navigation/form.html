@@ -1,0 +1,82 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form layui-form-pane" method="post" enctype="multipart/form-data" >
+    <div class="layui-tab layui-tab-card">
+        {include file="layout/admin_items" /}
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.nav_title}</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input field-name" name="nav_title" id="nav_title" value="{$nav.nav_title|default=''}" lay-verify="nav_title" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.nav_title}" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.nav_url}</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input field-name" name="nav_url" id="nav_url" value="{$nav.nav_url|default=''}" lay-verify="nav_url" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.nav_url}" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.nav_location}</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="nav_location" value="header" title="头部" checked/>
+                        <input type="radio" name="nav_location" value="middle" title="中部" />
+                        <input type="radio"name="nav_location" value="footer" title="尾部" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.nav_display}</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="nav_display" value="1" title="{:lang('ds_pc')}" checked/>
+                        <input type="radio" name="nav_display" value="2" title="{:lang('ds_web')}" {if condition="$nav.nav_display eq 2"}checked{/if}/>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.nav_new_open}</label>
+                    <div class="layui-input-inline">
+                        <input type="checkbox" name="nav_new_open" lay-skin="switch" lay-text="{$Think.lang.ds_yes}|{$Think.lang.ds_no}" value="1" {if condition="$nav.nav_new_open eq '1'"}checked{/if}>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.nav_is_show}</label>
+                    <div class="layui-input-inline">
+                        <input type="checkbox" name="nav_is_show" lay-skin="switch" lay-text="{$Think.lang.ds_yes}|{$Think.lang.ds_no}" value="1" {if condition="$nav.nav_is_show eq '1'"}checked{/if}>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.nav_order}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="nav_order" id="nav_order" value="{$nav.nav_order|default='255'}" lay-verify="nav_order" autocomplete="off" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-inline">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+    });
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#nav_addtime'
+        });
+    });
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#nav_endtime'
+        });
+    });
+</script>
+{/block}
+
+

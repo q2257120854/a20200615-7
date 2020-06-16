@@ -1,0 +1,30 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+
+<div class="common-banner">
+    {dstaglib:adv ap_id='2' limit='1' item='v'}
+    <img src="{:get_adv_img($v.adv_code)}">
+    {/dstaglib:adv}
+</div>
+
+<div class="common-nav">
+    <ul>
+        <li><a href="{:url('news/search')}">首页</a></li>
+        {foreach name="news_column" item="column"}
+        <li>
+            <a href="{:url('news/search',['id'=>$column.column_id])}">{$column.column_name}</a>
+        </li>
+        {/foreach}
+    </ul>
+</div>
+
+<div class="common-detail-1">
+    <div class="mt">
+        <h2>{$news_info.news_title}</h2>
+    </div>
+    <div class="mc">
+        {$news_info.news_content|htmlspecialchars_decode}
+    </div>
+</div>
+
+{/block}

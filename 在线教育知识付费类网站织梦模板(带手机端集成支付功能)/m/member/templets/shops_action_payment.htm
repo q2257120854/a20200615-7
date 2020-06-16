@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>在线支付</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="/m-css/m-index.css" rel="stylesheet" type="text/css">
+<link href="/m-css/m-user-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/m-js/jquery-2.1.4.min.js"></script>
+<style type="text/css">
+body{background:#fff;}
+.wrapper{padding-top:0;}
+#MEIQIA-BTN-HOLDER{display:none !important;}
+input{-webkit-appearance:none;border-radius:0;}
+
+/*微信支付开通VIP会员-2*/
+.m-weixin-pay-2{padding:20px 15px 0;}
+.m-weixin-pay-2 h3{color:#333;font-size:14px;font-weight:700;}
+.m-weixin-pay-2 p{line-height:20px;font-size:12px;color:#999;padding-top:10px;text-align:justify;}
+
+/*有赞云支付*/
+.btn_grey_weixin{width:49%;float:right;background:#00c901;display:inline-block;margin-top:20px;line-height:44px;font-size:16px;color:#fff;border-radius:3px;}
+.m-weixin-yanshi{padding-bottom:5px;}
+
+/*支付宝付款重置*/
+.cart_bottom_pay_cc{overflow:hidden;}
+.cart_bottom_pay{width:49%;float:left;background:#1e89f2;line-height:44px;}
+</style>
+</head>
+<body>
+
+
+
+<!-- TOP -->
+<div class="topbar">
+<div class="searchbar_index">
+<h1>在线支付</h1>
+<a href="javascript:history.go(-1);" class="top_nav_left"></a>
+<a href="/member/" class="tjdd-guanbi"></a>
+</div>
+</div>
+<!-- TOP End -->
+<div style="height:45px;" class="appblank"></div>
+
+
+<div class="wrapper">
+
+
+
+<div class="gd_info">
+<p class="des-m">订单编号：{dede:var.carts.orders_id/}</p>
+<p class="des-m">商品类型：<?php echo $ptype?></p>
+<p class="des-m">商品名称：<?php echo $pname?></p>
+<p class="des-m">商品价格：<?php echo $price;?>元</p>
+</div>
+
+
+
+
+<!-- 在线支付 -->
+<div class="cart_bottom_pay_cc">
+{dede:var.button/}
+<a href="/member/weixinpay/example/weixin.php?ddh={dede:var.carts.orders_id/}" class="btn_grey_weixin" style="text-align:center">微信支付</a>
+</div>
+<!-- 在线支付 End -->
+
+
+
+
+
+<!-- 支付注意事项 -->
+<div class="m-weixin-pay-2">
+<h3>注意事项</h3>
+<p>1：如果支付途中遇到问题，请及时联系<a href="javascript:void(0)" onclick="_MEIQIA('showPanel')" style="color:#00c2ff">在线客服</a>解决。</p>
+</div>
+<!-- 支付注意事项 End -->
+
+
+
+<script>
+$(function(){
+	setInterval(weipay,3000);
+})
+function weipay()
+{
+	var timeStamp = new Date().getTime();
+	$.get("/member/weixinpay/ajax.php",{'ddh':'{dede:var.carts.orders_id/}',a:'getorder'},function(data){
+		if(data  != '')
+		{	
+			 window.location.href='/member/weixinpay/ok.php?ddh={dede:var.carts.orders_id/}';
+		}
+	} )
+}
+</script>
+</div>
+
+
+
+
+<!-- 美洽客服 -->
+<script type='text/javascript'>
+    (function(m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function() {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        j = ei.createElement(q),
+            s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    _MEIQIA('entId', 50762);
+</script>
+<!-- 美洽客服 End -->
+
+
+
+
+
+
+
+<!-- APP端-屏蔽手机站DIV元素 -->
+<script type="text/javascript">
+if(navigator.userAgent.indexOf("Html5Plus") > -1) {
+document.body.classList.add("Html5Plus");}
+</script>
+<!-- APP端-屏蔽手机站DIV元素 End -->
+
+
+
+
+</body>
+</html>

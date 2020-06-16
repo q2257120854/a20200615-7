@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>提交订单 - {dede:global.cfg_webname/}</title>
+<meta http-equiv="mobile-agent" content="format=html5; url=http://m.v.duoweizi.org/" >
+<link rel="icon" href="http://v.duoweizi.org/favicon.ico" type="image/x-icon" />
+<link href="/css/v-duoweizi.css" rel="stylesheet" type="text/css" />
+<link href="/css/v-gouwuche.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<style type="text/css">
+.section{margin:0 10px;}
+.order-time{color:#616161;margin-bottom:5px;line-height:2;}
+.order-time span{color:#ff6700;}
+.order-detail{margin-top:10px;}
+.order-detail .order-num{color:#ff6700;}
+.consignee-add{background:#F2F2F2;border:solid 1px #E6E6E6;padding:20px;color:#666;}
+.consignee-add-label{display:block;font-size:16px;font-weight:700;}
+.consignee-add-label b{color:#FF7300;float:left;margin:3px 6px 0 -10px;}
+.consignee-add-text{border:solid 1px #CCC;font-size:14px;height:15px;line-height:14px;margin:10px 0;padding:10px;width:208px;}
+.consignee-add-address{border:solid 1px #ccc;display:block;font-size:14px;height:78px;margin:10px 0;padding:10px;resize:none;width:458px;}
+.hd-m{height:50px;line-height:50px;}
+</style>
+</head>
+<body>
+
+<?php pasterTempletDiy("d1w2z3/heads.htm");?>
+
+<div class="gCart">
+<div class="hd"><h3>提交订单</h3></div>
+<div class="bd">
+<form id="fixupformid" name="fixupform" action="carbuyaction.php" method="post">
+<input name="do" type="hidden" value="clickout">
+<div class="section">
+<div class="order-detail">
+<ul>
+
+<li class="clearfix">
+<div class="label">订单编号：</div>
+<div class="content"><span class="order-num">{dede:var.carts.orders_id/}</span>
+</div>
+</li>
+
+<li class="clearfix">
+<div class="label">商品总价：</div>
+<div class="content">{dede:var.carts.price_count/}元</div>
+</li>
+
+<li class="clearfix">
+<div class="label">商品总数：</div>
+<div class="content">{dede:var.carts.cart_count/}件</div>
+</li>
+
+{dede:array.shops_deliveryarr}
+<input type="hidden" name="pid" value="{dede:value.pid/}"  />
+<li class="clearfix">
+<div class="label">配送方式：</div>
+<div class="content">快递</div>
+</li>
+
+<li class="clearfix">
+<div class="label">商品运费：</div>
+<div class="content">{dede:value.price/}元</div>
+</li>
+{/dede:array}
+<input name="paytype" type="hidden" value="3" />
+
+{dede:array.shops_paymentarr}
+{/dede:array}
+</ul>
+</div>
+
+<div class="hd-m"><h3>请填写收货信息</h3></div>
+<!-- 填写收货地址 -->
+<div class="consignee-add">
+<form>
+<div class="add-row">
+<label class="consignee-add-label"><b>*</b>收货人姓名</label>
+<input  name="postname" value="<?php echo $shouhuo['uname'];?>"  type="text" class="consignee-add-text" placeholder="收货人姓名">
+</div>
+<div class="add-row m-t-10">
+<label class="consignee-add-label"><b>*</b>收货地址</label>
+<textarea class="consignee-add-address" name="address" placeholder="请填写详细收货地址"><?php echo $shouhuo['address'];?></textarea>
+</div>
+<div class="add-row m-t-10">
+<label class="consignee-add-label"><b>*</b>手机号码</label>
+<input name="tel"value="<?php echo $shouhuo['tel'];?>" type="text" class="consignee-add-text" placeholder="11位手机号">
+</div>
+</form>
+</div>
+<!-- 填写收货地址 End -->
+<div class="actions"><button type="submit" class="btn btn-primary">提交订单</button></div>
+</div>
+</form>
+</div>
+</div>
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+</body>
+</html>

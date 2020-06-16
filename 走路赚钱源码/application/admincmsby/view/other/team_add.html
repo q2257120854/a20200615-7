@@ -1,0 +1,187 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}	
+	
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">添加设计师</h2>
+      </div>
+      <ul class="ulColumn2">
+
+       <li>
+        <span class="item_name" style="width:120px;">姓名：</span>
+        <input type="text" class="textbox textbox_225" value="" name="name" placeholder="姓名..."/>
+		<span style="color:red;">*必填</span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">图片：</span>
+        <label class="uploadImg">
+         <input type="file"  name="user_pic" />
+		 <img id="user_pic" src="" >
+		 <input type="hidden" name="primary_pic" value="">
+         <span>上传封面图</span>
+        </label>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">职位：</span>
+        <input type="text" class="textbox textbox_225" value="" name="post" placeholder="职位..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">QQ：</span>
+        <input type="text" class="textbox textbox_225" value="" name="qq" placeholder="QQ..."/>
+       </li>	
+       <li>
+        <span class="item_name" style="width:120px;">首页推荐：</span>
+        <select class="select" name="home" style="height: 26px;">		
+		 <option value="1">&nbsp;是&nbsp;</option>	
+		 <option value="0">&nbsp;否&nbsp;</option>
+        </select>
+		<span style="color:#999;">请选择</span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">二级推荐：</span>
+        <select class="select" name="rec" style="height: 26px;">
+		 <option value="0">&nbsp;否&nbsp;</option>
+		 <option value="1">&nbsp;是&nbsp;</option>
+        </select>
+		<span style="color:#999;">请选择</span>
+       </li>	   
+       <li>
+        <span class="item_name" style="width:120px;">自定义属性：</span>
+        <label class="single_selection">
+			属性1：<input type="text" class="textbox textbox_225" name="property[]" value="" placeholder="属性1..."/>&nbsp;属性2：<input type="text" class="textbox textbox_225" name="property[]" value="" placeholder="属性2..."/>&nbsp;
+		</label>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">&nbsp;</span>
+        <label class="single_selection" style="margin-top:-13px;">
+			属性3：<input type="text" class="textbox textbox_225" name="property[]" value="" placeholder="属性3..."/>
+		</label>
+		<span style="color:red;">请勿使用英文逗号“,”</span>
+       </li>
+	   	   
+       <li>
+        <span class="item_name texlong" style="width:120px;">个人简介：</span>
+        <textarea placeholder="SEO描述（250字符以内）" class="textarea"  name="description" style="height:50px;width:640px;"></textarea>
+       </li>	   
+
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" id="submit" class="link_btn" value="确定"/>
+       </li>
+      </ul>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+//建立一個可存取到該file的url
+function getObjectURL(file) {
+	var url = null ;
+	if (window.createObjectURL!=undefined) { // basic
+		url = window.createObjectURL(file) ;
+	} else if (window.URL!=undefined) { // mozilla(firefox)
+		url = window.URL.createObjectURL(file) ;
+	} else if (window.webkitURL!=undefined) { // webkit or chrome
+		url = window.webkitURL.createObjectURL(file) ;
+	}
+	return url ;
+}
+</script>
+<script>
+$(document).ready(function() {
+
+	$(".uploadImg").on("change",function(){
+		//获取图片的路径，该路径不是图片在本地的路径
+		var objUrl = getObjectURL($('input[name="user_pic"]')[0].files[0]) ; 
+		console.log(objUrl);
+		if (objUrl) {
+			//将图片路径存入src中，显示出图片
+			$("#user_pic").attr("src", objUrl) ; 
+		}
+	});
+
+	$('#submit').click(function(event){
+		var formData = new FormData(); 
+		var name = $('input[name="name"]').val();//姓名
+		var post = $('input[name="post"]').val();//职位
+		var property = new Array();//属性
+		$('input[name="property[]"]').each(function(){
+			property.push($(this).val());//向数组中添加元素
+		});  
+		//缩略图
+        var user_pic = $('input[name="user_pic"]')[0].files[0];	
+		var description = $('textarea[name="description"]').val();//个人简介
+		var qq = $('input[name="qq"]').val();//qq
+		var home = $("select[name='home'] option:selected").val();//首页推荐
+		var rec = $("select[name='rec'] option:selected").val();//二级推荐
+		
+		console.log(user_pic);		
+       		
+		//加入对象
+		if(name){
+			formData.append('name',name);  
+		}else{
+			myAlert('姓名不能为空');
+		}
+		if(post){
+			formData.append('post',post);   
+		}
+		if(property){
+			formData.append('property',property);   
+		}
+		if(user_pic){
+			formData.append('user_pic',user_pic); 
+		}	
+		if(description){
+			formData.append('description',description);   
+		}
+		if(qq){
+			formData.append('qq',qq);   
+		}
+		if(home){
+			formData.append('home',home);   
+		}
+		if(rec){
+			formData.append('rec',rec);   
+		}
+		
+		formData.append('op','team/add');
+		formData.append('cmm_home','cmm_home');//首页推荐缓存
+		formData.append('cmm_rec','cmm_rec');//二级推荐缓存
+		
+		$.ajax({
+			url:"{:url('other/team_add_do')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			processData: false,//用于对data参数进行序列化处理 这里必须false
+            contentType: false, //必须
+			data:formData,
+			success: function(data) {
+				console.log(data);
+				if (data.s=='ok') {
+					myAlert('添加成功');
+					setTimeout(function(){
+					//页面刷新  
+					location.href= "{:url('other/team')}";
+					},1000);				
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+	
+});
+</script>
+
+
+{/block}	

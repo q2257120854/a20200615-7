@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>提现记录</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="<?php echo $mcfg_basehost; ?>/m-css/tg-index.css" rel="stylesheet" type="text/css">
+<script src="<?php echo $mcfg_basehost; ?>/m-js/clipboard.min.js"></script>
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/jquery.js"></script>
+<style type="text/css">
+.wrapper{padding-bottom:0;}
+
+/*提现记录*/
+.m-kc-operation{background:#fff;}
+.m-kc-operation-dd{overflow:hidden;padding:0 15px;font-size:14px;height:45px;line-height:45px;background-color:#f0f0f0;}
+.operation-dd-fl{display:inline-block;color:#333;}
+.operation-dd-fr{display:inline-block;color:#333;}
+.m-kc-operation a{display:block;padding:10px 15px;}
+.m-kc-operation img{width:55px;height:55px;float:left;border-radius:3px;}
+.m-kc-operation .m-kc-operation-title{padding-left:70px;height:55px;}
+.m-kc-operation .m-operation-title{line-height:55px;font-size:16px;color:#333;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.m-kc-operation-sj{overflow:hidden;margin:0 15px;font-size:14px;height:45px;line-height:45px;border-top:1px solid #f5f5f5;}
+.operation-sj-fl{display:inline-block;color:#999;}
+.operation-jg-fr{display:inline-block;color:#999;}
+
+/*无内容时显示*/
+.m-yxw-cs-wushuju{padding:30px 0;}
+.m-yxw-cs-wushuju img{width:100px;height:100%;margin:0 auto;display:block;}
+.m-yxw-cs-wushuju .wu-sc-title{text-align:center;font-size:14px;color:#757575;padding-top:10px;}
+
+/*加载中*/
+.m-yxw-cs-wushuju,.xiayiyequ{display:none;}
+</style>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar"><h2 class="logo-tg">提现记录</h2><a href="javascript:history.go(-1);" class="top_nav_left"></a></div>
+<!-- TOP End -->
+
+<div class="wrapper">
+
+
+<!-- 无内容时显示 -->
+<div class="m-yxw-cs-wushuju"><img src="<?php echo $mcfg_basehost; ?>/m-images/kc-wu-sc.png"><p class="wu-sc-title">您还没有提现哦</p></div>
+<!-- 无内容时显示 End -->
+
+
+<!-- 订单列表 -->
+<div class="m-kc-operation-list">
+{dede:datalist}
+<div class="m-kc-operation">
+<div class="m-kc-operation-dd">
+<span class="operation-dd-fl fl">订单号：{dede:field.ddh/}</span>
+<span class="operation-dd-fr fr">
+<?php
+if($fields['zt'] == '1'){
+	echo '待处理';
+}else{
+	echo '已完成';
+}
+?></span>
+</div>
+<a href="javascript:void(0)"><img src="/m-images/m-tixian.png">
+<div class="m-kc-operation-title">
+<p class="m-operation-title">申请提现</p>
+</div>
+</a>
+<div class="m-kc-operation-sj">
+<span class="operation-sj-fl fl">{dede:field.time function="date('Y-m-d',@me)"/}</span>
+<span class="operation-jg-fr fr">提现金额：￥<em style="color:#ff700a;font-size:20px;">{dede:field.jine/}</em></span>
+</div>
+</div>
+{/dede:datalist}
+</div>
+<!-- 订单列表 End -->
+
+
+<div class="xiayiyequ">{dede:pagelist listitem="info,index,end,pre,next,pageno" listsize="5"/}</div>
+<div class="yxw-list-loading"></div>
+
+
+</div>
+
+<script>
+if($(".m-kc-operation").length < 1 ){ 
+    $(".m-yxw-cs-wushuju").show();
+	$(".yxw-list-loading").hide();
+}
+var f = true; 
+function getxia(){
+    var link = $(".xiayiyequ a");
+        var href = link.attr("href");
+	 
+        if (href != undefined) { 
+        $(".yxw-list-loading").html('正在加载中...');
+            $.ajax({
+                type: "get",
+                url: href,
+                success: function(data) {               
+                    $(".m-kc-operation-list").append($(data).find(".m-kc-operation-list").html());
+                    f = true;
+                    var newHref = $(data).find(".nextPage").attr("href");  
+                                                                                
+                    if (newHref != undefined) {
+                        link.attr("href", newHref);
+                    } else {
+                        $(".yxw-list-loading").html("没有更多了");
+                        link.html("下一页没有了").removeAttr("href");
+                    };
+					                }
+            });
+        }else{
+        $(".yxw-list-loading").html("没有更多了");
+        
+        }
+        
+        return false;   
+}
+
+$(document).scroll(function(){
+            //滚动条滑动的时候获取滚动条距离顶部的距离
+            var scroll=$(document).scrollTop();
+            //屏幕的高度
+            var client=$(window).height();
+            var h=$(document).height();
+            var flag=true;
+            var bih = scroll+client+100 ;       
+            if (h<= bih) { // 到达底部时,加载新内容    
+                    if(f){
+                        f  = false;
+                        getxia();   
+                    }
+                      
+            }
+});
+</script>
+
+
+<!-- 返回顶部 -->
+<div class="mall-totop" onclick="window.scrollTo(0,0);"></div>
+<script src="<?php echo $mcfg_basehost; ?>/m-js/mall-top.js"></script>
+<!-- 返回顶部 End -->
+
+
+</body>
+</html>

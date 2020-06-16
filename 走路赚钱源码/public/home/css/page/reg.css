@@ -1,0 +1,57 @@
+.avatar-box {
+	width: 2.2rem;
+}
+
+.avatar-box>img {
+	margin-right: -.5rem;
+	margin-top: .4rem;
+}
+
+.login-form {
+	margin-top: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.mui-input-group .mui-input-row:after {
+	background: #DDDDDD;
+}
+
+.input-yanzhengma {
+	width: auto;
+	border: 0;
+}
+
+.link-area {
+	margin: auto;
+	margin-top: .2rem;
+	color: #92B7FF;
+	text-align: center;
+}
+
+.pin-code {
+	height: 40px;
+}
+
+.mui-modal {
+	padding-top: 20px;
+}
+
+.mui-modal .mui-bar-nav {
+	border-top: 0;
+	background: #fff;
+	border-bottom: 1px solid #eee;
+	box-shadow: none;
+}
+
+.app-btn-login {
+	background: #3C7FFF;
+	box-shadow: 0 3px 10px 0 rgba(60,127,255,0.50);
+	border-radius: 6px;
+}
+
+#login-form img.input-eye {
+	display: block;
+	width: 17px;
+	margin-right: 0;
+}

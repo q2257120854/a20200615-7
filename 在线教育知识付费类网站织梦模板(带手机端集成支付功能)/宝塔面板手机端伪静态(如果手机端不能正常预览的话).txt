@@ -1,0 +1,9 @@
+#手机版伪静态规则
+RewriteEngine On
+RewriteBase /
+RewriteRule uploads\/(.*)$ http://m.cccc.com/uploads/$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ rewrite.php?s=$1&mobile=1 [L]
+RewriteRule ^$ rewrite.php?s=$1&mobile=1 [L]
+RewriteRule ^u_([0-9]+)$ /member/tui.php?tjrmid=$1 [L]

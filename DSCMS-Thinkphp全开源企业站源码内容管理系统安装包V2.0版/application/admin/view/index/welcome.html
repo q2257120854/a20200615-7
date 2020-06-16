@@ -1,0 +1,85 @@
+{extend name="layout:home" /}
+{block name="container"}
+<div class="layui-tab-content page-tab-content">
+    <h1>{$Think.lang.wel_version_info}</h1>
+    <table class="layui-table lay-even">
+        <colgroup>
+            <col width="300">
+            <col width="530">
+        </colgroup>
+        <tbody>
+        <tr>
+            <td class="gray_bg">{$Think.lang.wel_version}</td>
+            <td>{$statistics['version']}</td>
+            <td class="gray_bg">{$Think.lang.wel_install_date}</td>
+            <td>{notempty name="statistics['setup_date']"}$statistics['setup_date']{else}{$Think.lang.temporary_installation}{/notempty}</td>
+        </tr>
+        <tr>
+            <td class="gray_bg">{$Think.lang.wel_program_development}</td>
+            <td>{$Think.lang.wel_deshangwangluo}</td>
+            <td class="gray_bg">{$Think.lang.wel_all_right_reserved}</td>
+            <td>{$Think.lang.wel_piracy_must_be_studied}</td>
+        </tr>
+        <tr>
+            <td class="gray_bg">{$Think.lang.wel_aboutus_website}</td>
+            <td><a href="http://www.csdeshang.com" target="_blank">{$Think.lang.aboutus_website}</a></td>
+            <td class="gray_bg">{$Think.lang.wel_aboutus_bbs}</td>
+            <td><a href="http://bbs.csdeshang.com" target="_blank">{$Think.lang.wel_communication_bbs}</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h1>{$Think.lang.wel_sys_info}</h1>
+    <table class="layui-table lay-even">
+        <colgroup>
+            <col width="300">
+            <col width="530">
+        </colgroup>
+        <tbody>
+        <tr>
+            <td class="gray_bg">{$Think.lang.wel_thinkphp_version}</td>
+            <td>{$Think.THINK_VERSION}</td>
+            <td class="gray_bg">{$Think.lang.wel_class_library_file_suffix}</td>
+            <td>{$Think.EXT}</td>
+        </tr>
+        <tr>
+            <td class="gray_bg">{$Think.lang.wel_server_os}</td>
+            <td>{$statistics['os']}</td>
+            <td class="gray_bg">{$Think.lang.wel_server_domain_ip}</td>
+            <td>{$statistics.domain} [ {$statistics.ip} ]</td>
+        </tr>
+        <tr>
+            <td class="gray_bg">WEB {$Think.lang.wel_server}</td>
+            <td>{$statistics['web_server']}</td>
+            <td class="gray_bg">PHP {$Think.lang.wel_version}</td>
+            <td>{$statistics['php_version']}</td>
+        </tr>
+        <tr>
+            <td class="gray_bg">MYSQL {$Think.lang.wel_version}</td>
+            <td>{$statistics['sql_version']}</td>
+            <td class="gray_bg">GD {$Think.lang.wel_version}</td>
+            <td>{$statistics.gdinfo}</td>
+        </tr>
+        <tr>
+            <td class="gray_bg">{$Think.lang.wel_file_uplode_limit}</td>
+            <td>{$statistics.fileupload}</td>
+            <td class="gray_bg">{$Think.lang.wel_max_occupied_memory}</td>
+            <td>{$statistics.memory_limit}</td>
+        </tr>
+        <tr>
+            <td class="gray_bg">{$Think.lang.wel_max_ex_time}</td>
+            <td>{$statistics.max_ex_time}</td>
+            <td class="gray_bg">{$Think.lang.wel_safe_mode}</td>
+            <td>{$statistics.safe_mode}</td>
+        </tr>
+        <tr>
+            <td class="gray_bg">Zlib {$Think.lang.wel_support}</td>
+            <td>{$statistics.zlib}</td>
+            <td class="gray_bg">Curl {$Think.lang.wel_support}</td>
+            <td>{$statistics.curl}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+{/block}

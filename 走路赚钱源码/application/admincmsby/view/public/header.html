@@ -1,0 +1,98 @@
+<!--header-->
+<header>
+ <h1><img src="__ADMIN_IMG__/admin_logo.png"/></h1>
+ <ul class="rt_nav">
+  <li><a href="/" target="_blank" class="website_icon">站点首页</a></li>
+  <li><a href="#" class="clear_icon" id="clear">清除缓存</a></li>
+  <li><a href="#" class="admin_icon">{$account}</a></li>
+  <li><a href="{:url('adminbrother/edit')}?id={$adminid}" class="set_icon">账号设置</a></li>
+  <li><a href="{:url('index/quit')}" class="quit_icon">安全退出</a></li>
+ </ul>
+</header>
+<link rel="stylesheet" type="text/css" href="__CSS__/myalert.css" />
+<script type="text/javascript" src="__JS__/jquery.min.js"></script>
+<script src="__JS__/myAlert.js"></script>
+<style>
+.myModa .myAlertBox h6{
+	background: #302931;
+	color:#fff;
+	font-weight:600;
+}
+.myModa .myAlertBox .btn{
+	color:#fff;
+	background: #13a174;
+	border: 1px #13a174 solid;
+}
+.paging{
+	float:right;
+}
+.paging a{
+	margin-left:2px;
+}
+.paging a.current{
+	background: #ff49ff;
+	border: 1px #ff49ff solid;
+	font-weight: 600;
+}
+.paging_left{
+    margin: 8px 0;
+    overflow: hidden;
+	float:left;
+	margin-top: 30px;
+}
+.paging_left a {
+    background: #302931;
+    border: 1px #139667 solid;
+    color: white;
+    padding: 5px 8px;
+    display: inline-block;
+    cursor: pointer;
+	margin-left: 2px;
+}
+.texlong{
+	position:absolute;
+}
+.textarea{
+	margin-left:120px;
+}
+.textbox_long{
+	width:640px;
+}
+.geshi{
+	text-align: right;
+	margin-left:120px;
+	padding-top:10px;
+	display: inline-block;
+	color:#8c8b8b;
+}
+.uploadImg img{
+	max-width:200px;
+}
+</style>
+<script>
+$(document).ready(function() {
+  //测试提交，对接程序删除即可
+	$('#clear').click(function(event){
+		$.ajax({
+			url:"{:url('cmmcom/clearcache')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			data:{clear:'ok'},
+			success: function(data) {
+				console.log(data.s);
+				if (data.s=='ok') {
+					myAlert('清楚缓存成功');
+					setTimeout(function(){
+						//页面刷新  
+						window.location.reload();
+					},1000);
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+	
+});
+</script>

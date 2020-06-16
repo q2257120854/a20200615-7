@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>账户余额充值 - <?php echo $cfg_webname; ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="apple-touch-icon-precomposed" href="http://m.duoweizi.net/images/57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://m.duoweizi.net/images/72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://m.duoweizi.net/images/144x144.png" />
+<link href="/m-css/m-index.css" rel="stylesheet" type="text/css">
+<link href="/m-css/m-user-index.css" rel="stylesheet" type="text/css">
+<link href="http://www.duoweizi.net/css/green.css" rel="stylesheet">
+<script type="text/javascript" src="http://www.duoweizi.net/js/jquery.js"></script>
+<script src="http://www.duoweizi.net/js/jquery.icheck.min.js"></script>
+<script type="text/javascript">  
+$(document).ready(function(){  
+    $(document).ready(function(){  
+          $('input').iCheck({  
+            checkboxClass: 'iradio_square-green',  //每个风格都对应一个，这个不能写错哈。  
+            radioClass: 'iradio_square-green',  
+   
+          });  
+    });  
+}); 
+</script>
+<style type="text/css">
+.button2{width:300px;margin:15px 0 15px;line-height:40px;}
+table.list td input{width:18px;height:18px;}
+</style>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar" id="topbar">
+<div class="searchbar_index">
+<a href="http://m.duoweizi.net/member/" title="返回上一页" class="top_nav_left"></a>
+<h1>账户余额充值</h1>
+</div>
+</div>
+<!-- TOP End -->
+
+<div class="wrapper_doc">
+
+<!-- 账户余额 -->
+<div class="header-info-growth">您当前账户可用余额：<span>￥<? echo $cfg_ml->M_Money; ?>.00</span></div>
+<!-- 账户余额 End -->
+
+<!-- 余额 -->
+<div class="header-jinbi"><p>郑重提示：账户余额只能用来购买视频和教材，不能开通VIP会员。</p></div>
+<!-- 余额 End -->
+
+<div class="input_container-m">
+<form name="f1" action="buy_action.php" method="post">
+<input type="hidden" name="product" value="payjb" />
+<label>自定义金额：</label>
+<input type="text" name="pid" value="<? echo $yujb; ?>" onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"  class="newbtn"/>
+<button class="btn_grey" type="submit">立即充值</button>
+</form>
+</div>
+
+<div class="postForm">
+<h3 class="meTitle">充值优惠套餐</h3>
+<form name="f1" action="buy_action.php" method="post">
+<input type="hidden" name="product" value="card" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="list">
+<tr style='background:#eee;'>
+<th width="10%">套餐选择</th>
+<th width="20%">套餐类型</th>
+<th width="15%">套餐价格</th>
+</tr>
+<tbody>
+<?php echo $moneycards;?>
+</tbody>
+</table>
+<button class="button2 mt5" type="submit">确认购买</button>
+</form>
+</div>
+
+</div>
+</body>
+</html>

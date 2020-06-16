@@ -1,0 +1,47 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+<div class="common-banner mb20">
+    {dstaglib:adv ap_id='5' limit='1' item='v'}
+    <img class="lazy" data-original="{:get_adv_img($v.adv_code)}">
+    {/dstaglib:adv}
+</div>
+<div class="page-job w1200">
+    <div class="col-sub">
+        <div class="mt">招贤纳士</div>
+        <div class="mc">
+            <dl>
+                <dt><a href="{:url('Job/index')}" title="招贤纳士"><span>招贤纳士</span></a></dt>
+                <dt><a href="{:url('Job/apply')}" title="在线应聘"><span>在线应聘</span></a></dt>
+            </dl>
+        </div>
+    </div>
+    <div class="col-main">
+        <div class="mt">
+            <span>招贤纳士</span>
+        </div>
+        <div class="mc job-list">
+            {empty name="job_list"}
+            没有数据
+            {else /}
+            {foreach name="job_list" item="job"}
+            <dl class="clearfix">
+                <dt>
+                    <a href="{:url('Job/detail',['job_id'=>$job.job_id])}" title="{$job.job_position}" target="_self">{$job.job_position}</a>
+                </dt>
+                <dd>
+                    <div class="detail"><span>发布日期：{$job.job_addtime|date='Y-m-d',###}</span><span>工作地点：{$job.job_place}</span><span>招聘人数：{$job.job_count}</span></div>
+                    <div class="dtail">
+                        <span><a href="{:url('Job/apply')}" title="在线应聘" target="_self">在线应聘</a></span>
+                        <span><a href="{:url('Job/detail',['job_id'=>$job.job_id])}" title="查看详细" target="_self">查看详细</a></span>
+                    </div>
+                </dd>
+            </dl>
+            {/foreach}
+            {/empty}
+        </div>
+        {$page}
+    </div>
+</div>
+
+
+{/block}

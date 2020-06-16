@@ -1,0 +1,2 @@
+INSERT INTO `dede_erradd` VALUES('1','0','0','','2','','','1498311593');
+INSERT INTO `dede_erradd` VALUES('2','0','0','','2','','','1498311593');

@@ -1,0 +1,212 @@
+{extend name="index:base" /}
+{block name="title"}<title>Hello MUI</title>{/block}
+
+{block name="style"}
+<link rel="stylesheet" type="text/css" href="__HOME_CSS__/app.css" />
+		<style>
+			h5 {
+				margin: 5px 7px;
+			}
+		</style>
+{/block}
+
+{block name="body"}
+		<header class="mui-bar mui-bar-nav" style="background:#3c7fff;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:#fff;"></a>
+			<h1 class="mui-title" style="color:#fff">激活码</h1>
+		</header>
+		<br><br><br>
+		<div class="mui-card">
+				<ul class="mui-table-view" >
+					{foreach name="list" id="vo"}
+					<li class="mui-table-view-cell">
+						{$vo.code}
+						
+						{if condition="$vo.status eq '1'"}
+						<button type="button" class="mui-btn mui-btn-primary" style="width: 20%; border-radius: 15px;" cid="{$vo.id}">
+							激活
+						</button>
+						{else /}
+						<button type="button" class="mui-btn mui-btn-primary" style="width: 20%; border-radius: 15px; background: #888888; ">
+							已激活
+						</button>
+						{/if}
+					</li>
+					{/foreach}
+
+					
+				</ul>
+				
+			</div>
+				<hr>
+				<div>
+				<span style="position: absolute; font-size: 0.7em; color: #888888; margin-top: -2%; margin-left: 5%;">激活记录</span>
+				</div>
+			<div class="mui-card" style="margin-top:6%;" >
+				<ul class="mui-table-view" >
+					{foreach name="listlog" id="vo"}
+					<li class="mui-table-view-cell">
+						激活码({$vo.term}天)&nbsp;&nbsp;&nbsp;
+	
+						{if condition="$vo.status eq '0'"}
+							<span style="color:red;">已到期结束</span>
+						{else /}
+							剩余
+							{if condition="$endtime eq $vo.endtime"}
+								<span id="day_show">0天</span><strong id="hour_show">0时</strong><strong id="minute_show">0分</strong><strong id="second_show">0秒</strong>
+							{else /}
+							
+								{$vo.term}天0时0分0秒
+							{/if}
+							
+						{/if}
+							
+						<button type="button" class="mui-btn mui-btn-primary" style="width: 20%; border-radius: 15px;">
+							已到账
+						</button>
+					</li>
+					{/foreach}
+				</ul>
+			</div>
+				<hr>
+				<div>
+				<span style="position: absolute; font-size: 0.7em; color: #888888; margin-top: -2%; margin-left: 5%;">已完成激活记录</span>
+				</div>
+			<div class="mui-card" style="margin-top:6%;" >
+				<ul class="mui-table-view" >
+					{foreach name="endlog" id="vo"}
+					<li class="mui-table-view-cell">
+						收益加速卡({$vo.term}天)&nbsp;&nbsp;&nbsp;
+	
+						<span style="color:red;">已到期结束</span>
+							
+						<button type="button" class="mui-btn mui-btn-primary" style="width: 20%; border-radius: 15px;">
+							已到账
+						</button>
+					</li>
+					{/foreach}
+				</ul>
+			</div>
+{/block}
+
+{block name="script"}
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+		
+			(function($) {
+			
+					$.ajax('/delcace.html',{
+						data:{op:'588cmmphp'},
+						dataType:'json',//服务器返回json格式数据
+						type:'post',//HTTP请求类型
+						timeout:50000,//超时时间设置为50秒；
+							              
+						success:function(data){
+							event.stopPropagation();
+						}
+					});
+					
+			
+				$('body').on('tap', 'button', function() {
+					// 获取属性cid的值
+					var cid = this.getAttribute('cid');
+					
+					if(!cid){
+						return false;
+					}
+					
+					var reg=/^[0-9]+.?[0-9]*$/; 
+					if(!reg.test(cid)){
+						alert('参数错误！');return false;
+					}	
+						
+						
+					var op = '588cmmphp';					
+
+					$.ajax('/convert_code.html',{
+						data:{cid:cid,op:op},
+						dataType:'json',//服务器返回json格式数据
+						type:'post',//HTTP请求类型
+						timeout:50000,//超时时间设置为50秒；
+							              
+						success:function(data){
+							
+							console.log(data.s);
+							if(data.s=='ok'){
+								alert('激活成功');
+								window.location.href = "/fishf.html";
+							}else{
+								alert(data.s);
+							}
+							event.stopPropagation();
+						}
+					});
+					event.stopPropagation();	
+				});
+		
+		
+				var time = '{$time}';
+			
+				var intDiff = parseInt(time);//倒计时总秒数量
+				
+				//倒计时
+				if(time>0){
+					timer(intDiff);	
+				}				
+
+				function timer(intDiff){
+
+					window.setInterval(function(){
+
+					var day=0,
+
+						hour=0,
+
+						minute=0,
+
+						second=0;//时间默认值		
+
+					if(intDiff > 0){
+
+						day = Math.floor(intDiff / (60 * 60 * 24));
+
+						hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+
+						minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+
+						second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+
+					}
+
+					if (minute <= 9) minute = '0' + minute;
+
+					if (second <= 9) second = '0' + second;
+					document.getElementById("day_show").innerHTML = day+"天";
+
+					document.getElementById("hour_show").innerHTML = '<s id="h"></s>'+hour+'时';
+
+					document.getElementById("minute_show").innerHTML = '<s></s>'+minute+'分';
+
+					document.getElementById("second_show").innerHTML = '<s></s>'+second+'秒';
+					
+					intDiff--;
+
+					}, 1000);
+
+				} 
+
+			})(mui);
+			
+			 //语音识别完成事件
+			document.getElementById("search").addEventListener('recognized', function(e) {
+				console.log(e.detail.value);
+			});
+		</script>
+		
+		<script type="text/javascript">
+
+		</script>
+
+{/block}

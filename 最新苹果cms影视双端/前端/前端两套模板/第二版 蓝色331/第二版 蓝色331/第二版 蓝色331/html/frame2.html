@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>端API</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="./frame/css/c.css" />
+</head>
+<body>
+    <section class="shaixuan" id="header">
+        <div class="title">专题推荐</div>
+    </section>
+    
+    <section id="list">
+        <div class="hot_div">
+            <ul id="div_list_f">
+                  
+            </ul>
+        </div>
+    </section>
+</body>
+<script type="text/x-dot-template" id="navcattpl">
+    {{~ it : value : index }}
+    <li onclick="detail('{{= value. topic_id }}','{{= value. topic_name }}','{{= value. topic_pic }}')">
+        <div class="bg_img" style="background-image: url('{{= value. topic_pic }}');background-size: 100% 100%;">{{= value. topic_name }}</div>
+    </li>
+   
+    {{~}}
+</script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/doT.js"></script>
+<script src="./public/public_b.js"></script>
+<script src="./frame/js/c.js"></script>
+</html>

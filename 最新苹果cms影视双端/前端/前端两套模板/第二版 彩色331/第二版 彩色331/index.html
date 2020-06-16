@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>底部导航</title>
+    <link rel="stylesheet" type="text/css" href="./css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    <style>
+        header{ background:linear-gradient(to right,#f370af 0,#5515ee 100%); }
+        header ul li { height: 0px; line-height: 0px; text-align: center; display: none; color: #323237; position: relative;font-size: 16px;  }
+        header ul li.active{ display: block; }
+        #footer{  background-color: #fff; height: 50px;box-shadow: 0px -1px 20px 0px rgba(0, 0, 0, 0.1);}
+        #footer ul li{font-size: 10px; padding-top: 28px; background: url() no-repeat center 6px; background-size: auto 21px; text-align: center;color: #787878}
+        #footer ul li.active{ color: #14b7ff; font-size: 12px;}
+        #footer ul li:nth-child(1){ background-image: url(./image/home/hbv_home_icon_default_grey.png); }
+        #footer ul li:nth-child(2){ background-image: url(./image/home/hbv_hot_icon_default_grey.png); }
+        #footer ul li:nth-child(3){ background-image: url(./image/home/hbv_planet_icon_default_grey.png); }
+        #footer ul li:nth-child(4){ background-image: url(./image/home/hbv_user_icon_default_grey.png); }
+        #footer ul li:nth-child(5){ background-image: url(./image/home/hbv_vip_icon_default_grey.png); }
+        #footer ul li:nth-child(1).active{ background-image: url(./image/home/hbv_home_icon_selected.png); }
+        #footer ul li:nth-child(2).active{ background-image: url(./image/home/hbv_hot_icon_selected.png); }
+        #footer ul li:nth-child(3).active{ background-image: url(./image/home/hbv_planet_icon_selected.png); }
+        #footer ul li:nth-child(4).active{ background-image: url(./image/home/hbv_user_icon_selected.png); }
+        #footer ul li:nth-child(5).active{ background-image: url(./image/home/hbv_vip_icon_selected.png); }
+        .flex-con{
+          overflow: auto
+        }
+    </style>
+</head>
+<body>
+<div id="wrap" class="flex-wrap flex-vertical">
+    <header>
+        <ul>
+            <li class="border-b active" ></li>
+            <li class="border-b" ></li>
+            <li class="border-b" ></li>
+            <li class="border-b" ></li>
+            <li class="border-b" ></li>
+        </ul>
+    </header>
+    <div id="main" class="flex-con">
+
+    </div>
+    <div id="footer" class="border-t">
+        <ul class="flex-wrap" >
+            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con active" >首页</li>
+            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >片库</li>
+            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >专题</li>
+            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >综合</li>
+            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >我的</li>
+        </ul>
+    </div>
+</div>
+</body>
+<!--资源来自三岁半资源网:https://sansuib.com-->
+</html>
+<script type="text/javascript" src="script/api.js"></script>
+<script type="text/javascript">
+//苹果cms地址
+$api.setStorage('api_url', "http://qq.aapea.cn/");
+//安全码，要与后端一致
+$api.setStorage('safety_code', "603313839");
+</script>
+<script src="./script/index.js"></script>

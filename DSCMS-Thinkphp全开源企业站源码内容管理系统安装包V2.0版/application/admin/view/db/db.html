@@ -1,0 +1,155 @@
+{extend name="layout:home" /}
+{block name="container"}
+<div class="layui-tab layui-tab-card">
+    {include file="layout/admin_items" /}
+    <div class="layui-tab-content page-tab-content">
+        <div class="explanation" id="explanation">
+            <div class="title" id="checkZoom">
+                <h4 title="提示相关设置操作时应注意的要点">操作提示</h4>
+                <span id="explanationZoom" title="收起提示" class="arrow"></span>
+            </div>
+            <ul>
+                <li>1.会员相关信息。</li>
+            </ul>
+        </div>
+        <div class="mDiv">
+            <div class="ftitle">
+                <div style="width: 100px;float: left;line-height: 56px;"><h3>数据库表列表</h3></div>
+                <div style="width: 300px;float: left;line-height: 56px;"><h5>(共{$tableNum}张记录，共计{$total})</h5></div>
+            </div>
+            <a id="export" class="layui-btn layui-btn-primary " style="background-color: #009688;color: #fff;margin-top: 10px;">数据备份</a>
+        </div>
+        <form method="post" id="export-form" action="{:url('Admin/Db/export')}">
+            <div class="layui-tab-content page-tab-content">
+                <table class="layui-table lay-even">
+                    <colgroup>
+                        <col width="80">
+                        <col width="200">
+                        <col width="100">
+                        <col width="200">
+                        <col width="200">
+                        <col width="150">
+                        <col>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th><input type="checkbox" onclick="javascript:$('input[name*=tables]').prop('checked', this.checked);">全选</th>
+                        <th>数据库表</th>
+                        <th>记录条数</th>
+                        <th>占用空间</th>
+                        <th>编码</th>
+                        <th>冗余</th>
+                        <th>创建时间</th>
+                        <th>备注</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {notempty name="list"}
+                    {volist name="list" id="db"}
+                    <tr data-id="{$db.Name}">
+                        <td>
+                            <input type="checkbox" name="tables[]" value="{$db.Name}">
+                        </td>
+                        <td class="align-center">
+                            {$db.Name}
+                        </td>
+                        <td class="align-center">
+                            {$db.Rows}
+                        </td>
+                        <td class="align-center">
+                            {$db.Data_length|format_bytes}
+                        </td>
+                        <td class="align-center">
+                            {$db.Collation}
+                        </td>
+
+                        <td>{$db['Data_free']/1024} kb
+                        </td>
+                        <td class="align-center">
+                            {$db.Create_time}
+                        </td>
+                        <td>{$db['Comment']}
+                        </td>
+                        <td class="align-center">
+                            <div style="text-align: center;">
+                                <a href="{:url('Admin/Db/optimize',array('tablename'=>$db['Name']))}" class="layui-btn layui-btn-xs">优化</a>
+                                <a href="{:url('Admin/Db/repair',array('tablename'=>$db['Name']))}" class="layui-btn layui-btn-xs layui-btn-danger">修复</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {/volist}
+                    {else}
+                    <tr class="no_data">
+                        <td colspan="11">{$Think.lang.ds_no_record}</td>
+                    </tr>
+                    {/notempty}
+                    </tbody>
+                </table>
+
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    (function ($) {
+        var $form = $("#export-form"), $export = $("#export"), tables;
+        $export.click(function () {
+            if ($("input[name^='tables']:checked").length == 0) {
+                alert('请选中要备份的数据表');
+                return false;
+            }
+            $export.addClass("disabled");
+            $export.html("正在发送备份请求...");
+            $.post(
+                $form.attr("action"),
+                $form.serialize(),
+                function (data) {
+                    if (data.status) {
+                        tables = data.tables;
+                        $export.html(data.info + "开始备份，请不要关闭本页面！");
+                        backup(data.tab);
+                        window.onbeforeunload = function () {
+                            return "正在备份数据库，请不要关闭！"
+                        }
+                    } else {
+                        alert(data.info);
+                        $export.removeClass("disabled");
+                        $export.html("立即备份");
+                    }
+                },
+                "json"
+            );
+            return false;
+        });
+
+        function backup(tab, status) {
+            status && showmsg(tab.id, "开始备份...(0%)");
+            $.get($form.attr("action"), tab, function (data) {
+                if (data.status) {
+                    showmsg(tab.id, data.info);
+                    if (!$.isPlainObject(data.tab)) {
+                        $export.removeClass("disabled");
+                        $export.html("备份完成，点击重新备份");
+                        window.onbeforeunload = function () {
+                            return null
+                        }
+                        return;
+                    }
+                    backup(data.tab, tab.id != data.tab.id);
+                } else {
+                    $export.removeClass("disabled");
+                    $export.html("立即备份");
+                }
+            }, "json");
+
+        }
+
+        function showmsg(id, msg) {
+            $("input[value=" + tables[id] + "]").closest("tr").find(".info").html(msg);
+//                            $("input[value=" + tables[id] + "]").closest("tr").hide(3000);
+        }
+    })(jQuery);
+</script>
+{/block}
+

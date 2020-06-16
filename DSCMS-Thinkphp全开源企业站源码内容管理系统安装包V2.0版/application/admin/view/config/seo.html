@@ -1,0 +1,63 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form layui-form-pane" method="post">
+    <div class="layui-tab layui-tab-card">
+        {include file="layout/admin_items" /}
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.seo_home_title}</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="seo_home_title" id="seo_home_title" value="{$list_config.seo_home_title|default=''}">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">留空则采用网站关键词+网站名称的构成方式</div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.seo_home_title_type}</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="seo_home_title_type" value="0" title="内容标题" {if $list_config.seo_home_title_type eq '0'}checked{/if}>
+                        <input type="radio" name="seo_home_title_type" value="1" title="内容标题+网站关键词" {if $list_config.seo_home_title_type eq '1'}checked{/if}>
+                        <input type="radio" name="seo_home_title_type" value="2" title="内容标题+网站名称" {if $list_config.seo_home_title_type eq '2'}checked{/if}>
+                        <input type="radio" name="seo_home_title_type" value="3" title="内容标题+网站关键词+网站名称" {if $list_config.seo_home_title_type eq '3'}checked{/if}>
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">内页的标题(title)构成方式，您也可以在编辑/添加内容时自定义对应页面的标题(title)。</div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.seo_home_keywords}</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="seo_home_keywords" id="seo_home_keywords" value="{$list_config.seo_home_keywords|default=''}">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">多个关键词请用竖线 | 隔开，建议3到4个关键词。</div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.seo_home_description}</label>
+                    <div class="layui-input-block">
+                        <textarea name="seo_home_description" placeholder="" class="layui-textarea">{$list_config.seo_home_description|default=''}</textarea>
+                    </div>
+                </div>
+
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
+
+{/block}
+

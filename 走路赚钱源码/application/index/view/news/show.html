@@ -1,0 +1,33 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>{$result.title}</title>{/block}
+
+
+{block name="style"}
+{/block}
+
+ 
+{block name="body"}
+
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">{$result.title}</h1>
+		</header>
+		<br>
+		<br>
+			
+			<div class="mui-card" style="border-radius:15px;">
+				<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(__HOME_IMG__/demo-1-bg.jpg)"></div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<p>{$result.addtime|date="Y-m-d H:i:s",###}</p>
+						<p style="color: #333;">{$result.content|htmlspecialchars_decode}</p>
+					</div>
+				</div>
+
+			</div>
+
+{/block}
+
+{block name="script"}
+{/block}	

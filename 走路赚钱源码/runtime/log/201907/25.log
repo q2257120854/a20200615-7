@@ -1,0 +1,2093 @@
+[ 2019-07-25T00:47:27+08:00 ] 203.189.232.36 180.163.220.3 GET /
+[ log ] yoopay.top/ [运行时间：0.218750s][吞吐率：4.57req/s] [内存消耗：2,661.77kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.baidu.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) baidu.sogo.uc.Chrome/36.0.1985.125 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T00:47:45+08:00 ] 203.189.232.36 180.163.220.68 GET /login
+[ log ] yoopay.top/login [运行时间：0.109375s][吞吐率：9.14req/s] [内存消耗：1,568.78kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=grf43vl4s080j3ibpses2jjio0',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.baidu.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) baidu.sogo.uc.Chrome/36.0.1985.125 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-25T00:48:27+08:00 ] 203.189.232.36 180.163.220.68 GET /
+[ log ] yoopay.top/ [运行时间：0.203125s][吞吐率：4.92req/s] [内存消耗：2,661.77kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.baidu.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) baidu.sogo.uc.Chrome/36.0.1985.125 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T00:48:39+08:00 ] 203.189.232.36 180.163.220.68 GET /login
+[ log ] yoopay.top/login [运行时间：0.078125s][吞吐率：12.80req/s] [内存消耗：1,568.78kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=jsls2uc7639rldgbm0ng445qa5',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.baidu.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) baidu.sogo.uc.Chrome/36.0.1985.125 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.top\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-25T10:22:50+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/users/lists.html
+[ log ] yoopay.top/admincmsby/users/lists.html [运行时间：0.156250s][吞吐率：6.40req/s] [内存消耗：1,786.02kb] [文件加载：52]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'users',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-25T10:22:53+08:00 ] 203.189.232.36 119.176.135.169 GET /adminbrother.html
+[ log ] yoopay.top/adminbrother.html [运行时间：0.109375s][吞吐率：9.14req/s] [内存消耗：1,540.61kb] [文件加载：49]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/users/lists.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admincmsby\controller\Index->index[ D:\wwwroot\yoopay.top\application\admincmsby\controller\Index.php ]
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-25T10:22:54+08:00 ] 203.189.232.36 119.176.135.169 GET /captcha.html
+[ log ] yoopay.top/captcha.html [运行时间：0.187500s][吞吐率：5.33req/s] [内存消耗：1,306.63kb] [文件加载：42]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/adminbrother.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\wwwroot\yoopay.top\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:08+08:00 ] 203.189.232.36 119.176.135.169 POST /admincmsby/index/login.html
+[ log ] yoopay.top/admincmsby/index/login.html [运行时间：0.390625s][吞吐率：2.56req/s] [内存消耗：2,652.70kb] [文件加载：69]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/adminbrother.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '44',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => 'HGCJ9XSIYF',
+  'code' => '4U5E',
+)
+[ info ] [ RUN ] app\admincmsby\controller\Index->login[ D:\wwwroot\yoopay.top\application\admincmsby\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_admin` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`loginarea`,`loginip`,`logintime`,`email`,`status`,`power`,`lastip`,`group`,`addtime`,`logincount` FROM `cmm_admin` WHERE  `account` = 'admin'  AND `password` = '6a885c91894de8a00ec8ed1184063c0dddb77e0e' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `cmm_admin`  SET `loginarea`='山东省临沂市.联通',`loginip`='119.176.135.169',`logintime`=1564021388  WHERE  (  id = 12 ) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `cmm_admin`  SET `logincount`=logincount+1  WHERE  (  id = 12 ) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_group` [ RunTime:0.031250s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_group` WHERE  `id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.031250s ]
+[ sql ] [ SQL ] INSERT INTO `cmm_loginlog` (`uid` , `user` , `description` , `area` , `loginip` , `addtime`) VALUES (12 , 'admin' , '<div style=\"color:green;\">登录成功</div>' , '山东省临沂市.联通' , '119.176.135.169' , 1564021388) [ RunTime:0.015625s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:09+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/index/main.html
+[ log ] yoopay.top/admincmsby/index/main.html [运行时间：0.203125s][吞吐率：4.92req/s] [内存消耗：2,842.20kb] [文件加载：73]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'index',
+    2 => 'main',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/adminbrother.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admincmsby\controller\Index->main[ D:\wwwroot\yoopay.top\application\admincmsby\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\index\main.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] select version() AS version [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_market` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_market` WHERE  `id` > 0  AND `status` > 1 ORDER BY id desc [ RunTime:0.015625s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:15+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/ore/lists.html
+[ log ] yoopay.top/admincmsby/ore/lists.html [运行时间：0.203125s][吞吐率：4.92req/s] [内存消耗：2,675.66kb] [文件加载：65]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'ore',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/index/main.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\Ore->lists[ D:\wwwroot\yoopay.top\application\admincmsby\controller\Ore.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\ore\lists.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'volist',
+  37 => 'status',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_kuang_shop` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc LIMIT 0,15 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:19+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/system/loginlog.html
+[ log ] yoopay.top/admincmsby/system/loginlog.html [运行时间：0.250000s][吞吐率：4.00req/s] [内存消耗：2,848.23kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'loginlog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/ore/lists.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->loginlog[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\system\loginlog.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'volist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_loginlog` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_loginlog` WHERE  `id` > 0 ORDER BY id desc LIMIT 0,15 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:22+08:00 ] 203.189.232.36 119.176.135.169 POST /admincmsby/system/log_delmost.html
+[ log ] yoopay.top/admincmsby/system/log_delmost.html [运行时间：0.281250s][吞吐率：3.56req/s] [内存消耗：2,683.19kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'log_delmost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/loginlog.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '121',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'op' => 'logDelAll',
+  'delid' => '1232,1231,1230,1229,1228,1227,1226,1225,1224,1223,1222,1221,1220,1219,1218',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->log_delmost[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] DELETE FROM `cmm_loginlog`    WHERE  `id` IN (1232,1231,1230,1229,1228,1227,1226,1225,1224,1223,1222,1221,1220,1219,1218) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_opratelog` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `cmm_opratelog` (`status` , `uid` , `url` , `name` , `ip` , `addtime`) VALUES (1 , 12 , 'admincmsby/system/log_delmost' , '批量删除成功' , '119.176.135.169' , 1564021402) [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:24+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/system/loginlog.html
+[ log ] yoopay.top/admincmsby/system/loginlog.html [运行时间：0.171875s][吞吐率：5.82req/s] [内存消耗：2,702.57kb] [文件加载：65]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'loginlog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/loginlog.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->loginlog[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\system\loginlog.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'volist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_loginlog` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_loginlog` WHERE  `id` > 0 ORDER BY id desc LIMIT 0,15 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:27+08:00 ] 203.189.232.36 119.176.135.169 POST /admincmsby/system/log_delmost.html
+[ log ] yoopay.top/admincmsby/system/log_delmost.html [运行时间：0.296875s][吞吐率：3.37req/s] [内存消耗：2,683.19kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'log_delmost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/loginlog.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '121',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'op' => 'logDelAll',
+  'delid' => '1217,1216,1215,1214,1213,1212,1211,1210,1209,1208,1207,1206,1205,1204,1203',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->log_delmost[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.031250s ]
+[ sql ] [ SQL ] DELETE FROM `cmm_loginlog`    WHERE  `id` IN (1217,1216,1215,1214,1213,1212,1211,1210,1209,1208,1207,1206,1205,1204,1203) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_opratelog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `cmm_opratelog` (`status` , `uid` , `url` , `name` , `ip` , `addtime`) VALUES (1 , 12 , 'admincmsby/system/log_delmost' , '批量删除成功' , '119.176.135.169' , 1564021407) [ RunTime:0.015625s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:28+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/system/loginlog.html
+[ log ] yoopay.top/admincmsby/system/loginlog.html [运行时间：0.234375s][吞吐率：4.27req/s] [内存消耗：2,702.25kb] [文件加载：65]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'loginlog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/loginlog.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->loginlog[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\system\loginlog.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'volist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_loginlog` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_loginlog` WHERE  `id` > 0 ORDER BY id desc LIMIT 0,15 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:32+08:00 ] 203.189.232.36 119.176.135.169 POST /admincmsby/system/log_delmost.html
+[ log ] yoopay.top/admincmsby/system/log_delmost.html [运行时间：0.187500s][吞吐率：5.33req/s] [内存消耗：2,683.19kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'log_delmost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/loginlog.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '121',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'op' => 'logDelAll',
+  'delid' => '1202,1201,1200,1199,1198,1197,1196,1195,1194,1193,1192,1191,1190,1189,1188',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->log_delmost[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] DELETE FROM `cmm_loginlog`    WHERE  `id` IN (1202,1201,1200,1199,1198,1197,1196,1195,1194,1193,1192,1191,1190,1189,1188) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_opratelog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `cmm_opratelog` (`status` , `uid` , `url` , `name` , `ip` , `addtime`) VALUES (1 , 12 , 'admincmsby/system/log_delmost' , '批量删除成功' , '119.176.135.169' , 1564021412) [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:34+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/system/loginlog.html
+[ log ] yoopay.top/admincmsby/system/loginlog.html [运行时间：0.203125s][吞吐率：4.92req/s] [内存消耗：2,702.17kb] [文件加载：65]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'loginlog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/loginlog.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->loginlog[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\system\loginlog.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'volist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_loginlog` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_loginlog` WHERE  `id` > 0 ORDER BY id desc LIMIT 0,15 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:37+08:00 ] 203.189.232.36 119.176.135.169 POST /admincmsby/system/log_delmost.html
+[ log ] yoopay.top/admincmsby/system/log_delmost.html [运行时间：0.187500s][吞吐率：5.33req/s] [内存消耗：2,683.19kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'log_delmost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/loginlog.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '121',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'op' => 'logDelAll',
+  'delid' => '1187,1186,1185,1184,1183,1182,1181,1180,1179,1178,1177,1176,1175,1174,1173',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->log_delmost[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] DELETE FROM `cmm_loginlog`    WHERE  `id` IN (1187,1186,1185,1184,1183,1182,1181,1180,1179,1178,1177,1176,1175,1174,1173) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_opratelog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `cmm_opratelog` (`status` , `uid` , `url` , `name` , `ip` , `addtime`) VALUES (1 , 12 , 'admincmsby/system/log_delmost' , '批量删除成功' , '119.176.135.169' , 1564021417) [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:38+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/system/loginlog.html
+[ log ] yoopay.top/admincmsby/system/loginlog.html [运行时间：0.171875s][吞吐率：5.82req/s] [内存消耗：2,702.52kb] [文件加载：65]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'loginlog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/loginlog.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->loginlog[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\system\loginlog.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'volist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_loginlog` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_loginlog` WHERE  `id` > 0 ORDER BY id desc LIMIT 0,15 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:42+08:00 ] 203.189.232.36 119.176.135.169 POST /admincmsby/system/log_delmost.html
+[ log ] yoopay.top/admincmsby/system/log_delmost.html [运行时间：0.218750s][吞吐率：4.57req/s] [内存消耗：2,683.19kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'log_delmost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/loginlog.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '121',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'op' => 'logDelAll',
+  'delid' => '1172,1171,1170,1169,1168,1167,1166,1165,1164,1163,1162,1161,1160,1159,1158',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->log_delmost[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] DELETE FROM `cmm_loginlog`    WHERE  `id` IN (1172,1171,1170,1169,1168,1167,1166,1165,1164,1163,1162,1161,1160,1159,1158) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_opratelog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `cmm_opratelog` (`status` , `uid` , `url` , `name` , `ip` , `addtime`) VALUES (1 , 12 , 'admincmsby/system/log_delmost' , '批量删除成功' , '119.176.135.169' , 1564021422) [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:43+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/system/loginlog.html
+[ log ] yoopay.top/admincmsby/system/loginlog.html [运行时间：0.140625s][吞吐率：7.11req/s] [内存消耗：2,702.62kb] [文件加载：65]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'loginlog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/loginlog.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->loginlog[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\system\loginlog.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'volist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_loginlog` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_loginlog` WHERE  `id` > 0 ORDER BY id desc LIMIT 0,15 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:46+08:00 ] 203.189.232.36 119.176.135.169 POST /admincmsby/system/log_delmost.html
+[ log ] yoopay.top/admincmsby/system/log_delmost.html [运行时间：0.203125s][吞吐率：4.92req/s] [内存消耗：2,683.19kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'log_delmost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/loginlog.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '121',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'op' => 'logDelAll',
+  'delid' => '1157,1156,1155,1154,1153,1152,1151,1150,1149,1148,1147,1146,1145,1144,1143',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->log_delmost[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] DELETE FROM `cmm_loginlog`    WHERE  `id` IN (1157,1156,1155,1154,1153,1152,1151,1150,1149,1148,1147,1146,1145,1144,1143) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_opratelog` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `cmm_opratelog` (`status` , `uid` , `url` , `name` , `ip` , `addtime`) VALUES (1 , 12 , 'admincmsby/system/log_delmost' , '批量删除成功' , '119.176.135.169' , 1564021426) [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:48+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/system/loginlog.html
+[ log ] yoopay.top/admincmsby/system/loginlog.html [运行时间：0.203125s][吞吐率：4.92req/s] [内存消耗：2,672.59kb] [文件加载：65]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'loginlog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/loginlog.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->loginlog[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\system\loginlog.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'volist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_loginlog` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_loginlog` WHERE  `id` > 0 ORDER BY id desc LIMIT 0,15 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:51+08:00 ] 203.189.232.36 119.176.135.169 POST /admincmsby/system/log_delmost.html
+[ log ] yoopay.top/admincmsby/system/log_delmost.html [运行时间：0.171875s][吞吐率：5.82req/s] [内存消耗：2,682.98kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'log_delmost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/loginlog.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '51',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'op' => 'logDelAll',
+  'delid' => '1142,1141,1140,1139,1138',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->log_delmost[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] DELETE FROM `cmm_loginlog`    WHERE  `id` IN (1142,1141,1140,1139,1138) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_opratelog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `cmm_opratelog` (`status` , `uid` , `url` , `name` , `ip` , `addtime`) VALUES (1 , 12 , 'admincmsby/system/log_delmost' , '批量删除成功' , '119.176.135.169' , 1564021431) [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:52+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/system/loginlog.html
+[ log ] yoopay.top/admincmsby/system/loginlog.html [运行时间：0.218750s][吞吐率：4.57req/s] [内存消耗：2,665.84kb] [文件加载：65]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'loginlog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/loginlog.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->loginlog[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\system\loginlog.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'volist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.031250s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_loginlog` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_loginlog` WHERE  `id` > 0 ORDER BY id desc LIMIT 0,15 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:53+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/system/operatelog.html
+[ log ] yoopay.top/admincmsby/system/operatelog.html [运行时间：0.250000s][吞吐率：4.00req/s] [内存消耗：2,849.05kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'operatelog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/loginlog.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->operatelog[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\system\operatelog.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'volist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_opratelog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_opratelog` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_opratelog` WHERE  `id` > 0 ORDER BY id desc LIMIT 0,15 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:57+08:00 ] 203.189.232.36 119.176.135.169 POST /admincmsby/system/op_delmost.html
+[ log ] yoopay.top/admincmsby/system/op_delmost.html [运行时间：0.234375s][吞吐率：4.27req/s] [内存消耗：2,643.89kb] [文件加载：65]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'op_delmost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/operatelog.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '120',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'op' => 'opDelAll',
+  'delid' => '6233,6232,6231,6230,6229,6228,6227,6226,6225,6224,6223,6222,6221,6220,6219',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->Op_delmost[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_opratelog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] DELETE FROM `cmm_opratelog`    WHERE  `id` IN (6233,6232,6231,6230,6229,6228,6227,6226,6225,6224,6223,6222,6221,6220,6219) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `cmm_opratelog` (`status` , `uid` , `url` , `name` , `ip` , `addtime`) VALUES (1 , 12 , 'admincmsby/system/op_delmost' , '批量删除成功' , '119.176.135.169' , 1564021437) [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:23:58+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/system/operatelog.html
+[ log ] yoopay.top/admincmsby/system/operatelog.html [运行时间：0.234375s][吞吐率：4.27req/s] [内存消耗：2,703.56kb] [文件加载：65]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'operatelog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/operatelog.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->operatelog[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\system\operatelog.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'volist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_opratelog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_opratelog` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_opratelog` WHERE  `id` > 0 ORDER BY id desc LIMIT 0,15 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:24:00+08:00 ] 203.189.232.36 119.176.135.169 POST /admincmsby/system/op_delmost.html
+[ log ] yoopay.top/admincmsby/system/op_delmost.html [运行时间：0.234375s][吞吐率：4.27req/s] [内存消耗：2,643.89kb] [文件加载：65]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'op_delmost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/operatelog.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '120',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'op' => 'opDelAll',
+  'delid' => '6234,6218,6217,6216,6215,6214,6213,6212,6211,6210,6209,6208,6207,6206,6205',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->Op_delmost[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_opratelog` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] DELETE FROM `cmm_opratelog`    WHERE  `id` IN (6234,6218,6217,6216,6215,6214,6213,6212,6211,6210,6209,6208,6207,6206,6205) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `cmm_opratelog` (`status` , `uid` , `url` , `name` , `ip` , `addtime`) VALUES (1 , 12 , 'admincmsby/system/op_delmost' , '批量删除成功' , '119.176.135.169' , 1564021440) [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:24:02+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/system/operatelog.html
+[ log ] yoopay.top/admincmsby/system/operatelog.html [运行时间：0.171875s][吞吐率：5.82req/s] [内存消耗：2,671.21kb] [文件加载：65]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'operatelog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/operatelog.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->operatelog[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\system\operatelog.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'volist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_opratelog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_opratelog` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_opratelog` WHERE  `id` > 0 ORDER BY id desc LIMIT 0,15 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:24:04+08:00 ] 203.189.232.36 119.176.135.169 POST /admincmsby/system/op_delmost.html
+[ log ] yoopay.top/admincmsby/system/op_delmost.html [运行时间：0.171875s][吞吐率：5.82req/s] [内存消耗：2,643.52kb] [文件加载：65]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'op_delmost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/operatelog.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.top',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '29',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+  'op' => 'opDelAll',
+  'delid' => '6235,6204',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->Op_delmost[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_opratelog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] DELETE FROM `cmm_opratelog`    WHERE  `id` IN (6235,6204) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `cmm_opratelog` (`status` , `uid` , `url` , `name` , `ip` , `addtime`) VALUES (1 , 12 , 'admincmsby/system/op_delmost' , '批量删除成功' , '119.176.135.169' , 1564021444) [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:24:05+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/system/operatelog.html
+[ log ] yoopay.top/admincmsby/system/operatelog.html [运行时间：0.218750s][吞吐率：4.57req/s] [内存消耗：2,670.00kb] [文件加载：65]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'operatelog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/operatelog.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->operatelog[ D:\wwwroot\yoopay.top\application\admincmsby\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\system\operatelog.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'volist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_opratelog` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_opratelog` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_opratelog` WHERE  `id` > 0 ORDER BY id desc LIMIT 0,15 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:24:07+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/users/lists.html
+[ log ] yoopay.top/admincmsby/users/lists.html [运行时间：0.265625s][吞吐率：3.76req/s] [内存消耗：2,862.70kb] [文件加载：65]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'users',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/system/operatelog.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\Users->lists[ D:\wwwroot\yoopay.top\application\admincmsby\controller\Users.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\users\lists.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'volist',
+  37 => 'keyword',
+  38 => 'userTotal',
+  39 => 'newNum',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_users` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` > 0 ORDER BY id desc LIMIT 0,15 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `account` FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `account` FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `account` FROM `cmm_users` WHERE  `id` = 4015 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_users` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_users` WHERE  `addtime` >= 1563984000 LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-07-25T10:24:13+08:00 ] 203.189.232.36 119.176.135.169 GET /admincmsby/users/set.html
+[ log ] yoopay.top/admincmsby/users/set.html [运行时间：0.250000s][吞吐率：4.00req/s] [内存消耗：2,790.44kb] [文件加载：65]
+[ info ] [ LANG ] D:\wwwroot\yoopay.top\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'users',
+    2 => 'set',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=terr2tk9ip4nc31o0j6ok8t6r3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.top/admincmsby/users/lists.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.top',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\Users->set[ D:\wwwroot\yoopay.top\application\admincmsby\controller\Users.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wwwroot\yoopay.top\public/../application/admincmsby\view\users\set.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'result',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:dbname=tmctmc;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------

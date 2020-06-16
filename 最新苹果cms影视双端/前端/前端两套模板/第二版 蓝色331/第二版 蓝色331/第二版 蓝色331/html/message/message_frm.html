@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="./css/a.css" />
+</head>
+<body>
+    <p class="aui-text-center aui-margin-t-15"></p>
+    <section class="aui-content-padded">
+        <textarea placeholder="在这里输入内容..." id="content"></textarea>
+    </section>
+    
+    <section class="aui-content-padded aui-clearfix">
+        <div class="aui-btn aui-btn-block aui-btn-info aui-btn-sm" tapmode  onclick="tijiao()">提交</div>
+    </section>
+    <section>
+        <ul class="list" id="list">
+           
+        </ul>
+    </section>
+</body>
+<script type="text/x-dot-template" id="gb_list">
+    {{~ it : value : index }}
+        <li>
+            <div>{{= value. gbook_time }}
+                <p>{{= value. gbook_content }}</p>
+            </div>
+            <div class="gly_hf">管理员回复：{{= value. gbook_reply_time }}
+                <p>{{= value. gbook_reply }}</p>
+            </div>
+        </li>
+    {{~}}
+</script>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.js"></script>
+<script type="text/javascript" src="../../script/doT.js"></script>
+<script src="../public/public.js"></script>
+<script src="./js/a.js"></script>
+</html>

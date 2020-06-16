@@ -1,0 +1,42 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+
+<div class="common-banner">
+    {dstaglib:adv ap_id='2' limit='1' item='v'}
+    <img src="{:get_adv_img($v.adv_code)}">
+    {/dstaglib:adv}
+</div>
+
+<div class="common-nav">
+    <ul>
+        <li><a href="{:url('news/search')}">首页</a></li>
+        {foreach name="news_column" item="column"}
+        <li>
+            <a href="{:url('news/search',['id'=>$column.column_id])}">{$column.column_name}</a>
+        </li>
+        {/foreach}
+    </ul>
+</div>
+
+<div class="common-list-1">
+    <ul>
+        {empty name="news_list"}
+        没有数据
+        {else /}
+        {foreach name="news_list" item="news"}
+        <li>
+            <div class="p-img">
+                <a href="{:url('news/detail',['news_id'=>$news.news_id])}">
+                    <img src="{:get_news_img($news.news_imgurl)}"/>
+                </a>
+            </div>
+            <div class="p-info">
+                <p>{$news.news_title}</p>
+            </div>
+        </li>
+        {/foreach}
+        {/empty}
+    </ul>
+</div>
+{$page}
+{/block}

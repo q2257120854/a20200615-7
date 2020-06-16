@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+    <title>织梦伪静态助手</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.serializeJSON/2.8.1/jquery.serializejson.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+    <style>
+        #myTab li{
+            width:25%;
+            float:left;
+            height:40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #myTab li img{
+            float:left;
+            height: 40px;
+        }
+
+        #myTab li a{
+            color:white;
+            text-align: center;
+            position: relative;
+            display: block;
+            padding: 10px 15px;
+        }
+
+        .blue{
+            background:#0f9af2;
+        }
+        .gray{
+            background: #dfdfdf;
+        }
+        li.gray a{
+            color:#252525 !important;
+        }
+        .tabPaneUl{
+            width: 700px;
+            margin: 0 auto;
+            list-style: none;
+        }
+
+        .tabPaneUl li{
+            height: 40px;
+            line-height: 40px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <h2>织梦伪静态助手 V<?php echo $ver;?></h2>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="basic">
+            <table class="table table-bordered">
+                <tr>
+                    <th>说明</th>
+                </tr>
+                <tr>
+                    <td>《织梦伪静态助手》是织梦58发布的一款伪静态插件，通过该插件可以非常方便的打开织梦伪静态功能，且访问路径与PC版静态地址一样，对SEO更加友好。页面内容实时更新，无需手动生成html，更加节省时间。
+                        <p>当前版本：<?php echo $ver?></p>
+                        <p>服务器环境：<?php echo $serverName=='apache'? apache_get_version() : $_SERVER["SERVER_SOFTWARE"].' PHP'.PHP_VERSION?></p>
+                        <p>使用步骤：</p>
+                        <p>1、保存基本设置</p>
+                        <p>2、点击下方按钮复制伪静态代码到指定位置</p>
+                        <p>注：如果基本设置中的信息有改动，需重新复制伪静态代码。如关闭伪静态功能，请手动删除伪静态代码。</p>
+                        <p><a id="copyCode" class="btn btn-primary btn-sm">粘贴伪静态代码</a></p>
+                        <p>3、删除之前生成的静态文件</p>
+                        <br>
+                        <br>
+
+                        <p><a target="_blank" href="http://www.yunziyuan.com.cn/">详情参见</a></p>
+                    </td>
+                </tr>
+            </table>
+            <h3>基本设置</h3>
+            <form id="form1" action="" method="post" name="form1">
+                <input type="hidden" name="dopost" value="save">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>启用伪静态</th>
+                        <td>
+                            <select class="form-control" name="basic[rewrite_open]" id="rewrite_open">
+                                <option value="0" <?php echo (isset($data['rewrite_open']) && $data['rewrite_open']==0) ? 'selected' : ''?>>关闭</option>
+                                <option value="1" <?php echo (isset($data['rewrite_open']) && $data['rewrite_open']==1) ? 'selected' : ''?>>启用</option>
+                            </select>
+                            <input type="hidden" name="info[rewrite_open]" value="是否启用伪静态" style="width:80%">
+                        </td>
+                        <td style="width: 50%"></td>
+                    </tr>
+                    <tr>
+                        <th>启用缓存</th>
+                        <td>
+                            <select class="form-control" name="basic[rewrite_cache]" id="rewrite_cache">
+                                <option value="off" <?php echo (isset($data['rewrite_cache']) && $data['rewrite_cache']=='off') ? 'selected' : ''?>>关闭</option>
+                                <option value="on" <?php echo (isset($data['rewrite_cache']) && $data['rewrite_cache']=='on') ? 'selected' : ''?>>启用</option>
+                            </select>
+                            <input type="hidden" name="info[rewrite_cache]" value="是否启用缓存" style="width:80%">
+                        </td>
+                        <td style="width: 50%"><a href="javascript:;" class="btn btn-success" id="cacheConfig">缓存设置</a> 启用缓存可以加速网页访问，但在缓存有效期内，页面内容不会更新。</td>
+                    </tr>
+                    <tr>
+                        <th>自动替换手机模板中的动态链接</th>
+                        <td>
+                            <select class="form-control" name="basic[replace_link]" id="replace_link">
+                                <option value="2" <?php echo (isset($data['replace_link']) && $data['replace_link']==2) ? 'selected' : ''?>>否</option>
+                                <option value="1" <?php echo (isset($data['replace_link']) && $data['replace_link']==1) ? 'selected' : ''?>>是</option>
+                            </select>
+                            <input type="hidden" name="info[replace_link]" value="自动替换手机模板中的动态链接" style="width:80%">
+                        </td>
+                        <td>自动将手机模板中的动态链接替换为pc版的织梦标签</td>
+                    </tr>
+                    <tr>
+                        <th>手机版路径</th>
+                        <td>
+                            <input class="form-control" type="text" name="basic[dedemao_path]" id="dedemao_path" value="<?php echo $data['dedemao_path']?$data['dedemao_path']:'/m'?>">
+                            <input type="hidden" name="info[dedemao_path]" id="path_info" value="手机版路径，默认为:/m" style="width:80%">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                    <th>手机版访问形式</th>
+                    <td>
+                        <select class="form-control" name="basic[dedemao_visit]" id="dedemao_visit" >
+                            <option value="child" <?php echo (isset($data['dedemao_visit']) && $data['dedemao_visit']=='child') ? 'selected' : ''?>>子级目录访问</option>
+                            <option value="top" <?php echo (isset($data['dedemao_visit']) && $data['dedemao_visit']=='top') ? 'selected' : ''?>>顶级域名访问</option>
+                        </select>
+                        <input type="hidden" name="info[dedemao_visit]" value="手机版访问形式" style="width:80%">
+                    </td>
+                    <td>例如:http://m.dede58.com为顶级域名访问形式。http://www.yunziyuan.com.cn/m/为子级目录访问形式。如需设置为顶级域名访问形式，请先将手机域名指向到/m目录</td>
+                </tr>
+                    <tr>
+                    <th>手机版域名</th>
+                    <td>
+                        <input class="form-control" type="text" name="basic[dedemao_domain]" id="dedemao_domain" value="<?php echo $data['dedemao_domain']?$data['dedemao_domain']:$httpHost.'/m'?>">
+                        <input type="hidden" name="info[dedemao_domain]" value="手机版域名" style="width:80%">
+                    </td>
+                    <td>根据手机版访问形式填写对应手机版域名，例如:http://m.dede58.com或http://www.yunziyuan.com.cn/m/</td>
+                </tr>
+                    <tr>
+                    <th>自动识别移动设备并跳转</th>
+                    <td>
+                        <select class="form-control" name="basic[dedemao_jump]" id="dedemao_jump" >
+                            <option value="off" <?php echo (isset($data['dedemao_jump']) && $data['dedemao_jump']=='off') ? 'selected' : ''?>>否</option>
+                            <option value="on" <?php echo (isset($data['dedemao_jump']) && $data['dedemao_jump']=='on') ? 'selected' : ''?>>是</option>
+                        </select>
+                        <input type="hidden" name="info[dedemao_jump]" value="自动识别移动设备并跳转" style="width:80%">
+                    </td>
+                    <td>当使用移动设备访问PC版网站时，自动重定向到手机版域名</td>
+                </tr>
+                    <?php
+                        if($configResult===false):
+                    ?>
+                    <tr>
+                        <td></td>
+                        <td colspan="2" style="color:#ff0000">注：手机版访问形式如设置为顶级域名访问访问，需要将plus目录下的rewrite_开头的文件复制到m目录</td>
+                    </tr>
+                    <?php
+                        endif;
+                    ?>
+                </table>
+                <h3>伪静态开关</h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>首页伪静态</th>
+                        <td>
+                            <select class="form-control" name="basic[rewrite_index]" id="rewrite_index" >
+                                <option value="on" <?php echo (isset($data['rewrite_index']) && $data['rewrite_index']=='on') ? 'selected' : ''?>>开启</option>
+                                <option value="off" <?php echo (isset($data['rewrite_index']) && $data['rewrite_index']=='off') ? 'selected' : ''?>>关闭</option>
+                            </select>
+                            <input type="hidden" name="info[rewrite_index]" value="首页伪静态" style="width:80%">
+                        </td>
+                        <td>如开启，请删除根目录下的index.html文件</td>
+                    </tr>
+                    <tr>
+                        <th>栏目伪静态</th>
+                        <td>
+                            <select class="form-control" name="basic[rewrite_list]" id="rewrite_list" >
+                                <option value="on" <?php echo (isset($data['rewrite_list']) && $data['rewrite_list']=='on') ? 'selected' : ''?>>开启</option>
+                                <option value="off" <?php echo (isset($data['rewrite_list']) && $data['rewrite_list']=='off') ? 'selected' : ''?>>关闭</option>
+                            </select>
+                            <input type="hidden" name="info[rewrite_list]" value="栏目伪静态" style="width:80%">
+                        </td>
+                        <td>如开启，请删除栏目对应的静态文件</td>
+                    </tr>
+                    <tr>
+                        <th>内容页伪静态</th>
+                        <td>
+                            <select class="form-control" name="basic[rewrite_arc]" id="rewrite_arc" >
+                                <option value="on" <?php echo (isset($data['rewrite_arc']) && $data['rewrite_arc']=='on') ? 'selected' : ''?>>开启</option>
+                                <option value="off" <?php echo (isset($data['rewrite_arc']) && $data['rewrite_arc']=='off') ? 'selected' : ''?>>关闭</option>
+                            </select>
+                            <input type="hidden" name="info[rewrite_arc]" value="内容页伪静态" style="width:80%">
+                        </td>
+                        <td>如开启，请删除内容页对应的静态文件</td>
+                    </tr>
+                    <tr>
+                        <th>TAG伪静态</th>
+                        <td>
+                            <select class="form-control" name="basic[rewrite_tag]" id="rewrite_tag" >
+                                <option value="on" <?php echo (isset($data['rewrite_tag']) && $data['rewrite_tag']=='on') ? 'selected' : ''?>>开启</option>
+                                <option value="off" <?php echo (isset($data['rewrite_tag']) && $data['rewrite_tag']=='off') ? 'selected' : ''?>>关闭</option>
+                            </select>
+                            <input type="hidden" name="info[rewrite_tag]" value="TAG伪静态" style="width:80%">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>搜索伪静态</th>
+                        <td>
+                            <select class="form-control" name="basic[rewrite_so]" id="rewrite_so" >
+                                <option value="on" <?php echo (isset($data['rewrite_so']) && $data['rewrite_so']=='on') ? 'selected' : ''?>>开启</option>
+                                <option value="off" <?php echo (isset($data['rewrite_so']) && $data['rewrite_so']=='off') ? 'selected' : ''?>>关闭</option>
+                            </select>
+                            <input type="hidden" name="info[rewrite_so]" value="搜索伪静态" style="width:80%">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <button class="btn btn-primary center-block">保存</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <br>
+    <h5 class="text-center">Powered by <a href="https://www.yunziyuan.com.cn/"><span class="label label-primary">织梦58</span></a></h5>
+    <br>
+</div>
+</body>
+</html>
+<script>
+    $(function () {
+        $("#copyCode").click(function () {
+            layer.open({
+                type: 2,
+                title: '粘贴代码',
+                shadeClose: true,
+                shade: 0.2,
+                maxmin: false, //开启最大化最小化按钮
+                area: ['80%', '80%'],
+                content: 'rewrite.php?dopost=copyCode'
+            });
+        });
+        $("#cacheConfig").click(function () {
+            layer.open({
+                type: 2,
+                title: '缓存设置',
+                shadeClose: true,
+                shade: 0.2,
+                maxmin: false, //开启最大化最小化按钮
+                area: ['80%', '80%'],
+                content: 'caches.php'
+            });
+        });
+
+        $("#categroy_style").change(function () {
+            if($(this).val()==1){
+                $("#categroy_box").show();
+            }else{
+                $("#categroy_box").hide();
+            }
+        });
+
+        $("#content_style").change(function () {
+            if($(this).val()==1){
+                $("#content_box").show();
+            }else{
+                $("#content_box").hide();
+            }
+        });
+
+        $("#dedemao_visit").change(function () {
+            if($(this).val()=='top'){
+                $("#dedemao_domain").val('<?=$httpHostM?>');
+            }else{
+                $("#dedemao_domain").val('<?=$httpHost?>/m');
+            }
+        });
+    });
+</script>

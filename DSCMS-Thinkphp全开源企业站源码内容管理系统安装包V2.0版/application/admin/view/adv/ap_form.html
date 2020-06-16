@@ -1,0 +1,54 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form layui-form-pane" method="post" enctype="multipart/form-data" >
+    <div class="layui-tab layui-tab-card">
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.ap_name}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="ap_name" id="ap_name" value="{$ap.ap_name|default=''}" lay-verify="ap_name" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.ap_name}" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.ap_isuse}</label>
+                    <div class="layui-input-inline">
+                        <input type="checkbox" name="ap_isuse" lay-skin="switch" lay-text="{$Think.lang.ds_yes}|{$Think.lang.ds_no}" value="1" {if condition="$ap.ap_isuse eq '1'"}checked{/if}>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.ap_width}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="ap_width" id="ap_width" value="{$ap.ap_width|default=''}" lay-verify="ap_width" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.ap_width}" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.ap_height}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="ap_height" id="ap_height" value="{$ap.ap_height|default=''}" lay-verify="ap_height" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.ap_height}" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.ap_intro}</label>
+                    <div class="layui-input-inline">
+                        <textarea class="layui-textarea field-name" name="ap_intro">{$ap.ap_intro|default=''}</textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-inline">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+    });
+</script>
+{/block}
+
+

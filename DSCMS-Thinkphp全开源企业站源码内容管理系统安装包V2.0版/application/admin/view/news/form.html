@@ -1,0 +1,216 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form" method="post" enctype="multipart/form-data">
+    <div class="layui-tab layui-tab-card">
+        {include file="layout/admin_items" /}
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show ">
+                
+                
+                <div class="layui-collapse">
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">基本设置</h2>
+                        <div class="layui-colla-content layui-show">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.news_parent}</label>
+                                <div class="layui-input-inline">
+                                    <select name="column_id" id="column_id">
+                                        <option value="">{:lang('ds_please_choose')}...</option>
+                                        {notempty name="column_list"}
+                                        {volist name="column_list" id="v"}
+                                        <option {if $news.column_id == $v.column_id}selected='selected'{/if} value="{$v.column_id}">{$v.column_name}</option>
+                                        {/volist}
+                                        {/notempty}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.news_title}</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" class="layui-input field-name" name="news_title" id="news_title" value="{$news.news_title|default=''}" lay-verify="news_title" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.news_title}" required />
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.news_order}</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" class="layui-input field-name" name="news_order" id="news_order" value="{$news.news_order|default='255'}" lay-verify="news_order" autocomplete="off" required />
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.news_imgurl}</label>
+                                <div class="layui-input-inline">
+                                    {notempty name="$news.news_imgurl"}
+                                    <img src="{:get_news_img($news['news_imgurl'])}" height="80"/>
+                                    {/notempty}
+                                    <input type="file" name="news_imgurl"/>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.news_displaytype}</label>
+                                <div class="layui-input-inline">
+                                    <input type="checkbox" name="news_displaytype" lay-skin="switch" lay-text="{$Think.lang.ds_yes}|{$Think.lang.ds_no}" value="1" {if condition="$news.news_displaytype eq '1'"}checked{/if}>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.news_wap_ok}</label>
+                                <div class="layui-input-inline">
+                                    <input type="checkbox" name="news_wap_ok" lay-skin="switch" lay-text="{$Think.lang.ds_yes}|{$Think.lang.ds_no}" value="1" {if condition="$news.news_wap_ok eq '1'"}checked{/if}>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">详情内容</h2>
+                        <div class="layui-colla-content">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.news_content}</label>
+                                <div class="layui-input-block">
+                                    {:build_editor(['name'=>'news_content','content'=>isset($news.news_content)?htmlspecialchars_decode($news.news_content):''])}
+                                    <textarea name="news_content" id="news_content" style="min-height:400px;"></textarea>
+                                </div>
+                            </div>
+                            <button type="button" class="layui-btn" id="upload_newspic"><i class="layui-icon"></i>{$Think.lang.ds_uploading_files}</button>
+                            <div class="selected_pic clearfix">
+                                <ul>
+                                    {foreach name="pic_list" id="newspic"}
+                                    <li id="{$newspic.pic_id}">
+                                        <img src="{:get_news_img($newspic['pic_cover'])}"/>
+                                        <i class="delect layui-icon" title="{$Think.lang.ds_insert_editor}" onclick="insert_editor('{:get_news_img($newspic['pic_cover'])}')">&#xe654;</i>
+                                        <i class="insert layui-icon" title="{$Think.lang.ds_delete_picture}" onclick="del_newspic({$newspic.pic_id})">&#xe640;</i>
+                                    </li>
+                                    {/foreach}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">SEO设置</h2>
+                        <div class="layui-colla-content">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.seo_title}</label>
+                                <div class="layui-input-block">
+                                    <input type="text" class="layui-input field-name" name="seo_title" id="seo_title" value="{$news.seo_title|default=''}" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.seo_title}" />
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.seo_keywords}</label>
+                                <div class="layui-input-block">
+                                    <input type="text" class="layui-input field-name" name="seo_keywords" id="seo_keywords" value="{$news.seo_keywords|default=''}" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.seo_keywords}" />
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.seo_description}</label>
+                                <div class="layui-input-block">
+                                    <textarea class="layui-textarea field-name" name="seo_description">{$news.seo_description|default=''}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item mt20">
+                    <div class="layui-input-block">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}" />
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use('element', function () {
+        var element = layui.element;
+    });
+    layui.use('form', function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
+<script>
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#news_addtime' //指定元素
+        });
+    });
+</script>
+
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+    });
+    layui.use('element', function () {
+        var element = layui.element;
+    });
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#news_addtime'
+        });
+    });
+    /**
+     * 图片异步上传
+     */
+    layui.use('upload', function () {
+        var $ = layui.jquery, upload = layui.upload;
+        //指定允许上传的文件类型
+        upload.render({
+            elem: '#upload_newspic'
+            , url: "{:url('pic/upload',['pic_type_id'=>$Request.param.news_id,'pic_type'=>$news_pic_type.pic_type])}"
+            , accept: 'file' //普通文件
+            , done: function (res) {
+                add_uploadedfile(res);
+                console.log(res)
+            }
+        });
+    });
+    function add_uploadedfile(file_data)
+    {
+        var newImg = '<li id="' + file_data.file_id + '"><img src="' + file_data.file_url + '"/><i class="delect layui-icon" title="插入编辑器" onclick="insert_editor(\''+file_data.file_url+'\')">&#xe654;</i><i class="insert layui-icon" title="删除图片" onclick="del_newspic(' + file_data.file_id + ')">&#xe640;</i></li>'
+        $('.selected_pic ul').prepend(newImg);
+    }
+
+
+    /**
+     * 插入编辑器
+     */
+    function insert_editor(file_path){
+        ue.execCommand('insertimage', {src:file_path});
+    }
+
+    function del_newspic(file_id)
+    {
+        layer.open({
+            content: '{$Think.lang.ds_confirm_cancel}',
+            yes: function(index, layero){
+                $.getJSON("{:url('pic/del')}",{file_id: + file_id,pic_type:'news'}, function(result){
+                    if(result){
+                        $('#' + file_id).remove();
+                        layer.msg('{$Think.lang.del_succ}');
+                        layer.close(index);
+                        return;
+                    }else{
+                        layer.msg('{$Think.lang.del_fail}');
+                        layer.close(index);
+                        return;
+                    }
+                });
+            }
+        });
+    }
+</script>
+
+{/block}
+
+
+

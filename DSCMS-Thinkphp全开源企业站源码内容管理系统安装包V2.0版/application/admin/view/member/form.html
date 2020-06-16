@@ -1,0 +1,67 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form layui-form-pane" method="post">
+    <div class="layui-tab layui-tab-card">
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.member_name}</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input field-name" name="member_name" id="member_name" value="{$member.member_name|default=''}" lay-verify="member_name" autocomplete="off" placeholder="{:lang('ds_please_enter')}{:lang('member_name')}" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.member_password}</label>
+                    <div class="layui-input-block">
+                        <input type="password" class="layui-input field-name" name="member_password" id="member_password" value=""  placeholder="{if $member.add eq '1'} {:lang('ds_please_enter')}{:lang('member_password')}{else}{:lang('member_edit_password_keep')}{/if} " />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.member_truename}</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input field-name" name="member_truename" id="member_truename" value="{$member.member_truename|default=''}"  placeholder="{:lang('ds_please_enter')}{:lang('member_truename')}" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"> {$Think.lang.member_mobile}</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input field-name" name="member_mobile" id="member_mobile" value="{$member.member_mobile|default=''}"  placeholder="{:lang('ds_please_enter')}{:lang('member_mobile')}" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"> {$Think.lang.member_email} </label>
+                    <div class="layui-input-block">
+                        <input type="email" class="layui-input field-name" name="member_email" id="member_email" value="{$member.member_email|default=''}"  placeholder="{:lang('ds_please_enter')}{:lang('member_email')}" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.member_mobile_bind}</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="member_mobile_bind" lay-skin="switch" lay-text="{:lang('member_yes')}|{:lang('member_no')}" value="1" {if condition="$member.member_mobile_bind eq '1'"}checked{/if}>
+                    </div>
+                </div>
+                 <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.member_email_bind}</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="member_email_bind" lay-skin="switch" lay-text="{:lang('member_yes')}|{:lang('member_no')}" value="1" {if condition="$member.member_email_bind eq '1'"}checked{/if}>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use('form', function() {
+        var form = layui.form;
+    });
+</script>
+{/block}
+
+
+

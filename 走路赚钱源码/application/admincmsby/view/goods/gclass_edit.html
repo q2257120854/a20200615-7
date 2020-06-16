@@ -1,0 +1,99 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">修改商品分类</h2>
+      </div>
+      <ul class="ulColumn2">
+
+       <li>
+        <span class="item_name" style="width:120px;">分类名：</span>
+        <input type="text" class="textbox textbox_225" value="{$result.classname}" name="classname" placeholder="分类名..."/>
+		<span style="color:red;">*</span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">上级：</span>
+        <select class="select" name="pid">
+		   <option value="0">&nbsp;顶级&nbsp;</option>
+		   {foreach name="list" id="v"}
+		   <option value="{$v.id}" {if condition="$result.pid eq $v.id"}selected{/if}>{$v.nbsp}{if condition="$v.html neq ''"}└<!-- &#3; -->{/if}{$v.html}{$v.classname}</option>
+		   {/foreach}
+        </select>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">排序：</span>
+        <input type="text" class="textbox textbox_225" value="{$result.sort}" name="sort" placeholder="排序..."/>
+       </li>
+
+       <li>
+        <span class="item_name" style="width:120px;font-weight:600;">添加属性：</span>
+		<span style="color:red;">*</span>
+       </li>
+	   {foreach name="goods_attr" id="v"}
+       <li>
+        <span class="item_name" style="width:120px;">{$v.classname}：</span>
+		{foreach name="$v.son" id="vo"}
+		<label class="single_selection"><input type="checkbox" data-name="attrid" name="attrid_{$vo.pid}" value="{$vo.pid}_{$vo.id}" {if condition="$vo.checked eq 1"}checked{/if} />{$vo.classname}</label>
+        {/foreach}
+       </li>
+	   {/foreach}
+	   
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+		<input type="hidden" name="id" value="{$result.id}"/>
+        <input type="submit" id="submit" class="link_btn" value="修改"/>
+       </li>
+      </ul>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+$(document).ready(function() {
+  //测试提交，对接程序删除即可
+	$('#submit').click(function(event){
+		var classname = $('input[name="classname"]').val();
+		var pid = $('option:selected').val();
+		//var status = $('input[name="status"]:checked').val();	
+		var sort = $('input[name="sort"]').val();
+		var attrid=new Array();  
+		$('input[data-name="attrid"]:checked').each(function(){  
+			attrid.push($(this).val());//向数组中添加元素  
+		});  
+		var id = $('input[name="id"]').val();
+		var attrid_str = attrid.join(',');//将数组元素连接起来以构建一个字符串 
+		
+		console.log(pid);
+		
+		$.ajax({
+			url:"{:url('goods/gclass_edit_do')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			data:{op:'gclass/edit',id:id,classname:classname,pid:pid,sort:sort,attrid:attrid_str,all:'all'},
+			success: function(data) {
+				console.log(data.s);
+				if (data.s=='ok') {
+					myAlert('修改成功');
+					setTimeout(function(){
+						//页面刷新  
+						window.history.back(-1); 
+					},1000);
+					
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+	
+});
+</script>
+{/block}	

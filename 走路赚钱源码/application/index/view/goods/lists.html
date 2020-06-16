@@ -1,0 +1,129 @@
+﻿
+{extend name="index:base" /}
+{block name="title"}<title>{$config.WEB_TITLE}-{$title}</title>{/block}
+{block name="keywords"}<meta name="keywords" content="{$config.WEB_KEYWORD}" />{/block}
+{block name="description"}<meta name="description" content="{$config.WEB_DESCRIPTION}" />{/block}
+{block name="style"}
+{/block}
+
+ <!--广告开始-->
+{block name="ad"}
+<div class="banner"> 
+	{foreach name="banner" id="vo"}
+	  <img src="{$vo.pic}" alt="{$vo.title}"/> 
+	{/foreach}
+</div> 
+{/block}
+ <!--广告结束-->
+ 
+{block name="body"}
+  <div class="main"> 
+   <!-- 左侧部分 --> 
+   <div id="contentLeft"> 
+    <!-- nav --> 
+    <div class="con1-left"> 
+     <p class="left-title1">案例展示</p> 
+     <div class="con1_class"> 
+      <ul id="left-type"> 
+       <li><a href="/case.html">案例展示</a></li> 
+      </ul> 
+     </div> 
+    </div> 
+    <!-- nav end--> 
+    <!-- 联系我们 --> 
+			<div class="sub_content"> 
+			 <div class="sub_common_title"> 
+			  <h2> <p>联系我们</p> <font>CONTACT US___</font></h2> 
+			 </div> 
+			 <div class="sub_content_list"> 
+			  <p class="ltel">电话：{$config.WEB_TEL} </p> 
+			  <p class="lemail">邮箱：{$config.WEB_EMAIL} </p> 
+			  <p class="ladd"> 地址：{$config.WEB_ADDRESS} </p> 
+			 </div> 
+			</div> 
+    <!-- 联系我们 end--> 
+   </div> 
+   <!-- 左侧部分 end--> 
+   <!-- 内容部分 --> 
+   <div id="contentRight"> 
+		<div class="content_com_title"> 
+		 <h2>案例展示</h2> 
+		 <div class="bread">
+		   当前位置：
+		  <a href="/" title="首页">首页</a>-案例展示 
+		 </div> 
+		</div> 
+		<div class="content"> 
+			<ul class="p_list"> 
+				{foreach name="volist.data" id="vo"}
+				<li> <a href="/caseshow.html?gid={$vo.id}"><img src="{$vo.pic}" width="270" height="220"  alt="{$vo.name}"/> <span class="pg-color">{$vo.name}</span></a><p></p> </li> 
+				{/foreach}
+			</ul> 
+		</div> 
+		{$list->render()}
+   </div> 
+   <!-- 内容部分 end--> 
+  </div> 
+
+{/block}
+
+{block name="script"}
+<script>
+	var gcid = "{$gcid}";
+	var str = "{$pd}";
+	var arr = new Array();
+	arr = str.split(",");// 在每个逗号(,)处进行分解。
+	
+	if(str){
+		for(var i=0;i<arr.length;i++){
+			console.log(arr[i]);
+			$("a[data-attr="+arr[i]+"]").addClass("active");
+			$("a[data-attr="+arr[i]+"]").parent().children(":first").removeClass("active");
+		}
+	}
+	//console.log(arr);
+	function property(th, pid, id){
+		var str = "{$pd}";
+		var value = 0;
+		
+		$("#class_"+pid+" a").each(function(){
+			$(this).removeClass("active");
+		});
+		$(th).addClass("active");
+		//获取所有被选中的
+		$(".renovation_style a.active").each(function(e){
+			 var attr = $(this).attr("data-attr");
+			 var chara = "";
+			 if(value){
+				 if(attr){
+					chara =",";				
+				 }	
+				value += chara+attr;
+			 }else{
+				value = attr;
+			 }			 
+		});
+		//console.log(value);
+		//搜索
+		if(gcid){
+			gcid="?gcid="+gcid+"&";
+		}
+		if(value){
+			if(!gcid){
+				gcid="?";
+			}
+			location.href= "/case.html"+gcid+"pd="+value;
+		}else{
+			if(gcid){
+				location.href= "/case.html"+gcid;
+			}else{
+				location.href= "/case.html";
+			}
+			
+		}
+		
+	}
+
+
+</script>
+{/block}	

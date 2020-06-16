@@ -1,0 +1,152 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+<style>
+.pop_cont .pop_cont_input li{
+	margin: 13px 0;
+}
+.pop_cont {
+    border-radius: 5px 5px;
+}
+.pop_cont .pop_cont_input li .textbox{
+	width:218px;
+}
+.rt_content {
+    margin-bottom: 150px;
+}
+</style>
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+ 
+      <div class="page_title">
+       <h2 class="fl">商品分类</h2>
+       <a href="{:url('goods/gclass_add')}" class="fr top_rt_btn add_icon">添加分类</a>
+      </div>
+     <section>
+      <!--tabCont-->
+      <div class="admin_tab_cont" style="display:block;">
+      <!--左右分栏：左侧栏目-->
+       <div class="cont_col_rt" style="margin-left: 0px;margin-right: 330px;">
+           <table class="table fl">
+            <tr>
+             <th style="width:300px;">属性名</th>
+             <th style="width:50px;">排序</th>
+			 <th style="width:150px;">操作</th>
+            </tr>
+			 {foreach name="list" id="vo"}
+            <tr class="" id="{$vo.id}" pid="{$vo.pid}" >
+             <td class="">			 
+			 <a href="javascript:;" class="link_icon show" id="{$vo.id}">
+				{$vo.nbsp}{if condition="$vo.html neq ''"}└<!-- &#3; -->{/if}{$vo.html}
+				<font icon-id="{$vo.id}">&#43;<font>
+			 </a>
+				<span style="font-size:12px;font-weight:100;">[{$vo.id}]</span>
+				{$vo.classname}			 
+			 </td>
+             <td  class="center">{$vo.sort}</td>
+			 <td class="center">   
+				<a href="{:url('goods/add')}?class_id={$vo.id}" class="link_icon" style="font-size:15px;">添加商品</a>
+				<a href="{:url('goods/gclass_edit')}?id={$vo.id}" title="编辑" class="link_icon">&#101;</a>
+				<a href="javascript:;" title="删除" class="link_icon del" data-id="{$vo.id}">&#100;</a>
+			 </td>
+            </tr>
+			{/foreach}
+	
+           </table>
+       </div>
+      </div>
+     </section>	
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+	<script type="text/javascript">
+	function foreach(id){
+		//遍历所有后代
+		$("tr[pid="+id+"]").each(function(i){	
+			var sid = $(this).attr('id');//son的ID
+			//隐藏
+			$(this).removeClass("hide");//son
+			$(this).addClass("show");//son		
+			
+			var pid =  $("tr[pid="+sid+"]").attr('id');//son的son
+			$("a font[icon-id="+sid+"]").html("&#43;");//son			
+			console.log(sid);
+			if(pid){
+				$("tr[pid="+sid+"]").hide();//隐藏son的son
+				foreach(sid);
+			}		
+			
+		});		
+	}	
+	
+	$(document).ready(function(){
+		//遍历所有pid<>0的
+		$("tr").each(function(){
+			var pid = $(this).attr('pid');
+			if(pid>0){
+				//隐藏
+				$(this).hide();
+			}
+		});
+		 //点击 
+		$("tr .show").on('click',function(){
+			var id = $(this).attr('id');
+			var css = $(this).attr('class');			
+			//console.log(css);	
+			if(css=="link_icon hide"){
+				//隐藏
+				$(this).removeClass("hide");
+				$(this).addClass("show");
+				$("a font[icon-id="+id+"]").html("&#43;");				
+				$("tr[pid="+id+"]").hide();//隐藏son
+				foreach(id);			
+			}else{
+				//显示
+				$(this).removeClass("show");
+				$(this).addClass("hide");
+				$("a font[icon-id="+id+"]").html("&#45;");
+				$("tr[pid="+id+"]").show();				
+			}
+			
+		});	
+	});
+	</script>
+<script>
+$(document).ready(function() {		 
+  //删除
+	$('.del').click(function(event){
+		var id = $(this).attr('data-id');
+		//console.log(id);	
+		if (confirm("确定要删除吗？")) {
+			$.ajax({
+				url:"{:url('goods/gclass_del')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'gclassdel',id:id,all:'all'},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('删除成功');
+						setTimeout(function(){
+						//页面刷新  
+						window.location.reload();
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});
+		}
+	});  
+});
+</script>
+
+{/block}	

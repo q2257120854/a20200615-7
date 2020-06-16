@@ -1,0 +1,197 @@
+{include file="public/header" /}
+<link rel="stylesheet" href="{$Think.PLUGINS_SITE_ROOT}/exampaper_answer.css">
+<script type="text/javascript">
+    $(document).ready(function () {
+        tmUserPaper.initPaper();
+        tm_resetPosition();
+        $("#div_processor").css("top", "20px");
+    });
+
+    function tm_resetPosition() {
+        var nw = $(".tm_paper_head").width() + 45;
+        $("#div_processor").css("left", nw + "px");
+    }
+
+    $(window).resize(function () {
+        tm_resetPosition();
+    });
+
+
+
+    var tmUserPaper = {
+        initPaper: function () {
+        },
+
+        moveToQuestion: function (qid) {
+            var thetop = $("#quick-Q-" + qid).offset().top;
+            $("html:not(:animated),body:not(:animated)").animate({scrollTop: thetop}, 500);
+        }
+    };
+
+
+    function tm_closeDetail() {
+        var index = parent.layer.getFrameIndex(window.name);
+        parent.layer.close(index);
+    }
+
+    //更改正确错误状态
+    $("body").on("click", ".exambank_operation .iconfont", function () {
+        var _this = $(this);
+        //改为正确，分数填写自动变为满分
+        if ($(_this).hasClass("icon-right")) {
+            var q_score = $(this).parents(".exambank_operation").find(".question-score").attr("data-qscore");//大题满分
+            $(this).parents(".exambank_operation").find(".question-score").val(q_score);
+            $(this).parents(".exambank_operation").find(".check_state").val("Y");
+        }
+        //改为错误，分数填写自动变为0分
+        if ($(_this).hasClass("icon-wrong")) {
+            $(this).parents(".exambank_operation").find(".question-score").val("0.0");
+            $(this).parents(".exambank_operation").find(".check_state").val("N");
+        }
+        if (!$(_this).hasClass("icon-checked")) {
+            $(_this).parent(".exambank_operation").find(".icon-checked").removeClass("icon-checked");
+            $(_this).addClass("icon-checked");
+        }
+    })
+</script>
+
+<div class="exampaper" >
+    <form method="post" id="form_paper_detail">
+        <div class="paper" style="width:70%;float:right">
+            <div class="exampaper_info">
+                <h1>{$exampaper.exampaper_name}</h1>
+                <h2><b>考试时长</b> : {$exampaper.exampaper_time} 分钟<b>卷面总分</b> : {$exampaper.exampaper_score}</h2>
+                <h2><b>考试时间</b> : {$exampaperlog.exampaperlog_begintime|date='Y-m-d H:i:s',###}至{$exampaperlog.exampaperlog_endtime|date='Y-m-d H:i:s',###}</h2>
+            </div>
+
+            {php}$times = 0;{/php}
+            {foreach name="$exampaperlog.section_list" item="section"}
+            <div class="section_list">
+                <div class="mt">
+                    <h1>{$section.section_name}</h1>
+                    <h2>{$section.section_remark}</h2>
+                </div>
+
+                {foreach name="$section.items" item="item"}
+                {php}$times++;{/php}
+                <div class="mc">
+                    <span class="span-quick-nav" id="quick-Q-{$item.exambank_id}"></span>
+                    <div class="exambank_question"><em>{$times}</em>{$item.exambank_question|htmlspecialchars_decode|strip_tags} （{$item.exambank_score}分）</div>
+                    <div class="exambank_operation">
+                        <i class="iconfont icon-right {if isset($item.check_state)&&$item.check_state =='Y'}icon-checked{/if}" onclick="">&#xe6e7;</i>
+                        <i class="iconfont icon-wrong {if isset($item.check_state)&&$item.check_state =='N'}icon-checked{/if}" onclick="">&#xe6e6;</i>
+                        <input type="hidden" class="check_state" name="check_state[{$item.exambank_id}]" value="{$item.check_state|default='N'}"/>
+                        <div class="input-group">
+                            <input type="text" name="check_score[{$item.exambank_id}]" class="form-control question-score" value="{$item.check_score|default='0.0'}" data-qscore="{$item.exambank_score}">
+                            <span class="input-group-addon">分</span>
+                        </div>
+                    </div>
+                    <div class="answers">
+                        {if $item.examtype_id eq '1'}
+                        <!--单选题-->
+                        {php}$exambank_select = unserialize(htmlspecialchars_decode($item['exambank_select']));{/php}
+                        {foreach name="$exambank_select" item="exambank_select_item" key="exambank_select_key"}
+                        <div class="select">
+                            <label>
+                                <input disabled="disabled" type="radio" class="qk-choice" value="{$exambank_select_key}" name="member_answer[{$item.exambank_id}][]" id="{$item.exambank_id}"/>{$exambank_select_item}
+                            </label>
+                        </div>
+                        {/foreach}
+                        {/if}
+                        {if $item.examtype_id eq '2'}
+                        <!--多选题-->
+                        {php}$exambank_select = unserialize(htmlspecialchars_decode($item['exambank_select']));{/php}
+                        {foreach name="$exambank_select" item="exambank_select_item" key="exambank_select_key"}
+                        <div class="select">
+                            <label>
+                                <input disabled="disabled" type="checkbox" class="qk-choice" value="{$exambank_select_key}" name="member_answer[{$item.exambank_id}][]" id="{$item.exambank_id}"/>{$exambank_select_item}
+                            </label>
+                        </div>
+                        {/foreach}
+                        {/if}
+
+                        {if $item.examtype_id eq '3'}
+                        <!--判断题-->
+                        <div class="select">
+                            <label>
+                                <input disabled="disabled" type="radio" class="qk-choice" value="{$exambank_select_key}" name="member_answer[{$item.exambank_id}][]" id="{$item.exambank_id}"/>对
+                            </label>
+                        </div>
+                        <div class="select">
+                            <label>
+                                <input disabled="disabled" type="radio" class="qk-choice" value="{$exambank_select_key}" name="member_answer[{$item.exambank_id}][]" id="{$item.exambank_id}"/>错误
+                            </label>
+                        </div>
+                        {/if}
+
+                        {if $item.examtype_id eq '4'}
+                        {php}$exambank_answer = explode('+',$item['exambank_answer']);{/php}
+                        {foreach name="$exambank_answer" item="exambank_answer_item" key="exambank_answer_key"}
+                        <div class="field">
+                            <label>
+                                <em>{$exambank_answer_key}</em>
+                                <input disabled="disabled" type="text" class="qk-blank" value="" name="member_answer[{$item.exambank_id}][]" id="{$item.exambank_id}"/>
+                            </label>
+                        </div>
+                        {/foreach}
+                        {/if}
+                        {if $item.examtype_id eq '5'}
+                        <div class="field">
+                            <textarea disabled="disabled" class="qk-txt" name="member_answer[{$item.exambank_id}][]" id="{$item.exambank_id}"></textarea>
+                        </div>
+                        {/if}
+                    </div>
+                    <div class="analysis">
+                        <dl>
+                            <dt>考生答案:</dt>
+                            <dd>{$item.member_answer}</dd>
+                        </dl>
+                        <dl>
+                            <dt>正确答案:</dt>
+                            <dd>{$item.exambank_id}</dd>
+                        </dl>
+                        <dl>
+                            <dt>解释说明:</dt>
+                            <dd>{$item.exambank_describe|htmlspecialchars_decode|strip_tags}</dd>
+                        </dl>
+                    </div>
+                </div>
+                {/foreach}
+            </div>
+            {/foreach}
+        </div>
+
+        <div id="div_processor" style="width:20%">
+            <div id="div_processor_timer"></div>
+            <div id="div_processor_fastto">
+                {php}$times = 0;{/php}
+                {foreach name="$exampaperlog.section_list" item="section"}
+                <dl>
+                    <dt>{$section.section_name}</dt>
+                    <dd>
+                        {foreach name="$section.items" item="item"}
+                        {php}$times++;{/php}
+                        <a href="javascript:void(0);" onclick="tmUserPaper.moveToQuestion('{$item.exambank_id}')" id="fast_{$item.exambank_id}" class="{if isset($item.check_state)&&$item.check_state =='Y'}finished{else}wrong{/if}">{$times}</a>
+                        {/foreach}
+                        <div class="tm_clear"></div>
+                    </dd>
+                </dl>
+                {/foreach}
+            </div>
+            <div id="div_processor_ops">
+                <input type="submit" class="btn" value="保存成绩"/>
+                <button class="btn btn-default" type="button" onclick="tm_closeDetail()">关闭</button>
+            </div>
+            <div id="div_processor_tips">
+                <em class="finished"></em><span>正确</span>
+                <em class="wrong"></em><span>错误</span>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+

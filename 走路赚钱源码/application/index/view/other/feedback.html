@@ -1,0 +1,162 @@
+﻿
+{extend name="index:base" /}
+{block name="title"}<title>{$config.WEB_TITLE}-在线留言</title>{/block}
+{block name="keywords"}<meta name="keywords" content="{$config.WEB_KEYWORD}" />{/block}
+{block name="description"}<meta name="description" content="{$config.WEB_DESCRIPTION}" />{/block}
+{block name="style"}
+{/block}
+
+<!--广告开始-->
+{block name="ad"}
+<div class="banner"> 
+	{foreach name="banner" id="vo"}
+	  <img src="{$vo.pic}" alt="{$vo.title}"/> 
+	{/foreach}
+</div> 
+{/block}
+ <!--广告结束-->
+
+{block name="body"}
+
+<!--中间隔断-->
+  <div class="main"> 
+	<!-- 左侧部分 --> 
+	{include file="public/other_left_nav" /}
+	<!-- 左侧部分 end--> 
+	
+	   <!-- 内容部分 --> 
+	   <div id="contentRight"> 
+			<div class="content_com_title"> 
+				 <h2>在线留言</h2> 
+				 <div class="bread">
+				   当前位置：
+				  <a href="/" title="首页">首页</a>-在线留言
+				 </div> 
+			</div> 
+			<div class="content feedback"> 
+				 <div class="view">
+					<h3 class="view-title">填写您的电话和EMAIL信息，将有助于我们及时与您取得联系，尽快解决您提出的问题</h3> 
+					<div class="row">
+						<div class="col-sm-5">
+							<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">留言标题：</span>
+								<input type="text" class="form-control input_group_three" placeholder="请输入您的标题" aria-describedby="basic-addon1" name="title" >
+							</div>
+						</div>
+						<div class="col-sm-5">
+							<div class="input-group ">
+								<span class="input-group-addon" id="basic-addon2">您的姓名：</span>
+								<input type="text" class="form-control input_group_one" placeholder="请输入您的姓名" aria-describedby="basic-addon1" name="name" >
+							</div>
+						</div>
+						<div class="col-sm-5">
+							<div class="input-group ">
+								<span class="input-group-addon" id="basic-addon3">联系方式：</span>
+								<input type="text" class="form-control input_group_two" placeholder="请输入您要的联系方式" aria-describedby="basic-addon2" name="phone">
+							</div>
+						</div>
+						<div class="col-sm-12">
+							<div class="input-group" >
+								<span class="input-group-addon" id="basic-addon5">留言内容：</span>
+								<textarea cols="30" rows="10" type="text" class="input-group-message" placeholder="请输入您在这里留言" aria-describedby="basic-addon2" name="content"></textarea>
+							</div>
+						</div>
+						<div class="col-sm-12" style="margin-bottom:1rem;">
+							<div class="input-group">
+								<span class="input-group-addon" id="basic-addon6">验证码：</span>
+								<input type="text" class="form-control " placeholder="" aria-describedby="basic-addon2"  name="code">
+								<span><img class="ver_btn"  src="{:captcha_src()}" alt="captcha" border="0" id="verify" width="90" height="45"  style="padding-top:0px;border:1px solid #ccc;display:inline-block;" /></span>
+							</div>
+						</div>
+						<div class="page" > 
+							<a href="javascript:void(0);" class="back" onClick="newcheckform()">提交</a> 
+						</div>	
+					</div>
+				 </div> 
+			</div>
+		
+	   </div> 
+
+	   <!-- 内容部分 end--> 
+  </div> 
+  
+{/block}
+
+{block name="script"}
+<script>
+	$('#verify').click(function() {
+		$(this).attr('src','{:captcha_src()}?'+Math.random());
+	});	 
+	
+function newcheckform() {
+
+	var title = $("input[name=title]").val();
+	var username = $("input[name=name]").val();
+	var phone = $("input[name=phone]").val();	
+	var content =  $("textarea[name=content]").val();
+	var code =  $("input[name=code]").val();		
+	
+    if (!title) {
+	  myAlert('请填写留言主题');
+      return false;
+    }
+    if (!username) {
+	  myAlert('请填写您的称呼');
+      return false;
+    }
+    if (!phone|| phone.length != 11) {
+	   myAlert('请正确填写您的手机号');
+      return false;
+
+    }
+    if (!content) {
+	  myAlert('请填写留言内容');
+      return false;
+    }
+    if (!code) {
+	  myAlert('请输入验证码');
+      return false;
+    }
+	//console.log(content);
+	var formData = new FormData(); 
+		if(username){
+			formData.append('username',username);  
+		}
+		if(phone){
+			formData.append('phone',phone);  
+		}
+		if(title){
+			formData.append('title',title);  
+		}
+		if(code){
+			formData.append('code',code);  
+		}
+		if(content){
+			formData.append('content',content);  
+		}
+		formData.append('op','diy/on'); 
+	
+		$.ajax({
+		  url: '/massege.html',
+		  dataType:"json",
+		  type:'POST',
+		  data:{username:username,phone:phone,title:title,code:code,content:content,op:'diy/on'},
+		  success: function(data){
+			console.log(data.s);
+				if (data.s=='ok') {				
+					myAlert('留言成功，我们将尽快与您联系');
+					setTimeout(function(){
+					//页面刷新  
+					window.location.reload();
+					},1500);
+				}else {
+					myAlert(data.s);
+				}
+
+		  }
+
+		});
+  }
+
+</script>
+{/block}	

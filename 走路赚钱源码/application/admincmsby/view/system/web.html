@@ -1,0 +1,245 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">站点基础设置</h2>
+      </div>
+     <section>
+      <ul class="ulColumn2">
+	<!--   <form enctype="multipart/form-data" id="uploadForm"> -->
+
+       <li>
+        <span class="item_name" style="width:120px;">站点名称：</span>
+        <input type="text" class="textbox textbox_295" name="WEB_TITLE" value="{$config.WEB_TITLE}" placeholder="站点名称..."/>
+        <span class="errorTips">一般不超过80个字符</span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">上传logo：</span>
+        <label class="uploadImg w_logo">
+         <input type="file"  name="web_logo" />
+		 <img id="web_logo" src="{$config['WEB_LOGO']}" >
+		 <input type="hidden" name="primary_logo" value="{$config['WEB_LOGO']}">
+         <span>上传站点logo</span>
+        </label>
+       </li>
+
+       <li>
+        <span class="item_name" style="width:120px;">微信二维码：</span>
+        <label class="uploadImg weix_Img">
+         <input type="file"  name="weixin_pic" />
+		 <img id="weixin_pic" src="{$config['WEB_WEIXIN_PIC']}" >
+		 <input type="hidden" name="primary_weixin" value="{$config['WEB_WEIXIN_PIC']}">
+         <span>上传微信二维码</span>
+        </label>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">联系人：</span>
+        <input type="text" class="textbox textbox_295"  name="WEB_MANAGER" value="{$config.WEB_MANAGER}" placeholder="联系人..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">公司地址：</span>
+        <input type="text" class="textbox textbox_295"  name="WEB_ADDRESS" value="{$config.WEB_ADDRESS}" placeholder="公司地址..."/>
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;">客服电话：</span>
+        <input type="text" class="textbox textbox_295"  name="WEB_TEL" value="{$config.WEB_TEL}" placeholder="客服电话..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">QQ：</span>
+        <input type="text" class="textbox textbox_295" name="WEB_QQ" value="{$config.WEB_QQ}"  placeholder="QQ..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">邮箱：</span>
+        <input type="text" class="textbox textbox_295" name="WEB_EMAIL" value="{$config.WEB_EMAIL}"  placeholder="邮箱..."/>
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;">网站版权：</span>
+        <input type="text" class="textbox textbox_295" name="WEB_COPYRIGHT" value="{$config.WEB_COPYRIGHT}"  placeholder="网站版权..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">备案号：</span>
+        <input type="text" class="textbox textbox_295" name="WEB_RECORD_NUMBER" value="{$config.WEB_RECORD_NUMBER}"  placeholder="备案号..."/>
+       </li>	   
+       <li>
+        <span class="item_name" style="width:120px;">站点描述：</span>
+        <input type="text" class="textbox textbox_295 textbox_long"name="WEB_DESCRIPTION" value="{$config.WEB_DESCRIPTION}"  placeholder="站点描述..."/>
+        <span class="errorTips">一般不超过200个字符</span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">关键词：</span>
+        <input type="text" class="textbox textbox_295 textbox_long" name="WEB_KEYWORD"  value="{$config.WEB_KEYWORD}" placeholder="多个关键词用”,“或”|“隔开..."/>
+        <span class="errorTips">一般不超过100个字符</span></br>
+		<span class="geshi">格式：多个关键词用”,“或”|“隔开</span>
+		
+       </li>
+       <li>
+        <span class="item_name texlong" style="width:120px;">网站统计代码：</span>
+        <textarea placeholder="网站统计代码" name="WEB_COUNT_CODE" class="textarea" style="height:50px;width:640px;">{$config.WEB_COUNT_CODE}</textarea>
+       </li>	   
+       <li>
+        <span class="item_name" style="width:120px;">关闭站点：</span>
+        <label class="single_selection"><input type="radio" name="WEN_CLOSE" value="0" {if condition="$config.WEN_CLOSE eq '0'"}checked{/if} />否</label>
+        <label class="single_selection"><input type="radio" name="WEN_CLOSE" value="1" {if condition="$config.WEN_CLOSE eq '1'"}checked{/if}/>是</label>
+       </li>
+       <li>
+        <span class="item_name texlong" style="width:120px;">关闭站点：</span>
+        <textarea placeholder="关闭站点原因" class="textarea"  name="WEN_CLOSE_WHY" style="height:50px;width:640px;">{$config.WEN_CLOSE_WHY}</textarea>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" id="submit" class="link_btn" value="保存"/>
+       </li>
+	  <!--  </form> -->
+      </ul>
+     </section>
+	 
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+//建立一個可存取到該file的url
+function getObjectURL(file) {
+	var url = null ;
+	if (window.createObjectURL!=undefined) { // basic
+		url = window.createObjectURL(file) ;
+	} else if (window.URL!=undefined) { // mozilla(firefox)
+		url = window.URL.createObjectURL(file) ;
+	} else if (window.webkitURL!=undefined) { // webkit or chrome
+		url = window.webkitURL.createObjectURL(file) ;
+	}
+	return url ;
+}
+</script>
+<script>
+$(document).ready(function() {
+$(".w_logo").on("change",function(){
+	//获取图片的路径，该路径不是图片在本地的路径
+	var objUrl = getObjectURL($('input[name="web_logo"]')[0].files[0]) ; 
+	if (objUrl) {
+		//将图片路径存入src中，显示出图片
+		$("#web_logo").attr("src", objUrl) ; 
+	}
+});
+$(".weix_Img").on("change",function(){
+	//获取图片的路径，该路径不是图片在本地的路径
+	var objUrl = getObjectURL($('input[name="weixin_pic"]')[0].files[0]) ; 
+	if (objUrl) {
+		//将图片路径存入src中，显示出图片
+		$("#weixin_pic").attr("src", objUrl) ; 
+	}
+});
+
+	$('#submit').click(function(event){
+		
+		var WEB_TITLE = $('input[name="WEB_TITLE"]').val();
+		var WEB_KEYWORD = $('input[name="WEB_KEYWORD"]').val();	
+		var WEB_COPYRIGHT = $('input[name="WEB_COPYRIGHT"]').val();		
+		var WEB_RECORD_NUMBER = $('input[name="WEB_RECORD_NUMBER"]').val();
+		var WEB_DESCRIPTION = $('input[name="WEB_DESCRIPTION"]').val();
+		var WEB_TEL = $('input[name="WEB_TEL"]').val();
+		var WEB_QQ = $('input[name="WEB_QQ"]').val();
+		var WEB_SERVICE_CODE = $('input[name="WEB_SERVICE_CODE"]').val();
+		var WEB_COUNT_CODE = $('textarea[name="WEB_COUNT_CODE"]').val();
+		var WEB_ADDRESS = $('input[name="WEB_ADDRESS"]').val();
+		var WEN_CLOSE = $('input[name="WEN_CLOSE"]:checked').val();
+		var WEN_CLOSE_WHY = $('textarea[name="WEN_CLOSE_WHY"]').val();	
+		var WEB_MANAGER = $('input[name="WEB_MANAGER"]').val();	
+		var WEB_EMAIL = $('input[name="WEB_EMAIL"]').val();
+		//上传图片
+
+        var fileObj = $('input[name="web_logo"]')[0].files[0]; 
+		var weixin_pic =  $('input[name="weixin_pic"]')[0].files[0]; 
+        var formData = new FormData(); 
+		//加入对象
+		formData.append('WEN_CLOSE',WEN_CLOSE);
+		console.log(WEN_CLOSE);
+		if(WEB_TITLE){
+			formData.append('WEB_TITLE',WEB_TITLE);  
+		}
+		if(WEB_KEYWORD){
+			formData.append('WEB_KEYWORD',WEB_KEYWORD);   
+		}
+		if(WEB_COPYRIGHT){
+			formData.append('WEB_COPYRIGHT',WEB_COPYRIGHT);  
+		}
+		if(WEB_RECORD_NUMBER){
+			formData.append('WEB_RECORD_NUMBER',WEB_RECORD_NUMBER); 
+		}
+		if(WEB_DESCRIPTION){
+			formData.append('WEB_DESCRIPTION',WEB_DESCRIPTION);  
+		}
+		if(WEB_TEL){
+			formData.append('WEB_TEL',WEB_TEL); 
+		}
+		if(WEB_QQ){
+			formData.append('WEB_QQ',WEB_QQ); 
+		}
+		if(WEB_EMAIL){
+			formData.append('WEB_EMAIL',WEB_EMAIL);
+		}
+		if(WEB_SERVICE_CODE){
+			formData.append('WEB_SERVICE_CODE',WEB_SERVICE_CODE); 
+		}
+		if(WEB_COUNT_CODE){
+		
+			formData.append('WEB_COUNT_CODE',WEB_COUNT_CODE); 
+		}
+		if(WEB_ADDRESS){
+			formData.append('WEB_ADDRESS',WEB_ADDRESS); 
+		}
+		if(WEN_CLOSE_WHY){
+			//console.log(11);
+			formData.append('WEN_CLOSE_WHY',WEN_CLOSE_WHY);
+		}
+		if(WEB_MANAGER){
+			formData.append('WEB_MANAGER',WEB_MANAGER);
+		}
+		if(fileObj){
+			formData.append('web_logo',fileObj); 
+		}
+		if(weixin_pic){
+			formData.append('weixin_pic',weixin_pic); 
+		}
+		formData.append('op','webedit');
+		
+			   
+		//console.log(formData.get("op"));
+		
+		$.ajax({
+			url:"{:url('system/web_edit')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			processData: false,//用于对data参数进行序列化处理 这里必须false
+            contentType: false, //必须
+			data:formData,
+			success: function(data) {
+				console.log(data);
+				if (data.s=='ok') {
+					myAlert('修改成功');
+					setTimeout(function(){
+					//页面刷新  
+					window.location.reload();
+					},1000);
+					
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+	
+});
+</script>
+{/block}	

@@ -1,0 +1,127 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+<div class="common-banner mb20">
+    {dstaglib:adv ap_id='5' limit='1' item='v'}
+    <img class="lazy" data-original="{:get_adv_img($v.adv_code)}">
+    {/dstaglib:adv}
+</div>
+<div class="page-job w1200">
+    <div class="col-sub">
+        <div class="mt">招贤纳士</div>
+        <div class="mc">
+            <dl>
+                <dt class="on"><a href="{:url('Job/index')}" title="招贤纳士"><span>招贤纳士</span></a></dt>
+            </dl>
+            <dl>
+                <dt><a href="{:url('Job/apply')}" title="招贤纳士"><span>在线应聘</span></a></dt>
+            </dl>
+        </div>
+    </div>
+
+    <div class="col-main">
+        <div class="mt">
+            <span>招贤纳士</span>
+        </div>
+        <div class="mc job-apply">
+            <form method="post" id="page-job-apply_form">
+                <table style="width:100%;">
+                    <tbody><tr>
+                            <th>应聘职位:</th>
+                            <td>
+                                <select name="job_id" id="job_id">
+                                    <option value="">请选择你要应聘的岗位</option>
+                                    {foreach name="job_list" item="job"}
+                                    <option value="{$job.job_id}">{$job.job_position}</option>
+                                    {/foreach}
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>姓名:</th>
+                            <td><input type="text" name="resume_name" id="resume_name" value=""></td>
+                            <td><span class="red">*</span></td>
+                        </tr>
+                        <tr>
+                            <th>性别:</th>
+                            <td>
+                                <input name="resume_sex" type="radio" id="nan" value="1" checked="checked">
+                                <label>先生</label>
+                                <input name="resume_sex" type="radio" id="nv" value="2">
+                                <label>女士</label>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>出生年月:</th>
+                            <td><input type="date" name="resume_birthday" id="resume_birthday" value=""></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>籍贯:</th>
+                            <td><input type="text" name="resume_resume_place" id="resume_resume_place" value=""></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>联系电话:</th>
+                            <td><input type="text" name="resume_telephone" id="resume_telephone" value=""></td>
+                            <td><span class="red">*</span></td>
+                        </tr>
+                        <tr>
+                            <th>邮编:</th>
+                            <td><input type="text" name="resume_zip_code" id="resume_zip_code" value=""></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>E–mail:</th>
+                            <td><input type="text" name="resume_email" id="resume_email" value=""></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>学历:</th>
+                            <td><input type="text" name="resume_education" id="resume_education" value=""></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>专业:</th>
+                            <td><input type="text" name="resume_professional" id="resume_professional" value=""></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>学校:</th>
+                            <td><input type="text" name="resume_school" id="resume_school" value=""></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>通讯地址:</th>
+                            <td><input type="text" name="resume_address" id="resume_address" value=""></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <th>所获奖项:</th>
+                            <td><textarea name="resume_awards" cols="50" rows="5"></textarea></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>工作经历:</th>
+                            <td><textarea name="resume_experience" cols="50" rows="5"></textarea></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>业余爱好:</th>
+                            <td><textarea name="resume_hobby" cols="50" rows="5"></textarea></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td><input type="submit" onclick="javascript({:url('job/apply')})" value="提交信息"></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+{/block}

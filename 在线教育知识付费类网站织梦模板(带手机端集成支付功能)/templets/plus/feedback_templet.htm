@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>评论列表 - {dede:global.title/} - 师傅在吗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="apple-touch-icon-precomposed" href="http://m.duoweizi.net/images/57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://m.duoweizi.net/images/72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://m.duoweizi.net/images/144x144.png" />
+<link href="/m-css/m-index.css" rel="stylesheet" type="text/css">
+<script src="/m-js/TouchSlide.1.1.js"></script>
+<script src="/m-js/header.mini.js"></script>
+<script type="text/javascript" src="/m-js/mall-top-bar2.js"></script>
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_basehost/}/include/dedeajax2.js"></script>
+<script language="javascript">
+function postBadGood(ftype,fid)
+{
+	var taget_obj = document.getElementById(ftype+fid);
+	var saveid = GetCookie('badgoodid');
+	if(saveid != null)
+	{
+		 var saveids = saveid.split(',');
+		 var hasid = false;
+		 saveid = '';
+		 j = 1;
+		 for(i=saveids.length-1;i>=0;i--)
+		 {
+		 	  if(saveids[i]==fid && hasid) continue;
+		 	  else {
+		 	  	if(saveids[i]==fid && !hasid) hasid = true;
+		 	  	saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+		 	  	j++;
+		 	  	if(j==10 && hasid) break;
+		 	  	if(j==9 && !hasid) break;
+		 	  }
+		 }
+     if(hasid) { alert('您刚才已表决过了喔！'); return false; }
+     else saveid += ','+fid;
+		 SetCookie('badgoodid',saveid,1);
+	}
+	else
+	{
+		SetCookie('badgoodid',fid,1);
+	}
+	//document.write("feedback.php?action="+ftype+"&fid="+fid);
+	//return;
+  myajax = new DedeAjax(taget_obj,false,false,'','','');
+  myajax.SendGet2("/feedbackmf.php?aid={dede:global.aid/}&action="+ftype+"&fid="+fid);
+  DedeXHTTP = null;
+}
+
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/feedbackmf.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "{dede:global.cfg_cmsurl/}/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='{dede:global.cfg_basehost/}/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = '{dede:global.cfg_soft_lang/}';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '{dede:global.aid/}');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+	taget_obj.removeAttribute('id');
+
+}
+</script>
+</head>
+<body>
+<div class="gd_topbar_bbs">
+<h1>全部评论(<script src="/plus/pinglun.php?view=yes&type=nokuo&aid={dede:global.id/}" type="text/javascript" language="javascript"></script>)</h1>
+<a href="/plus/view.php?aid={dede:global.id/}" class="back"></a>
+</div>
+<!-- TOP End -->
+
+<div class="wrapper">
+<!-- 用户评论 -->
+<div class="mall-product-pl">
+
+<!-- 会员评论信息 -->
+<div class="mall-yonghu-pl" >
+<ul class="" id="content">
+
+
+
+              {dede:datalist}
+			  <li class="item" style="width:100%">
+			  <div class="assess-top">
+<span class="user-portrait"><img src="<?php        if(empty($fields['mface']))
+        {
+            if($fields['sex']=="女") $fields['mface']=$cfg_cmspath."/uploads/dfboy.png";
+            else $fields['mface']=$cfg_cmspath."/uploads/dfboy.png";
+        } echo mstrone($fields['mface']);?>"></span>
+<span class="user-name">{dede:field.username/}</span>
+</div>
+<div class="comment-item-star">
+<p class="assess-content"><?php
+                echo RemoveXSS(Quote_replace(parseSmileys($fields['msg'],$cfg_cmspath.'/images/smiley')));
+                ?></p>
+<!-- 评论时间/点赞次数 -->
+<div class="pl-list-btm clearfix">
+<span class="pl-list-time fl">{dede:field.dtime function="MyDate('Y-m-d',@me)" /}</span>
+<a class="ok-btn fr"  id='goodfb{dede:field.id/}' onclick="postBadGood('goodfb',{dede:field.id/})">{dede:field.good/}</a>
+</div>
+<!-- 评论时间/点赞次数 End -->
+</div>
+
+ </li>
+              {/dede:datalist}
+<ul></div>
+<!-- 会员评论信息 End -->
+</div>
+<!-- 用户评论 mall-product-pl End -->
+
+<div class="duoweizi_pages"style="    display: none;">
+<ul id="page-nav">
+{dede:pagelist listitem="next"/}
+</ul>
+</div>
+
+
+<!-- 评论跟随 -->
+<div class="comment-pop"><a href="#" class="write-box" id="write-box">我来说两句...</a></div>
+<!-- 评论跟随 -->
+
+
+<!-- 返回顶部 -->
+<div class="mall-totop" title="返回顶部" onclick="window.scrollTo(0,0);"></div>
+<script src="/m-js/mall-top.js"></script>
+<!-- 返回顶部 End -->
+
+</div>
+<!-- wrapper End -->
+
+
+
+<!-- 弹出评论框 -->
+<div id="m-article-comment" style="display:none;">
+<!-- 会员登入 -->
+ <?php if($cfg_ml->M_ID <= 0) { ?>
+ <div class="inner_login">
+<a class="login_in" href="<?php echo $cfg_memberurl; ?>/index.php">登录</a>
+<a class="logoutCss" href="<?php echo $cfg_memberurl; ?>/index_do.php?fmdo=user&dopost=regnew">注册</a>
+
+<input class="cancel" type="button" value="取消">
+</div>
+      <?php }else{ ?>
+	   <div class="inner_login">
+<a class="img_link" href="/member/"><img class="user_img" src="<?php        echo mstrone($cfg_ml->fields['face']); ?>" alt="会员头像"></a>
+<!--<a class="login_in" href="<?php echo $cfg_memberurl; ?>/index.php"><?php echo $cfg_ml->M_LoginID; ?></a>
+<a class="logoutCss" href="<?php echo $cfg_memberurl; ?>/index_do.php?fmdo=login&dopost=exit">退出</a>-->
+
+</div>
+<form id="comment-form" class="comment-form" method="post" action="feedbackmf.php">
+<input type="hidden" name="action" value="send" />
+            <input type="hidden" name="comtype" value="comments">
+            <input type="hidden" name="aid" value="<?php echo $aid; ?>" />
+            <input type="hidden" name="isconfirm" value="yes" />
+			            <input type="hidden" name="feedbacktype" value="good" />
+
+			<textarea name="msg" class="empty"></textarea>
+<input type="submit" value="发布" >
+
+<input class="cancel" type="button" value="取消">
+</form>
+      <?php
+        }
+        ?>
+
+<!-- 会员登入 End -->
+
+</div>
+
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/jquery-1.7.1.min.js"></script>
+
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/jquery.masonry.min.js"></script>
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/jquery.infinitescroll.js"></script>
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/manual-trigger.js"></script>
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/all.js"></script>
+<!-- 弹出效果 End -->
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".write-box").click(function(){
+		var box =300;
+		var th= $(window).scrollTop()+$(window).height()/1.6-box;
+		var h =document.body.clientHeight;
+		var rw =$(window).width()/2-box;
+		$("#m-article-comment").animate({opacity:'show'},500);
+		return false;
+	});
+	$("#m-article-comment .cancel").click(function(){
+		$(this).parents("#m-article-comment").animate({opacity:'hide',},500);
+	});
+});
+</script>
+<!-- 弹出评论框 End --></body>
+</html>

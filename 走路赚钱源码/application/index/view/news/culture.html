@@ -1,0 +1,37 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>{$title}</title>{/block}
+{block name="keywords"}<meta name="keywords" content="{if condition="$result.keywords neq '0'"}{$result.keywords}{else /}{$config.WEB_KEYWORD}{/if}" />{/block}
+{block name="description"}<meta name="description" content="{if condition="$result.description neq ''"}{$result.description}{else /}{$config.WEB_DESCRIPTION}{/if}" />{/block}
+{block name="style"}
+        <link rel="stylesheet" href="__INDEX_CSS__/about_us.css">
+		<style>
+		.brand_5_box{
+			height:auto;			
+		}
+		</style>
+{/block}
+ <!--广告开始-->
+  <div class="myzt" style="background:#f8f8f8">
+{block name="ad"}
+
+{/block}
+ <!--广告结束-->
+ 
+{block name="body"}
+  <div class="myzt">
+   <div class="brand_5_box">
+    <div class="content_1200" style="color:#fff;">
+     &nbsp; &nbsp;
+	 <img src="{$result.pic}" alt="">
+	 {$result.content|htmlspecialchars_decode}
+    </div>
+   </div>
+  </div> 
+  <div style="width: 100%;background: #f8f8f8;margin-top:10px;"> 
+   <div id="index_decoration" class="mt40"></div> 
+  </div>
+{/block}
+</div>
+{block name="script"}
+{/block}	

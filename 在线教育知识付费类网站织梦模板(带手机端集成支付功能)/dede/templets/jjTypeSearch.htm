@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+
+<title>搜索栏目-栏目管理</title>
+
+<link href="css/base.css" rel="stylesheet" type="text/css">
+
+<script language="javascript" src="js/global.js"></script>
+
+<script language="javascript" src="js/context_menu.js"></script>
+
+<script language="javascript" src="js/ieemu.js"></script>
+
+<script language="javascript" src="js/dialog.js"></script>
+
+<script language="javascript" src="../include/js/dedeajax2.js"></script>
+
+<script language="javascript">
+
+function LoadSuns(ctid,tid)
+
+{
+
+    
+
+	if($DE(ctid).innerHTML.length < 10){
+
+      $DE('img'+tid).src = 'images/dedecontract.gif';
+
+	  var myajax = new DedeAjax($DE(ctid));
+
+	  myajax.SendGet('catalog_do.php?dopost=GetSunLists&cid='+tid);
+
+  }
+
+  else{ 
+
+  showHide(ctid,tid); 
+
+  }
+
+}
+
+function showHide(objname,tid)
+
+{
+
+    
+
+    if($DE(objname).style.display=="none")
+
+    {
+
+        $DE('img'+tid).src = 'images/dedecontract.gif';
+
+        $DE(objname).style.display = BROWSER.firefox? "" : "block";
+
+    } else {
+
+        $DE('img'+tid).src = 'images/dedeexplode.gif';
+
+        $DE(objname).style.display="none";
+
+    }
+
+}
+
+if(moz) {
+
+	extendEventObject();
+
+	extendElementModel();
+
+	emulateAttachEvent();
+
+}
+
+//普通栏目
+
+function CommonMenu(eobj,obj,tid,tname)
+
+{
+
+  var popupoptions
+
+  popupoptions = [
+
+    new ContextItem("增加内容",function(){location="catalog_do.php?cid="+tid+"&dopost=addArchives";}),
+
+    new ContextItem("管理内容",function(){location="catalog_do.php?cid="+tid+"&dopost=listArchives";}),
+
+    new ContextSeperator(),
+
+    new ContextItem("预览分类",function(){ window.open("<?php echo $cfg_phpurl; ?>/list.php?tid="+tid); }),
+
+    new ContextItem("更新HTML",function(){ location="makehtml_list.php?cid="+tid; }),
+
+    new ContextItem("获取JS文件",function(){ location="catalog_do.php?cid="+tid+"&dopost=GetJs"; }),
+
+    new ContextSeperator(),
+
+    new ContextItem("增加子类",function(){location="catalog_add.php?id="+tid;}),
+
+    new ContextItem("更改栏目",function(){location="catalog_edit.php?id="+tid;}),
+
+    new ContextSeperator(),
+
+    new ContextItem("合并栏目",function(){location='catalog_do.php?dopost=unitCatalog&typeid='+tid}),
+
+    new ContextItem("移动栏目",function(){location='catalog_do.php?dopost=moveCatalog&typeid='+tid}),
+
+    new ContextItem("删除栏目",function(){location="catalog_del.php?id="+tid+"&typeoldname="+tname;}),
+
+    new ContextSeperator(),
+
+    new ContextItem("向上排前一级",function(){ location="catalog_do.php?cid="+tid+"&dopost=upRank"; }),
+
+    new ContextItem("关闭菜单(<u>C</u>)",function(){})
+
+  ]
+
+  ContextMenu.display(eobj,popupoptions)
+
+}
+
+//封面模板
+
+function CommonMenuPart(eobj,obj,tid,tname)
+
+{
+
+  var popupoptions
+
+  popupoptions = [
+
+    new ContextItem("管理内容",function(){location="catalog_do.php?cid="+tid+"&dopost=listArchives";}),
+
+    new ContextSeperator(),
+
+    new ContextItem("预览分类",function(){ window.open("<?php echo $cfg_phpurl; ?>/list.php?tid="+tid); }),
+
+    new ContextItem("更新HTML",function(){ location="makehtml_list.php?cid="+tid; }),
+
+    new ContextItem("获取JS文件",function(){ location="catalog_do.php?cid="+tid+"&dopost=GetJs"; }),
+
+    new ContextSeperator(),
+
+    new ContextItem("增加子类",function(){location="catalog_add.php?id="+tid;}),
+
+    new ContextItem("更改栏目",function(){location="catalog_edit.php?id="+tid;}),
+
+    new ContextSeperator(),
+
+    new ContextItem("移动栏目",function(){location='catalog_move.php?job=movelist&typeid='+tid}),
+
+    new ContextItem("删除栏目",function(){location="catalog_del.php?id="+tid+"&typeoldname="+tname;}),
+
+    new ContextSeperator(),
+
+    new ContextItem("向上排前一级",function(){ location="catalog_do.php?cid="+tid+"&dopost=upRank"; }),
+
+    new ContextItem("关闭菜单(<u>C</u>)",function(){})
+
+  ]
+
+  ContextMenu.display(eobj,popupoptions)
+
+}
+
+
+//跳转栏目
+
+function SingleMenu(eobj,obj,tid,tname)
+
+{
+
+  var popupoptions
+
+  popupoptions = [
+
+    new ContextItem("更改栏目",function(){location="catalog_edit.php?id="+tid;}),
+
+    new ContextSeperator(),
+
+    new ContextItem("移动栏目",function(){location='catalog_move.php?job=movelist&typeid='+tid}),
+
+    new ContextItem("删除栏目",function(){location="catalog_del.php?id="+tid+"&typeoldname="+tname;}),
+
+    new ContextSeperator(),
+
+    new ContextItem("向上排前一级",function(){ window.location="catalog_do.php?cid="+tid+"&dopost=upRank"; }),
+
+  new ContextItem("关闭菜单(<u>C</u>)",function(){})
+
+  ]
+
+  ContextMenu.display(eobj,popupoptions)
+
+}
+
+</script>
+
+<style>
+
+.coolbg2 {
+
+border: 1px solid #000000;
+
+background-color: #F2F5E9;
+
+height:18px
+
+}
+
+.coolbt2 {
+
+  border-left: 2px solid #EFEFEF;
+
+  border-top: 2px solid #EFEFEF;
+
+  border-right: 2px solid #ACACAC;
+
+  border-bottom: 2px solid #ACACAC;
+
+  background-color: #F7FCDA
+
+}
+
+.nbline {border-bottom: 1px solid #d6d6d6; background-color:#FFFFFF; }
+
+.bline2 {border-bottom: 1px solid #d6d6d6; background-color:#F9FCEF; }
+
+</style>
+
+</head>
+
+<body background='images/allbg.gif' leftmargin='8' topmargin='8' onLoad="ContextMenu.intializeContextMenu()">
+
+<table width="98%" border="0" cellpadding="3" cellspacing="1" bgcolor="#cfcfcf" align="center">
+
+<tr>
+
+   <td height="28" background='images/tbg.gif' style="padding-left:10px;">
+
+   <div style="float:left">
+
+    
+<form action="jjTypeSearch.php">
+	<strong>网站栏目搜索 </strong>
+<input name="q" value="<?php echo $q; ?>"  style="width:120px;" />
+<input type="submit" value="搜索栏目" style="border:none;">
+</form>
+   </div>
+
+   <div style="float:right;padding-right:6px;">
+
+   	<a href='catalog_main.php' class='np coolbg'>返回栏目管理</a>
+ 
+
+   </div>
+
+   </td>
+
+</tr>
+
+ 
+
+<form name='form1' method='post' action='catalog_do.php?dopost=upRankAll'>
+
+<tr>
+
+<td height="120" bgcolor="#FFFFFF" valign="top">
+
+<?php
+$sql = "select * from #@__arctype where typename like '%$q%' ";
+$dsql->Execute('me',$sql);
+while($arr = $dsql->GetArray('me'))
+{
+?>
+<table width="100%" border="0" cellspacing="0" cellpadding="2">
+  <tbody><tr>
+  <td style="background-color:#FBFCE2;" width="2%" class="bline"><img style="cursor:pointer" id="img<?=$arr['id']?>" onclick="LoadSuns('suns<?=$arr['id']?>',<?=$arr['id']?>);" src="images/dedecontract.gif" width="11" height="11"></td>
+  <td style="background-color:#FBFCE2;" class="bline"><table width="98%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="50%"><input class="np" type="checkbox" name="tids[]" value="<?=$arr['id']?>"><a href="catalog_do.php?cid=<?=$arr['id']?>&amp;dopost=listArchives" oncontextmenu="CommonMenu(event,this,<?=$arr['id']?>,'<?=$arr['typename']?>')"><?=$arr['typename']?>[ID:<?=$arr['id']?>]</a> <a onclick="AlertMsg('快捷编辑窗口','<?=$arr['id']?>');" href="javascript:;"><img src="images/write2.gif"></a>    </td><td align="right"><a href="/plus/list.php?tid=<?=$arr['id']?>" target="_blank">预览</a>|<a href="catalog_do.php?cid=<?=$arr['id']?>&amp;dopost=listArchives">内容</a>|<a href="catalog_add.php?id=<?=$arr['id']?>">增加子类</a>|<a href="catalog_edit.php?id=<?=$arr['id']?>&q=<?=$q?>">更改</a>|<a href="catalog_do.php?dopost=moveCatalog&amp;typeid=<?=$arr['id']?>">移动</a>|<a href="catalog_del.php?id=<?=$arr['id']?>&amp;typeoldname=<?=$arr['typename']?>">删除</a>&nbsp; <input type="text" name="sortrank<?=$arr['id']?>" value="3" style="width:25px;height:20px"></td></tr></tbody></table></td></tr>
+  <tr><td colspan="2" id="suns<?=$arr['id']?>" style="">    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    </table>
+</td></tr>
+</tbody></table>
+
+<?php 
+}
+?>
+
+
+
+ 
+
+</td>
+
+</tr>
+
+</form>
+
+<tr>
+
+ <td height="36" bgcolor="#FFFFFF" align="center">
+
+ <table width="98%" border="0" cellspacing="0" cellpadding="0">
+
+   <tr>
+
+    <td align="right">
+
+		  <input type="button" name="sb1" value="更新排序" style="width:70px" class="coolbt" onClick="document.form1.submit();" /> 
+
+      <input type="button" name="sb4" value="获取JS" style="width:70px" class="coolbt" onClick="location='makehtml_js.php';" />
+
+		  <input type="button" name="sb2" value="更新栏目HTML" style="width:90px" class="coolbt" onClick="location='makehtml_list.php';" /> 
+
+      <input type="button" name="sb3" value="更新文档HTML" style="width:90px" class="coolbt" onClick="location='makehtml_archives.php';" />
+
+		  </td>
+
+    </tr>
+
+   </table>
+
+ </td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>

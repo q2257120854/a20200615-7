@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>{dede:field.seotitle /}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<meta http-equiv="mobile-agent" content="format=html5; url={dede:global.mcfg_basehost/}{dede:type typeid='0′ row=1}[field:typelink/]{/dede:type}">
+<link href="{dede:global.cfg_basehost/}/css/v2_index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{dede:global.cfg_basehost/}/js/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_basehost/}/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+  $(function(){
+    $("a[_for]").mouseover(function(){
+      $(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+      $(this).addClass("thisclass").blur();
+      $("#"+$(this).attr("_for")).show();
+    });
+    $("a[_for=uc_member]").mouseover();
+    $("a[_for=flink_1]").mouseover();
+  });
+  function CheckLogintop(){
+    var taget_obj = document.getElementById('_userlogin');
+    myajax = new DedeAjax(taget_obj,false,false,'','','');
+    myajax.SendGet2("/member/ajax_loginsta.php");
+    DedeXHTTP = null;
+  }
+-->
+</script>
+<script type="text/javascript">
+var bForcepc = fGetQuery("dv") == "pc";    
+function fBrowserRedirect(){    
+    var sUserAgent = navigator.userAgent.toLowerCase();    
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";      
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";    
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";    
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";    
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";    
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";    
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";    
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";    
+   
+    if(bIsIphoneOs || bIsAndroid){    
+        var sUrl = location.href;        
+        if(!bForcepc){    
+            window.location.href = "{dede:global.mcfg_basehost/}{dede:type typeid='0′ row=1}[field:typelink/]{/dede:type}";
+        }    
+    }    
+    if(bIsMidp||bIsUc7||bIsUc||bIsCE||bIsWM){    
+        var sUrl = location.href;        
+        if(!bForcepc){    
+            window.location.href = "{dede:global.mcfg_basehost/}{dede:type typeid='0′ row=1}[field:typelink/]{/dede:type}";
+        }    
+    }    
+}    
+function fGetQuery(name){//获取参数值    
+    var sUrl = window.location.search.substr(1);    
+    var r = sUrl.match(new RegExp("(^|&)" + name + "=([^&]*)(&|$)"));    
+    return (r == null ? null : unescape(r[2]));    
+}    
+function fShowVerBlock(){       
+    if(bForcepc){    
+        document.getElementById("dv_block").style.display = "block";    
+    }    
+    else{    
+        document.getElementById("ad_block").style.display = "block";    
+    }    
+}    
+fBrowserRedirect();    
+</script>
+<style type="text/css">
+/*下拉加载更多*/
+.yxw-list-loading{height:50px;line-height:26px;color:#999;text-align:center;font-size:14px;}
+</style>
+</head>
+<body>
+
+{dede:include filename="head.htm"/}
+
+<!-- 面包削 -->
+<div class="mianbaoxiao clearfix"><div class="mianbao-min"><a href="{dede:global.cfg_basehost/}/">首页</a> / 全部课程</div></div>
+<!-- 面包削End -->
+
+
+<!-- 课程分类 -->
+<div class="peixun-kecheng clearfix" style="{dede:global.kc_fenlei/}">
+<div class="kecheng-fl-pc">
+{dede:channel type='sun' currentstyle="<a href='~typelink~' class='on'>~typename~</a>"}
+<a href="[field:typeurl/]">[field:typename/]</a>
+{/dede:channel}
+</div>
+</div>
+<!-- 课程分类 End -->
+
+
+
+<div class="figures_list container">
+
+<!-- 课程列表 -->
+<div class="m-header-video">
+<ul class="content_list listqu clearfix">
+{dede:php}
+echo JJGetTypeList(1,16);
+{/dede:php}
+</ul>
+</div>
+<!-- 课程列表 End -->
+
+<div class="yxw-list-loading tishik" page="1" pagesize="16">正在加载中...</div>
+<!-- 无限下拉加载 End -->
+
+<script>
+function getSubstr(ret,strs,stre)
+{
+var deps = ret.indexOf(strs)+strs.length;
+if (stre == "")
+var depe = ret.length;
+else
+var depe = ret.indexOf(stre);
+var dep = ret.substr(deps,depe-deps);
+return dep;
+}
+function trim(str){ 
+return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+var cha = 650;
+var f = true;
+var u = '';
+var str = '';
+var r = '';
+var pagesizeV = $(".tishik").attr("pagesize");
+    $(document).scroll(function(){
+            //滚动条滑动的时候获取滚动条距离顶部的距离
+            var scroll=$(document).scrollTop();
+            //屏幕的高度
+            var client=$(window).height();
+            var h=$(document).height();
+            var flag=true;
+            if (h<=scroll+client+270) { // 到达底部时,加载新内容
+if(f){
+f = false;
+$(".tishik").html("正在加载中...");
+var pageV = $(".tishik").attr("page");
+pageV = parseInt(pageV) + 1 ;
+$.post("{dede:global.cfg_basehost/}/plus/jjajax.php",{a:"GetPage",page:pageV,pagesize:pagesizeV},function(result){
+    $(".tishik").attr("page",pageV);
+    if(result==''){
+    $(".tishik").html("「更多课程，敬请期待」");
+    return;
+    }else{
+    $(".listqu").append(result);
+    f = true;
+    }           
+});      
+}
+}
+});
+</script>
+</div>
+
+{dede:include filename="footer.htm"/}
+
+<script type="text/javascript">
+$(function(){
+    lazyRender();
+})
+$(window).on('scroll',function () {
+    lazyRender();
+})
+function lazyRender () {
+    $('img').each(function () {
+        //解决没缩略图的
+        if($(this).attr('src') == undefined)
+        {
+            $(this).attr("src","{dede:global.cfg_basehost/}/images/yxw-sc-bg.gif");
+        }
+        if (checkShow($(this)) && !isLoaded($(this)) ){
+            loadImg($(this));
+        }
+        if($(this).attr('src') == '{dede:global.cfg_basehost/}'){$(this).attr("src","{dede:global.cfg_basehost/}/images/yxw-sc-bg.gif");}
+    })
+}
+function checkShow($img) { // 传入一个img的jq对象
+    var scrollTop = $(window).scrollTop();  //即页面向上滚动的距离
+    var windowHeight = $(window).height(); // 浏览器自身的高度
+    var offsetTop = $img.offset().top;  //目标标签img相对于document顶部的位置
+    if (offsetTop < (scrollTop + windowHeight) && offsetTop > scrollTop) { //在2个临界状态之间的就为出现在视野中的
+        return true;
+    }
+    return false;
+}
+function isLoaded ($img) {
+    return $img.attr('data-src') === $img.attr('src'); //如果data-src和src相等那么就是已经加载过了
+}
+function loadImg ($img) {
+    // $img.css('display','none');
+    $img.attr('src',$img.attr('data-original')).fadeIn(300); // 加载就是把自定义属性中存放的真实的src地址赋给src属性
+}
+</script>
+
+</body>
+</html>

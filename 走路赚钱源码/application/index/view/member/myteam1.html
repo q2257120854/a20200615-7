@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>财富天下</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="__HOME_CSS__/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="__HOME_CSS__/app.css" />
+		<link rel="stylesheet" href="__HOME_CSS__/style.css" />
+		<style>
+			h5 {
+				margin: 5px 7px;
+			}
+		</style>
+		<style type="text/css">
+			.mui-bar {background: #fff;}
+			.mui-input-row label {
+				font-size: .32rem;
+				color: #444;
+			}
+			.mui-input-group .mui-input-row:after {
+				left: 0;
+				background-color: #E6E6E6;
+			}
+			.mui-bar-nav {
+			    padding-top: 20px;
+			    box-sizing: content-box;
+			    background-color: #fff;
+			    border-bottom: 1px solid #eee;
+			}			
+			.mui-input-group .mui-input-row,
+			.mui-input-row label~input {
+				height: 60px;
+			}
+			.mui-input-row label {
+				line-height: 40px;
+			}
+			.app-btn {
+				padding: 15px;
+				background: #3C7FFF;
+				border: 1px solid #3C7FFF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background:#3c7fff;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:#fff;"></a>
+			<h1 class="mui-title" style="color:#fff; font-family:'微软雅黑';">我的伙伴</h1>
+		</header>
+		<br><br><br>
+				<div class="mui-card" style="margin-bottom: 5px; margin:0px;">
+				<ul class="mui-table-view" style="color: #444; line-height:3;">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							当前伙伴人数：{$teamCount}人
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							我的推荐人：
+						{if condition="$referee neq ''"}
+							{$referee.account}						
+						{/if}						
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							微信：
+						{if condition="$referee neq ''"}
+							{if condition="$referee.weixin neq '0'"}
+								{$referee.weixin}
+							{/if}
+							
+						{/if}
+						</a>
+					</li>
+				</ul>
+			</div>
+				<div class="mui-card" style="margin: 0px;">
+				
+			<ul class="mui-table-view mui-table-view-chevron">
+					<li style="line-height: 3;" class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">我的伙伴有</a>
+						<ul class="mui-table-view mui-table-view-chevron" style="color: #444; ">
+							{foreach name="teamList" id="vo"}
+							<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">
+							{if condition="$vo.account  eq '0'"}							
+								{$vo.myphone}&nbsp;(该会员未完善资料)
+							{else /}
+								{$vo.account}
+							{/if}
+							
+							</a>
+							</li>
+							{/foreach}
+						</ul>
+					</li>
+				</ul></div>
+		<script src="__HOME_JS__/mui.min.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			 //语音识别完成事件
+			document.getElementById("search").addEventListener('recognized', function(e) {
+				console.log(e.detail.value);
+			});
+		</script>
+	</body>
+
+</html>

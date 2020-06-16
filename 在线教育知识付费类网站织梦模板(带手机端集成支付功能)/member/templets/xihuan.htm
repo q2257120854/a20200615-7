@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>喜欢的商品 - <?php echo $cfg_webname; ?></title>
+<link href="templets/style/base.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="templets/js/j.js"></script>
+<script type="text/javascript" src="templets/js/load.js"></script>
+<script type="text/javascript" src="templets/js/leftmenu.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+</head>
+<body>
+
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+<?php include(DEDEMEMBER."/templets/left.htm"); ?>
+
+<!-- 右侧功能定位 -->
+<div class="user-right">
+<div class="uc-box uc-main-box">
+<div class="uc-content-box order-list-box">
+<div class="box-hd"><h1 class="title">我喜欢的商品</h1></div>
+<div class="grid-wrap">
+<table cellpadding="0" cellspacing="0" class="grid-header-bg">
+<thead>
+<tr>
+<th class="grid-header-1" style="width:480px"><span>商品信息</span></th>
+<th class="grid-header-2" style="width:125px"><span>金额</span></th>
+<th class="grid-header-3" style="width:90px"><span>操作</span></th>  
+</tr>
+</thead>
+</table>
+<div class="grid-data-wrap">
+<table cellpadding="0" cellspacing="0" class="grid-data">
+<tbody>
+
+{dede:datalist}
+<tr class="no-border">
+<td class="grid-col-1" style="width:480px;">
+<div class="c-i-wrap">
+<div class="c-i-img-mall"><img class="c-i-img" width="45" height="45" src="{dede:field.litpic/}"></div>
+<div class="c-i-mall"><a style="width:390px" target="_blank" href="archives_do.php?dopost=viewArchives&aid={dede:field.aid/}">{dede:field.title/}</a></div>
+</div>
+</td>
+<td class="fav-faving-td" style="width:110px;"><span class="kc-price">{dede:field.trueprice/}元</span></td>
+<td class="fav-faving-td" style="width:110px;"><a href="archives_do.php?dopost=delXihuan&type={dede:field.type/}&aid={dede:field.aid/}" class="fav-faving">取消喜欢</a></td>
+</tr>
+{/dede:datalist}
+
+</tbody>
+</table>
+</div>
+</div>
+<!-- grid-wrap End -->
+
+<!-- 列表分页 -->
+<div id="showpage_min">
+{dede:pagelist listsize=5 /}
+</div>
+<!-- 列表分页 Ending -->
+
+</div>
+</div>
+</div>
+<!-- 右侧功能定位 End -->
+
+</div>
+
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+
+</body>
+</html>

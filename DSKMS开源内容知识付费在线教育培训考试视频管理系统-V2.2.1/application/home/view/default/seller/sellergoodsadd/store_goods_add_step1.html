@@ -1,0 +1,91 @@
+{include file="default/base/seller_top" /}
+
+<div class="seller_main">
+    {include file="default/base/seller_left" /}
+    <div class="seller_right">
+        <div class="seller_items">
+            {include file="default/base/seller_items" /}
+        </div>
+        {if isset($edit_goods_sign)}
+        {else /}
+        <ul class="add-goods-step">
+            <li class="current"><i class="icon iconfont">&#xe600;</i>
+                <h6>STEP.1</h6>
+                <h2>{$Think.lang.select_category}</h2>
+                <i class="arrow iconfont">&#xe687;</i> </li>
+            <li><i class="icon iconfont">&#xe731;</i>
+                <h6>STEP.2</h6>
+                <h2>{$Think.lang.fill_item_details}</h2>
+                <i class="arrow iconfont">&#xe687;</i> </li>
+            <li><i class="icon iconfont">&#xe64d;</i>
+                <h6>STEP.3</h6>
+                <h2>{$Think.lang.store_goods_index_flow_chart_step3}</h2>
+            </li>
+        </ul>
+        {/if}
+<!--S 分类选择区域-->
+<div class="wrapper_search p20">
+  <div class="wp_sort">
+    <div id="dataLoading" class="wp_data_loading">
+      <div class="data_loading">{$Think.lang.store_goods_step1_loading}</div>
+    </div>
+    <div id="class_div" class="wp_sort_block">
+      <div class="sort_list">
+        <div class="wp_category_list">
+          <div id="class_div_1" class="category_list">
+              <ul>
+                  {notempty name="goods_class"}
+                  {foreach name="goods_class" item="val"}
+                  <li class="" dstype="selClass" data-param="{gcid:{$val.gc_id},deep:1}"> <a class="" href="javascript:void(0)"><i class="iconfont"></i>{$val.gc_name}</a></li>
+                  {/foreach}
+                  {/notempty}
+              </ul>
+          </div>
+        </div>
+      </div>
+      <div class="sort_list">
+        <div class="wp_category_list blank">
+          <div id="class_div_2" class="category_list">
+            <ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="sort_list sort_list_last">
+        <div class="wp_category_list blank">
+          <div id="class_div_3" class="category_list">
+            <ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="alert">
+    <dl class="hover_tips_cont">
+      <dt id="commodityspan"><span style="color:#F00;">{$Think.lang.store_goods_step1_please_choose_category}</span></dt>
+      <dt id="commoditydt" style="display: none;" class="current_sort">{$Think.lang.store_goods_step1_current_choose_category}{$Think.lang.ds_colon}</dt>
+      <dd id="commoditydd"></dd>
+    </dl>
+  </div>
+  <div class="wp_confirm">
+      <form method="get" action="{if isset($edit_goods_sign)}{:url('Sellergoodsonline/edit_goods',['goods_id'=>$goods_id])}{else/}{:url('Sellergoodsadd/add_step_two')}{/if}">
+          <input type="hidden" name="class_id" id="class_id" value="" />
+          <div class="bottom tc">
+              <input disabled="disabled" dstype="buttonNextStep" value="{$Think.lang.store_goods_add_next}，{$Think.lang.fill_item_information}" type="submit" class="submit"/>
+          </div>
+      </form>
+  </div>
+</div>
+<script src="{$Think.PLUGINS_SITE_ROOT}/mlselection.js"></script>
+<script src="{$Think.PLUGINS_SITE_ROOT}/jquery.mousewheel.js"></script>
+<script src="{$Think.HOME_SITE_ROOT}/js/sellergoods_add_step1.js"></script> 
+<script>
+SEARCHKEY = '{$Think.lang.store_goods_step1_search_input_text}';
+</script>
+
+        
+        
+    </div>
+</div>
+{include file="default/base/mall_footer" /}

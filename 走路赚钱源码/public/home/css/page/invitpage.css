@@ -1,0 +1,214 @@
+.mui-content {
+	padding-bottom: 130px;
+}
+
+a.mui-action-back,
+.mui-title {
+	font-size: .36rem;
+	color: #444;
+}
+
+
+.mui-numbox [class*=btn-numbox], .mui-numbox [class*=numbox-btn] {
+	width: 30px;
+}
+
+.balance-inner {
+	position: relative;
+	width: 7rem;
+	height: 1rem;
+	margin: auto;
+	padding-left: .20rem;
+	/*border-radius: 4px;*/
+	/*background: #5d93eb;*/
+	color: #000;
+	    text-align: left;
+	color: #fff;
+}
+
+.balance-inner>span {
+	display: inline-block;
+	margin-top: .3rem;
+	font-size: .4rem;
+}
+
+.balance-btn {
+	position: absolute;
+	background: none;
+	border: 0;
+	border-radius: 0;
+	/*border-left: 1.5px solid #F4F3F1;*/
+	color: #fff;
+	/*margin-top: .12rem;*/
+	padding-left: .4rem;
+	font-size: .36rem;
+	right: 10px;
+}
+
+.mui-numbox [class*=btn-numbox], 
+.mui-numbox [class*=numbox-btn] {
+	background-color: #fff;
+	color: #333;
+}
+
+* {
+	font-family: 'PinfangSC Regular',helvetica,"微软雅黑";
+}
+
+.mui-content {
+	padding-bottom: 60px;
+}
+
+.mui-col-xs-12{width:100%}
+.mui-col-xs-11{width:91.66666667%}
+.mui-col-xs-10{width:83.33333333%}
+.mui-col-xs-9{width:75%}
+.mui-col-xs-8{width:66.66666667%}
+.mui-col-xs-7{width:58.33333333%}
+.mui-col-xs-6{width:50%}
+.mui-col-xs-5{width:41.66666667%}
+.mui-col-xs-4{width:33.33333333%}
+.mui-col-xs-3{width:25%}
+.mui-col-xs-2{width:16.66666667%}
+.mui-col-xs-1{width:8.33333333%}
+
+
+.mui-col-sm-12{width:100%}
+.mui-col-sm-11{width:91.66666667%}
+.mui-col-sm-10{width:83.33333333%}
+.mui-col-sm-9{width:75%}
+.mui-col-sm-8{width:66.66666667%}
+.mui-col-sm-7{width:58.33333333%}
+.mui-col-sm-6{width:50%}
+.mui-col-sm-5{width:41.66666667%}
+.mui-col-sm-4{width:33.33333333%}
+.mui-col-sm-3{width:25%}
+.mui-col-sm-2{width:16.66666667%}
+.mui-col-sm-1{width:8.33333333%}
+
+.mui-bar .mui-btn-link {
+	color: #C79855;
+}
+
+.notice {
+}
+
+.notice-tit {
+	position: absolute;
+	height: 30pxs;
+	left: 4px;
+	padding: .14rem .1rem .04rem;
+	color: #000;
+	font-size: .34rem;
+	border-radius: 6px;
+	text-align: center;
+}
+
+
+.notice-box {
+	position: relative;
+	height: .9rem;
+	padding: .1rem 0 0;
+	background: #fff;
+	margin-bottom: .2rem;
+}
+
+
+.notice  {
+	position: relative;
+	margin-top: 2px;
+	box-sizing: border-box;
+	padding-left: 1rem;
+	height: 30px;   /*修改高度可以更改显示条数*/
+	overflow: hidden;    /*  这个一定要加，超出的内容部分要隐藏，免得撑高中间部分 */
+}
+
+
+
+.trade-contain {
+	padding: .2rem 0 0;
+	text-align: center;
+	background: #fff;
+}
+
+.trade-contain button {
+	border-radius: 8px;
+}
+
+.trade-table {
+	margin-top: .3rem;
+	font-size: .4rem;
+	background: #fff;
+}
+
+.trade-table .trade-header {
+	padding: .24rem;
+	background: #F4F3F1;
+	color: #888;
+}
+
+.trade-header>span {
+	text-align: left;
+	font-size: .24rem;
+}
+
+/*.trade-header-tit h4 {
+	padding: .1rem;
+	color: #444;
+	font-size: .36rem;
+	font-weight: normal;
+	text-align: left;
+}*/
+
+
+.small-text {
+	font-size: .24rem;
+}
+
+
+.app-btn-light {
+	background: #D56161;
+}
+
+.app-btn-dark {
+	background: #55C77B;
+}
+
+.notice-detail {
+	padding: .3rem;
+	text-align: center;
+	box-shadow: none;
+}
+
+.notice-content {
+	text-align: left;
+	word-break: break-all;
+}
+
+.mui-icon-paperclip {
+	position: absolute;
+	left: 0;
+	transform: rotate(30deg);
+}
+
+.big-text {
+	font-size: .5rem;
+}
+
+.no-data {
+	margin: .2rem auto;
+	padding-top: .4rem;
+	padding-bottom: .4rem;
+	text-align: center;
+	font-size: .24rem;
+}
+
+.no-data>span {
+	margin-bottom: .2rem;
+	font-size: .6rem;
+	color: #E6E6E6;
+}
+
+.no-data>p {
+	color: #ccc;
+}

@@ -1,0 +1,137 @@
+.load{
+    position: absolute;
+    top: 40%;
+    left: 0;
+    /* bottom: 0; */
+    right: 0;
+    text-align: -webkit-center;
+    z-index: 999;	
+}
+.a{
+	overflow: hidden;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	float: left;
+	
+    font-size: 15px;
+    color: rgba(216,233,245,1);
+    font-weight: bold;	
+	margin: 0;
+	
+}
+.span{
+	font-family: helvetica,'Hiragino Sans GB W3','microsoft yahei';
+    color: rgba(32,32,32,.8);
+    font-size: 13px;	
+}
+.p{
+    font-family: helvetica,'Hiragino Sans GB W3','microsoft yahei';
+    font-weight: 700;
+    font-size: 15px;
+    color: rgba(32,32,32,.8);	
+}
+.li{
+	display: inline-block;
+	margin-right: 20px;
+	text-align: -webkit-center;
+}
+ul{
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: scroll;	
+}
+.lispan{
+    font-family: helvetica,'Hiragino Sans GB W3','microsoft yahei';
+    color: rgba(255,255,255,.8);
+    font-size: 13px;	
+}
+.jianjie{
+    display: block;
+    overflow: hidden;
+    transition: all .5s cubic-bezier(0.18, 0.89, 0.32, 1.28) 0s;	
+}
+
+.loader{
+    height: 100%;
+    text-align: center;
+    line-height: 13rem;
+    position: absolute;
+    right: 0;
+    left: 0;
+    background: #000;
+}
+
+/*
+  Set the color of the icon
+*/
+svg path,
+svg rect{
+  fill: #aaa;
+  
+}
+.li1{
+    padding: 0;
+    width: 46px;
+    height: 46px;
+    /* color: #FF8400; */
+    background-color: rgba(255,255,255,.1);	
+	margin-right: 10px;
+}
+.btn1{
+    display: block;
+    width: 100%;
+    background: rgba(255,255,255,.32);
+    height: 100%;
+    line-height: 46px;	
+	color: rgba(0,0,0,.8);
+	overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.cuowu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    right: 0;
+    bottom: 0;
+    background: #28282a;
+    text-align: -webkit-center;
+    line-height: 12rem;	
+}
+.hddiv{
+    display: -webkit-inline-box;
+    background: rgba(0, 0, 0, .3);
+    margin-top: 3rem;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-family: 黑体;	
+	color: #fff;
+	transition: all 0.3s ease;
+	opacity: 0;
+}
+.xianlu{
+    color: #999;
+    font-size: 13px;
+    background: rgba(0,0,0,0);
+    padding: 2px 10px;
+    border: 1px solid rgba(0,0,0,.1);
+	margin-bottom: 5px;
+	display: block;
+}
+.xianludiv{
+	transition: all 1s ease-in-out 0s;
+    position: absolute;
+    right: 30px;
+    top: 15px;
+    background: #2c2c2f;
+    overflow: hidden;	
+	height: 28px;
+	border-radius: 3px;
+
+}

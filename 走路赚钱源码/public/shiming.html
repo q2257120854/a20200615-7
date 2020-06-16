@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="/sb/js/mui.min.js"></script>
+    <link href="/sb/css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body style="background: #fff;">
+	<header class="mui-bar mui-bar-nav" style="background: #fff;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">实名认证</h1>
+		</header>
+		<br><br>
+		<ul class="mui-table-view mui-grid-view mui-grid-9" style="background: #fff;">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="width: 33%"><a href="#">
+		                    <span class="mui-icon"><img src="/sb/img/verifed_yes.png" style="width: 50px;" ><span class="mui-badge">1</span></span>
+		                    <div class="mui-media-body">人脸识别</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="width: 33%"><a href="#">
+		                    <span class="mui-icon"><img src="/sb/img/verifed_no.png" style="width: 50px;" ><span class="mui-badge">2</span></span>
+		                    <div class="mui-media-body">支付认证</div></a></li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="width: 34%"><a href="#">
+					        <span class="mui-icon"><img src="/sb/img/verified_ok.png" style="width: 50px;" ><span class="mui-badge">3</span></span>
+					        <div class="mui-media-body">完成认证</div></a></li>
+		        </ul>
+		<form class="mui-input-group" style="width: 80%; margin-left: 10%;">
+						<div class="mui-input-row" style="height: 60px;">
+							<label style="position: absolute; top: 10px; font-size:0.9em;">姓名</label>
+							<input type="text" style="margin-top: 10px;font-size:0.9em;"placeholder="请输入您的姓名">
+						</div>
+						<div class="mui-input-row" style="height: 60px;">
+							<label style="position: absolute; top: 10px;font-size:0.9em;">身份证</label>
+							<input type="text" style="margin-top: 10px;font-size:0.9em;"placeholder="请输入您的身份证号">
+						</div>
+						<div class="mui-input-row" style="height: 60px;">
+							<label style="position: absolute; top: 10px;font-size:0.9em;">支付宝</label>
+							<input type="text" style="margin-top: 10px;font-size:0.9em;"placeholder="请输入您的支付宝账号">
+						</div>
+						<br>
+						<p style="position: absolute;font-size: 0.6em; color: #000000; ">备注:请开启内存卡读写权限，防止人脸识别不通过</p>
+						<br>
+						<p style="position: absolute;font-size: 0.6em; color: #000000;left: 10px;">亲爱的乐步用户，您好，为保证用户的真实性，乐步将调用第三方公司认证系统进行实名认证，整个认证过程中只做用户真实性匹配对比，不做其他任何用途，人脸认证成功后，用户需支付1.5元的认证费用，用于第三方公司认证付费及信息费，此费用由乐步公司收取，与支付宝或微信及其他第三方支付公司无关。如您不同意，请勿认证及支付，如您认证完成并成功支付1.5元，将视同同意此协议。</p>
+						<br><br><br><br><br><br><br><br>
+						
+					</form>
+	<div class="mui-button-row">
+		<button type="button" class="mui-btn mui-btn-primary" style="margin-left: -0%; width: 80%; font-size: 1em; border-radius:30px ;" onclick="return false;">提交认证</button>
+		
+	</div>
+</body>
+</html>

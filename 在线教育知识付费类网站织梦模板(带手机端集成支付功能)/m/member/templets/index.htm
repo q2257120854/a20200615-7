@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>个人中心</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="<?php echo $mcfg_basehost; ?>/m-css/m-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/jquery.js" ></script>
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-css/app.css.php?format=js"></script>
+<style type="text/css">
+body{background:#fff;}
+.wrapper{padding-top:0;}
+.my_item-bottom{border-bottom:0;}
+.yxw-top-top{width:100%;height:44px;position:relative;border-bottom:1px solid #f5f5f5;}
+.yxw-top-top h1{height:44px;line-height:44px;display:inline-block;font-size:18px;color:#333;padding:0 15px;}
+.yxw-top-top .member-search{width:44px;height:44px;top:0;right:5px;background:url(<?php echo $mcfg_basehost; ?>/m-images/index-search.png) center no-repeat;background-size:25px 25px;position:absolute;}
+
+/*重置样式*/
+.m-user-title{height:22px;line-height:22px;padding:0;margin:8px 0 5px 0;color:#333;font-size:24px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.my_top{padding:35px 0 25px;}
+.my-itemw{background:#fff;margin:0 15px;padding-bottom:25px;}
+.my-itemw .yxw-vip-kai,.my-itemw .yxw-vip-xu{position:relative;height:50px;line-height:50px;font-size:16px;color:#333;background:#fcf4f1 url(<?php echo $mcfg_basehost; ?>/m-images/ms_publis_recipe.png) 96% center no-repeat;background-size:6px 10px;padding-left:15px;display:block;border-radius:8px;}
+
+/*头部信息*/
+.m-user-title-id{padding-left:75px;}
+.my_top_c_b{overflow:hidden;padding:0 15px;}
+.my_top_c_b .user-tx{float:left;display:block;position:relative;}
+.my_top_c_b img{height:60px;width:60px;border:3px solid rgba(214,214,214,0.5);border-radius:100%;display:block;}
+.my_top_c_b .user-tx-bj{width:15px;height:15px;position:absolute;bottom:0;right:10px;background:#f5944e url(<?php echo $mcfg_basehost; ?>/m-images/m-yxw-tx-bj.png) no-repeat 3px 2px;background-size:10px 10px;border-radius:50%;}
+
+/*会员ID*/
+.user-yxw-id{height:25px;line-height:25px;font-size:16px;color:#999;}
+
+/*新样式*/
+.my-item-box{margin-left:15px;}
+.my-item-box img{float:left;display:block;height:20px;width:20px;margin:14px 10px 16px 0;}
+.my-item{position:relative;height:56px;line-height:56px;border-bottom:1px solid #f5f5f5;font-size:16px;color:#333;background:#fff url(<?php echo $mcfg_basehost; ?>/m-images/ms_publis_recipe.png) 96% center no-repeat;background-size:6px 10px;display:block;}
+.my-item-bottom{border-bottom:0;}
+
+.yxw-index-ht{overflow:hidden;padding-top:20px;margin:15px;border-radius:8px;box-shadow:1px 1px 10px 0 rgba(0,0,0,0.05);}
+.yxw-index-ht li{width:33.33333%;float:left;padding-bottom:20px;}
+.yxw-index-ht li a{display:block;}
+.yxw-index-ht li a i{width:28px;height:28px;display:block;margin:0 auto;}
+.yxw-index-ht li a i img{display:block;}
+.yxw-index-ht li a span{display:block;height:30px;line-height:30px;font-size:14px;text-align:center;}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+
+<!-- 用户信息 -->
+<div class="my_top">
+<div class="my_top_c_b">
+<a href="<?php echo $mcfg_basehost; ?>/member/edit_face.php" data-title="修改头像" class="user-tx"><img src="<?php echo $cfg_ml->fields['face']=mstrone($cfg_ml->fields['face']); ?>"><i class="user-tx-bj"></i></a>
+<div class="m-user-title-id">
+<div class="m-user-title"><?php echo $cfg_ml->M_UserName; ?></div>
+<div class="user-yxw-id">ID:<?php echo $cfg_ml->M_ID; ?></div>
+</div>
+</div>
+</div>
+<!-- 用户信息 End -->
+
+
+<!-- VIP会员 -->
+<div class="my-itemw">
+<?php if ($cfg_ml->M_Rank > 10){echo '<a href="'.$mcfg_basehost.'/member/buyhui.php" data-title="VIP会员" class="yxw-vip-xu"><img src="'.$mcfg_basehost.'/m-images/gzs-vip2.png" style="display:block;height:20px;width:20px;margin:15px 10px 15px 0;float:left;">我的会员<span class="red" style="padding-right:30px;color:#f30;font-size:12px;float:right;">剩余 '.$mhasDay.' 天</span></a>';} else{echo '<a href="'.$mcfg_basehost.'/member/buyhui.php" data-title="VIP会员" class="yxw-vip-kai"><img src="'.$mcfg_basehost.'/m-images/gzs-vip1.png" style="display:block;height:20px;width:20px;margin:15px 10px 15px 0;float:left;">开通会员<span style="padding-right:30px;color:#f30;font-size:12px;float:right;">全站课程免费学习</span></a>';}?>
+</div>
+<!-- VIP会员 End -->
+<div class="gzs-geli" style="height:10px;width:100%;background:#f5f5f5;"></div>
+
+
+<div class="my-item-box">
+<a href="<?php echo $mcfg_basehost; ?>/member/operation.php" class="my-item">会员订单</a>
+<a href="<?php echo $mcfg_basehost; ?>/member/mybodan.php" class="my-item">我的收藏</a>
+<a href="<?php echo $mcfg_basehost; ?>/member/tui.php" class="my-item">课程分销<span class="red" style="padding-right:30px;color:#f30;font-size:12px;float:right;">查看收益与提现</span></a>
+<a href="<?php echo $mcfg_basehost; ?>/about/faq/" class="my-item">帮助中心</a>
+<a href="<?php echo $mcfg_basehost; ?>/app/shezhi/" class="my-item">设置</a>
+</div>
+
+
+<!-- 最底部导航 -->
+<div class="gzs-bottombar">
+<a href="<?php echo $mcfg_basehost; ?>/" class="gzs-bo"><img src="<?php echo $mcfg_basehost; ?>/m-images/index.png">首页</a>
+<a href="<?php echo $mcfg_basehost; ?>/member/operation_ke.php" class="gzs-bo"><img src="<?php echo $mcfg_basehost; ?>/m-images/index-yg.png">已购</a>
+<a href="<?php echo $mcfg_basehost; ?>/kefu/" class="gzs-bo"><img src="{dede:global.mcfg_basehost/}/m-images/index-kf.png">客服</a>
+<a href="<?php echo $mcfg_basehost; ?>/member/" class="gzs-bo gzs-on"><img src="<?php echo $mcfg_basehost; ?>/m-images/index-admin2.png">我的</a>
+</div>
+<!-- 最底部导航 End -->
+
+
+</div>
+
+
+</body>
+</html>

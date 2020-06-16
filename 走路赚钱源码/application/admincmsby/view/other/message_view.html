@@ -1,0 +1,112 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">留言信息</h2>
+      </div>
+      <table class="table">
+       <tr>
+		<td>主题：{$result.title}</td>
+        <td>姓名/称呼：{$result.name}</td>
+        <td>联系电话：{$result.tel}</td>     
+		<!-- <td>装修风格：{$result.style}</td> -->
+		<td>留言时间：{$result.addtime|date="Y-m-d H:i:s",###}</td>
+       </tr>
+       <tr>
+        <td>状态：
+			{if condition="$result.status neq '2'"}
+			<a style="color:#3c7fff;">未处理</a> 
+			{else /}
+			<a>已处理</a> 
+			{/if}		
+		</td>
+        <td colspan="3"><mark style="">{$result.content}</mark></td>
+        </tr>
+       <tr>
+        <td>
+			管理员操作备注：
+		</td>
+        <td colspan="3" style=""><a>{$result.remark}</a></td>
+        </tr>
+      </table>
+	  <div>
+		<aside class="paging_left">
+		    <label>管理员操作：</label>
+		    <input type="text" class="textbox textbox_295" name="remark" placeholder="管理员操作备注"/>
+		    <input type="button" id="edit" data-id="{$result.id}" value="处理" class="group_btn"/>
+		</aside>
+	 </div>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+$(document).ready(function() {
+
+  //处理
+	$('#edit').click(function(event){
+		var id = $(this).attr('data-id');
+		var remark = $("input[name='remark']").val();	
+		console.log(remark);
+			$.ajax({
+				url:"{:url('other/message_edit')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'message/edit',id:id,remark:remark},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('处理成功');
+						setTimeout(function(){
+							//页面刷新  
+							window.location.reload();
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});		
+		
+	});  
+	
+    //批量删除
+	$('#delid').click(function(event){
+		var id=new Array();  
+		$('input[name="id"]:checked').each(function(){  
+			id.push($(this).val());//向数组中添加元素  
+		});  
+		var id_str = id.join(',');//将数组元素连接起来以构建一个字符串 
+		if (confirm("确定要删除吗？")) {
+			$.ajax({
+				url:"{:url('other/ad_delmost')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'adDelAll',delid:id_str,pid:0},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('删除成功');
+						setTimeout(function(){
+						//页面刷新  
+						window.location.reload();
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});
+		}
+	}); 	
+	
+});
+</script>
+{/block}	

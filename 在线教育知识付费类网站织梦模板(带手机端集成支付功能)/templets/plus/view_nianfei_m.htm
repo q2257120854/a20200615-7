@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title><?php echo $arctitle; ?>_<?php echo $cfg_webname; ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="canonical" href="<?php global $cfg_basehost;$url=GetOneArchive($arcID);echo $cfg_basehost.$url['arcurl'];?>"/>
+<link href="<?php echo $mcfg_basehost; ?>/m-css/m-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/jquery.js" ></script>
+<script language="javascript" type="text/javascript" src="<?php echo $cfg_basehost; ?>/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+function CheckLogin(){
+	  var taget_obj = document.getElementById('_ajax_feedback');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_feedback.php");
+	  DedeXHTTP = null;
+}
+function postBadGood(ftype,fid)
+{
+	var taget_obj = document.getElementById(ftype+fid);
+	var saveid = GetCookie('badgoodid');
+	if(saveid != null)
+	{
+		var saveids = saveid.split(',');
+		var hasid = false;
+		saveid = '';
+		j = 1;
+		for(i=saveids.length-1;i>=0;i--)
+		{
+			if(saveids[i]==fid && hasid) continue;
+			else {
+				if(saveids[i]==fid && !hasid) hasid = true;
+				saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+				j++;
+				if(j==10 && hasid) break;
+				if(j==9 && !hasid) break;
+			}
+		}
+		if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+		else saveid += ','+fid;
+		SetCookie('badgoodid',saveid,1);
+	}
+	else
+	{
+		SetCookie('badgoodid',fid,1);
+	}
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	myajax.SendGet2("/shoppingpp.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+}
+function postDigg(ftype,aid)
+{
+	var taget_obj = document.getElementById('newdigg');
+	var saveid = GetCookie('diggid');
+	if(saveid != null)
+	{
+		var saveids = saveid.split(',');
+		var hasid = false;
+		saveid = '';
+		j = 1;
+		for(i=saveids.length-1;i>=0;i--)
+		{
+			if(saveids[i]==aid && hasid) continue;
+			else {
+				if(saveids[i]==aid && !hasid) hasid = true;
+				saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+				j++;
+				if(j==20 && hasid) break;
+				if(j==19 && !hasid) break;
+			}
+		}
+		if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+		else saveid += ','+aid;
+		SetCookie('diggid',saveid,1);
+	}
+	else
+	{
+		SetCookie('diggid',aid,1);
+	}
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	var url = "/digg_ajax.php?action="+ftype+"&id="+aid;
+	myajax.SendGet2(url);
+}
+function getDigg(aid)
+{
+	var taget_obj = document.getElementById('newdigg');
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	myajax.SendGet2("/digg_ajax.php?id="+aid);
+	DedeXHTTP = null;
+}
+-->
+</script>
+<script type="text/javascript">
+pageCount = '1',
+NewsTitleList=new Array();
+</script>
+<style type="text/css">
+body{background:#fff;}
+.wrapper{padding-bottom:0;}
+.cmt-top-title .join-txt-qb{display:none;}
+.course-discuss .pl-list-btm .ok-btn{display:none;}
+.gd_comment_fabu{float:right;width:12%;text-align:right;line-height:34px;-webkit-appearance:none;color:#598BDD;font-size:14px;cursor:pointer;border:0;background-color:#fff;outline:0;}
+.yxw-courses-dayi{padding-bottom:53px;}
+.m-video-vip-box .m-yxw-vip-bt{padding-top:45px;}
+.m-video-vip-box .m-yxw-vip-jg{padding-top:10px;}
+
+/*评论弹出*/
+.cmt-top-title3 .join-txt{display:inline-block;padding:0 15px;font-size:18px;color:#333;font-weight:700;}
+.cmt-top-title3{margin-top:10px;background:#fff;padding:15px 0;}
+.input-txt-box{padding:0 15px;width:100%;height:53px;background:#fff;position:fixed;bottom:0;left:0;box-sizing:border-box;box-shadow:0 -1px 10px 0 rgba(0,0,0,0.05);}
+.input-txt-box .gd_comment{width:100%;height:30px;line-height:30px;font-size:14px;background:#f0f0f0;border-radius:4px;text-indent:10px;color:#999;display:block;margin-top:12px;}
+.gd_comment_box{background:#fff;width:100%;position:fixed;left:0px;bottom:-250px;height:260px;z-index:20001;}
+.cmt-top-title .shut{left:0;position:absolute;color:#598BDD;padding:0 15px;font-size:16px;cursor:pointer;}
+.cmt-top-title .gd_comment_fabu{right:0;-webkit-appearance:none;position:absolute;color:#598BDD;padding:0 15px;font-size:16px;cursor:pointer;border:0;line-height:50px;background-color:#fff;outline:0;}
+
+/*无评论内容时显示的*/
+.m-yxw-pl-wushuju{padding:30px 0;}
+.m-yxw-pl-wushuju img{width:100px;height:100%;margin:0 auto;display:block;}
+.m-yxw-pl-wushuju .wu-pl-title{text-align:center;font-size:14px;color:#999;}
+
+/*加载中*/
+.yxw-list-loading{width:100%;height:50px;line-height:50px;color:#757575;background:#f0f0f0;text-align:center;font-size:14px;}
+.m-yxw-pl-wushuju{display:none;}
+.yin{position:absolute;left:-9999px;font-size:0px;}
+
+/*课程目录*/
+.yxw-courses-mulu{background-color:#fff;margin-bottom:10px;}
+.yxw-courses-mulu .jjseotitle{padding:25px 15px 10px;color:#333;font-size:18px;line-height:26px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.yxw-courses-mulu .content_list li{margin-bottom:10px;}
+.yxw-courses-mulu .content_list li a{line-height:50px;padding:0 15px;display:block;border:1px solid #e5e5e5;color:#333;font-size:14px;background:#f0f0f0;border-radius:3px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.yxw-courses-mulu .content_list li .on{color:#00bca1;border:1px solid #00bca1;background:#fff;}
+.yxw-courses-mulu .content_list{padding:15px 15px 15px 15px;}
+.yxw-courses-mulu .content_list .content_item_2{width:200px;position:relative;padding:0 0 0 10px;box-sizing:border-box;display:inline-block;}
+.yxw-courses-mulu .content_list .content_item_2 a{display:block;}
+
+/*TAB切换*/
+.aui-nav-list-box{border-bottom:1px solid #f5f5f5;background:#fff;height:50px;}
+.aui-nav-list-box li{float:left;width:33.33333%;line-height:50px;font-size:16px;text-align:center;}
+.aui-nav-list-box a{display:block;color:#333;}
+.aui-nav-list-box span{display:inline-block;height:48px;}
+.aui-nav-list-box li.aui-current a{color:#333;}
+.aui-nav-list-box li.aui-current span{color:#00bca1;border-bottom:2px solid #00bca1;}
+.aui-nav-list-item{display:none;}
+</style>
+</head>
+<body>
+
+<?php pasterTempletDiy("d1w2z3/head_m.htm");?>
+
+<div class="wrapper">
+
+
+<!-- 课程购买 -->
+<div class="m-video-vip-box">
+<div class="m-video-yxw-list">
+<p class="m-yxw-vip-bt"><?php echo jjGetTypename($tid);?></p>
+<p class="m-yxw-vip-jg">￥<?php echo $arc->TypeLink->TypeInfos['price']; ?></p>
+<p class="m-yxw-vip-gmkc"><a href="<?php echo $mcfg_basehost; ?>/member/buyke.php?tid=<?php echo $tid;?>" class="m-kc-goumai">立即购买</a> 
+</div>
+</div>
+<!-- 课程购买 End -->
+
+
+<div class="aui-nav-content-box">
+
+<!-- TAB -->
+<div class="aui-nav-list-box">
+<ul>
+<li class="aui-current"><a href="javascript:;"><span>目录</span></a></li>
+<li class=""><a href="javascript:;"><span>课件</span></a></li>
+<li class=""><a href="javascript:;"><span>问答(<script src="<?php echo $cfg_basehost; ?>/plus/goodlv.php?view=yes&type=nokuo&aid=<?php echo $aid; ?>" type='text/javascript' language="javascript"></script>)</span></a></li>
+</ul>
+</div>
+<!-- TAB End -->
+
+<!-- 内容切换 -->
+<div class="aui-nav-list-tab">
+<div class="aui-nav-list-item" style="display:block;">
+<!-- 课程目录 -->
+<div class="yxw-courses-mulu">
+<h1 class="jjseotitle" style="display:none;"><?php $tid = JJarctype($arcID);?><?php echo jjGetTypename($typeid);?></h1>
+<ul class="content_list">
+<?php
+	global $dsql;
+	$sql = "select a.id,a.title,b.spmm from #@__archives a left join #@__addonvideo b on a.id = b.aid where a.typeid = '$tid' order by a.id asc";
+	$dsql->Execute('me',$sql);
+	$jg = '';
+    $i = 0;
+	while($arr = $dsql->GetArray('me'))
+	{
+    	$i++;
+		$jg .= '<li><a href="'.aaurl($arr['id']).'" class="jjdd'.$arr['id'].'"><span style="padding-right:3px;">'.$i.'.</span>'.$arr['title'].'</a></li>';
+	}
+	echo $jg;
+?>
+</ul>
+</div>
+<!-- 课程目录 End -->
+</div>
+
+
+
+<!-- 课程课件 -->
+<div class="aui-nav-list-item" style="display:none;">
+<div class="m-video-cotainer">
+<p>本节课程视频及课件内容，需要购买课程后才能看到。</p>
+</div>
+</div>
+<!-- 课程课件 End -->
+
+
+
+<!-- 课程答疑 -->
+<div class="aui-nav-list-item" style="display:none;">
+<div class="yxw-courses-dayi">
+<!-- 我是没有数据显示的样式 -->
+<div class="m-yxw-pl-wushuju"><img src="<?php echo $mcfg_basehost; ?>/m-images/kc-wu-pl.png"><p class="wu-pl-title">暂时无人提问</p></div>
+<!-- 我是没有数据显示的样式 End -->
+<!-- 评论内容区 -->
+<div class="course-discuss"><dd id='commetcontent'></dd></div>
+<div class="yxw-list-loading" page="1"></div>
+<script language='javascript'>
+var f = true; 
+function LoadCommets(page)
+{
+$(".yxw-list-loading").html('没有更多了');	
+$.post("/shopping_ajaxpp.php?dopost=getlist&aid=<?php echo $aid; ?>&page="+page,{a:""},function(result){
+	if(result.indexOf("参数错误！") > -1 )
+	{
+		$(".yxw-list-loading").html('没有更多了');
+	}
+	else
+	{
+		$("#commetcontent").append(result);	
+		
+			if($(".pl-list").length < 1){
+				$(".m-yxw-pl-wushuju").show();
+				$(".yxw-list-loading").addClass("yin");
+			}
+
+		
+		f = true; 
+	}		
+});	
+ 
+
+}
+function PostComment()
+{
+var f = document.feedback;
+var nface = '6';
+var nfeedbacktype = 'good';
+var nvalidate = '';
+var nnotuser = '';
+var nusername = '';
+var npwd = '';
+var taget_obj = $DE('commetcontentNew');
+var waithtml = "<div style='line-height:30px'><img src='/m-images/loadinglit.gif' />发送中...</div>";
+if(f.username.value=='') {
+window.location.href = '/member/';
+return;
+}
+if(f.msg.value=='')
+{
+alert("您还没有写内容哦");
+return;
+}
+
+if(f.msg.value.length > 100)
+{
+alert("请填写100字以内的内容");
+return;
+}
+if(f.feedbacktype) {
+for(var i=0; i < f.feedbacktype.length; i++)
+if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+}
+if(f.face) {
+for(var j=0; j < f.face.length; j++)
+if(f.face[j].checked) nface = f.face[j].value;
+}
+if(f.notuser.checked) nnotuser = '1';
+if(f.username) nusername = f.username.value;
+if(f.pwd) npwd = f.pwd.value;
+
+var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+myajax.sendlang = 'utf-8';
+myajax.AddKeyN('dopost', 'send');
+myajax.AddKeyN('aid', '<?php echo $aid; ?>');
+myajax.AddKeyN('fid', f.fid.value);
+myajax.AddKeyN('face', nface);
+myajax.AddKeyN('feedbacktype', nfeedbacktype);
+myajax.AddKeyN('validate', nvalidate);
+myajax.AddKeyN('notuser', nnotuser);
+myajax.AddKeyN('username', nusername);
+myajax.AddKeyN('pwd', npwd);
+myajax.AddKeyN('msg', f.msg.value);
+myajax.SendPost2('/shopping_ajaxpp.php');
+f.msg.value = '';
+f.fid.value = 0;
+if(f.validate)
+{
+if($DE('validateimg')) $DE('validateimg').src = "/include/vdimgck.php?"+f.validate.value;
+f.validate.value = '';
+}
+}
+function quoteCommet(fid)
+{
+document.feedback.fid.value = fid;
+}
+LoadCommets(1);
+
+$(document).scroll(function(){
+            //滚动条滑动的时候获取滚动条距离顶部的距离
+            var scroll=$(document).scrollTop();
+            //屏幕的高度
+            var client=$(window).height();
+            var h=$(document).height();
+            var flag=true;
+			var bih = scroll+client+100 ;		
+            if (h<= bih) { // 到达底部时,加载新内容	 
+					if(f){
+						f  = false;
+						var page = parseInt($(".yxw-list-loading").attr("page")) + 1;
+						$(".yxw-list-loading").attr("page",page);
+						LoadCommets(page);	
+					}
+					  
+			}
+});
+</script>
+<!-- 评论内容区 End -->
+</div>
+
+<!-- 评论底部跟随条 -->
+<div class="input-txt-box ico-share" data-action="popup-share"><a href="javascript:void(0);" class="gd_comment">听说爱提问的学员，进步更快哦...</a></div>
+<!-- 评论底部跟随条 End -->
+
+</div>
+<!-- 课程答疑 End -->
+
+
+</div>
+<!-- 内容切换 End -->
+
+
+</div>
+</div>
+<!-- wrapper End -->
+
+
+
+<!-- 弹出评论 -->
+<div class="leftmask mark2 unicon" style="display:none;"></div>
+<div id="popup_share" class="leftPopup share-bottom popup-share popup-share1" data-back="mark2" style="display:none;">
+<div class="swipeLeft bdsharebuttonbox" data-tag="share_2">
+<form id="form1" name="feedback" method="post" class="comment-form" action="#">
+<input type="hidden" name="dopost" value="send" />
+<input type="hidden" name="comtype" value="comments">
+<input type="hidden" name="aid" value="<?php echo $aid; ?>" />
+<input type="hidden" name="fid" id='feedbackfid' value="0" />
+<!-- 写内容/账号登录检测 -->
+<div class="article-course-pl">
+<input name="msg" class="form-contro" placeholder="来说点什么吧...">
+<input name="" type="button" value="发送" class="gd_comment_fabu" onClick='PostComment()'>
+<div class="other-login clearfix" id="_ajax_feedback" style="display:none;">
+<input type="hidden" name="username" value="">
+<script language="javascript" type="text/javascript">CheckLogin();</script>
+</div>
+</div>
+<!-- 写内容/账号登录检测 End -->
+</form>
+<!-- 评论反馈 -->
+<div id="commetcontentNew"></div>
+<!-- 评论反馈 End -->
+</div>
+</div>
+<!-- 弹出评论 End -->
+
+
+
+<!-- 返回顶部 -->
+<div class="mall-totop" onclick="window.scrollTo(0,0);"></div>
+<script src="<?php echo $mcfg_basehost; ?>/m-js/mall-top.js"></script>
+<!-- 返回顶部 End -->
+
+
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/model.js"></script>
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/m.Favorite.js"></script>
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/News.js"></script>
+
+<!-- tab切换 -->
+<script type="text/javascript"> 
+$(function(){
+$('.aui-nav-list-box ul li').click(function(){
+$(this).addClass('aui-current').siblings().removeClass('aui-current');
+$('.aui-nav-list-tab>div:eq('+$(this).index()+')').show().siblings().hide();
+})
+});
+</script>
+
+<script type="text/javascript">
+$(".jjdd<?php echo $arcID; ?>").addClass("on");
+</script>
+
+
+<!-- 课程搜索 -->
+<div id="JwapSearch" class="m-search-pnl">
+<div id="JwsClose" class="top_nav_left"></div>
+<div class="ysearch-box">
+<form method="post" name="f1" action="<?php echo $mcfg_basehost; ?>/search.php" onsubmit="return checkSearchForm()">
+<input type="hidden" name="kwtype" value="0" />
+<input type="hidden" id="driverId" name="channeltype" value="17" />  
+<input type="text" class="yfixtext" id="keyword" name="keyword" placeholder="搜索您感兴趣的课程" autocomplete="off">
+<input type="submit" class="fixsbmt" value="">
+</form>
+</div>
+</div>
+<!-- 课程搜索 End -->
+<script type="text/javascript">
+  function checkSearchForm(){
+  if(document.getElementById('keyword').value){
+    return true;
+    }else{
+   alert("请输入课程关键字哦");
+    return false;
+    }
+    }
+</script>
+<script>
+(function(){var searchWrapObj=document.getElementById("JwapSearch");searchWrapObj&&document.body.appendChild(searchWrapObj);var sentFlag=false;var submitFlag=false;if(-1==window.location.pathname.indexOf("bbs")){showSeriesViewed()}function showSeriesViewed(){var COOKIE_NAME="LAST_VIEW_CHEXIS";var cookieValue=decodeURI(decodeURIComponent(document.cookie.replace(new RegExp(".*(?:^|; )"+COOKIE_NAME+"=([^;]*).*|.*"),"$1")));var historyObj=document.getElementById("JviewHistory");if(!cookieValue||!historyObj){return}var valueArr=cookieValue.split(",");var html="";for(var i=0;i<valueArr.length&&i<3;i++){var data=valueArr[i].split("-");if(data.length<2){continue}html+=''+data[0]+'/">'+data[1]+"</a>"}if(""!=html){historyObj.innerHTML=""+html;historyObj.style.display="block"}}var SHOW_PANNEL_CLASS="m-full-pnl";var DISABLE_SCROLL_CLASS="m-disb-scroll";var htmlObj=document.documentElement;function hasClass(el,className){if(el.classList){return el.classList.contains(className)}return !!el.className.match(new RegExp("(\\s|^)"+className+"(\\s|$)"))}function addClass(el,className){if(el.classList){el.classList.add(className)}else{!hasClass(el,className)&&(el.className+=" "+className)}}function rmvClass(el,className){if(el.classList){el.classList.remove(className)}else{hasClass(el,className)&&(el.className=el.className.replace(new RegExp("(\\s|^)"+className+"(\\s|$)")," "))}}var enIptObj=document.getElementById("JenIpt");var iptObj=document.getElementById("JwsIpt");enIptObj&&enIptObj.addEventListener("click",function(){if(-1==window.location.pathname.indexOf("bbs")){getHotSeries()}loadSearchJS();htmlObj.setAttribute("data-y",document.body.scrollTop);addClass(htmlObj,SHOW_PANNEL_CLASS);searchWrapObj&&(searchWrapObj.scrollIntoView());addClass(htmlObj,DISABLE_SCROLL_CLASS);var tmpIptObj=document.search&&document.search.q;if(tmpIptObj){tmpIptObj.value="";tmpIptObj.focus()}loadLike()});var closeObj=document.getElementById("JwsClose");closeObj&&closeObj.addEventListener("click",function(){iptObj&&enIptObj&&(enIptObj.value=iptObj.value);rmvClass(htmlObj,DISABLE_SCROLL_CLASS);var setY=htmlObj.getAttribute("data-y");setY&&(document.body.scrollTop=setY);rmvClass(htmlObj,SHOW_PANNEL_CLASS)});var enSubmitObj=document.getElementById("JenSubmit");enSubmitObj&&enSubmitObj.addEventListener("click",clickBtnSubmit);var submitObj=document.getElementById("JwsSubmit");submitObj&&submitObj.addEventListener("click",clickBtnSubmit);function clickBtnSubmit(){submitFlag=true;if("function"!=typeof wapSearchSubmit){loadSearchJS();return false}wapSearchSubmit()}function loadSearchJS(){if(sentFlag){return}sentFlag=true;var scriptObj=document.createElement("script");scriptObj.src="";scriptObj.charset="utf-8";var headObj=document.getElementsByTagName("head")[0];headObj.appendChild(scriptObj);scriptObj.onload=scriptObj.onreadystatechange=function(){var f=scriptObj.readyState;if(f&&f!="loaded"&&f!="complete"){return}scriptObj.onload=scriptObj.onreadystatechange=null;ks_search();if(submitFlag){wapSearchSubmit()}}}function getHotSeries(){var hotSeriesObj=document.getElementById("JhotSeries");var record=localStorage.getItem("wapSearchRecord");if(record!=null||!hotSeriesObj){return}loadScript(location.protocol+"",function(data){var html="";var seriesArr=data.data;if(seriesArr.length<0){return}for(var i=0,len=seriesArr.length;i<len;i++){var result=seriesArr[i];html+=''+result.id+'/" title="'+result.title+'">'+result.title+"</a>"}if(""!=html){hotSeriesObj.innerHTML=""+''+html+"";hotSeriesObj.style.display="block"}},"showHotseries")}function getParam(url,name){if(!url||!name){return}var name=name.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");var regex=new RegExp("[\\?&]"+name+"=([^&#]*)");var results=regex.exec(url);return(null==results?null:results[1])}function loadScript(url,fn,callbackName,charset){var cbName=getParam(url,"jsCallBack");var callbackName=cbName||callbackName;var cb=cbName||!callbackName?"":"jsCallBack="+callbackName;var pos=url.indexOf("?")+1;if(cb){url=0==pos?(url+"?"+cb):(url.substring(pos,-1)+cb+"&"+url.substring(pos))}if("function"==typeof fn&&callbackName){window[callbackName]=fn}var headElm=document.getElementsByTagName("head")[0];var scriptElm=document.createElement("script");scriptElm.src=url;if(charset){scriptElm.charset=charset}headElm.appendChild(scriptElm);scriptElm.onload=scriptElm.onreadystatechange=function(){var f=scriptElm.readyState;if(f&&f!="loaded"&&f!="complete"){return}if("function"==typeof fn&&!cb){fn()}if(!cbName&&window[callbackName]){delete window[callbackName]}scriptElm.onload=scriptElm.onreadystatechange=null;headElm.removeChild(scriptElm)}}function getCookie(d){var b=d+"=";var a=document.cookie.split(";");for(var e=0;e<a.length;e++){var f=a[e];while(f.charAt(0)==" "){f=f.substring(1)
+}if(f.indexOf(b)!=-1){return f.substring(b.length,f.length)}}return""}var allPage=1;var changePage=1;var likeSerials=[];function loadLike(){var uValue=getCookie("u");var html="";loadJS("",function(){loadJS("",function(){Locate.defaultData={};LocateAuto.defaultData={proId:5,cityId:1,url:""};LocateAuto.init({callback:function(data){var cityId=data.cityId;$.ajax({url:"",data:{uid:uValue,cityId:cityId},dataType:"jsonp",success:function(res){likeSerials=res;allPage=Math.ceil(res.length/8);for(var i=0;i<8;i++)document.getElementById("JwsLike").innerHTML=html}})}})},"utf-8")},"utf-8")}document.getElementById("JwsChange").onclick=function(){var html="";{var len=changePage*8;for(var i=(changePage-1)*8;i<len;i++){if(likeSerials[i]){html+=''}}document.getElementById("JwsLike").innerHTML=html}};iptObj.addEventListener("blur",function(e){!iptObj.value&&(iptObj.value=quotes[Math.floor(Math.random()*quotes.length)])})})();</script>
+<!-- 课程搜索 End -->
+</body>
+</html>

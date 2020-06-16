@@ -1,0 +1,4 @@
+INSERT INTO `dede_arcrank` VALUES('1','0','开放浏览','5','0','0','');
+INSERT INTO `dede_arcrank` VALUES('2','-1','待审核稿件','0','0','0','');
+INSERT INTO `dede_arcrank` VALUES('3','10','普通会员','5','50','100','');
+INSERT INTO `dede_arcrank` VALUES('4','500','VIP会员','5','0','500','');

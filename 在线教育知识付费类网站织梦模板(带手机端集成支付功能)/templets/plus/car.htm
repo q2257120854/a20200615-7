@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>购物车 - {dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:global.cfg_webname/},多味滋在线视频" />
+<meta name="description" content="多味滋小吃培训班创立于2009年,是东莞最早专注小吃培训的机构,拥有7年小吃技术培训经验,专业授课老师10位,学员累计超过10000名,期待您的加入!">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://m.v.duoweizi.org/" >
+<link rel="icon" href="http://v.duoweizi.org/favicon.ico" type="image/x-icon" />
+<link href="/css/v-duoweizi.css" rel="stylesheet" type="text/css" />
+<link href="/css/v-gouwuche.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+</head>
+<body>
+<?php pasterTempletDiy("d1w2z3/heads.htm");?>
+<!-- 我的购物车 -->
+<div class="gCart">
+<div class="hd"><h3>我的购物车</h3><p>温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</p></div>
+<div class="bd">
+<div class="cartList">
+<div class="hd">
+<div class="col1">商品信息</div>
+<div class="col2">单价</div>
+<div class="col3">数量</div>
+<div class="col4">小计</div>
+<div class="col5">操作</div>
+</div>
+<form id="form1" name="form1" method="post" action="posttocar.php">
+<input id="dopost" name="do" type="hidden" value="del" />
+<div class="bd">
+<script> 
+$(function(){ 
+$(".add").click(function(){ 
+var t=$(this).parent().find('input[class*=text_box]'); 
+t.val(parseInt(t.val())+1) 
+setTotal(); 
+}) 
+$(".min").click(function(){ 
+var t=$(this).parent().find('input[class*=text_box]'); 
+t.val(parseInt(t.val())-1) 
+if(parseInt(t.val())<0){ 
+t.val(0); 
+} 
+setTotal(); 
+}) 
+function setTotal(){ 
+var s=0; 
+$("#tab td").each(function(){ 
+s+=parseInt($(this).find('input[class*=text_box]').val())*parseFloat($(this).find('span[class*=price]').text()); 
+}); 
+$("#total").html(s.toFixed(2)); 
+} 
+setTotal(); 
+
+}) 
+</script> 
+
+{dede:array.Items}
+<div class="wrap_row" id="tr_goods_{dede:value.id/}">
+<div class="row">
+<div class="r1"><img class="item-img" src="{dede:value.litpic/}"><input type="hidden" name="ids[]" value="{dede:value.id/}" /><a class="item-namexx" href="view.php?aid={dede:value.id/}" target="_blank">{dede:value.title/}</a></div>
+<div class="r2">
+<span>{dede:value.price/}</span>元</div>
+<div class="r3">
+<div class="gcIpt">
+<a href="javascript:void(0)" onclick="changenum({dede:value.id/},-1)" class="decrement min"></a>
+<input name="buynum{dede:value.id/}" type="text" id="buynum{dede:value.id/}" value="{dede:value.buynum/}" size="5" maxlength="5" class="goodsCount text_box" onchange="change_goods_number({dede:value.id/},this.value)">
+<a onclick="changenum({dede:value.id/},1)" href="javascript:void(0)" class="increment add"></a>
+</div>
+</div>
+
+<div class="r4">
+<span  id="goods_subtotal_{dede:value.id/}">{dede:value.subtotal/}</span>元</div>
+<div class="r5"><a href="posttocar.php?do=del&ids={dede:value.id/}">删除</a></div>
+</div>
+</div>
+{/dede:array}
+</div>
+<div class="gAmount">{dede:var.carts.cart_count/}件商品总计(不含运费)：<span>{dede:var.carts.price_count/}</span>元</div>
+<div class="actions">
+ <!-- <input type="button" value="更新订单号" class="btn  btn-line-gray" onclick="makeCarId()"/>
+							<input type="button" value="删除已选定" class="btn btn-primary" onclick="DelPost()"/>
+							<input type="button"  value="清空" onclick="if(confirm('确定清空购物车中的商品吗?')){ location='posttocar.php?do=clear' }" class="btn  btn-line-gray" />
+							<input onclick="ChangePost()" type="button" value="更新购物车" class="btn btn-primary" />-->
+<input type="button" name="Submit" value="继续购物" class="btn" onclick="location.href='/mall/'" class="btn btn-line-gray"/>
+<input type="button" name="Submit" value="去结算" onclick="UptoPost()" type="button" class="btn btn-primary" />
+</div>
+</div>
+</div>
+</div>
+</form>
+<!-- 我的购物车 End -->
+
+<script type="text/javascript">
+function changenum(rec_id, diff)
+{
+var goods_number =Number($$('buynum' + rec_id).value) + Number(diff);
+$$('buynum' +rec_id).value = result.goods_number;//更新数量
+}
+function change_goods_number(rec_id, goods_number)
+{
+Ajax.call('posttocar.php?do=ajax_update_cart', 'id=' + rec_id +'&buynum=' + goods_number, change_buynumresponse, 'POST','JSON');
+}
+function change_buynumresponse(result)
+{
+if (result.error == 0)
+{
+var id = result.rec_id;
+$$('buynum' +rec_id).value = result.goods_number;//更新数量
+$$('goods_subtotal_' +rec_id).innerHTML = result.goods_subtotal;//更新小计
+if (result.goods_number <= 0)
+{// 数量为零则隐藏所在行
+$$('tr_goods_' +rec_id).style.display = 'none';
+$$('tr_goods_' +rec_id).innerHTML = '';
+}
+$$('total_desc').innerHTML =result.total_desc;//更新合计
+if ($$('ECS_CARTINFO'))
+{//更新购物车数量
+$$('ECS_CARTINFO').innerHTML = result.cart_info;
+}
+}
+else if (result.message != '')
+{
+alert(result.message);
+}
+}
+</script>
+<!--购物车列表操作javascript请不要随意改动-->
+<script language="JavaScript" type="text/javascript">
+//遍历checkbox使之全选中,或反选
+function CheckAll()
+{
+	for (var i=0;i<document.form1.elements.length;i++)
+	{
+		var e = document.form1.elements[i];
+		e.checked == true ? e.checked = false : e.checked = true;
+	}
+}
+//改变表单dopost值为:update,后submit提交表单
+function ChangePost()
+{
+	CheckAll();
+	document.getElementById("dopost").value = 'update';
+	document.form1.submit();
+}
+//改变表单dopost值为:upto,后submit提交表单
+function UptoPost()
+{
+	CheckAll();
+	document.getElementById("dopost").value = 'upto';
+	document.form1.submit();
+}
+//改变表单dopost值为:del,后submit提交表单
+function DelPost()
+{
+	document.getElementById("dopost").value = 'del';
+	document.form1.submit();
+}
+//AJAX产生一个新的订单编号
+function makeCarId()
+{
+	$.ajax({type: "POST", url: "car.php", data: "dopost=makeid", dataType: 'text',success: function(result){$("#carId").html(result);}}); 
+}
+//Print Page
+function printPage(oper)
+{
+	if (oper < 10)
+	{
+		bdhtml = window.document.body.innerHTML;//获取当前页的html代码
+		sprnstr = "<!--startprint"+oper+"-->";//设置打印开始区域
+		eprnstr = "<!--endprint"+oper+"-->";//设置打印结束区域
+		prnhtml = bdhtml.substring(bdhtml.indexOf(sprnstr)+18); //从开始代码向后取html
+		prnhtml = prnhtml.substring(0,prnhtml.indexOf(eprnstr));//从结束代码向前取html
+		window.document.body.innerHTML = prnhtml;
+		window.print();
+		window.document.body.innerHTML = bdhtml;
+	}else{
+		window.print();
+	}
+}
+</script>
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+<script language="JavaScript" type="text/javascript">
+if(!navigator.cookieEnabled)
+{
+	$('#errorChickCookie').html('您浏览器的 cookie 功能被禁用,请启用此功能!');
+	$('.buycar').hide();
+}
+</script>
+</body>
+</html>

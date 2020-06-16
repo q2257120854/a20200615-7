@@ -1,0 +1,242 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/lang/zh-cn/zh-cn.js"></script>
+    <style type="text/css">
+        div#content{
+			text-align: right;
+			margin-left:120px; 	
+			width:80%;
+        }
+		.textbox_640{
+			width:640px;
+		}
+		.ulColumn2{
+			margin-bottom:50px;
+		}
+		.uploadImg,.texlong{
+			position:static;
+		}
+		.page_title{
+			height: 45px;
+			line-height: 40px;
+			width:86%;
+			position:fixed;
+			top:0;
+			margin-top:70px;
+			background-color:#fff;			
+		}
+		.page_title .top_rt_btn{
+			margin-right:1rem;
+			margin-top:5px;
+		}
+		.ulColumn2{
+			margin-top:70px;
+		}
+		/*** guide ***/
+		.guide{width:60px;margin-left:570px;position:fixed;left:56%;bottom:134px;_position:absolute;_top:expression(documentElement.scrollTop+documentElement.clientHeight - this.clientHeight - 134+'px');display:block;}
+		.guide a{display:block;width:60px;height:50px;background:url(__IMG__/sprite_v2.png) no-repeat;margin-top:10px;text-decoration:none;font:16px/50px "Microsoft YaHei";text-align:center;color:#fff;border-radius:2px;}
+		.guide a span{display:none;text-align:center;}
+		.guide a:hover{text-decoration:none;background-color:#39F;color:#fff;}
+		.guide a:hover span{display:block;width:60px;background:#39F}
+		.guide .find{background-position:-84px -236px;}
+		.guide .report{background-position:-146px -236px;}
+		.guide .edit{background-position:-83px -185px;}
+		.guide .top{background-position:-145px -185px;}
+    </style>	
+	
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+		<h2 class="fl">添加会员</h2>
+		<a href="javascript:;" class="fr top_rt_btn submit" style="background: #302931;color: white;border-radius: 2px;border: 1px #139667 solid;">确认提交</a>
+      </div>
+
+      <ul class="ulColumn2">
+
+       <li>
+        <span class="item_name" style="width:120px;">会员账号：</span>
+        <input type="text" class="textbox textbox_225" value="{$result.account}" name="account" placeholder="账号..."/>
+		<span style="color:red;">*必填</span>
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;">登陆密码：</span>
+        <input type="password" class="textbox textbox_225" value="" name="password" placeholder="登陆密码..."/>
+		<span style="color:#717171;">不修改留空</span>
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;">手机号码：</span>
+        <input type="text" class="textbox textbox_225" value="{$result.myphone}" name="myphone" placeholder="手机号码..."/>
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;">乐豆钱包：</span>
+        <input type="text" class="textbox" value="{$result.money_wallet}" name="money_wallet" placeholder="乐豆钱包..."/>&nbsp;&nbsp;元
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;">乐豆钱包：</span>
+        <input type="text" class="textbox" value="{$result.ore_wallet}" name="ore_wallet" placeholder="钻箱钱包..."/>&nbsp;&nbsp;元
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;">POW额度：</span>
+       <input type="text" class="textbox" value="{$result.forepart_money}" name="forepart_money" placeholder="POW额度..."/>&nbsp;&nbsp;元
+       </li>
+
+	    <li>
+        <span class="item_name" style="width:120px;">乐豆种子：</span>
+       <input type="text" class="textbox" value="{$result.release_wallet}" name="release_wallet" placeholder="POW额度..."/>&nbsp;&nbsp;元
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">状态：</span>
+        <label class="single_selection"><input type="radio" name="status" value="1"  {if condition="$result.status eq '1'"}checked{/if} />正常</label>
+        <label class="single_selection"><input type="radio" name="status" value="0"  {if condition="$result.status eq '0'"}checked{/if} />冻结</label>
+		<label class="single_selection"><input type="radio" name="status" value="2" />解封</label>
+       </li>   
+
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+		<input type="hidden" name="id" value="{$result.id}"/>
+        <input type="submit" id="submit" class="link_btn submit" value="确认提交"/>
+		
+       </li>
+      </ul>
+	  
+		<div class="guide">
+			<div class="guide-wrap">
+				<a href="javascript:;" class="top" title="回顶部"><span>回顶部</span></a>
+			</div>
+		</div>
+		
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+//建立一個可存取到該file的url
+function getObjectURL(file) {
+	var url = null ;
+	if (window.createObjectURL!=undefined) { // basic
+		url = window.createObjectURL(file) ;
+	} else if (window.URL!=undefined) { // mozilla(firefox)
+		url = window.URL.createObjectURL(file) ;
+	} else if (window.webkitURL!=undefined) { // webkit or chrome
+		url = window.webkitURL.createObjectURL(file) ;
+	}
+	return url ;
+}
+</script>
+
+<script>
+
+$(document).ready(function() {	
+	
+	$(".uploadImg").on("change",function(){
+		//获取图片的路径，该路径不是图片在本地的路径
+		var objUrl = getObjectURL($('input[name="pic"]')[0].files[0]) ; 
+		console.log(objUrl);
+		if (objUrl) {
+			//将图片路径存入src中，显示出图片
+			$("#pic").attr("src", objUrl) ; 
+		}
+	});
+
+	$('.submit').click(function(event){
+		var formData = new FormData(); 
+		var id = $('input[name="id"]').val();//ID
+		var account = $('input[name="account"]').val();//会员账号
+		var password = $('input[name="password"]').val();//登陆密码
+		var myphone = $('input[name="myphone"]').val();//手机号码
+		var money_wallet = $('input[name="money_wallet"]').val();//鱼苗总额	
+		var ore_wallet = $('input[name="ore_wallet"]').val();//推荐奖钱包
+		var fry_data = $('input[name="fry_data"]').val();//可用鱼苗
+		var op = $('input[name="op"]').val();
+		var status = $('input[name="status"]:checked').val();//状态
+		var forepart_money = $('input[name="forepart_money"]').val();
+		var release_wallet = $('input[name="release_wallet"]').val();
+		console.log(myphone);
+		//return false;
+		//加入对象
+		formData.append('id',id); 
+		formData.append('forepart_money',forepart_money); 
+		formData.append('release_wallet',release_wallet);
+		if(account){
+			formData.append('account',account);  
+		}else{
+			myAlert('会员账号不能为空');
+		}
+		if(password){
+			formData.append('password',password);   
+		}
+
+		if(myphone){
+			formData.append('myphone',myphone);   
+		}
+		
+		if(money_wallet){
+			formData.append('money_wallet',money_wallet);   
+		}
+
+		if(ore_wallet){
+			formData.append('ore_wallet',ore_wallet); 
+		}
+
+		if(fry_data){
+			formData.append('fry_data',fry_data);   
+		}
+
+		if(status){
+			formData.append('status',status);   
+		}	
+		
+		formData.append('op','user/edit_cmmu');
+		
+		$.ajax({
+			url:"{:url('users/edit_do')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			processData: false,//用于对data参数进行序列化处理 这里必须false
+            contentType: false, //必须
+			data:formData,
+			success: function(data) {
+				console.log(data);
+				if (data.s=='ok') {
+					myAlert('修改成功');
+					setTimeout(function(){
+					//页面刷新  
+					//window.history.back(-1); 
+					location.href= "{:url('users/lists')}";
+					},1000);				
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+	
+});
+
+</script>
+
+<script>
+	$('.top').click(function(){
+		//console.log(111);
+		//动画效果，平滑滚动回到顶部
+		$('#mCSB_2_container').css('top',0);
+		$("#mCSB_2_dragger_vertical").css('top',0);
+	})
+</script>
+
+{/block}	

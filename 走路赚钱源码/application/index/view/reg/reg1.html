@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="/tmc/js/mui.min.js"></script>
+    <link href="/tmc/css/mui.min.css" rel="stylesheet"/>
+    <link href="/tmc/css/iconfont.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+	<style>
+		.mui-input-group:before{
+			height:0px
+		}
+		.mui-input-group:after{
+			height: 0px;
+		}
+		
+	</style>
+</head>
+<body style="background: #fff;">
+	<header class="mui-bar mui-bar-nav" style="background: transparent; top:0;box-shadow:0 0px 0px #ccc;-webkit-box-shadow:0 0px 0px #ccc;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+			<h1 class="mui-title" style="font-family: '微软雅黑'; color: #fff;">注册</h1>
+		</header>
+		<img src="/tmc/img/bluebg.png" style=""/>
+	<form class="mui-input-group" id='login-form' style="position: absolute;  top: 15%; height: 0px; width: 80%; left: 0px; right: 0px; margin: auto; ">
+					<!--<div class="mui-input-row" style="height: 2.5em; border-radius:10px;background-color:#fff; margin-bottom: 30px;">
+						<img src="/tmc/img/xm.png"  style="position: absolute; width: 35px; margin-left: 15px; margin-top: 4px;" />
+						<input type="text" style=" color: #000; margin-top: 2px;margin-left: 18%; font-size: 0.9em; font-family: '微软雅黑';" placeholder="用户名">
+					</div>-->
+					<div class="mui-input-row" style="height: 2.5em; border-radius:10px;background-color:#fff; margin-bottom: 30px;">
+						<img src="/tmc/img/sj.png"  style="position: absolute; width: 35px; margin-left: 15px; margin-top: 5px;" />
+						<input name="mobile" type="number" style=" color: #000; margin-top: 2px;margin-left: 18%; font-size: 0.9em; font-family: '微软雅黑';" placeholder="手机号">
+					</div>
+					<div class="mui-input-row" style="height: 2.5em; border-radius:10px;background-color:#fff; margin-bottom: 30px;">
+						<img src="/tmc/img/yzm.png"  style="position: absolute; width: 25px; margin-left: 20px; margin-top: 10px;" />
+						<input  type="number" id="sms_code" name="sms_code" style=" color: #3c7fff; margin-top: 2px;margin-left: 18%; font-size: 0.9em; font-family: '微软雅黑';" placeholder="请输入验证码">
+						<button id="code" type="buuton" class="mui-btn mui-btn-danger" style="position: absolute;background: #fff; font-family: '微软雅黑'; left: 60%; top: 4px; font-size: 0.9em; color: #242424; width: 35%; border: 0px solid;" onclick="return false;" >| 获取验证码</button>
+						
+					</div>
+					<div class="mui-input-row" style="height: 2.5em; border-radius:10px;background-color:#fff; margin-bottom: 30px;">
+						<img src="/tmc/img/mima.png"  style="position: absolute; width: 35px; margin-left: 15px; margin-top: 4px;" />
+						<input type="text" name="password"  style=" color: #000; margin-top: 2px;margin-left: 18%; font-size: 0.9em; font-family: '微软雅黑';" placeholder="密码">
+					</div>
+					<div class="mui-input-row" style="height: 2.5em; border-radius:10px;background-color:#fff; margin-bottom: 30px;">
+						<img src="/tmc/img/mima.png"  style="position: absolute; width: 35px; margin-left: 15px; margin-top: 4px;" />
+						<input type="text" id="confirm_password" style=" color: #000; margin-top: 2px;margin-left: 18%; font-size: 0.9em; font-family: '微软雅黑';" placeholder="重复密码">
+					</div>
+					<div class="mui-input-row" style="height: 2.5em; border-radius:10px;background-color:#fff; margin-bottom: 30px;">
+						<img src="/tmc/img/yq.png"  style="position: absolute; width: 28px; margin-left: 18px; margin-top: 6px;" />
+						<input type="text" name="pemail_repeat" value="{if condition="$uid neq ''"}{$uid}{/if}" style=" color: #000; margin-top: 2px;margin-left: 18%; font-size: 0.9em; font-family: '微软雅黑';" placeholder="邀请码">
+					</div>
+					<br>
+					<div class="mui-button-row">
+						<button type="button" id="submit" class="mui-btn mui-btn-danger" style="line-height: 2em; font-size: 0.9em; width: 90%; font-family: '微软雅黑'; border-radius: 10px; border: 0px solid; color: #fff; background:#3c7fff" onclick="return false;">注册</button>
+					</div>
+					<br>
+					<div class="mui-card-content">
+					
+					<div class="mui-card-content-inner">
+					<p style="position: absolute; left: 28%;  font-family: '微软雅黑'; color:#fff">已有账号？<a href="login.html" style="color: #fff;"> 立即登录</a></p> 
+					</div>
+				</div>
+				
+				</form>
+				<script src="__HOME_JS__/mui.min.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			(function($) {
+				//监听点击事件
+				document.getElementById("code").addEventListener('tap',function(){
+					var mobile = $("input[name=mobile]")[0].value;
+					var code = "";
+					if(!mobile){
+						alert('请输入手机号码！');return false;
+					}
+					
+					var reg=/^\d{11}$/;
+					if(reg.test(mobile) == false){
+						alert('手机号格式不正确');
+						return false;
+					}						
+					$.ajax('/msm_send.html',{
+						data:{mobile:mobile,code:code},
+						dataType:'json',//服务器返回json格式数据
+						type:'post',//HTTP请求类型
+						async:false,
+						timeout:50000,//超时时间设置为50秒；
+						/*headers:{'Content-Type':'application/json'},*/	              
+						success:function(data){
+							//服务器返回响应，根据响应结果，分析是否登录成功；
+							alert(data.s);
+							//console.log(data);
+							//锁定样式 【获取验证码】按钮禁止操作
+								
+							event.stopPropagation();
+						}
+					});
+					event.stopPropagation();
+				
+				});
+				//
+				document.getElementById("submit").addEventListener('tap',function(){
+					var mobile = $("input[name=mobile]")[0].value;
+					var sms_code = $("input[name=sms_code]")[0].value;
+					var pemail_repeat = $("input[name=pemail_repeat]")[0].value;
+					var password = $("input[name=password]")[0].value;
+					
+					if(!mobile){
+						alert('请输入手机号码！');return false;
+					}
+					var reg=/^\d{11}$/;
+					if(reg.test(mobile) == false){
+						alert('手机号格式不正确');
+						return false;
+					}
+					
+					if(!password){
+						alert('请输入6位以上登陆密码！');return false;
+					}
+					
+					if(!pemail_repeat){
+						alert('请输入邀请码！');return false;
+					}
+					
+					console.log(mobile);	
+					console.log(sms_code);
+					console.log(pemail_repeat);
+					//return false;				
+					$.ajax('/register.html',{
+						data:{mobile:mobile,sms_code:sms_code,pemail_repeat:pemail_repeat,password:password},
+						dataType:'json',//服务器返回json格式数据
+						type:'post',//HTTP请求类型
+						async:false,
+						timeout:50000,//超时时间设置为50秒；
+						/*headers:{'Content-Type':'application/json'},*/	              
+						success:function(data){
+							//服务器返回响应，根据响应结果，分析是否登录成功；							
+							if(data.s=='ok'){
+								$.toast('注册成功');
+									setTimeout(function(){
+									//页面刷新  
+										window.location.href = "/login.html";
+									},1500);
+							}else{
+								$.toast(data.s);
+							}
+							//console.log(data);
+							//锁定样式 【获取验证码】按钮禁止操作
+								
+							event.stopPropagation();
+						}
+					});
+					event.stopPropagation();
+				
+				});
+			})(mui);
+			//语音识别完成事件
+			document.getElementById("search").addEventListener('recognized', function(e) {
+				console.log(e.detail.value);
+			});
+		</script>
+				
+</body>
+</html>

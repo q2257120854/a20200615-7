@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>商品评论列表 - {dede:global.title/}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="apple-touch-icon-precomposed" href="http://m.duoweizi.net/images/57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://m.duoweizi.net/images/72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://m.duoweizi.net/images/144x144.png" />
+<link href="/m-css/m-index.css" rel="stylesheet" type="text/css">
+<link href="/m-css/photoswipe.css" rel="stylesheet">
+<link href="/m-css/default-skin.css" rel="stylesheet">
+<script src="/m-js/TouchSlide.1.1.js"></script>
+<script src="/m-js/header.mini.js"></script>
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_basehost/}/include/dedeajax2.js"></script>
+<script language="javascript">
+function postBadGood(ftype,fid)
+{
+	var taget_obj = document.getElementById(ftype+fid);
+	var saveid = GetCookie('badgoodid');
+	if(saveid != null)
+	{
+		 var saveids = saveid.split(',');
+		 var hasid = false;
+		 saveid = '';
+		 j = 1;
+		 for(i=saveids.length-1;i>=0;i--)
+		 {
+		 	  if(saveids[i]==fid && hasid) continue;
+		 	  else {
+		 	  	if(saveids[i]==fid && !hasid) hasid = true;
+		 	  	saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+		 	  	j++;
+		 	  	if(j==10 && hasid) break;
+		 	  	if(j==9 && !hasid) break;
+		 	  }
+		 }
+     if(hasid) { alert('您刚才已表决过了喔！'); return false; }
+     else saveid += ','+fid;
+		 SetCookie('badgoodid',saveid,1);
+	}
+	else
+	{
+		SetCookie('badgoodid',fid,1);
+	}
+	//document.write("feedback.php?action="+ftype+"&fid="+fid);
+	//return;
+  myajax = new DedeAjax(taget_obj,false,false,'','','');
+  myajax.SendGet2("/shoppingyt.php?aid={dede:global.aid/}&action="+ftype+"&fid="+fid);
+  DedeXHTTP = null;
+}
+
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/shoppingyt.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "{dede:global.cfg_cmsurl/}/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='{dede:global.cfg_basehost/}/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = '{dede:global.cfg_soft_lang/}';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '{dede:global.aid/}');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+	taget_obj.removeAttribute('id');
+
+}
+</script>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar" id="topbar">
+<div class="searchbar_index">
+<a href="javascript:history.go(-1);" title="返回上一页" class="top_nav_left"></a>
+<a href="http://m.duoweizi.net/car.php" class="top_nav_gouwuche"><i class="total-unread-count"><script src="/member/carts.php" type="text/javascript" language="javascript"></script></i></a>
+<h1>全部评价(<script src="/plus/goodlv.php?view=yes&type=nokuo&aid={dede:global.id/}" type="text/javascript" language="javascript"></script>)</h1>
+</div>
+</div>
+<!-- TOP End -->
+
+<div class="mall-pl-list">
+<!-- 商品整体评价百分比 -->
+<div class="mall-pl-bfb">
+<div class="mall-pl-xiaolian"><span class="mall-pl-shuzi"></span><script src="/plus/goodlv.php?view=yes&aid={dede:global.id/}" type="text/javascript" language="javascript"></script><span class="mall-pl-mianyi">%满意</span></div>
+</div>
+<!-- 商品整体评价百分比 End -->
+
+<!-- 商品评价列表页-评价导航 -->
+<div class="mall-tabs-pl-nav">
+<ul id="mall-tabs">
+<a  href='shoppingyt.php?aid={dede:global.aid/}'><li class="tab-item<?php if($ftype=='') echo " tab-hover"; ?>"><p class="tab-assess-title">全部评价</p><p class="tab-assess-num"><script src="/plus/goodlv.php?view=yes&type=nokuo&aid={dede:global.id/}" type="text/javascript" language="javascript"></script></p></li></a>
+<a  href='shoppingyt.php?aid={dede:global.aid/}&ftype=good'><li class="tab-item<?php if($ftype=='good') echo " tab-hover"; ?>"><p class="tab-assess-title">好评</p><p class="tab-assess-num"><?php echo $goods['dd']; ?></p></li></a>
+<a  href='shoppingyt.php?aid={dede:global.aid/}&ftype=feedback'><li class="tab-item<?php if($ftype=='feedback') echo " tab-hover"; ?>"><p class="tab-assess-title">中评</p><p class="tab-assess-num"><?php echo $feedbacks['dd']; ?></p></li></a>
+<a  href='shoppingyt.php?aid={dede:global.aid/}&ftype=bad'><li class="tab-item<?php if($ftype=='bad') echo " tab-hover"; ?>"><p class="tab-assess-title">差评</p><p class="tab-assess-num"><?php echo $bads['dd']; ?></p></li></a>
+<a  href='shoppingyt.php?aid={dede:global.aid/}&ftype=youtu'><li class="tab-item<?php if($ftype=='youtu') echo " tab-hover"; ?>"><p class="tab-assess-title">晒图</p><p class="tab-assess-num"><?php echo $youtus['dd']; ?></p></li></a>
+</ul>
+</div>
+<!-- 课程评价列表页-评价导航 End -->
+
+<!-- 课程评价 -->
+<div class="mall-product-pl">
+
+<!-- 会员评论信息 -->
+<div class="mall-yonghu-pl">
+<ul class="" id="content">
+
+
+
+              {dede:datalist}
+			  <li class="item" style="width:100%">
+			  <div class="assess-top">
+<span class="user-portrait"><img src="<?php if(empty($fields['mface']))
+
+        {
+
+            if($fields['sex']=="女") $fields['mface']=$cfg_cmspath."/uploads/dfboy.png";
+
+            else $fields['mface']=$cfg_cmspath."/uploads/dfboy.png";
+
+        } echo mstrone($fields['mface']);?>"></span>
+<span class="user-name">{dede:field.username/}</span>
+<?php 
+ if($fields['ftype']=='bad')
+        {          echo '<span class="assess-bad">难受</span>';
+
+  }
+        else if($fields['ftype']=='good')
+        {
+          echo '<span class="assess-praise">超爱</span>';
+        }
+		 else 
+        {
+          echo '<span class="assess-commonly">一般</span>';
+        }
+		?>
+</div>
+<div class="comment-item-star">
+<p class="assess-content"><?php
+                echo RemoveXSS(Quote_replace(parseSmileys($fields['msg'],$cfg_cmspath.'/images/smiley')));
+                ?></p>
+
+							<?php
+	 if ($fields['imgurls']!='')
+  {  
+preg_match_all("/{(.*):img (.*)}(.*){\/dede:img/isU", $fields['imgurls'], $wordcount);
+$count = count($wordcount[3]);
+$num = $count;
+echo "<div class=\"mall-item\"><ul class=\"clearfix\">";
+if($num >0 )echo "<a href=\"". mstrone(trim($wordcount[3][0]))."\" data-size=\"1600x1067\" data-med=\"". mstrone(trim($wordcount[3][0]))."\" data-med-size=\"1024x683\"><img src=\"". mstrone(trim($wordcount[3][0]))."\"/></a>";
+if($num >1 )echo "<a href=\"". mstrone(trim($wordcount[3][1]))."\" data-size=\"1600x1067\" data-med=\"". mstrone(trim($wordcount[3][1]))."\" data-med-size=\"1024x683\"><img src=\"". mstrone(trim($wordcount[3][1]))."\"/></a>";
+if($num >2 )echo "<a href=\"". mstrone(trim($wordcount[3][2]))."\" data-size=\"1600x1067\" data-med=\"". mstrone(trim($wordcount[3][2]))."\" data-med-size=\"1024x683\"><img src=\"". mstrone(trim($wordcount[3][2]))."\"/></a>";
+echo "</ul></div>";
+
+ }
+	         ?>
+
+<!-- 评论时间/点赞次数 -->
+<div class="pl-list-btm clearfix">
+<span class="pl-list-time fl">{dede:field.dtime function="MyDate('Y-m-d',@me)" /}</span>
+<a class="ok-btn fr"  id='goodfb{dede:field.id/}' onclick="postBadGood('goodfb',{dede:field.id/})">{dede:field.good/}</a>
+</div>
+<!-- 评论时间/点赞次数 End -->
+<div class="mall-gfhf" <?php if($fields['gtime']=='0')
+        {
+           echo 'style="display:none;"';
+        }else {           echo 'style="display:block;"';
+}?>>
+<p><span class="gfhf">官方回复：</span><?php
+                echo RemoveXSS(Quote_replace(parseSmileys($fields['gmsg'],$cfg_cmspath.'/images/smiley')));
+                ?></p>
+</div></div>
+
+ </li>
+ {/dede:datalist}
+<ul>
+
+
+
+</div>
+<!-- 会员评论信息 End -->
+
+</div>
+<!-- 商品评价 End -->
+
+<div class="duoweizi_pages"style="display:none;">
+<ul id="page-nav">
+{dede:pagelist listitem="next"/}
+</ul>
+</div>
+
+</div>
+<!-- mall-pl-list End -->
+
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/jquery.masonry.min.js"></script>
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/jquery.infinitescroll.js"></script>
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/manual-trigger.js"></script>
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/all.js"></script>
+
+<!-- 商城评价 - 会员上传图片，点击弹出左右滑动效果 -->
+<div id="gallery" class="pswp">
+<div class="pswp__bg"></div>
+<div class="pswp__scroll-wrap">
+<div class="pswp__container">
+<div class="pswp__item"></div>
+<div class="pswp__item"></div>
+<div class="pswp__item"></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class="pswp__top-bar">
+<div class="pswp__counter"></div>
+<div class="pswp__button pswp__button--close" title="关闭"></div>
+<div class="pswp__preloader">
+<div class="pswp__preloader__icn">
+<div class="pswp__preloader__cut">
+<div class="pswp__preloader__donut"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class="pswp__share-tooltip"></div></div>
+<div class="pswp__caption"><div class="pswp__caption__center"></div></div>
+</div>
+</div>
+</div>
+<script src="/m-js/photoswipe.min.js"></script>
+<script src="/m-js/photoswipe-ui-default.min.js"></script>
+<script src="/m-js/mall-list-pl-photoswipe.js"></script>
+<!-- 商城评价 - 会员上传图片，点击弹出左右滑动效果 End -->
+
+<!-- 返回顶部 -->
+<div class="mall-totop" title="返回顶部" onclick="window.scrollTo(0,0);"></div>
+<script src="/m-js/mall-top.js"></script>
+<!-- 返回顶部 End -->
+
+</body>
+</html>

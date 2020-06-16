@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>帐号绑定</title>
+<link href="style/dede.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="templets/js/jquery.js"></script>
+</head>
+<style>
+.dl_wrong{color:#F00;}
+</style>
+<body style="text-align:center;">
+<script type='text/javascript'>
+function doAjax(url, param, callback, type) {
+	function createAjax() {
+		var xhr;
+		if (window.XMLHttpRequest) {
+			xhr = new XMLHttpRequest();
+			if(xhr.overrideMimeType){
+				xhr.overrideMimeType("text/html");
+			}
+		} else if (window.ActiveXObject) {
+			try {
+				xhr = new ActiveXObject("Xsxml2.XMLHTTP");
+			} catch(e) {
+				try {
+					xhr = new ActiveXObject("Microsoft.XMLHTTP");
+				} catch(e) {}
+			}
+		}
+		return xhr; //返回XMLHTTP对象实例
+	}
+
+	var dl_xhr = createAjax();
+	dl_xhr.onreadystatechange = function(){
+		if (dl_xhr.readyState == 4) {
+			if (dl_xhr.status == 200) {
+				var data = dl_xhr.responseText;
+				if (callback && typeof callback == "function") {
+					callback(data);
+				}
+				dl_xhr = null;
+			}
+		}
+	};
+	var pstr = "_t=" + new Date().getTime();
+	for (var i = 0; i < param.length; i++) {
+		var pitem = param[i];
+		pstr += "&" + pitem.name + "=" + encodeURI(pitem.value);
+	}
+	dl_xhr.open("POST", url, type ? type : true);
+	dl_xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=utf-8");
+	dl_xhr.send(pstr);
+}
+function ID(id) {
+    return document.getElementById(id);
+}
+function chkstr(str)
+{
+  for (var i = 0; i < str.length; i++)
+  {
+    if (str.charCodeAt(i) < 127 && !str.substr(i,1).match(/^\w+$/ig))
+    {
+      return false;
+    }
+  }
+  return true;
+}
+
+//验证密码
+function dl_reg_check_password(password)
+{
+	if (password.length == 0){
+	    document.getElementById('password_notice').innerHTML = 'X 密码不能为空';
+	    return false;
+	  }else if (password.length < 6){
+		  document.getElementById('password_notice').innerHTML = 'X 登录密码不能少于 6 个字符';
+	    return false;
+	 }else{
+		  document.getElementById('password_notice').innerHTML = '<b>√</b>';
+		   tag_pw=1;
+		   	return tag_pw;
+		 
+	  }
+}
+//验证昵称
+function dl_reg_check_uname(uname)
+{
+	if (uname.length == 0){
+	    document.getElementById('notice_uname').innerHTML = 'X 昵称不能为空';
+	    return false;
+	  }else if (uname.length < 2 || uname.length > 16){
+		  document.getElementById('notice_uname').innerHTML = 'X 昵称为2-16位字符';
+	    return false;
+	 }else{
+		  document.getElementById('notice_uname').innerHTML = '<b>√</b>';
+		  tag_uname=1;
+		  	return tag_uname;
+
+	  }
+}
+
+
+
+//新注册 uid验证
+function dl_is_registered_bn(username)
+{
+var	nodeid="username_notice_bn";
+  var unlen = username.replace(/[^\x00-\xff]/g, "**").length;
+  var regMobile=/^0{0,1}(13[0-9]|14[0-9]|15[0-9]|18[0-9]|17[0-9])[0-9]{8}$/;
+  if ( unlen == 0)
+  {
+      ID(nodeid).innerHTML = 'X 登录帐号不能为空';
+     return false;
+  }
+
+  else if ( !regMobile.test( username ) )
+  {
+      ID(nodeid).innerHTML = 'X 手机号不正确';
+      return false;
+  }
+  
+  else{
+  		$ = jQuery;
+  	    $.get('weixin.php?dopost=user_ajx&username='+username,[],function(result){
+			
+			if(result == -1)
+			{
+				  tag_username = 0;
+  				  ID('username_notice_bn').innerHTML = "X 登录帐号已存在";
+				  return false;
+			}else{
+				  ID(nodeid).innerHTML = '<b>√</b>';  
+	   			  tag_username = 1;
+			}
+		})
+
+	   //ID(nodeid).innerHTML = '<b>√</b>';
+	   //tag_username = 1;
+  }
+   //doAjax('weixin.php?dopost=user_ajx&username='+username, [], dl_registed_callback_bn, false) ;
+}
+//ajax获取帐号是否使用
+function dl_registed_callback_bn(result)
+{
+if ( result == 0 )
+{
+	tag_username = 1;
+  ID('username_notice_bn').innerHTML = "<b>√</b>";
+ 
+}
+else
+{
+  tag_username = 0;
+  ID('username_notice_bn').innerHTML = "X 登录帐号已存在";
+  return false;
+}
+
+}
+//验证email
+function dl_reg_check_qq(qq)
+{
+	if (qq.length == 0)
+	  {
+	    ID('email_notice').innerHTML = 'X qq号不能为空';
+	    return false;
+	  }
+	  else if (qq.length > 0)
+	  {
+		var reg1 = /^[1-9]\d{4,8}$/;
+		if (!reg1.test( qq )) {
+          ID('email_notice').innerHTML = 'X qq格式错误';
+		   return false;
+		}else{
+			ID('email_notice').innerHTML = "<b>√</b>";
+			 tag_email = 1;
+		}
+		
+	 }
+		//doAjax('/denglunew.php?act=email_ajx', [{name : "reg_email", value : email}], dl_registed_callback_email, false) ;
+}
+//ajax获取email是否使用
+function dl_registed_callback_email(result)
+{
+if ( result == 0 )
+{
+	
+  ID('email_notice').innerHTML = "<b>√</b>";
+   tag_email = 1;
+
+}
+else
+{
+  ID('email_notice').innerHTML = "X 邮箱已注册过";
+}
+}
+
+function bn_register(){
+//tag_username = 0;
+tag_email = 0;
+tag_uname = 0;
+tag_pw = 0;
+
+dl_is_registered_bn(ID('newUserName').value);
+dl_reg_check_password(ID('password_bn').value);
+dl_reg_check_uname(ID('uname').value);
+dl_reg_check_qq(ID('newUserEmail').value);
+
+	  
+	   //alert("uid"+tag_username+"\r\npw"+tag_pw+"\r\nqq"+tag_qq+"\r\nuname"+tag_uname+"\r\nemail"+tag_email);
+	if(tag_username==1 && tag_email==1 && tag_pw==1 && tag_uname==1){
+	
+     ID('reg_form').submit();
+  }
+	
+}
+
+
+
+</script>
+<div class="succeed" style="margin:50px auto;">
+	<h2><?php echo $cfg_webname; ?> 帐号绑定 <span style="float:right;"><a href='weixin.php?dopost=loginout'>退出登录</span></h2>
+	<div class="succeed_con">
+    <div style="display: none;" id="haveInfo">
+	<ul class="succeed_list">
+		<li><a onclick="showHide('noInfo','haveInfo');">新建帐号</a></li><li class="succeed_active">绑定已有帐号</li>
+	</ul>
+    <div class="line"></div>
+	<form method="post" onsubmit="return checkSubOld(this);" action="weixin.php?dopost=bind">
+	<input type='hidden' name='hiddenTp' value='haveUser'>
+	<p class="register_p"><label class="register_lab" id="register_lab1">手机号码： </label>
+	<input class="succeed_txt" type="text" name="oldUserName" value="">
+	<span class="register_notes"></span></p>
+	<p class="register_p"><label class="register_lab">登录密码：  </label>
+	<input class="succeed_txt" name="oldUserPwd" type="password" value=""></p>
+	
+	<input class="register_btn" type="submit" value="绑 定"/>
+	<input class="register_btn" type="button" onclick="window.history.go(-1);" value="返 回"/>
+	</form>
+	</div>
+
+	<div style="display: block;" id="noInfo">
+	<ul class="succeed_list">
+		<li class="succeed_active">新建帐号</li><li><a onclick="showHide('haveInfo','noInfo');">绑定已有帐号</a></li>
+	</ul>
+    <div class="line"></div>
+	<form method="post" id="reg_form" action="weixin.php?dopost=reg">
+
+    <p class="register_p">
+		<label class="register_lab">手机号码：</label>
+        
+		<input class="succeed_txt" type="text" maxlength="16" name="newUserName" id="newUserName" value=""  onblur='dl_is_registered_bn(this.value);' onkeyup="value=value.replace(/[^\w\.\/]/ig,'')">
+		<label class="dl_wrong"  id='username_notice_bn'>*&nbsp;填写手机号</label>
+	</p>
+
+	<p class="register_p">
+		<label class="register_lab">姓名昵称：</label>
+		<input class="succeed_txt" type="text" maxlength="36" name="uname" id="uname" onblur='dl_reg_check_uname(this.value);' value="">
+		<label class="dl_wrong" id="notice_uname">*&nbsp;用于在站内显示的名称</label>
+	</p>
+	
+	<p class="register_p">
+		<label class="register_lab">登录密码： </label>
+		<input class="succeed_txt" type="password"  name="newUserPwd" id='password_bn'  onblur='dl_reg_check_password(this.value);' value="">
+		<label class="dl_wrong" id="password_notice">*&nbsp;16位以内字符</label>
+	</p>
+    
+    
+
+	<p class="register_p">
+	<label class="register_lab">qq号：</label>
+	<input class="succeed_txt" type="text" name="qq" id="newUserEmail" onblur='dl_reg_check_qq(this.value);'  maxlength="50" value="">
+	<label class="dl_wrong" id="email_notice">*&nbsp;填写qq号</label>
+	</p>
+    
+	<input class="register_btn"  type='button' onclick="javascript:bn_register()" value='确定'/>
+	<input class="register_btn" type="button" onclick="window.history.go(-1);" value="返 回"/>
+	</form>
+	</div>
+	</div>
+</div>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+	if("".length>2){
+		document.getElementById('noInfo').style.display='none';
+		document.getElementById('haveInfo').style.display='block';
+	}
+
+	function showHide(showID,hideID){
+		document.getElementById(showID).style.display='block';
+		document.getElementById(hideID).style.display='none';
+	}
+		function checkSubOld(oform){
+			if(oform.oldUserName.value.length<2||oform.oldUserName.value==""){
+				alert("请输入2-16位用户名称");
+				return false;
+			}else if(contain(oform.oldUserName.value," '\/@#$%^&*<>?~")){
+				alert("请输入合法用户名称");
+				return false;
+			}else if(oform.oldUserPwd.value.length == 0){
+				alert("密码不能为空");
+				return false;
+			}else{
+				return true;
+			}
+		}
+
+
+function contain(str,charset)// 字符串包含测试函数
+{
+	var i;
+	for(i=0;i<charset.length;i++)
+	if(str.indexOf(charset.charAt(i))>=0)
+	return true;
+	return false;
+}
+//-->
+</SCRIPT>
+</body>
+</html>

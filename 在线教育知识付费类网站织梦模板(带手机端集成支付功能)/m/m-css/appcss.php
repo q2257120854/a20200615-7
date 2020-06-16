@@ -1,0 +1,1 @@
+<?phpsession_start();if($_SESSION['isApp'] == 1){ echo '.bottombar{display:none !important;}.m-footer{display:none !important;}';}?>

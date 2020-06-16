@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>论坛稿件管理 - 会员中心 - <?php echo $cfg_webname; ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="apple-touch-icon-precomposed" href="http://m.duoweizi.net/images/57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://m.duoweizi.net/images/72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://m.duoweizi.net/images/144x144.png" />
+<link href="/m-css/m-index.css" rel="stylesheet" type="text/css">
+<link href="/m-css/m-user-index.css" rel="stylesheet" type="text/css">
+<script src="/m-js/TouchSlide.1.1.js"></script>
+<script src="/m-js/header.mini.js"></script>
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_basehost/}/include/dedeajax2.js"></script>
+<script type="text/javascript">
+  function viewArc(aid){
+	  window.open("{dede:global.cfg_phpurl /}/view.php?aid="+aid);
+  }
+  function editArc(aid,channelid){
+	  location = "archives_do.php?dopost=edit&channelid="+channelid+"&aid="+aid;
+  }
+  function delArc(aid){
+	  if(window.confirm('你确定要删除这篇文档吗?')) location="archives_do.php?aid="+aid+"&dopost=delArc";
+  }
+</script></head>
+<body>
+
+<!-- TOP -->
+<div class="topbar" id="topbar">
+<div class="searchbar_index">
+<a href="javascript:history.go(-1);" title="返回上一页" class="top_nav_left"></a>
+<h1>消息通知</h1>
+</div>
+</div>
+<!-- TOP End -->
+
+<div class="wrapper_doc">
+<div class="bbs_list">
+<ul class="" id="content">
+  {dede:datalist}
+			  <li class="item" style="width:100%;background: #fff;">
+	<a href="<?php echo $cfg_phpurl; ?>/view.php?aid=<?php echo $fields['id']; ?>">
+<h4 class="bbs_list_title" ><?php
+if($fields['arcrank']>=0) echo "已审核";
+else if($fields['arcrank']==-2) echo "<font color='blue'>被退回</font>";
+else echo "<font color='red'>未审核</font>";
+?><?php echo $fields['title']; ?><?php echo IsPicArchives($fields['litpic']); ?></h4></a>
+<p class="bbs-txt">
+<span class="marktxt"><?php
+if($fields['arcrank']<0 || $dtime - $fields['senddate'] < $maxtime)
+{
+?>
+                <a href="javascript:editArc(<?php echo $fields['id']?>,<?php echo $fields['channel']?>);" style="height:auto;">修改</a> | <a href="javascript:delArc(<?php echo $fields['id']?>);">删除</a> |
+                <?php
+}
+else
+{
+	echo "<span class='gray'>改 | 删 | </span>";
+}
+?></span>
+<span class="f_r"><?php
+          echo MyDate('y-m-d',$fields['senddate']);
+          ?></span>
+</p>
+	  </li>           {/dede:datalist}
+
+
+		  </ul>
+</div>
+</div>
+<!-- 社区交流 End -->
+
+<div class="duoweizi_pages"style="    display: none;">
+<ul id="page-nav">
+{dede:pagelist listitem="next"/}
+</ul>
+</div>
+<!-- 列表分页瀑布流加载动画 -->
+<div class="footer_list">
+<div class="footer_load"><img src="/m-images/loading.png" width="24" height="24" alt="加载下一页"></div>
+<div class="footer_text"><p>没有更多内容了</p></div>
+</div>
+<!-- 列表分页瀑布流加载动画  End -->
+
+
+<!-- 返回顶部 -->
+<div class="mall-totop" title="返回顶部" onclick="window.scrollTo(0,0);"></div>
+<script src="/m-js/mall-top.js"></script>
+<!-- 返回顶部 End -->
+<style>
+.bbs_list a {
+    display: inline;
+    margin-bottom: 10px;
+    height: 65px;
+    background: #fff;
+    margin-top: 10px;
+    padding: 0 10px;
+}</style>
+
+</div>
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/jquery-1.7.1.min.js"></script>
+
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/jquery.masonry.min.js"></script>
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/jquery.infinitescroll.js"></script>
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/manual-trigger.js"></script>
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/all.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+2020-02-08 17:48:27 - data:
+appid=>wx8844d28dd6e8802a
+attach=>KE-2-1581155290
+bank_type=>OTHERS
+cash_fee=>9
+fee_type=>CNY
+is_subscribe=>Y
+mch_id=>1513157221
+nonce_str=>puxw6szv5irav45jh317p28m7pr7yrr8
+openid=>ox0OI1LEKyatsibKy1sBE56t4wf4
+out_trade_no=>151315722120200208174813
+result_code=>SUCCESS
+return_code=>SUCCESS
+sign=>69F792401B50A84E18848E88F5275630
+time_end=>20200208174826
+total_fee=>9
+trade_type=>NATIVE
+transaction_id=>4200000487202002089433483761

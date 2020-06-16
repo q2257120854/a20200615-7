@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+    <link rel="stylesheet" href="../../css/font-awesome.css">
+    <link rel="stylesheet" href="./css/a.css">
+</head>
+<body>
+    <section id="list">
+        <ul class="vod_list">
+            <li onclick="user_info()"><i class=" icon-user"></i> 账号密码 <i class="icon-angle-right"></i></li>
+            <li onclick="message()"><i class=" icon-edit"></i> 求片留言 <i class="icon-angle-right"></i></li>
+            <li onClick="checkUpdate()"><i class=" icon-refresh"></i> 检查更新 <i class="icon-angle-right"><span id="vsion" class="right_span"></span></i></li>
+            <li><i class=" icon-columns"></i> 用户协议 <i class="icon-angle-right"></i></li>
+            <li onclick="fnClearCache()"><i class="icon-trash"></i> 清理缓存 <i class="icon-angle-right" ><span id="cacheSize" class="right_span"></span></i></li>
+            <li id="exitLogin" onclick="exitLogin()"><i class=" icon-off"></i> 退出登录 <i class="icon-angle-right"></i></li>
+        </ul>
+    </section>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.js"></script>
+<script src="../public/public.js"></script>
+<script src="./js/a.js"></script>
+</html>

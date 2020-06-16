@@ -1,0 +1,47 @@
+{include file="default/base/seller_top" /} 
+<div class="seller_main">
+    {include file="default/base/seller_left" /}
+    <div class="seller_right">
+        <div class="seller_items">
+            {include file="default/base/seller_items" /}
+        </div>
+        <div class="p20">
+            <table class="dssc-default-table">
+                <thead>
+                    <tr><th class="w60"></th>
+                        <th class="tl">{$Think.lang.goodscourses_name}</th>
+                        <th class="tl">{$Think.lang.goodscourses_free}</th>
+                        <th class="w200">{$Think.lang.goodscourses_sort}</th>
+                        <th class="w200">{$Think.lang.goodscourses_url}</th>
+                        <th class="w100">{$Think.lang.ds_handle}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {notempty name="goodscourses_list"}
+                    {foreach name="goodscourses_list" item="seller" key="key" }
+                    <tr class="bd-line">
+                        <td></td>
+                        <td class="tl">{$seller.goodscourses_name}</td>
+                        <td class="tl">{$seller.goodscourses_free}</td>
+                        <td class="tl">{$seller.goodscourses_sort}</td>
+                        <td><a href="{:url('Goods/courses',['goods_id'=>$seller.goods_id,'goodscourses_id'=>$seller.goodscourses_id])}" target="_blank">在线观看</a></td>
+                        <td class="dscs-table-handle">
+                            <span><a href="{:url('Sellergoodsonline/edit_courses',['goodscourses_id'=>$seller.goodscourses_id,'goods_id'=>$Request.param.goods_id])}" class="btn-blue"><i class="iconfont">&#xe731;</i><p>{$Think.lang.ds_edit}</p></a></span>
+                            <span><a href="javascript:ds_ajaxget_confirm('{:url('Sellergoodsonline/del_courses',['goodscourses_id'=>$seller.goodscourses_id,'goods_id'=>$Request.param.goods_id])}','{$Think.lang.ds_ensure_del}');" class="btn-red"><i class="iconfont">&#xe725;</i><p>{$Think.lang.ds_del}</p></a></span>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    {else /}
+                    <tr>
+                        <td colspan="20" class="norecord"><div class="warning-option"><i class="iconfont">&#xe64c;</i><span>{$Think.lang.no_record}</span></div></td>
+                    </tr>
+                    {/notempty}
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript" src="{$Think.PLUGINS_SITE_ROOT}/ajaxfileupload.js" charset="utf-8"></script>
+        <script src="{$Think.PLUGINS_SITE_ROOT}/jquery.ajaxContent.pack.js" type="text/javascript"></script>
+        <script src="{$Think.HOME_SITE_ROOT}/js/sellergoods_add_step3.js"></script>
+    </div>
+</div>
+{include file="default/base/mall_footer" /}

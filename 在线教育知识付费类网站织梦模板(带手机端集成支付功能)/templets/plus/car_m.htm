@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>购物车 - 订单号:{dede:var.carts.orders_id/} - {dede:global.cfg_webname/}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="apple-touch-icon-precomposed" href="http://m.duoweizi.net/images/57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://m.duoweizi.net/images/72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://m.duoweizi.net/images/144x144.png" />
+<link href="/m-css/m-index.css" rel="stylesheet" type="text/css">
+<link href="/m-css/m-cart.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://www.duoweizi.net/js/jquery.js"></script>
+<script type="text/javascript" src="/m-js/common_new.js"></script>
+<script type="text/javascript" src="/m-js/fastclick.min.js"></script>
+<!--<script type="text/javascript" src="/m-js/lazyload.min.js"></script>-->
+<script language="javascript" type="text/javascript" src="http://www.duoweizi.net/include/dedeajax2.js"></script>
+</head>
+<body>
+
+<div class="cart-main">
+
+<!-- 购物车头部 -->
+<div class="mall_whitetop">
+<div class="gd_topbar_bbs">
+<a href="http://m.duoweizi.net/mall/" class="back"></a>
+<h1>购物车</h1>
+</div>
+</div>
+<!-- 购物车头部 End -->
+
+<form id="form1" name="form1" method="post" action="posttocar.php">
+<input id="dopost" name="do" type="hidden" value="del" />
+<div class="cartitemlist">
+<script> 
+$(function(){ 
+$(".add").click(function(){ 
+var t=$(this).parent().find('input[class*=text_box]'); 
+t.val(parseInt(t.val())+1) 
+setTotal(); 
+}) 
+$(".min").click(function(){ 
+var t=$(this).parent().find('input[class*=text_box]'); 
+t.val(parseInt(t.val())-1) 
+if(parseInt(t.val())<0){ 
+t.val(0); 
+} 
+setTotal(); 
+}) 
+function setTotal(){ 
+var s=0; 
+$("#tab td").each(function(){ 
+s+=parseInt($(this).find('input[class*=text_box]').val())*parseFloat($(this).find('span[class*=price]').text()); 
+}); 
+$("#total").html(s.toFixed(2)); 
+} 
+setTotal(); 
+
+}) 
+</script> 
+{dede:array.Items}
+<div class="cartitem"  id="tr_goods_{dede:value.id/}">
+<div class="c3">
+<div class="cart_item">
+<div class="cart_checker" id="cart_checker_cart"><span><input type="checkbox" name="ids[]" value="{dede:value.id/}"  style="width:16px;height:16px;visiblehidden"/></span></div>
+<a href="/plus/view.php?aid={dede:value.id/}" class="cart_link">
+<div class="imgw"><img src="{dede:value.litpic/}"></div>
+<div class="info">
+<strong class="title">{dede:value.title/}</strong>
+<strong class="price">{dede:value.price/}元</strong>
+</div>
+</a>
+<div class="reamount gcIpt">
+<a href="javascript:void(0)" onclick="changenum({dede:value.id/},-1)" class="reducebtn min"></a>
+<input name="buynum{dede:value.id/}" type="text" id="buynum{dede:value.id/}" value="{dede:value.buynum/}" size="5" maxlength="5" class="goodsCount text_box" onchange="change_goods_number({dede:value.id/},this.value)">
+<a  onclick="changenum({dede:value.id/},1)" href="javascript:void(0)" class="addbtn add"></a>
+</div>
+<div class="cart_checker2"><a href="posttocar.php?do=del&ids={dede:value.id/}" class="delete"><img src="/m-images/delete.png"></a></div>
+</div>
+</div>
+</div>
+{/dede:array}
+</div>
+
+<!-- 购物车账单结算 -->
+<div class="cart_bottom">
+<div class="cart_bottom_c">
+
+<!--<input type="button" value="删除已选定" class="submitbtn" onclick="DelPost()" style="float:left"/>-->
+<input onclick="ChangePost()" type="button" value="更新购物车" class="submitbtn"style="float:left;-webkit-appearance : none ;border:0px;padding: 0px 5px;" />
+<input  onclick="UptoPost()" type="button" value="去结算({dede:var.carts.cart_count/})" class="submitbtn" style="background:#35B558;-webkit-appearance:none ;border:0px;padding: 0px 5px;"/>
+<div class="heji"><strong>合计：<em>{dede:var.carts.price_count/}元</em></strong><br><span>不含运费</span></div>
+</div>
+</div>
+<!-- 购物车账单结算 End -->
+
+</div>
+</form>
+
+<script language="JavaScript" type="text/javascript">
+//遍历checkbox使之全选中,或反选
+function CheckAll()
+{
+	for (var i=0;i<document.form1.elements.length;i++)
+	{
+		var e = document.form1.elements[i];
+		e.checked == true ? e.checked = false : e.checked = true;
+	}
+}
+//改变表单dopost值为:update,后submit提交表单
+function ChangePost()
+{
+	CheckAll();
+	document.getElementById("dopost").value = 'update';
+	document.form1.submit();
+}
+//改变表单dopost值为:upto,后submit提交表单
+function UptoPost()
+{
+	CheckAll();
+	document.getElementById("dopost").value = 'upto';
+	document.form1.submit();
+}
+
+
+//改变表单dopost值为:del,后submit提交表单
+function DelPost()
+{
+	document.getElementById("dopost").value = 'del';
+	document.form1.submit();
+}
+//AJAX产生一个新的订单编号
+function makeCarId()
+{
+	$.ajax({type: "POST", url: "car.php", data: "dopost=makeid", dataType: 'text',success: function(result){$("#carId").html(result);}}); 
+}
+//Print Page
+function printPage(oper)
+{
+	if (oper < 10)
+	{
+		bdhtml = window.document.body.innerHTML;//获取当前页的html代码
+		sprnstr = "<!--startprint"+oper+"-->";//设置打印开始区域
+		eprnstr = "<!--endprint"+oper+"-->";//设置打印结束区域
+		prnhtml = bdhtml.substring(bdhtml.indexOf(sprnstr)+18); //从开始代码向后取html
+		prnhtml = prnhtml.substring(0,prnhtml.indexOf(eprnstr));//从结束代码向前取html
+		window.document.body.innerHTML = prnhtml;
+		window.print();
+		window.document.body.innerHTML = bdhtml;
+	}else{
+		window.print();
+	}
+}
+</script>
+
+<script language="JavaScript" type="text/javascript">
+if(!navigator.cookieEnabled)
+{
+	$('#errorChickCookie').html('您浏览器的 cookie 功能被禁用,请启用此功能!');
+	$('.buycar').hide();
+}
+</script>
+<style>
+.cart_item{padding: 5px 38px 5px 5px;position: relative;}
+</style>
+</body>
+</html>

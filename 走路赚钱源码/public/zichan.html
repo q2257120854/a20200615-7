@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="/tmc/js/mui.min.js"></script>
+    <link href="/tmc/css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+	<style>
+		.body{
+			line-height: px;
+		}
+		.mui-table-view-cell:after{
+			left: 0px;
+			background-color:#eac4c4;
+		}
+		.mui-table-view:before{
+			background-color:#eac4c4;
+		}
+		.mui-table-view:after{
+			background-color:#eac4c4;
+		}
+		.header{
+			background:transparent;
+			top:0;
+			box-shadow:0 0px 0px #ccc;
+			-webkit-box-shadow:0 0px 0px #ccc;
+		}
+		.h1{
+			font-family:'微软雅黑';
+			color:#fff;
+		}
+		.img{
+			position:absolute;
+			width:100%;
+			margin-top:8%;
+			top:-10%;
+			height: 280px;
+		}
+		.span{
+			position:absolute;
+			z-index:999;
+			color:#fff;
+			font-family:'微软雅黑';
+			font-size:0.9em;
+			top:8%;
+			left:10%;
+		}
+		.span1{
+			position:absolute;
+			z-index:999;
+			color:#fff;
+			font-family:'微软雅黑';
+			font-size:1.5em;
+			top:100px;
+			left:10%;
+		}
+		.ul1{
+			top:10px;
+			background:#fff;
+			line-height:3.5em;
+		}
+		.imgg{
+			position:absolute;
+			width:40px;
+			margin-left:10px;
+			margin-top:10px;
+		}
+		.p3{
+			margin-left:18%;
+			font-family:'微软雅黑';
+			color:#555;
+		}
+		.p4{
+			position:absolute;
+			margin-left:70%;
+			top: 11px;
+			font-family:'微软雅黑';
+			font-size:1em;
+			color:#2AC845;
+		}
+		.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+			border-right:0px solid #eee;
+			
+		}
+	</style>
+</head>
+<body style="background:#fff;">
+	<header class="mui-bar mui-bar-nav header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+			<h1 class="mui-title h1">我的钱包</h1>
+	</header>
+			<img src="/tmc/img/bluebg.png" class="img"/>
+			<span class="span">TMC账户</span>
+			<span class="span1">0.00TMC</span>
+			<span class="span" style="top: 135px;">钱包地址</span>
+			<span class="span" style="top: 135px; left: 120px;">{$eth_purse}</span>
+			<ul class="mui-table-view mui-grid-view mui-grid-9" style="margin-top: 180px; width: 90%; background: #fff; border-radius: 10px; margin-left: 5%;">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="width: 55%;"><a href="chongzhi">
+		                    <span class="mui-icon mui-icon-plusempty"></span>
+		                    <div class="mui-media-body">充值</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="tixian">
+		                    <span class="mui-icon mui-icon-checkmarkempty"></span>
+		                    <div class="mui-media-body">提现</div></a></li>
+		           
+		        </ul>
+				<ul class="mui-table-view ul1">
+			
+				<li class="mui-table-view-cell mui-media  mui-collapse mui-collapse-content">
+					 <img src="/tmc/img/a.png" class="imgg" style="width: 46px; margin-left: 5px;" />
+					<p class="p3">USDT账户</p>
+					<p class="p4">{$usdt}</p>
+				</li>
+				<li class="mui-table-view-cell mui-media  mui-collapse mui-collapse-content">
+					<img src="/tmc/img/b.png" class="imgg" style="width: 50px; margin-left: 4px;" />
+					<p class="p3">乐豆账户</p>
+					<p class="p4">1.30</p>
+				</li>
+				<li class="mui-table-view-cell mui-collapse-content">
+					<img src="/tmc/img/c.png" class="imgg"/>
+					<p class="p3">激活码账户</p>
+					<p class="p4">0.00</p>
+				</li>
+				<li class="mui-table-view-cell mui-collapse-content">
+					<img src="/tmc/img/d.png" class="imgg"/>
+					<p class="p3">乐豆种子账户</p>
+					<p class="p4">{$money_wallet}</p>
+				</li>
+			</ul>
+</body>
+
+<script type="text/javascript">
+	
+</script>
+
+</html>

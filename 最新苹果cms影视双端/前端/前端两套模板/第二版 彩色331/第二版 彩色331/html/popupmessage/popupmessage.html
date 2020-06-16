@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>title</title>
+    <style>
+    html,body{
+        height: 98%;
+        background: transparent;
+        -webkit-touch-callout: none;
+        font-family: Tahoma, Geneva, sans-serif;
+        font-style: normal;
+		}
+		#dialog{
+        background-color: #e7e7e7; border-radius: 6px;
+        position: absolute; margin: auto;
+        left: 0; right: 0; top: 0; bottom: 0;
+        width: 200px; height: 250px;
+        -webkit-transition: all .1s;
+        transition:all .1s;
+        -webkit-transform: scale(0);
+        transform:scale(0);
+        opacity: 0;
+		}
+		#dialog.in{
+        -webkit-transform: scale(1);
+        transform:scale(1);
+        opacity: 1;
+		}
+    </style>
+</head>
+<body>
+	<div id="dialog">
+		<img style="width:200px;height:250px;border-radius: 6px;" id="erweima" src="" onclick="tanc()" />
+    <p style="position: absolute;color:#fff;margin: -30px auto;" id="title"></p>
+    <div style="width:1px;height:30px;background-color:#888888;margin:0px auto"></div>
+    <img style="width: 10%;margin-left: 45%;" src="../../image/close.png" onclick="closeFrame()">
+	</div>
+</body>
+<script type="text/javascript" src="../../script/jquery.js"></script>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.min.js"></script>
+<script src="../public/public.js"></script>
+<script src="./js/a.js"></script>
+</html>

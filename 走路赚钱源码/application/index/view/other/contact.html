@@ -1,0 +1,63 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>{$config.WEB_TITLE}-联系我们</title>{/block}
+{block name="keywords"}<meta name="keywords" content="{$config.WEB_KEYWORD}" />{/block}
+{block name="description"}<meta name="description" content="{$config.WEB_DESCRIPTION}" />{/block}
+{block name="style"}
+{/block}
+
+<!--广告开始-->
+{block name="ad"}
+<div class="banner"> 
+	{foreach name="banner" id="vo"}
+	  <img src="{$vo.pic}" alt="{$vo.title}"/> 
+	{/foreach}
+</div> 
+{/block}
+ <!--广告结束-->
+ 
+{block name="body"}
+<!--中间隔断-->
+  <div class="main"> 
+	<!-- 左侧部分 --> 
+	{include file="public/other_left_nav" /}
+	<!-- 左侧部分 end--> 
+	
+	   <!-- 内容部分 --> 
+	   <div id="contentRight"> 
+			<div class="content_com_title"> 
+				 <h2>联系我们</h2> 
+				 <div class="bread">
+				   当前位置：
+				  <a href="/" title="首页">首页</a>-联系我们
+				 </div> 
+			</div> 
+			<div class="content"> 
+				 <div class="view"> 
+					  <div class="view-date">
+						<span>来源：{$config.WEB_TITLE}</span> &nbsp;&nbsp;&nbsp;&nbsp; 
+					  </div>
+					  <div class="boxcen">
+						{$result.content|htmlspecialchars_decode}
+						<p>联系人：{$result.contacts}</p>
+						<p>手机：{$result.tel}</p>
+						<p>邮箱：{$result.email}</p>
+						<p>QQ：{$result.qq}</p>
+						<p>地址：{$result.address}</p>
+						<p>微信公众号： <img src="{$result.weixin_pic}" title="官方微信" alt="官方微信"></p>
+					  </div> 
+				 </div> 
+			</div>
+			<div class="page"> 
+				<a href="javascript:void(0);" class="back" onclick="javascript:history.back(-1);">返回</a> 
+			</div>			
+	   </div> 
+
+	   <!-- 内容部分 end--> 
+  </div> 
+
+
+{/block}
+</div>
+{block name="script"}
+{/block}	

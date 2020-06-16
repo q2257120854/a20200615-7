@@ -1,0 +1,148 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">公司团队</h2>
+       <a href="{:url('other/team_add')}" class="fr top_rt_btn add_icon">添加团队</a>
+      </div>
+      <table class="table">
+       <tr>
+        <th style="width:80px;">ID</th>
+		<th style="width:120px;">图片</th>
+		<th>姓名</th>
+        <th>职位</th>
+		<th>联系方式/QQ</th>		
+		<th>时间</th>
+		<th>首页推荐</th>
+		<th>二级推荐</th>
+        <th style="width:100px;">操作</th>
+       </tr>
+	   {foreach name="list" id="vo"}
+       <tr>
+        <td class="center"><input type="checkbox" value="{$vo.id}" name="id" />{$vo.id}</td>
+		<td class="center">
+			{if condition="$vo.user_pic neq '0'"}
+			<img src="{$vo.user_pic}" style="max-width:170px;"  height="50" class="mCS_img_loaded">
+			{/if}		
+		</td>
+		<td class="center">
+			{$vo.name}
+		</td>
+        <td class="center">
+			{$vo.post}
+		</td>
+		<td class="center">
+			{$vo.qq}
+		</td>
+		<td class="center">{$vo.addtime|date="Y-m-d H:i:s",###}</td>
+        <td class="center">{if condition="$vo.home eq 1"}<a title="推荐" class="link_icon">&#89;</a>{else/}<a title="不推荐" class="link_icon" style="color:red;">&#88;</a>{/if}
+		</td>
+		<td class="center">{if condition="$vo.rec eq 1"}<a title="推荐" class="link_icon">&#89;</a>{else/}<a title="不推荐" class="link_icon" style="color:red;">&#88;</a>{/if}
+		</td>
+        <td class="center">
+         <a href="{:url('other/team_edit')}?id={$vo.id}" title="编辑" class="link_icon">&#101;</a>
+         <a href="#" title="删除" class="link_icon del" data-id="{$vo.id}" >&#100;</a>
+        </td>
+       </tr>
+		{/foreach}
+      </table>
+	  <div>
+		<aside class="paging_left">
+		   <a id="all">全选</a>
+		   <a id="nocheck">取消</a>
+		   <a id="reverse">反选</a>
+		   <a id="delid">删除</a>
+		</aside>
+	 </div>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+$(document).ready(function() {
+	//全选
+	$("#all").on('click', function() {
+		//全选选中为true，否则为false
+		$("input[type=checkbox]").each(function(){ 
+		//循环checkbox选择或取消
+			$(this).prop("checked",true);
+		});
+	});
+	//取消
+	$("#nocheck").on('click', function() {
+		$("input[type=checkbox]").each(function(){ 
+			$(this).prop("checked",false);
+		});
+	});
+	//反选
+	$("#reverse").click(function () { 
+		$("table :checkbox").each(function () {  
+			$(this).prop("checked", !$(this).prop("checked"));  
+		});
+	});
+  //删除
+	$('.del').click(function(event){
+		var id = $(this).attr('data-id');	
+		if (confirm("确定要删除吗？")) {
+			$.ajax({
+				url:"{:url('other/team_del')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'team/del',id:id,cmm_home:'cmm_home';cmm_rec:'cmm_rec'},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('删除成功');
+						setTimeout(function(){
+							//页面刷新  
+							window.location.reload();
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});		
+		}
+	});  
+	
+    //批量删除
+	$('#delid').click(function(event){
+		var id=new Array();  
+		$('input[name="id"]:checked').each(function(){  
+			id.push($(this).val());//向数组中添加元素  
+		});  
+		var id_str = id.join(',');//将数组元素连接起来以构建一个字符串 
+		if (confirm("确定要删除吗？")) {
+			$.ajax({
+				url:"{:url('other/team_delmost')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'teamDelAll',delid:id_str,pid:0},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('删除成功');
+						setTimeout(function(){
+						//页面刷新  
+						window.location.reload();
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});
+		}
+	}); 	
+	
+});
+</script>
+{/block}	

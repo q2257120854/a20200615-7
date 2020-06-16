@@ -1,0 +1,97 @@
+.user_info{
+    color: #fff;
+    /* background-image: url('../../image/demo5.png'); */
+    height: 130px;
+    width: 130px;
+    background-size:60%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.user_top{
+    height: 130px;
+}
+.user_vip{
+    position: relative;
+    /* top: 34%; */
+    left: 90%;
+}
+.user_vip p{
+    color: #fff;
+}
+.points_info{
+    color: #fff;
+    text-align: center;
+}
+.price{
+    color: #fff;
+    margin: 14px;
+}
+.zx_pay{
+    width: 50%;
+    float: right;
+    text-align: center;
+}
+.czk_pay{
+width: 50%;
+text-align: center;
+}
+.zf_type{
+   margin: 20px auto;
+}
+.czk_p{
+width: 90%;
+text-align: center;
+margin: 0px auto;
+}
+.czk_p input{
+color: #fff;
+width: 80%;
+margin: 0px auto;
+border: 1px solid #03a9f4;
+border-radius: 4px;
+margin-top: 16px;
+padding: 0px 8px;
+}
+.cz_bt{
+width: 50%;
+margin: 20px auto;
+height: 36px;
+background-color: #03a9f4;
+padding: 6px;
+border-radius: 20px;
+}
+.czje input{
+   display: inline-block;
+   width: 25%;
+   border: 1px solid #03a9f4;
+    border-radius: 4px;
+    height: 30px;
+    color: #fff;
+}
+.price ul{
+    color: #fff;
+    margin: 20px;
+}
+.price ul li{
+    margin: 14px 0px;
+    padding: 4px;
+    background-color: #323237;
+}
+.active{
+    color: #14b7ff ;
+}
+.price ul li img{
+    width: 8%;
+    display: initial;
+}
+.act_type{
+    display: none;
+}
+.user_info img{
+    width: 60px;
+    height: 60px;
+    position: relative;
+    left: 30%;
+    top: 38%;
+    border-radius: 100%;
+}

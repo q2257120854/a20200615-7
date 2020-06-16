@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="/tmc/css/mui.min.css">
+		<style>
+			html,
+			body {
+				background-color: #fff;
+			}
+			.mui-bar~.mui-content .mui-fullscreen {
+				top: 44px;
+				height: auto;
+			}
+			.mui-pull-top-tips {
+				position: absolute;
+				top: -20px;
+				left: 50%;
+				margin-left: -25px;
+				width: 40px;
+				height: 40px;
+				border-radius: 100%;
+			}
+			.mui-bar~.mui-pull-top-tips {
+				top: 24px;
+			}
+			.mui-pull-top-wrapper {
+				width: 42px;
+				height: 42px;
+				display: block;
+				text-align: center;
+				background-color: #efeff4;
+				border: 1px solid #ddd;
+				border-radius: 25px;
+				background-clip: padding-box;
+				box-shadow: 0 4px 10px #bbb;
+				overflow: hidden;
+			}
+			.mui-pull-top-tips.mui-transitioning {
+				-webkit-transition-duration: 200ms;
+				transition-duration: 200ms;
+			}
+			.mui-pull-top-tips .mui-pull-loading {
+				/*-webkit-backface-visibility: hidden;
+				-webkit-transition-duration: 400ms;
+				transition-duration: 400ms;*/
+				
+				margin: 0;
+			}
+			.mui-pull-top-wrapper .mui-icon,
+			.mui-pull-top-wrapper .mui-spinner {
+				margin-top:7px;
+			}
+			.mui-pull-top-wrapper .mui-icon.mui-reverse {
+				/*-webkit-transform: rotate(180deg) translateZ(0);*/
+			}
+			.mui-pull-bottom-tips {
+				text-align:center;
+				background-color:#efeff4;
+				font-size:15px;
+				line-height:40px;
+				color:#777;
+			}
+			.mui-pull-top-canvas {
+				overflow:hidden;
+				background-color:#fafafa;
+				border-radius:40px;
+				box-shadow:0 4px 10px #bbb;
+				width:40px;
+				height:40px;
+				margin:0 auto;
+			}
+			.mui-pull-top-canvas canvas {
+				width:40px;
+			}
+			.mui-slider-indicator.mui-segmented-control {
+				background-color:blue;
+			}
+			.mui-table-view-cell:after{
+				background-color:#c2bbd7;
+			}
+			.tab{
+				background:blue;
+				top:0;
+				box-shadow:0 0px 0px #ccc;
+				-webkit-box-shadow:0 0px 0px #ccc;
+			}
+			.head{
+				font-family:'微软雅黑';
+				color:#fff;
+			}
+			.headlist{
+				margin-left:35px;
+			}
+			.ullist{
+				width:90%;
+				left:5%;
+				margin-top:20px;
+				background:#fff;
+				line-height:2em; 
+			}
+			.dingdan{
+				margin-left:7%;
+				font-family:'微软雅黑';
+				color:#555;
+			}
+			.buttonchakan{
+				position:absolute;
+				background:blue;
+				color:#fff;
+				top:12px;
+				font-size:0.8em;
+				right:10px;
+				line-height:1.1em;
+				width:80px;
+				border-radius:5px;
+				border:0px solid;
+			}
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item{
+				color: #fff;
+			}
+		</style>
+		<style>
+			.body{
+				line-height: px;
+			}
+			.mui-table-view-cell:after{
+				left: 0px;
+				background-color:#efeff4;
+			}
+			.mui-table-view:before{
+				background-color:#efeff4;
+			}
+			.mui-table-view:after{
+				background-color:#efeff4;
+			}
+			.mui-input-group:before{
+				height:0px
+			}
+			.mui-input-group:after{
+				height:0px;
+			}
+			.header{
+				background:blue;
+				top:0;
+				box-shadow:0 0px 0px #ccc;
+				-webkit-box-shadow:0 0px 0px #ccc;
+			}
+			.h1{
+				font-family:'微软雅黑';
+				color:#fff;
+			}
+			.ul{
+				margin-top:-5px;
+				background:blue;
+				line-height:2em;
+			}
+			.p{
+				margin-left:38px;
+				font-family:'微软雅黑';
+				color:aquamarine;
+			}
+			
+			.form{
+				top:20px;
+				height:0px;
+				width:80%;
+				left:0px;
+				right:0px;
+				margin:auto;
+			}
+			.divc{
+				border-radius:30px;
+				background-color:#fff;
+				margin-bottom:30px;
+			}
+			.img{
+				position:absolute;
+				width:30px;
+				margin-left:15px;
+				margin-top:4px;
+			}
+			.int{
+				color:#0062CC;
+				margin-left:22%;
+				font-size:0.9em;
+				font-family:'微软雅黑';
+			}
+			.button{
+				line-height:2em;
+				font-size:0.9em;
+				width:80%;
+				font-family:'微软雅黑';
+				border-radius:10px;
+				border:0px solid;
+				background:blue;
+			}
+		</style>
+	</head>
+
+	<body style="background:#fff;">
+		<header class="mui-bar mui-bar-nav tab" >
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"style="color: #fff;"></a>
+				<h1 class="mui-title head">自助购买</h1>
+		</header>
+		<div class="mui-content" >
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll"style="margin-left: 50px;">
+						<a class="mui-control-item mui-active headlist" href="#item1mobile">
+							激活码
+						</a>
+						<a class="mui-control-item headlist" href="#item2mobile">
+							乐豆种子
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						
+						<ul class="mui-table-view ul">
+							<li class="mui-table-view-cell mui-collapse-content"><p class="p">当前拥有USDT数量：{$usdt}</p></li>
+							<li class="mui-table-view-cell mui-collapse-content"><p class="p" id='consume'>需要消耗USDT数量：0</p></li>
+						
+						
+						</ul>
+							<form class="mui-input-group form">
+							<input type="hidden" id="userid" class="int" value='{$userid}'>
+											<div class="mui-input-row divc">
+												<img src="/tmc/img/sl.png"  class="img" style="width: 25px;"/>
+												<input type="text" id='num' name='num' class="int" placeholder="采购数量" onchange="show()">
+											</div>
+											<div class="mui-input-row divc">
+												<img src="/tmc/img/mima.png"  class="img"style="width: 30px;" />
+												<input type="text" id='jymm' name='jymm' class="int" placeholder="交易密码">
+											</div>
+											
+											<br>
+											<div class="mui-button-row">
+												<button type="button" class="mui-btn mui-btn-danger button" onclick='duihuan()'>采购</button>
+											</div>
+										</form>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<ul class="mui-table-view ul">
+							<li class="mui-table-view-cell mui-collapse-content"><p class="p">当前拥有USDT数量：{$usdt}</p></li>
+							<li class="mui-table-view-cell mui-collapse-content"><p class="p">需要消耗USDT数量：0</p></li>
+						
+						
+						</ul>
+							<form class="mui-input-group form">
+											<div class="mui-input-row divc">
+												<img src="/tmc/img/sl.png"  class="img" style="width: 25px;"/>
+												<input type="number" class="int" placeholder="采购数量">
+											</div>
+											<div class="mui-input-row divc">
+												<img src="/tmc/img/mima.png"  class="img"style="width: 30px;" />
+												<input type="password" class="int" placeholder="交易密码">
+											</div>
+											
+											<br>
+											<div class="mui-button-row">
+												<button type="button" class="mui-btn mui-btn-danger button" >采购</button>
+											</div>
+										</form>
+					</div>
+					
+					
+				</div>
+			</div>
+		</div>
+		<script src="/tmc/js/mui.min.js"></script>
+		<script src="/tmc/js/mui.pullToRefresh.js"></script>
+		<script src="/tmc/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript" src="https://fex.baidu.com/webuploader/js/jquery-1.10.2.min.js"></script>
+		<script>
+			function show(){
+				var consum=$("#num").val()==''?0:$("#num").val();
+				var str='需要消耗USDT数量：'+consum;
+				$("#consume").text(str);
+			}
+			//兑换
+			function duihuan(){
+				
+				$.ajax({
+					url : 'http://45.127.96.224/index/index/duihuan.html',
+					type : 'post', 
+					timeout:3000,   
+					data : {  
+						num:$('#num').val(),
+						jymm :$('#jymm').val(),
+						userid :$('#userid').val(),
+					}, 
+					success : function(data){
+						alert(data);
+					   
+					},
+					 error : function(xhr, erroType, error, msg) {
+					}
+				});
+						 
+			}
+		</script>
+		<script>
+			mui.init();
+			(function($) {
+				//阻尼系数
+				var deceleration = mui.os.ios?0.003:0.0009;
+				$('.mui-scroll-wrapper').scroll({
+					bounce: false,
+					indicators: true, //是否显示滚动条
+					deceleration:deceleration
+				});
+				$.ready(function() {
+					//循环初始化所有下拉刷新，上拉加载。
+					$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+						$(pullRefreshEl).pullToRefresh({
+							down: {
+								callback: function() {
+									var self = this;
+									setTimeout(function() {
+										var ul = self.element.querySelector('.mui-table-view');
+										ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
+										self.endPullDownToRefresh();
+									}, 1000);
+								}
+							},
+							up: {
+								callback: function() {
+									var self = this;
+									setTimeout(function() {
+										var ul = self.element.querySelector('.mui-table-view');
+										ul.appendChild(createFragment(ul, index, 5));
+										self.endPullUpToRefresh();
+									}, 1000);
+								}
+							}
+						});
+					});
+					var createFragment = function(ul, index, count, reverse) {
+						var length = ul.querySelectorAll('li').length;
+						var fragment = document.createDocumentFragment();
+						var li;
+						for (var i = 0; i < count; i++) {
+							li = document.createElement('li');
+							li.className = 'mui-table-view-cell';
+							li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
+							fragment.appendChild(li);
+						}
+						return fragment;
+					};
+				});
+			})(mui);
+		</script>
+	</body>
+
+</html>

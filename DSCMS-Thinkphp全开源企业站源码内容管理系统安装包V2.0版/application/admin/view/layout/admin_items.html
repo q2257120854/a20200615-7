@@ -1,0 +1,12 @@
+{if $admin_item}
+<ul class="layui-tab-title">
+    {foreach name="admin_item" item="item" }
+    <li {if condition="$item.name eq $curitem" }class="layui-this" {/if}>
+    <a href="{$item.url}">{$item.text}</a>
+    </li>
+    {/foreach}
+    <div class="tool-btns">
+        <a href="javascript:location.reload();" title="刷新当前页面" class="iconfont">&#xe717;</a>
+    </div>
+</ul>
+{/if}

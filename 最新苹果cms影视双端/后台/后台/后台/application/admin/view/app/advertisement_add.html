@@ -1,0 +1,205 @@
+{include file="../../../application/admin/view/public/head" /}
+
+<div class="page-container">
+
+    <div class="showpic" style="display:none;"><img class="showpic_img" width="120" height="160"></div>
+
+    <form class="layui-form layui-form-pane" action="">
+
+        <div class="layui-tab" lay-filter="tb1">
+            
+            <div class="layui-tab-content">
+
+                <div class="layui-tab-item layui-show">
+                  <div class="layui-form-item">
+                 <div class="layui-input-inline w150">
+                            <select name="type">
+                            <option value="1">首页轮播</option>
+                            <option value="2">综合页轮播</option>
+                            <option value="3">首页电视剧广告</option>
+                            <option value="4">首页电影广告</option>
+                            <option value="5">首页综艺广告</option>
+                            <option value="6">首页动漫广告</option>
+                            </select>
+                    </div>
+                    <div class="layui-input-inline w150">
+                            <select name="status">
+                                <option value="1" >正常</option>
+                                <option value="0" >取消</option>
+                            </select>
+                    </div>
+                     </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">标题：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title"  class="layui-input">
+                    </div>
+                </div>
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">描述：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="descr"  class="layui-input">
+                    </div>
+                </div>
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">类型：</label>
+                    <div class="layui-input-inline w300">
+                        <input type="radio" name="patternn" value="0" title="跳转链接" checked >
+                        <input type="radio" name="patternn" value="1" title="播放影片"  >
+                    </div>
+                    <div class="layui-form-mid layui-word-aux" style="color:red;"><span style="color:red;">如果为播放影片，以下影片相关的4项必填，否则无法播放。</span></div>
+                </div>
+                   <div class="layui-form-item">
+                    <label class="layui-form-label">跳转地址：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="url"  class="layui-input">
+                    </div>
+                </div>
+                  <div class="layui-form-item">
+                        <label class="layui-form-label">图片：</label>
+                        <div class="layui-input-inline w600">
+                            <input type="text" name="image"  class="layui-input upload-input">
+                        </div>
+                        <div class="layui-input-inline ">
+                            <button type="button" class="layui-btn layui-upload" lay-data="{data:{thumb:0,thumb_class:'site[site_logo]'}}" id="upload1">上传图片</button>
+                        </div>
+                    </div>
+                  <div class="layui-form-item">
+                   <label class="layui-form-label">影片名字：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="vod_name"   class="layui-input w150" >
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                   <label class="layui-form-label">影片id：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="vod_id"   class="layui-input w150" >
+                    </div>
+                </div>
+                   <div class="layui-form-item">
+                   <label class="layui-form-label">影片分类id：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="type_id"   class="layui-input w150" >
+                    </div>
+                </div>
+                   <div class="layui-form-item">
+                   <label class="layui-form-label">影片地区：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="vod_area"   class="layui-input w150" >
+                    </div>
+                     <div class="layui-form-mid layui-word-aux" style="color:red;"><span style="color:red;">相关推荐所需参数</span></div>
+                </div>
+                    
+            </div>
+
+                
+                </div>
+
+
+                <div class="layui-form-item center">
+                    <div class="layui-input-block">
+                        <button type="submit" class="layui-btn" lay-submit="" lay-filter="formSubmit">保 存</button>
+                        <button class="layui-btn layui-btn-warm" type="reset">还 原</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{include file="../../../application/admin/view/public/foot" /}
+<script type="text/javascript" src="__STATIC__/js/jquery.cookie.js"></script>
+<script type="text/javascript">
+    layui.use(['form','upload', 'layer'], function(){
+        // 操作对象
+        var element = layui.element
+            ,form = layui.form
+            , layer = layui.layer
+            , upload = layui.upload;
+
+        form.on('radio(cache_type)',function(data){
+            $('.row_cache_server').hide();
+           if(data.value=='memcache' || data.value=='redis' || data.value=='memcached'){
+               $('.row_cache_server').show();
+           }
+        });
+
+        element.on('tab(tb1)', function(){
+            $.cookie('config_tab', this.getAttribute('lay-id'));
+        });
+
+        if( $.cookie('config_tab') !=null ) {
+            element.tabChange('tb1', $.cookie('config_tab'));
+        }
+
+        upload.render({
+            elem: '.layui-upload'
+            ,url: "{:url('upload/upload')}?flag=site"
+            ,method: 'post'
+            ,before: function(input) {
+                layer.msg('文件上传中...', {time:3000000});
+            },done: function(res, index, upload) {
+                var obj = this.item;
+                if (res.code == 0) {
+                    layer.msg(res.msg);
+                    return false;
+                }
+                layer.closeAll();
+                var input = $(obj).parent().parent().find('.upload-input');
+                if ($(obj).attr('lay-type') == 'image') {
+                    input.siblings('img').attr('src', res.data.file).show();
+                }
+                input.val(res.data.file);
+
+                if(res.data.thumb_class !=''){
+                    $('.'+ res.data.thumb_class).val(res.data.thumb[0].file);
+                }
+            }
+        });
+
+        $('.upload-input').hover(function (e){
+            var e = window.event || e;
+            var imgsrc = $(this).val();
+            if(imgsrc.trim()==""){ return; }
+            var left = e.clientX+document.body.scrollLeft+20;
+            var top = e.clientY+document.body.scrollTop+20;
+            $(".showpic").css({left:left,top:top,display:""});
+            if(imgsrc.indexOf('://')<0){ imgsrc = ROOT_PATH + '/' + imgsrc;	} else{ imgsrc = imgsrc.replace('mac:','http:'); }
+            $(".showpic_img").attr("src", imgsrc);
+        },function (e){
+            $(".showpic").css("display","none");
+        });
+
+
+    });
+
+    function test_cache(){
+        var type = $("input[name='app[cache_type]']:checked").val();
+        var host = $("input[name='app[cache_host]']").val();
+        var port = $("input[name='app[cache_port]']").val();
+        var user_name =  $("input[name='app[cache_username]']").val();
+        var password = $("input[name='app[cache_password]']").val();
+        layer.msg('数据提交中...',{time:500000});
+        $.ajax({
+            url: "{:url('system/test_cache')}",
+            type: "post",
+            dataType: "json",
+            data: {type:type,host:host,port:port,username:user_name,password:password},
+            beforeSend: function () {
+            },
+            error:function(r){
+                layer.msg('发生错误，请检查是否开启扩展库和配置项!',{time:1800});
+            },
+            success: function (r) {
+                layer.msg(r.msg,{time:1800});
+            },
+            complete: function () {
+            }
+        });
+    }
+
+
+</script>
+
+</body>
+</html>

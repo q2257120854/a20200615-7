@@ -1,0 +1,64 @@
+<div class="container">
+<!-- 会员中心左侧 -->
+<div class="user-container">
+<div class="uc-box uc-sub-box">
+
+<div class="uc-nav-box">
+<div class="box-hd"><h3 class="title">订单中心</h3></div>
+<div class="box-bd">
+<ul class="uc-nav-list">
+<li <?php echo ($menutype == 'dingdan')? 'class="active"' : "" ;?>><a class="J_noRandom" href="shops_orders.php">我的订单</a></li>
+<li <?php echo ($menutype == 'kecheng')? 'class="active"' : "" ;?>><a class="J_tuanList" href="mypay.php">我的课程</a></li>
+<li <?php echo ($menutype == 'jiaocai')? 'class="active"' : "" ;?>><a class="J_tuanList" href="mydoc.php">我的教材</a></li>
+<li <?php echo ($menutype == 'mynian')? 'class="active"' : "" ;?>><a class="J_tuanList" href="mynian.php">我的年费</a></li>
+</ul>
+</div>
+</div>
+
+<div class="uc-nav-box">
+<div class="box-hd"><h3 class="title">个人中心</h3></div>
+<div class="box-bd">
+<ul class="uc-nav-list">
+<li  <?php echo ($menutype == 'pm')? 'class="active"' : "" ;?>><a href="pm.php">消息通知 <?php
+       $pms = $dsql->GetOne("SELECT COUNT(*) AS nums FROM #@__member_pms WHERE toid='{$cfg_ml->M_ID}' AND `hasview`=0 AND folder = 'inbox'");
+		if($pms['nums'] > 0)
+		{
+			echo "<i class='total-unread-count'>{$pms['nums']}</i>";
+		}
+		elseif($pms['nums']==0)
+		{
+			echo "";
+		}
+       ?></a></li>
+<li <?php echo ($menutype == 'mystow')? 'class="active"' : "" ;?>><a href="mystow.php">收藏的课程</a></li>
+<li <?php echo ($menutype == 'xihuan')? 'class="active"' : "" ;?>><a href="xihuan.php">喜欢的商品</a></li>
+<li  <?php echo ($menutype == 'shouhuo')? 'class="active"' : "" ;?>><a href="edit_fullinfo.php">收货地址</a></li>
+</ul>
+</div>
+</div>
+
+<div class="uc-nav-box">
+<div class="box-hd"><h3 class="title">售后服务</h3></div>
+<div class="box-bd">
+<ul class="uc-nav-list">
+<li <?php echo ($menutype == 'myfuwu')? 'class="active"' : "" ;?>><a href="myfuwu.php">申请服务</a></li>                
+</ul>
+</div>
+</div>
+
+<div class="uc-nav-box">
+<div class="box-hd"><h3 class="title">账户管理</h3></div>
+<div class="box-bd">
+<ul class="uc-nav-list">
+<li <?php echo ($menutype == 'jinbi')? 'class="active"' : "" ;?>><a href="buy.php">我的金币</a></li>
+<li <?php echo ($menutype == 'mydwz')? 'class="active"' : "" ;?>><a href="index.php">个人信息</a></li>
+<li <?php echo ($menutype == 'mima')? 'class="active"' : "" ;?>><a href="edit_baseinfo.php" >修改密码</a></li>                     
+</ul>
+</div>
+</div>
+
+
+
+</div>
+</div>
+<!-- 会员中心左侧 End -->

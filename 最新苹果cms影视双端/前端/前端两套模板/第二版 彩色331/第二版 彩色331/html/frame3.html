@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>精选</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../css/auislide.css" />
+    <link rel="stylesheet" type="text/css" href="./frame/css/d.css" />
+</head>
+
+<body>
+    <header id="header">
+        <div id="aui-slide" class="fx-box">
+            <div id="slidebox" class="aui-slide-wrap">
+                <div class="aui-slide-node bg-dark" tapmode onclick="toBanner('{{= value. url }}','{{= value. vod_id }}','{{= value. patternn }}','{{= value. vod_name }}','{{= value. type_id }}','{{= value. vod_area }}')" >
+                    <span style="position:absolute;color:#fff;font-size:18px;margin:34% 0 0 0;text-align:center">{{= value. title }}</span>
+                    <img width="100%" height="100%"  src="../image/f3/fuliyujiazai.png" />
+                </div> 
+            </div>
+            <div class="aui-slide-page-wrap">
+			</div>
+        </div>
+    </header>
+    <section>
+        <div class="hote_title">
+            <span>HOTE</span> 精彩推荐
+        </div>
+    </section>
+    <section>
+        <ul  id="list">
+           
+        </ul>
+    </section>
+</body>
+<script type="text/x-dot-template" id="bannertpl">
+    {{~ it.data : value : index }}
+        <div class="aui-slide-node bg-dark" tapmode onclick="toBanner('{{= value. url }}','{{= value. vod_id }}','{{= value. patternn }}','{{= value. vod_name }}','{{= value. type_id }}','{{= value. vod_area }}')" >
+            <span style="position:absolute;color:#fff;font-size:18px;margin:34% 0 0 0;text-align:center">{{= value. title }}</span>
+            <img width="100%" height="100%"  src="{{= value. image }}" />
+        </div> 
+    {{~}}
+</script>
+<script type="text/x-dot-template" id="dy_tp">
+    {{~ it : value : index }}
+    <li tapmode onclick="tocom('{{= value. url }}','{{= value. type }}')">
+        <div class="li_img"><img src="{{= value. image }}" alt=""></div>
+        <div>{{= value. title }}</div>
+    </li>
+    {{~}}
+</script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/doT.js"></script>
+<script type="text/javascript" src="../script/auislide.js"></script>
+<script src="./public/public_b.js"></script>
+<script src="./frame/js/d.js"></script>
+
+</html>

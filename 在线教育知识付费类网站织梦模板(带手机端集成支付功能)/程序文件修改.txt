@@ -1,0 +1,51 @@
+
+
+下面列出来的这些织梦核心文件【约14个】，每个文件都需要把里面的域名，替换成自己的网站域名，不然很多地方会出错。
+
+域名为：http://www.test.com    http://m.test.com    请用相关工具，批量替换。如果不是这两个域名，切勿替换！
+
+
+全局函数：/include/extend.func.php
+                /include/common.func.php
+
+支付页面的反馈链接：
+
+微信支付-电脑端：/member/weixinpay/ok.php
+微信支付-手机端：/m/member/weixinpay/ok.php
+
+支付宝-电脑端：/plus/ok.php
+支付宝-手机端：/include/payment/alipaym.php
+
+
+伪静态规则文件：web.config（网站根目录）
+
+
+网站问答/评论：/m/shopping_ajaxpp.php
+
+手机端新闻列表-下拉加载功能：     listajax.php（网站根目录）
+                                             /m/listajax.php
+                                          /m/listajaxnf.php
+
+已购课程：/m/member/templets/operation_ke.htm
+
+我的收藏：/m/member/templets/mybodan.htm
+
+课程分销：/m/member/templets/tui_shouyi.htm
+
+
+网站前端通用模板文件（约6个）：/templets/d1w2z3（需要替换文件里面的域名）
+
+searchvideo_m
+
+list_nianfei_m
+
+list_article_m
+
+list_fenlei_m
+
+list_ketop_m
+
+list_xinke_m
+
+
+

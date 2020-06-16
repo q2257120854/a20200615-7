@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+    <link rel="stylesheet" href="../../css/font-awesome.css">
+    <link rel="stylesheet" href="./css/a.css">
+</head>
+<body>
+    <section class="dplayer">
+        <div id="dplayer"></div>
+    </section>
+    <section class="one_m">
+        <div class="vod_name"><span  id="vod_name">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;<span id="dangqianji"></span> <span class="jianjie" onclick="detail()">简介<i class="icon-angle-right"></i></span></div>
+        <div class="vod_type"><span style="color: #fe2650;" id="vod_score">&nbsp;&nbsp;&nbsp;&nbsp;</span>·<span id="vod_type">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+        <div class="vod_content" id="vod_content"><p style="height: 32px;"></p></div>
+        <div class="menu_s">
+            <div class="menu_right">
+                <i class=" icon-share"></i>
+                <i class="icon-download-alt"></i>
+                <i id="collection">
+                    <i  onclick="collection()" class="icon-star-empty"></i>
+                </i>
+            </div>
+            <i class="icon-comments-alt" onclick="tc_plck()"><sup style="color: #14b7ff;font-size: 12px;" id="comment_count">484</sup></i>
+        </div>
+    </section>
+    <section class="two_m">
+        <div class="xuanji" id="zhankai">选集 <span class="jianjie" onclick="zhan()">展开<i class="icon-angle-right"></i></span></div>
+        <div class="ly-box" id="ly_pid">
+            <div style="height: 30px;"></div>
+        </div>
+        <div class="slide-box" id="xuanji_pid">
+            <div style="height: 30px;" ></div>
+        </div>
+    </section> 
+    <section class="cainixh">
+        <div class="tuijian">猜你喜欢</div>
+        <div class="tj-box" id="tuijian_pid">
+            <div class="tj-item" >
+                
+            </div>
+            
+            <script type="text/x-dot-template" id="tuijian_tp">
+                {{~ it : value : index }}
+                <div class="tj-item" id="" tapmode onclick="vod_play('{{= value. vod_id }}','{{= value. vod_name }}','{{= value. type_id }}','{{= value. vod_area }}')">
+                    <div class="bg_img" style="background-image: url('{{= value. vod_pic }}');"></div>
+                    <div class="vod_title">{{= value. vod_name }}</div>
+                </div>
+                {{~}}
+            </script>
+        </div>
+    </section>
+    <section class="pl-section">
+        <div class="yppl">精彩评论</div>
+        <div>
+            <ul id="comment_list">
+                
+            </ul>
+        </div>
+        
+    </section>
+    <footer>
+        <div>
+            <div class="foot_left"><i class=" icon-edit"></i><input id="pl_msg" type="text" placeholder="想吐槽，直接来"></div>
+           <span id="pl_check"> <i class=" icon-comments-alt"><sup style="color: #14b7ff;font-size: 12px;" id="comment_count_b">484</sup></i></span>
+        </div>
+    </footer>
+</body>
+<script type="text/x-dot-template" id="comment_tp">
+    {{ for(var i=0, commentlen=it.length; i<commentlen; i++) { }}
+    <li>
+        <div style="margin: 16px 0px;">
+            <div>
+                <img src="{{= it[i].user_portrait }}" alt="" style="height: 38px; width: 38px;border-radius: 20px;box-shadow: 0.1rem 0.1rem 0.6em 0.1rem rgba(99, 99, 99, 0.29);">
+                    <div style="position: relative;
+                top: -38px;
+                width: 84%;
+                left: 44px;">
+                    <p>{{= it[i].comment_name }}</p>
+                    <p  class="comment_time">{{= it[i].comment_time }}</p>
+                    <span style="    position: relative;
+                    left: 68%;
+                    top: -30px;">
+                        <i class="icon-edit" style="margin-right: 6px;"></i>
+                        <i class=" icon-thumbs-up"  onclick="digg('{{= it[i].comment_id }}','up')" ><sub>{{= it[i].comment_up }}</sub></i>
+                        <i class="icon-thumbs-down"  onclick="digg('{{= it[i].comment_id }}','down')"><sub>{{= it[i].comment_down }}</sub></i>
+                    </span>
+                </div>
+            </div>
+            
+            <div style=" margin-top: -50px;
+            line-height: 26px;
+            border-radius: 8px;
+            padding: 0px 4px;
+            ">
+               {{= it[i].comment_content }}
+            </div>
+        </div>
+        
+        {{ for(var j=0, listlen=it[i]['list'].length; j<listlen; j++) { }} 
+        <div style="margin: 16px 0px 16px 36px;">
+            <div>
+                <img src="{{= it[i]['list'][j].user_portrait }}" alt="" style="height: 38px; width: 38px;border-radius: 20px;box-shadow: 0.1rem 0.1rem 0.6em 0.1rem rgba(99, 99, 99, 0.29);">
+                    <div style="position: relative;
+                top: -38px;
+                width: 84%;
+                left: 44px;">
+                    <p>{{= it[i]['list'][j].comment_name }}</p>
+                    <p  class="comment_time">{{= it[i]['list'][j].comment_time }}</p>
+                    <span style="    position: relative;
+                    left: 78%;
+                    top: -30px;">
+                        <i class=" icon-thumbs-up" onclick="digg('{{= it[i]['list'][j].comment_id }}','up')" ><sub>{{= it[i]['list'][j].comment_up }}</sub></i>
+                        <i class="icon-thumbs-down" onclick="digg('{{= it[i]['list'][j].comment_id }}','down')"><sub>{{= it[i]['list'][j].comment_down }}</sub></i>
+                    </span>
+                </div>
+            </div>
+            
+            <div style="    margin-top: -50px;line-height: 26px;">
+                {{= it[i]['list'][j].comment_content }}
+            </div>
+        </div>
+        {{ } }}
+    </li>
+    {{ } }}
+</script>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/doT.js"></script>
+<script type="text/javascript" src="../../script/jquery.js"></script>
+<script src="./js/a.js"></script>
+</html>

@@ -1,0 +1,42 @@
+.login-third {
+    margin-top: 3rem;
+}
+body{
+    background: linear-gradient(to right,#f370af 0,#5515ee 100%);
+    /* background-image: url("../../image/lockplay_bg_vect.png");
+    background-size: 100%; */
+}
+.welcome h1{
+    font-weight: 600;
+    margin-bottom: 20%;
+    color: #fff;
+}
+section{
+    margin: auto 10%;
+}
+.aui-btn-block.aui-btn-sm{
+    width: 70%;
+    margin: 0px auto;
+    border-radius: 20px;
+}
+.aui-content-padded {
+    margin-top: 60px;
+}
+.user_name input{
+    color: #fff;
+}
+.user_name{
+    margin-bottom: 20px;
+}
+.password input{
+    color: #fff;
+}
+.aui-grid img{
+    width: 16%;
+}
+#eye{
+    float: right;
+    color: #14b7ff;
+    position: relative;
+    top: -30px;
+}

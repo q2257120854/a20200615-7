@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{dede:field.seotitle /}_{dede:global.cfg_webname/}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="{dede:global.mcfg_basehost/}/m-css/m-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{dede:global.mcfg_basehost/}/m-js/jquery.js"></script>
+<script type="text/javascript" src="{dede:global.mcfg_basehost/}/m-css/app.css.php?format=js&v=1.01"></script>
+<style type="text/css">
+.wrapper{padding-bottom:0;}
+
+/*加载中*/
+.yxw-list-loading{width:100%;height:50px;line-height:50px;color:#757575;background:#f0f0f0;text-align:center;font-size:14px;}
+</style>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar">
+<div class="searchbar_index">
+<h2>全部课程</h2>
+<a href="javascript:history.go(-1);" class="top_nav_left"></a>
+<a class="courses-search" id="JenIpt"></a>
+</div>
+</div>
+<!-- TOP End -->
+
+
+<div class="wrapper">
+
+<!-- 课程列表 -->
+<div class="m-header-video">
+<ul class="content_list listqu">
+{dede:php}
+echo JJGetTypeList(1,12);
+{/dede:php}
+</ul>
+</div>
+<!-- 课程列表 End -->
+
+<div class="yxw-list-loading tishik" page="1" pagesize="12">正在加载中...</div>
+
+</div>
+
+<script>
+function getSubstr(ret,strs,stre)
+{
+var deps = ret.indexOf(strs)+strs.length;
+if (stre == "")
+var depe = ret.length;
+else
+var depe = ret.indexOf(stre);
+var dep = ret.substr(deps,depe-deps);
+return dep;
+}
+function trim(str){ 
+return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+var cha = 650;
+var f = true;
+var u = '';
+var str = '';
+var r = '';
+var pagesizeV = $(".tishik").attr("pagesize");
+    $(document).scroll(function(){
+            //滚动条滑动的时候获取滚动条距离顶部的距离
+            var scroll=$(document).scrollTop();
+            //屏幕的高度
+            var client=$(window).height();
+            var h=$(document).height();
+            var flag=true;
+            if (h<=scroll+client+100) { // 到达底部时,加载新内容
+if(f){
+f = false;
+$(".tishik").html("正在加载中...");
+var pageV = $(".tishik").attr("page");
+pageV = parseInt(pageV) + 1 ;
+$.post("{dede:global.mcfg_basehost/}/plus/jjajax.php",{a:"GetPage",page:pageV,pagesize:pagesizeV},function(result){
+  $(".tishik").attr("page",pageV);
+  if(result==''){
+  $(".tishik").html("更多课程，敬请期待");
+  return;
+  }else{
+  $(".listqu").append(result);
+  init_app_alink();
+  f = true;
+  }     
+});    
+}
+}
+});
+</script>
+
+
+<!-- 返回顶部 -->
+<div class="mall-totop" onclick="window.scrollTo(0,0);"></div>
+<script src="{dede:global.mcfg_basehost/}/m-js/mall-top.js"></script>
+
+
+<script type="text/javascript">
+$(function(){
+    lazyRender();
+})
+$(window).on('scroll',function () {
+    lazyRender();
+})
+function lazyRender () {
+    $('img').each(function () {
+        //解决没缩略图的
+        if($(this).attr('src') == undefined)
+        {
+            $(this).attr("src","{dede:global.cfg_basehost/}/images/yxw-sc-bg.gif");
+        }
+        if (checkShow($(this)) && !isLoaded($(this)) ){
+            loadImg($(this));
+        }
+        if($(this).attr('src') == '{dede:global.cfg_basehost/}'){$(this).attr("src","{dede:global.cfg_basehost/}/images/yxw-sc-bg.gif");}
+    })
+}
+function checkShow($img) { // 传入一个img的jq对象
+    var scrollTop = $(window).scrollTop();  //即页面向上滚动的距离
+    var windowHeight = $(window).height(); // 浏览器自身的高度
+    var offsetTop = $img.offset().top;  //目标标签img相对于document顶部的位置
+    if (offsetTop < (scrollTop + windowHeight) && offsetTop > scrollTop) { //在2个临界状态之间的就为出现在视野中的
+        return true;
+    }
+    return false;
+}
+function isLoaded ($img) {
+    return $img.attr('data-src') === $img.attr('src'); //如果data-src和src相等那么就是已经加载过了
+}
+function loadImg ($img) {
+    // $img.css('display','none');
+    $img.attr('src',$img.attr('data-original')).fadeIn(300); // 加载就是把自定义属性中存放的真实的src地址赋给src属性
+}
+</script>
+
+
+<!-- 课程搜索 -->
+<div id="JwapSearch" class="m-search-pnl">
+<div id="JwsClose" class="top_nav_left"></div>
+<div class="ysearch-box">
+<form method="post" name="f1" action="{dede:global.mcfg_basehost/}/search.php" onsubmit="return checkSearchForm()">
+<input type="hidden" name="kwtype" value="0" />
+<input type="hidden" id="driverId" name="channeltype" value="17" />  
+<input type="text" class="yfixtext" id="keyword" name="keyword" placeholder="搜索您感兴趣的课程" autocomplete="off">
+<input type="submit" class="fixsbmt" value="">
+</form>
+</div>
+</div>
+<!-- 课程搜索 End -->
+<script type="text/javascript">
+  function checkSearchForm(){
+  if(document.getElementById('keyword').value){
+    return true;
+    }else{
+   alert("请输入课程关键字哦");
+    return false;
+    }
+    }
+</script>
+<script>
+(function(){var searchWrapObj=document.getElementById("JwapSearch");searchWrapObj&&document.body.appendChild(searchWrapObj);var sentFlag=false;var submitFlag=false;if(-1==window.location.pathname.indexOf("bbs")){showSeriesViewed()}function showSeriesViewed(){var COOKIE_NAME="LAST_VIEW_CHEXIS";var cookieValue=decodeURI(decodeURIComponent(document.cookie.replace(new RegExp(".*(?:^|; )"+COOKIE_NAME+"=([^;]*).*|.*"),"$1")));var historyObj=document.getElementById("JviewHistory");if(!cookieValue||!historyObj){return}var valueArr=cookieValue.split(",");var html="";for(var i=0;i<valueArr.length&&i<3;i++){var data=valueArr[i].split("-");if(data.length<2){continue}html+=''+data[0]+'/">'+data[1]+"</a>"}if(""!=html){historyObj.innerHTML=""+html;historyObj.style.display="block"}}var SHOW_PANNEL_CLASS="m-full-pnl";var DISABLE_SCROLL_CLASS="m-disb-scroll";var htmlObj=document.documentElement;function hasClass(el,className){if(el.classList){return el.classList.contains(className)}return !!el.className.match(new RegExp("(\\s|^)"+className+"(\\s|$)"))}function addClass(el,className){if(el.classList){el.classList.add(className)}else{!hasClass(el,className)&&(el.className+=" "+className)}}function rmvClass(el,className){if(el.classList){el.classList.remove(className)}else{hasClass(el,className)&&(el.className=el.className.replace(new RegExp("(\\s|^)"+className+"(\\s|$)")," "))}}var enIptObj=document.getElementById("JenIpt");var iptObj=document.getElementById("JwsIpt");enIptObj&&enIptObj.addEventListener("click",function(){if(-1==window.location.pathname.indexOf("bbs")){getHotSeries()}loadSearchJS();htmlObj.setAttribute("data-y",document.body.scrollTop);addClass(htmlObj,SHOW_PANNEL_CLASS);searchWrapObj&&(searchWrapObj.scrollIntoView());addClass(htmlObj,DISABLE_SCROLL_CLASS);var tmpIptObj=document.search&&document.search.q;if(tmpIptObj){tmpIptObj.value="";tmpIptObj.focus()}loadLike()});var closeObj=document.getElementById("JwsClose");closeObj&&closeObj.addEventListener("click",function(){iptObj&&enIptObj&&(enIptObj.value=iptObj.value);rmvClass(htmlObj,DISABLE_SCROLL_CLASS);var setY=htmlObj.getAttribute("data-y");setY&&(document.body.scrollTop=setY);rmvClass(htmlObj,SHOW_PANNEL_CLASS)});var enSubmitObj=document.getElementById("JenSubmit");enSubmitObj&&enSubmitObj.addEventListener("click",clickBtnSubmit);var submitObj=document.getElementById("JwsSubmit");submitObj&&submitObj.addEventListener("click",clickBtnSubmit);function clickBtnSubmit(){submitFlag=true;if("function"!=typeof wapSearchSubmit){loadSearchJS();return false}wapSearchSubmit()}function loadSearchJS(){if(sentFlag){return}sentFlag=true;var scriptObj=document.createElement("script");scriptObj.src="";scriptObj.charset="utf-8";var headObj=document.getElementsByTagName("head")[0];headObj.appendChild(scriptObj);scriptObj.onload=scriptObj.onreadystatechange=function(){var f=scriptObj.readyState;if(f&&f!="loaded"&&f!="complete"){return}scriptObj.onload=scriptObj.onreadystatechange=null;ks_search();if(submitFlag){wapSearchSubmit()}}}function getHotSeries(){var hotSeriesObj=document.getElementById("JhotSeries");var record=localStorage.getItem("wapSearchRecord");if(record!=null||!hotSeriesObj){return}loadScript(location.protocol+"",function(data){var html="";var seriesArr=data.data;if(seriesArr.length<0){return}for(var i=0,len=seriesArr.length;i<len;i++){var result=seriesArr[i];html+=''+result.id+'/" title="'+result.title+'">'+result.title+"</a>"}if(""!=html){hotSeriesObj.innerHTML=""+''+html+"";hotSeriesObj.style.display="block"}},"showHotseries")}function getParam(url,name){if(!url||!name){return}var name=name.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");var regex=new RegExp("[\\?&]"+name+"=([^&#]*)");var results=regex.exec(url);return(null==results?null:results[1])}function loadScript(url,fn,callbackName,charset){var cbName=getParam(url,"jsCallBack");var callbackName=cbName||callbackName;var cb=cbName||!callbackName?"":"jsCallBack="+callbackName;var pos=url.indexOf("?")+1;if(cb){url=0==pos?(url+"?"+cb):(url.substring(pos,-1)+cb+"&"+url.substring(pos))}if("function"==typeof fn&&callbackName){window[callbackName]=fn}var headElm=document.getElementsByTagName("head")[0];var scriptElm=document.createElement("script");scriptElm.src=url;if(charset){scriptElm.charset=charset}headElm.appendChild(scriptElm);scriptElm.onload=scriptElm.onreadystatechange=function(){var f=scriptElm.readyState;if(f&&f!="loaded"&&f!="complete"){return}if("function"==typeof fn&&!cb){fn()}if(!cbName&&window[callbackName]){delete window[callbackName]}scriptElm.onload=scriptElm.onreadystatechange=null;headElm.removeChild(scriptElm)}}function getCookie(d){var b=d+"=";var a=document.cookie.split(";");for(var e=0;e<a.length;e++){var f=a[e];while(f.charAt(0)==" "){f=f.substring(1)
+}if(f.indexOf(b)!=-1){return f.substring(b.length,f.length)}}return""}var allPage=1;var changePage=1;var likeSerials=[];function loadLike(){var uValue=getCookie("u");var html="";loadJS("",function(){loadJS("",function(){Locate.defaultData={};LocateAuto.defaultData={proId:5,cityId:1,url:""};LocateAuto.init({callback:function(data){var cityId=data.cityId;$.ajax({url:"",data:{uid:uValue,cityId:cityId},dataType:"jsonp",success:function(res){likeSerials=res;allPage=Math.ceil(res.length/8);for(var i=0;i<8;i++)document.getElementById("JwsLike").innerHTML=html}})}})},"utf-8")},"utf-8")}document.getElementById("JwsChange").onclick=function(){var html="";{var len=changePage*8;for(var i=(changePage-1)*8;i<len;i++){if(likeSerials[i]){html+=''}}document.getElementById("JwsLike").innerHTML=html}};iptObj.addEventListener("blur",function(e){!iptObj.value&&(iptObj.value=quotes[Math.floor(Math.random()*quotes.length)])})})();</script>
+<!-- 课程搜索 End -->
+
+</body>
+</html>

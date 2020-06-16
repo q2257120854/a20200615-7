@@ -1,0 +1,48 @@
+{include file="public/header" /}
+
+
+
+<div class="page">
+    <div class="fixed-bar">
+        <div class="item-title">
+            <div class="subject">
+                <h3>{$Think.lang.wechat_template_message}</h3>
+                <h5></h5>
+            </div>
+        </div>
+    </div>
+
+    <form id='Wechat_form' method="post"  name="form1">
+            <table class="ds-default-table">
+                <tbody>
+                    <tr class="noborder"> 
+                        <td class="required w150"><label class="" for="wechat_tm_order_pay">{$Think.lang.order_pay_notice}:</label></td>
+                        <td class="vatop rowform"><input id="wechat_tm_order_pay" name="wechat_tm_order_pay" value="{$list_config.wechat_tm_order_pay}" class="input-txt w400" type="text"></td>
+                        <td class="vatop tips">{$Think.lang.order_pay_notice_tips}</td>
+                    </tr>
+                    <tr class="noborder"> 
+                        <td class="required w150"><label class="" for="wechat_tm_order_send">{$Think.lang.order_send_notice}:</label></td>
+                        <td class="vatop rowform"><input id="wechat_tm_order_send" name="wechat_tm_order_send" value="{$list_config.wechat_tm_order_send}" class="input-txt w400" type="text"></td>
+                        <td class="vatop tips">{$Think.lang.order_send_notice_tips}</td>
+                    </tr>
+                    <tr class="noborder"> 
+                        <td class="required w150"><label class="" for="wechat_tm_order_refund">{$Think.lang.order_refund_notice}:</label></td>
+                        <td class="vatop rowform"><input id="wechat_tm_order_refund" name="wechat_tm_order_refund" value="{$list_config.wechat_tm_order_refund}" class="input-txt w400" type="text"></td>
+                        <td class="vatop tips">{$Think.lang.order_refund_notice_tips}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="tfoot">
+                        <td colspan="15"><input class="btn" type="submit" value="{$Think.lang.ds_submit}"/></td>
+                    </tr>
+                </tfoot>
+            </table>
+    </form>
+</div>
+
+
+
+
+
+
+

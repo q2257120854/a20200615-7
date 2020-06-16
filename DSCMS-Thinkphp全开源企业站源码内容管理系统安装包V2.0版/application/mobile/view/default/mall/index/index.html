@@ -1,0 +1,81 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+
+<link rel="stylesheet" href="{$Think.PLUGINS_SITE_ROOT}/swiper/css/swiper.min.css">
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        {dstaglib:adv ap_id='2' limit='10' item='v'}
+        <div class="swiper-slide">
+            <a href="{$v.adv_link}">
+                <img src="{$Think.UPLOAD_SITE_URL}/{$Think.ATTACH_ADV}/{$v.adv_code}" alt="{$v.adv_title}" style="width:100%">
+            </a>
+        </div>
+        {/dstaglib:adv}
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+
+<div class="index-title-1 mt10">
+    <h2>成功案例</h2>
+    <p>国内最优秀的电商平台及相关系统服务商</p>
+</div>
+<div class="index-list-1 mb10">
+    <ul>
+        {foreach name="cases_list" item="cases"}
+        <li>
+            <a href="{:url('cases/detail',['cases_id'=>$cases.cases_id])}">
+                <div class="p-img">
+                    <img src="{:get_cases_img($cases.cases_imgurl)}"/>
+                </div>
+                <div class="p-info"><p>{$cases.cases_title}</p></div>
+            </a>
+        </li>
+        {/foreach}
+    </ul>
+    <a class="index-more" href="{:url('Cases/search')}" title="更多案例">更多</a>
+</div>
+<div class="index-title-1">
+    <h2>推荐产品</h2>
+    <p>国内最优秀的电商平台及相关系统服务商</p>
+</div>
+<div class="index-list-1 mb10">
+    <ul>
+        {foreach name="product_list" item="product"}
+        <li>
+            <a href="{:url('product/detail',['product_id'=>$product.product_id])}">
+                <div class="p-img">
+                    <img src="{:get_product_img($product.product_imgurl)}"/>
+                </div>
+                <div class="p-info"><p>{$product.product_title}</p></div>
+            </a>
+        </li>
+        {/foreach}
+    </ul>
+    <a class="index-more" href="{:url('Product/search')}" title="更多产品">更多</a>
+</div>
+<div class="index-title-1">
+    <h2>新闻资讯</h2>
+    <p>国内最优秀的电商平台及相关系统服务商</p>
+</div>
+<div class="index-list-2">
+    <ul>
+        {foreach name="news_list" item="news"}
+        <li>
+            <a href="{:url('news/detail',['news_id'=>$news.news_id])}"><i></i>
+                <h3>{$news.news_title}</h3>
+                <span class="time">{$news.news_addtime|date='Y-m-d',###}</span>
+            </a>
+        </li>
+        {/foreach}
+    </ul>
+</div>
+
+<script src="{$Think.PLUGINS_SITE_ROOT}/swiper/js/swiper.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    });
+</script>
+{/block}

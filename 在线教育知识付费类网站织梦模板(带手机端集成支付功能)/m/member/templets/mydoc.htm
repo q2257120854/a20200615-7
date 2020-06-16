@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的教材 - <?php echo $cfg_webname; ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="apple-touch-icon-precomposed" href="http://m.duoweizi.net/images/57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://m.duoweizi.net/images/72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://m.duoweizi.net/images/144x144.png" />
+<link href="/m-css/m-index.css" rel="stylesheet" type="text/css">
+<link href="/m-css/m-user-index.css" rel="stylesheet" type="text/css">
+<script src="/m-js/TouchSlide.1.1.js"></script>
+<script src="/m-js/header.mini.js"></script>
+<script type="text/javascript" src="/m-js/top-bar.js"></script>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar" id="topbar">
+<div class="searchbar_index">
+<a href="javascript:history.go(-1);" title="返回上一页" class="top_nav_left"></a>
+<h1>我的教材</h1>
+</div>
+</div>
+<!-- TOP End -->
+
+<div class="wrapper_doc">
+
+<ul class="" id="content">
+{dede:datalist}
+<li class="item" style="width:100%">
+<div class="m-user-dingdan">
+<div class="m-user-dingdan-box">
+<p class="m-user-dingdan-hao">编号：<?php echo $fields['buyid']; ?></p>
+<p class="m-user-dd-xinxi"><?php echo GetDateTimeMk($fields['mtime']); ?></p>
+</div>
+
+<!-- 教材信息 -->
+<div class="m-mall-mall3">
+<a href="<?php echo '/plus/view.php?aid='.str_replace('ARCHIVE', '', $fields['buyid']); ?>">
+<img src="<?php $naid = str_replace('ARCHIVE', '', $fields['buyid']); $lll = $dsql->GetOne("SELECT litpic FROM `#@__archives` WHERE id='$naid' "); echo mstrone($lll['litpic']);?>">
+<div class="m-mall-ming3">
+<p class="m-mall-m-title3"><?php  echo $fields['oldinfo']; ?></p>
+</div>
+</a>
+</div>
+<!-- 教材信息 -->
+
+<!-- 金额 -->
+<p class="m-caption-price">金额：<span class="m-num"><?php echo $fields['money']; ?></span>元</p>
+<!-- 金额 End -->
+
+<!-- 评价 -->
+<div class="m-user-dingdan-pl">
+<?php if($fields['psta']!=1) echo "<a href='fuping.php?buyid={$fields['buyid']}' class='m-btn-small' >评价</a>"; ?>
+</div>
+<!-- 评价 End -->
+
+</div>
+</li>
+{/dede:datalist}
+</ul>
+
+<div class="duoweizi_pages" style="display:none;"><ul id="page-nav">{dede:pagelist listitem="next"/}</ul></div>
+
+<!-- 返回顶部 -->
+<div class="mall-totop" title="返回顶部" onclick="window.scrollTo(0,0);"></div>
+<script src="/m-js/mall-top.js"></script>
+<!-- 返回顶部 End -->
+
+</div>
+
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/jquery.masonry.min.js"></script>
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/jquery.infinitescroll.js"></script>
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/manual-trigger.js"></script>
+<script type="text/javascript" src="http://m.duoweizi.net/m-js/all.js"></script>
+
+</body>
+</html>

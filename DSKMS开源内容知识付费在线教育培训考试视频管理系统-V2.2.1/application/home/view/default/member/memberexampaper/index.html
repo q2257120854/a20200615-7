@@ -1,0 +1,19 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+<div class="exampaper_index mt10 mb10">
+    <div class="w1200">
+        <ul>
+            {notempty name="exampaper_list"}
+            {foreach name="exampaper_list" item="exampaper"}
+            <li><i class="iconfont">&#xe687;</i>
+                <a href="{:url('exampaper/answer',['exampaper_id'=>$exampaper.exampaper_id])}">{$exampaper.exampaper_name}
+                </a>
+            </li>
+            {/foreach}
+            {else /}
+            <li>{$Think.lang.article_article_no_new_article}</li>
+            {/notempty}
+        </ul>
+    </div>
+</div>
+{/block}

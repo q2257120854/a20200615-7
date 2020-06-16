@@ -1,0 +1,12 @@
+<ul class="caipu-shicai">
+	<li class="yxw-yl-li">
+		<span class="yongliao-left">土豆</span><span class="yongliao-right">适量</span></li>
+	<li class="yxw-yl-li">
+		<span class="yongliao-left">调和油</span><span class="yongliao-right">少量</span></li>
+	<li class="yxw-yl-li">
+		<span class="yongliao-left">酱料</span><span class="yongliao-right">少许</span></li>
+	<li class="yxw-yl-li">
+		<span class="yongliao-left">葱花</span><span class="yongliao-right">少许</span></li>
+	<li class="yxw-yl-li">
+		<span class="yongliao-left">食盐</span><span class="yongliao-right">少许</span></li>
+</ul>

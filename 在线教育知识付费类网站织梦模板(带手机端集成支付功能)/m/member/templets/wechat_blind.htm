@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>微信APP绑定手机号</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="<?php echo $mcfg_basehost; ?>/m-css/m-index.css" rel="stylesheet" type="text/css">
+<link href="<?php echo $mcfg_basehost; ?>/m-css/m-user-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/jquery.js"></script>
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-css/app.css.php?format=js&v=1.01"></script>
+<style type="text/css">
+body{background:#fff;}
+.wrapper{padding-top:0;}
+.yxw-resetuserid{position:relative;}
+.m-m-yzm font{margin:0 15px 15px 15px;display:block;}
+.main.pt50{padding-top:50px;padding-bottom:50px;}
+.login_box{margin-top:16px;width:100%;}
+.login_box .login_box_inputw{margin:0 15px;}
+.login_box .login_box_inputw input{padding:16px 12px;color:#333;width:100%;box-sizing:border-box;border-radius:3px;font-size:16px;background:#f3f7fa;margin-bottom:15px;line-height:18px;}
+.login_box .submit{width:100%;background:#23b8ff;color:#fff;line-height:44px;height:44px;margin:10px 0;border-radius:3px;text-align:center;font-size:16px;}
+.login_box .forgetpw{font-size:14px;color:#297dcc;display:inline-block;margin-top:15px;}
+.m-3login-other{border-top:1px solid #eee;position:relative;margin:0 15px;margin-top:25px;}
+.m-3login-other span{background:#fff !important;font-size:14px;color:#999;padding:0 14px;position:absolute;top:-10px;left:50%;margin-left:-62px;}
+.m-3login-other ul{overflow:hidden;margin:25px 0 0;}
+.m-3login-other li{font-size:14px;height:40px;line-height:40px;text-align:center;margin:0 auto;width:50%;}
+.m-3login-other li a{color:#333;display:block;box-shadow:0 0 0 1px #eee inset;border-radius:5px;}
+.m-3login-other li.login-qq a{background:#fff;}
+.m-3login-other li.login-qq em{background:url(<?php echo $mcfg_basehost; ?>/m-images/m_ico_qqlogo.png) no-repeat left center;background-size:21px 24px;padding:6px 0 6px 30px;}
+.m-3login-other li.login-wechat em{background:url(<?php echo $mcfg_basehost; ?>/m-images/wechat.png) no-repeat left center;background-size:21px 24px;padding:6px 0 6px 30px;}
+
+/*登录改版样式*/
+.m-yxw-zhuche{width:100%;color:#ff700a;line-height:44px;height:44px;border-radius:3px;text-align:center;font-size:16px;border:1px solid #ff700a;display:block;box-sizing:border-box;margin-top:10px;}
+
+/*重置样式*/
+.m-yxw-logo{margin:16px auto 0;}
+</style>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar"><div class="searchbar_index"><a href="javascript:history.go(-1);" class="top_nav_left"></a><h1>绑定手机号</h1></div></div>
+<!-- TOP End -->
+<div style="height:45px;" class="appblank"></div>
+
+
+<div class="wrapper">
+<div class="login_box">
+<input type="hidden" value="<?php echo $_GET['thirdid']; ?>" id="thirdid" name="thirdid"/>
+<div class="login_box_inputw"><input type="text" name="userid" id="txtUsername" placeholder="请输入手机号" maxlength="11"></div>
+<div class="login_box_inputw yxw-resetuserid">
+<input type="text" name="mobilecode" id="mobilecode" placeholder="请输入验证码">
+<input id="zphone" type="button" value="获取验证码" style="width:120px;height:50px;line-height:50px;right:0;top:0;position:absolute;background:#f3f7fa;color:#297dcc;font-size:14px;-webkit-appearance:none;padding:0;margin-bottom:0;">
+</div>
+<div class="login_box_inputw"><button onclick="submit_post()" class="submit" type="button">绑定</button></div>
+</div>
+</div>
+
+
+<script>
+var ajaxing = 0;
+$("#zphone").click(function(){
+				if($("#txtUsername").val() == ""){
+				 alert("手机号不能为空");return false;
+				}
+				if (!/^(13[0-9]|14[0-9]|15[0-9]|16[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$/i.test($("#txtUsername").val())) {
+					 alert("手机号码不对,请正确填写");return false;
+				}	
+				sendMobileCode($("#txtUsername"), $("#mobilecode"), $(this));
+				});
+			function sendMobileCode(mobileObj, mobileCodeObj, sendButton) {
+						// 发送邮件
+						var url = 'reg_news.php';
+						$.post(url, {
+							XDEBUG_SESSION_START: 'ECLIPSE_DBGP',
+							txtUsername: mobileObj.val()
+						}, function(result) {
+							if (result == 'ok') {
+								// 倒计时
+								countdown(sendButton);
+							} else {
+								alert(result);
+							}
+						}, 'text');
+			}	
+			var wait = 60;
+			function countdown(obj, msg) {
+				obj = $(obj);
+
+				if (wait == 0) {
+					obj.removeAttr("disabled");
+					obj.val(msg);
+					wait = 60;
+				} else {
+					if (msg == undefined || msg == null) {
+						msg = obj.val();
+					}
+					obj.attr("disabled", "disabled");
+					obj.val(wait + "秒后重发");
+					wait--;
+					setTimeout(function() {
+						countdown(obj, msg)
+					}, 1000) 
+				}
+			}
+		function checkMobilePhone(mobile, callback) {
+			var submit_disabled = false;
+
+			var mobileObj = null;
+
+			if (typeof (mobile) == 'object') {
+				mobileObj = $(mobile);
+				mobile = mobileObj.val();
+			}
+
+			if (mobile == '') {
+                alert("手机号不能为空");return false;
+				submit_disabled = true;
+
+				if (mobileObj != null) {
+					mobileObj.focus();
+				}
+
+			} 
+			if (!/^(13[0-9]|14[0-9]|15[0-9]|16[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$/i.test(mobile)) {
+                 alert("手机号码不对,请正确填写");return false;
+			}
+			return true;
+		}
+
+function submit_post(){
+    var mobile = $("#txtUsername").val();
+    if(mobile == '' || !checkPhone(mobile)){
+		api.toast({msg : '请填写正确的手机号码',location: 'middle'});
+		return;
+    }
+   
+    var wxinfo_str = api.getPrefs({sync:true,key:'wxinfo'});
+	if(!wxinfo_str){
+	    api.toast({msg : '微信授权信息丢失,请重新获取',location: 'middle'});
+		return;
+	}
+	var mobilecode = $("#mobilecode").val();
+	if(mobilecode == ''){
+	   api.toast({msg : '请填写手机验证码',location: 'middle'});
+	   return;
+	}
+	
+    var data1 = {};	
+	data1.mobile = mobile;
+	data1.mobilecode = mobilecode;
+	data1.action = 'blind_user';
+	data1.thirdid = $("#thirdid").val();
+	
+	
+	api.ajax({
+              url:'<?php echo $mcfg_basehost; ?>/member/ajax_wechat.php',
+              method : 'post',
+              dataType: 'json',
+              data : {
+                   values: data1
+              },
+            },function(ret,err){
+                 console.log(JSON.stringify(ret));
+                 api.hideProgress();
+                 if(ret){
+                 if (ret.status == 1) {
+                   api.sendEvent({name : "reg_login",extra : 3});
+                 }else{
+                   api.toast({msg : ret.error});
+                 }
+               }else{
+                  api.toast({msg : '保存用户数据失败，请稍后再试'});
+               }
+     })
+	
+
+   
+}
+
+function checkPhone(phone) {
+      var res = !!phone.match(/^[1][3,4,5,6,7,8,9][0-9]{9}$/);
+      return res;
+}
+</script>
+
+</body>
+</html>

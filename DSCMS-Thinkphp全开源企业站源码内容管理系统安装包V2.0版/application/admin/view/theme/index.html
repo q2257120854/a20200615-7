@@ -1,0 +1,50 @@
+{extend name="layout:home" /}
+{block name="container"}
+<div class="layui-tab layui-tab-card">
+    {include file="layout/admin_items" /}
+    <div class="layui-tab-content page-tab-content">
+        <div class="explanation" id="explanation">
+            <div class="title" id="checkZoom">
+                <h4><b>当前主题</b> 您使用的是：{$list_config.template_name}</h4>
+            </div>
+        </div>
+        <table class="layui-table lay-even">
+            <colgroup>
+                <col width="300">
+                <col width="120">
+                <col width="200">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>主题名称</th>
+                    <th>主题模板</th>
+                    <th>主题状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {foreach name="theme_list" item="styles" key="template_name"}
+                {foreach name="styles" item="style_name"}
+                <tr>
+                    <td>{$template_name}-{$style_name}</td>
+                    <td><img src="{$Think.HOME_SITE_ROOT}/{$template_name}/styles/{$style_name}/preview.jpg" /></td>
+                    {if $list_config.template_name neq $template_name || $list_config.style_name neq $style_name}
+                    <td>未启用</td>
+                    <td>
+                        <a href="javascript:dsLayerConfirm('{:url('theme/setTemplate',['template_name'=>$template_name,'style_name'=>$style_name])}','{$Think.lang.ds_confirm_update}')" class="layui-btn layui-btn-normal layui-btn-xs">启用主题</a>
+                    </td>
+                    {else}
+                    <td>已启用</td>
+                    <td>
+                        <a href="{:url('Home/Index/index')}" target="_blank" class="layui-btn layui-btn-xs">前台查看</a>
+                    </td>
+                    {/if}
+                </tr>
+                {/foreach}
+                {/foreach}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="{$Think.ADMIN_SITE_ROOT}/js/jquery.edit.js"></script>
+{/block}

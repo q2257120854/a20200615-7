@@ -1,0 +1,30 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+<div class="common-banner mb20">
+    {dstaglib:adv ap_id='2' limit='1' item='v'}
+    <img class="lazy" data-original="{:get_adv_img($v.adv_code)}">
+    {/dstaglib:adv}
+</div>
+<div class="cases-search w1200">
+    <div class="mt mb20">
+        <div class="location">
+            <a href="/home/index/index.html" target="_blank" class="ml30">德尚网络</a>&gt;
+            <a href="/home/article/search/ac_id/3.html">友情链接</a>&gt;
+        </div>
+        <div class="nav mt10">
+            <a href="/home/article/search.html">全部</a>
+            <a href="/home/article/search/ac_id/1.html"></a>
+        </div>
+    </div>
+    <div class="mc clearfix">
+        <ul>
+            <li>
+                <div class="p_img">
+                </div>
+                <div class="p_name">
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+{/block}

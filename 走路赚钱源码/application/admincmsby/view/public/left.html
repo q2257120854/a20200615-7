@@ -1,0 +1,87 @@
+<!--aside nav-->
+ <style>
+	.nav_a{
+		font-size:23px;
+	}
+
+ </style>
+<script>
+$(document).ready(function() {
+	//隐藏
+	//$("aside li dd").hide();
+	$("aside li dt a").click(function() {
+		var htm = $(this).html();
+		if(htm=="+"){
+			$(this).parent().nextAll().css("display","block");
+			$(this).html("▬&nbsp;");
+			$(this).removeClass("nav_a");
+		}else{
+			 $(this).parent().nextAll().css("display","none");
+			 $(this).html("+");
+			 $(this).addClass("nav_a");
+		}
+		console.log(htm);
+	});
+	$("aside li dd a").each(function() {
+		var class_ = $(this).attr("class");
+		//console.log(class_);
+		if(class_=="active"){
+			$(this).parent().parent().find("dt a").html("▬&nbsp;");
+			$(this).parent().parent().find("dt a").removeClass("nav_a");
+			$(this).parent().parent().find("dd").css("display","block");
+		}
+		
+		
+	});	
+});
+</script>
+<aside class="lt_aside_nav content mCustomScrollbar">
+ <h2><a href="{:url('index/main')}">起始页</a></h2>
+ <ul>
+ {foreach name="$menu" id="v"}
+  <li>
+   <dl>
+    <dt><a href="#" class="nav_a" style="color:#302931;">+</a>&nbsp;{$v.title}</dt>
+    <!--当前链接则添加class:active-->
+	{foreach name="v.list" id="vo"}
+    <dd style="display:none;"><a href="{$vo.url}" class="{if condition="$vo.op eq 'admin'"}{$admin_l}{/if}
+	{if condition="$vo.op eq 'group'"}{$group_l}{/if}
+	{if condition="$vo.op eq 'power'"}{$power_l}{/if}
+	{if condition="$vo.op eq 'operatelog'"}{$operate_l}{/if}
+	{if condition="$vo.op eq 'loginlog'"}{$loginlog_l}{/if}
+	{if condition="$vo.op eq 'web'"}{$web_l}{/if}
+	{if condition="$vo.op eq 'tradelog'"}{$trade_l}{/if}
+	{if condition="$vo.op eq 'backup'"}{$backup_l}{/if}
+	{if condition="$vo.op eq 'restore'"}{$restore_l}{/if}
+	{if condition="$vo.op eq 'redeemcode'"}{$code_l}{/if}
+	{if condition="$vo.op eq 'adlist'"}{$ad_l}{/if}
+	{if condition="$vo.op eq 'makecode'"}{$makec_l}{/if}
+	{if condition="$vo.op eq 'sellorder'"}{$sello_l}{/if}
+	{if condition="$vo.op eq 'market'"}{$market_l}{/if}
+	{if condition="$vo.op eq 'contact'"}{$contact_l}{/if}
+	{if condition="$vo.op eq 'buyorder'"}{$buyo_l}{/if}
+	{if condition="$vo.op eq 'message'"}{$msg_l}{/if}
+	{if condition="$vo.op eq 'partner'"}{$partner_l}{/if}
+	{if condition="$vo.op eq 'notice'"}{$notice_l}{/if}
+	{if condition="$vo.op eq 'recruit'"}{$recruit_l}{/if}
+	{if condition="$vo.op eq 'userlist'"}{$user_l}{/if}
+	{if condition="$vo.op eq 'recharge'"}{$recharge_l}{/if}
+	{if condition="$vo.op eq 'recharge_log'"}{$rec_log_l}{/if}
+	{if condition="$vo.op eq 'userset'"}{$set_l}{/if}
+	{if condition="$vo.op eq 'ore'"}{$ore_l}{/if}
+	{if condition="$vo.op eq 'oreadd'"}{$oreadd_l}{/if}
+	{if condition="$vo.op eq 'oreset'"}{$oreset_l}{/if}
+	{if condition="$vo.op eq 'bonuslog'"}{$bonus_l}{/if}
+	{if condition="$vo.op eq 'ore_o'"}{$oreo_l}{/if}
+	{if condition="$vo.op eq 'ore_p'"}{$orep_l}{/if}
+	{if condition="$vo.op eq 'gift'"}{$gift_l}{/if}
+	{if condition="$vo.op eq 'release'"}{$release_l}{/if}">&nbsp;&nbsp;{$vo.name}</a></dd>
+	{/foreach}
+   </dl>
+  </li>
+  {/foreach}
+  <li>
+   <p class="btm_infor">© tmc.cn 版权所有</p>
+  </li>
+ </ul>
+</aside>

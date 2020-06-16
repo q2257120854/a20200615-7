@@ -1,0 +1,164 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:47:"template/default_pc/html/user/findpass_msg.html";i:1582533410;s:68:"/www/wwwroot/qy.redlk.com/template/default_pc/html/user/include.html";i:1582533410;s:65:"/www/wwwroot/qy.redlk.com/template/default_pc/html/user/foot.html";i:1582533410;}*/ ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>找回密码 - <?php echo $maccms['site_name']; ?> </title>
+	<meta name="keywords" content="<?php echo $maccms['site_keywords']; ?>"/>
+	<meta name="description" content="<?php echo $maccms['site_description']; ?>"/>
+	<link href="<?php echo $maccms['path']; ?>static/css/home.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo $maccms['path_tpl']; ?>css/member.css" type="text/css" rel="stylesheet" />
+<script src="<?php echo $maccms['path_tpl']; ?>js/tab.js" type="text/javascript"></script>
+<script src="<?php echo $maccms['path']; ?>static/js/jquery.js"></script>
+<script src="<?php echo $maccms['path']; ?>static/js/jquery.lazyload.js"></script>
+<script src="<?php echo $maccms['path']; ?>static/js/jquery.autocomplete.js"></script>
+<script src="<?php echo $maccms['path_tpl']; ?>js/jquery.superslide.js"></script>
+<script src="<?php echo $maccms['path_tpl']; ?>js/jquery.lazyload.js"></script>
+<script>var maccms={"path":"","mid":"<?php echo $maccms['mid']; ?>","url":"<?php echo $maccms['site_url']; ?>","wapurl":"<?php echo $maccms['site_wapurl']; ?>","mob_status":"<?php echo $maccms['mob_status']; ?>"};</script>
+<script src="<?php echo $maccms['path']; ?>static/js/home.js"></script>
+<script src="<?php echo $maccms['path_tpl']; ?>js/formValidator-4.0.1.js" type="text/javascript"></script>
+<script src="<?php echo $maccms['path']; ?>static/js/jquery.imageupload.js"></script>
+
+</head>
+<body>
+<div class="header">
+	<div class="layout fn-clear">
+		<div class="logo">
+			<a href="<?php echo $maccms['path']; ?>"><img width="157" height="42" src="<?php echo $maccms['path_tpl']; ?>images/member/ilogo.gif" alt=""/></a>
+		</div>
+		<ul class="nav">
+			<li class="nav-item"><a class="nav-link" href="<?php echo $maccms['path']; ?>">返回首页</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="layout clearfix">
+	<div class="reg-w">
+		<form method="post" id="fm" action="">
+			<input type="hidden" name="ac" value="<?php echo $param['ac']; ?>">
+			<h4><?php echo $param['ac_text']; ?>找回密码</h4>
+			<div class="reg-group">
+				<label class="bd-r" style="letter-spacing: normal;"><?php echo $param['ac_text']; ?></label>
+				<input type="text" id="to" name="to" class="reg-control" placeholder="请输入您绑定的<?php echo $param['ac_text']; ?>">
+			</div>
+
+			<div class="reg-group">
+				<label>验证码</label>
+				<input type="text" class="reg-control w150" id="verify" name="verify" placeholder="请输入验证码">
+				<img class="fr mr10 mt10" src="<?php echo url('verify/index'); ?>" onClick="this.src=this.src+'?'"  alt="单击刷新" />
+			</div>
+			<input type="button" id="btn_send" class="btn-brand btn-sub" style="margin-top:5px;" value="发送验证码">
+		</form>
+
+		<form method="post" id="fm2" action="">
+			<input type="hidden" name="ac" value="email">
+			<h4>验证信息</h4>
+			<div class="reg-group">
+				<label class="bd-r" style="letter-spacing: normal;">验证码</label>
+				<input type="text" id="code" name="code" class="reg-control" placeholder="请输入验证码">
+			</div>
+			<div class="reg-group">
+				<label>新密码</label>
+				<input type="password" class="reg-control w150" id="user_pwd" name="user_pwd" placeholder="请输入新密码">
+			</div>
+			<div class="reg-group">
+				<label>确认密码</label>
+				<input type="password" class="reg-control w150" id="user_pwd2" name="user_pwd2" placeholder="请输入确认密码">
+			</div>
+			<input type="button" id="btn_submit" class="btn-brand btn-sub" value="重置密码">
+		</form>
+
+	</div>
+
+
+	<div class="reg-another">
+		<h5>注册通行证可享会员服务</h5>
+		<h5>收费影片</h5>
+		<h5>会员影片</h5>
+		<h5>特殊影片</h5>
+		<a href="<?php echo url('user/login'); ?>"><i class="i-pers"></i><span>想起密码了？直接登录</span></a>
+		<a href="<?php echo url('user/findpass'); ?>"><i class="i-pers"></i><span>预留问题找回密码！</span></a>
+		<a href="<?php echo url('user/findpass_msg'); ?>?ac=email"><i class="i-pers"></i><span>绑定邮箱找回密码！</span></a>
+		<a href="<?php echo url('user/findpass_msg'); ?>?ac=phone"><i class="i-pers"></i><span>绑定手机找回密码！</span></a>
+	</div>
+</div>
+
+<!-- // sign-box#regbox end -->
+<script type="text/javascript">
+
+	$(function(){
+		$("body").bind('keyup',function(event) {
+			if(event.keyCode==13){ $('#btnLogin').click(); }
+		});
+		$('#btn_send').click(function() {
+			if ($('#to').val()  == '') { alert('请输入<?php echo $param["ac_text"]; ?>！'); $("#to").focus(); return false; }
+
+			$.ajax({
+				url: "<?php echo url('user/findpass_msg'); ?>",
+				type: "post",
+				dataType: "json",
+				data: $('#fm').serialize(),
+				beforeSend: function () {
+					$("#btn_send").css("background","#fd6a6a").val("loading...");
+				},
+				success: function (r) {
+					alert(r.msg);
+				},
+				complete: function () {
+					$('#verify').click();
+					$("#btn_send").css("background","#fa4646").val("发送邮件");
+				}
+			});
+		});
+
+		$('#btn_submit').click(function() {
+			if ($('#to').val()  == '') { alert('请输入<?php echo $param["ac_text"]; ?>'); $("#to").focus(); return false; }
+			if ($('#code').val()  == '') { alert('请输入验证码！'); $("#code").focus(); return false; }
+			if ($('#user_pwd').val()  == '') { alert('请输入新密码！'); $("#user_pwd").focus(); return false; }
+			if ($('#user_pwd2').val()  == '') { alert('请输入确认密码！'); $("#user_pwd2").focus(); return false; }
+			if ($('#user_pwd').val()  != $('#user_pwd2').val() ) { alert('二次密码不一致！'); $("#user_pwd2").focus(); return false; }
+
+			var data= {ac:'<?php echo $param["ac"]; ?>',to:$('#to').val(),code:$('#code').val(),user_pwd:$('#user_pwd').val(),user_pwd2:$('#user_pwd2').val()};
+			$.ajax({
+				url: "<?php echo url('user/findpass_reset'); ?>",
+				type: "post",
+				dataType: "json",
+				data: data,
+				beforeSend: function () {
+					$("#btn_submit").css("background","#fd6a6a").val("loading...");
+				},
+				success: function (r) {
+					alert(r.msg);
+				},
+				complete: function () {
+					$("#btn_submit").css("background","#fa4646").val("重置密码");
+				}
+			});
+		});
+	});
+
+</script>
+<!-- // sign-content end -->
+<div class="footer">
+	<div class="layout">
+		<div class="foot-nav">
+			<a href="{maccms:link_gbook}" target="_blank" title="给我留言">给我留言</a>-<a href="{maccms:link_map_vod}" target="_blank" title="网站地图">网站地图</a>-<a href="{maccms:link_map_rss}" target="_blank" title="RSS订阅">RSS订阅</a>-<a href="{maccms:link_map_baidu}" target="_blank" title="BaiduRSS">BaiduRSS</a>-<a href="{maccms:link_map_google}" target="_blank" title="GoogleRSS">GoogleRSS</a>
+		</div>
+		<!-- // foot-nav End -->
+		<div class="copyright">
+			<p>
+				本网站提供的最新电视剧和电影资源均系收集于各大视频网站，本网站只提供web页面服务，并不提供影片资源存储，也不参与录制、上传
+			</p>
+			<p>
+				若本站收录的节目无意侵犯了贵司版权，请给网页底部邮箱地址来信，我们会及时处理和回复，谢谢
+			</p>
+			<p>
+				Copyright &copy; 2008-2018 <a class="color" href="http://<?php echo $maccms['site_url']; ?>"><?php echo $maccms['site_name']; ?><?php echo $maccms['site_url']; ?></a>
+			</p>
+		</div>
+		<!-- // maxBox End -->
+	</div>
+</div>
+<!-- // footer end -->
+</body>
+</html>

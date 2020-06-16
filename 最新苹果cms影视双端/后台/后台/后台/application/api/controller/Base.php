@@ -1,0 +1,5 @@
+<?php
+
+
+namespace app\api\controller;use think\Controller;use app\common\controller\All;class Base extends All{public function __construct(){parent::__construct();unset($R37tI8O);$R37tI8O=$GLOBALS['config']['site'];$config=$R37tI8O;$this->assign($config);if(strpos("dx","GFP"))goto R37eWjgx2;$R378O=$config['site_status']==0;if($R378O)goto R37eWjgx2;$R37N8P=gettype(10)=="string";if($R37N8P)goto R37eWjgx2;goto R37ldMhx2;R37eWjgx2:if(isset($config[0]))goto R37eWjgx4;goto R37ldMhx4;R37eWjgx4:goto R37MfhB1;if(is_array($rules))goto R37eWjgx6;goto R37ldMhx6;R37eWjgx6:Route::import($rules);goto R37x5;R37ldMhx6:R37x5:R37MfhB1:goto R37x3;R37ldMhx4:goto R37MfhB3;$R37M8Q=$path . EXT;if(is_file($R37M8Q))goto R37eWjgx8;goto R37ldMhx8;R37eWjgx8:$R37M8R=$path . EXT;$R37M8S=include $R37M8R;goto R37x7;R37ldMhx8:R37x7:R37MfhB3:R37x3:goto R37x1;R37ldMhx2:R37x1:}}
+?>

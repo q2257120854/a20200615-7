@@ -1,0 +1,197 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form" method="post" enctype="multipart/form-data" >
+    <div class="layui-tab layui-tab-card">
+        {include file="layout/admin_items" /}
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                
+                
+                <div class="layui-collapse">
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">基本设置</h2>
+                        <div class="layui-colla-content layui-show">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.product_parent}</label>
+                                <div class="layui-input-inline">
+                                    <select name="column_id" id="column_id">
+                                        <option value="">{:lang('ds_please_choose')}...</option>
+                                        {notempty name="column_list"}
+                                        {volist name="column_list" id="v"}
+                                        <option {if $product.column_id == $v.column_id}selected='selected'{/if} value="{$v.column_id}">{$v.column_name}</option>
+                                        {/volist}
+                                        {/notempty}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.product_title}</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" class="layui-input field-name" name="product_title" id="product_title" value="{$product.product_title|default=''}" lay-verify="product_title" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.product_title}" required />
+                                </div>
+                            </div>
+                            
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.product_order}</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" class="layui-input field-name" name="product_order" id="product_order" value="{$product.product_order|default='255'}" lay-verify="product_order" autocomplete="off" required />
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.product_addtime}</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" class="layui-input field-name" name="product_addtime" id="product_addtime" value="{$product.product_addtime|date='Y-m-d',###}"/>
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">{$Think.lang.ds_empty_current_time}</div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.product_imgurl}</label>
+                                <div class="layui-input-inline">
+                                    {notempty name="$product.product_imgurl"}
+                                    <img src="{:get_product_img($product['product_imgurl'])}" height="80"/>
+                                    {/notempty}
+                                    <input type="file" name="product_img"/>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.product_displaytype}</label>
+                                <div class="layui-input-inline">
+                                    <input type="checkbox" name="product_displaytype" lay-skin="switch" lay-text="{$Think.lang.ds_yes}|{$Think.lang.ds_no}" value="1" {if condition="$product.product_displaytype eq '1'"}checked{/if}>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.product_wap_ok}</label>
+                                <div class="layui-input-inline">
+                                    <input type="checkbox" name="product_wap_ok" lay-skin="switch" lay-text="{$Think.lang.ds_yes}|{$Think.lang.ds_no}" value="1" {if condition="$product.product_wap_ok eq '1'"}checked{/if}>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">详情内容</h2>
+                        <div class="layui-colla-content">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.product_content}</label>
+                                <div class="layui-input-block">
+                                    {:build_editor(['name'=>'product_content','content'=>isset($product.product_content)?htmlspecialchars_decode($product.product_content):''])}
+                                    <textarea name="product_content" id="product_content" style="min-height:400px;"></textarea>
+                                </div>
+                            </div>
+                            <button type="button" class="layui-btn" id="upload_productpic"><i class="layui-icon"></i>{$Think.lang.ds_uploading_files}</button>
+                            <div class="selected_pic clearfix">
+                                <ul>
+                                    {foreach name="pic_list" id="productpic"}
+                                    <li id="{$productpic.pic_id}">
+                                        <img src="{:get_product_img($productpic['pic_cover'])}"/>
+                                        <i class="delect layui-icon" title="{$Think.lang.ds_insert_editor}" onclick="insert_editor('{:get_product_img($productpic['pic_cover'])}')">&#xe654;</i>
+                                        <i class="insert layui-icon" title="{$Think.lang.ds_delete_picture}" onclick="del_productpic({$productpic.pic_id})">&#xe640;</i>
+                                    </li>
+                                    {/foreach}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">SEO设置</h2>
+                        <div class="layui-colla-content">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.seo_title}</label>
+                                <div class="layui-input-block">
+                                    <input type="text" class="layui-input field-name" name="seo_title" id="seo_title" value="{$product.seo_title|default=''}" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.seo_title}" />
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.seo_keywords}</label>
+                                <div class="layui-input-block">
+                                    <input type="text" class="layui-input field-name" name="seo_keywords" id="seo_keywords" value="{$product.seo_keywords|default=''}" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.seo_keywords}" />
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.seo_description}</label>
+                                <div class="layui-input-block">
+                                    <textarea class="layui-textarea field-name" name="seo_description">{$product.seo_description|default=''}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="layui-form-item mt20">
+                    <div class="layui-input-inline">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+    });
+    layui.use('element', function () {
+        var element = layui.element;
+    });
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#product_addtime'
+        });
+    });
+    /**
+     * 图片异步上传
+     */
+    layui.use('upload', function () {
+        var $ = layui.jquery, upload = layui.upload;
+        //指定允许上传的文件类型
+        upload.render({
+            elem: '#upload_productpic'
+            , url: "{:url('pic/upload',['pic_type_id'=>$Request.param.product_id,'pic_type'=>$product_pic_type.pic_type])}"
+            , accept: 'file' //普通文件
+            , done: function (res) {
+                add_uploadedfile(res);
+//                console.log(res)
+            }
+        });
+    });
+    function add_uploadedfile(file_data)
+    {
+        var newImg = '<li id="' + file_data.file_id + '"><img src="' + file_data.file_url + '"/><i class="delect layui-icon" title="插入编辑器" onclick="insert_editor(\''+file_data.file_url+'\')">&#xe654;</i><i class="insert layui-icon" title="删除图片" onclick="del_productpic(' + file_data.file_id + ')">&#xe640;</i></li>'
+        $('.selected_pic ul').prepend(newImg);
+    }
+
+
+    /**
+     * 插入编辑器
+     */
+    function insert_editor(file_path){
+        ue.execCommand('insertimage', {src:file_path});
+    }
+
+    function del_productpic(file_id)
+    {
+        layer.open({
+            content: '{$Think.lang.ds_confirm_cancel}',
+            yes: function(index, layero){
+                $.getJSON("{:url('pic/del')}",{file_id: + file_id,pic_type:'product'}, function(result){
+                    if(result){
+                        $('#' + file_id).remove();
+                        layer.msg('{$Think.lang.del_succ}');
+                        layer.close(index);
+                        return;
+                    }else{
+                        layer.msg('{$Think.lang.del_fail}');
+                        layer.close(index);
+                        return;
+                    }
+                });
+            }
+        });
+    }
+</script>
+{/block}
+
+

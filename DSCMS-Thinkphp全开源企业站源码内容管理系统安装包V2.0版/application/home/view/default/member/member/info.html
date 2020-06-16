@@ -1,0 +1,81 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+<div class="common-banner mb20">
+    {dstaglib:adv ap_id='2' limit='1' item='v'}
+    <img class="lazy" data-original="{:get_adv_img($v.adv_code)}">
+    {/dstaglib:adv}
+</div>
+<div class="cases-search w1200">
+    <div class="mt mb20">
+        <div class="location">
+            <a href="/home/index/index.html" target="_blank" class="ml30">德尚网络</a>&gt;
+            <a href="/home/article/search/ac_id/3.html">用户中心</a>&gt;
+        </div>
+        <div class="nav mt10">
+            <a href="{:url('member/index')}">基本资料</a>
+            <a href="{:url('member/change_info')}">修改资料</a>
+            <a href="{:url('member/change_password')}">修改密码</a>
+            <a href="{:url('member/change_portrait')}">修改头像</a>
+        </div>
+    </div>
+    <div class="mc clearfix">
+        <form method="post" id="info_form">
+            <table style="width:100%;">
+                <tbody>
+                <tr>
+                    <input type="hidden" name="member_id" value="{$member_info.member_id}">
+                    <th>用户名:</th>
+                    <td><input class="layui-text layui-input" type="text" name="member_name" id="member_name" value="{$member_info.member_name}"></td>
+                    <td><span class="red">*</span></td>
+                </tr>
+                <tr>
+                    <th>真实姓名:</th>
+                    <td><input type="text" name="member_truename" id="member_truename" placeholder="请填写您的真实姓名" value="{$member_info.member_truename}"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>性别:</th>
+                    <td>
+                        <input name="member_sex" type="radio" id="nan" value="1" checked>
+                        <label>先生</label>
+                        <input name="member_sex" type="radio" id="nv" value="0" {if condition="$member_info['member_sex'] neq 1"}checked{/if}>
+                        <label>女士</label>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>出生年月:</th>
+                    <td><input type="date" name="member_birthday" id="member_birthday" placeholder="请填写您的出生年月" value="{$member_info.member_birthday|date='Y-m-d',###}"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>联系电话:</th>
+                    <td><input type="text" name="member_mobile" id="member_mobile" placeholder="请填写您的联系电话" value="{$member_info.member_mobile}"></td>
+                    <td><span class="red">*</span></td>
+                </tr>
+                <tr>
+                    <th>E–mail:</th>
+                    <td><input type="text" name="member_email" id="member_email" placeholder="请填写您的E–mail" value="{$member_info.member_email}"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>QQ:</th>
+                    <td><input type="text" name="member_qq" id="member_qq" placeholder="请填写您的QQ" value="{$member_info.member_qq}"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>详细地址:</th>
+                    <td><textarea name="member_privacy" cols="50" rows="5" placeholder="请填写你的详细地址">{$member_info.member_privacy}</textarea></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td><input type="submit" class="layui-btn layui-btn-warm" onclick="javascript({:url('member/change_info')})" value="提交信息"></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+{/block}

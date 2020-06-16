@@ -1,0 +1,39 @@
+{include file="public/header" /}
+
+
+
+<div class="page">
+    <form id="add_form" method="post" enctype="multipart/form-data">
+        <table class="ds-default-table">
+            <tbody>
+            <tr class="noborder">
+                <td class="required w120"><label class="validation" for="editable_page_name">{$Think.lang.editable_page_name}:</label></td>
+                <td class="vatop rowform"><input type="text" id="editable_page_name" name="editable_page_name" class="txt" value="{$editable_page.editable_page_name|default=''}"></td>
+                <td class="vatop tips"></td>
+            </tr>
+            <tr class="noborder">
+                <td class="required w120">{$Think.lang.back_color}:</td>
+                <td class="vatop rowform"><input type="text" id="back_color" name="back_color" class="txt" value="{$editable_page.editable_page_theme_config.back_color|default=''}"></td>
+                <td class="vatop tips">{$Think.lang.back_color_tips}</td>
+            </tr>
+            {if $Request.action=='page_add'}
+            <tr class="noborder">
+                <td class="required w120">{$Think.lang.editable_page_client}</td>
+                <td class="vatop rowform">
+                    <label><input type='radio' name='editable_page_client' value='pc' {if !isset($editable_page) || $editable_page.editable_page_client=='pc'}checked{/if}>PC</label>
+                    <label><input type='radio' name='editable_page_client' value='h5' {if isset($editable_page) && $editable_page.editable_page_client=='h5'}checked{/if}>H5</label>
+                </td>
+                <td class="vatop tips"></td>
+            </tr>
+            {/if}
+            </tbody>
+            <tfoot>
+            <tr class="tfoot">
+                <td colspan="2">
+                    <input class="btn" type="submit" value="{$Think.lang.ds_submit}"/>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </form>
+</div>

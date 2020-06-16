@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{dede:field name="title"/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="canonical" href="{dede:global.cfg_basehost/}{dede:field.id runphp='yes'}$id=@me;@me='';$url=GetOneArchive($id);@me=$url['arcurl'];{/dede:field.id}"/>
+<link href="{dede:global.mcfg_basehost/}/m-css/m-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{dede:global.mcfg_basehost/}/m-js/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_basehost/}/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<style type="text/css">
+.wrapper{padding-bottom:0;}
+.relevant-recommend{margin-top:0;}
+.m-article-content h2{line-height:28px;}
+.ycwz{display:none;}
+</style>
+</head>
+<body>
+
+{dede:include filename="head_m.htm"/}
+
+<div class="wrapper">
+
+<!-- 文章标题 -->
+<div class="m-article-title">
+<h1>{dede:field name="title"/}</h1>
+<div class="status_bar">
+<span class="{dede:field.source/} ycwz">原创</span>
+<span class="source">{dede:field.writer/}</span>
+<span class="date">{dede:field.pubdate function="MyDate('m-d',@me)"/}</span>
+<span class="yuedu" style="display:none;"><script src="{dede:global.mcfg_basehost/}/plus/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}" type='text/javascript' language="javascript"></script></span>
+</div>
+</div>
+<!-- 文章标题 -->
+
+
+<!-- 资讯内容 -->
+<div class="m-article-content">
+{dede:field.body function='mstrup(@me)'/}
+</div>
+<!-- 资讯内容 End -->
+
+
+<!-- 点赞 -->
+<div class="manageBox"><span rel="{dede:field.id/}" id="Addlike" class="like"><i class="yxw-dianzan"></i><script src="{dede:global.mcfg_basehost/}/diyplus/zancount.php?aid={dede:field name='id'/}" type='text/javascript' language="javascript"></script></span></div>
+<!-- 点赞 End -->
+
+
+<!-- 相关文章推荐 -->
+<div class="relevant-recommend">
+<div class="mod-title">相关文章</div>
+{dede:likearticle mytypeid='6' row='5' titlelen='80' eregtype=all|tag|keyword}
+<div class="post_item">
+<a href="[field:arcurl/]">
+<img src="[field:litpic function='mstrone(@me)'/]">
+<h3 class="post_h3">[field:title/]</h3>
+<div class="post_tag">
+<span class="post_name">[field:pubdate function='strftime("%m-%d",@me)'/]</span>
+<span class="postSee">[field:click/]人看过</span>
+</div>
+</a>
+</div>
+{/dede:likearticle}
+</div>
+<!-- 相关文章推荐 End -->
+
+
+</div>
+
+
+
+<!-- 返回顶部 -->
+<div class="mall-totop" onclick="window.scrollTo(0,0);"></div>
+<script src="{dede:global.mcfg_basehost/}/m-js/mall-top.js"></script>
+<!-- 返回顶部 End -->
+
+
+<!-- 文章点赞 -->
+<script type="text/javascript">
+if($(".post_item").length < 1){
+$(".relevant-recommend").hide();	
+}
+
+$(function(){
+
+  $("#Addlike").click(function(){
+     var zan = $("#Addlike");
+     var id = zan.attr("rel"); //对应id
+     $.ajax({
+         type:"POST",
+         url:"{dede:global.mcfg_basehost/}/diyplus/zan.php",
+         data:"id="+id,
+         cache:false, //不缓存此页面
+         success:function(data){
+             if(data==0){
+                 alert('您已经赞过了');
+                 zan.fadeIn(1000); //渐显效果
+             }else{
+                 $("#Addlike").addClass("yidian");
+                 $("#Addlike").css("color","#ff700a");
+                 zan.html('<i class="yxw-dianzan yxw-dianzan2"></i><font color="#ff700a">'+ data +'</font>');
+                 zan.fadeIn(1000); //渐显效果
+                
+              }
+         }
+      });
+       return false;
+  });
+
+$.post("{dede:global.mcfg_basehost/}/diyplus/zan.php",{id:$("#Addlike").attr("rel"),a:"zanlemei"},function(result){
+        if(result != 0){
+            $("#Addlike").find(".yxw-dianzan").addClass("yxw-dianzan2");
+            $("#Addlike").css("color","#ff700a");
+        }
+});
+});
+</script>
+
+<!-- 课程搜索 -->
+<div id="JwapSearch" class="m-search-pnl">
+<div id="JwsClose" class="top_nav_left"></div>
+<div class="ysearch-box">
+<form method="post" name="f1" action="{dede:global.mcfg_basehost/}/search.php" onsubmit="return checkSearchForm()">
+<input type="hidden" name="kwtype" value="0" />
+<input type="hidden" id="driverId" name="channeltype" value="17" />  
+<input type="text" class="yfixtext" id="keyword" name="keyword" placeholder="搜索您感兴趣的课程" autocomplete="off">
+<input type="submit" class="fixsbmt" value="">
+</form>
+</div>
+</div>
+<!-- 课程搜索 End -->
+<script type="text/javascript">
+  function checkSearchForm(){
+  if(document.getElementById('keyword').value){
+    return true;
+    }else{
+   alert("请输入课程关键字哦");
+    return false;
+    }
+    }
+</script>
+<script>
+(function(){var searchWrapObj=document.getElementById("JwapSearch");searchWrapObj&&document.body.appendChild(searchWrapObj);var sentFlag=false;var submitFlag=false;if(-1==window.location.pathname.indexOf("bbs")){showSeriesViewed()}function showSeriesViewed(){var COOKIE_NAME="LAST_VIEW_CHEXIS";var cookieValue=decodeURI(decodeURIComponent(document.cookie.replace(new RegExp(".*(?:^|; )"+COOKIE_NAME+"=([^;]*).*|.*"),"$1")));var historyObj=document.getElementById("JviewHistory");if(!cookieValue||!historyObj){return}var valueArr=cookieValue.split(",");var html="";for(var i=0;i<valueArr.length&&i<3;i++){var data=valueArr[i].split("-");if(data.length<2){continue}html+=''+data[0]+'/">'+data[1]+"</a>"}if(""!=html){historyObj.innerHTML=""+html;historyObj.style.display="block"}}var SHOW_PANNEL_CLASS="m-full-pnl";var DISABLE_SCROLL_CLASS="m-disb-scroll";var htmlObj=document.documentElement;function hasClass(el,className){if(el.classList){return el.classList.contains(className)}return !!el.className.match(new RegExp("(\\s|^)"+className+"(\\s|$)"))}function addClass(el,className){if(el.classList){el.classList.add(className)}else{!hasClass(el,className)&&(el.className+=" "+className)}}function rmvClass(el,className){if(el.classList){el.classList.remove(className)}else{hasClass(el,className)&&(el.className=el.className.replace(new RegExp("(\\s|^)"+className+"(\\s|$)")," "))}}var enIptObj=document.getElementById("JenIpt");var iptObj=document.getElementById("JwsIpt");enIptObj&&enIptObj.addEventListener("click",function(){if(-1==window.location.pathname.indexOf("bbs")){getHotSeries()}loadSearchJS();htmlObj.setAttribute("data-y",document.body.scrollTop);addClass(htmlObj,SHOW_PANNEL_CLASS);searchWrapObj&&(searchWrapObj.scrollIntoView());addClass(htmlObj,DISABLE_SCROLL_CLASS);var tmpIptObj=document.search&&document.search.q;if(tmpIptObj){tmpIptObj.value="";tmpIptObj.focus()}loadLike()});var closeObj=document.getElementById("JwsClose");closeObj&&closeObj.addEventListener("click",function(){iptObj&&enIptObj&&(enIptObj.value=iptObj.value);rmvClass(htmlObj,DISABLE_SCROLL_CLASS);var setY=htmlObj.getAttribute("data-y");setY&&(document.body.scrollTop=setY);rmvClass(htmlObj,SHOW_PANNEL_CLASS)});var enSubmitObj=document.getElementById("JenSubmit");enSubmitObj&&enSubmitObj.addEventListener("click",clickBtnSubmit);var submitObj=document.getElementById("JwsSubmit");submitObj&&submitObj.addEventListener("click",clickBtnSubmit);function clickBtnSubmit(){submitFlag=true;if("function"!=typeof wapSearchSubmit){loadSearchJS();return false}wapSearchSubmit()}function loadSearchJS(){if(sentFlag){return}sentFlag=true;var scriptObj=document.createElement("script");scriptObj.src="";scriptObj.charset="utf-8";var headObj=document.getElementsByTagName("head")[0];headObj.appendChild(scriptObj);scriptObj.onload=scriptObj.onreadystatechange=function(){var f=scriptObj.readyState;if(f&&f!="loaded"&&f!="complete"){return}scriptObj.onload=scriptObj.onreadystatechange=null;ks_search();if(submitFlag){wapSearchSubmit()}}}function getHotSeries(){var hotSeriesObj=document.getElementById("JhotSeries");var record=localStorage.getItem("wapSearchRecord");if(record!=null||!hotSeriesObj){return}loadScript(location.protocol+"",function(data){var html="";var seriesArr=data.data;if(seriesArr.length<0){return}for(var i=0,len=seriesArr.length;i<len;i++){var result=seriesArr[i];html+=''+result.id+'/" title="'+result.title+'">'+result.title+"</a>"}if(""!=html){hotSeriesObj.innerHTML=""+''+html+"";hotSeriesObj.style.display="block"}},"showHotseries")}function getParam(url,name){if(!url||!name){return}var name=name.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");var regex=new RegExp("[\\?&]"+name+"=([^&#]*)");var results=regex.exec(url);return(null==results?null:results[1])}function loadScript(url,fn,callbackName,charset){var cbName=getParam(url,"jsCallBack");var callbackName=cbName||callbackName;var cb=cbName||!callbackName?"":"jsCallBack="+callbackName;var pos=url.indexOf("?")+1;if(cb){url=0==pos?(url+"?"+cb):(url.substring(pos,-1)+cb+"&"+url.substring(pos))}if("function"==typeof fn&&callbackName){window[callbackName]=fn}var headElm=document.getElementsByTagName("head")[0];var scriptElm=document.createElement("script");scriptElm.src=url;if(charset){scriptElm.charset=charset}headElm.appendChild(scriptElm);scriptElm.onload=scriptElm.onreadystatechange=function(){var f=scriptElm.readyState;if(f&&f!="loaded"&&f!="complete"){return}if("function"==typeof fn&&!cb){fn()}if(!cbName&&window[callbackName]){delete window[callbackName]}scriptElm.onload=scriptElm.onreadystatechange=null;headElm.removeChild(scriptElm)}}function getCookie(d){var b=d+"=";var a=document.cookie.split(";");for(var e=0;e<a.length;e++){var f=a[e];while(f.charAt(0)==" "){f=f.substring(1)
+}if(f.indexOf(b)!=-1){return f.substring(b.length,f.length)}}return""}var allPage=1;var changePage=1;var likeSerials=[];function loadLike(){var uValue=getCookie("u");var html="";loadJS("",function(){loadJS("",function(){Locate.defaultData={};LocateAuto.defaultData={proId:5,cityId:1,url:""};LocateAuto.init({callback:function(data){var cityId=data.cityId;$.ajax({url:"",data:{uid:uValue,cityId:cityId},dataType:"jsonp",success:function(res){likeSerials=res;allPage=Math.ceil(res.length/8);for(var i=0;i<8;i++)document.getElementById("JwsLike").innerHTML=html}})}})},"utf-8")},"utf-8")}document.getElementById("JwsChange").onclick=function(){var html="";{var len=changePage*8;for(var i=(changePage-1)*8;i<len;i++){if(likeSerials[i]){html+=''}}document.getElementById("JwsLike").innerHTML=html}};iptObj.addEventListener("blur",function(e){!iptObj.value&&(iptObj.value=quotes[Math.floor(Math.random()*quotes.length)])})})();</script>
+<!-- 课程搜索 End -->
+</body>
+</html>

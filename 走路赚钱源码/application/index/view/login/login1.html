@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="/tmc/js/mui.min.js"></script>
+    <link href="/tmc/css/mui.min.css" rel="stylesheet"/>
+    <link href="/tmc/css/iconfont.css" rel="stylesheet"/>
+
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+	<style>
+		.mui-input-group:before{
+			height:0px
+		}
+		.mui-input-group:after{
+			height: 0px;
+		}
+		.img{
+			position:absolute;
+			width:100%;
+			left:0px;
+			right:0px;
+			margin:auto;
+			margin-top:0px;
+			height: 550px;
+		}
+		.form{
+			position:absolute;
+			top:45%;
+			border-radius: 10px;
+			width:90%;
+			left:0px;
+			right:0px;
+			margin: auto;
+			background: #fff;
+		}
+		.formdiv{
+			margin-top: 50px;
+			
+			border-radius:30px;
+			background-color:#fff;
+			margin-bottom: 30px;
+		}
+		.formimg{
+			position:absolute;
+			width:25px;
+			margin-left:53px;
+			margin-top: 8px;
+		}
+		.forminput{
+			color:#3c7fff;
+			
+			margin-top:0px;
+			margin-left:25%;
+			font-size:0.9em;
+			font-family:'微软雅黑';
+		}
+		.formdiv2{
+			height:2.5em;
+			border-radius:30px;
+			background-color:#fff;
+			margin-bottom:30px;
+		}
+		.formimg2{
+			position:absolute;
+			width:35px;
+			margin-left:50px;
+			margin-top: 5px;
+		}
+		.forminput2{
+			color:#3c7fff;
+			margin-top:2px;
+			margin-left:25%;
+			font-size:0.9em;
+			font-family:'微软雅黑';
+		}
+		.formdiv3{
+			position:absolute;
+			right:1px;
+			font-size:0.8em;
+			font-family:'微软雅黑';
+			color: #929292;
+		}
+		.login{
+			top: -25px;
+			color: #fff;
+			line-height:2em;
+			font-size:0.9em;
+			width:80%;
+			font-family:'微软雅黑';
+			border-radius:10px;
+			border:0px solid;
+			background:#3c7fff;
+		}
+		.reg{
+			position:absolute;
+			left:28%;
+			font-family:'微软雅黑';
+			color:linear-gradient(45deg,#3c7fff,purple);
+		}
+	</style>
+</head>
+<body style="background: #FAFAFA;">
+	<img src="/tmc/img/logo.png" class="img" style="z-index: 999; width: 100px; margin-top:35% ; height: 100px;"/>
+	<img src="/tmc/img/bluebg.png" class="img"/>
+	<form class="mui-input-group form">
+					<div class="mui-input-row formdiv">
+						<img src="/tmc/img/nubmer.png"  class="formimg" />
+						<input name="username"type="number" class="forminput" placeholder="手机号/用户名">
+					</div>
+					<div class="mui-input-row formdiv2">
+						<img src="/tmc/img/mima.png" class="formimg2" />
+						<input name="password" type="password" class="forminput2" placeholder="密码">
+					</div>
+					
+					<br><br><br>
+					<div class="mui-button-row">
+						<a href="index.html"> <button type="button" id="submit" class="mui-btn mui-btn-danger login">登录</button>
+						</a>	
+					</div>
+					<br>
+					<div class="mui-button-row">
+						<a href="reg.html"> <button type="button" class="mui-btn mui-btn-danger login" style="background: #2AC845;">注册</button>
+						</a>	
+					</div>
+	</form>
+	<script>
+					(function($) {
+						//监听点击事件
+						document.getElementById("submit").addEventListener('tap',function(){
+							var username = $("input[name=username]")[0].value;
+							var password = $("input[name=password]")[0].value;
+							if(!username){
+								alert('请输入用户名！');return false;
+							}
+							if(!password){
+								alert('请输入登录密码！');return false;
+							}
+		
+							console.log(username);	
+							//console.log(password);
+							//return false;				
+							$.ajax('/userland.html',{
+								data:{username:username,password:password},
+								dataType:'json',//服务器返回json格式数据
+								type:'post',//HTTP请求类型
+								timeout:50000,//超时时间设置为50秒；
+								/*headers:{'Content-Type':'application/json'},*/	              
+								success:function(data){
+									//服务器返回响应，根据响应结果，分析是否登录成功；
+									
+									if(data.s=='ok'){
+										alert('登录成功');
+										window.location.href = "/index.html";
+									}else{
+										alert(data.s);
+									}
+									//console.log(data);
+									event.stopPropagation();
+								}
+							});
+							event.stopPropagation();
+						
+						});
+					})(mui);
+				</script>
+				
+</body>
+</html>

@@ -1,0 +1,24 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+<section class="page_job">
+    <div class="joblist">
+        {empty name="job_list"}
+        没有数据
+        {else /}
+        {foreach name="job_list" item="job"}
+        <dl>
+            <dt><a href="{:url('Job/detail',['job_id'=>$job.job_id])}" title="{$job.job_position}">{$job.job_position}</a></dt>
+            <dd class="list top">
+                <div class="mis"><span>发布日期：{$job.job_addtime|date='Y-m-d',###}</span><span>工作地点：{$job.job_place}</span><span>招聘人数：{$job.job_count}</span></div>
+                <div class="dtail">
+                    <span><a href="{:url('Job/apply')}" title="在线应聘" target="_self">在线应聘</a></span>
+                    <span><a href="{:url('Job/detail',['job_id'=>$job.job_id])}" title="查看详细" target="_self">查看详细</a></span>
+                </div>
+            </dd>
+        </dl>
+        {/foreach}
+        {/empty}
+    </div>
+</section>
+{$page}
+{/block}

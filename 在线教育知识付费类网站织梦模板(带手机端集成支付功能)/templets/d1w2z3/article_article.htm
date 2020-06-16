@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>{dede:field.title /}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field.keywords/}" />
+<meta name="description" content="{dede:field.description function='html2text(@me)'/}" />
+<meta http-equiv="mobile-agent" content="format=html5; url={dede:global.mcfg_basehost/}{dede:field.id runphp='yes'}$id=@me;@me='';$url=GetOneArchive($id);@me=$url['arcurl'];{/dede:field.id}" >
+<link rel="alternate" media="only screen and(max-width:640px)" href="{dede:global.mcfg_basehost/}{dede:field.id runphp='yes'}$id=@me;@me='';$url=GetOneArchive($id);@me=$url['arcurl'];{/dede:field.id}">
+<link href="{dede:global.cfg_basehost/}/css/v2_index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{dede:global.cfg_basehost/}/js/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_basehost/}/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<script type="text/javascript">
+var bForcepc = fGetQuery("dv") == "pc";    
+function fBrowserRedirect(){    
+    var sUserAgent = navigator.userAgent.toLowerCase();    
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";      
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";    
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";    
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";    
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";    
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";    
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";    
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";    
+   
+    if(bIsIphoneOs || bIsAndroid){    
+        var sUrl = location.href;        
+        if(!bForcepc){    
+            window.location.href = "{dede:global.mcfg_basehost/}{dede:field.id runphp='yes'}$id=@me;@me='';$url=GetOneArchive($id);@me=$url['arcurl'];{/dede:field.id}";    
+        }    
+    }    
+    if(bIsMidp||bIsUc7||bIsUc||bIsCE||bIsWM){    
+        var sUrl = location.href;        
+        if(!bForcepc){    
+            window.location.href = "{dede:global.mcfg_basehost/}{dede:field.id runphp='yes'}$id=@me;@me='';$url=GetOneArchive($id);@me=$url['arcurl'];{/dede:field.id}";    
+        }    
+    }    
+}    
+function fGetQuery(name){//获取参数值    
+    var sUrl = window.location.search.substr(1);    
+    var r = sUrl.match(new RegExp("(^|&)" + name + "=([^&]*)(&|$)"));    
+    return (r == null ? null : unescape(r[2]));    
+}    
+function fShowVerBlock(){       
+    if(bForcepc){    
+        document.getElementById("dv_block").style.display = "block";    
+    }    
+    else{    
+        document.getElementById("ad_block").style.display = "block";    
+    }    
+}    
+fBrowserRedirect();    
+</script>
+<style type="text/css">
+.yxw-banquan-sm{font-size:14px;color:#999;line-height:24px;padding-bottom:50px;}
+.ycwz{display:none;}
+</style>
+</head>
+<body>
+
+{dede:include filename="head.htm"/}
+
+<!-- 面包削导航开始 -->
+<div class="mianbaoxiao clearfix">
+<div class="mianbao-min">{dede:field name='position'/} 正文</div>
+</div>
+<!-- 面包削导航结束 -->
+
+<div class="news_aricle">
+<div class="aricle_left">
+
+<div class="min_box">
+
+<!-- 标题 -->
+<div class="aricle_tiele"><span class="{dede:field.source/} ycwz">原创</span><h1>{dede:field.title/}</h1></div>
+<!-- 标题 End -->
+
+<div class="aricle_banquan">
+<span class="author">{dede:field.writer/}</span>
+<span class="time">{dede:field name='pubdate' function='strftime("%Y-%m-%d %H:%M:%S","@me")' /}</span>
+<span class="view-num" style="display:none;">阅读 <script src="{dede:global.cfg_basehost/}/plus/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}" type='text/javascript' language="javascript"></script></span>
+</div>
+
+<div class="aricle_content">
+{dede:field.body/}
+</div>
+
+<!-- 点赞 -->
+<div class="manageBox"><span rel="{dede:field.id/}" id="Addlike" class="like"><i class="yxw-dianzan"></i><script src="{dede:global.cfg_basehost/}/diyplus/zancount.php?aid={dede:field name='id'/}" type='text/javascript' language="javascript"></script></span></div>
+<!-- 点赞 End -->
+
+<!-- 版权声明 -->
+<div class="yxw-banquan-sm">版权声明：{dede:global.cfg_webname/}倡导尊重与保护知识产权。未经许可，任何人不得复制、转载、或以其他方式使用本站《原创》内容，违者将追究其法律责任。本站文章内容，部分图片来源于网络，如有侵权，请联系我们修改或者删除处理。</div>
+<!-- 版权声明 End -->
+
+</div>
+<!-- 文章内容 End -->
+
+<!-- 相关文章 -->
+<div class="aricle_tuijian">
+<h2 class="aricle_tuijian-title">相关文章</h2>
+<div class="wz-tuijian">
+{dede:likearticle mytypeid='6' row='10' titlelen='80' eregtype=all|tag|keyword}
+<a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a>
+{/dede:likearticle}
+</div>
+</div>
+<!-- 相关文章 End -->
+
+</div>
+
+<!-- 右侧信息 -->
+<div class="star-article-r">
+
+<div class="article-hot-l">
+<h2 class="clear-fix">编辑推荐</h2>
+<ul>
+{dede:arclist typeid='6' flag='h' titlelen='80' row='10'}
+<li>[field:global runphp='yes' name=autoindex]$a="<em class='top'>";$b="</em>";$c="<em>";if (@me > 3) @me = $c.@me.$b;else @me = $a.@me.$b;[/field:global]<a href="[field:arcurl/]" title="[field:title/]" rel="nofollow">[field:title/]</a></li>
+{/dede:arclist}
+</ul>
+</div>
+
+<div class="article-hot-l">
+<h2 class="clear-fix">热门文章</h2>
+<ul>
+{dede:arclist typeid='6' orderby='hot' titlelen='80' row='10'}
+<li>[field:global runphp='yes' name=autoindex]$a="<em class='top'>";$b="</em>";$c="<em>";if (@me > 3) @me = $c.@me.$b;else @me = $a.@me.$b;[/field:global]<a href="[field:arcurl/]" title="[field:title/]" rel="nofollow">[field:title/]</a></li>
+{/dede:arclist}
+</ul>
+</div>
+
+</div>
+<!-- 右侧信息 End -->
+
+</div>
+
+{dede:include filename="footer.htm"/}
+
+<!-- 文章点赞 -->
+<script type="text/javascript">
+$(function(){
+
+  $("#Addlike").click(function(){
+     var zan = $("#Addlike");
+     var id = zan.attr("rel"); //对应id
+     $.ajax({
+         type:"POST",
+         url:"{dede:global.cfg_basehost/}/diyplus/zan.php",
+         data:"id="+id,
+         cache:false, //不缓存此页面
+         success:function(data){
+             if(data==0){
+                 alert('您已经赞过了');
+                 zan.fadeIn(1000); //渐显效果
+             }else{
+				 $("#Addlike").addClass("yidian");
+				 $("#Addlike").css("color","#ff700a");
+                 zan.html('<i class="yxw-dianzan yxw-dianzan2"></i><font color="#ff700a">'+ data +'</font>');
+                 zan.fadeIn(1000); //渐显效果
+				
+              }
+         }
+      });
+       return false;
+  });
+
+$.post("{dede:global.cfg_basehost/}/diyplus/zan.php",{id:$("#Addlike").attr("rel"),a:"zanlemei"},function(result){
+		if(result != 0){
+			$("#Addlike").find(".yxw-dianzan").addClass("yxw-dianzan2");
+			$("#Addlike").css("color","#ff700a");
+		}
+});
+});
+</script>
+
+</body>
+</html>

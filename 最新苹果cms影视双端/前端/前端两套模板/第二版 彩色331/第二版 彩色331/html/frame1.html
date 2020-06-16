@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>精选</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="./frame/css/b.css" />
+</head>
+
+<body>
+    <section class="shaixuan" id="header">
+    <section class="search"  tapmode onclick="search()">
+        <div class="search_div">
+            <i class="icon-search"></i>
+            请输入搜索内容
+        </div>
+    </section>
+    <nav>
+        <div class="slide-box" id="type_pid">
+            <script type="text/x-dot-template" id="type_pid_tp">
+                {{~ it : value : index }}
+                <div class="slide-item" id="type_pid_{{= value. type_id }}" onclick="type_pid_ac(this,'{{= value. type_id }}')">{{= value. type_name }}</div>
+                {{~}}
+            </script>
+        </div>
+        <div class="slide-box" id="type">
+           
+        </div>
+        <div class="slide-box" id="year">
+            
+        </div>
+    </nav>
+</section>
+    <section id="list">
+        <div class="hot_div">
+            <ul id="vod_list">
+                
+            </ul>
+        </div>
+        
+    </section>
+</body>
+<script type="text/x-dot-template" id="vod_tp">
+    {{~ it : value : index }}
+    <li tapmode onclick="vod_play('{{= value. vod_id }}','{{= value. vod_name }}','{{= value. type_id }}','{{= value. vod_area }}')">
+        <span class="vod_score">{{= value. vod_score }}</span>
+        <div class="bg_img" style="background-image: url('{{= value. vod_pic }}');background-size: 100% 100%;"></div>
+        <div class="vod_remarks">{{= value. vod_remarks }}</div>
+        <div class="vod_title">{{= value. vod_name }}</div>
+    </li>
+    {{~}}
+</script>
+<script type="text/x-dot-template" id="type_tp">
+    {{~ it : value : index }}
+    <div class="slide-item" id="type_{{= value. type_id }}" onclick="type_ac(this,'{{= value. type_id }}')">{{= value. type_name }}</div>
+    {{~}}
+</script>
+<script type="text/x-dot-template" id="year_tp">
+    {{~ it : value : index }}
+    <div class="slide-item" id="year_{{= value }}" onclick="year_ac(this,'{{= value }}')">{{= value }}</div>
+    {{~}}
+</script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/doT.js"></script>
+<script type="text/javascript" src="../script/jquery.js"></script>
+<script src="./public/public_b.js"></script>
+<script src="./frame/js/b.js"></script>
+
+</html>

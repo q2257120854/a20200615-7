@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>设置</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="{dede:global.mcfg_basehost/}/m-css/m-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{dede:global.mcfg_basehost/}/m-js/jquery.js"></script>
+<style type="text/css">
+.my_itemw{margin:10px 0;}
+.my_item{position:relative;height:50px;line-height:50px;border-bottom:1px solid #f5f5f5;font-size:16px;color:#333;background:#fefefe url({dede:global.mcfg_basehost/}/m-images/ms_publis_recipe.png) 96% center no-repeat;background-size:6px 10px;padding-left:15px;display:block;}
+.my_item-bottom{border-bottom:0;}
+
+.yxw-zhsz,.yxw-ljwm{color:#666;font-size:16px;padding:0 15px;margin-top:10px;}
+
+/*推出按钮*/
+.m-user-tuichu{padding:20px 0;text-align:center;margin:0 15px;}
+.m-user-tuichu .m-tuichu{height:44px;line-height:44px;font-size:16px;color:#fff;background:#00bca1;display:block;border-radius:5px;}
+</style>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar"><div class="searchbar_index"><a href="javascript:history.go(-1);" class="top_nav_left"></a><h1>设置</h1></div></div>
+<!-- TOP End -->
+
+<div class="wrapper">
+
+<h2 class="yxw-zhsz">账号设置</h2>
+
+<!-- 修改密码/更换手机号/昵称-->
+<div class="my_itemw">
+<a class="my_item" href="{dede:global.mcfg_basehost/}/member/edit_user.php">修改昵称</a>
+<a class="my_item" href="{dede:global.mcfg_basehost/}/member/edit_baseinfo.php">修改密码</a>
+<a class="my_item my_item-bottom" href="{dede:global.mcfg_basehost/}/member/resetuserid.php">更换手机号</a>
+</div>
+<!-- 修改密码/更换手机号/昵称 End -->
+
+<h2 class="yxw-ljwm">了解我们</h2>
+
+<!-- 关于我们-->
+<div class="my_itemw">
+<a class="my_item" href="{dede:global.mcfg_basehost/}/about/index/">关于我们</a>
+<a class="my_item my_item-bottom" href="{dede:global.mcfg_basehost/}/about/banquan/">版权声明</a>
+</div>
+<!-- 关于我们 End -->
+
+<!-- 退出当前帐号 -->
+<div class="m-user-tuichu"><a href="{dede:global.mcfg_basehost/}/member/index_do.php?fmdo=login&dopost=exit" class="m-tuichu">退出登录</a></div>
+<!-- 退出当前帐号 End -->
+
+</div>
+
+</body>
+</html>

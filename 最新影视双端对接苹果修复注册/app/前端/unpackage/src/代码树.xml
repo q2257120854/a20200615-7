@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="gb18030"?>
+<代码>
+	<代码 说明="这是一个空白的节点"/>
+	<主窗口代码 窗口="主窗口" 指针="91892096" 位置="0">代码</主窗口代码>
+	<公用模块代码 窗口="公用模块" 指针="83561544">代码</公用模块代码>
+	<index1代码 窗口="index1" 指针="91979976" 位置="0">代码</index1代码>
+	<Main代码 窗口="Main" 指针="92009136" 位置="0">代码</Main代码>
+	<Play代码 窗口="Play" 指针="92103912" 位置="3">代码</Play代码>
+	<Main1代码 窗口="Main1" 指针="92107504" 位置="0">代码</Main1代码>
+	<Shipin1代码 窗口="Shipin1" 指针="92184880" 位置="0">代码</Shipin1代码>
+	<Sousuo代码 窗口="Sousuo" 指针="92239912" 位置="0">代码</Sousuo代码>
+	<TVzhibo代码 窗口="TVzhibo" 指针="92334648" 位置="252">代码</TVzhibo代码>
+	<Caidan代码 窗口="Caidan" 指针="92383096" 位置="157">代码</Caidan代码>
+	<TVzhubo代码 窗口="TVzhubo" 指针="92502512" 位置="57">代码</TVzhubo代码>
+	<Jilu代码 窗口="Jilu" 指针="92528536" 位置="0">代码</Jilu代码>
+	<Shoucang代码 窗口="Shoucang" 指针="92529088" 位置="0">代码</Shoucang代码>
+	<Setting代码 窗口="Setting" 指针="92529640" 位置="18">代码</Setting代码>
+	<Login代码 窗口="Login" 指针="92530192" 位置="0">代码</Login代码>
+	<Register代码 窗口="Register" 指针="92530744" 位置="15">代码</Register代码>
+	<Pay代码 窗口="Pay" 指针="92531296" 位置="107">代码</Pay代码>
+	<Fenxiang代码 窗口="Fenxiang" 指针="92531848" 位置="44">代码</Fenxiang代码>
+	<Guanyu代码 窗口="Guanyu" 指针="92532400" 位置="9">代码</Guanyu代码>
+	<Liuyan代码 窗口="Liuyan" 指针="92532952" 位置="15">代码</Liuyan代码>
+	<chaxundaili代码 窗口="chaxundaili" 指针="92533504" 位置="0">代码</chaxundaili代码>
+	<shengchengkami代码 窗口="shengchengkami" 指针="92534056" 位置="54">代码</shengchengkami代码>
+	<gerenxinxi代码 窗口="gerenxinxi" 指针="92534608" 位置="9">代码</gerenxinxi代码>
+	<xiazai代码 窗口="xiazai" 指针="92535160" 位置="28">代码</xiazai代码>
+	<spxiazai代码 窗口="spxiazai" 指针="92535712" 位置="28">代码</spxiazai代码>
+	<shezhi代码 窗口="shezhi" 指针="92536264" 位置="0">代码</shezhi代码>
+	<kefu代码 窗口="kefu" 指针="92536816" 位置="0">代码</kefu代码>
+	<shiyanshi代码 窗口="shiyanshi" 指针="92537368" 位置="1">代码</shiyanshi代码>
+	<gaimi代码 窗口="gaimi" 指针="92537920" 位置="69">代码</gaimi代码>
+	<Playzhibo代码 窗口="Playzhibo" 指针="92538472" 位置="0">代码</Playzhibo代码>
+</代码>

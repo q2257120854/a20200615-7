@@ -1,0 +1,43 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+<div class="common-banner mb20">
+    {dstaglib:adv ap_id='2' limit='1' item='v'}
+    <img class="lazy" data-original="{:get_adv_img($v.adv_code)}">
+    {/dstaglib:adv}
+</div>
+<div class="cases-search w1200">
+    <div class="mt mb20">
+        <div class="location">
+            <a href="/home/index/index.html" target="_blank" class="ml30">德尚网络</a>&gt;
+            <a href="/home/article/search/ac_id/3.html">用户中心</a>&gt;
+        </div>
+        <div class="nav mt10">
+            <a href="{:url('member/index')}">基本资料</a>
+            <a href="{:url('member/change_info')}">修改资料</a>
+            <a href="{:url('member/change_password')}">修改密码</a>
+            <a href="{:url('member/change_portrait')}">修改头像</a>
+        </div>
+    </div>
+    <div class="mc clearfix">
+        <form method="post" id="page-job-apply_form" enctype="multipart/form-data">
+            <table style="width:100%;">
+                <tbody>
+                <tr>
+                    <img width="120" height="120" src="{:get_member_avatar($member_info.member_avatar)}">
+                    <input type="file" name="member_avatar"/>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td><input type="submit" onclick="javascript({:url('member/change_portrait')})" value="提交信息"></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+{/block}

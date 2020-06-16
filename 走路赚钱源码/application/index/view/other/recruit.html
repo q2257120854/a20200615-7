@@ -1,0 +1,49 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>{$config.WEB_TITLE}-人才招聘</title>{/block}
+{block name="keywords"}<meta name="keywords" content="{$config.WEB_KEYWORD}" />{/block}
+{block name="description"}<meta name="description" content="{$config.WEB_DESCRIPTION}" />{/block}
+{block name="style"}
+{/block}
+
+ <!--广告开始-->
+{block name="ad"}
+<div class="banner"> 
+	{foreach name="banner" id="vo"}
+	  <img src="{$vo.pic}" alt="{$vo.title}"/> 
+	{/foreach}
+</div> 
+{/block}
+ <!--广告结束-->
+ 
+{block name="body"}
+<!--中间隔断-->
+  <div class="main"> 
+   <!-- 左侧部分 --> 
+	{include file="public/other_left_nav" /}
+   <!-- 左侧部分 end--> 
+   <!-- 内容部分 --> 
+   <div id="contentRight"> 
+    <div class="content_com_title"> 
+     <h2>人才招聘</h2> 
+     <div class="bread">
+       当前位置：
+      <a href="/" title="首页">首页</a>-人才招聘
+     </div> 
+    </div> 
+    <div class="content"> 
+     <ul class="news1"> 
+		{foreach name="list" id="vo"}
+		<li> <a href="/recruitshow.html?nid={$vo.id}">{$key+1}、{$vo.title}</a><span>{$vo.addtime|date='Y-m-d',###}</span> </li> 
+       {/foreach}
+     </ul> 
+    </div> 
+	
+   </div> 
+   <!-- 内容部分 end--> 
+  </div>
+
+{/block}
+
+{block name="script"}
+{/block}	

@@ -1,0 +1,62 @@
+<div class="blank115"></div>
+
+<div class="header-top">
+    <div class="w1200">
+        <div class="top-link">欢迎来到德尚网络 DSCMS 企业网站</div>
+        <!--        <ul class="login-regin">
+                    {if $Think.session.member_id}
+                    <li class="line"> <a href="{:url('Member/index')}">{$Think.session.member_name}</a></li>
+                    <li> <a href="{:url('Login/Logout')}">{$Think.lang.exit}</a></li>
+                    {else}
+                    <li class="line"> <a href="{:url('Login/login')}">{$Think.lang.please_log}</a></li>
+                    <li> <a href="{:url('Login/register')}">{$Think.lang.free_registration}</a></li>
+                    {/if}
+                </ul>-->
+        <span class="top-link">
+            <strong style="margin-left:30px;">{$Think.lang.ds_attention}
+                <a href="http://www.csdeshang.com" target="_blank">www.csdeshang.com</a>{$Think.lang.ds_continuous_update}
+            </strong>
+            &nbsp;
+            {$Think.lang.ds_qqgroup}
+            <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=1dcb185a87ceb15ca3736eee8d8b513a820bb56d2b7f47948bbdbd5132877e30"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="DSCMS开源官方群2" title="DSCMS开源官方群2"></a>
+        </span>
+        <ul class="quick_list">
+            <li class="moblie-qrcode">
+                <span class="outline"></span>
+                <span class="blank"></span>
+                <a href="javascript:void(0)">微信端</a>
+                <div class="dropdown-menu">
+                    <img src="http://dsmall.php.60data.com/uploads/home/common/site_logowx.jpg" width="90" height="90">
+                </div>
+            </li>
+            <li>
+                <span class="outline"></span>
+                <span class="blank"></span>
+                <a href="javascript:void(0)">zh-cn<b></b></a>
+                <div class="dropdown-menu">
+                    <ol>
+                        <li><a href="javascript:change_lang('zh-cn')">中文版</a></li>
+                        <li><a href="javascript:change_lang('en-us')">英文版</a></li>
+                    </ol>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="header">
+    <div class="w1200">
+        <div class="logo">
+            <a href="{$Think.HOME_SITE_URL}"><img src="{$Think.UPLOAD_SITE_URL}/{$Think.ATTACH_COMMON}/{$Think.config.site_logo}"/></a>
+        </div>
+        <ul class="nav">
+            <li><a href="{$Think.HOME_SITE_URL}">首页</a></li>
+            {volist name="nav_header" id="nav"}
+            <li><a href="{$nav.nav_url}" {$nav.nav_new_open}>{$nav.nav_title}</a></li>
+            {/volist}
+            <li><a href="{:url('Cases/search')}">客户案例</a></li>
+            <li><a href="{:url('Product/search')}">产品介绍</a></li>
+            <li><a href="{:url('News/search')}">新闻资讯</a></li>
+            <li><a href="{:url('Job/index')}">招贤纳士</a></li>
+        </ul>
+    </div>
+</div>

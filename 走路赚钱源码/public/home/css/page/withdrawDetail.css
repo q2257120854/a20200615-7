@@ -1,0 +1,62 @@
+
+.mui-bar-nav~.mui-content {padding-top: 75px;}
+
+.mui-bar-nav {
+	padding-top: 20px;
+	box-sizing: content-box;
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+}
+
+.withdraw-date-year {
+	padding: .2rem;
+	color: #aaa;
+	font-size: .28rem;
+}
+
+.withdraw-item {
+	display: flex;
+	padding: .2rem;
+	align-items: center;
+	background-color: #fff;
+	border-bottom: 1px solid #E6E6E6;
+}
+
+.withdraw-item p {
+	word-break: break-all;
+	margin: 0;
+}
+
+.item-date {
+	width: 22%;
+	font-size: .24rem;
+	color: #888;
+}
+
+.item-date>p {
+	font-size: .24rem;
+}
+
+.item-address {
+	width: 44%;
+	color: #333;
+	font-size: .24rem;
+	text-overflow: -o-ellipsis-lastline;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+
+}
+
+.item-info {
+	width: 30%;
+	text-align: right;
+	color: #333;
+	font-size: .32rem;
+}
+
+.item-info>span {
+	font-size: .24rem;
+}

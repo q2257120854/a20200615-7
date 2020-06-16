@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改登录密码</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="<?php echo $mcfg_basehost; ?>/m-css/m-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/jquery.js"></script>
+<script type="text/javascript">
+  function checkSubmit()
+{
+	if(document.form2.oldpwd.value=='')
+	{
+		document.form2.oldpwd.focus();
+		alert("请输入旧密码");
+		return false;
+	}
+
+    if(document.form2.userpwd.value=='')
+	{
+		document.form2.userpwd.focus();
+		alert("请输入新密码");
+		return false;
+	}
+	
+}
+</script>
+<style type="text/css">
+body{background:#fff;}
+input,button{vertical-align:middle;font-size:100%;list-style:none;outline:none;border:0;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-appearance:none;}
+.qrdditem{padding-top:10px}
+.qrdditem .b{padding:10px;}
+.qrdditem .b input{width:100%;line-height:18px;font-size:14px;color:#333;background-color:#f3f7fa;padding:16px 12px;box-sizing:border-box;border-radius:3px;}
+
+.gd_bottom_pay{margin:0 10px;}
+.gdb_buybtn_pay{width:100%;height:44px;line-height:44px;font-size:16px;background:#00bca1;color:#fff;cursor:pointer;padding:0;border-radius:3px;margin-top:15px;}
+</style>
+<body>
+
+<!-- TOP -->
+<div class="topbar"><div class="searchbar_index"><a href="javascript:history.go(-1);" class="top_nav_left"></a><h1>修改登录密码</h1></div></div>
+<!-- TOP End -->
+
+
+<div class="wrapper">
+
+<!-- 修改登录密码 -->
+<div class="mima-content">
+<form action="edit_baseinfo.php" method="post" enctype="multipart/form-data" name="form2" onsubmit="return checkSubmit();">
+<input type="hidden" name="dopost" value="save" />
+
+<div class="qrdditem">
+<div class="b"><input name="oldpwd" type="password" id="oldpwd" placeholder="请输入旧密码" maxlength="16" /></div>
+<div class="b"><input name="userpwd" type="password" id="userpwd" placeholder="请输入新密码，6-16位字母或数字组合" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" maxlength="16" /></div>
+</div>
+
+
+<!-- 保存 -->
+<div class="gd_bottom_pay"><button class="gdb_buybtn_pay" type="submit">保存</button></div>
+<!-- 保存 End -->
+
+</form>
+</div>
+<!-- 修改登录密码 End -->
+
+
+</div>
+
+
+</body>
+</html>

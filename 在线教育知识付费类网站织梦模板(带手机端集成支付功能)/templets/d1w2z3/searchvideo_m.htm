@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+
+<title>搜索结果</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+<meta content="yes" name="apple-mobile-web-app-capable" />
+
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+
+<meta content="telephone=no" name="format-detection" />
+
+<script type="text/javascript" src="{dede:global.mcfg_basehost/}/m-js/jquery.js"></script>
+
+<style type="text/css">
+
+*{margin:0;padding:0;}
+
+body{margin:0;padding:0;background:#fff;font-family:"STHeiti",Helvetica,Arial,sans-serif;font-size:12px;color:#333;}
+
+ul,li{list-style:none;}
+
+h1,h2,h3,h4{font-weight:normal;}
+
+em,i{font-style:normal;font-weight:normal;}
+
+img{border:0;max-width:100%;}
+
+a{text-decoration:none;color:#333;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+
+.wrapper{max-width:640px;min-width:320px;margin:0 auto;padding-top:50px;}
+
+.m-header{width:100%;height:50px;background:#fff;z-index:100;position:fixed;}
+
+.ysearch-box{padding:10px 55px 10px 15px;box-sizing:border-box;box-shadow:0 0 3px 1px rgba(0,0,0,.1);}
+
+.ysearch-box .yfixtext{width:100%;line-height:20px;background:#eee;padding:5px 15px;font-size:12px;border-radius:3px;box-sizing:border-box;border:0;outline:0;-webkit-appearance:none;color:#333;}
+
+.ysearch-box .fixsbmt{width:25px;height:25px;display:block;position:absolute;right:15px;top:12px;background:url({dede:global.mcfg_basehost/}/m-images/index-search.png) no-repeat;background-size:25px 25px;border:0;outline:0;-webkit-appearance:none;}
+
+
+
+/*课程列表样式*/
+
+.m-header-video .content_list{background:#fff;overflow:hidden;padding:25px 15px 0;}
+
+.m-header-video .content_item{height:79px;padding-bottom:25px;}
+
+.m-header-video .content_item img{width:140px;height:79px;display:block;border-radius:3px;float:left;margin-right:10px;}
+
+.m-header-video .content_item .main_title{font-weight:700;font-size:15px;color:#333;max-height:46px;height:46px;line-height:22px;margin-bottom:5px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+
+.m-header-video .content_item .sub_title{color:#999;font-size:12px;display:inline-block;}
+
+.m-header-video .content_item .vip{display:none;}
+
+
+
+/*课程搜索结果*/
+
+#showpage_min{display:none;}
+
+#dianhuafei{width:100%;height:20px;line-height:20px;padding:0 0 30px;overflow:hidden;text-align:center;color:#999;font-size:14px;}
+
+</style>
+
+<script type="text/javascript">
+
+  function checkSearchForm(){
+
+  if(document.getElementById('keyword').value){
+
+    return true;
+
+    }else{
+
+   alert("请输入课程关键字");
+
+    return false;
+
+    }
+
+  }
+
+</script>
+
+</head>
+
+<body>
+
+
+
+
+
+<!-- TOP -->
+
+<div class="m-header">
+
+<div class="ysearch-box">
+
+<form method="post" name="f1" action="{dede:global.mcfg_basehost/}/search.php" onsubmit="return checkSearchForm()">
+
+<input type="hidden" name="kwtype" value="0" />
+
+<input type="hidden" id="driverId" name="channeltype" value="17" />  
+
+<input type="text" class="yfixtext" id="keyword" name="keyword" placeholder="{dede:global name='keyword' function='RemoveXSS(@me)'/}" autocomplete="off">
+
+<input type="submit" class="fixsbmt" value="">
+
+</form>
+
+</div>
+
+</div>
+
+<!-- TOP End -->
+
+
+
+
+
+<div class="wrapper">
+
+
+
+<!-- 搜索结果 -->
+
+<div class="m-header-video">
+
+<ul class="content_list m-kc-dd-list">
+
+{dede:list pagesize='8'}
+
+<li class="content_item">
+
+<a href="[field:array function='GetTypeDeurlformarr(@me)'/]" class="link">
+
+<img src="http://www.test.com/images/yxw-sc-bg.gif" data-original="[field:ico function='mstrone(@me)'/]">
+
+<div class="main_title">[field:typename/]</div>
+
+<div class="sub_title">[field:id function="JJgetCliak(@me)"/]次学习</div>
+
+</a>
+
+</li>
+
+{/dede:list}
+
+</ul>
+
+<!-- 分页 -->
+
+<div id="dianhuafei" class="yxw-list-loading"></div>
+
+<div id="showpage_min" class="xiayiyequ">{dede:pagelist listitem="pre,next,pageno" listsize="4"/}</div>
+
+<!-- 分页 End -->
+
+</div>
+
+<!-- 搜索结果 End -->
+
+
+
+
+
+</div>
+
+
+
+<script type="text/javascript">
+
+$(function(){
+
+    lazyRender();
+
+})
+
+$(window).on('scroll',function () {
+
+    lazyRender();
+
+})
+
+function lazyRender () {
+
+    $('img').each(function () {
+
+        //解决没缩略图的
+
+        if($(this).attr('src') == undefined)
+
+        {
+
+            $(this).attr("src","{dede:global.cfg_basehost/}/images/yxw-sc-bg.gif");
+
+        }
+
+        if (checkShow($(this)) && !isLoaded($(this)) ){
+
+            loadImg($(this));
+
+        }
+
+        if($(this).attr('src') == '{dede:global.cfg_basehost/}'){$(this).attr("src","{dede:global.cfg_basehost/}/images/yxw-sc-bg.gif");}
+
+    })
+
+}
+
+function checkShow($img) { // 传入一个img的jq对象
+
+    var scrollTop = $(window).scrollTop();  //即页面向上滚动的距离
+
+    var windowHeight = $(window).height(); // 浏览器自身的高度
+
+    var offsetTop = $img.offset().top;  //目标标签img相对于document顶部的位置
+
+    if (offsetTop < (scrollTop + windowHeight) && offsetTop > scrollTop) { //在2个临界状态之间的就为出现在视野中的
+
+        return true;
+
+    }
+
+    return false;
+
+}
+
+function isLoaded ($img) {
+
+    return $img.attr('data-src') === $img.attr('src'); //如果data-src和src相等那么就是已经加载过了
+
+}
+
+function loadImg ($img) {
+
+    // $img.css('display','none');
+
+    $img.attr('src',$img.attr('data-original')).fadeIn(300); // 加载就是把自定义属性中存放的真实的src地址赋给src属性
+
+}
+
+
+
+
+
+var f = true; 
+
+function getxia(){
+
+    var link = $(".xiayiyequ a");
+
+        var href = link.attr("href");
+
+			 
+
+			
+
+        if (href != undefined) { 
+
+		$(".yxw-list-loading").html('正在加载中...');
+
+            $.ajax({
+
+                type: "get",
+
+                url: href,
+
+                success: function(data) { 
+
+  
+
+                    var newHref = $(data).find(".nextPage").attr("href");  
+
+					
+
+					$(".m-kc-dd-list").append($(data).find(".m-kc-dd-list").html());
+
+					
+
+					f = true;
+
+				
+
+                    if (newHref != undefined) {
+
+                        link.attr("href", newHref);
+
+                    } else {
+
+						$("#dianhuafei").html("没有更多了");
+
+						link.html("下一页没有了").removeAttr("href");
+
+					};
+
+                }
+
+            });
+
+        }else{
+
+		$("#dianhuafei").html("没有更多了");
+
+		}
+
+		
+
+        return false;   
+
+}
+
+$(document).scroll(function(){
+
+            //滚动条滑动的时候获取滚动条距离顶部的距离
+
+            var scroll=$(document).scrollTop();
+
+            //屏幕的高度
+
+            var client=$(window).height();
+
+            var h=$(document).height();
+
+            var flag=true;
+
+			var bih = scroll+client+100 ;		
+
+            if (h<= bih) { // 到达底部时,加载新内容	 
+
+					if(f){
+
+						f  = false;
+
+	 
+
+						getxia();	
+
+					}
+
+					  
+
+			}
+
+});
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form layui-form-pane" method="post">
+    <div class="layui-tab layui-tab-card">
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.admin_name}</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input field-name" name="admin_name" id="admin_name" value="{$admin.admin_name|default=''}" lay-verify="admin_name" autocomplete="off" placeholder="{:lang('ds_please_enter')}{:lang('admin_name')}" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.admin_password}</label>
+                    <div class="layui-input-block">
+                        <input type="password" class="layui-input field-name" name="admin_password" id="admin_password" value=""  placeholder="{if $admin.add eq '1'} {:lang('ds_please_enter')}{:lang('admin_password')}{else}{:lang('admin_edit_password_keep')}{/if} " />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.admin_password}</label>
+                    <div class="layui-input-block">
+                        <select name="group_id">
+                            {foreach name="admin_group" item="v"}
+                            <option value="{$v.group_id}">{$v.group_name}</option>
+                            {/foreach}
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use('form', function() {
+        var form = layui.form;
+    });
+</script>
+{/block}
+
+
+

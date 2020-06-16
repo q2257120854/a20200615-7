@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="/tmc/js/mui.min.js"></script>
+    <link href="/tmc/css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+	<style>
+		.body{
+			line-height: px;
+		}
+		.mui-table-view-cell:after{
+			left: 0px;
+			background-color:#fff;
+		}
+		.mui-table-view:before{
+			background-color:#fff;
+		}
+		.mui-table-view:after{
+			background-color:#fff;
+		}
+		.mui-input-group:before{
+			height:0px
+		}
+		.mui-input-group:after{
+			height:0px;
+		}
+		.header{
+			background:#3c7fff;
+			top:0;
+			box-shadow:0 0px 0px #ccc;
+			-webkit-box-shadow:0 0px 0px #ccc;
+		}
+		.h1{
+			font-family:'微软雅黑';
+			color:#fff;
+		}
+		.ul{
+			margin-top:40px;
+			background:#3c7fff;
+			line-height:2em;
+		}
+		.p{
+			margin-left:10%;
+			font-family:'微软雅黑';
+			color:aquamarine;
+		}
+		.p1{
+			position:absolute;
+			left:35%;
+			bottom:12px;
+			font-family:'微软雅黑';
+			font-size:1em;
+			color:#fff;
+		}
+		.form{
+			top:20px;
+			height:0px;
+			width:80%;
+			left:0px;
+			right:0px;
+			margin:auto;
+		}
+		.divc{
+			border-radius:30px;
+			background-color:#fff;
+			margin-bottom:30px;
+		}
+		.img{
+			position:absolute;
+			width:30px;
+			margin-left:15px;
+			margin-top:4px;
+		}
+		.int{
+			color:#0062CC;
+			margin-left:22%;
+			font-size:0.9em;
+			font-family:'微软雅黑';
+		}
+		.button{
+			line-height:2em;
+			font-size:0.9em;
+			width:80%;
+			font-family:'微软雅黑';
+			border-radius:10px;
+			border:0px solid;
+			background:#3c7fff;
+		}
+	</style>
+</head>
+<body style="background:#fff;">
+	<header class="mui-bar mui-bar-nav header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+			<h1 class="mui-title h1">出售乐豆</h1>
+	</header>	
+		<ul class="mui-table-view ul">
+			<li class="mui-table-view-cell mui-collapse-content"><p class="p">TMC数量</p><p class="p1">0</p> </li>
+			<!--<li class="mui-table-view-cell mui-collapse-content"><p class="p">可售额度余额</p><p class="p1">{$result.ore_wallet}</p> </li>
+			<li class="mui-table-view-cell mui-collapse-content"><p class="p">POW额度</p><p class="p1">{$result.forepart_money}</p> </li>
+			<li class="mui-table-view-cell mui-collapse-content"><p class="p">手续费</p><p class="p1">{$shouxufei*100}%</p> </li>-->
+		</ul>
+			<form class="mui-input-group form">
+							<div class="mui-input-row divc">
+								<img src="/tmc/img/sl.png"  class="img" />
+								<input type="number" name="number" id="number" class="int" placeholder="出售数量">
+							</div>
+							<div class="mui-input-row divc">
+								<img src="/tmc/img/mima.png"  class="img" />
+								<input type="password" name="password" id='password' class="int" placeholder="交易密码">
+							</div>
+							
+							<br>
+							<div class="mui-button-row">
+								<button type="button" id="submit" class="mui-btn mui-btn-danger button">出售</button>
+							</div>
+							<br>
+							<p style="font-family: '微软雅黑';font-size: 0.6em;">注意事项：每个乐豆需要消耗 1000个TMC，乐豆出售后会自动匹配交易</p>
+						</form>
+		
+</body><script>
+					mui.init({
+						swipeBack: true //启用右滑关闭功能
+					});
+					
+				(function($) {
+						//监听点击事件
+						document.getElementById("submit").addEventListener('tap',function(){
+							var number = $("input[name=number]")[0].value;
+							//var type = $("input[name=radio1]:checked")[0].value;
+							var type = 1;
+							var password = $("input[name=password]")[0].value;
+							
+							var sxf = parseFloat(number) * parseFloat('{$shouxufei}') + parseFloat(number);
+							
+							var total = '{$result.ore_wallet}';
+							var usable = '{$result.forepart_money + $result.fry_data}';
+							
+							if(sxf>total || sxf>usable){
+								$.toast('可用可售额度不足');
+								return false;
+							}
+							
+							if(!number){
+								$.toast('请输入卖出数量！');
+								return false;
+							}
+							var reg=/^[0-9]+.?[0-9]*$/; 
+							if(!reg.test(number)){
+								$.toast('卖出数量必须是数字！');
+								return false;
+							}
+							if(!password){
+								$.toast('请输入支付密码！');
+								return false;
+							}
+		
+							//console.log(password);				
+							$.ajax('/sell_yu.html',{
+								data:{op:'588cmmphp',password:password,number:number,type:type},
+								dataType:'json',//服务器返回json格式数据
+								type:'post',//HTTP请求类型
+								async:false,
+								timeout:50000,//超时时间设置为50秒；	              
+								success:function(data){
+									if(data.s=='ok'){
+										$.toast('卖出成功');
+											setTimeout(function(){
+											//页面刷新  
+												window.location.href = "/maichu.html";
+											},1500);
+									}else{
+										$.toast(data.s);
+									}
+									//console.log(data);
+									event.stopPropagation();
+								}
+							});
+							event.stopPropagation();
+						
+						});
+					})(mui);
+		
+					document.getElementById("number").addEventListener('input', function(e) {
+									
+						var sxf = parseFloat(this.value) * parseFloat('{$shouxufei}') + parseFloat(this.value);
+						console.log(sxf);
+						if(!isNaN(sxf)){
+							mui("#moeny")[0].innerHTML="￥"+ sxf;
+						}else{
+							mui("#moeny")[0].innerHTML="￥0";
+						}
+					});				
+					 //语音识别完成事件
+					document.getElementById("search").addEventListener('recognized', function(e) {
+						console.log(e.detail.value);
+					});
+				</script>
+</html>

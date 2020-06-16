@@ -1,0 +1,300 @@
+body {padding-top: 25px;}
+
+.mui-content {
+	padding-bottom: 70px;
+}
+
+
+#bjJianbian {
+	background-color:rgba(1,3,25,1);
+}
+.wallet-name {
+	padding-top: .2rem;
+	margin-bottom: .15rem;
+	text-align: center;
+	color: #C79855;
+	font-size: .32rem;
+}
+
+.mui-content {
+	background: none;
+}
+
+.mui-content .bit-row {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0 .2rem;
+	color: #888;
+	font-size: .24rem;
+}
+
+#bizhongList.market-box {
+	background: #fff;
+	margin-top: -0.35rem;
+	margin-bottom: 20px;
+}
+
+.text-up {
+	background-color: #55C77B;
+	color: #fff;
+}
+
+.text-down {
+	background-color: #D56161;
+	color: #fff;
+}
+
+.market-row>div {
+	height: 1.4rem;
+	text-align: center;
+	padding: .35rem .1rem;
+	border-bottom: 1px solid #E6E6E6;
+}
+
+.market-row>div:first-child,
+.market-row>div:last-child {
+	line-height: .48rem;
+}
+
+.text-bg {
+	padding: .1rem;
+	border-radius: 1rem;
+}
+
+.notice {
+	margin-top: .25rem;
+	background: #fff;
+	padding: 0 0 .3rem 0;
+	text-align: center;
+}
+
+.mui-slide {
+	margin-right: .2rem;
+}
+
+.mui-col-sm-4 {
+	width: 33.33333333%;
+}
+
+.avatar-box {
+	padding-top: .3rem;
+	text-align: center;
+	
+}
+
+.avatar-box>img {
+	width: .8rem;
+	height: .8rem;
+	margin: 0 auto;
+	border-radius: 100%;
+}
+
+.clear:after {
+	display: block;
+	content: '';
+	height: 0;
+	overflow: hidden;
+	clear: both;
+}
+.clear {zoom: 1;}
+
+.panel-name {
+	padding: .2rem;
+	border-bottom: 1px solid #eee;
+}
+
+.panel-name>h4 {
+	text-align: left;
+	padding: .1rem .2rem;
+	font-size: .32rem;
+	border-left: 3px solid #007AFF;
+}
+/* 轮播 */
+.tempo>img {
+	position: relative;
+	left: 10px;
+}
+
+.wallet-name>img {
+	width: .28rem;
+	position: relative;
+	top: 1px;
+}
+.text-bg {
+	display: inline-block;
+	padding: 0 0.1rem;
+	margin-top: 0.14rem;
+	width: 5em;
+	font-size: .28rem;
+}
+.mui-text-center {
+	overflow: hidden;
+}
+#sliderHead .lunbo {
+	position: relative;
+	
+}
+#sliderHead .lunbo p{
+	color: #fff;
+	font-size: 0.21rem;
+}
+#sliderHead .lunbo span {
+	color: #fff;
+}
+#sliderHead {
+	position: absolute;
+	top: -0.2rem;
+	
+}
+.lunboCont {
+	position: absolute;
+	top: 0.9rem;
+	left: 10%;
+}
+#sliderHead .renmin {
+	font-size: 0.8rem;
+	line-height: 0.9rem;
+}
+#sliderHead span.goalSiza{
+	font-size: 0.38rem;
+	line-height: 0.45rem;
+}
+/* 公告样式 */
+#notice {
+	margin: 0.1rem 0.1rem;
+	height: 1.4rem;
+	position: relative;
+	z-index: 500;
+	
+}
+#notice img {
+	vertical-align: top;
+	margin-top: 0.1rem;
+	width: 1rem;
+}
+#noticeList {
+	display: inline-block;
+	width: 80%;
+	overflow: hidden;
+}
+#noticeList ul {
+	list-style-type:none;
+	display: inline-block;
+	margin: 0;
+	padding-left: 0.2rem;
+	width: 88%;
+	height: 100%;
+}
+#noticeList .noticeRight {
+	height: 100%;
+	display: inline-block;
+	width: 10%;
+	float: right;
+	overflow: hidden;
+}
+#noticeList .noticeRight span {
+	font-size: 0.7rem;
+	line-height: 1.4rem;
+}
+#noticeList li {
+	font-size: 0.28rem;
+	line-height: 0.7rem;
+	position: relative;
+}
+.noticeTime {
+	height: 100%;
+	color: #888888;
+	display: inline-block;width: 25%;
+	position: absolute;right: -0.3rem;
+}
+.noticeTil {
+	display: inline-block;
+	width: 78%;
+	vertical-align: top;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+/* 中间轮播样式 */
+#sliderCenter .centerLunbo {
+	width: 100%;
+	text-align: center;
+	font-size: 0.3rem;
+	position: relative;
+}
+#sliderCenter .centerLunbo img {
+	width: 96%;
+}
+#sliderCenter span.yqNum {
+	color: #fff;
+	font-size: 0.5rem;
+	/*height: 0.45rem;*/
+}
+.centerLbCont {
+	position: absolute;
+	top: 0.38rem;
+	right: 0.3rem;
+}
+/* 二维码蒙版 */
+/*#mengban {
+	position: fixed;
+	top: 0;
+	display: none;
+	width: 100%;
+	text-align: center;
+	height: 100%;
+	background-color: rgba(0,0,0,.7);
+	z-index: 999;
+}
+#mbCoat {
+	width: 90%;
+	margin: auto;
+	margin-top: 25%;
+	position: absolute;
+	top: 0;right: 0;left: 0;bottom: 0;
+}
+#mbCont {
+	background-color: #fff;
+	border-radius: 15px;
+	text-align: center;
+	padding-bottom: 0.4rem;
+}
+#mbLogo {
+	height: 2rem;
+	width: 2rem;
+	margin: auto;
+	font-size: 0;
+	border-radius: 100%;
+	border: 5px solid #fff;
+	transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	overflow: hidden;
+}
+#mbLogo img {
+	width: 100%;
+}
+#mbCont h4 {
+	font-size: 0.5rem;
+	margin-top: -0.6rem;
+}
+#mbCont p {
+	font-size: 0.38rem;
+	line-height: 0.6rem;
+	margin-bottom: 0.28rem;
+}
+#mbErweima {
+	width: 200px;
+	height: 200px;
+	margin: auto;
+	line-height: 200px;
+	font-size: 0.5rem;color: #efefef;
+}
+.mui-icon-close	{
+	font-size: 1rem;
+	color: #fff;
+	font-weight: 0;
+	margin-top: 0.8rem;
+}*/

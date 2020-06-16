@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title><?php echo $arctitle; ?> - <?php echo $cfg_webname; ?></title>
+<meta name="keywords" content="<?php echo $keywords; ?>" />
+<meta name="description" content="<?php echo $description; ?>">
+<script src="/js/uaredirect.js" type="text/javascript"></script>
+<script type="text/javascript">uaredirect("http://m.duoweizi.net/plus/view.php?aid=<?php echo $arcID; ?>");</script>
+<link href="/css/v-duoweizi.css" rel="stylesheet" type="text/css" />
+<link href="/css/vip_doc.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js" ></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+function CheckLogin(){
+	  var taget_obj = document.getElementById('_ajax_feedback');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_feedback.php");
+	  DedeXHTTP = null;
+}function CheckLoginshop(){
+	  var taget_obj = document.getElementById('_ajax_shopping');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_feedback.php");
+	  DedeXHTTP = null;
+}
+function postBadGood(ftype,fid)
+{
+	var taget_obj = document.getElementById(ftype+fid);
+	var saveid = GetCookie('badgoodid');
+	if(saveid != null)
+	{
+		var saveids = saveid.split(',');
+		var hasid = false;
+		saveid = '';
+		j = 1;
+		for(i=saveids.length-1;i>=0;i--)
+		{
+			if(saveids[i]==fid && hasid) continue;
+			else {
+				if(saveids[i]==fid && !hasid) hasid = true;
+				saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+				j++;
+				if(j==10 && hasid) break;
+				if(j==9 && !hasid) break;
+			}
+		}
+		if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+		else saveid += ','+fid;
+		SetCookie('badgoodid',saveid,1);
+	}
+	else
+	{
+		SetCookie('badgoodid',fid,1);
+	}
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	myajax.SendGet2("/plus/feedbackpp.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+}
+function postDigg(ftype,aid)
+{
+	var taget_obj = document.getElementById('newdigg');
+	var saveid = GetCookie('diggid');
+	if(saveid != null)
+	{
+		var saveids = saveid.split(',');
+		var hasid = false;
+		saveid = '';
+		j = 1;
+		for(i=saveids.length-1;i>=0;i--)
+		{
+			if(saveids[i]==aid && hasid) continue;
+			else {
+				if(saveids[i]==aid && !hasid) hasid = true;
+				saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+				j++;
+				if(j==20 && hasid) break;
+				if(j==19 && !hasid) break;
+			}
+		}
+		if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+		else saveid += ','+aid;
+		SetCookie('diggid',saveid,1);
+	}
+	else
+	{
+		SetCookie('diggid',aid,1);
+	}
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	var url = "/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+	myajax.SendGet2(url);
+}
+function getDigg(aid)
+{
+	var taget_obj = document.getElementById('newdigg');
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	myajax.SendGet2("/plus/digg_ajax.php?id="+aid);
+	DedeXHTTP = null;
+}
+-->
+</script></head>
+<body>
+<?php pasterTempletDiy("d1w2z3/headd.htm");?>
+
+<!-- 面包削导航开始 -->
+<div class="mianbaoxiao clearfix">
+<div class="mianbao-min"><a href='/'>首页</a> > <a href='/doc/'>图文教材</a> > <?php echo $arctitle; ?></div>
+</div>
+<!-- 面包削导航结束 -->
+
+<div class="bd-wrap">
+<div class="container">
+
+<!-- VIP文档教程左侧内容 -->
+<div class="doc_vip-content">
+
+<div class="doc_article">
+<dl class="doc_content_head">
+<dt><img src="<?php echo $arc->Fields['litpic']; ?>" alt="<?php echo $arctitle; ?>"></dt>
+<dd>
+<h1><?php echo $arctitle; ?></h1>
+<p><?php echo $v1['tdts']; ?></p>
+<div class="course-price"><p class="course-price-info"><span class="price">￥<?php echo $arc->Fields['money']; ?>.00</span></p></div>
+<div class="btn-area clearfix">
+<a href="<?php echo $gmurl; ?>" class="yui-btn go-read-page">购买教材</a>
+<a onclick="alert('需要购买教程后才能下载');" class="yui-btn">下载教材</a>
+</div>
+</dd>
+</dl>
+</div>
+
+<div class="v-kc-center">
+
+<!-- TAB导航 -->
+<div class="v-kc-main">
+<ul class="tab-nav">
+<li class="on"><span>课程信息</span></li>
+</ul>
+</div>
+<!-- TAB导航 End -->
+
+<div class="kc-con">
+<div class="FengTabCon_0">
+<p><img src="http://www.duoweizi.net/images/jcfx.jpg" /></p>
+<?php echo $v1['body'] ?>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<?php pasterTempletDiy("d1w2z3/vipwdtj.htm");?>
+
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+
+</body>
+</html>

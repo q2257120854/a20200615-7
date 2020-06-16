@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title><?php if ($fuping['product'] =='video') {echo "课程评价";} else if ($fuping['product'] =='archive'){echo "教材评价";}?> - <?php echo $cfg_webname; ?></title>
+<script type="text/javascript" src="templets/js/j.js"></script>
+<script type="text/javascript" src="templets/js/jquery.boxy.js"></script>
+<script type="text/javascript" src="templets/js/load_index.js"></script>
+<script type="text/javascript" src="templets/js/leftmenu.js"></script>
+<script type="text/javascript" src="templets/js/face.js"></script>
+<script type="text/javascript" src="templets/js/Dialog.js"></script>
+<script type="text/javascript" src="templets/js/jquery.js"></script>
+<script type="text/javascript" src="templets/js/feed.js"></script>
+<script language='javascript'>
+	function msgSubmit(form) {
+		//var id=form.id.value;
+		var content = form.share_textarea.value;
+		if( content == '来,说点啥吧...' ) content = '';
+		if ( content == '' ) {
+			alert('请输入内容'); return false;
+		}
+		$.ajax({
+			type:'POST',
+			url:'index_do.php?fmdo=moodmsg&dopost=sendmsg',
+			cache:false,
+			data:'&content='+encodeURIComponent(content),
+			dataType:'json',
+			success:function(message){
+				if ( message.type == 'success' ) {
+					$('#share_textarea').val('');
+					$('#moodcontent').html(message.data);
+				} else {
+					alert(message.data);
+				}
+			}
+		});
+	}
+</script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+</head>
+<body>
+
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+
+<div class="container">
+
+<!-- 商品评价 -->
+<div class="mycomment-detail">
+<div class="detail-hd">
+<div class="orderinfo">
+<h3 class="o-title"><?php if ($fuping['product'] =='video') {echo "课程评价";} else if ($fuping['product'] =='archive'){echo "教材评价";}?></h3>
+<div class="o-info"><span class="mr20">订单号：<?php echo $buyid;?></span><span><?php echo GetDateTimeMk($fuping['mtime']); ?></span></div>
+</div>		
+</div>
+<div class="mycomment-form">
+
+<!-- page -->
+<div class="form-part1">
+<div class="f-item f-goods">
+<div class="fi-info">
+<div class="comment-goods">
+<div class="p-img<?php if ($fuping['product'] =='video') {echo "-kc";} else if ($fuping['product'] =='archive'){echo "-doc";}?>"><a href="../plus/view.php?aid=<?php echo $naid;?>" target="_blank"><img src="<?php echo $lll['litpic'];?>"></a></div>
+<div class="p-name"><a href="../plus/view.php?aid=<?php echo $naid;?>" target="_blank"><?php echo $lll['title'];?></a></div>
+<div class="p-price"><strong><?php echo $lll['money'];?>元</strong></div>
+</div>
+</div>
+
+<div class="fi-operate">
+<div class="fop-item fop-star">
+<div class="fop-label"><?php if ($fuping['product'] =='video') {echo "课程满意度";} else if ($fuping['product'] =='archive'){echo "教材满意度";}?></div>
+
+<!-- 商品满意度 -->
+<form action="fuping.php" method="post" name="feedback">
+<input type="hidden" name="comtype" value="comments">
+<input type="hidden" name="buyid" value="<?php echo $buyid; ?>">
+
+<div class="fop-main">
+<div class="comment-filter">
+<div class="f-rc-list">
+<label class="f-radio checked"><input type="radio"  class="icon-radio" name="feedbacktype" checked="1" value="good" ><span class="f-rc-text">好评</span></label>
+<label class="f-radio"><input type="radio"  class="icon-radio" name="feedbacktype"  value="feedback" ><span class="f-rc-text">中评</span></label>
+<label class="f-radio"><input type="radio"  class="icon-radio" name="feedbacktype"  value="bad" ><span class="f-rc-text">差评</span></label>
+</div>
+</div>
+</div>		
+<!-- 商品满意度 End -->
+
+</div>
+
+<!-- 评价晒图 -->
+<div class="fop-item">
+<div class="fop-label">评价<?php if ($fuping['product'] =='video') {echo "课程";} else if ($fuping['product'] =='archive'){echo "教材";}?></div>
+<div class="fop-main">
+<div class="f-textarea">
+<textarea name="msg" id="" placeholder="<?php if ($fuping['product'] =='video') {echo "课程";} else if ($fuping['product'] =='archive'){echo "教材";}?>是否给力？快分享你的学习心得吧~"></textarea>
+<div class="textarea-ext">仅限300字以内</div>
+</div>
+
+</div>
+</div>			
+</div>
+</div>
+</div>
+<!-- page -->
+
+<!-- 评价提交 -->
+<div class="f-btnbox"><button type="button" class="btn-submit" onClick='javascript:if(document.feedback.msg.value!="") document.feedback.submit(); else alert("评论内容不能为空！");' >提交</button></div>	
+<!-- 评价提交 -->
+
+</form>
+</div>			
+</div>
+<!-- 商品评价 End -->
+
+</div>
+
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+
+</body>
+</html>

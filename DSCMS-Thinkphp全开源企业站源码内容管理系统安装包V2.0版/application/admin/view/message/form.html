@@ -1,0 +1,54 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form layui-form-pane" method="post" enctype="multipart/form-data" >
+    <div class="layui-tab layui-tab-card">
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.message_customer}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" value="{$message.message_customer}" disabled />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.message_title}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" class="layui-input field-name" value="{$message.message_title}" disabled />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.message_ctitle}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" value="{$message.message_ctitle}" disabled />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.message_content}</label>
+                    <div class="layui-input-inline">
+                        <textarea class="layui-textarea" disabled>{$Think.lang.message_content}</textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><b>{$Think.lang.message_useinfo}</b></label>
+                    <div class="layui-input-inline">
+                        <textarea class="layui-textarea field-name" name="message_useinfo" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.message_useinfo}">{$message.message_useinfo}</textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-inline">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+    });
+</script>
+{/block}
+
+

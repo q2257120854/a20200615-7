@@ -1,0 +1,338 @@
+{include file="public/header" /}
+<link rel="stylesheet" href="{$Think.PLUGINS_SITE_ROOT}/jquery-validation-engine/css/validationEngine.jquery.css" />
+<script src="{$Think.PLUGINS_SITE_ROOT}/jquery-validation-engine/js/jquery.validationEngine.js"></script>
+<script src="{$Think.PLUGINS_SITE_ROOT}/jquery-validation-engine/js/languages/jquery.validationEngine-zh_CN.js"></script>
+
+<script type="text/javascript" charset="utf-8" src="{$Think.PLUGINS_SITE_ROOT}/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="{$Think.PLUGINS_SITE_ROOT}/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="{$Think.PLUGINS_SITE_ROOT}/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+
+    var editor_exambank_question = UE.getEditor('exambank_question', {
+        toolbars: [['fullscreen', 'source', 'undo', 'redo', 'bold']],
+    });
+    var editor_exambank_describe = UE.getEditor('exambank_describe', {
+        toolbars: [['fullscreen', 'source', 'undo', 'redo', 'bold']],
+    });
+
+
+    window.onload = function () {
+        jQuery('#exambank_form').validationEngine();
+        {if $Request.action eq 'add'}
+        tmQuestion.formInit(1); //默认单选题
+        {/if}
+
+    }
+
+    //空格数
+    var var_Blanks = 0;
+    var tmQuestion = {
+        formInit: function (qtype) {
+            if (qtype == 1) {
+                tmQuestion.formInitSingle();
+            } else if (qtype == 2) {
+                tmQuestion.formInitMultiple();
+            } else if (qtype == 3) {
+                tmQuestion.formInitJudgment();
+            } else if (qtype == 4) {
+                tmQuestion.formInitBlank();
+            } else if (qtype == 5) {
+                tmQuestion.formInitEssay();
+            }
+        },
+
+        formInitSingle: function () {
+            var html = [];
+            var btnval = '增加选项';
+            html.push("<div><input type='button' class='btn btn-small' value='" + btnval + "' onclick='tmQuestion.addOption(1)' /></div>");
+
+            var tm_options = ['A', 'B', 'C', 'D'];
+            html.push('<table class="tm_question_options" align="left">');
+            $(tm_options).each(function (i) {
+                html.push('<tr>');
+                html.push('	<td width="80" id="tm_option_' + this + '">选项' + this + '&nbsp;');
+                html.push('	<input type="hidden" class="validate[required]" name="args[alisa][]" value="' + this + '" />');
+                html.push('	<input type="radio" class="validate[required]" name="args[key][]" value="' + this + '" /></td>');
+                html.push('	<th><textarea rows="3" name="args[option][]" class="tm_txtx validate[required]"></textarea></th>');
+
+                if (i > 0) {
+                    html.push('	<td width="50"><a href="javascript:;" onclick="$(this).parent().parent().remove()" class="iconfont">&#xe696;</a></td>');
+                } else {
+                    html.push('	<td width="50"></td>');
+                }
+                html.push('</tr>');
+            });
+            html.push('</table>');
+
+            $("#tm_body").html(html.join(""));
+            $("#tm_title").html('选项设置 : ');
+        },
+
+        formInitMultiple: function () {
+            var html = [];
+            var btnval = '增加选项';
+            html.push("<div><input type='button' class='btn btn-small' value='" + btnval + "' onclick='tmQuestion.addOption(2)' /></div>");
+
+            var tm_options = ['A', 'B', 'C', 'D'];
+            html.push('<table class="tm_question_options" align="left">');
+            $(tm_options).each(function (i) {
+                html.push('<tr>');
+                html.push('	<td width="80" id="tm_option_' + this + '">选项' + this + '&nbsp;');
+                html.push('	<input type="hidden" class="validate[required]" name="args[alisa][]" value="' + this + '" />');
+                html.push('	<input type="checkbox" class="validate[required]" name="args[key][]" value="' + this + '" /></td>');
+                html.push('	<th><textarea rows="3" name="args[option][]" class="tm_txtx validate[required]"></textarea></th>');
+
+                if (i > 0) {
+                    html.push('	<td width="50"><a href="javascript:;" onclick="$(this).parent().parent().remove()" class="iconfont">&#xe696;</a></td>');
+                } else {
+                    html.push('	<td width="50"></td>');
+                }
+                html.push('</tr>');
+            });
+            html.push('</table>');
+
+            $("#tm_body").html(html.join(""));
+            $("#tm_title").html('选项设置 : ');
+        },
+
+        formInitJudgment: function () {
+            var html = [];
+            html.push('<label style="line-height:30px"><input type="radio" class="validate[required]" name="exambank_answer" value="Y" />正确</label>');
+            html.push('<br/>');
+            html.push('<label style="line-height:30px"><input type="radio" class="validate[required]" name="exambank_answer" value="N" />错误</label>');
+
+            $("#tm_body").html(html.join(""));
+            $("#tm_title").html('答案设置 : ');
+        },
+
+        formInitBlank: function () {
+            var html = [];
+            html.push('<div>');
+            html.push(' <input type="button" class="btn btn-small" value="增加填空" onclick="tmQuestion.addBlank();" />');
+            html.push(' <input type="text" class="validate[required]" style="clear:both; width:1px; height:1px; border:none;" id="tm_blank_marker" value="" />');
+            html.push('</div>');
+            html.push('<table class="tm_question_options" align="left">');
+            html.push('<tr><td id="tm_question_blanks"></td></tr>');
+            html.push('</table>');
+            $("#tm_body").html(html.join(""));
+
+            $("#tm_title").html('选项设置 : ');
+        },
+
+        formInitEssay: function () {
+            var html = [];
+            html.push('<div><textarea name="exambank_answer" rows="5" class="validate[required] tm_txtx" style="width:80%"></textarea></div>');
+
+            $("#tm_body").html(html.join(""));
+            $("#tm_title").html('答案设置 : ');
+        },
+
+        /*************** Opreations ************/
+        addOption: function (qtype) {
+            var tm_options = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+            for (var i = 0; i < tm_options.length; i = i + 1) {
+                var this_value = tm_options[i];
+                //不存在就添加
+                if (!document.getElementById("tm_option_" + this_value)) {
+                    var html = [];
+
+                    html.push('<tr>');
+                    html.push('	<td width="80" id="tm_option_' + this_value + '">选项' + this_value + '&nbsp;');
+                    html.push('	<input type="hidden" class="validate[required]" name="args[alisa][]" value="' + this_value + '" />');
+                    if (1 == qtype) {
+                        html.push('	<input type="radio" class="validate[required]" name="args[key][]" value="' + this_value + '" /></td>');
+                    } else if (2 == qtype) {
+                        html.push('	<input type="checkbox" class="validate[required]" name="args[key][]" value="' + this_value + '" /></td>');
+                    }
+
+                    html.push('	<th><textarea rows="3" name="args[option][]" class="tm_txtx validate[required]"></textarea></th>');
+                    html.push('	<td width="50"><a href="javascript:;" onclick="$(this).parent().parent().remove()" class="iconfont">&#xe696;</a></td>');
+                    html.push('</tr>');
+
+                    $(".tm_question_options").append(html.join(""));
+
+                    break;
+                }
+            }
+        },
+
+        addBlank: function () {
+            var_Blanks++;
+            var html = [];
+            html.push('<div class="tm_question_blank">');
+            html.push('<input name="args[key][]" type="text" class="validate[required] tm_txt" maxlength="30" class="txt" />');
+            html.push('<a href="javascript:;" data-blankid="' + var_Blanks + '" class="iconfont" onclick="tmQuestion.removeBlank(this)">&#xe696;</a>');
+            html.push('</div>');
+
+            editor_exambank_question.setContent("[BlankArea" + var_Blanks + "]", true);
+            $("#tm_question_blanks").append(html.join(""));
+
+            $("#tm_blank_marker").val('HASVALUE');
+        },
+
+        removeBlank: function (obj) {
+            var question_content = editor_exambank_question.getContent();
+            $(obj).parent().remove();
+            var blankid = $(obj).attr("data-blankid");
+            question_content = question_content.replace("[BlankArea" + blankid + "]", "");
+            editor_exambank_question.setContent(question_content);
+
+            var _blanks = $("input[name='args[option][]']").length;
+            if (_blanks <= 0) {
+                $("#tm_blank_marker").val("");
+            }
+        }
+    };
+
+</script>
+<div class="page">
+    <div class="fixed-bar">
+        <div class="item-title">
+            <div class="subject">
+                <h3>{$Think.lang.ds_exambank}</h3>
+                <h5></h5>
+            </div>
+            {include file="public/admin_items" /}
+        </div>
+    </div>
+    <form id="exambank_form" method="post" enctype="multipart/form-data">
+        <table class="ds-default-table">
+            <tbody>
+                <tr class="noborder"> 
+                    <td class="required w120">{$Think.lang.examclass_id}</td>
+                    <td class="vatop rowform">
+                        <select name="examclass_id">
+                            {foreach name="examclass_list" item="examclass"}
+                            <option value="{$examclass.examclass_id}" {if $examclass.examclass_id === $exambank.examclass_id }selected{/if}>{if $examclass.examclass_parent_id > 0}&nbsp&nbsp{/if}{$examclass.examclass_name}</option>
+                            {/foreach}
+                        </select>
+                    </td>
+                </tr>
+                <tr class="noborder"> 
+                    <td class="required">{$Think.lang.exambank_level}</td>
+                    <td class="vatop rowform">
+                        <select name="exambank_level">
+                            {foreach name="exambank_level_list" item="exambank_level_item" key="exambank_level_key"}
+                            <option value="{$exambank_level_key}" {if $exambank_level_key === $exambank.exambank_level }selected{/if}>{$exambank_level_item}</option>
+                            {/foreach}
+                        </select>
+                    </td>
+                </tr>
+                <tr class="noborder"> 
+                    <td class="required">{$Think.lang.examtype_id}</td>
+                    <td class="vatop rowform">
+                        <select name="examtype_id" onchange="tmQuestion.formInit(this.value)">
+                            {foreach name="examtype_list" item="examtype_item" key="examtype_key"}
+                            <option rel="{$examtype_key}" value="{$examtype_key}" {if $examtype_key === $exambank.examtype_id }selected{/if}>{$examtype_item}</option>
+                            {/foreach}
+                        </select>
+                    </td>
+                </tr>
+                <tr class="noborder"> 
+                    <td class="required">{$Think.lang.exambank_question}</td>
+                    <td class="vatop rowform"><textarea name="exambank_question" id="exambank_question" style="width:100%;">{$exambank.exambank_question|default=''}</textarea></td>
+                </tr>
+                <tr>
+                    <th id="tm_title">选项设置 : </th>
+                    <td id="tm_body">
+                        {if $exambank.examtype_id == 1}
+                        {php}$exambank_select = unserialize($exambank['exambank_select']);{/php}
+                        <div><input type="button" class="btn btn-small" value="增加选项" onclick="tmQuestion.addOption(1)"></div>
+                        <table class="tm_question_options" align="left">
+                            <tbody>
+                                {foreach name="$exambank_select" item="exambank_select_item" key="exambank_select_key"}
+                                <tr>	
+                                    <td width="80" id="tm_option_{$exambank_select_key}">选项{$exambank_select_key}&nbsp;	
+                                        <input type="hidden" class="validate[required]" name="args[alisa][]" value="{$exambank_select_key}" />
+                                        <input type="radio" class="validate[required]" name="args[key][]" value="{$exambank_select_key}" {if $exambank_select_key eq $exambank.exambank_answer}checked="checked"{/if}>
+                                    </td>
+                                    <th><textarea rows="3" name="args[option][]" class="tm_txtx validate[required]">{$exambank_select_item}</textarea></th>
+                                    <td width="50"><a href="javascript:;" onclick="$(this).parent().parent().remove()" class="iconfont">&#xe696;</a></td>
+                                </tr>
+                                {/foreach}
+                            </tbody>
+                        </table>
+                        {/if}
+                        {if $exambank.examtype_id == 2}
+                        {php}$exambank_select = unserialize($exambank['exambank_select']);{/php}
+                        <div><input type="button" class="btn btn-small" value="增加选项" onclick="tmQuestion.addOption(2)"></div>
+                        <table class="tm_question_options" align="left">
+                            <tbody>
+                                {foreach name="$exambank_select" item="exambank_select_item" key="exambank_select_key"}
+                                <tr>	
+                                    <td width="80" id="tm_option_{$exambank_select_key}">选项{$exambank_select_key}&nbsp;
+                                        <input type="hidden" class="validate[required]" name="args[alisa][]" value="{$exambank_select_key}">
+                                        <input type="checkbox" class="validate[required]" name="args[key][]" value="{$exambank_select_key}" {if strpos($exambank['exambank_answer'],$exambank_select_key) !== false}checked="checked"{/if}>
+                                    </td>	
+                                    <th><textarea rows="3" name="args[option][]" class="tm_txtx validate[required]">{$exambank_select_item}</textarea></th>	
+                                    <td width="50"><a href="javascript:;" onclick="$(this).parent().parent().remove()" class="iconfont">&#xe696;</a></td>
+                                </tr>
+                                {/foreach}
+                            </tbody>
+                        </table>
+                        {/if}
+
+                        {if $exambank.examtype_id == 3}
+                        <label style="line-height:30px"><input type="radio" class="validate[required]" name="exambank_answer" value="Y" {if $exambank.exambank_answer eq 'Y'}checked="checked"{/if}>正确</label>
+                        <br>
+                        <label style="line-height:30px"><input type="radio" class="validate[required]" name="exambank_answer" value="N" {if $exambank.exambank_answer eq 'N'}checked="checked"{/if}>错误</label>
+                        {/if}
+                        
+                        {if $exambank.examtype_id == 4}
+                        {php}$exambank_answer = explode('+',$exambank['exambank_answer']);{/php}
+                        <div> <input type="button" class="btn btn-small valid" value="增加填空" onclick="tmQuestion.addBlank();" aria-invalid="false"></div>
+                        <table class="tm_question_options" align="left">
+                            <tbody>
+                                
+                                <tr>
+                                    <td id="tm_question_blanks">
+                                        {foreach name="$exambank_answer" item="exambank_answer_item" key="exambank_answer_key"}
+                                        <div class="tm_question_blank">
+                                            <input name="args[key][]" type="text" class="validate[required] tm_txt" maxlength="30" value="{$exambank_answer_item}">
+                                            <a href="javascript:;" data-blankid="{$exambank_answer_key}" class="iconfont" onclick="tmQuestion.removeBlank(this)">&#xe696;</a>
+                                        </div>
+                                        {/foreach}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        {/if}
+                        {if $exambank.examtype_id == 5}
+                        <div>
+                            <textarea name="exambank_answer" rows="5" class="validate[required] tm_txtx" style="width:90%" >{$exambank.exambank_answer}</textarea>
+                        </div>
+                        {/if}
+                    </td>
+                </tr>
+                <tr class="noborder"> 
+                    <td class="required">{$Think.lang.exambank_describe}</td>
+                    <td class="vatop rowform"><textarea name="exambank_describe" id="exambank_describe"  style="width:100%;">{$exambank.exambank_describe|default=''}</textarea></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="tfoot">
+                    <td colspan="15"><input class="btn" type="submit" value="{$Think.lang.ds_submit}"/></td>
+                </tr>	
+            </tfoot>
+        </table>
+    </form>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#exambank_form').validate({
+            errorPlacement: function (error, element) {
+                error.appendTo(element.parent().parent().find('td:last'));
+            },
+            rules: {
+                exambank_question: {
+                    required: true
+                }
+            },
+            messages: {
+                exambank_question: {
+                    required: '{$Think.lang.exambank_title_error}'
+                }
+            }
+        });
+    });
+</script>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="/tmc/js/mui.min.js"></script>
+    <link href="/tmc/css/mui.min.css" rel="stylesheet"/>
+	<link href="/tmc/css/app.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+	<style>
+		.body{
+			line-height: px;
+		}
+		.mui-table-view-cell:after{
+			left: 0px;
+			background-color:#eac4c4;
+		}
+		.mui-table-view:before{
+			background-color:#eac4c4;
+		}
+		.mui-table-view:after{
+			background-color:#eac4c4;
+		}
+		.mui-table-view-cell>.mui-badge, .mui-table-view-cell>.mui-btn, .mui-table-view-cell>.mui-switch, .mui-table-view-cell>a>.mui-badge, .mui-table-view-cell>a>.mui-btn, .mui-table-view-cell>a>.mui-switch{
+			right: 90%;
+		}
+		.phblist{
+			margin-left: 10%; 
+			font-family: '微软雅黑';
+		}
+		.phbacc{
+			position: absolute;
+			bottom: 5px;
+			padding: 22px;
+			color: #000000;
+		}
+		.phbaac{
+			position: absolute;
+			bottom: 5px;
+			padding: 20px;
+			margin-left: 35%;
+			font-size: 1.2em;
+			color: orange;
+		}
+		.header{
+			background: transparent;
+			top:0;
+			box-shadow:0 0px 0px #ccc;
+			-webkit-box-shadow:0 0px 0px #ccc;
+		}
+		.h1{
+			font-family: '微软雅黑';
+			color: #fff;
+		}
+		.img{
+			width: 100%;
+			margin-top: 50px;
+		}
+		.ul{
+			background:#FFF;
+			line-height:0.8em;
+			color: #FFF;
+			width: 100%;
+			margin-top: 45px;
+			order-radius: 10px;
+			margin-bottom: 100px;
+		}
+		.qd{
+			background:#1f253d;
+			height: 100px;
+			width: 90%;
+			margin-top:18%;
+			left: 5%;
+			border-radius:10px;
+			box-shadow:2px 0px 20px 0px #007AFF;
+		}
+		.a{
+			position:absolute;
+			top: 15%;
+			color: #fff;
+			margin-left:5%;
+			font-family: '微软雅黑';
+		}
+		.b{
+			position:absolute;
+			top: 15%;
+			color:#FFFF00;
+			margin-left:35%;
+			font-family: '微软雅黑';
+			font-size: 1.2em;
+		}
+		.c{
+			position:absolute;
+			top: 45%;
+			color: #fff;
+			margin-left:5%;
+			font-family: '微软雅黑';
+		}
+		.d{
+			position:absolute;
+			top:45%;
+			color:#FFFF00;
+			margin-left:35%;
+			font-family: '微软雅黑';
+			font-size: 1.2em;
+		}
+		.e{
+			position:absolute;
+			top:75%;
+			color:#fff;
+			margin-left:5%;
+			font-family: '微软雅黑';
+		}
+		.f{
+			position:absolute;
+			top:75%;
+			color:#FFFF00;
+			margin-left:35%;
+			font-family: '微软雅黑';
+			font-size: 0.9em;
+		}
+		.but{
+			font-size:0.7em;
+			background:linear-gradient(45deg,BLUE,purple);
+			color:#fff;
+			top:14%;
+			margin-left:75%;
+			line-height:0.8em;
+			border-radius:8px;
+			border:0px solid;
+		}
+		.span{
+			position:absolute;
+			color: #CCCCCC;
+			margin-top:5%;
+			margin-left:5%;
+			font-size:0.9em;
+			font-family:'微软雅黑'; 
+		}
+		.lie{
+			margin-left: 10%; color:#555; font-size: 0.9em; bottom: 4px;
+		}
+		.ullei{
+			background:#1a1d2e;
+			color:#0062CC;
+			font-size:0.9em;
+			box-shadow:2px 0px 20px 0px #007AFF;
+			margin-top:60px;
+			font-family:'微软雅黑';
+			border-radius: 15px;
+			width: 90%;left: 5%;
+		}
+		.pipei{
+			line-height:2em;
+			margin-top:30px;
+			font-size:0.9em;
+			width:90%;
+			font-family:'微软雅黑';
+			border-radius:30px;
+			border:0px solid;
+			background:linear-gradient(45deg,BLUE,purple);
+		}
+		.zidong{
+			line-height:2em;
+			margin-top:20px;
+			font-size:0.9em;
+			width:90%;
+			font-family:'微软雅黑';
+			border-radius:30px;
+			border:0px solid;
+			background:linear-gradient(45deg,BLUE,purple);
+		}
+		.my{
+			background:#1f253d;
+			height:100px;
+			width:90%;
+			margin-top:15%;
+			left:5%;
+			border-radius:10px;
+			box-shadow:2px 0px 20px 0px #007AFF;
+		}
+		.myimg{
+			width:15%;
+			margin-left:5%;
+			margin-top:7%;
+		}
+		.acc{
+			position:absolute;
+			top:80px;
+			color:#fff;
+			margin-left:120px;
+			font-family:'微软雅黑';
+		}
+		.jibie{
+			position:absolute;
+			background:#F0AD4E;
+			color:#fff;
+			top:6%;
+			margin-left:-5%;
+			line-height:1em;
+			border-radius:8px;
+			border:0px solid;
+			z-index: 999;
+		}
+		.ullist{
+			background:#fff;
+			color:#fff;
+			margin-bottom:80px;
+			font-family:'微软雅黑';
+			line-height:2em;
+			width: 90%;
+			margin-left: 5%;
+			margin-top: -40px;
+			border-radius: 10px;
+		}
+		.imglist{
+			position:absolute;
+			width: 30px;
+		}
+		
+	</style>
+</head>
+<body style="background:#fff;">
+		<div id="tabbar" class="mui-control-content ">
+			
+		</div>
+		<div id="gonggao" class="mui-control-content ">
+		
+			
+		</div>
+			<!--抢单-->
+			<div id="tabbar-with-chat" class="mui-control-content">
+				
+			</div>
+			<!--收单列表-->
+			<div id="tabbar-with-map" class="mui-control-content ">
+			</div>
+			
+			<!--我的-->
+			<div id="tabbar-with-contact" class="mui-control-content mui-active" >
+				<header class="mui-bar mui-bar-nav header">
+						<h1 class="mui-title h1">个人中心</h1>
+				</header>
+				<img src="/tmc/img/bluebg.png" style="width:100%; height:200px;"/>
+				<button type="button" class="jibie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V1</button>
+				<a href="#"> <img src="/tmc/img/xx.png" style="position:absolute; width:30px; margin-top:-195px; margin-left:90%"/></a>
+				<img src="/tmc/img/tx.png" style="position:absolute; width:60px; margin-top:-130px; margin-left:10%"/>	
+				<span class="acc">倔强的小驴</span>
+				<span class="acc" style="top: 110px; font-size:0.8em; margin-left: 120px;">TMC：</span>
+				<span class="acc" style="top: 110px; font-size:0.8em;margin-left: 170px;">10000.00</span>
+				<span class="acc" style="top: 110px; font-size:0.8em; margin-left: 250px;">POW：</span>
+				<span class="acc" style="top: 110px; font-size:0.8em;margin-left: 290px;">0.00</span>	
+					<ul class="mui-table-view ullist">
+							<li class="mui-table-view-cell mui-collapse-content">
+								<img src="/tmc/img/zc.png" class="imglist"/>
+								<a href="zichan.html" class="mui-navigate-right" style="font-family: '微软雅黑'; margin-left: 10%; color:#555; font-size: 0.9em; bottom: 4px; ">
+									我的资产
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-collapse-content">
+								<img src="/tmc/img/zl.png" class="imglist" style="width:28px" />
+								<a href="xinxi.html" class="mui-navigate-right"style="font-family: '微软雅黑'; margin-left: 10%;color:#555; font-size: 0.9em; bottom: 4px; ">
+									账户管理
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-collapse-content">
+								<img src="/tmc/img/aq.png" class="imglist"style="width:34px; left:10px" />
+								<a href="chongzhijilu.html" class="mui-navigate-right" style="font-family: '微软雅黑'; margin-left: 10%;color:#555; font-size: 0.9em; bottom: 4px; ">
+									安全管理
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-collapse-content">
+								<img src="/tmc/img/kefu.png" class="imglist"style="width:30px; left:13px" />
+								<a href="#" class="mui-navigate-right" style="font-family: '微软雅黑'; margin-left: 10%;color:#555; font-size: 0.9em; bottom: 4px; ">
+									在线客服
+								</a>
+							</li>
+							<!--<li class="mui-table-view-cell mui-collapse-content">
+								<img src="/tmc/img/czjl.png" class="imglist"style="width:34px; left:10px" />
+								<a href="chongzhijilu.html" class="mui-navigate-right" style=" margin-left: 10%;color:#555; font-size: 0.9em; bottom: 4px; ">
+									充值记录
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-collapse-content">
+								<img src="/tmc/img/txjl.png" class="imglist" style="width:34px; left:12px"/>
+								<a href="tixianjilu.html" class="mui-navigate-right" style=" margin-left: 10%; color:#555; font-size: 0.9em;bottom: 4px; ">
+									提现记录
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-collapse-content">
+								<img src="/tmc/img/ewm.png" class="imglist" style="width:28px; left:16px" />
+								<a href="erweima.html" class="mui-navigate-right" style=" margin-left: 10%;color:#555;  font-size: 0.9em;bottom: 4px; ">
+									二维码管理
+								</a>
+							</li>-->
+							<li class="mui-table-view-cell mui-collapse-content">
+								<img src="/tmc/img/yqjl.png"class="imglist" style="width:32px; left:13px"/>
+								<a href="" class="mui-navigate-right" style="font-family: '微软雅黑'; margin-left: 10%; font-size: 0.9em;color:#555; bottom: 4px; ">
+									邀请好友
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-collapse-content">
+								<img src="/tmc/img/gy.png" class="imglist"style="width:31px; left:14px" />
+								<a href="" class="mui-navigate-right" style="font-family: '微软雅黑'; margin-left: 10%;font-size: 0.9em;color:#555;  bottom: 4px; ">
+									关于我们
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-collapse-content">
+								<img src="/tmc/img/wt.png" class="imglist"style="width:29px; left:15px" />
+								<a href="" class="mui-navigate-right" style="font-family: '微软雅黑'; margin-left: 10%;font-size: 0.9em;color:#555;  bottom: 4px; ">
+									常见问题
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-collapse-content">
+								<img src="/tmc/img/szz.png" class="imglist"style="width:36px; left:13px" />
+								<a href="shezhi.html" class="mui-navigate-right"style="font-family: '微软雅黑'; margin-left: 10%;color:#555; font-size: 0.9em; bottom: 4px; ">
+									设置
+								</a>
+							</li>
+					</ul>
+			</div>
+		
+<nav class="mui-bar mui-bar-tab" style="background: #fff;">
+			<a class="mui-tab-item" href="index.html">
+				<span class="mui-icon"><img src="/tmc/img/shouye.png" style="width:30px;"/></span>
+				<span class="mui-tab-label"style="margin-left: 8px;">首页</span>
+			</a>
+			<a class="mui-tab-item" href="faxian.html">
+				<span class="mui-icon"><img src="/tmc/img/sousuo.png" style="width:30px;"/></span>
+				<span class="mui-tab-label"style="margin-left: 8px;">发现</span>
+			</a>
+			
+			<a class="mui-tab-item" href="#tabbar">
+				<span class="mui-icon"><img src="/tmc/img/qianbao.png" style="width:30px;"/></span>
+				<span class="mui-tab-label"style="margin-left: 8px;">社区</span>
+			</a>
+			<a class="mui-tab-item" href="my.html">
+				<span class="mui-icon"><img src="/tmc/img/wode.png" style="width:30px;"/></span>
+				<span class="mui-tab-label"style="margin-left: 8px;">我的</span>
+			</a>
+		</nav>
+		<script>
+			mui('body').on('tap','a',function(){document.location.href=this.href;});
+		</script>
+</body>
+</html>

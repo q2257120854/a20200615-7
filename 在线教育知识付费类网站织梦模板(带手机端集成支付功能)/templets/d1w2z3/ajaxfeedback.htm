@@ -1,0 +1,108 @@
+<!-- 评论 -->
+<div class="cmt-top-title"><h3 class="join-txt">课程咨询</h3></div>
+
+<div class="article-course-pl">
+<form id="form1" name="feedback" method="post" class="comment-form" action="#">
+<input type="hidden" name="dopost" value="send" />
+<input type="hidden" name="comtype" value="comments">
+<input type="hidden" name="aid" value="{dede:field name="id"/}" />
+<input type="hidden" name="fid" id='feedbackfid' value="0" />
+<textarea name="msg" class="form-contro" placeholder="有关课程的问题，您都可以提问哦..."></textarea>
+
+<div class="kc-pinglun clearfix">
+<span class="join-txt-fr fl"><em>{dede:field.id runphp='yes'} $aid = @me; $row = $GLOBALS['dsql']->GetOne("Select count(id) as c from dede_feedback where aid=".@me); @me=$row['c'];{/dede:field.id}</em>人咨询</span>
+<input name="" type="button" value="提交" class="btn-success fr" onClick='PostComment()'>
+</div>
+
+<!-- 账号登录 -->
+<div class="other-login clearfix" id="_ajax_feedback">
+<input type="hidden" name="username" value="">
+<script language="javascript" type="text/javascript">CheckLogin();</script>
+</div>
+
+</form>
+</div>
+<!-- 评论 End -->
+
+
+<!-- 评论内容区 -->
+<div class="course-discuss">
+<dd id='commetcontentNew'></dd>
+<dd id='commetcontent'></dd>
+</div>
+
+<script language='javascript'>
+function LoadCommets(page)
+{
+var taget_obj = document.getElementById('commetcontent');
+var waithtml = "<div style='line-height:50px'><img src='/images/loadinglit.gif' />加载...</div>";
+var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+myajax.SendGet2("/plus/feedback_ajaxpp.php?dopost=getlist&aid={dede:field.id/}&page="+page);
+DedeXHTTP = null;
+}
+function PostComment()
+{
+var f = document.feedback;
+var nface = '6';
+var nfeedbacktype = 'good';
+var nvalidate = '';
+var nnotuser = '';
+var nusername = '';
+var npwd = '';
+var taget_obj = $DE('commetcontentNew');
+var waithtml = "<div style='line-height:30px'><img src='/images/loadinglit.gif' />发送中...</div>";
+if(f.username.value=='') {
+window.location.href = '/member/';
+return;
+}
+if(f.msg.value=='')
+{
+alert("您还没有写内容哦");
+return;
+}
+
+if(f.msg.value.length > 100)
+{
+alert("请填写100字以内的内容");
+return;
+}
+if(f.feedbacktype) {
+for(var i=0; i < f.feedbacktype.length; i++)
+if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+}
+if(f.face) {
+for(var j=0; j < f.face.length; j++)
+if(f.face[j].checked) nface = f.face[j].value;
+}
+if(f.notuser.checked) nnotuser = '1';
+if(f.username) nusername = f.username.value;
+if(f.pwd) npwd = f.pwd.value;
+
+var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+myajax.sendlang = 'utf-8';
+myajax.AddKeyN('dopost', 'send');
+myajax.AddKeyN('aid', '{dede:field.id/}');
+myajax.AddKeyN('fid', f.fid.value);
+myajax.AddKeyN('face', nface);
+myajax.AddKeyN('feedbacktype', nfeedbacktype);
+myajax.AddKeyN('validate', nvalidate);
+myajax.AddKeyN('notuser', nnotuser);
+myajax.AddKeyN('username', nusername);
+myajax.AddKeyN('pwd', npwd);
+myajax.AddKeyN('msg', f.msg.value);
+myajax.SendPost2('/plus/feedback_ajaxpp.php');
+f.msg.value = '';
+f.fid.value = 0;
+if(f.validate)
+{
+if($DE('validateimg')) $DE('validateimg').src = "/include/vdimgck.php?"+f.validate.value;
+f.validate.value = '';
+}
+}
+function quoteCommet(fid)
+{
+document.feedback.fid.value = fid;
+}
+LoadCommets(1);
+</script>
+<!-- 评论内容区 End -->

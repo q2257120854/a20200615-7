@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title><?php echo $arctitle; ?> - <?php echo $cfg_webname; ?></title>
+<meta name="keywords" content="<?php echo $keywords; ?>" />
+<meta name="description" content="<?php echo $description; ?>" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="apple-touch-icon-precomposed" href="http://m.duoweizi.net/images/57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://m.duoweizi.net/images/72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://m.duoweizi.net/images/144x144.png" />
+<link href="/m-css/m-index.css" rel="stylesheet" type="text/css">
+<link href="/m-css/m-video.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://g.alicdn.com/de/prismplayer/1.6.3/skins/default/index.css" />
+<script type="text/javascript" src="http://g.alicdn.com/de/prismplayer/1.6.3/prism-min.js"></script>
+<script src="/m-js/TouchSlide.1.1.js"></script>
+<script src="/m-js/header.mini.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.duoweizi.net/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+function CheckLogin(){
+	  var taget_obj = document.getElementById('_ajax_feedback');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_feedback.php");
+	  DedeXHTTP = null;
+}
+function postBadGood(ftype,fid)
+{
+	var taget_obj = document.getElementById(ftype+fid);
+	var saveid = GetCookie('badgoodid');
+	if(saveid != null)
+	{
+		var saveids = saveid.split(',');
+		var hasid = false;
+		saveid = '';
+		j = 1;
+		for(i=saveids.length-1;i>=0;i--)
+		{
+			if(saveids[i]==fid && hasid) continue;
+			else {
+				if(saveids[i]==fid && !hasid) hasid = true;
+				saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+				j++;
+				if(j==10 && hasid) break;
+				if(j==9 && !hasid) break;
+			}
+		}
+		if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+		else saveid += ','+fid;
+		SetCookie('badgoodid',saveid,1);
+	}
+	else
+	{
+		SetCookie('badgoodid',fid,1);
+	}
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	myajax.SendGet2("/shoppingpp.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+}
+function postDigg(ftype,aid)
+{
+	var taget_obj = document.getElementById('newdigg');
+	var saveid = GetCookie('diggid');
+	if(saveid != null)
+	{
+		var saveids = saveid.split(',');
+		var hasid = false;
+		saveid = '';
+		j = 1;
+		for(i=saveids.length-1;i>=0;i--)
+		{
+			if(saveids[i]==aid && hasid) continue;
+			else {
+				if(saveids[i]==aid && !hasid) hasid = true;
+				saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+				j++;
+				if(j==20 && hasid) break;
+				if(j==19 && !hasid) break;
+			}
+		}
+		if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+		else saveid += ','+aid;
+		SetCookie('diggid',saveid,1);
+	}
+	else
+	{
+		SetCookie('diggid',aid,1);
+	}
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	var url = "/digg_ajax.php?action="+ftype+"&id="+aid;
+	myajax.SendGet2(url);
+}
+function getDigg(aid)
+{
+	var taget_obj = document.getElementById('newdigg');
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	myajax.SendGet2("/digg_ajax.php?id="+aid);
+	DedeXHTTP = null;
+}
+-->
+</script>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="m-video-article">
+<a href="javascript:history.go(-1);" class="back"></a>
+
+<!-- 视频播放框 -->
+<div class="m-video-wrap">
+<div class="m-video-header">
+
+<div class="prism-player" id="J_prismPlayer"></div>
+<script>
+var player = new prismplayer({
+id: "J_prismPlayer",
+autoplay: true,
+width: "100%",
+height: "200px",
+showBarTime: 7000,
+autoplay: false,
+
+//必填项
+vid : '<?php echo ($v1['shikan']); ?>',
+accId : 'LTAIJRa8PKq49KQE',
+accSecret : 'yeXVlIASKcv3SBbGEnyMi3mUBFV1x3',
+apiKey : '8c6nf4pjc8o8ymwok4mfaw2lebx7wlmbfwn68a2sjwr1ke9ahrrbesrwj7xsd4qo',
+});
+</script>
+
+</div>
+</div>
+<!-- 视频播放框 End -->
+
+</div>
+<!-- TOP End -->
+
+<!-- 购买课程 -->
+<div class="gd_bottom2">
+<a href="http://m.duoweizi.net/" class="gdb_kfbtn">首页</a>
+<a href="tel:13925792088" class="m-telephone">电话</a>
+<dd id='xihuan'></dd>
+<script language='javascript'>
+function Loadxihuans(stype)
+{
+var taget_obj = document.getElementById('xihuan');
+var waithtml = "<div style='line-height:50px'><img src='/images/loadinglit.gif' />加载...</div>";
+var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+myajax.SendGet2("/shouchang.php?dopost=getlist&aid=<?php echo $arcID; ?>&stype="+stype);
+DedeXHTTP = null;
+}
+function quotexihuan(stype)
+{
+document.Loadxihuans.stype.value = stype;
+}
+Loadxihuans("all");
+</script>
+
+<a href="<?php echo $gmurl; ?>" class="gdb_buybtn2">立即购买</a>
+
+</div>
+<!-- 购买课程 End -->
+
+<div class="wrapper_video_vip">
+
+<!-- 课程导航 -->
+<div class="second-tags" id="m-tabs-newslist">
+<div class="pd15">
+<ul>
+<li class="current"><a href="javascript:;"><span>课程详情</span></a></li>
+<li><a href="javascript:;"><span>推荐课程</span></a></li>
+</ul>
+</div>
+</div>
+<!-- 课程导航 -->
+
+<div class="swiper-container-newslist b-shadow">
+<div class="swiper-wrapper" id="NewsList">
+
+<!-- 课程简介 start -->
+<div class="swiper-slide">
+<div class="m-video-title">
+<h1><?php echo $arctitle; ?></h1>
+<div class="topbar-nav">
+<script src="/plus/count.php?view=yes&aid=<?php echo $arcID; ?>&mid=<?php echo $arcID; ?>" type='text/javascript' language="javascript"></script>人学过
+<span class="sep">|</span>
+<span style="color:#fe4921;">￥<?php echo $arc->Fields['money']; ?>.00</span>
+</div>
+
+<!-- 课程学费 -->
+<p class="m-video-prompt">本视频提供3分钟试看，观看完整版，请先购买课程！</p>
+<!-- 课程学费 -->
+
+</div>
+
+<div class="m-video-cotainer">
+<h2 class="m-video-gaishu">视频信息</h2>
+<p><img src="http://www.duoweizi.net/images/spfx.jpg" /></p>
+<p><img src="http://www.duoweizi.net/images/spgm.jpg" /></p>
+<?php $v1['body']= mstrup($v1['body']); echo $v1['body'] ?>
+</div>
+<!-- 课程详情 End -->
+
+</div>
+<!-- 课程简介列表 End -->
+
+
+<!-- 相关课程 -->
+<div class="swiper-slide">
+<div class="m-vip m-video-tuijian">
+<!-- 隔离 -->
+<div class="list_bbs clearfix"></div>
+<!-- 隔离 End -->
+
+<?php pasterTempletDiy("d1w2z3/vipkctjm.htm");?>
+
+</div>
+</div>
+<!-- 相关课程 End -->
+
+</div>
+</div>
+
+<!-- 返回顶部 -->
+<div class="mall-totop" title="返回顶部" onclick="window.scrollTo(0,0);"></div>
+<script src="/m-js/mall-top.js"></script>
+<!-- 返回顶部 End -->
+
+</div>
+<!-- wrapper_video End -->
+
+<!-- tags切换 -->
+<script src="/m-js/swiper-3.3.1.min.js" type="text/javascript"></script>
+<script src="/m-js/article_tags.js" type="text/javascript"></script>
+<!-- tags切换 End -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?145435f6d66f7f316a7cda41e3b68e61";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>

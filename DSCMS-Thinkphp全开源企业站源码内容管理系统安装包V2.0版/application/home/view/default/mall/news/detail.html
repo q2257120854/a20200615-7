@@ -1,0 +1,32 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+<div class="common-banner mb20">
+    {dstaglib:adv ap_id='4' limit='1' item='v'}
+    <img class="lazy" data-original="{:get_adv_img($v.adv_code)}">
+    {/dstaglib:adv}
+</div>
+<div class="news-search w1200">
+    <div class="mt mb20">
+        <div class="location">
+            <a href="{:url('Index/index')}" target="_blank" class="ml30">首页</a>&gt; 
+            <a href="{:url('News/search')}">新闻资讯</a>&gt; 
+            {foreach name="ancestor" item="meum" }
+            <a href="{:url('News/search',['id'=>$meum.column_id])}">{$meum.column_name}</a>&gt; 
+            {/foreach}
+            <a href="javascript:void(0)">文章详情</a>
+        </div>
+        <div class="nav mt10">
+            <a href="{:url('news/search')}">全部新闻</a>
+            {foreach name="news_column" item="column"}
+            <a href="{:url('news/search',['id'=>$column.column_id])}">{$column.column_name}</a>
+            {/foreach}
+        </div>
+    </div>
+    <div class="mc news-detail">
+        <h2>{$news_info.news_title}</h2>
+        <div class="detail">
+            {:htmlspecialchars_decode($news_info.news_content)}
+        </div>
+    </div>
+</div>
+{/block}

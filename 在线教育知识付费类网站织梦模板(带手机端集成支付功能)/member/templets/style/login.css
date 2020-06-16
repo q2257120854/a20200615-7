@@ -1,0 +1,25 @@
+/* CSS Document */
+
+.intxt,.text{
+	background:url(../images/input_bg.gif) no-repeat 0 0;
+	color: #666;
+	   border: 1px solid #CFCFCF;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 5px;
+    padding: 0 4px;
+    width: 238px;border-radius: 3px 3px 3px 3px;
+}
+.text_o{ border:1px solid #ff6666;}
+/*/*密码强度*/
+.rank { border:none; background:url("../images/rank.gif") no-repeat; width:145px; height:22px; vertical-align:middle; cursor:default; margin:0 0 0 5px;}
+.r0 { background-position:0 2; }
+.r1 { background-position:0 -19px; }
+.r2 { background-position:0 -40px; }
+.r3 { background-position:0 -61px; }
+.r4 { background-position:0 -82px; }
+.r5 { background-position:0 -103px; }
+.r6 { background-position:0 -124px; }
+.r7 { background-position:0 -145px; }
+.login {height:300px;}

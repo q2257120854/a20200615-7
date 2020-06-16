@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>{dede:field.seotitle /}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<meta http-equiv="mobile-agent" content="format=html5; url={dede:global.mcfg_basehost/}{dede:type typeid='0′ row=1}[field:typelink/]{/dede:type}" >
+<link href="{dede:global.cfg_basehost/}/css/v2_index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{dede:global.cfg_basehost/}/js/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_basehost/}/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<script type="text/javascript">
+var bForcepc = fGetQuery("dv") == "pc";    
+function fBrowserRedirect(){    
+    var sUserAgent = navigator.userAgent.toLowerCase();    
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";      
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";    
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";    
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";    
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";    
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";    
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";    
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";    
+   
+    if(bIsIphoneOs || bIsAndroid){    
+        var sUrl = location.href;        
+        if(!bForcepc){    
+            window.location.href = "{dede:global.mcfg_basehost/}{dede:type typeid='0′ row=1}[field:typelink/]{/dede:type}";    
+        }    
+    }    
+    if(bIsMidp||bIsUc7||bIsUc||bIsCE||bIsWM){    
+        var sUrl = location.href;        
+        if(!bForcepc){    
+            window.location.href = "{dede:global.mcfg_basehost/}{dede:type typeid='0′ row=1}[field:typelink/]{/dede:type}";    
+        }    
+    }    
+}    
+function fGetQuery(name){//获取参数值    
+    var sUrl = window.location.search.substr(1);    
+    var r = sUrl.match(new RegExp("(^|&)" + name + "=([^&]*)(&|$)"));    
+    return (r == null ? null : unescape(r[2]));    
+}    
+function fShowVerBlock(){       
+    if(bForcepc){    
+        document.getElementById("dv_block").style.display = "block";    
+    }    
+    else{    
+        document.getElementById("ad_block").style.display = "block";    
+    }    
+}    
+fBrowserRedirect();    
+</script>
+<style type="text/css">
+.banner {
+    background: url({dede:global.cfg_basehost/}/images/banner_1920.jpg) no-repeat center;
+    height: 240px;
+    background-size: 1920px 240px;
+    margin: 0 auto;}
+.banner .banner-center {
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 49px;
+}
+.banner .banner-center p:nth-child(1) {
+    font: bold 48px/48px "";
+    color: #fff;
+    text-align: center;
+}
+.banner .banner-center p:nth-child(2) {
+    font: bold 20px/20px "";
+    color: #fcf0c0;
+    text-align: center;
+    margin-top: 21px;
+}
+.banner .banner-center p:nth-child(3) {
+    font: 20px/20px "";
+    color: #fff;
+    text-align: center;
+    margin-top: 21px;
+}
+.compare {
+    background: #fff;
+    padding-bottom:50px;
+}
+.compare .compare-center {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.compare .compare-title{
+    height:108px;
+    padding-top: 60px;
+    box-sizing: border-box;
+}
+.compare .compare-title p{
+    height:1px;
+    background:#dfe1e2;
+    position: relative;
+}
+.compare .compare-title p span{
+    width:158px;
+    color:#333;
+    font-size: 22px; 
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    top:-15px;
+    background:#fff;
+}
+
+.compare .compare-center .compare-list{
+    display: flex;
+    justify-content: space-between;
+}
+.compare .compare-center .compare-list li{
+    width: 400px;
+    height:80px;
+    border: 1px solid #e0e0e0;
+    border-right:none;
+    font:bold 20px/78px "";
+    color:#333;
+    text-align: center;
+}
+.compare .compare-center .compare-list li.te{
+    border: 1px solid #f6cf80;
+    background: #feeaca;
+    color:#503603;
+}
+
+.compare .compare-center .compare-list1{
+    display: flex;
+    justify-content: space-between;
+}
+.compare .compare-center .compare-list1 li{
+    width: 400px;
+    height:50px;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    border-right:none;
+    font: 14px/48px "";
+    color:#666;
+    text-align: center;
+}
+.compare .compare-center .compare-list1 li.te{
+    border: 1px solid #f6cf80;
+    background: #fffcf6;
+    color:#503603;
+    border-top: none;
+}
+.welcome {
+    width: 1200px;
+    margin: 0 auto;
+}
+.welcome .welcome-title {
+    height: 100px;
+    padding-top: 52px;
+    box-sizing: border-box;
+}
+.welcome .welcome-title p {
+    height: 1px;
+    background: #dfe1e2;
+    position: relative;
+}
+.welcome .welcome-title p span {
+    width: 158px;
+    color: #333;
+    font-size: 22px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    top: -15px;
+    background: #f5f5f5;
+    box-sizing: border-box;
+}
+.welcome .welcome-list li {
+    width: 386px;
+    height: 218px;
+    border: 1px solid #e0e0e0;
+    padding-top: 21px;
+    background: #fff;
+    margin: 0 auto;
+}
+.welcome .welcome-list li p:nth-child(1) {
+    display: flex;
+    justify-content: center;
+}
+.welcome .welcome-list li p:nth-child(1) img{
+    display: block;
+    width:25px;
+    height: 19px;
+    margin-top: 7px;
+    margin-right: 7px;
+}
+.welcome .welcome-list li p:nth-child(1) span{
+    display: block;
+    color: #333;
+    font-size: 24px;
+}
+.welcome .welcome-list li p:nth-child(2){
+    font-size: 16px;
+    color:#666;
+    text-align: center;
+    margin-top: 12px;
+}
+.welcome .welcome-list li p:nth-child(3){
+    border-top: 1px dashed #e5e5e5;
+    width:328px;
+    height: 1px;
+    margin:0 auto;
+    margin-top: 18px;
+}
+.welcome .welcome-list li p:nth-child(4){
+    text-align: center;
+    font-size: 16px;
+    color:#333;
+    margin-top: 12px;
+    overflow: hidden;
+}
+.welcome .welcome-list li p:nth-child(4) span:nth-child(1){
+    font-size: 28px;
+    color:#ff554c;
+}
+.welcome .welcome-list li p:nth-child(4) span:nth-child(2){
+    margin-left:8px;
+}
+.welcome .welcome-list li p:nth-child(4) span:nth-child(2) em:nth-child(1){
+    font-size: 14px;
+    color:#333;
+    display:block;
+    font-style: normal;
+    text-align: left;
+}
+
+.welcome .welcome-list li p:nth-child(4) span:nth-child(2) em:nth-child(2){
+    font-size: 12px;
+    color:#999;
+    display:block;
+    font-style: normal;
+    text-align: left;
+}
+.welcome .welcome-list li p:nth-child(4) i{
+    font-size: 28px;
+    color:#ff554c;
+    font-style: normal;
+}
+.welcome .welcome-list li a{
+    display: block;
+    height:34px;
+    width: 140px;
+    margin:0 auto;
+    text-align: center;
+    font:14px/34px "";
+    background: #00bca1;
+    color:#fff;
+    border-radius: 2px;
+    margin-top: 8px;
+}
+</style>
+</head>
+<body>
+
+{dede:include filename="head.htm"/}
+
+<div class="banner">
+<div class="banner-center">
+<p>人生没有白学的课，每一节都算数</p>
+<p>【每周持续更新】</p>
+<p>专注于美食在线培训</p>
+</div>
+</div>
+
+<div class="compare">
+<div class="compare-center">
+<div class="compare-title"><p><span>用户权利比对</span></p></div>
+<ul class="compare-list">
+<li>用户权利</li>
+<li>普通用户</li>
+<li class="te">{dede:global.cfg_webname/}VIP</li>
+</ul>
+<ul class="compare-list1" style="background:#f8fafc;">
+<li>全站视频教程</li>
+<li>按需单独购买</li>           
+<li class="te">无限观看</li>
+</ul>
+
+<ul class="compare-list1">
+<li>课程技术咨询</li>
+<li><img src="{dede:global.cfg_basehost/}/images/buyvip-cha.png" style="margin-top:17px;"></li>            
+<li class="te"><img src="{dede:global.cfg_basehost/}/images/buyvip-dui.png" style="margin-top:12px;"></li>
+</ul>
+
+<ul class="compare-list1" style="background:#f8fafc;">
+<li>客服优先接待</li>
+<li><img src="{dede:global.cfg_basehost/}/images/buyvip-cha.png" style="margin-top:17px;"></li>          
+<li class="te"><img src="{dede:global.cfg_basehost/}/images/buyvip-dui.png" style="margin-top:12px;"></li>
+</ul>
+
+<ul class="compare-list1">
+<li>尊贵身份标识</li>
+<li><img src="{dede:global.cfg_basehost/}/images/buyvip-cha.png" style="margin-top:17px;"></li>           
+<li class="te"><img src="{dede:global.cfg_basehost/}/images/buyvip-dui.png" style="margin-top:12px;"></li>
+</ul>
+
+<ul class="compare-list1" style="background:#f8fafc;">
+<li>原料设备指导</li>
+<li><img src="{dede:global.cfg_basehost/}/images/buyvip-cha.png" style="margin-top:17px;"></li>            
+<li class="te"><img src="{dede:global.cfg_basehost/}/images/buyvip-dui.png" style="margin-top:12px;">
+</li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="welcome">
+<div class="welcome-title"><p><span>加入{dede:global.cfg_webname/}VIP</span></p></div>
+<div class="welcome-list">
+<li><p><img src="{dede:global.cfg_basehost/}/images/welcome-img1.png"><span>VIP会员</span></p>
+<p>（全站课程免费学）</p>
+<p></p>
+<p><span>￥399/月</span></p>
+<a href="{dede:global.cfg_basehost/}/member/buyhui.php" target="_blank" class="newBtnModal" data-new-btn="vip_page">立即开通</a>
+</li>        
+</div>
+</div>
+
+{dede:include filename="footer.htm"/}
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+{extend name="default/base/base_seller" /}
+{block name="seller_main"}
+<div class="dssc-form-default">
+    <form method="post" name="goodscourses_form" id="goodscourses_form" enctype="multipart/form-data">
+        <dl>
+            <dt><i class="required">*</i>{$Think.lang.goodscourses_name}{$Think.lang.ds_colon}</dt>
+            <dd>
+                <input type="text" class="w600 text" name="goodscourses_name" value="{$goodscourses.goodscourses_name|default=''}" /><span></span>
+            </dd>
+        </dl>
+        <dl>
+            <dt>{$Think.lang.goodscourses_sort}{$Think.lang.ds_colon}</dt>
+            <dd>
+                <input type="text" class="w50 text" name="goodscourses_sort" value="{$goodscourses.goodscourses_sort|default='255'}"/>
+            </dd>
+        </dl>
+        <dl>
+            <dt>{$Think.lang.goodscourses_free}{$Think.lang.ds_colon}</dt>
+            <dd>
+                <label><input type="radio" name="goodscourses_free" value="1" {if $goodscourses.goodscourses_free == 1}checked="checked"{/if}/>{$Think.lang.store_create_yes}</label>
+                <label><input type="radio" name="goodscourses_free" value="0" {if $goodscourses.goodscourses_free == 0 }checked="checked"{/if} />{$Think.lang.store_create_no}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt>{$Think.lang.goodscourses_url}{$Think.lang.ds_colon}</dt>
+            <dd>
+                <p>
+                    <input type="text" class="w600 text" name="goodscourses_url" value="{$goodscourses.goodscourses_url|default=''}" />
+                </p>
+                <p class="hint">{$Think.lang.goodscourses_url_tip}</p>
+            </dd>
+        </dl>
+        <div class="bottom">
+            <input type="submit" class="submit" value="{$Think.lang.ds_submit}" />
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //页面输入内容验证
+        $('#goodscourses_form').validate({
+            errorPlacement: function (error, element) {
+                var error_td = element.parent('dd').children('span');
+                error_td.append(error);
+            },
+            submitHandler:function(form){
+                ds_ajaxpost('goodscourses_form','url',"{:url('Sellergoodsonline/list_courses',['goods_id'=>$Request.param.goods_id])}")
+            },
+            rules: {
+                goodscourses_name: {
+                    required: true,
+                    maxlength: 50
+                },
+                goodscourses_url: {
+                    required: true
+                }
+            },
+            messages: {
+                goodscourses_name: {
+                    required: '<i class="iconfont">&#xe64c;</i>{$Think.lang.goodscourses_name_null}',
+                    maxlength: '<i class="iconfont">&#xe64c;</i>{$Think.lang.goodscourses_name_max}'
+                },
+                goodscourses_name: {
+                    required: '<i class="iconfont">&#xe64c;</i>{$Think.lang.goodscourses_url_null}',
+                }
+            }
+        });
+    });
+</script>
+{/block}
+

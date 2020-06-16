@@ -1,0 +1,166 @@
+@charset "utf-8";
+
+/* ================================ */
+/* 格式化样式标签、基础类型样式		*/
+/* by www.csdeshang.com
+/* ================================ */
+
+
+/*多分辨率设定rem设定*/
+html { font-size : 20px; }
+
+/*Note3*/
+@media only screen and (min-width: 360px) {
+html { font-size: 22px !important; }
+}
+
+/*iPhone6*/
+@media only screen and (min-width: 376px) {
+html { font-size: 23px !important; }
+}
+
+/*iPhone6 plus*/
+@media only screen and (min-width: 414px) {
+html { font-size: 25px !important; }
+}
+
+/*big Resolution*/
+@media only screen and (min-width: 641px) {
+html { font-size: 25px !important; }
+}
+
+
+html { -ms-touch-action: none;}
+body { font-family: Heiti, Heiti SC, DroidSans, DroidSansFallback, Arial, "Microsoft YaHei"; background-color: #fff; }
+input { font-family: Arial, "Microsoft YaHei", sans-serif; }
+a { text-decoration: none;  -webkit-touch-callout: none;    color: #000000;}
+a:hover{color: rgb(54, 150, 30);}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, span, a { margin: 0; padding: 0 }
+table { border-collapse: collapse; border-spacing: 0 }
+fieldset, img, iframe { border: 0 }
+:focus { outline: 0 }
+i, address, caption, cite, code, dfn, em, strong, th, var { font-style: normal }
+ol, ul { list-style: none }
+li { list-style: none }
+caption, th { text-align: left }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal }
+blockquote:before, blockquote:after, q:before, q:after { content: '' }
+abbr, acronym { border: 0; font-variant: normal }
+img { vertical-align: top; border: none; }
+input, textarea { -webkit-user-select: text; -ms-user-select: text; user-select: text; -webkit-appearance: none; }
+input:focus, select:focus, textarea:focus, button:focus { outline: none; }
+input[type="text"], input[type="password"], input[type="search"], input[type="tel"], input[type="number"], input[type="email"], input[type="url"], textarea { -webkit-appearance: none; border: 1px solid; border-radius: 0; }
+input[type="number"]::-webkit-inner-spin-button {-webkit-appearance:none;}
+em, i { font-style: normal; }
+li { list-style: none; }
+input[type="checkbox"] { position: relative; width: 0.75rem; height: 0.75rem; background-color: #F5F5F5; border: 0.05rem solid #CCC; -webkit-border-radius: 50%; border-radius: 50%; vertical-align: middle; }
+input[type="checkbox"]:checked { border-color: #f23030; background-color: #f23030; }
+input[type="checkbox"]:checked:after { content: ''; position: absolute; left: 0.1rem; top: 0.14rem; width: 0.4rem; height: 0.2rem; border-left: 0.065rem solid #fff; border-bottom: 0.065rem solid #fff; -webkit-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg); }
+input[type="radio"] { position: relative; width: 0.75rem; height: 0.75rem; background-color: #F5F5F5; border: 0.05rem solid #CCC; -webkit-border-radius: 50%; border-radius: 50%; vertical-align: middle; }
+input[type="radio"]:checked { border-color: #f23030; background-color: #f23030; }
+input[type="radio"]:checked:after { content: ''; position: absolute; left: 0.1rem; top: 0.14rem; width: 0.4rem; height: 0.2rem; border-left: 0.065rem solid #fff; border-bottom: 0.065rem solid #fff; -webkit-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg); }
+
+/*阿里字体库 BEGIN*/
+@font-face {font-family: 'iconfont';
+            src: url('../../../../../plugins/iconfont/iconfont.eot'); /* IE9*/
+            src: url('../../../../../plugins/iconfont/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+                url('../../../../../plugins/iconfont/iconfont.woff') format('woff'), /* chromeã€firefox */
+                url('../../../../../plugins/iconfont/iconfont.ttf') format('truetype'), /* chromeã€firefoxã€operaã€Safari, Android, iOS 4.2+*/
+                url('../../../../../plugins/iconfont/iconfont.svg#uxiconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{font-family:"iconfont" !important;font-size:22px;font-style:normal;-webkit-font-smoothing: antialiased;-webkit-text-stroke-width: 0.2px;-moz-osx-font-smoothing: grayscale;}
+/*阿里字体库 END*/
+
+.hide { display: none !important;}
+.show { display: block !important;}
+/*clear float*/
+.clearfix { zoom: 1 }
+.clearfix:after { display: block; clear: both; content: '\20' }
+:not(input) { -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-touch-callout: none; -webkit-text-size-adjust: none; }
+.posr { position: relative !important; }
+.posa { position: absolute; z-index: auto; }
+.posf { position: fixed;}
+.w20h li { width: 20%;}
+.w25h li { width: 25%;}
+.w33h li { width: 33.33%;}
+.w50h li { width: 50%;}
+.mt5 { margin-top: 0.5rem !important;}
+.mt10 { margin-top: 1rem !important;}
+.mt20 { margin-top: 2rem !important;}
+.mt40 { margin-top: 4rem !important;}
+.mr2 { margin-right: 0.2rem;}
+.mr10 { margin-right: 1rem;}
+.ml10 { margin-left: 1rem;}
+.mb5 { margin-bottom: 0.5rem !important;}
+.mb10 { margin-bottom: 1rem !important;}
+.mb20 { margin-bottom: 2rem !important;}
+.mb-20 { margin-bottom: -2rem !important;}
+.mb25 { margin-bottom: 2.5rem !important;}
+.pl5 { padding-left: 0.5rem;}
+.pb5 { padding-bottom: 0.5rem;}
+
+.blank3{height:3rem;}
+
+.ds-home-header{width:100%;    background: #ffffff;box-shadow: 0 1px 2px rgba(0,0,0,.1);position: fixed;left:0;top:0;z-index:999;}
+.ds-home-header .mt{height:3rem;width:96%;padding:0 2%;}
+.ds-home-header .logo{float:left;}
+.ds-home-header .logo img {height:2rem;margin:.5rem 0;}
+.ds-home-header .nav-bar{position: relative;float: right;height:2rem;line-height:2rem;cursor: pointer;padding:.5rem 1rem;transition: color 0.25s linear 0s;}
+.ds-home-header .nav-list{width:96%;padding:2% !important;clear:both;    border-top: 1px solid #e4eaec;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+    -webkit-overflow-scrolling: touch;overflow-x:hidden;}
+.ds-home-header .nav-list li{line-height:2rem;font-size:.8rem;}
+
+
+/*默认输入表单*/
+.dstouch-inp-con { display: block; clear: both;}
+.dstouch-inp-con ul { background: #FFF;}
+.dstouch-inp-con ul li { position: relative; z-index: 1; display: block; min-height: 1.95rem; margin-left: 0.5rem; background-color: #FFF; border-bottom: solid #EEE 0.05rem;}
+.dstouch-inp-con ul li:nth-last-child(1) { border-bottom: none 0; }
+.dstouch-inp-con ul li.upload-item { height: 2.55rem}
+.dstouch-inp-con ul li h4 { position: absolute; z-index: 1; top: 0; left: 0; width: 3rem; font-size: 0.6rem; line-height: 1.95rem; color: #444; text-align: right;}
+.dstouch-inp-con ul li .txt-box {line-height: 1.95rem;text-indent:3rem}
+.dstouch-inp-con ul li .input-box { display: block; height: 1.95rem; margin: 0 0.5rem 0 3.5rem; position: relative; z-index: 1;}
+.dstouch-inp-con ul li.upload-item .input-box { height: 1.95rem; padding: 0.3rem 0;}
+.dstouch-inp-con ul li .input-box .inp { width: 100%; min-height: 0.95rem; padding: 0.5rem 0; border: 0 none; font-size: 0.6rem; line-height: 0.95rem; color: #000;}
+.dstouch-inp-con ul li .input-box .input-del { position: absolute; z-index: 1; top: 0.5rem; right: 0.5rem; display: none; width: 0.975rem; height: 0.975rem; background-image: url(../images/cancel_b.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 60%; opacity: 0.4;}
+.dstouch-inp-con ul li .input-box.write .input-del { display: block;}
+.dstouch-inp-con ul li .input-box .checkbox { position: absolute; z-index: 1; top: 0.5rem; left: 0.5rem;}
+.dstouch-inp-con ul li .input-box .txt { margin: 0 0 0 1.5rem; font-size: 0.7rem; line-height: 1.95rem; color: #555;}
+.dstouch-inp-con ul li .input-box .note { position: absolute; z-index: 1; right: 0; top: 0.25rem; height: 1.6rem; text-align: right;}
+.dstouch-inp-con ul li .input-box .note em { display: block; vertical-align: top; font-size: 0.6rem; font-weight: 600; color: #36BC9B; line-height: 0.8rem;}
+.dstouch-inp-con ul li .input-box .note h6 { display: block; vertical-align: top; font-size: 0.55rem; color: #999; line-height: 0.8rem;}
+.dstouch-inp-con ul li .input-box .select { width: 95%; height: 1.95rem;  margin: 0; font-size: 0.55rem; background-color: transparent; line-height: 1.95rem; border: 0 none; appearance: none; -webkit-appearance: none; /*for chrome*/}
+.dstouch-inp-con ul li .input-box .arrow-down { position: absolute; z-index: 1; top: 0.5rem; right: 0; display: block; width:0.975rem; height: 0.975rem;line-height:0.975rem;font-size:18px;}
+.dstouch-inp-con ul li .input-box .arrow-down:before{content: "\e63f";}
+.dstouch-inp-con .form-btn { margin-top: 1rem;}
+.dstouch-inp-con .form-btn .btn { display: inline-block; width: 90%; height: 1.8rem; padding: 0; margin: 0 5%; font-size: 0.8rem; line-height: 1.8rem; text-align: center; color: #888; background: #EEE; border: none; border-radius: 0.2rem; }
+.dstouch-inp-con .form-btn.ok .btn { color: #FFF !important; background: #f23030;}
+
+/*友情链接*/
+.friend-link{width:96%;padding:2%;line-height:2rem;font-size:.7rem;}
+.friend-link dt{float:left;}
+.friend-link dd{}
+.friend-link dd a{color: #aaa;}
+.friend-link dd a::before {display: inline-block;padding-right: .5rem;padding-left: .5rem;content: '/';color: #ccd5db;}
+
+.footer-nav{position: fixed;bottom: 0;left:0;width: 100%;height:48px;background:#fff; border-top:1px solid #eee;z-index:101;padding: 0px;margin: 0px; box-sizing:border-box; padding-top:3px;}
+.footer-nav ul{ width: 100%;height:45px;margin:0 auto;padding: 0px;display: -webkit-box !important;display: box !important;position: relative;}
+.footer-nav ul li {position: relative;-webkit-box-flex: 1;box-flex: 1;height:45px;text-align: center;margin: 0px; width:100%; box-sizing:border-box;}
+.footer-nav ul li a {text-align: center;font-size: 12px;color: #333;display: block;height:45px;position: relative;margin: auto;}
+.footer-nav ul li i {display: block;width: 25px;height: 25px;line-height:25px;font-size:26px;margin: auto;background-size:contain;}
+.footer-nav ul li span {display: block;width: 100%;height:20px;line-height:20px; font-size:0.5rem;}
+
+.copyright{padding-top:1rem;padding-bottom:3rem;}
+.copyright p{text-align: center;line-height:1rem;font-size:.6rem;}
+
+
+/*手机端翻页*/
+.pagination {position: relative;width:100%;margin:1rem 0;}
+.pagination li{color:#fff;display:none;background:#409900;height:2rem;line-height:2rem;width:30%;margin:0 10%;float:left;text-align:center;}
+.pagination li:first-child,.pagination li:last-child{display:block;}
+.pagination li a{color:#fff;display:block;}
+.pagination li.disabled{opacity: .65;}
+
+

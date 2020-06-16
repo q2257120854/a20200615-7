@@ -1,0 +1,126 @@
+{include file="public/header" /}
+<script src="{$Think.PLUGINS_SITE_ROOT}/jquery.ajaxContent.pack.js"></script>
+<script type="text/javascript" src="{$Think.PLUGINS_SITE_ROOT}/ajaxfileupload.js" charset="utf-8"></script>
+<script type="text/javascript" src="{$Think.PLUGINS_SITE_ROOT}/mlselection.js" charset="utf-8"></script>
+<link rel="stylesheet" href="{$Think.HOME_SITE_ROOT}/css/editable_page.css"> 
+<div class="page">
+    <div class="fixed-bar">
+        <div class="item-title">
+            <div class="subject">
+                <h3>{$Think.lang.editable_page}</h3>
+                <h5></h5>
+            </div>
+            {include file="public/admin_items" /}
+        </div>
+    </div>
+
+    <div class='editable-content-wrapper'>
+
+        <div class='mobile-wrapper'>
+            <img class='phone-top-back' src='{$Think.UPLOAD_SITE_URL}/home/common/phone-top-black.png'>
+            
+            <iframe id='editable_page' class="editable-page" src="{:url('EditablePage/mobile_page_view',['editable_page_id'=>$Request.param.editable_page_id])}"></iframe>
+            
+            <div class='phone-bottom-back-wrapper'>
+                <div class='item'>
+                    <img class='phone-bottom-back' src='{$Think.UPLOAD_SITE_URL}/home/common/phone-bottom-black.png'>
+                </div>
+                <div class='item'>
+                    <img class='phone-bottom-back' src='{$Think.UPLOAD_SITE_URL}/home/common/phone-bottom-black.png'>
+                </div>
+                <div class='item'>
+                    <img class='phone-bottom-back' src='{$Think.UPLOAD_SITE_URL}/home/common/phone-bottom-black.png'>
+                </div>
+                <div class='item'>
+                    <img class='phone-bottom-back' src='{$Think.UPLOAD_SITE_URL}/home/common/phone-bottom-black.png'>
+                </div>
+                <div class='item'>
+                    <img class='phone-bottom-back' src='{$Think.UPLOAD_SITE_URL}/home/common/phone-bottom-black.png'>
+                </div>
+            </div>
+        </div>
+        
+        <div class='form-wrapper' style='display: none'>
+            <div class='title'></div>
+            <div id='config_form'></div>
+        </div>
+    </div>
+</div>
+<script>
+    window.UEDITOR_HOME_URL='{$Think.PLUGINS_SITE_ROOT}/ueditor/'
+    var iframeObj=document.getElementById('editable_page').contentWindow
+    function getConfigForm(title, url, width){
+        $('.form-wrapper .title').text(title)
+        $('.form-wrapper .title').css('min-width',width+'px');
+        $('#config_form').load(url);
+        $('.form-wrapper').show();
+    }
+    function addEditableModel(model_id,config_id){
+        $.getJSON('{$Think.ADMIN_SITE_URL}/editable_page/model_add?editable_page_id={$Request.param.editable_page_id}&type=h5&model_id='+model_id+'&config_id='+config_id,function(res){
+            if(res.code!=10000){
+                layer.msg(res.message)
+            }else{
+
+                iframeObj.afterAdd(res,config_id)  
+                iframeObj.addDialogEvent()
+                iframeObj.initSlide()
+            }
+        })
+    }
+function submitEditableModelForm(){
+    
+    var _form = $("#editable_model_form");
+    $.ajax({
+        type: "POST",
+        url: _form.attr('action'),
+        data: _form.serialize(),
+        dataType:"json",
+        success: function (res) {
+                if (res.code == 10000) {
+                    iframeObj.afterEdit(res)
+                    iframeObj.addDialogEvent()
+                    iframeObj.initSlide()
+                }else{
+                    layer.msg(res.message)
+                }
+        }
+    });
+}
+</script>
+
+<style>
+.pb20 {
+    padding-bottom: 20px !important;
+}
+.pt20 {
+    padding-top: 20px;
+}
+.tc {
+    text-align: center !important;
+}
+    .editable-content-wrapper{padding:10px;overflow: hidden;}
+    .editable-content-wrapper .form-wrapper{overflow: hidden;padding:10px;border:1px solid #e1e1e1}
+    .editable-content-wrapper .form-wrapper .title{
+        position: relative;
+        padding: 0 22px;
+        height: 30px;
+        line-height: 30px;
+        border-bottom: 1px solid #eef1f5;
+    }
+    .editable-content-wrapper .form-wrapper .title:before{
+        content: '';
+        position: absolute;
+        width: 4px;
+        height: 13px;
+        background: #00aeff;
+        top: 8px;
+        left: 9px;
+    }
+
+    .mobile-wrapper{font-size: 22px;position: relative;overflow: hidden;overflow-y: auto;width:375px;height: 667px;margin-right: 20px;border-radius: 3px;box-shadow: 0 3px 10px #dcdcdc;border: 1px solid #ddd;float: left;}
+    .mobile-wrapper .phone-top-back{width:100%}
+    .mobile-wrapper .phone-bottom-back-wrapper{position: absolute;bottom:0;width:100%;border-top: 1px solid #e1e1e1;overflow: hidden}
+    .mobile-wrapper .phone-bottom-back{height: 50px;}
+    .mobile-wrapper .phone-bottom-back-wrapper .item{float: left;width:20%;text-align: center;font-size: 0}
+    .editable-page{border:0;width:100%;height: 583px}
+</style>

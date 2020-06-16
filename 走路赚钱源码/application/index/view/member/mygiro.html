@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="/tmc/js/mui.min.js"></script>
+    <link href="/tmc/css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+	<style>
+		.body{
+			line-height: px;
+		}
+		.mui-table-view-cell:after{
+			left: 0px;
+			background-color:#fff;
+		}
+		.mui-table-view:before{
+			background-color:#fff;
+		}
+		.mui-table-view:after{
+			background-color:#fff;
+		}
+		.mui-input-group:before{
+			height:0px
+		}
+		.mui-input-group:after{
+			height:0px;
+		}
+		.header{
+			background:#3c7fff;
+			top:0;
+			box-shadow:0 0px 0px #ccc;
+			-webkit-box-shadow:0 0px 0px #ccc;
+		}
+		.h1{
+			font-family:'微软雅黑';
+			color:#fff;
+		}
+		.ul{
+			margin-top:40px;
+			background:#3c7fff;
+			line-height:2em;
+		}
+		.p{
+			margin-left:10%;
+			font-family:'微软雅黑';
+			color:aquamarine;
+		}
+		.p1{
+			position:absolute;
+			left:35%;
+			bottom:12px;
+			font-family:'微软雅黑';
+			font-size:1em;
+			color:#fff;
+		}
+		.form{
+			top:20px;
+			height:0px;
+			width:80%;
+			left:0px;
+			right:0px;
+			margin:auto;
+		}
+		.divc{
+			border-radius:30px;
+			background-color:#fff;
+			margin-bottom:30px;
+		}
+		.img{
+			position:absolute;
+			width:30px;
+			margin-left:15px;
+			margin-top:4px;
+		}
+		.int{
+			color:#0062CC;
+			margin-left:22%;
+			font-size:0.9em;
+			font-family:'微软雅黑';
+		}
+		.button{
+			line-height:2em;
+			font-size:0.9em;
+			width:80%;
+			font-family:'微软雅黑';
+			border-radius:10px;
+			border:0px solid;
+			background:#3c7fff;
+		}
+	</style>
+</head>
+<body style="background:#fff;">
+	<header class="mui-bar mui-bar-nav header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+			<h1 class="mui-title h1">乐豆种子转让</h1>
+	</header>	
+		<ul class="mui-table-view ul">
+			<li class="mui-table-view-cell mui-collapse-content"><p class="p">可用种子</p><p class="p1">1</p> </li>
+		</ul>
+			<form class="mui-input-group form">
+							<div class="mui-input-row divc">
+								<img src="/tmc/img/nubmer.png"  class="img" style="width: 25px;" />
+								<input type="text"name="username" class="int" placeholder="对方用户名">
+							</div>
+							<div class="mui-input-row divc">
+								<img src="/tmc/img/sl.png"  class="img" style="width: 25px;"/>
+								<input type="number"name="number" class="int" placeholder="转让数量">
+							</div>
+							<div class="mui-input-row divc">
+								<img src="/tmc/img/mima.png"  class="img"style="width: 30px;" />
+								<input type="password"name="password" class="int" placeholder="交易密码">
+							</div>
+							
+							<br>
+							<div class="mui-button-row">
+								<button type="button"id="submit" class="mui-btn mui-btn-danger button">转让</button>
+							</div>
+						</form>
+						<script>
+			(function($) {
+				//监听点击事件
+				document.getElementById("submit").addEventListener('tap',function(){
+					var username = $("input[name=username]")[0].value;
+					var number = $("input[name=number]")[0].value;
+					var password = $("input[name=password]")[0].value;
+					if(!username){
+						alert('请输入对方用户名！');return false;
+					}
+					if(!number){
+						alert('请输入转账金额！');return false;
+					}
+					var reg=/^[0-9]+.?[0-9]*$/; 
+					if(!reg.test(number)){
+						alert('转账金额必须是数字！');return false;
+					}
+					if(!password){
+						alert('请输入支付密码！');return false;
+					}
+
+					console.log(username);	
+					//console.log(password);
+					//return false;				
+					$.ajax('/transfer.html',{
+						data:{username:username,password:password,number:number},
+						dataType:'json',//服务器返回json格式数据
+						type:'post',//HTTP请求类型
+						timeout:50000,//超时时间设置为50秒；
+						/*headers:{'Content-Type':'application/json'},*/	              
+						success:function(data){
+							if(data.s=='ok'){
+								alert('转账成功');
+								window.location.href = "/myfishb.html";
+							}else{
+								alert(data.s);
+							}
+							//console.log(data);
+							event.stopPropagation();
+						}
+					});
+					event.stopPropagation();
+				
+				});
+			})(mui);
+		</script>
+		
+</body>
+</html>

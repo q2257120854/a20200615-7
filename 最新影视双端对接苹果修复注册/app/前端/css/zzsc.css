@@ -1,0 +1,124 @@
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.zzsc-container{
+	margin: 0 auto;
+}
+
+.hero {
+	  height: 100%;
+	}
+	.hero:before {
+	  content: "";
+	  height: 100%;
+	  margin-right: -0.5em;
+	  vertical-align: middle;
+	  display: inline-block;
+	}
+	.hero h1 {
+	  color: white;
+	  font-size: 7em;
+	  margin-top: 0;
+	  margin-bottom: 25px;
+	}
+	.hero h2 {
+	  color: white;
+	  font-weight: 400;
+	  line-height: 1.7em;
+	}
+	.hero .wrapper {
+	  display: inline-block;
+	  vertical-align: middle;
+	  width: 100%;
+	  text-align: center;
+	}
+	.hero .buttons {
+	  margin-top: 45px;
+	}
+	.hero button {
+	  cursor: pointer;
+	  -webkit-appearance: none;
+		 -moz-appearance: none;
+			  appearance: none;
+	  background: none;
+	  border: 1px solid white;
+	  color: white;
+	  width: 90px;
+	  outline: none;
+	  height: 46px;
+	  width: 170px;
+	  font-size: 1.1em;
+	  margin-left: 10px;
+	  margin-right: 10px;
+	  border-radius: 2px;
+	}
+	.hero button:hover {
+	  background: white;
+	  color: #2C2B41;
+	}
+
+	@media only screen and (max-width: 768px) {
+	  .hero {
+		padding-left: 40px;
+		padding-right: 40px;
+	  }
+	  .hero h1 {
+		font-size: 4em;
+	  }
+	  .hero h2 {
+		font-size: 1em;
+	  }
+	  .hero button {
+		margin-bottom: 15px;
+	  }
+	}
+	/* Small smartphones */
+	@media only screen and (max-width: 360px) {
+	  .hero {
+		padding-left: 40px;
+		padding-right: 40px;
+	  }
+	  .hero h1 {
+		font-size: 4em;
+	  }
+	  .hero h2 {
+		font-size: 1em;
+	  }
+	  .hero .buttons {
+		margin-left: -32px;
+		margin-right: -40px;
+	  }
+	  .hero button {
+		font-size: 0.9em;
+		margin-left: 3px;
+		margin-right: 3px;
+		height: 42px;
+		width: 130px;
+	  }
+	}
+	/* iPhone 6+ ----------- */
+	@media only screen and (min-width: 375px) and (max-width: 736px) {
+	  .hero {
+		padding-left: 40px;
+		padding-right: 40px;
+	  }
+	  .hero h1 {
+		font-size: 5em;
+	  }
+	  .hero h2 {
+		font-size: 1.2em;
+	  }
+	  .hero button {
+		margin-left: 5px;
+		margin-right: 5px;
+		width: 145px;
+		font-size: 1em;
+	  }
+	}

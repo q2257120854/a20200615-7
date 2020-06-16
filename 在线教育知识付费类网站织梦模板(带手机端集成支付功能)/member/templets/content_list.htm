@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>论坛稿件管理 - 会员中心 - <?php echo $cfg_webname; ?></title>
+<link href="templets/style/base.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="templets/js/j.js"></script>
+<script type="text/javascript" src="templets/js/load.js"></script>
+<script type="text/javascript" src="templets/js/leftmenu.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<script type="text/javascript">
+  function viewArc(aid){
+	  window.open("{dede:global.cfg_phpurl /}/view.php?aid="+aid);
+  }
+  function editArc(aid,channelid){
+	  location = "archives_do.php?dopost=edit&channelid="+channelid+"&aid="+aid;
+  }
+  function delArc(aid){
+	  if(window.confirm('你确定要删除这篇文档吗?')) location="archives_do.php?aid="+aid+"&dopost=delArc";
+  }
+</script>
+</head>
+<body>
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+ <?php include(DEDEMEMBER."/templets/left.htm"); ?>
+ <style type="text/css">
+.article-content {width:100%;height:142px;margin:40px 0 0;border-bottom: 1px solid #eaeaea;text-align:left;}
+.article-content .article-content-left{display:inline-block;}
+.article-content-left .left-title {margin:4px 0 0;font-size:20px;color:#333;}
+.article-content-left .left-title a{font-size:20px;height:25px;line-height:25px;max-width:650px;display:inline-block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;vertical-align:top;}
+.article-content-left .left-stat{margin:14px 0 0;}
+.left-stat .stat-text{height:28px;line-height:28px;display:inline-block;padding:0 9px;font-size:14px;color:#777;background:#f5f5f5;border-radius:25px;}
+.left-stat .stat-time{margin:0 0 0 12px;font-size:14px;color:#aaa;}
+.left-stat .stat-eye{margin:0 0 0 51px;}
+.left-stat .stat-article{margin:0 0 0 20px;}
+.left-stat .stat-eye .stat-eye-num{margin:0 0 0 7px;font-size:14px;color:#aaa;}
+.left-stat .stat-article .stat-article-num {margin:0 0 0 5px;font-size:14px;color:#aaa;vertical-align:1px;}
+.left-stat .stat-eye .stat-eye-icon{width:19px;height:14px;display:inline-block;background:url(../images/eye.png) no-repeat;vertical-align:-1px;}
+.left-stat .stat-article .stat-article-icon{width:16px;height:16px;display:inline-block;background:url(../images/button.png) no-repeat;vertical-align:-3px;}
+.article-content-left .left-operation{margin:18px 0 0;}
+.left-operation .operation-edit,.left-operation .operation-del{font-size:14px;color:#1d9afa;margin:0 21px 0 0;cursor:pointer;}
+.article-content .article-content-right{float:right;}
+.article-content-right .article-content-img{width:134px;height:100px;margin:3px 6px 0 0;}
+</style>
+ <!-- 右侧功能定位 -->
+<div class="user-right">
+<div class="uc-box uc-main-box">
+<div class="uc-content-box order-list-box">
+<div class="box-hd"><h1 class="title">我的帖子</h1></div>
+{dede:datalist}
+<div class="article-content">
+<div class="article-content-left">
+<div class="left-title"><a href="/plus/view.php?aid=<?php echo $fields['id']; ?>" target="_blank"><?php echo $fields['title']; ?></a></div>
+<div class="left-stat">
+<span class="stat-text"><?php
+if($fields['arcrank']>=0) echo "已审核";
+else if($fields['arcrank']==-2) echo "<font color='blue'>被退回</font>";
+else echo "<font color='red'>未审核</font>";
+?></span>
+<span class="stat-time"><?php echo GetDateMk($fields['senddate']); ?></span>
+<span class="stat-eye">
+<span class="stat-eye-icon"></span>
+<span class="stat-eye-num"><?php echo $fields['click']; ?></span>
+</span>
+<span class="stat-article">
+<span class="stat-article-icon"></span>
+<span class="stat-article-num"><script src="/plus/pinglun.php?view=yes&amp;type=nokuo&amp;aid=<?php echo $fields['id']; ?>" type="text/javascript" language="javascript"></script></span>
+</span>
+</div>
+<div class="left-operation">
+<?php
+if($fields['arcrank']<0 || $dtime - $fields['senddate'] < $maxtime)
+{
+?>
+
+<span class="operation-edit" onclick="javascript:editArc(<?php echo $fields['id']?>,<?php echo $fields['channel']?>);">修改</span>     
+<span class="operation-del"  onclick="javascript:delArc(<?php echo $fields['id']?>);">删除</span>          <?php
+}
+else
+{
+	echo "<span class='gray'></span>";
+}
+?>
+
+</div>
+</div>
+<div class="article-content-right" >
+<img src="<?php if ( $fields['litpic']==''){$fields['litpic']='/images/defaultpic.gif';}
+
+echo $fields['litpic'];?>" class="article-content-img">
+</div>
+</div>
+{/dede:datalist}
+<!-- grid-wrap End -->
+
+
+<!-- 列表分页 -->
+<div id="showpage_min">
+{dede:pagelist listsize=5 /}
+</div>
+<!-- 列表分页 Ending -->
+
+
+</div>
+</div>
+</div>
+<!-- 右侧功能定位 End -->
+
+
+</div>
+
+
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>账户余额充值 - <?php echo $cfg_webname; ?></title>
+<link href="templets/style/base.css" rel="stylesheet" type="text/css" />
+<link href="/css/green.css" rel="stylesheet">
+<script type="text/javascript" src="templets/js/j.js"></script>
+<script type="text/javascript" src="templets/js/load.js"></script>
+<script type="text/javascript" src="templets/js/leftmenu.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script src="/js/jquery.icheck.min.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<script type="text/javascript">  
+$(document).ready(function(){  
+    $(document).ready(function(){  
+          $('input').iCheck({  
+            checkboxClass: 'iradio_square-green',  //每个风格都对应一个，这个不能写错哈。  
+            radioClass: 'iradio_square-green',  
+   
+          });  
+    });  
+}); 
+</script>
+<style type="text/css">
+.newbtn{width:150px;line-height:20px;padding:5px;font-size:14px;border:1px solid #ccc;margin-right:15px;}
+</style>
+</head>
+<body>
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+<?php include(DEDEMEMBER."/templets/left.htm"); ?>
+
+<!-- 右侧功能定位 -->
+<div class="user-right">
+<div class="uc-box uc-main-box">
+<div class="uc-content-box order-list-box">
+<div class="box-hd"><h1 class="title">账户余额充值</h1></div>
+
+<!-- 我的账户余额 -->
+<div class="jinbi-content">
+<p class="jinbi-shuoming">郑重提示：账户余额只能用来购买视频和教材，不能开通VIP会员。</p>
+<div class="content_head"><span class="balance_p">您当前账户可用余额：<strong class="red">￥<? echo $cfg_ml->M_Money; ?>.00</strong></span></div>
+
+<div class="input_container-m">
+<form name="f1" action="buy_action.php" method="post">
+<input type="hidden" name="product" value="payjb" />
+<label>自定义充值金额：</label>
+<input type="text" name="pid" value="<? echo $yujb; ?>" onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"  class="newbtn"/>
+<button class="btn_grey" type="submit">立即充值</button>
+</form>
+</div>
+
+<div class="postForm">
+<h3 class="meTitle">充值优惠套餐</h3>
+<form name="f1" action="buy_action.php" method="post">
+<input type="hidden" name="product" value="card" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="list">
+<tr style='height:40px;background:#eee;'>
+<th width="15%">套餐选择</th>
+<th width="25%">套餐类型</th>
+<th width="30%">套餐价格</th>
+</tr>
+<tbody>
+<?php echo $moneycards;?>
+</tbody>
+</table>
+<button class="button2 mt5" type="submit">确认购买</button>
+</form>
+</div>
+</div>
+<!-- 我的账户余额 End -->
+
+</div>
+</div>
+</div>
+<!-- 右侧功能定位 End -->
+
+</div>
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+</body>
+</html>

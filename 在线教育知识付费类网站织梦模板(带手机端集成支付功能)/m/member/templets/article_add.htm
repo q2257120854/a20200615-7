@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>发布帖子 - <?php echo $cfg_webname; ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="apple-touch-icon-precomposed" href="http://m.duoweizi.net/images/57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://m.duoweizi.net/images/72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://m.duoweizi.net/images/144x144.png" />
+<link href="/m-css/m-index.css" rel="stylesheet" type="text/css">
+<link href="/m-css/m-user-index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar" id="topbar">
+<div class="searchbar_index">
+<a href="javascript:history.go(-1);" title="返回上一页" class="top_nav_left"></a>
+<h1>发布帖子</h1>
+</div>
+</div>
+<!-- TOP End -->
+
+<div class="wrapper_doc">
+
+<!-- 帐号密码修改 -->
+<div class="mima-content">
+
+	  <form name="addcontent" action="article_add.php" method="post" enctype="multipart/form-data" onsubmit="return checkSubmit();">
+          <input type="hidden" name="dopost" value="save" />
+          <input type="hidden" name="channelid" value="<?php echo $channelid; ?>" />
+
+       <div class="input_container"> <label><?php echo $cInfos['titlename']; ?>：</label>
+            <input name="title" type="text" id="title" placeholder="请输入内容主题" maxlength="100" class="intxt" onfocus="inputAutoClear(this)"/>
+          </div>
+          <p  style="display:none;">
+            <label>标签TAG：</label>
+            <input name="tags" type="text" id="tags" maxlength="100" class="intxt"/>
+          </p>
+        <div class="input_container" style="display:none;"> <label>作者：</label>
+            <input type="text" name="writer" id="writer" value="<?php echo $cfg_ml->M_UserName?>" maxlength="100" class="intxt" style="width:219px"/>
+          </div>
+
+<input type="hidden" name="typeid" value="7" />
+
+          <p class="cellBg" style="display:none;">
+            <label>我的分类：</label>
+            <?php
+            	$classlist = classification($cfg_ml->M_ID, 0, $channelid);
+            	echo "<select name='mtypesid' size='1'>\r\n";
+            	echo "<option value='0' selected>请选择分类...</option>\r\n";
+				echo $classlist;
+				echo "</select>";
+            ?>
+            <a href="mtypes.php">添加分类</a>
+          </p>
+          <div class="input_container" style="display:none;"> <label>信息摘要：</label>
+            <textarea name="description" id="description" style="width:60%;height:50px" placeholder="内容的简要说明"></textarea>
+          </div>
+         <div class="input_container" style="display:none;"> <label>缩略图：</label>
+            <input name="litpic" type="file" id="litpic" onchange="SeePicNew('divpicview',this);"  maxlength="100" class="intxt"/>
+          </div>
+      <?php
+       //自定义字段
+       PrintAutoFieldsAdd($cInfos['fieldset'],'autofield');
+      ?>
+        <!-- 表单操作区域 -->
+ 
+  	<div style="width:90%;margin:0 auto;"><?php mGetEditor("body","",350,"mMember"); ?></div>
+        </div> 
+		<div class="mima-act">
+<button class="formbutton" type="submit">提交</button>
+             <button class="formbutton ml10" type="reset" onclick="location.reload();">重置</button>
+			 </div>
+      </div>
+      </form>
+
+    </div>
+    </div>
+  
+	 
+</div>
+<!-- 帐号密码修改 End -->
+
+</div>
+<style>.intxt {
+    width: 50%;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    padding: 5px;
+    line-height: 18px;
+    height: 18px;
+}</style>
+</body>
+</html>

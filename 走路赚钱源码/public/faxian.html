@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="/tmc/js/mui.min.js"></script>
+    <link href="/tmc/css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+	<style>
+		.header{
+			background: #fff;
+		}
+		.mui-bar{
+			height:54px;
+		}
+		.h1{
+			top: 5px;
+			font-family: '微软雅黑';
+		}
+		.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+			border-right:#ddd;
+		}
+	</style>
+</head>
+<body style="background: #fff;">
+	<header class="mui-bar mui-bar-nav header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.go(-1)" ></a>
+			<h1 class="mui-title h1">发现</h1>
+	</header>
+		<br><br>
+		
+		<div class="mui-content" style="background: #fff;margin-top:-40px;">
+		        <ul class="mui-table-view mui-grid-view mui-grid-9" style="background: #fff;">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"style="width: 33%;"><a href="qd.html" alert="">
+		                    <span class="mui-icon"><img src="/tmc/img/taobao.png" style="width: 50px;"/></span>
+		                    <div class="mui-media-body"style="font-family: '微软雅黑';">淘宝</div></a></li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"style="width: 33%;"><a href="qd.html" alert="">
+		                    <span class="mui-icon"><img src="/tmc/img/jingdong.png" style="width: 68px;"/></span>
+		                    <div class="mui-media-body"style="font-family: '微软雅黑';">京东</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"style="width: 34%;"><a href="qd.html">
+		                    <span class="mui-icon"><img src="/tmc/img/pinduoduo.png" style="width: 50px;"/></span>
+		                    <div class="mui-media-body"style="font-family: '微软雅黑';">拼多多</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"style="width: 33%;"><a href="qd.html">
+		                    <span class="mui-icon"><img src="/tmc/img/yule.png" style="width: 50px;"/></span>
+		                    <div class="mui-media-body"style="font-family: '微软雅黑';">娱乐</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"style="width: 33%;"><a href="qd.html">
+		                    <span class="mui-icon"><img src="/tmc/img/youxi.png" style="width: 50px;"/></span>
+		                    <div class="mui-media-body"style="font-family: '微软雅黑';">游戏</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"style="width: 34%;"><a href="qd.html">
+		                    <span class="mui-icon"><img src="/tmc/img/chihe.png" style="width: 50px;"/></span>
+		                    <div class="mui-media-body"style="font-family: '微软雅黑';">吃喝玩乐</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"style="width: 33%;"><a href="qd.html">
+		                    <span class="mui-icon"><img src="/tmc/img/chongzhi.png" style="width: 50px;"/></span>
+		                    <div class="mui-media-body"style="font-family: '微软雅黑';">充值</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"style="width: 33%;"><a href="qd.html">
+		                    <span class="mui-icon"><img src="/tmc/img/huochepiao.png" style="width: 50px;"/></span>
+		                    <div class="mui-media-body"style="font-family: '微软雅黑';">火车票</div></a></li>
+		           <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"style="width: 34%;"><a href="qd.html">
+		                    <span class="mui-icon"><img src="/tmc/img/jiudian.png" style="width: 50px;"/></span>
+		                    <div class="mui-media-body"style="font-family: '微软雅黑';">酒店</div></a>
+					</li>
+					
+					<!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+					        <span class="mui-icon"><img src="/tmc/img/zhanghu.png" style="width: 50px;"/></span>
+					        <div class="mui-media-body">账户管理</div></a></li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+							<span class="mui-icon"><img src="/tmc/img/anquan.png" style="width: 50px;"/></span>
+							<div class="mui-media-body">安全管理</div></a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+							<span class="mui-icon"><img src="/tmc/img/kefu.png" style="width: 50px;"/></span>
+							<div class="mui-media-body">在线客服</div></a>
+					</li>-->
+		        </ul> 
+		</div>
+		
+		
+		<script>
+			mui('body').on('tap','a',function(){document.location.href=this.href;});
+		</script>
+</body>
+</html>

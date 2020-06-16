@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+
+<title>我收藏的课程</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+<meta content="yes" name="apple-mobile-web-app-capable" />
+
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+
+<meta content="telephone=no" name="format-detection" />
+
+<link href="<?php echo $mcfg_basehost; ?>/m-css/m-index.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/jquery.js"></script>
+
+<style type="text/css">
+
+.wrapper{padding-bottom:0;}
+
+.searchbar_index{border:none;}
+
+
+
+/*无收藏内容时显示的*/
+
+.m-yxw-cs-wushuju{padding:30px 0;}
+
+.m-yxw-cs-wushuju img{width:100px;height:100%;margin:0 auto;display:block;}
+
+.m-yxw-cs-wushuju .wu-sc-title{text-align:center;font-size:14px;color:#757575;padding-top:10px;}
+
+
+
+/*我关注的课程*/
+
+.m-kc-sc-list{padding:0 15px;}
+
+.m-kc-shoucang{position:relative;}
+
+.m-kc-shoucang a{display:block;padding-top:10px;}
+
+.m-kc-shoucang img{width:100%;height:100%;display:block;border-radius:3px;}
+
+.m-kc-min-m{width:100%;height:46px;line-height:46px;position:absolute;bottom:0;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(7,17,27,.4));border-bottom-left-radius:3px;border-bottom-right-radius:3px;box-sizing:border-box;}
+
+.m-kc-shoucang .m-kc-sc-title{padding:0 15px;font-size:16px;color:#fff;font-weight:700;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;text-align:center;}
+
+
+
+/*加载中*/
+
+.yxw-list-loading{width:100%;height:50px;line-height:50px;color:#757575;background:#f0f0f0;text-align:center;font-size:14px;}
+
+.m-yxw-cs-wushuju{display:none;}
+
+
+
+/*权限标识*/
+
+.m-kc-shoucang .tt-vip{width:35px;height:20px;line-height:20px;position:absolute;top:15px;right:5px;background:#ff700a;color:#fff;font-size:12px;text-align:center;border-radius:2px;}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<!-- TOP -->
+
+<div class="topbar"><div class="searchbar_index"><h1>我收藏的课程</h1><a href="javascript:history.go(-1);" class="top_nav_left"></a></div></div>
+
+<!-- TOP End -->
+
+
+
+
+
+<div class="wrapper">
+
+
+
+
+
+<!-- 这里是没有数据显示的内容 -->
+
+<div class="m-yxw-cs-wushuju">
+
+<img src="<?php echo $mcfg_basehost; ?>/m-images/kc-wu-sc.png">
+
+<p class="wu-sc-title">您还没有收藏课程哦，快去收藏吧！</p>
+
+</div>
+
+<!-- 这里是没有数据显示的内容 End -->
+
+
+
+
+
+<!-- 播单列表 -->
+
+<div class="m-kc-sc-list">
+
+{dede:datalist}
+
+<div class="m-kc-shoucang">
+
+<a href="archives_do.php?dopost=viewType&tid={dede:field.tid/}">
+
+<img src="http://www.test.com/images/yxw-sc-bg.gif" data-original="http://www.test.com{dede:field.ico/}">
+
+<div class="m-kc-min-m"><p class="m-kc-sc-title">{dede:field.typename/}</p></div>
+
+<span class="tt-vip" style="display:none;">VIP</span>
+
+</a>
+
+</div>
+
+{/dede:datalist}
+
+</div>
+
+<!-- 播单列表 End -->
+
+
+
+
+
+<div id="dianhuafei" class="yxw-list-loading"></div>
+
+<div class="xiayiyequ" style="display:none;">{dede:pagelist listitem="next"/}</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- 返回顶部 -->
+
+<div class="mall-totop" onclick="window.scrollTo(0,0);"></div>
+
+<script src="<?php echo $mcfg_basehost; ?>/m-js/mall-top.js"></script>
+
+<!-- 返回顶部 End -->
+
+
+
+
+
+<script>
+
+if($(".m-kc-shoucang").length < 1 ){ 
+
+    $(".m-yxw-cs-wushuju").show();
+
+}
+
+var f = true; 
+
+function getxia(){
+
+ 
+
+    var link = $(".xiayiyequ a");
+
+        var href = link.attr("href");
+
+        if (href != undefined) { 
+
+        $(".yxw-list-loading").html('正在加载中...');
+
+            $.ajax({
+
+                type: "get",
+
+                url: href,
+
+                success: function(data) {               
+
+                    $(".m-kc-sc-list").append($(data).find(".m-kc-sc-list").html());
+
+                    f = true;
+
+                    var newHref = $(data).find(".nextPage").attr("href");  
+
+                                                                                
+
+                    if (newHref != undefined) {
+
+                        link.attr("href", newHref);
+
+                    } else {
+
+                        $("#dianhuafei").html("没有更多了");
+
+                        link.html("下一页没有了").removeAttr("href");
+
+                    };
+
+                  
+
+			    }
+
+            });
+
+        }else{
+
+        $("#dianhuafei").html("没有更多了");
+
+        
+
+        }
+
+        
+
+        return false;   
+
+}
+
+
+
+$(document).scroll(function(){
+
+            //滚动条滑动的时候获取滚动条距离顶部的距离
+
+            var scroll=$(document).scrollTop();
+
+            //屏幕的高度
+
+            var client=$(window).height();
+
+            var h=$(document).height();
+
+            var flag=true;
+
+            var bih = scroll+client+100 ;       
+
+            if (h<= bih) { // 到达底部时,加载新内容    
+
+                    if(f){
+
+                        f  = false;
+
+                        getxia();   
+
+                    }
+
+                      
+
+            }
+
+});
+
+</script>
+
+
+
+<script type="text/javascript">
+
+$(function(){
+
+    lazyRender();
+
+})
+
+$(window).on('scroll',function () {
+
+    lazyRender();
+
+})
+
+function lazyRender () {
+
+    $('img').each(function () {
+
+        //解决没缩略图的
+
+        if($(this).attr('src') == undefined)
+
+        {
+
+            $(this).attr("src","<?php echo $cfg_basehost; ?>/images/yxw-sc-bg.gif");
+
+        }
+
+        if (checkShow($(this)) && !isLoaded($(this)) ){
+
+            loadImg($(this));
+
+        }
+
+        if($(this).attr('src') == '<?php echo $cfg_basehost; ?>'){$(this).attr("src","<?php echo $cfg_basehost; ?>/images/yxw-sc-bg.gif");}
+
+    })
+
+}
+
+function checkShow($img) { // 传入一个img的jq对象
+
+    var scrollTop = $(window).scrollTop();  //即页面向上滚动的距离
+
+    var windowHeight = $(window).height(); // 浏览器自身的高度
+
+    var offsetTop = $img.offset().top;  //目标标签img相对于document顶部的位置
+
+    if (offsetTop < (scrollTop + windowHeight) && offsetTop > scrollTop) { //在2个临界状态之间的就为出现在视野中的
+
+        return true;
+
+    }
+
+    return false;
+
+}
+
+function isLoaded ($img) {
+
+    return $img.attr('data-src') === $img.attr('src'); //如果data-src和src相等那么就是已经加载过了
+
+}
+
+function loadImg ($img) {
+
+    // $img.css('display','none');
+
+    $img.attr('src',$img.attr('data-original')).fadeIn(300); // 加载就是把自定义属性中存放的真实的src地址赋给src属性
+
+}
+
+</script>
+
+</body>
+
+</html>

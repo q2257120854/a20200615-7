@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>修改登录密码 - <?php echo $cfg_webname; ?></title>
+<link href="/css/v2_index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<script type="text/javascript">  
+  function checkSubmit()
+{
+	if(document.form2.oldpwd.value=='')
+	{
+		document.form2.oldpwd.focus();
+		alert("请输入旧密码");
+		return false;
+	}
+
+    if(document.form2.userpwd.value=='')
+	{
+		document.form2.userpwd.focus();
+		alert("请设置新密码");
+		return false;
+	}
+
+
+    }
+</script>
+<style type="text/css">
+.input_container{margin-bottom:20px;}
+.input_container label{line-height:26px;height:26px;font-size:14px;display:block;padding-bottom:10px;}
+.intxt{width:60%;font-size:14px;color:#333;height:30px;line-height:30px;border:1px solid #eee;padding:5px 5px 5px 10px;}
+.newbtn{width:378px;font-size:14px;color:#333;height:30px;line-height:30px;border:1px solid #eee;padding:5px 10px;border-radius:5px;}
+input,textarea{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-appearance:none;border:0;border-radius:0;}
+.mima-content{margin-top:15px;min-height:340px;}
+.mima-content .hint{margin-top:10px;color:#999;display:inline-block;}
+.validWrapper{height:40px;overflow:hidden;}
+#safequestion,#newsafequestion{width:220px;border-radius:2px;border:1px solid #ccc;font-size:12px;padding:5px;line-height:30px;height:30px;vertical-align:middle;list-style:none;outline:none;}
+</style>
+</head>
+<body>
+
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+<?php include(DEDEMEMBER."/templets/left.htm"); ?>
+
+<!-- 右侧功能定位 -->
+<div class="user-right">
+<div class="uc-box uc-main-box">
+<div class="uc-content-box order-list-box">
+<div class="box-hd"><h1 class="title">修改登录密码</h1></div>
+
+<!-- 帐号密码修改 -->
+<div class="mima-content">
+<form action="edit_baseinfo.php" method="post" enctype="multipart/form-data" name="form2" onsubmit="return checkSubmit();">
+<input type="hidden" name="dopost" value="save" />
+
+<div class="input_container">
+<label>旧密码</label>
+<input name="oldpwd" type="password" id="oldpwd" class="newbtn" placeholder="请输入旧密码" maxlength="16" /> <span style="color:red;">*</span>
+</div>
+
+<div class="input_container">
+<label>设置新密码</label>
+<input name="userpwd" type="password" id="userpwd" class="newbtn" placeholder="请输入新密码，6-16位字母或数字组合" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" maxlength="16" />
+</div>
+
+<div class="mima-act"><button  class="formbutton"  type="submit">提交保存</button></div>
+
+</div>
+</div>
+</form>
+
+</div>
+<!-- 帐号密码修改 End -->
+
+</div>
+<!-- 右侧功能定位 End -->
+
+</div>
+
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+
+</body>
+</html>

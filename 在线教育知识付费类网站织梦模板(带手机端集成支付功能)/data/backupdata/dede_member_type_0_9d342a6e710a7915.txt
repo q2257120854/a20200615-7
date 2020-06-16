@@ -1,0 +1,4 @@
+INSERT INTO `dede_member_type` VALUES('1','500','终身会员','9999','36600');
+INSERT INTO `dede_member_type` VALUES('5','500','12个月会员','999','366');
+INSERT INTO `dede_member_type` VALUES('6','500','3个月会员','599','93');
+INSERT INTO `dede_member_type` VALUES('7','500','1个月会员','299','31');

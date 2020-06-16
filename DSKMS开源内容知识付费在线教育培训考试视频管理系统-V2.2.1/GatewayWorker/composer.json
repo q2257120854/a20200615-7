@@ -1,0 +1,7 @@
+{
+    "require": {
+        "workerman/mysql": "^1.0",
+        "workerman/gateway-worker": "^3.0",
+        "workerman/gatewayclient": "^3.0"
+    }
+}

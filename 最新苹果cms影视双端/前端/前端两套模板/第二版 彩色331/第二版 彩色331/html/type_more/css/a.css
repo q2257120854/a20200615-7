@@ -1,0 +1,76 @@
+.type_img{
+            
+    height: 140px;
+    background-repeat: round;
+    color: #fff;
+    text-align: center;
+    padding-top: 70px;
+}
+section {
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 0 4px;
+    margin-top: 20px;
+}
+.hot_div{
+    color: #e1e1e3;
+}
+.hot_div .hot_title img{
+width: 20px;
+}
+.hot_div .hot_title{
+    padding: 0px 4px;
+    height: 34px;
+    font-size: 14px;
+}
+.hot_div .hot_title span{
+    color: #616982;
+    font-size: 12px;
+    float: right;
+}
+.hot_div ul{
+    height: 448px;
+    margin-bottom: 0px;
+}
+.hot_div ul li{
+    margin: auto 1%;
+    float: left;
+    height: 220px;
+    width: 31%;
+}
+.hot_div ul li .bg_img{
+    height: 160px;
+    border-radius: 8px;
+    box-shadow: 0.04rem 0.4rem 0.4rem rgba(99, 99, 99, 0.29);
+}
+.hot_div ul li .vod_score{
+    font-size: 13px;
+    color: #fff;
+    background:linear-gradient(to right,#f370af 0,#5515ee 100%);
+    position: absolute;
+    border-radius: 2px;
+    margin-left: 4px;
+}
+.hot_div ul li .vod_remarks{
+    font-size: 13px;
+    color: #fff;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 4px;
+}
+.vod_title{
+    font-size: 13px;
+    color: #99a2bc;
+    text-align: center;
+}
+.vod_actar{
+    color: #616982;
+    font-size: 12px;
+    text-align: center;
+}
+
+.active {
+    opacity: 0.7;
+}

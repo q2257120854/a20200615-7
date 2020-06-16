@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>确认订单 - {dede:global.cfg_webname/}</title>
+<meta http-equiv="mobile-agent" content="format=html5; url=http://m.v.duoweizi.org/" >
+<link rel="icon" href="http://v.duoweizi.org/favicon.ico" type="image/x-icon" />
+<link href="/css/v-duoweizi.css" rel="stylesheet" type="text/css" />
+<link href="/css/v-gouwuche.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<style type="text/css">
+.section{margin:0 10px;}
+.order-time{color:#616161;margin-bottom:5px;line-height:2;}
+.order-time span{color:#ff6700;}
+.order-detail{margin-top:10px;}
+.order-detail li{line-height:24px;margin-bottom:8px;color:#333;}
+.order-detail .label{float:left;width:85px;}
+.order-detail .content{float:left;}
+.order-detail .order-num{color:#ff6700;}
+.consignee-add{background:#F2F2F2;border:solid 1px #E6E6E6;padding:20px;color:#666;}
+.consignee-add-label{display:block;font-size:16px;font-weight:700;}
+.consignee-add-label b{color:#FF7300;float:left;margin:3px 6px 0 -10px;}
+.consignee-add-text{border:solid 1px #CCC;font-size:14px;height:15px;line-height:14px;margin:10px 0;padding:10px;width:208px;}
+.consignee-add-address{border:solid 1px #ccc;display:block;font-size:14px;height:78px;margin:10px 0;padding:10px;resize:none;width:458px;}
+.hd-m{height:50px;line-height:50px;}
+.btn_mid_grey{display:inline-block;width: 180px;margin-left: 12px;height: 38px;font-size: 14px;line-height: 38px;text-align: center;cursor: pointer;-webkit-transition: all .4s;transition: all .4s;}
+</style>
+</head>
+<body class="buycarpage">
+<body class="buycarpage">
+<?php pasterTempletDiy("d1w2z3/heads.htm");?>
+<div class="gCart">
+<div class="hd"><h3>确认付款</h3></div>
+<div class="bd">
+<div class="section">
+<div class="order-detail">
+<ul>
+
+<li class="clearfix">
+<div class="label">订单编号：</div>
+<div class="content"><span class="order-num">{dede:var.carts.orders_id/}</span>
+</div>
+</li>
+
+<li class="clearfix">
+<div class="label">订单总价：</div>
+<div class="content">{dede:var.carts.price_count/}元(含运费)</div>
+</li>
+
+<li class="clearfix">
+<div class="label">商品总数：</div>
+<div class="content">{dede:var.carts.cart_count/}件</div>
+</li>
+
+<li class="clearfix">
+<div class="label">配送方式：</div>
+<div class="content">快递</div>
+</li>
+
+<li class="clearfix">
+<div class="label">支付方式：</div>
+<div class="content">{dede:var.pay_way/}</div>
+</li>
+
+<li class="clearfix">
+<div class="label">收货信息：</div>
+<div class="content"><?php echo $postname." ".$tel." ".$address; ?></div>
+</li>
+
+</ul>
+</div>
+
+<!-- 填写收货地址 End -->
+<div class="actions">{dede:var.button/}</div>
+</div>
+
+</div>
+</div>
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+</body>
+</html>

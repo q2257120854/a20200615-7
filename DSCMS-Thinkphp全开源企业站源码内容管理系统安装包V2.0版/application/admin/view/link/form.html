@@ -1,0 +1,83 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form layui-form-pane" method="post" enctype="multipart/form-data" >
+    <div class="layui-tab layui-tab-card">
+        {include file="layout/admin_items" /}
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.link_webname}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="link_webname" id="link_webname" value="{$link.link_webname|default=''}" lay-verify="link_webname" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.link_webname}" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.link_weburl}</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input field-name" name="link_weburl" id="link_weburl" value="{$link.link_weburl|default=''}" lay-verify="link_weburl" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.link_weburl}" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.link_weblogo}</label>
+                    <div class="layui-input-inline">
+                        {notempty name="$link.link_weblogo"}
+                        <img src="{:get_link_img($link['link_weblogo'])}" height="80"/>
+                        {/notempty}
+                        <input type="file" class="layui-layer-btn field-name" name="link_weblogo"/>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.link_type}</label>
+                    <div class="layui-input-inline">
+                        <input type="checkbox" name="link_type" lay-skin="switch" lay-text="{$Think.lang.ds_yes}|{$Think.lang.ds_no}" value="1" {if condition="$link.link_type eq '1'"}checked{/if}>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.link_info}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="link_info" id="link_info" value="{$link.link_info|default=''}" lay-verify="link_info" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.link_info}" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.link_order}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="link_order" id="link_order" value="{$link.link_order|default='255'}" lay-verify="link_order" autocomplete="off" required />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.link_com_ok}</label>
+                    <div class="layui-input-inline">
+                        <input type="checkbox" name="link_com_ok" lay-skin="switch" lay-text="{$Think.lang.ds_yes}|{$Think.lang.ds_no}" value="1" {if condition="$link.link_com_ok eq '1'"}checked{/if}>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.link_addtime}</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input field-name" name="link_addtime" id="link_addtime" value="{$link.link_addtime|date='Y-m-d',###}"/>
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">{$Think.lang.ds_empty_current_time}</div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-inline">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+    });
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#link_addtime'
+        });
+    });
+</script>
+{/block}
+
+

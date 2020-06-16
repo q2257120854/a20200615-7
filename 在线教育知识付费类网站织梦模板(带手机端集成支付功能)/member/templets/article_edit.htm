@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>修改帖子 - 会员中心 - <?php echo $cfg_webname; ?></title>
+<link href="templets/style/base.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="templets/js/j.js"></script>
+<script type="text/javascript" src="templets/js/load.js"></script>
+<script type="text/javascript" src="templets/js/leftmenu.js"></script>
+<script type="text/javascript" src="templets/js/table_function.js"></script>
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+</head>
+<body>
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+ <?php include(DEDEMEMBER."/templets/left.htm"); ?>
+ <!-- 右侧功能定位 -->
+<div class="user-right">
+<div class="uc-box uc-main-box">
+<div class="uc-content-box order-list-box">
+
+
+<div class="box-hd">
+<h1 class="title">修改帖子</h1></div>
+
+	    <form class="mTB10 mL10 mR10" name="addcontent" id="addcontent" action="article_edit.php" method="post" enctype="multipart/form-data" onsubmit="return checkSubmit();">
+          <input type="hidden" name="dopost" value="save" />
+          <input type="hidden" name="aid" value="<?php echo $row['id']; ?>" />
+          <input type="hidden" name="idhash" value="<?php echo md5($row['id'].$cfg_cookie_encode); ?>" />
+          <input type="hidden" name="channelid" value="<?php echo $row['channel']; ?>" />
+          <input type="hidden" name="oldlitpic" value="<?php echo $row['litpic']; ?>" />
+          <input type="hidden" name="sortrank" value="<?php echo $row['sortrank']; ?>" />
+<div class="publish-cont">
+<div class="publish-from">
+<div class="publish-from-label">文章标题：</div>
+<input class="form-control" type="text"  name="title" id="title"  value="<?php echo $row['title']?>" maxlength="100" onfocus="inputAutoClear(this)">
+</div>
+ <p  style="display:none;">
+            <label>标签TAG：</label>
+            <input name="tags" type="text" id="tags"  value="<?php echo $row['keywords']; ?>" maxlength="100" class="intxt"/>(用逗号分开) 
+          </p>
+          <p class="cellBg"  style="display:none;">
+            <label>作者：</label>
+            <input type="text" name="writer" id="writer" value="<?php echo $cfg_ml->M_UserName?>" maxlength="100" class="intxt" style="width:219px"/>
+          </p>
+          <p  style="display:none;">
+            <label>隶属栏目：</label>
+            <?php
+    			$typeOptions = GetOptionList($row["typeid"],$row["channel"]);
+   			    echo "<select name='typeid' size='1'>\r\n";
+    			echo $typeOptions;
+    			echo "</select>";
+			?>
+            <span style="color:#F00">*</span>(不能选择带颜色的分类)
+          </p>
+          <p class="cellBg"  style="display:none;">
+            <label>我的分类：</label>
+			<?php
+                $typeOptions = classification($cfg_ml->M_ID, $row['mtypeid'], $channelid);
+                echo "<select name='mtypesid' size='1'>\r\n";
+                echo "<option value='0' selected>请选择分类...</option>\r\n";
+                echo $typeOptions;
+                echo "</select>";
+    		?> 
+          </p>
+          <p  style="display:none;">
+            <label>信息摘要：</label>
+            <textarea name="description" id="description"><?php echo $row["description"]; ?></textarea>
+            (内容的简要说明) </p>
+          <p class="cellBg" style="display:none;">
+            <label>缩略图：</label>
+            <input name="litpic" type="file" id="litpic" onchange="SeePicNew('divpicview',this);"  maxlength="100" class="intxt"/>
+          </p>
+          <?php if($row['litpic']!='')
+          { 
+          ?>
+          <p style="display:none;">
+            <label style="width: 85px;">原来的缩略图：</label>
+            <img name="nlitpic"  id="nlitpic" src='<?php  echo $row['litpic'];  ?>' style="width: 200px; height:150px" />
+          </p>
+          <?php
+          }
+     	  //自定义字段
+      	  	PrintAutoFieldsEdit($row['fieldset'],$addRow,'autofield');
+      	  ?>
+
+<div class="publish-from">
+<label class="publish-from-label">文章正文：</label>
+            <?php GetEditor("body",$addRow['body'],300,"Member"); ?>
+</div>
+
+<button class="btn-success" type="submit">发布</button>
+
+</form>
+</div>
+<style>
+.publish-cont .publish-from{position:relative;margin-bottom:15px;}
+.publish-from .publish-from-label{display:block;color:#666;margin-bottom:15px;font-size:16px;}
+.form-control{display:block;width:100%;height:18px;line-height:18px;font-size:14px;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;padding:10px;resize:none;box-shadow:none;border-color:#e6e6e6;}
+.btn-success{width:120px;height:40px;color:#fff;background:#5bbf5a;font-size:14px;cursor:pointer;}
+.btn-success:hover{background:#38b836;color:#fff;}
+button{vertical-align:middle;font-size:100%;outline:none;border:0;padding:0;}
+</style>
+
+
+</div>
+</div>
+
+
+</div>
+<!-- 右侧功能定位 End -->
+</div>
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+
+</body>
+</html>

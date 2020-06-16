@@ -1,0 +1,114 @@
+body{
+    background-color: #fff;
+}
+header {
+    width: 100%;
+    height: 190px;
+    box-sizing: border-box;
+    padding: 14px 12px;
+}
+
+header .aui-slide-wrap {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 0.04rem 0.4rem 0.4rem rgba(99, 99, 99, 0.29);
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 0 4px;
+}
+.hot_div{
+    color: #e1e1e3;
+}
+.hot_div .hot_title img{
+   width: 20px;
+}
+.hot_div .hot_title{
+    padding: 0px 4px;
+    height: 34px;
+    font-size: 14px;
+}
+.hot_div .hot_title span{
+    color: #616982;
+    font-size: 12px;
+    float: right;
+}
+.hot_div ul{
+    height: 448px;
+    margin-bottom: 0px;
+}
+.hot_div ul li{
+    margin: auto 1%;
+    float: left;
+    height: 220px;
+    width: 31%;
+}
+.hot_div ul li .bg_img{
+    height: 170px;
+    border-radius: 8px;
+}
+.hot_div ul li .vod_score{
+    font-size: 13px;
+    color: #fff;
+    background-color: #fc5c49;
+    position: absolute;
+    border-radius: 2px;
+    margin-left: 4px;
+}
+.hot_div ul li .vod_remarks{
+    font-size: 13px;
+    color: #fff;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 4px;
+}
+.vod_title{
+    font-size: 13px;
+    color: #99a2bc;
+    text-align: center;
+}
+.vod_actar{
+    color: #616982;
+    font-size: 12px;
+    text-align: center;
+}
+
+.active {
+    opacity: 0.7;
+}
+.hote_title{
+    color: #d7d7d9;
+}
+.hote_title span{
+    background-color: #ff7600;
+    border-radius: 4px;
+    font-size: 13px;
+}
+.li_img{
+    width: 44px;
+    height: 44px;
+    margin: 0px auto;
+    background-color: #FFFAFA;
+    border-radius: 6px;
+    box-shadow: 0.04rem 0.4rem 0.4rem rgba(99, 99, 99, 0.29);
+}
+.li_img img{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 2px;
+    margin-right: 1px;
+}
+ul li{
+    color: #14b7ff;
+    font-size: 14px;
+    width: 25%;
+    float: left;
+    text-align: center;
+    margin: 14px auto;
+}

@@ -1,0 +1,94 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">添加管理组</h2>
+      </div>
+      <ul class="ulColumn2">
+
+       <li>
+        <span class="item_name" style="width:120px;">管理组名称：</span>
+        <input type="text" class="textbox textbox_225" value="{$result.name}" name="name" placeholder="管理组..."/>
+		<span style="color:red;">*</span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;position:absolute;">描述：</span>
+		<textarea placeholder="描述信息" class="textarea" name="description" style="width:500px;height:100px;margin-left:120px;">{$result.description}</textarea>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;font-weight:600;">添加权限：</span>
+		<span style="color:red;">*</span>
+       </li>
+	   {foreach name="power" id="v"}
+       <li>
+        <span class="item_name" style="width:120px;">{$v.name}：</span>
+		{foreach name="$v.son" id="vo"}
+		<label class="single_selection"><input type="checkbox" name="power" value="{$vo.id}"  {if condition="$vo.check eq 1"}checked{/if} />{$vo.name}</label>
+        {/foreach}
+       </li>
+	   {/foreach}
+	   
+       <li>
+        <span class="item_name" style="width:120px;">状态：</span>
+        <label class="single_selection"><input type="radio" name="status" value="1" {if condition="$result.status eq 1"} checked {/if}/>正常</label>
+        <label class="single_selection"><input type="radio" name="status" value="0" {if condition="$result.status eq 0"} checked {/if}/>冻结</label>
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+		<input type="hidden" name="id" value="{$result.id}"/>
+        <input type="submit" id="submit" class="link_btn" value="确定"/>
+       </li>
+      </ul>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+$(document).ready(function() {
+  //测试提交，对接程序删除即可
+	$('#submit').click(function(event){
+		var name = $('input[name="name"]').val();
+		var description = $('textarea[name="description"]').val();
+		var status = $('input[name="status"]:checked').val();	
+		var power=new Array();  
+		$('input[name="power"]:checked').each(function(){  
+			power.push($(this).val());//向数组中添加元素  
+		});  
+		var power_str = power.join(',');//将数组元素连接起来以构建一个字符串 
+		var id = $('input[name="id"]').val();
+		
+		console.log(power_str);
+		
+		$.ajax({
+			url:"{:url('group/edit_do')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			data:{op:'groupedit',name:name,description:description,power:power_str,status:status,id:id},
+			success: function(data) {
+				console.log(data.s);
+				if (data.s=='ok') {
+					myAlert('修改成功');
+					setTimeout(function(){
+						//页面刷新  
+						location.href= "{:url('group/lists')}";
+					},1000);
+					
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+	
+});
+</script>
+{/block}	

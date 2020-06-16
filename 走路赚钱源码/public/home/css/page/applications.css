@@ -1,0 +1,129 @@
+.mui-bar-nav~.mui-content {
+	padding-top: 70px;
+}
+
+h4 {
+	text-align: center;
+}
+
+.mui-bar-nav {
+	height: 70px;
+	padding-top: 20px;
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+}
+
+.app-banner,.search-box {
+	margin: .2rem;
+}
+
+.app-banner>img {width: 100%;}
+
+.search-box>input {
+	padding-left: .8rem;
+	border: 1px solid #EEEEEE;
+	border-radius: 4px;
+}
+
+.search-box {
+	position: relative;
+}
+
+.search-box>input {
+	font-size: .24rem;
+}
+
+.search-box .mui-icon-search {
+	position: absolute;
+	left: .1rem;
+	top: 12%;
+	color: #ccc;
+}
+
+.myApps {
+	width: 19.5%;
+	text-align: center;
+	display: inline-block;
+	margin-left: 0.1rem;
+	margin-right: 0.3rem;
+	margin-top: 0.4rem;
+	margin-bottom: 0rem;
+}
+.myApps div {
+	width: 100%;
+	/*background-color: red;*/
+	border-radius: 25%;
+	overflow: hidden;
+	border: 1px solid #979797;
+}
+.myApps span {
+	display: inline-block;
+	width: 100%;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	font-size: 0.24rem;
+	color: #333;
+	font-weight: bold;
+	line-height: 0.7rem;
+}
+.myApps img{
+	width: 100%;
+}
+#appImg {
+	width: 100%;
+	
+}
+#appImg img {
+	width: 100%;
+}
+
+.recomand-dapp {
+	padding: .2rem;
+}
+
+.sec-title {
+	padding-left: .2rem;
+	color: #333;
+	font-size: .32rem;
+}
+
+.apps-row {
+	display: flex;
+}
+
+.app-item {
+	width: 25%;
+	padding: .2rem;
+	text-align: center;
+}
+
+.app-item>img {
+	border-radius: .25rem;
+	box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+	margin-bottom: .2rem;
+}
+
+.app-item .apps-name {
+	margin: 0;
+	font-size: 0.3rem;
+	color: #333;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.app-item .apps-size {
+	font-size: .24rem;
+	color: #aaa;
+}
+
+.app-item>button {
+	padding: .1rem .3rem;
+	background-image: linear-gradient(-90deg, #3C7FFF 0%, #7FABFF 98%);
+	border-radius: .12rem;
+	border: 0;
+	color: #fff;
+	font-size: .24rem;
+}
+/******************/

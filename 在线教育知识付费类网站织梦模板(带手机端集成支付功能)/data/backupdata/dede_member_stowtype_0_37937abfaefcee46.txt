@@ -1,0 +1,1 @@
+INSERT INTO `dede_member_stowtype` VALUES('sys','系统收藏','archives_do.php');

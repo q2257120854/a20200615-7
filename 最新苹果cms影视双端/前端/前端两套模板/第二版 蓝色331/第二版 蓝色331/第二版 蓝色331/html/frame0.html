@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="./frame/css/a.css" />
+</head>
+
+<body>
+    <header id="header">
+        <div class="left" tapmode="active">
+            <div id="cityArrow" class="arrow-down"></div>
+        </div>
+        <div class="title">
+            <div class="search" tapmode onclick="search()">
+                <img src="../image/ic_action_search.png" alt="">
+                <span>我在北京等你</span>
+            </div>
+        </div>
+        <div class="right" tapmode onclick="history_vod()">
+        </div>
+    </header>
+    <nav id="nav">
+        <div class="menu selected" tapmode="selected" onclick="fnsetnavmenus(0);">推荐</div>
+        <div class="menu"  tapmode="selected" onclick="fnsetnavmenus(1);">电影</div>
+        <div class="menu"  tapmode="selected" onclick="fnsetnavmenus(2);">电视剧</div>
+        <div class="menu"  tapmode="selected" onclick="fnsetnavmenus(3);">综艺</div>
+        <div class="menu"  tapmode="selected" onclick="fnsetnavmenus(4);">动漫</div>
+    </nav>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script src="./public/public_b.js"></script>
+<script src="./frame/js/a.js"></script>
+
+</html>

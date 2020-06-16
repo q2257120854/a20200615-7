@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>个人信息 - <?php echo $cfg_webname; ?></title>
+<link href="/css/v2_index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<style type="text/css">
+.input_container{margin-bottom:20px;}
+.input_container label{line-height:26px;height:26px;font-size:14px;display:block;padding-bottom:10px;}
+.intxt{width:60%;font-size:14px;color:#333;height:30px;line-height:30px;border:1px solid #eee;padding:5px 5px 5px 10px;}
+input,textarea{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-appearance:none;border:0;border-radius:0;}
+.mima-act{padding-top:10px;}
+</style>
+</head>
+<body>
+
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+<?php include(DEDEMEMBER."/templets/left.htm"); ?>
+
+<!-- 右侧功能定位 -->
+<div class="user-right">
+<div class="uc-box uc-main-box">
+<div class="uc-content-box order-list-box">
+
+<div class="box-hd"><h1 class="title">更新收货地址</h1></div>
+
+<!-- 修改个人信息 -->
+<div class="mima-content">
+<form method="post" action="edit_fullinfo.php" name="form1">
+<input type="hidden" value="save" name="dopost"/>
+<input type="hidden" value="<?php echo $membermodel->modid;?>" name="modid"/>
+<?php echo $postform; ?>
+<div class="mima-act"><button type="submit" id="btnSignCheck" class="formbutton">确定</button></div>
+</form>
+</div>
+<!-- 修改个人信息 End -->
+
+
+</div>
+</div>
+</div>
+<!-- 右侧功能定位 End -->
+
+</div>
+
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+
+</body>
+</html>

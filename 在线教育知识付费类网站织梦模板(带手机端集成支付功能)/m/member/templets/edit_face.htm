@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改头像</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="<?php echo $mcfg_basehost; ?>/m-css/m-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/jquery.js"></script>
+<style type="text/css">
+body{background:#fff;}
+.content-img{width:186px;margin:0 auto;}
+.content-img img{width:186px;height:186px;box-shadow:1px 1px 10px #CACECA;border-radius:3px;display:block;}
+.button-face{width:186px;line-height:44px;background:#00bca1;font-size:16px;color:#fff;margin-top:20px;margin-bottom:50px;-webkit-appearance:none;border:0;border-radius:3px;}
+.m-touxiang{padding:25px 10px 5px 10px;font-size:14px;line-height:24px;text-align:center;color:#00bca1;}
+.m_edit_face{text-align:center;line-height:20px;font-size:14px;margin-top:15px;padding:0 10px;}
+.m_edit_face a{color:#0973E0;}
+.validWrapper{text-align:center;line-height:20px;color:#333;font-size:14px;padding:15px 10px;}
+.mima-act{padding:0 10px;text-align:center;}
+
+/*最新头像修改样式*/
+.input_container{width:152px;padding:8px 16px;height:32px;line-height:32px;color:#333;border:1px solid #ddd;background:url(<?php echo $mcfg_basehost; ?>/m-images/m-yxw-tx.png) no-repeat;background-size:184px 48px;position:relative;overflow:hidden;margin:0 auto;margin-top:20px;}
+.newbtn-face{width:100%;position:absolute;top:0;right:0;height:48px;cursor:pointer;opacity:0;filter:alpha(opacity=0);}
+</style>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar"><div class="searchbar_index"><a href="javascript:history.go(-1);" class="top_nav_left"></a><h1>修改头像</h1></div></div>
+<!-- TOP End -->
+
+<div class="wrapper">
+
+
+<div class="m-touxiang">支持jpg/gif/png格式，文件需小于4M</div>
+<form action="edit_face.php" method="post" enctype="multipart/form-data" class="kytijiaol" name="form1">
+<input type="hidden" name="dopost" value="save" />
+<?php
+  if(defined('UC_API') && @include_once DEDEROOT.'/uc_client/client.php')
+  {
+  $data = uc_get_user($cfg_ml->M_LoginID);
+  echo uc_avatar($data[0]);
+  }
+  else
+  {
+ ?>
+<form id="settings-form" method="post" action="/i/account/password" name="settings_form">
+<div class="input_container"><input name="face" type="file" id="face" class='newbtn-face' size="45" /></div>
+<div class="validWrapper">建议上传正方形尺寸图片最佳</div>
+<?php if($face!='') echo "<div class='content-img'><img id='imgshow' src='".mstrone($face)."'></div>"; ?>
+
+<!-- 保存 -->
+<div class="mima-act"><input type="button" value="保存" id="settings-submit" class="button-face" name="commit"></div>
+<!-- 保存 End -->
+
+</form>
+<?php } ?>
+</form>
+
+
+</div>
+
+
+<script type="text/javascript">
+    $("#settings-submit").click(function(){
+  if($("#face").val() == ''){
+    alert('请选择文件');
+  }else{
+    $(".kytijiaol").submit();
+  }
+    })
+    //在input file内容改变的时候触发事件
+    $('#face').change(function(){
+    //获取input file的files文件数组;
+    //$('#filed')获取的是jQuery对象，.get(0)转为原生对象;
+    //这边默认只能选一个，但是存放形式仍然是数组，所以取第一个元素使用[0];
+      var file = $('#face').get(0).files[0];
+    //创建用来读取此文件的对象
+      var reader = new FileReader();
+    //使用该对象读取file文件
+      reader.readAsDataURL(file);
+    //读取文件成功后执行的方法函数
+      reader.onload=function(e){
+    //读取成功后返回的一个参数e，整个的一个进度事件
+        console.log(e);
+    //选择所要显示图片的img，要赋值给img的src就是e中target下result里面
+    //的base64编码格式的地址
+        $('#imgshow').get(0).src = e.target.result;
+      }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+<title>DedeCms menu</title>
+<link rel="stylesheet" href="css/base.css" type="text/css" />
+<script language="javascript" type="text/javascript" src="../include/js/dedeajax2.js"></script>
+<script src="../include/js/jquery/jquery.js" language="javascript" type="text/javascript"></script>
+<?php
+echo "<script language='javascript'>var curopenItem = '$openitem';</script>\r\n";
+?>
+<script language="javascript" type="text/javascript" src="js/leftmenu.js"></script>
+<style type="text/css">
+div{padding:0px;margin:0px;}
+body{padding:0px;margin:auto;text-align:center;overflow:scroll;overflow-x:hidden;}
+dl.bitem{clear:both;width:160px;background:#666;margin:0;}
+dl.bitem2{clear:both;width:160px;background:#666;margin:0;}
+dl.bitem dt, dl.bitem2 dt {height:50px;line-height:50px;padding-left:35px;cursor:pointer;}
+dl.bitem dt b, dl.bitem2 dt b{color:#fff;font-size:16px;}
+dl.bitem dd, dl.bitem2 dd{background-color:#999;}
+div.items{overflow:hidden;}
+.flrct{padding-top:3px;float:left;}
+.sitemu li{line-height:40px;height:40px;}
+.sitemu li a{display:block;color:#fff;padding-left:35px;}
+.sitemu li:hover{background:#23b8ff;color:#fff;cursor:pointer;}
+a.mmac div{background:#23b8ff;padding:20px 10px 20px 10px;word-wrap: break-word;word-break : break-all;font-weight:bold;color:#fff;font-size:14px;}
+a.mm div{background:#fff;padding:20px 10px 20px 10px;word-wrap: break-word;word-break : break-all;font-weight:bold;color:#333;cursor:pointer;font-size:14px;}
+a.mm:hover div{color:#23b8ff;background:#f5f5f5;}
+.mmf{height:1px;padding:5px 7px 5px 7px;}
+</style>
+<link href="images/style<?php echo $cfg_admin_skin;?>/style.css" rel="stylesheet" type="text/css" />
+<base target="main" />
+</head>
+<body target="main" onLoad="CheckOpenMenu();">
+<table width="180" align="left" border='0' cellspacing='0' cellpadding='0' style="text-align:left;">
+  <tr>
+    <td valign='top' width='20'>
+      <a id='link1' class='mmac'><div onClick="ShowMainMenu(1)">核心</div></a>
+      <a id='link6' class='mm'><div onClick="ShowMainMenu(6)">会员</div></a>
+      <a id='link5' class='mm'><div onClick="ShowMainMenu(5)">更新</div></a>
+      <a id='link100' class='mm'><div onClick="ShowMainMenu(100)">模块</div></a>
+      
+      <?php
+
+  	if($cuserLogin->getUserType() >= 10) {
+
+  	?>
+
+      <a id='link7' class='mm'>
+
+      <div onClick="ShowMainMenu(7)">模板</div>
+
+      </a> <a id='link10' class='mm'>
+
+      <div onClick="ShowMainMenu(10)">系统</div>
+
+      </a>
+
+      <?php
+
+  	}
+
+  	?>
+
+      <div class='mmf'></div></td>
+
+    <td width='160' id='mainct' valign="top"><div id='ct1'>
+
+        <?php
+
+GetMenus($cuserLogin->getUserRank(), 'main');
+
+?>
+
+      </div>
+
+      <div id='ct100'></div>
+
+      <div id='ct3'></div>
+
+      <div id='ct5'></div>
+
+      <div id='ct6'></div>
+
+      <div id='ct7'></div>
+
+      <div id='ct20'></div>
+
+      <div id='ct10'></div></td>
+
+  </tr>
+
+ 
+
+</table>
+
+<?php
+
+if(!empty($openitem) && $openitem!=1)
+
+{
+
+?>
+<script language='javascript'>
+	ShowMainMenu(100);
+</script>
+<?php
+}
+?>
+<script language="javascript">
+function myAlert()
+{
+	alert('dede');	
+}
+</script>
+</body>
+</html>

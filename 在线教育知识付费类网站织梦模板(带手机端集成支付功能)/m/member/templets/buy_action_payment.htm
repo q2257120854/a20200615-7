@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>订单号：<?php echo $buyid?> - <?php echo $cfg_webname; ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="<?php echo $mcfg_basehost; ?>/m-css/m-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/jquery.js"></script>
+<style type="text/css">
+.wrapper{padding-bottom:95px;}
+input,button{vertical-align:middle;list-style:none;outline:none;border:0;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-appearance:none;}
+.des-m{line-height:18px;font-size:14px;color:#999;padding:15px;border-bottom:1px solid #f5f5f5;background-color:#fff;}
+.yxw-zx-pay{line-height:45px;color:#666;font-size:14px;padding:0 15px;}
+
+.jjabniuqu{background-color:#fff;}
+.pay-way-item{overflow:hidden;border-bottom:1px solid #f5f5f5;margin:0 15px;padding:15px 20px 15px 0;cursor:pointer;background:#fff url(<?php echo $mcfg_basehost; ?>/m-images/radio_box.png) no-repeat right;background-size:20px 20px;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+.pay-way-item.on{background:#fff url(<?php echo $mcfg_basehost; ?>/m-images/radio_box2.png) no-repeat right;background-size:20px 20px;}
+
+.pay-way-icon{float:left;margin-right:10px;width:30px;height:30px;}
+.pay-way-text{float:left;line-height:30px;color:#333;font-size:16px;}
+.alipay-icon{background:#fff url(<?php echo $mcfg_basehost; ?>/m-images/yxw-alipay.png) no-repeat;background-size:30px 30px;}
+.weixin-icon{background:#fff url(<?php echo $mcfg_basehost; ?>/m-images/yxw-weixin-pay.png) no-repeat;background-size:30px 30px;}
+
+/*在线支付*/
+.gd_bottom{width:100%;bottom:0;position:fixed;left:0;}
+.gd_bottom_pay{background:#fff;padding:15px 15px;}
+.gdb_buybtn_pay{width:100%;line-height:46px;background:#00bca1;color:#fff;font-size:18px;padding:0;border-radius:5px;}
+
+/*购买说明*/
+.app-gmts{padding:20px 15px 10px;background-color:#fff;border-top:1px solid #f5f5f5;}
+.app-gmts h3{color:#333;font-size:16px;font-weight:700;padding-bottom:10px;}
+.app-gmts p{line-height:20px;color:#999;font-size:14px;padding-bottom:10px;}
+</style>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar"><div class="searchbar_index"><a href="javascript:history.go(-1);" class="top_nav_left"></a><h1>支付中心</h1></div></div>
+<!-- TOP End -->
+
+<div class="wrapper">
+
+
+<form method="post" name="E_FORM" action="buy_action.php" >
+<input type="hidden" name="pd_encode" value="<?php echo $pr_encode;?>">
+<input type="hidden" name="pd_verify" value="<?php echo $pr_verify;?>">
+<input type="hidden" name="aid" value="<?php echo $buyid;?>">
+
+<div class="gd_info">
+<p class="des-m">订单编号：<?php echo $buyid?></p>
+<p class="des-m">商品名称：<?php echo $pname?></p>
+<p class="des-m" style="border-bottom:none;">商品价格：<span style="color:#f30;">￥<?php echo $price;?></span></p>
+<?php
+if(substr($buyid,0,3) == 'KE-'){
+?>
+<!-- 购买说明-课程订单才显示 -->
+<div class="app-gmts" style="display:none;">
+<h3>购买说明</h3>
+<p>1.该商品为虚拟内容服务，购买后不支持退款</p>
+<p>2.购买后，可无限观看视频和配方，永久有效</p>
+<p>3.购买后可在“我的课程”查看和学习</p>
+</div>
+<!-- 购买说明-课程订单才显示 End -->
+<?php
+}
+?>
+</div>
+
+<!-- 隐藏 -->
+<input name="paytype" type="hidden" class="jjpaytype" value="8">
+<!-- 隐藏 End -->
+
+<h2 class="yxw-zx-pay">支付方式：</h2>
+
+<!-- 支付切换 -->
+<div class="jjabniuqu">
+
+<!-- alipay -->
+<div class="pay-way-item on">
+<div class="pay-way-icon alipay-icon"></div>
+<div class="pay-way-text" value="8">支付宝支付</div>
+</div>
+
+<!-- weixin -->
+<div class="pay-way-item" style="border-bottom:none;">
+<div class="pay-way-icon weixin-icon"></div>
+<div class="pay-way-text" value="10">微信支付</div>
+</div>
+
+</div>
+<!-- 支付切换 End -->
+
+
+<!-- 立即支付 -->
+<div class="gd_bottom"><div class="gd_bottom_pay"><button type="submit" class="gdb_buybtn_pay">立即付款</button></div></div>
+<!-- 立即支付 End -->
+
+
+</form>
+
+
+</div>
+
+<script>
+$(".jjabniuqu .pay-way-item").click(function(){
+	var aid = $(this).find(".pay-way-text").attr("value");
+	$(".jjpaytype").val(aid);
+	$(".jjabniuqu .pay-way-item").removeClass("on");
+	$(this).addClass("on");
+})
+
+
+$(function(){
+	setInterval(weipay,1000);
+})
+function weipay()
+{
+	var timeStamp = new Date().getTime();
+	$.get("<?php echo $mcfg_basehost; ?>/member/weixinpay/ajax.php",{'ddh':'<?php echo $buyid;?>',a:'getorder'},function(data){
+		if(data == 1)
+		{	
+	    //window.location.href='<?php echo $mcfg_basehost; ?>/member/weixinpay/ok.php?ddh=<?php echo $buyid;?>';
+	    location.replace('<?php echo $mcfg_basehost;?>/member/weixinpay/ok.php?ddh=<?php echo $buyid;?>');
+		}
+	} )
+}
+</script>
+
+
+</body>
+</html>

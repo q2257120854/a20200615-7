@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>登录账号</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="<?php echo $mcfg_basehost; ?>/m-css/m-index.css" rel="stylesheet" type="text/css">
+<link href="<?php echo $mcfg_basehost; ?>/m-css/m-user-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/jquery.js"></script>
+<script type="text/javascript">
+    function checkSubmit()
+    {
+	if(document.form2.txtUsername.value=='')
+	{
+		document.form2.txtUsername.focus();
+		alert("请输入手机号");
+		return false;}
+
+    if(document.form2.pwd.value=='')
+	{
+		document.form2.pwd.focus();
+		alert("请输入密码");
+		return false;}
+   }
+</script>
+<style type="text/css">
+body{background:#fff;}
+.main.pt50{padding-top:50px;padding-bottom:50px;}
+.login_box{margin-top:20px;width:100%;}
+.login_box .login_box_inputw{margin:0 15px;}
+.login_box .login_box_inputw input{padding:16px 12px;color:#333;width:100%;box-sizing:border-box;border-radius:3px;font-size:16px;background:#f3f7fa;margin-bottom:15px;line-height:18px;}
+.login_box .submit{width:100%;background:#23b8ff;color:#fff;line-height:44px;height:44px;margin:10px 0;border-radius:3px;text-align:center;font-size:16px;}
+.login_box .forgetpw{float:right;font-size:14px;color:#666;margin-top:15px;}
+
+/*登录改版样式*/
+.m-yxw-zhuche{width:100%;color:#00bca1;line-height:44px;height:44px;border-radius:3px;text-align:center;font-size:16px;border:1px solid #00bca1;display:block;box-sizing:border-box;margin-top:10px;}
+
+/*重置样式*/
+.m-yxw-logo{margin:16px auto 0;}
+</style>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar"><div class="searchbar_index"><a href="javascript:history.go(-1);" class="top_nav_left"></a><h1>登录账号</h1></div></div>
+<!-- TOP End -->
+
+<div class="wrapper">
+
+<div class="login_box">
+<form name='form2' method='POST' action='index_do.php' onsubmit="return checkSubmit();">
+<input type="hidden" name="fmdo" value="login">
+<input type="hidden" name="dopost" value="login">
+<input type="hidden" value="2592000" name="keeptime">
+<input type="hidden" value="<?php echo $_GET['gourl']; ?>" name="gourl">
+<div class="login_box_inputw"><input type="text" name="userid" id="txtUsername" onkeyup="value=value.replace(/[^0-9^.]/g,'');" placeholder="请输入手机号" maxlength="11"></div>
+
+<div class="login_box_inputw"><input type="password" name="pwd" id="pwd" placeholder="请输入密码" maxlength="16"></div>
+
+<div class="login_box_inputw"><button class="submit" type="submit">登录</button></div>
+
+
+<!-- 注册账号 -->
+<div class="login_box_inputw"><a href="<?php echo $mcfg_basehost; ?>/member/index_do.php?fmdo=user&dopost=regnew" class="m-yxw-zhuche">注册账号</a></div>
+<!-- 注册账号 End -->
+
+<div class="login_box_inputw clearfix"><a href="<?php echo $mcfg_basehost; ?>/member/resetpassword.php" class="forgetpw">忘记密码</a></div>
+
+</form>
+</div>
+
+
+</div>
+</body>
+</html>

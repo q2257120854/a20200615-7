@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>当前积分 - frm</title>
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/a.css"/>
+</head>
+<body>
+ <section class="aui-scrollView">
+    <div class="aui-finance-box">
+        <div class="aui-finance-fun">
+            <div class="aui-finance-fun-hd">
+                <h2>剩余积分</h2>
+                <h3  id="sign">0</h3>
+                <h4  id="Proportion"></h4>
+            </div>
+            <div class="aui-finance-fun-bd">
+                <div class="dot">
+                    <div class="dot2">
+                        <div class="dot3" tapmode onclick="upgrade('day')">兑换会员</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="javascript:;" class="aui-well-item">
+        <div class="aui-well-item-hd">—— 更多 ——</div>
+    </a>
+
+    <div style="overflow: hidden; position: relative; padding: 10px 5px 0;">
+    
+        <a   onclick="upgrade('day')" style="width: 48%;float: left;padding: 10px;margin: 0 1% 2% 1%;background: #fff;border-radius: 5px;    box-shadow: 0px 0px 5px 0 #ececec;">
+            <div style="height: auto; width: 100%; overflow: hidden; background-image: -webkit-gradient(linear,left top,bottom top,from(#f99ecc),to(#d672c7)); /* background-image: -webkit-linear-gradient(left,#f99ecc,#d672c7); */ background-image: -moz-linear-gradient(left,#f99ecc,#d672c7); /* background-image: linear-gradient(to bottom,#f16fb0,#5d1aeb); */ background-color: #ffffff; text-align: center; color: #bbaeb4; padding: 0.5rem 0; border-radius: 5px;">
+                <h2 style="font-size: 1rem; "><em style="font-style: normal; font-weight: normal; font-size: 0.5rem;">价值 ￥</em><b id="vip1"></b></h2>
+                <h3 style="font-size: 0.5rem; font-weight: normal; border-bottom: 1px dashed #e8e8e8; width: 80%; padding-bottom: 0.3rem; margin: 0 auto;">1 天 超级VIP</h3>
+                <h4 style="font-size: 0.7rem; font-weight: normal; margin-top: 0.5rem;" id="vip1jifen"></h4>
+            </div>
+
+        </a>
+        
+            <a   onclick="upgrade('week')"  style="width: 48%;float: left;padding: 10px;margin: 0 1% 2% 1%;background: #fff;border-radius: 5px;box-shadow: 0px 0px 5px 0 #ececec;">
+            <div style="height: auto; width: 100%; overflow: hidden; background-image: -webkit-gradient(linear,left top,bottom top,from(#f99ecc),to(#d672c7)); /* background-image: -webkit-linear-gradient(left,#f99ecc,#d672c7); */ background-image: -moz-linear-gradient(left,#f99ecc,#d672c7); /* background-image: linear-gradient(to bottom,#f16fb0,#5d1aeb); */ background-color: #ffffff; text-align: center; color: #bbaeb4; padding: 0.5rem 0; border-radius: 5px;">
+                <h2 style="font-size: 1rem;"><em style="font-style: normal; font-weight: normal; font-size: 0.5rem;">价值 ￥</em><b id="vip2"></b></h2>
+                <h3 style="font-size: 0.5rem; font-weight: normal; border-bottom: 1px dashed #e8e8e8; width: 80%; padding-bottom: 0.3rem; margin: 0 auto;">7 天 超级VIP</h3>
+                <h4 style="font-size: 0.7rem; font-weight: normal; margin-top: 0.5rem;" id="vip2jifen"></h4>
+            </div>
+
+        </a>
+                    
+            <a   onclick="upgrade('month')"  style="width: 48%;float: left;padding: 10px;margin: 0 1% 2% 1%;background: #fff;border-radius: 5px;box-shadow: 0px 0px 5px 0 #ececec;">
+            <div style="height: auto; width: 100%; overflow: hidden; background-image: -webkit-gradient(linear,left top,bottom top,from(#f99ecc),to(#d672c7)); /* background-image: -webkit-linear-gradient(left,#f99ecc,#d672c7); */ background-image: -moz-linear-gradient(left,#f99ecc,#d672c7); /* background-image: linear-gradient(to bottom,#f16fb0,#5d1aeb); */ background-color: #ffffff; text-align: center; color: #bbaeb4; padding: 0.5rem 0; border-radius: 5px;">
+                <h2 style="font-size: 1rem;"><em style="font-style: normal; font-weight: normal; font-size: 0.5rem;">价值 ￥</em><b id="vip3"></b></h2>
+                <h3 style="font-size: 0.5rem; font-weight: normal; border-bottom: 1px dashed #e8e8e8; width: 80%; padding-bottom: 0.3rem; margin: 0 auto;">30 天 超级VIP</h3>
+                <h4 style="font-size: 0.7rem; font-weight: normal; margin-top: 0.5rem;" id="vip3jifen"></h4>
+            </div>
+
+        </a>
+                
+            <a   onclick="upgrade('year')"  style="width: 48%;float: left;padding: 10px;margin: 0 1% 2% 1%;background: #fff;border-radius: 5px;box-shadow: 0px 0px 5px 0 #ececec;">
+            <div style="height: auto; width: 100%; overflow: hidden; background-image: -webkit-gradient(linear,left top,bottom top,from(#f99ecc),to(#d672c7)); /* background-image: -webkit-linear-gradient(left,#f99ecc,#d672c7); */ background-image: -moz-linear-gradient(left,#f99ecc,#d672c7); /* background-image: linear-gradient(to bottom,#f16fb0,#5d1aeb); */ background-color: #ffffff; text-align: center; color: #bbaeb4; padding: 0.5rem 0; border-radius: 5px;">
+                <h2 style="font-size: 1rem; "><em style="font-style: normal; font-weight: normal; font-size: 0.5rem;">价值 ￥</em><b id="vip4"></b></h2>
+                <h3 style="font-size: 0.5rem; font-weight: normal; border-bottom: 1px dashed #e8e8e8; width: 80%; padding-bottom: 0.3rem; margin: 0 auto;">365 天 超级VIP</h3>
+                <h4 style="font-size: 0.7rem; font-weight: normal; margin-top: 0.5rem;" id="vip4jifen"></h4>
+            </div>
+
+        </a>
+					
+    </div>
+</section>
+</body>
+<script type="text/javascript" src="../../script/api.js" ></script>
+<script type="text/javascript" src="../public/public.js" ></script>
+<script src="./js/a.js"></script>
+</html>

@@ -1,0 +1,222 @@
+<link rel="stylesheet" href="{$Think.HOME_SITE_ROOT}/css/editable_page.css">
+{if $editable_page.if_edit}
+
+<script src="{$Think.PLUGINS_SITE_ROOT}/jquery.ajaxContent.pack.js"></script>
+<script type="text/javascript" src="{$Think.PLUGINS_SITE_ROOT}/ajaxfileupload.js" charset="utf-8"></script>
+<script type="text/javascript" src="{$Think.PLUGINS_SITE_ROOT}/mlselection.js" charset="utf-8"></script>
+
+
+<script>
+    window.UEDITOR_HOME_URL='{$Think.PLUGINS_SITE_ROOT}/ueditor/'
+    $(function(){
+        $('a').attr('href','javascript:void(0)')
+        addDialogEvent()
+    })
+
+    function moveModel(config_id,direction){
+        
+        $.getJSON('{$Think.ADMIN_SITE_URL}/editable_page/model_move?config_id='+config_id+'&direction='+direction,function(res){
+                if(res.code!=10000){
+                    layer.msg(res.message)
+                }else{
+                    var obj = $('.editable-page-model[data-id='+config_id+']');
+                    if (direction) {
+                        obj.next().after(obj); //下移动
+                    } else {
+                        obj.prev().before(obj);
+                    }
+                }
+            })
+
+        }
+    function dropModel(config_id){
+        var index = layer.confirm('{$Think.lang.ds_ensure_del}', {
+            title: false,
+        }, function () {
+            $.getJSON('{$Think.ADMIN_SITE_URL}/editable_page/model_del?config_id='+config_id+'&editable_page_id={$editable_page.editable_page_id}',function(res){
+                if(res.code!=10000){
+                    layer.msg(res.message)
+                }else{
+                    $('.editable-page-model[data-id='+config_id+']').remove();
+                    layer.close(index)
+                    if($('.editable-page-model').length==0){
+                        var html=    '<div class="no_results">';
+                            html+=            '<span>{$Think.lang.add_model_notice}</span>';
+                            html+=            "<div class='editable-page-model mt10'>";
+                            html+=            '<a class="dssc-btn" href="javascript:void(0)" ds_type="dialog" dialog_id="editable_model" dialog_title="{$Think.lang.ds_new}" dialog_width="800" uri="{$Think.ADMIN_SITE_URL}/editable_page/model_add?editable_page_id={$editable_page.editable_page_id}">{$Think.lang.ds_new}</a>';
+                            html+=            '</div>';
+                            html+=        '</div>';
+                            $('*[data-type=editable_page]').append(html);
+                            addDialogEvent()
+                    }
+                }
+            })
+        });
+        
+    }
+    function addDialogEvent(){
+
+        $('*[data-type="editable_model"]').each(function(){
+            var config_id=$(this).attr('data-id')
+            //var model_width=$(this).attr('data-width')
+            var content_obj=$(this).find('.editable-page-content')
+            content_obj.prepend('<div class="editable_model_handle_list"><a class="handle_add" href="javascript:void(0)">{$Think.lang.ds_new}</a><a href="javascript:void(0)" class="handle_edit">{$Think.lang.ds_edit}</a><a href="javascript:moveModel('+config_id+',0)" class="handle_move_up">{$Think.lang.ds_move_up}</a><a href="javascript:moveModel('+config_id+',1)" class="handle_move_down">{$Think.lang.ds_move_down}</a><a href="javascript:dropModel('+config_id+')" class="handle_drop">{$Think.lang.ds_delete}</a></div>')
+            content_obj.find('.handle_edit').attr('ds_type','dialog').attr('dialog_id','editable_model').attr('dialog_title','{$Think.lang.ds_edit}').attr('dialog_width',400)
+            content_obj.find('.handle_edit').attr('uri','{$Think.ADMIN_SITE_URL}/editable_page/model_edit?config_id='+config_id)
+            
+            content_obj.find('.handle_add').attr('ds_type','dialog').attr('dialog_id','editable_model').attr('dialog_title','{$Think.lang.ds_new}').attr('dialog_width',800)
+            content_obj.find('.handle_add').attr('uri','{$Think.ADMIN_SITE_URL}/editable_page/model_add?editable_page_id={$editable_page.editable_page_id}&config_id='+config_id)
+            
+            content_obj.find('*[data-type]').each(function(){
+                var model_type_list=$(this).attr('data-type')
+                model_type_list=model_type_list.split(',')
+                var item_id_list=$(this).attr('data-id')
+                item_id_list=item_id_list.split(',')
+                $(this).prepend('<div class="editable-page-handle"></div>')
+                var obj=$(this).find('.editable-page-handle')
+                for(var j in item_id_list){
+                var item_id=item_id_list[j]
+                for(var i in model_type_list){
+                var model_type=model_type_list[i]
+                var model_width=400
+                var title
+                switch(model_type){
+                  case 'brand':
+                    title='设置品牌'
+                    break
+                  case 'cate':
+                    title='设置分类'
+                    break
+                  case 'voucher':
+                    title='设置代金券'
+                    break  
+                  case 'text':
+                    title='设置文字'
+                    break 
+                  case 'link':
+                    title='设置链接'
+                    break  
+                  case 'goods':
+                    title='设置商品'
+                    model_width=800
+                    break
+                  case 'store':
+                    title='设置店铺'
+                    model_width=800
+                    break
+                  case 'editor':
+                    title='设置富文本'
+                    model_width=800
+                    break
+                  case 'image':
+                    title='设置图片'
+                    model_width=420
+                    break
+                }
+                  obj.append('<div class="iconfont handel-'+model_type+'" data-id="'+item_id+'"></div>');
+                  obj.find('.handel-'+model_type+'[data-id='+item_id+']').attr('ds_type','dialog').attr('dialog_id','editable_model').attr('dialog_title',title).attr('dialog_width',model_width)
+                  obj.find('.handel-'+model_type+'[data-id='+item_id+']').attr('uri','{$Think.ADMIN_SITE_URL}/editable_page/model_'+model_type+'?config_id='+config_id+'&item_id='+item_id)
+                }
+                }
+            })
+            $(this).removeAttr('data-type')
+        })
+        
+        
+        $('*[ds_type="dialog"]').click(function(){
+            var id = $(this).attr('dialog_id');
+            var title = $(this).attr('dialog_title') ? $(this).attr('dialog_title') : '';
+            var url = $(this).attr('uri');
+            var width = $(this).attr('dialog_width');
+            CUR_DIALOG = ajax_form(id, title, url, width,0);
+            return false;
+        });
+    }
+    function addEditableModel(model_id,config_id){
+        $.getJSON('{$Think.ADMIN_SITE_URL}/editable_page/model_add?editable_page_id={$editable_page.editable_page_id}&model_id='+model_id+'&config_id='+config_id,function(res){
+            if(res.code!=10000){
+                layer.msg(res.message)
+            }else{
+                $('.dialog_close_button').click()
+                if(!config_id || $('.editable-page-model[data-id='+config_id+']').length==0){
+                    $('*[data-type="editable_page"] .no_results').remove()
+                    $('*[data-type="editable_page"]').append(res.result.model_html)
+                }else{
+                    $('.editable-page-model[data-id='+config_id+']').after(res.result.model_html)
+                }
+                
+                addDialogEvent()
+                initSlide()
+            }
+        })
+    }
+
+
+function submitEditableModelForm(){
+    var _form = $("#editable_model_form");
+    $.ajax({
+        type: "POST",
+        url: _form.attr('action'),
+        data: _form.serialize(),
+        dataType:"json",
+        success: function (res) {
+                if (res.code == 10000) {
+                    $('.dialog_close_button').click()
+                    $('.editable-page-model[data-id='+res.result.config_id+']').replaceWith(res.result.model_html)
+                    addDialogEvent()
+                    initSlide()
+                }else{
+                    layer.msg(res.message)
+                }
+        }
+    });
+}
+</script>
+{/if}
+
+<div data-type="editable_page" {if $editable_page.if_edit}class="edit-mode"{/if} style="background-color:{$editable_page.editable_page_theme_config.back_color|default='unset'}">
+    {notempty name='editable_page_config_list'}
+    {foreach name='editable_page_config_list' item='page_config'}
+    {switch name="page_config.editable_page_model_id"}
+    {case value="1"}{include file="default/base/editable_page_model/1"}{/case}
+    {case value="2"}{include file="default/base/editable_page_model/2"}{/case}
+    {case value="3"}{include file="default/base/editable_page_model/3"}{/case}
+    {case value="4"}{include file="default/base/editable_page_model/4"}{/case}
+    {case value="5"}{include file="default/base/editable_page_model/5"}{/case}
+    {case value="7"}{include file="default/base/editable_page_model/7"}{/case}
+    {case value="8"}{include file="default/base/editable_page_model/8"}{/case}
+    {case value="9"}{include file="default/base/editable_page_model/9"}{/case}
+    {case value="10"}{include file="default/base/editable_page_model/10"}{/case}
+    {case value="11"}{include file="default/base/editable_page_model/11"}{/case}
+    {/switch}
+    {/foreach}
+    {else}
+    {if $editable_page.if_edit}
+    <div class="no_results">
+        <span>{$Think.lang.add_model_notice}</span>
+        <div class='editable-page-model mt10'>
+        <a class="dssc-btn" href="javascript:void(0)" ds_type="dialog" dialog_id="editable_model" dialog_title="{$Think.lang.ds_new}" dialog_width="800" uri="{$Think.ADMIN_SITE_URL}/editable_page/model_add?editable_page_id={$editable_page.editable_page_id}">{$Think.lang.ds_new}</a>
+        </div>
+    </div>
+    {/if}
+    {/notempty}
+</div>
+<script>
+$(function(){
+  initSlide()
+})
+function initSlide(){
+$('.editable-page-model-1[data-load=0]').each(function(){
+  $(this).slide({mainCell: ".bd ul", autoPlay: true, delayTime: 500, interTime: 5000})
+  $(this).removeAttr('data-load')
+})
+$('.editable-page-model-8[data-load=0]').each(function(){
+  $(this).slide({mainCell: ".bd ul", autoPlay: true, delayTime: 500, interTime: 5000})
+  $(this).removeAttr('data-load')
+})
+$('.editable-page-model-11[data-load=0]').each(function(){
+  $(this).slide({mainCell: ".tab_body_list",titCell:".tab_head_item"})
+  $(this).removeAttr('data-load')
+})
+}
+</script>

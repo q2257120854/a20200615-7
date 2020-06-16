@@ -1,0 +1,79 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">管理员列表</h2>
+       <a href="{:url('adminbrother/add')}" class="fr top_rt_btn add_icon">添加新管理员</a>
+      </div>
+      <section class="mtb">
+       <select class="select" name="select">
+        <option value="account">&nbsp;&nbsp;&nbsp;账&nbsp;号&nbsp;&nbsp;&nbsp;</option>
+        <option  value="email">&nbsp;&nbsp;&nbsp;邮&nbsp;箱&nbsp;&nbsp;&nbsp;</option>
+       </select>
+       <input type="text" class="textbox textbox_225" placeholder="输入账号/电子邮件查询..." name="keyword"/>
+       <input type="button" value="查询" class="group_btn"/>
+      </section>
+      <table class="table">
+       <tr>
+        <th>序号</th>
+        <th>账号</th>
+        <th>电子邮件</th>
+        <th>管理组</th>
+        <th>状态</th>
+        <th>操作</th>
+       </tr>
+	   {foreach name="list" id="vo"}
+       <tr class="id_{$vo.id}">
+        <td class="center">{$key+1}</td>
+        <td>{$vo.account}</td>
+        <td class="center">{$vo.email}</td>      
+        <td class="center">{$vo.group}</td>
+        <td class="center">{if condition="$vo.status eq 1"}<a title="正常" class="link_icon">&#89;</a>{else/}<a title="禁止" class="link_icon" style="color:red;">&#88;</a>{/if}</td>
+        <td class="center">
+         <a href="{:url('adminbrother/edit')}?id={$vo.id}" title="编辑" class="link_icon">&#101;</a>
+         <a href="#" title="删除" class="link_icon del" data-id="{$vo.id}">&#100;</a>
+        </td>
+       </tr>
+		{/foreach}
+      </table>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+$(document).ready(function() {
+  //测试提交，对接程序删除即可
+	$('.del').click(function(event){
+		var id = $(this).attr('data-id');
+		
+		$.ajax({
+			url:"{:url('adminbrother/del')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			data:{op:'admindel',id:id},
+			success: function(data) {
+				console.log(data.s);
+				if (data.s=='ok') {				
+					myAlert('删除成功');
+					setTimeout(function(){
+						//页面刷新  
+						window.location.reload();
+					},1000);
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+	
+});
+</script>
+{/block}	

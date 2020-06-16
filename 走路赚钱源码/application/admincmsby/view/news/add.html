@@ -1,0 +1,258 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/lang/zh-cn/zh-cn.js"></script>
+    <style type="text/css">
+        div#content{
+			text-align: right;
+			margin-left:120px; 	
+			width:80%;
+        }
+		.textbox_640{
+			width:640px;
+		}
+		.ulColumn2{
+			margin-bottom:50px;
+		}
+		.uploadImg,.texlong{
+			position:static;
+		}
+		.page_title{
+			height: 45px;
+			line-height: 40px;
+			width:86%;
+			position:fixed;
+			top:0;
+			margin-top:70px;
+			background-color:#fff;			
+		}
+		.page_title .top_rt_btn{
+			margin-right:1rem;
+			margin-top:5px;
+		}
+		.ulColumn2{
+			margin-top:70px;
+		}
+		/*** guide ***/
+		.guide{width:60px;margin-left:570px;position:fixed;left:56%;bottom:134px;_position:absolute;_top:expression(documentElement.scrollTop+documentElement.clientHeight - this.clientHeight - 134+'px');display:block;}
+		.guide a{display:block;width:60px;height:50px;background:url(__IMG__/sprite_v2.png) no-repeat;margin-top:10px;text-decoration:none;font:16px/50px "Microsoft YaHei";text-align:center;color:#fff;border-radius:2px;}
+		.guide a span{display:none;text-align:center;}
+		.guide a:hover{text-decoration:none;background-color:#39F;color:#fff;}
+		.guide a:hover span{display:block;width:60px;background:#39F}
+		.guide .find{background-position:-84px -236px;}
+		.guide .report{background-position:-146px -236px;}
+		.guide .edit{background-position:-83px -185px;}
+		.guide .top{background-position:-145px -185px;}
+    </style>	
+	
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">添加新闻</h2>
+	   <a href="javascript:;" class="fr top_rt_btn submit" style="background: #302931;color: white;border-radius: 2px;border: 1px #139667 solid;">确认提交</a>
+      </div>
+      <ul class="ulColumn2">
+
+       <li>
+        <span class="item_name" style="width:120px;">标题：</span>
+        <input type="text" class="textbox textbox_640" value="" name="title" placeholder="标题..."/>
+		<span style="color:red;">*</span>
+       </li>
+       <li>
+        <span class="item_name"style="width:120px;">新闻分类：</span>
+        <select class="select" name="pid"  data-class="yes" >
+		 {foreach name="list" id="vo"}
+         <option value="{$vo.id}" data-name="{$vo.classname}" {if condition="$class_id eq $vo.id"}selected {/if}>{$vo.nbsp}{if condition="$vo.html neq ''"}└<!-- &#3; -->{/if}{$vo.html}&nbsp;{$vo.classname}&nbsp;</option>
+		 {/foreach}
+        </select>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">首页推荐：</span>
+        <label class="single_selection"><input type="radio" name="home" value="1"  />是</label>
+        <label class="single_selection"><input type="radio" name="home" value="0" checked />否</label>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">二级推荐：</span>
+        <label class="single_selection"><input type="radio" name="rec" value="1"  />是</label>
+        <label class="single_selection"><input type="radio" name="rec" value="0" checked />否</label>
+       </li>
+
+       <li>
+        <span class="item_name" style="width:120px;">封面图：</span>
+        <label class="uploadImg">
+         <input type="file"  name="pic" />
+		 <img id="pic" src="" >
+		 <input type="hidden" name="primary_pic" value="">
+         <span>上传封面图</span>
+        </label>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">排序：</span>
+        <input type="text" class="textbox textbox_225" value="255" name="sort" placeholder="排序..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">SEO关键字：</span>
+        <input type="text" class="textbox textbox_640" value="" name="keywords" placeholder="SEO关键字..."/>
+       </li>
+       <li>
+        <span class="item_name texlong" style="width:120px;">文章摘要：</span>
+        <textarea placeholder="文章摘要（200字符以内）" class="textarea"  name="description" style="height:100px;width:640px;"></textarea>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">状态：</span>
+        <label class="single_selection"><input type="radio" name="status" value="1" checked />正常</label>
+        <label class="single_selection"><input type="radio" name="status" value="0" />冻结</label>
+       </li>
+	    <!--内容详情-->
+       <li>
+        <span class="item_name" style="width:120px;">内容详情：</span>
+        <script id="content" type="text/plain" style="height:500px; margin-top: 0px;"></script>
+       </li>		   
+
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" id="submit" class="link_btn submit" value="确认提交"/>
+       </li>
+      </ul>
+		<div class="guide">
+			<div class="guide-wrap">
+				<a href="javascript:;" class="top" title="回顶部"><span>回顶部</span></a>
+			</div>
+		</div>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+//建立一個可存取到該file的url
+function getObjectURL(file) {
+	var url = null ;
+	if (window.createObjectURL!=undefined) { // basic
+		url = window.createObjectURL(file) ;
+	} else if (window.URL!=undefined) { // mozilla(firefox)
+		url = window.URL.createObjectURL(file) ;
+	} else if (window.webkitURL!=undefined) { // webkit or chrome
+		url = window.webkitURL.createObjectURL(file) ;
+	}
+	return url ;
+}
+</script>
+<script>
+var ue = UE.getEditor('content');
+$(document).ready(function() {
+
+	$(".uploadImg").on("change",function(){
+		//获取图片的路径，该路径不是图片在本地的路径
+		var objUrl = getObjectURL($('input[name="pic"]')[0].files[0]) ; 
+		console.log(objUrl);
+		if (objUrl) {
+			//将图片路径存入src中，显示出图片
+			$("#pic").attr("src", objUrl) ; 
+		}
+	});
+
+	$('.submit').click(function(event){
+		
+		var title = $('input[name="title"]').val();
+		var pid = $("option:selected").val();
+		var home = $('input[name="home"]:checked').val();
+		var rec = $('input[name="rec"]:checked').val();
+		var sort = $('input[name="sort"]').val();
+		var keywords = $('input[name="keywords"]').val();
+		var description = $('textarea[name="description"]').val();
+		var status = $('input[name="status"]:checked').val();
+		var content = UE.getEditor('content').getContent();
+		//旧图片
+		var primary_pic = $('input[name="primary_pic"]').val();
+		//上传图片
+        var fileObj = $('input[name="pic"]')[0].files[0]; 			   
+        var formData = new FormData(); 
+		
+		//加入对象
+		if(title){
+			formData.append('title',title);  
+		}else{
+			myAlert('标题不能为空');
+		}
+		
+		if(pid){
+			formData.append('pid',pid);   
+		}
+		if(home){
+			formData.append('home',home);   
+		}
+		if(rec){
+			formData.append('rec',rec);   
+		}
+		if(sort){
+			formData.append('sort',sort);   
+		}
+		if(description){
+			formData.append('description',description);   
+		}
+		if(status){
+			formData.append('status',status);   
+		}
+		if(content){
+			formData.append('content',content);   
+		}
+		if(keywords){
+			formData.append('keywords',keywords);   
+		}
+		if(primary_pic){
+			formData.append('primary_pic',primary_pic);   
+		}
+		if(fileObj){
+			formData.append('pic',fileObj); 
+		}
+		formData.append('op','newsadd');
+		formData.append('cmm_home','cmm_home');//首页推荐缓存
+		formData.append('cmm_rec','cmm_rec');//二级推荐缓存
+		formData.append('all','all');//前台所有分页数据缓存		
+		//console.log(title);
+		
+		$.ajax({
+			url:"{:url('news/add_do')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			processData: false,//用于对data参数进行序列化处理 这里必须false
+            contentType: false, //必须
+			data:formData,
+			success: function(data) {
+				console.log(data);
+				if (data.s=='ok') {
+					myAlert('添加成功');
+					
+					setTimeout(function(){
+					//页面刷新  
+					window.history.back(-1); 
+					//location.href= "{:url('news/lists')}";
+					},1000);				
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+	
+});
+</script>
+
+<script>
+	$('.top').click(function(){
+		//console.log(111);
+		//动画效果，平滑滚动回到顶部
+		$('#mCSB_2_container').css('top',0);
+		$("#mCSB_2_dragger_vertical").css('top',0);
+	})
+</script>
+{/block}	

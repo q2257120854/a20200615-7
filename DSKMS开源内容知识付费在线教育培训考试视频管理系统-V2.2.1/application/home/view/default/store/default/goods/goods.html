@@ -1,0 +1,449 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+<link rel="stylesheet" href="{$Think.BASE_SITE_ROOT}/static/home/default/store/styles/{$store_theme}/css/shop.css">
+<link rel="stylesheet" href="{$Think.BASE_SITE_ROOT}/static/home/default/store/styles/{$store_theme}/css/goods.css">
+<link rel="stylesheet" href="{$Think.BASE_SITE_ROOT}/static/home/default/store/styles/{$store_theme}/css/course.css">
+
+
+
+
+<div class="course-infos-top" style="background-image:url({:goods_bgthumb($goods.goods_bg_image,'default',$goods.store_id)})">}
+    <div class="info-wrap">
+        <div class="extra">
+            <div class="course-collect clearfix l" onclick="collect_goods('{$goods.goods_id}','count','goods_collect');">
+                <i class="iconfont">&#xe6a9;</i><span>{$Think.lang.goods_index_favorite_goods}</span>
+            </div>
+            {if $inform_switch}
+            <a href="{if $Think.session.is_login}{:url('Memberinform/inform_submit',['goods_id'=>$goods.goods_id])}{else/}javascript:login_dialog();{/if}" title="{$Think.lang.goods_index_goods_inform}" class="inform">
+                <i class="iconfont">&#xe719;</i><span>{$Think.lang.goods_index_goods_inform}</span>
+            </a>
+            {/if}
+            {if $goods['inviter_money']>0}
+            <div class="share-action" >
+                <div class="share-money">分享赚 ¥ {:ds_price_format($goods['inviter_money'])}</div>
+            </div>
+            {/if}
+        </div>
+        <div class="title-box">
+            <h1>{$goods.goods_name}</h1>
+            <h2>{$goods.goods_advword}</h2>
+        </div>
+    </div>
+    
+    <div class="fixed-wrap">
+        <div class="con">
+            <div class="time-price clearfix">
+                <div class="no-discount clearfix l">
+                    <div class="ori-price l">{:ds_goodsprice_format($goods['goods_price'])}</div>
+                </div>
+            </div>
+            <div class="info-bar clearfix" style="margin-top:px">
+                <span>人气值</span>
+                <span class="nodistance">{$goods.goods_click}</span>
+                <i class="imv2-dot_samll"></i>
+                <span>学习人数</span>
+                <span class="nodistance">{$goods.goods_salenum}</span>
+                <i class="imv2-dot_samll"></i>
+                <span>收藏人数</span>
+                <span class="nodistance">{$goods.goods_collect}</span>
+                <i class="imv2-dot_samll"></i>
+                <span>综合评分</span>
+                <span class="nodistance last">{$goods.evaluation_good_star}分</span>
+                <i class="imv2-dot_samll"></i>
+                <span>评论人数</span>
+                <span class="nodistance last">{$goods.evaluation_count}</span>
+                <i class="imv2-dot_samll"></i>
+            </div>
+            <div class="btns">
+                {if $if_have_buy || $goods.goods_price=='0.00'}
+                <a href="{:url('Goods/courses',['goods_id'=>$goods.goods_id])}" target="_blank" class="red-btn" >
+                    现在学习
+                </a>
+                {else/}
+                <a href="javascript:;" dstype="buynow_submit" class="red-btn buynow<?php if ($goods['goods_state'] == 0) {?>no-buynow<?php }?>" >
+                    立即购买
+                </a>
+                {/if}
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="w1200">
+    <div id="content" class="dss-goods-layout expanded" >
+        <div class="dss-goods-main" id="main-nav-holder">
+            <div class="tabbar pngFix" id="main-nav">
+                <div class="dss-goods-title-nav">
+                    <ul id="categorymenu">
+                        <li class="current"><a id="tabGoodsIntro" href="javascript:void(0)">{$Think.lang.goods_index_goods_info}</a></li>
+                        <li><a id="tabGoodsCourses" href="javascript:void(0)">章节课程</a></li>
+                        <li><a id="tabGoodsRate" href="javascript:void(0)">{$Think.lang.goods_index_evaluation}<em>({$goods_evaluate_info.all})</em></a></li>
+                        <li><a id="tabGoodsTraded" href="javascript:void(0)">{$Think.lang.goods_index_sold_record}<em>({$goods.goods_salenum})</em></a></li>
+                        <li><a id="tabGuestbook" href="javascript:void(0)">{$Think.lang.goods_index_goods_consult}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dss-intro">
+                <div class="content bd" id="dsGoodsIntro">
+                    <div class="dss-goods-info-content">
+                        {if isset($plate_top)}
+                        <div class="top-template">{$plate_top.storeplate_content|htmlspecialchars_decode}</div>
+                        {/if}
+                        <div class="default">{$goods.goods_body|htmlspecialchars_decode}</div>
+                        {if isset($plate_bottom)}
+                        <div class="bottom-template">{$plate_bottom.storeplate_content|htmlspecialchars_decode}</div>
+                        {/if}
+                    </div>
+                </div>
+            </div>
+            <div class="dss-goodscourses">
+                <div class="dss-goodscourses-content bd" id="dsGoodsCourses" style="display: none">
+                    {php}$fe_goodscourses=1;{/php}
+                    {foreach name="goodscourses_list" item="goodscourses"}
+                    <div class="dss-goodscourses-item">
+                        <div class="dss-goodscourses-hd">
+                            <span class="tt-prefix">{php}echo sprintf("%02d", $fe_goodscourses);{/php}</span>
+                            <h3 class="part-tt">{$goodscourses.goodscourses_name}</h3>
+                        </div>
+                        {if $goodscourses.goodscourses_url}
+                        <div class="dss-goodscourses-list">
+                            <a  href="{$goodscourses.goodscourses_view|default='javascript:void(0)'}" target="_blank">
+                                <i class="iconfont">&#xe635;</i>{$goodscourses.goodscourses_name}
+                                <em class="preview-btn">{$goodscourses.goodscourses_text|default=''}</em>
+                            </a>
+                        </div>
+                        {/if}
+                    </div>
+                    {php}$fe_goodscourses++;{/php}
+                    {/foreach}
+                </div>
+            </div>
+            <div class="dss-comment">
+                <div class="dss-goods-title-bar hd" style="display: none">
+                    <h4><a href="javascript:void(0);">{$Think.lang.goods_index_evaluation}</a></h4>
+                </div>
+                <div class="dss-goods-info-content bd" id="dsGoodsRate" style="display: none">
+                    <div class="dss-top">
+                        <div class="rate">
+                            <p><strong>{$goods_evaluate_info.good_percent}</strong><sub>%</sub>{$Think.lang.high_praise}</p>
+                            <span>{$Think.lang.total}{$goods_evaluate_info.all}{$Think.lang.people_participation_rating}</span></div>
+                        <div class="percent">
+                            <dl>
+                                <dt>{$Think.lang.high_praise}<em>({$goods_evaluate_info.good_percent}%)</em></dt>
+                                <dd><i style="width: {$goods_evaluate_info.good_percent}%"></i></dd>
+                            </dl>
+                            <dl>
+                                <dt>{$Think.lang.medium_rating}<em>({$goods_evaluate_info.normal_percent}%)</em></dt>
+                                <dd><i style="width: {$goods_evaluate_info.normal_percent}%"></i></dd>
+                            </dl>
+                            <dl>
+                                <dt>{$Think.lang.poor_rating}<em>({$goods_evaluate_info.bad_percent}%)</em></dt>
+                                <dd><i style="width: {$goods_evaluate_info.bad_percent}%"></i></dd>
+                            </dl>
+                        </div>
+                        <div class="btns"><span>{$Think.lang.evaluation_purchased_goods}</span>
+                            <p><a href="{:url('Membervrorder/index')}" class="dss-btn dss-btn-red" target="_blank"><i class="iconfont">&#xe71b;</i>{$Think.lang.evaluation_item}</a></p>
+                        </div>
+                    </div>
+                    <div class="dss-goods-title-nav">
+                        <ul id="comment_tab">
+                            <li data-type="all" class="current"><a href="javascript:void(0);">{$Think.lang.goods_index_evaluation}({$goods_evaluate_info.all})</a></li>
+                            <li data-type="1"><a href="javascript:void(0);">{$Think.lang.high_praise}({$goods_evaluate_info.good})</a></li>
+                            <li data-type="2"><a href="javascript:void(0);">{$Think.lang.medium_rating}({$goods_evaluate_info.normal})</a></li>
+                            <li data-type="3"><a href="javascript:void(0);">{$Think.lang.poor_rating}({$goods_evaluate_info.bad})</a></li>
+                        </ul>
+                    </div>
+                    <!-- 商品评价内容部分 -->
+                    <div id="goodseval" class="dss-commend-main"></div>
+                </div>
+            </div>
+            <div class="dsg-salelog">
+                <div class="dss-goods-title-bar hd" style="display: none">
+                    <h4><a href="javascript:void(0);">{$Think.lang.goods_index_sold_record}</a></h4>
+                </div>
+                <div class="dss-goods-info-content bd" id="dsGoodsTraded" style="display: none">
+                    <!-- 成交记录内容部分 -->
+                    <div id="salelog_demo" class="dss-loading"> </div>
+                </div>
+            </div>
+            <div class="dss-consult">
+                <div class="dss-goods-title-bar hd" style="display: none">
+                    <h4><a href="javascript:void(0);">{$Think.lang.goods_index_goods_consult}</a></h4>
+                </div>
+                <div class="dss-goods-info-content bd" id="dsGuestbook" style="display: none">
+                    <!-- 咨询留言内容部分 -->
+                    <div id="consulting_demo" class="dss-loading"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="dss-sidebar">
+
+
+
+            {include file="default/store/default/store/store_info"}
+            <div class="dss-message-bar">
+                <div class="common_title">
+                    <h2>{$Think.lang.ds_message_center}</h2>
+                </div>
+
+                {if !empty($store_info['store_presales']) || !empty($store_info['store_aftersales']) || $store_info['store_workingtime'] !=''}
+                <div class="service-list" store_id="{$store_info.store_id}" store_name="{$store_info.store_name}">
+                    {notempty name="$store_info.store_presales"}
+                    <dl>
+                        <dt>{$Think.lang.ds_message_presales}</dt>
+                        {foreach name="$store_info.store_presales" item="val" }
+                        <dd><span>{$val.name}</span><span>
+                                {if $val.type == 1}
+                                <a target="_blank" href="{$Think.HTTP_TYPE}wpa.qq.com/msgrd?v=3&uin={$val.num}&site=qq&menu=yes" title="QQ: {$val.num}"><img border="0" src="{$Think.HTTP_TYPE}wpa.qq.com/pa?p=2:{$val.num}:51" style=" vertical-align: middle;"/></a>
+                                {elseif $val.type ==2 /}
+                                <a target="_blank" href="http://amos.im.alisoft.com/msg.aw?v=2&amp;uid={$val.num}&site=cntaobao&s=1&charset=UTF-8" ><img border="0" src="http://amos.im.alisoft.com/online.aw?v=2&uid={$val.num}&site=cntaobao&s=2&charset=UTF-8" alt="{$Think.lang.ds_message_me}"/></a>
+                                {elseif $val.type==3 /}
+                                <span c_name="{$val.name}" member_id="{$val.num}"></span>
+                                {/if}
+                            </span></dd>
+                        {/foreach}
+                    </dl>
+                    {/notempty}
+                    {notempty name="$store_info.store_aftersales"}
+                    <dl>
+                        <dt>{$Think.lang.ds_message_service}</dt>
+                        {foreach name="$store_info.store_aftersales" item="val" }
+                        <dd><span>{$val.name}</span>
+                            <span>
+                                {if $val.type == 1}
+                                <a href="{$Think.HTTP_TYPE}wpa.qq.com/msgrd?v=3&uin={$val.num}&site=qq&menu=yes" title="QQ: {$val.num}" target="_blank"><img border="0" src="{$Think.HTTP_TYPE}wpa.qq.com/pa?p=2:{$val.num}:52" alt="{$Think.lang.ds_message_me}" style=" vertical-align: middle;"></a>
+                                {elseif $val.type ==2 /}
+                                <a target="_blank" href="http://amos.im.alisoft.com/msg.aw?v=2&amp;uid={$val.num}&site=cntaobao&s=1&charset=UTF-8" ><img border="0" src="http://amos.im.alisoft.com/online.aw?v=2&uid={$val.num}&site=cntaobao&s=2&charset=UTF-8" alt="{$Think.lang.ds_message_me}"/></a>
+                                {elseif $val.type==3 /}
+                                <span c_name="{$val.name}" member_id="{$val.num}"></span>
+                                {/if}
+                            </span>
+                        </dd>
+                        {/foreach}
+                    </dl>
+                    {/notempty}
+                    {if $store_info.store_workingtime !=''}
+                    <dl class="workingtime">
+                        <dt>{$Think.lang.ds_message_working}</dt>
+                        <dd>
+                            <p>{:html_entity_decode($store_info['store_workingtime'])}</p>
+                        </dd>
+                    </dl>
+                    {/if}
+                </div>
+                {/if}
+            </div>
+
+
+
+
+
+            <div class="common_module">
+                <div class="common_title">
+                    <h2>{$Think.lang.ds_hot_goods_rankings}</h2>
+                </div>
+                <div class="common_content">
+                    <ul>
+                        {foreach name="hot_sales" item="val"}
+                        <li>
+                            <div class="p_img">
+                                <a href="{:url('Goods/index',['goods_id'=>$val.goods_id])}"><img src="{:goods_thumb($val, 270)}" ></a>
+                            </div>
+                            <div class="p_num {if $key < 3 }active{/if}">{php}echo $key+1;{/php}</div>
+                            <div class="p_info">
+                                <div class="p_name">
+                                    <a href="{:url('Goods/index',['goods_id'=>$val.goods_id])}">{$val.goods_name}</a>
+                                </div>
+                                <div class="p_pricesales">
+                                    <div class="p_price"><em>{:ds_goodsprice_format($val.goods_price)}</em></div>
+                                    <div class="p_sales">{$Think.lang.ds_sell_out}<strong>{$val.goods_salenum}</strong>{$Think.lang.ds_bi}</div>
+                                </div>
+                            </div>
+                        </li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+            <div class="common_module">
+                <div class="common_title">
+                    <h2>{$Think.lang.ds_hot_collect_rankings}</h2>
+                </div>
+                <div class="common_content">
+                    <ul>
+                        {foreach name="hot_collect" key="key" item="val"  }
+                        <li>
+                            <div class="p_img">
+                                <a href="{:url('Goods/index',['goods_id'=>$val.goods_id])}"><img src="{:goods_thumb($val, 270)}" ></a>
+                            </div>
+                            <div class="p_num {if $key < 3 }active{/if}">{php}echo $key+1;{/php}</div>
+                            <div class="p_info">
+                                <div class="p_name">
+                                    <a href="{:url('Goods/index',['goods_id'=>$val.goods_id])}">{$val.goods_name}</a>
+                                </div>
+                                <div class="p_pricesales">
+                                    <div class="p_price"><em>{:ds_goodsprice_format($val.goods_price)}</em></div>
+                                    <div class="p_sales">{$Think.lang.ds_collection_popularity}{$Think.lang.ds_colon}<strong>{$val.goods_collect}</strong></div>
+                                </div>
+                            </div>
+                        </li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+            <!--侧边推荐 END-->
+
+
+
+
+
+            {if isset($viewed_goods)}
+            <!-- 最近浏览 -->
+            <div class="dss-sidebar-container dss-top-bar">
+                <div class="title">
+                    <h4>{$Think.lang.recent_browsing}</h4>
+                </div>
+                <div class="content">
+                    <div id="hot_sales_list" class="dss-top-panel">
+                        <ol>
+                            {foreach name="viewed_goods" item="g"  }
+                            <li>
+                                <dl>
+                                    <dt><a href="{:url('Goods/index',['goods_id'=>$g.goods_id])}">{$g.goods_name}</a></dt>
+                                    <dd class="goods-pic"><a href="{:url('Goods/index',['goods_id'=>$g.goods_id])}"><span class="thumb size40"><i></i><img src="{:goods_thumb($g, 270)}"  onload="javascript:ResizeImage(this,40,40);"></span></a>
+                                        <p><span class="thumb size100"><i></i><img src="{:goods_thumb($g, 270)}" onload="javascript:ResizeImage(this,100,100);" title="{$g.goods_name}"><big></big><small></small></span></p>
+                                    </dd>
+                                    <dd class="price pngFix">{:ds_price_format($g['goods_price'])}</dd>
+                                </dl>
+                            </li>
+                            {/foreach}
+                        </ol>
+                    </div>
+                    <a href="{:url('Membergoodsbrowse/listinfo')}" class="dsh-sidebar-all-viewed">{$Think.lang.full_browsing_history}</a> </div>
+            </div>
+            {/if}
+        </div>
+    </div>
+    <form id="buynow_form" method="post" action="{:url('Buy/buy_step1')} ">
+        <input id="cart_id" name="cart_id[]" type="hidden"/>
+    </form>
+</div>
+
+
+<script src="{$Think.PLUGINS_SITE_ROOT}/jquery.ajaxContent.pack.js"></script>
+<script>
+$(function(){
+    {if condition="$goods.goods_state eq '1'"}
+        // 立即购买
+        $('a[dstype="buynow_submit"]').click(function(){
+            if (typeof(allow_buy) != 'undefined' && allow_buy === false) return ;
+            var buy_goods_quantity = 1;
+            if(buy_goods_quantity>0){
+                buynow({$goods.goods_id},buy_goods_quantity);
+            }
+        });
+    {/if}
+});
+
+// 立即购买js
+function buynow(goods_id,quantity){
+    
+    {if $Think.session.is_login !== '1'}
+	login_dialog();
+    {else/}
+    if (!quantity) {
+        return;
+    }
+    {if $Think.session.store_id == $goods.store_id}
+    layer.msg('{$Think.lang.cannot_buy_own_store_goods}');return;
+    {/if}
+    $("#cart_id").val(goods_id+'|'+quantity);
+    $("#buynow_form").submit();
+    {/if}
+}
+
+$(function(){
+    $("#salelog_demo").load("{:url('Goods/salelog',['goods_id'=>$goods.goods_id,'store_id'=>$goods.store_id])}", function(){
+        // Membership card
+       $(this).find('[dstype="mcard"]').membershipCard({type:'shop'});
+    });
+	$("#consulting_demo").load("{:url('Goods/consulting',['goods_id'=>$goods.goods_id,'store_id'=>$goods.store_id])}", function(){
+		// Membership card
+		$(this).find('[dstype="mcard"]').membershipCard({type:'shop'});
+	});
+
+/** goods.php **/
+	// 商品详情默认情况下显示全部
+	$('#tabGoodsIntro').click(function(){
+		$('.bd').css('display','none');
+		$('#dsGoodsIntro').css('display','');
+		$('.hd').css('display','none');
+	});
+        // 查看商品下的课程
+	$('#tabGoodsCourses').click(function(){
+		$('.bd').css('display','none');
+		$('#dsGoodsCourses').css('display','');
+		$('.hd').css('display','none');
+	});
+	// 点击评价隐藏其他以及其标题栏
+	$('#tabGoodsRate').click(function(){
+		$('.bd').css('display','none');
+		$('#dsGoodsRate').css('display','');
+		$('.hd').css('display','none');
+	});
+	// 点击成交隐藏其他以及其标题
+	$('#tabGoodsTraded').click(function(){
+		$('.bd').css('display','none');
+		$('#dsGoodsTraded').css('display','');
+		$('.hd').css('display','none');
+	});
+	// 点击咨询隐藏其他以及其标题
+	$('#tabGuestbook').click(function(){
+		$('.bd').css('display','none');
+		$('#dsGuestbook').css('display','');
+		$('.hd').css('display','none');
+	});
+
+
+    $('#categorymenu').on('click', 'li', function() {
+        $('#categorymenu li').removeClass('current');
+        $(this).addClass('current');
+    });
+
+    //评价列表
+    $('#comment_tab').on('click', 'li', function() {
+        $('#comment_tab li').removeClass('current');
+        $(this).addClass('current');
+        load_goodseval($(this).attr('data-type'));
+    });
+    load_goodseval('all');
+    function load_goodseval(type) {
+        var url = "{:url('Goods/comments',['goods_id'=>$goods.goods_id])}";
+        url += '?type=' + type;
+        $("#goodseval").load(url, function(){
+            $(this).find('[dstype="mcard"]').membershipCard({type:'shop'});
+        });
+    }
+
+    //记录浏览历史
+	$.get("{:url('Goods/addbrowse',['gid'=>$goods.goods_id])}");
+
+    $(".dss-goodscourses-list a").click(function(){
+                var href = $(this).attr('href');
+                if(href == "javascript:void(0)"){
+                    alert("您需要先购买课程才能观看本章节")
+                }
+            })    
+
+});
+
+</script>
+
+
+
+
+
+
+{/block}

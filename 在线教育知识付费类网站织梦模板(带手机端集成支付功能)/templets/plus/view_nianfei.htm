@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title><?php echo $arctitle; ?>_<?php echo $cfg_webname; ?></title>
+<meta http-equiv="mobile-agent" content="format=html5; url=<?php global $mcfg_basehost;$url=GetOneArchive($arcID);echo $mcfg_basehost.$url['arcurl'];?>">
+<link rel="alternate" media="only screen and(max-width:640px)" href="<?php global $mcfg_basehost;$url=GetOneArchive($arcID);echo $mcfg_basehost.$url['arcurl'];?>">
+<link href="<?php echo $cfg_basehost; ?>/css/v2_index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<?php echo $cfg_basehost; ?>/js/jquery.js" ></script>
+<script language="javascript" type="text/javascript" src="<?php echo $cfg_basehost; ?>/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+function CheckLogin(){
+	  var taget_obj = document.getElementById('_ajax_feedback');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_feedback.php");
+	  DedeXHTTP = null;
+}function CheckLoginshop(){
+	  var taget_obj = document.getElementById('_ajax_shopping');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_feedback.php");
+	  DedeXHTTP = null;
+}
+function postBadGood(ftype,fid)
+{
+	var taget_obj = document.getElementById(ftype+fid);
+	var saveid = GetCookie('badgoodid');
+	if(saveid != null)
+	{
+		var saveids = saveid.split(',');
+		var hasid = false;
+		saveid = '';
+		j = 1;
+		for(i=saveids.length-1;i>=0;i--)
+		{
+			if(saveids[i]==fid && hasid) continue;
+			else {
+				if(saveids[i]==fid && !hasid) hasid = true;
+				saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+				j++;
+				if(j==10 && hasid) break;
+				if(j==9 && !hasid) break;
+			}
+		}
+		if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+		else saveid += ','+fid;
+		SetCookie('badgoodid',saveid,1);
+	}
+	else
+	{
+		SetCookie('badgoodid',fid,1);
+	}
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	myajax.SendGet2("/plus/feedbackpp.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+}
+function postDigg(ftype,aid)
+{
+	var taget_obj = document.getElementById('newdigg');
+	var saveid = GetCookie('diggid');
+	if(saveid != null)
+	{
+		var saveids = saveid.split(',');
+		var hasid = false;
+		saveid = '';
+		j = 1;
+		for(i=saveids.length-1;i>=0;i--)
+		{
+			if(saveids[i]==aid && hasid) continue;
+			else {
+				if(saveids[i]==aid && !hasid) hasid = true;
+				saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+				j++;
+				if(j==20 && hasid) break;
+				if(j==19 && !hasid) break;
+			}
+		}
+		if(hasid) { alert("您已经顶过该帖，请不要重复顶帖"); return; }
+		else saveid += ','+aid;
+		SetCookie('diggid',saveid,1);
+	}
+	else
+	{
+		SetCookie('diggid',aid,1);
+	}
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	var url = "/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+	myajax.SendGet2(url);
+}
+function getDigg(aid)
+{
+	var taget_obj = document.getElementById('newdigg');
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	myajax.SendGet2("/plus/digg_ajax.php?id="+aid);
+	DedeXHTTP = null;
+}
+-->
+</script>
+<script type="text/javascript">
+var bForcepc = fGetQuery("dv") == "pc";    
+function fBrowserRedirect(){    
+    var sUserAgent = navigator.userAgent.toLowerCase();    
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";      
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";    
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";    
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";    
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";    
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";    
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";    
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";    
+   
+    if(bIsIphoneOs || bIsAndroid){    
+        var sUrl = location.href;        
+        if(!bForcepc){    
+            window.location.href = "<?php global $mcfg_basehost;$url=GetOneArchive($arcID);echo $mcfg_basehost.$url['arcurl'];?>";    
+        }    
+    }    
+    if(bIsMidp||bIsUc7||bIsUc||bIsCE||bIsWM){    
+        var sUrl = location.href;        
+        if(!bForcepc){    
+            window.location.href = "<?php global $mcfg_basehost;$url=GetOneArchive($arcID);echo $mcfg_basehost.$url['arcurl'];?>";    
+        }    
+    }    
+}    
+function fGetQuery(name){//获取参数值    
+    var sUrl = window.location.search.substr(1);    
+    var r = sUrl.match(new RegExp("(^|&)" + name + "=([^&]*)(&|$)"));    
+    return (r == null ? null : unescape(r[2]));    
+}    
+function fShowVerBlock(){       
+    if(bForcepc){    
+        document.getElementById("dv_block").style.display = "block";    
+    }    
+    else{    
+        document.getElementById("ad_block").style.display = "block";    
+    }    
+}    
+fBrowserRedirect();    
+</script>
+<style type="text/css">
+.course-discuss{margin:0 35px;}
+.video-box{background:#fff;margin-bottom:100px;-webkit-box-shadow:0px 1px 2px #bbb;box-shadow:0px 1px 2px #bbb;border-radius:8px;}
+
+/*课程标题*/
+.section--bottom{padding:20px 0 20px;box-sizing:border-box;}
+.section--bottom h1{color:#ddd;display:inline-block;font-size:24px;line-height:32px;}
+
+/*课程目录*/
+.scroll_wrap .scroll_cont{padding:0 30px;height:100%;overflow:hidden;}
+.scroll_wrap .scroll_cont h2{font-size:18px;line-height:26px;color:#fff;display:inline-block;padding:15px 0 10px 0;}
+.scroll_wrap .scroll_cont ul{padding-top:10px;}
+.scroll_wrap .scroll_cont .content_list_2 li{width:100%;margin-bottom:10px;}
+.scroll_wrap .scroll_cont .content_list_2 li a{line-height:50px;padding:0 15px;display:block;color:#c7c7c7;font-size:14px;background:#333;border-radius:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.scroll_wrap .scroll_cont .content_list_2 li a:hover{background:#00bca1;color:#fff;}
+.scroll_wrap .scroll_cont .content_list_2 li .on{color:#fff;background:#00bca1;}
+
+/* 滚动内容区样式 */
+.scroll_wrap{width:100%;height:478px;position:relative;}
+
+/* 滚动条 */
+.scroll_wrap .scroll_bar{position:absolute;top:0;right:0;width:5px;height:100%;background-color:#2d2d2d;}
+
+/* 滚动块 */
+.scroll_wrap .scroll_slider{position:absolute;top:0;left:0px;width:5px;height:48px;background-color:#525252;border-radius:5px;opacity:.5;}
+.scroll_wrap .scroll_slider:hover{opacity:1;}
+</style>
+</head>
+<body>
+
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+
+<!-- 视频播放 -->
+<div class="yxw-xin-k-bf">
+
+<!-- 标题 -->
+<div class="section--bottom container"><h1><?php $tid = JJarctype($arcID);?><?php echo jjGetTypename($typeid);?></h1></div>
+<!-- 标题 End -->
+
+<div class="yxw-xin-k container">
+<div class="fl">
+<div class="pc-video-vip-lst">
+<span>该课程需要购买后播放</span>
+<p>￥<?php echo $arc->TypeLink->TypeInfos['price']; ?></p>
+<a href="<?php echo $cfg_basehost; ?>/member/buyke.php?tid=<?php echo $tid;?>" class="m-video-viphy" rel="nofollow">立即购买</a>
+</div>
+</div>
+
+
+<!-- 课程目录 -->
+<div class="fr">
+<div class="scroll_main">
+<div class="scroll_wrap">
+
+<div class="scroll_cont">
+<h2>课程目录</h2>
+<ul class="content_list_2">
+<?php
+	global $dsql;
+	$sql = "select a.id,a.title,b.spmm from #@__archives a left join #@__addonvideo b on a.id = b.aid where a.typeid = '$tid' order by a.id asc";
+	$dsql->Execute('me',$sql);
+	$jg = '';
+    $i = 0;
+	while($arr = $dsql->GetArray('me'))
+	{
+    	$i++;
+		$jg .= '<li><a href="'.aaurl($arr['id']).'" class="jjdd'.$arr['id'].'"><span style="padding-right:5px;">课时'.$i.'</span>'.$arr['title'].'</a></li>';
+	}
+	echo $jg;
+?>
+</ul>
+</div>
+
+<div class="scroll_bar"><div class="scroll_slider"></div></div>
+
+</div> 
+</div>
+</div>
+<!-- 课程目录 End -->
+
+
+
+</div>
+</div>
+<!-- 视频播放 End -->
+
+
+
+
+
+<div class="video-box container">
+
+<!-- 评论 -->
+<div class="cmt-top-title"><h3 class="join-txt">课程咨询</h3></div>
+
+<div class="article-course-pl">
+<form id="form1" name="feedback" method="post" class="comment-form" action="#">
+<input type="hidden" name="dopost" value="send" />
+<input type="hidden" name="comtype" value="comments">
+<input type="hidden" name="aid" value="<?php echo $arcID; ?>" />
+<input type="hidden" name="fid" id='feedbackfid' value="0" />
+<textarea name="msg" class="form-contro" placeholder="有关课程的问题，您都可以提问哦..."></textarea>
+
+<div class="kc-pinglun clearfix">
+<span class="join-txt-fr fl"><em><script src="<?php echo $cfg_basehost; ?>/plus/goodlv.php?view=yes&type=nokuo&aid=<?php echo $arcID; ?>" type='text/javascript' language="javascript"></script></em>人咨询</span>
+<input name="" type="button" value="提交" class="btn-success fr" onClick='PostComment()'>
+</div>
+
+<!-- 账号登录 -->
+<div class="other-login clearfix" id="_ajax_feedback">
+<input type="hidden" name="username" value="">
+<script language="javascript" type="text/javascript">CheckLogin();</script>
+</div>
+
+</form>
+</div>
+<!-- 评论 End -->
+
+
+
+<!-- 评论内容区 -->
+<div class="course-discuss">
+<dd id='commetcontentNew'></dd>
+<dd id='commetcontent'></dd>
+</div>
+
+<script language='javascript'>
+function LoadCommets(page)
+{
+var taget_obj = document.getElementById('commetcontent');
+var waithtml = "<div style='line-height:50px'><img src='/images/loadinglit.gif' />加载...</div>";
+var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+myajax.SendGet2("/plus/feedback_ajaxpp.php?dopost=getlist&aid=<?php echo $arcID; ?>&page="+page);
+DedeXHTTP = null;
+}
+function PostComment()
+{
+var f = document.feedback;
+var nface = '6';
+var nfeedbacktype = 'good';
+var nvalidate = '';
+var nnotuser = '';
+var nusername = '';
+var npwd = '';
+var taget_obj = $DE('commetcontentNew');
+var waithtml = "<div style='line-height:30px'><img src='/images/loadinglit.gif' />发送中...</div>";
+if(f.username.value=='') {
+window.location.href = '/member/';
+return;
+}
+if(f.msg.value=='')
+{
+alert("您还没有写内容哦");
+return;
+}
+
+if(f.msg.value.length > 100)
+{
+alert("请填写100字以内的内容");
+return;
+}
+if(f.feedbacktype) {
+for(var i=0; i < f.feedbacktype.length; i++)
+if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+}
+if(f.face) {
+for(var j=0; j < f.face.length; j++)
+if(f.face[j].checked) nface = f.face[j].value;
+}
+if(f.notuser.checked) nnotuser = '1';
+if(f.username) nusername = f.username.value;
+if(f.pwd) npwd = f.pwd.value;
+
+var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+myajax.sendlang = 'utf-8';
+myajax.AddKeyN('dopost', 'send');
+myajax.AddKeyN('aid', '<?php echo $arcID; ?>');
+myajax.AddKeyN('fid', f.fid.value);
+myajax.AddKeyN('face', nface);
+myajax.AddKeyN('feedbacktype', nfeedbacktype);
+myajax.AddKeyN('validate', nvalidate);
+myajax.AddKeyN('notuser', nnotuser);
+myajax.AddKeyN('username', nusername);
+myajax.AddKeyN('pwd', npwd);
+myajax.AddKeyN('msg', f.msg.value);
+myajax.SendPost2('/plus/feedback_ajaxpp.php');
+f.msg.value = '';
+f.fid.value = 0;
+if(f.validate)
+{
+if($DE('validateimg')) $DE('validateimg').src = "/include/vdimgck.php?"+f.validate.value;
+f.validate.value = '';
+}
+}
+function quoteCommet(fid)
+{
+document.feedback.fid.value = fid;
+}
+LoadCommets(1);
+</script>
+<!-- 评论内容区 End -->
+
+</div>
+<!-- 中间主体 End -->
+
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+
+
+<script type="text/javascript">
+$(".jjdd<?php echo $arcID; ?>").addClass("on");
+var myyuans = $(".jjdd<?php echo $arcID; ?>");
+var jjtop = parseInt($(".jjdd<?php echo $arcID; ?>").offset().top) - 165;
+$(".scroll_cont").scrollTop(jjtop);
+</script>
+
+<script src="<?php echo $cfg_basehost; ?>/js/scrollbar.js" type="text/javascript"></script>
+<script type="text/javascript">
+new CusScrollBar({
+  contentSelector: '.scroll_cont', //滚动内容区
+  barSelector: '.scroll_bar', //滚动条
+  sliderSelector: '.scroll_slider' //滚动滑块
+});
+</script>
+</body>
+</html>

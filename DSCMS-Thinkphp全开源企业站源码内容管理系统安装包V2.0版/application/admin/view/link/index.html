@@ -1,0 +1,59 @@
+{extend name="layout:home" /}
+{block name="container"}
+<div class="layui-tab layui-tab-card">
+    {include file="layout/admin_items" /}
+    <div class="layui-tab-content page-tab-content">
+        <table class="layui-table lay-even">
+            <colgroup>
+                <col width="150">
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>{$Think.lang.link_webname}</th>
+                    <th>{$Think.lang.link_weburl}</th>
+                    <th>{$Think.lang.link_weblogo}</th>
+                    <th>{$Think.lang.link_type}</th>
+                    <th>{$Think.lang.link_info}</th>
+                    <th>{$Think.lang.link_order}</th>
+                    <th>{$Think.lang.link_com_ok}</th>
+                    <th>{$Think.lang.link_show_ok}</th>
+                    <th>{$Think.lang.link_addtime}</th>
+                    <th>{$Think.lang.ip}</th>
+                    <th>{$Think.lang.ds_operation}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {volist name="link_list" id="link"}
+            <tr>
+                <td>{$link.link_webname}</td>
+                <td>{$link.link_weburl}</td>
+                <td><img width="120" height="50" src="{:get_link_img($link.link_weblogo)}" /></td>
+                <td>{if condition="$link.link_type eq 0"}文字{else}图片{/if}</td>
+                <td>{$link.link_info}</td>
+                <td><span title="{:lang('ds_editable')}" ajax_branch='link' datatype="number" fieldid="{$link.link_id}" fieldname="link_order" ds_type="inline_edit" class="editable">{$link.link_order}</span></td>
+                <td>
+                    <a href="javascript:dsLayerConfirm('{:url('link/setlink',['link_type'=>'link_show_ok','link_id'=>$link.link_id])}','{$Think.lang.ds_confirm_update}')">
+                        {if condition="$link.link_show_ok eq 1"}<i class="layui-icon">&#xe605;</i>{else}<i class="layui-icon">&#x1006;</i>{/if}
+                    </a>
+                </td>
+                <td>
+                    <a href="javascript:dsLayerConfirm('{:url('link/setlink',['link_type'=>'link_com_ok','link_id'=>$link.link_id])}','{$Think.lang.ds_confirm_update}')">
+                        {if condition="$link.link_com_ok eq 1"}<i class="layui-icon">&#xe605;</i>{else}<i class="layui-icon">&#x1006;</i>{/if}
+                    </a>
+                </td>
+                <td>{$link.link_addtime|date='Y-m-d H:i:s',###}</td>
+                <td>{$link.ip|default=''}</td>
+                <td>
+                    <a href="{:url('link/edit',['link_id'=>$link.link_id])}" class="layui-btn layui-btn-xs"><i class="layui-icon layui-icon-edit"></i>{$Think.lang.ds_edit}</a>
+                    <a href="javascript:dsLayerConfirm('{:url('link/del',['link_id'=>$link.link_id])}','{$Think.lang.ds_confirm_cancel}')" class="layui-btn layui-btn-danger layui-btn-xs"><i class="layui-icon layui-icon-delete"></i>{$Think.lang.ds_del}</a>
+                </td>
+            </tr>
+            {/volist}
+        </tbody>
+        </table>
+        {$show_page}
+    </div>
+</div>
+<script type="text/javascript" src="{$Think.ADMIN_SITE_ROOT}/js/jquery.edit.js"></script>
+{/block}

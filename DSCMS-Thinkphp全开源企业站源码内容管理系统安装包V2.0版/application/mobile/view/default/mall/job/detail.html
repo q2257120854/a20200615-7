@@ -1,0 +1,21 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+<section class="page_job">
+    <div class="jobview">
+        <h1 class="title">平面设计</h1>
+        <ul class="paralist">
+            <li><span>招聘人数：</span>{$job_info.job_count}</li>
+            <li><span>工作地点：</span>{$job_info.job_place}</li>
+            <li><span>工资待遇</span>{$job_info.job_deal}</li>
+            <li><span>发布日期：</span>{$job_info.job_addtime|date='Y-m-d',###}</li>
+        </ul>
+        <h3 class="ctitle"><span>职位描述</span></h3>
+        <div class="job_editor">
+            <div style="font-family: simsun; margin: 0px; padding: 0px; color: #333333; line-height: 25px; min-height: 16px;">
+                {$job_info.job_content|htmlspecialchars_decode}
+            </div>
+        </div>
+        <div class="info_cv"><a href="{:url('Job/apply')}" target="_self" title="在线应聘" class="button orange">在线应聘</a></div>
+    </div>
+</section>
+{/block}

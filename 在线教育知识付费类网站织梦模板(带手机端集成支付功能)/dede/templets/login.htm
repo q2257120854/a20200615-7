@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+<title>网站后台管理</title>
+<style type="text/css">
+.container{width:600px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,0.1);margin:0 auto;margin-top:150px;}
+.login-top{padding:50px 0 35px;color:#333;font-size:32px;text-align:center;}
+.login-main{padding:0 80px 80px;}
+.login-main .yxwuserid,.login-main .yxwpwd{width:100%;line-height:20px;padding:15px 15px;box-sizing:border-box;margin-bottom:20px;font-size:16px;border-radius:3px;color:#666;border:1px solid #00bca1;}
+.login-btn{color:#fff;background:#00bca1;font-size:18px;width:100%;line-height:50px;cursor:pointer;margin-top:30px;border-radius:3px;}
+
+*{margin:0;padding:0;}
+body{background:#f7f7f7;font-size:14px;color:#333;font-family:"Microsoft Yahei","微软雅黑","MicrosoftJhengHei","华文细黑","Hiragino Sans GB","sans-serif";}
+em{font-style:normal;font-weight:normal;}
+dl,ul,li{list-style:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+input,button{vertical-align:middle;font-size:100%;list-style:none;outline:none;border:0;}
+table{border-collapse:collapse;border-spacing:0;}
+i,em,q{font-style:normal;}
+img{border:0;}
+a{text-decoration:none;color:#333;}
+a:hover{text-decoration:none;color:#00bca1;}
+
+/*头部通用*/
+.passport-header .logo{padding:25px 0 25px;}
+.passport-header .logo-link{width:124px;height:61px;display:block;float:left;}
+.passport-header .logo-link img{display:block;}
+.passport-header .logo-title{float:left;height:34px;line-height:34px;font-size:24px;color:#333;margin-top:15px;padding-left:30px;}
+</style>
+</head>
+<body>
+
+<div id="login-box" class="container">
+<h1 class="login-top">网站后台管理</h1>
+<?php echo $redmsg; ?>
+<div class="login-main">
+<form name="form1" method="post" action="login.php">
+<input type="hidden" name="gotopage" value="<?php if(!empty($gotopage)) echo RemoveXSS($gotopage);?>" />
+<input type="hidden" name="dopost" value="login" />
+<input name='adminstyle' type='hidden' value='newdedecms' />
+<dl>
+<dd><input type="text" name="userid" placeholder="请输入账号" class="yxwuserid" /></dd>
+<dd><input type="password" name="pwd" placeholder="请输入密码" class="yxwpwd" /></dd>
+<?php
+if(preg_match("/6/",$safe_gdopen))
+{
+?>
+
+<?php
+}
+?>
+<button type="submit" name="sm1" class="login-btn" onclick="this.form.submit();">登录账号</button>
+</dl>
+</form>
+<div>&#25042;&#20154;&#28304;&#30721;&#119;&#119;&#119;&#46;&#108;&#97;&#110;&#114;&#101;&#110;&#122;&#104;&#105;&#106;&#105;&#97;&#46;&#99;&#111;&#109;&#32;&#20840;&#31449;&#36164;&#28304;&#50;&#48;&#22359;&#20219;&#24847;&#19979;&#36733;</div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>在线支付 - 订单号：{dede:var.carts.orders_id/}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<link href="/css/v2_index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<style type="text/css">
+.section{margin-top:15px;}
+
+/*在线支付*/
+.btn_mid_grey_alipay{overflow:hidden;padding:20px 0 45px;}
+.btn-grey-weixin{width:200px;float:left;background:#00c901;line-height:44px;font-size:16px;color:#fff;text-align:center;margin-right:20px;}
+.btn-grey-alipay{width:200px;float:left;background:#1e89f2;line-height:44px;font-size:16px;color:#fff;text-align:center;}
+.btn-grey-weixin:hover,.btn-grey-alipay:hover{color:#fff;}
+</style>
+</head>
+<body>
+
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+<?php include(DEDEMEMBER."/templets/left.htm"); ?>
+
+<!-- 右侧功能定位 -->
+<div class="user-right">
+<div class="uc-box uc-main-box">
+<div class="uc-content-box order-list-box">
+
+<div class="box-hd"><h1 class="title">在线支付</h1></div>
+
+<div class="section">
+
+<div class="order-detail">
+<ul>
+
+<li class="clearfix">
+<div class="label">购买账号：</div>
+<div class="content"><?php echo $cfg_ml->M_LoginID; ?></div>
+</li>
+
+<li class="clearfix">
+<div class="label">订单编号：</div>
+<div class="content">{dede:var.carts.orders_id/}</div>
+</li>
+
+<li class="clearfix">
+<div class="label">商品类型：</div>
+<div class="content"><?php echo $ptype?></div>
+</li>
+
+<li class="clearfix">
+<div class="label">商品名称：</div>
+<div class="content"><?php echo $pname?></div>
+</li>
+
+<li class="clearfix">
+<div class="label">订单价格：</div>
+<div class="content"><?php echo $price;?>元</div>
+</li>
+
+</ul>
+</div>
+
+ 
+
+
+<!-- 支付接口 -->
+<div class="btn_mid_grey_alipay">
+<a href="#" class="btn-grey-weixin">微信支付</a>
+<a href="#" class="btn-grey-alipay">支付宝支付</a>
+</div>
+<!-- 支付接口 End -->
+
+
+
+</div>
+
+
+</div>
+</div>
+</div>
+<!-- 右侧功能定位 End -->
+
+</div>
+
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+
+</body>
+</html>

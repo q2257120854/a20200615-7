@@ -1,0 +1,165 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+<script src="{$Think.PLUGINS_SITE_ROOT}/jquery.validate.min.js"></script>
+<div class="page_login clearfix">
+    <div class="w1000">
+        <div class="login_form">
+            <div class="mt">
+                <a href="javascript:void(0)" class="on"><span>账户登录</span><i></i></a>
+                {if $Think.config.sms_login == 1}
+                <a href="javascript:void(0)" ><span>手机登录</span><i></i></a>
+                {/if}
+            </div>
+            <div class="mc">
+                <form id="login_normal_form" method="post" action="{:url('Login/login')}">
+                    <div class="item">
+                        <div class="text-area">
+                            <div class="fa fa-user-o ico"></div>
+                            <input type="text" id="member_name" name="member_name" class="text" placeholder="用户名/手机号" tabindex="1"/>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="text-area">
+                            <div class="fa fa-unlock-alt ico"></div>
+                            <input type="password" id="member_password" name="member_password" class="text" placeholder="密码" tabindex="2"/>
+                        </div>
+                    </div>
+                    {if $Think.config.captcha_status_login == '1'}
+                     <div class="item">
+                        <div class="text-area">
+                            <div class="fa fa-unlock-alt ico"></div>
+                            <input type="text" id="captcha_normal" name="captcha_normal" class="text" style="width:130px;float:left" placeholder="验证码" tabindex="2" maxlength="4"/>
+                            <img src="{:captcha_src()}" style="width:40%;height:38px;" id="change_captcha"/>
+
+                        </div>
+                    </div>
+                    {/if}
+                    <div class="item">
+                        <a href="{:url('Login/forget_password')}">忘记密码?</a>
+                        <a href="{:url('Login/register')}" title="注册">新用户注册</a>
+                    </div>
+                    <div class="item">
+                        <input type="hidden" value="{$Request.param.ref_url}" name="ref_url">
+                        <input type="submit" class="btn login-btn" value="登录"/>
+                    </div>    
+                </form>
+                {if $Think.config.sms_login == 1}
+                <form id="login_mobile_form" method="post" action="{:url('Connectsms/login')}" style="display:none">
+                    <div class="item">
+                        <div class="text-area">
+                            <div class="fa fa-user-o ico"></div>
+                            <input type="text" id="sms_mobile" name="sms_mobile" class="text" placeholder="手机号" tabindex="1"/>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="text-area">
+                            <div class="fa fa-unlock-alt ico"></div>
+                            <input type="password" id="sms_captcha" name="sms_captcha" class="text" placeholder="手机验证码" tabindex="2" style="width:130px;float:left" maxlength="6"/>
+                            <a class="send_code valid" id="btn_sms_captcha" ds_type="2" >获取验证码</a>
+                        </div>
+                    </div>
+                    {if $Think.config.captcha_status_login == '1'}
+                     <div class="item">
+                         <div class="text-area">
+                             <div class="fa fa-unlock-alt ico"></div>
+                             <input type="text" id="captcha_mobile" name="captcha_normal" class="text" style="width:130px;float:left" placeholder="验证码" tabindex="2" maxlength="4"/>
+                             <img src="{:captcha_src()}" style="width:40%;height:38px;" id="change_captcha_mobile"/>
+                         </div>
+                    </div>
+                    {/if}
+                    <div class="item">
+                        <a href="{:url('Login/forget_password')}">忘记密码?</a>
+                        <a href="{:url('Login/register')}" title="注册">新用户注册</a>
+                    </div>
+                    <div class="item">
+                        <input type="hidden" value="{$Request.param.ref_url}" name="ref_url">
+                        <input type="submit" class="btn login-btn" value="登录"/>
+                    </div>    
+                </form>
+                {/if}
+            </div>
+            {if $Think.config.qq_isuse =='1' || $Think.config.sina_isuse =='1' || $Think.config.weixin_isuse =='1'}
+            <div class="partner-login clearfix">
+                <h3>你可以用合作伙伴账号登陆</h3>
+                <p>
+                    {if $Think.config.qq_isuse == '1'}
+                    <a class="login_ico ico_qq" href="{:url('Api/oa_qq')}"></a>
+                    {/if}
+                    {if $Think.config.sina_isuse == '1'}
+                    <a class="login_ico ico_weibo" href="{:url('Api/oa_sina')}"></a>
+                    {/if}
+                    {if $Think.config.weixin_isuse == '1'}
+                    <a class="login_ico ico_weixin" onclick="ajax_form('weixin_form', '微信账号登录', '{:url('Connectwx/index')}', 360);" title="微信账号登录"></a>
+                    {/if}
+                </p>
+            </div>
+            {/if}
+        </div>
+    </div>
+</div>
+{if $Think.config.sms_login == '1'}
+<script type="text/javascript" src="{$Think.HOME_SITE_ROOT}/default/styles/default/js/connect_sms.js"></script>
+{/if}
+<script>
+    $('#change_captcha').click(function () {
+        $(this).attr('src', '{:url("Seccode/makecode")}');
+    });
+    $('#change_captcha_mobile').click(function () {
+        $(this).attr('src', '{:url("Seccode/makecode")}');
+    });
+</script>
+<script>
+$(function () {
+    $(".login_form .mt a").click(function(){
+        var index=$(this).index();
+        $(this).parent().next().find("form").hide().eq(index).show();
+        $(this).addClass("on").siblings().removeClass("on");
+    });
+    
+    $("#login_normal_form").validate({
+        errorPlacement: function (error, element) {
+            var error_td = element.parent('.text-area');
+            error_td.append(error);
+            element.parents('.text-area:first').addClass('error');
+        },
+        success: function (label) {
+            label.parents('.text-area:first').removeClass('error').find('label').remove();
+        },
+        onkeyup: false,
+        rules: {
+            member_name: "required",
+            member_password: "required"
+            {if $Think.config.captcha_status_login == '1'},
+            captcha_normal: {
+                required: true,
+                remote: {
+                    url: "{:url('Seccode/check',['reset'=>'false'])}",
+                    type: 'get',
+                    data: {
+                        captcha: function () {
+                            return $('#captcha_normal').val();
+                        }
+                    },
+                    complete: function (data) {
+                        if (data.responseText == 'false') {
+                            document.getElementById('codeimage').src = "{:url('Seccode/makecode')}";
+                        }
+                    }
+                }
+            }
+            {/if}
+        },
+        messages: {
+            member_name: "<i class='fa fa-exclamation-circle'></i>请输入已注册的用户名或手机号",
+            member_password: "<i class='fa fa-exclamation-circle'></i>{$Think.lang.login_index_input_password}"
+            {if $Think.config.captcha_status_login == '1'},
+            captcha_normal: {
+                required: '<i class="fa fa-exclamation-circle" title="{$Think.lang.login_index_input_checkcode}"></i>{$Think.lang.login_index_input_checkcode}',
+                remote: '<i class="fa fa-exclamation-circle" title="{$Think.lang.login_index_wrong_checkcode}"></i>{$Think.lang.login_index_wrong_checkcode}'
+            }
+            {/if}
+        }
+    });
+});
+</script>
+{/block}

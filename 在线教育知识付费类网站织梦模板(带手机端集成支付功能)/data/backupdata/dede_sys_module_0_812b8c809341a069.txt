@@ -1,0 +1,4 @@
+INSERT INTO `dede_sys_module` VALUES('2','1f35620fb42d452fa2bdc1dee1690f92','文件管理器','','','0','');
+INSERT INTO `dede_sys_module` VALUES('20','edcda9b0914571e46b3d519502acddc4','织梦安全助手','','','0','');
+INSERT INTO `dede_sys_module` VALUES('21','272128edeb662142ecfe0504f4901737','伪静态助手','','','0','');
+INSERT INTO `dede_sys_module` VALUES('14','172b18c1f90717724c925188ee6c661f','点赞小插件','','','0','');

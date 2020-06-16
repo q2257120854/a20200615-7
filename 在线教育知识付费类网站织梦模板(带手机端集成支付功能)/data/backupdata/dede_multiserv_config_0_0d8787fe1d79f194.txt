@@ -1,0 +1,1 @@
+INSERT INTO `dede_multiserv_config` VALUES('0','http://img.dedecms.com','','');

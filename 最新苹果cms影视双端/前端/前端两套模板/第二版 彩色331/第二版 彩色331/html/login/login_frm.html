@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<!--资源来自三岁半资源网:https://sansuib.com-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+    <link rel="stylesheet" href="../../css/font-awesome.css">
+    <link rel="stylesheet" href="./css/a.css">
+</head>
+<body>
+    <section class="aui-content aui-margin-t-15">
+       <div class="welcome">
+           <h1>登录</h1>
+        </div>
+       <div class="user_name">
+           <p style="color: #14b7ff;">手机号 / 账号</p>
+           <input style="border: none; border-bottom: 1px solid #14b7ff" id="user_name" name="user_name" type="text">
+       </div>
+       <div class="password">
+            <p style="color: #14b7ff;">密码</p>
+            
+            <input style="border: none;border-bottom: 1px solid #14b7ff" type="password" id="user_pwd"  name="user_pwd">
+            <i id="eye" class="icon-eye-open"></i>
+            <p style="color: #14b7ff;float: right;" onclick="pwd()">忘记密码？</p>
+       </div>
+       <div></div>
+       <div></div>
+    </section>
+    <section class="aui-content-padded">
+        <div class="aui-btn aui-btn-block aui-btn-info aui-btn-sm" tapmode onclick="loginTo()">登录</div>
+    </section>
+    <section class="aui-content-padded login-third">
+        <p class="aui-font-size-12 aui-text-center aui-margin-b-15">第三方账号登录</p>
+        <div class="aui-grid" style="background: none;">
+            <img src="../../image/share/qq.png" alt="" style="position: absolute;left: 15%;">
+            <img src="../../image/share/wx.png" alt="" style="position: absolute;right: 15%;">
+        </div>
+    </section>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.js"></script>
+<script src="../public/public.js"></script>
+<script src="./js/a.js"></script>
+</html>

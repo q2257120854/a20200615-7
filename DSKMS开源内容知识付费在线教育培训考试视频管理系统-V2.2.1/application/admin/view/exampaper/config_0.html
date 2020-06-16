@@ -1,0 +1,406 @@
+{include file="public/header" /}
+
+<script src="{$Think.PLUGINS_SITE_ROOT}/pagination.js"></script>
+<link rel="stylesheet" href="{$Think.PLUGINS_SITE_ROOT}/jquery-validation-engine/css/validationEngine.jquery.css" />
+<script src="{$Think.PLUGINS_SITE_ROOT}/jquery-validation-engine/js/jquery.validationEngine.js"></script>
+<script src="{$Think.PLUGINS_SITE_ROOT}/jquery-validation-engine/js/languages/jquery.validationEngine-zh_CN.js"></script>
+<div class="page">
+    <div class="fixed-bar">
+        <div class="item-title">
+            <div class="subject">
+                <h3>{$Think.lang.ds_exampaper}</h3>
+                <h5></h5>
+            </div>
+            {include file="public/admin_items" /}
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+
+        var exampaper_count = "{$exampaper.exampaper_count|default='0'}";
+        var pager = null;
+        var var_sectionId = 1;
+
+        $(document).ready(function () {
+            tmPaper.pageInit();
+            pager = new Pagination("listnav");
+            tmPaper.searchQuestions(1);
+        });
+
+        //分页回调
+        function pagination_data() {
+            tmPaper.searchQuestions(pager.getIndexPage());
+        }
+
+        var tmPaper = {
+            uiInit: function () {
+                $(".tm_adm_questionlist").unbind("sortstop");
+
+                $(".tm_adm_questionlist").sortable({connectWith: ".tm_adm_questionlist"}).disableSelection();
+                $(".tm_adm_questionlist").bind('sortstop', function (event, ui) {
+                    //===================检查是否存在--开始===================
+                    //当前选中的qid
+                    var _current_qid = ui["item"].find("input[name^='exambank_id_']").val();
+//                    alert(_current_qid);
+                    //判断是否存在VALUE是这个QID的控件对象
+                    var _exsit_checker = $("#paper_sections").find("input[name*='exambank_id'][value='" + _current_qid + "']");
+                    if (_exsit_checker.length > 1) {
+                        alert("目标试题已经存在，请不要重复添加");
+                        ui["item"].remove();
+                        return;
+                    }
+                    //===================检查是否存在--结束===================
+
+
+                    //当前拖动的对象的父对象
+                    var questionUL = ui["item"].parent();
+                    //获取父对象的章节ID
+                    var section_id = questionUL.data("sectionid");
+                    //alert(section_id);
+
+                    //批量对下级空间更改命名
+                    questionUL.find("input[name^='exambank_score_']").attr("name", "args["+section_id+"][exambank_score][]");
+                    questionUL.find("input[name^='exambank_id_']").attr("name", "args["+section_id+"][exambank_id][]");
+                });
+                $(".tm_adm_paper_body_section").sortable({connectWith: ".tm_adm_paper_body_section"}).disableSelection();
+
+                //绑定计算分数的方法
+                $(".tm_qscore").unbind("change");
+                $(".tm_qscore").bind("change", function () {
+                    tmPaper.countScore();
+                });
+
+            },
+
+            addSection: function () {
+                var_sectionId++;
+                var html = [];
+                html.push('<li>');
+                html.push('	<dl class="tm_adm_paper_body_section_dl">');
+                html.push('  <dt>');
+                html.push('    <span class="section_title">');
+                html.push('		 章节名称 : ');
+                html.push('		 <input type="text" name="args['+var_sectionId+'][section_name]" class="validate[required] tm_txt" size="50" />');
+                html.push('	   </span>');
+                html.push('    <span class="section_tools">');
+                html.push('      <a href="javascript:void(0);" onclick="javascript:tmPaper.toggleSection(this);" class="exam_iconfont_max iconfont tm_position_adjustment"></a>');
+                html.push('      <a href="javascript:void(0);" onclick="javascript:tmPaper.removeSection(this);" class="exam_iconfont_del iconfont tm_position_adjustment"></a>');
+                html.push('    </span>');
+                html.push('  </dt>');
+                html.push('  <dt>');
+                html.push('		章节描述 : ');
+                html.push('		<input type="text" class="validate[required] tm_txt" size="50" name="args['+var_sectionId+'][section_remark]" />');
+                html.push('  </dt>');
+                html.push('  <dd>');
+                html.push('     <ul class="tm_adm_questionlist" data-sectionid="' + var_sectionId + '"></ul>');
+                html.push('  </dd>');
+                html.push(' </dl>');
+                html.push('</li>');
+                $("#paper_sections").append(html.join(""));
+                tmPaper.uiInit();
+            },
+
+            toggleSection: function (obj) {
+                var pobj = $(obj).parent().parent().parent();
+                var current_ico = $(obj).attr("class");
+
+                if (pobj) {
+                    if (current_ico.indexOf("exam_iconfont_max") > -1) {
+                        $(obj).removeClass("exam_iconfont_max");
+                        $(obj).addClass("exam_iconfont_min");
+                        pobj.children("dd").slideUp();
+                    } else {
+                        $(obj).removeClass("exam_iconfont_min");
+                        $(obj).addClass("exam_iconfont_max");
+                        pobj.children("dd").slideDown();
+                    }
+                }
+            },
+
+            removeSection: function (obj) {
+                var pobj = $(obj).parent().parent().parent().parent();
+                if (pobj.is("li")) {
+                    pobj.remove();
+                } else {
+                    pobj.parent().remove();
+                }
+                tmPaper.countScore();
+            },
+
+            expandSection: function () {
+                $(".tm_adm_paper_body_section_dl dd ").slideDown();
+                $(".exam_iconfont_min").removeClass("exam_iconfont_min").addClass("exam_iconfont_max");
+            },
+
+            shrinkSection: function () {
+                $(".tm_adm_paper_body_section_dl dd ").slideUp();
+                $(".exam_iconfont_max").removeClass("exam_iconfont_max").addClass("exam_iconfont_min");
+            },
+
+            countScore: function () {
+                var totalscore = 0, passscore = 0;
+                $(".tm_adm_paper_body_section .tm_qscore").each(function (i, o) {
+                    var score = parseInt($(this).val());
+                    totalscore += score;
+
+                });
+                passscore = Math.ceil(0.6 * totalscore);
+                $("input[name='exampaper_score']").val(totalscore);
+                $("input[name='exampaper_passscore']").val(passscore);
+            },
+
+            removeItem: function (obj) {
+                var pobj = $(obj).parent().parent().parent().parent();
+                if (pobj.is("li")) {
+                    pobj.remove();
+                } else {
+                    pobj.parent().remove();
+                }
+                tmPaper.countScore();
+            },
+
+            searchQuestions: function (pageid) {
+                var examtype_id = $("select[name='examtype_id']").val();
+                var examclass_id = $("select[name='examclass_id']").val();
+                var exambank_level = $("select[name='exambank_level']").val();
+                var exambank_question = $("input[name='exambank_question']").val();
+                if ("关键词" == exambank_question || "Keywords" == exambank_question) {
+                    exambank_question = "";
+                }
+                $("#question_list").empty();
+                var surl = "{:url('exambank/list_json')}";
+                $.getJSON(surl, {page: pageid, examtype_id: examtype_id, examclass_id: examclass_id, exambank_level: exambank_level, exambank_question: exambank_question}, function (data) {
+                    if (data) {
+                        $.each(data["result"]["data"], function (idx, itm) {
+                            var content = itm["exambank_question"];
+                            if (content && content.length > 32)
+                                content = content.substring(0, 32) + "..";
+
+                            var arrline = new Array();
+                            arrline.push('<li><table class="question_item">');
+                            arrline.push('<tr>');
+                            arrline.push('<td class="td1">');
+                            arrline.push('	分值 : ');
+                            arrline.push('	<input type="text" name="exambank_score_" class="validate[required,custom[integer],min[1]] tm_qscore" value="0" size="1" maxlength="2" />');
+                            arrline.push('</td>');
+                            arrline.push('<td class="td2">');
+                            arrline.push(content);
+                            arrline.push('<input type="hidden" name="exambank_id_" value="' + itm["exambank_id"] + '" />');
+                            arrline.push('</td>');
+                            arrline.push('<td class="td3"><a href="javascript:void(0);" onclick="javascript:tm_QuestionDetail(\'' + itm["exambank_id"] + '\');" class="iconfont" title="预览">&#xe70b;</a></td>');
+                            arrline.push('<td class="td3"><a href="javascript:void(0);" onclick="javascript:tmPaper.removeItem(this);" class="exam_iconfont_del iconfont" title="删除"></a></td>');
+                            arrline.push('</tr>');
+                            arrline.push('</table></li>');
+                            $("#question_list").append(arrline.join(""));
+                        });
+                        tmPaper.uiInit();
+
+                        var totalrows = parseInt(data["result"]["total"]);
+                        var perpage = parseInt(data["result"]["per_page"]);
+                        var current_page = parseInt(data["result"]["current_page"]);
+                        var total_pages = parseInt(totalrows/perpage)+1;
+
+                        try {
+                            pager.setStep(1);
+                            pager.setTotalNum(totalrows);
+                            pager.setMaxNum(perpage);
+                            pager.setIndexPage(current_page);
+                            pager.initPage("pager");
+                        } catch (e) {
+                            alert(e.message);
+                            alert(e.description);
+                        }
+
+                    }
+                });
+            },
+
+            pageInit: function () {
+
+            },
+
+            submit: function () {
+                if (exampaper_count && eval(exampaper_count) > 0) {
+                    if (!window.confirm('该试卷已经有考生答卷，若进行修改可能影响考生成绩，如无特殊原因，不建议进行修改。请确认是否继续修改？')) {
+                        return false;
+                    }
+                }
+                var formcheck = $("#form_paper_detail").validationEngine('validate');
+                if (formcheck) {
+                    $("#form_paper_detail").submit();
+                }
+            }
+        };
+
+        function tm_QuestionDetail(qid) {
+            layer.open({
+                type: 2,
+                title: '试题预览',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['800px', '80%'],
+                content: "{:url('exambank/detail')}?exambank_id=" + qid
+            });
+        }
+
+
+    </script>
+
+
+
+    <table border="0" width="100%" cellpadding="0">
+        <tr>
+            <!-- left -->
+            <td valign="top">
+                <form action="" method="post" id="form_paper_detail">
+                    <div class="tm_adm_paper">
+                        <div class="tm_adm_paper_head">
+                            <h1>{$exampaper.exampaper_name}</h1>
+                            <h2 style="background:#ddd; padding:5px 0;">
+                                <b>普通试卷</b> &nbsp;
+                                考生试卷相同
+                            </h2>
+                            <h2>
+                                <b>考试时长</b> : {$exampaper.exampaper_time} 分钟
+                            </h2>
+                            <h3>
+                                <b>卷面总分</b> : 
+                                <input type="text" class="tm_txt" name="exampaper_score" readonly style="background:#eee" value="{$exampaper.exampaper_score}"/> 
+                                &nbsp;&nbsp;
+                                <b>及格分数</b> : 
+                                <input type="text" class="validate[required,custom[integer],min[1]] tm_txt" name="exampaper_passscore" value="{$exampaper.exampaper_passscore}" /> 
+                            </h3>
+                        </div>
+                        <div class="tm_adm_paper_tool">
+                            <button class="btn btn-small" type="button" onclick="tmPaper.addSection()">增加章节</button>
+                            <button class="btn btn-small" type="button" onclick="tmPaper.expandSection()">全部展开</button>
+                            <button class="btn btn-small" type="button" onclick="tmPaper.shrinkSection()">全部收缩</button>
+                            <button class="btn btn-small" type="button" onclick="tmPaper.countScore()">计算总分</button>
+                        </div>
+                        <div class="tm_adm_paper_body">
+                            <script>
+                                var_sectionId = 0;
+                            </script>
+                            <ul class="tm_adm_paper_body_section" id="paper_sections">
+                                {foreach name="exampaper.exampaper_setting" item="exampaper_setting_value" key="exampaper_setting_key"}
+                                <li>
+                                    <dl class="tm_adm_paper_body_section_dl">
+                                        <dt>    
+                                            <span class="section_title">
+                                                章节名称 :<input type="text" name="args[{$exampaper_setting_key}][section_name]" class="validate[required] tm_txt" size="50" value="{$exampaper_setting_value.section_name}">
+                                            </span>
+                                            <span class="section_tools">
+                                                <a href="javascript:void(0);" onclick="javascript:tmPaper.toggleSection(this);" class="exam_iconfont_max iconfont tm_position_adjustment"></a>
+                                                <a href="javascript:void(0);" onclick="javascript:tmPaper.removeSection(this);" class="exam_iconfont_del iconfont tm_position_adjustment"></a>    
+                                            </span>  
+                                        </dt>  
+                                        <dt>
+                                            章节描述:<input type="text" class="validate[required] tm_txt" size="50" name="args[{$exampaper_setting_key}][section_remark]" value="{$exampaper_setting_value.section_remark}">
+                                        </dt>
+                                        <dd>
+                                            <ul class="tm_adm_questionlist ui-sortable" data-sectionid="{$exampaper_setting_key}">
+                                                {notempty name="exampaper_setting_value.items"}
+                                                {foreach name="exampaper_setting_value.items" item="item_value" key="item_key"}
+                                                <li class="ui-sortable-handle">
+                                                    <table class="question_item">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="td1">分值 :
+                                                                    <input type="text" name="args[{$exampaper_setting_key}][exambank_score][]" class="validate[required,custom[integer],min[1]] tm_qscore" value="{$item_value.exambank_score}" size="1" maxlength="2">
+                                                                </td>
+                                                                <td class="td2">{$item_value.exambank_question|htmlspecialchars_decode|strip_tags}
+                                                                    <input type="hidden" name="args[{$exampaper_setting_key}][exambank_id][]" value="{$item_value.exambank_id}">
+                                                                </td>
+                                                                <td class="td3"><a href="javascript:void(0);" onclick="javascript:tm_QuestionDetail('{$item_value.exambank_id}');" class="iconfont" title="预览">&#xe70b;</a></td>
+                                                                <td class="td3"><a href="javascript:void(0);" onclick="javascript:tmPaper.removeItem(this);" class="exam_iconfont_del iconfont" title="删除"></a></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </li>
+                                                {/foreach}
+                                                {else /}
+                                                {/notempty}
+                                            </ul>
+                                        </dd> 
+                                    </dl>
+                                </li>
+                                <script>
+                                    var_sectionId++;
+                                </script>
+                                {/foreach}
+                            </ul>
+                        </div>
+                        <!-- /tm_adm_paper_body -->
+                        <div class="tm_adm_paper_foot">
+                            <button class="btn" type="button" onclick="javascript:tmPaper.submit()">提交</button>
+                            <button class="btn btn-default" type="button" onclick="javascript:history.go(-1);">取消</button>
+                        </div>
+                    </div>
+                </form>
+            </td><!-- /left -->
+
+            <td width="10">&nbsp;</td>
+            <!--  right-->
+            <td width="500" valign="top">
+                <div class="tm_question_pannel">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" cellspacing="0">
+                        <tr>
+                            <th>从题库中筛选试题加入到当前试卷</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="examtype_id" style="width:90px">
+                                    <option value="">试题类型</option>
+                                    {foreach name="examtype_list" item="examtype_item" key="examtype_key"}
+                                    <option value="{$examtype_key}">{$examtype_item}</option>
+                                    {/foreach}
+                                </select>
+                                <select name="examclass_id" style="width:100px">
+                                    <option value="">所属题库..</option>
+                                    {foreach name="examclass_list" item="examclass"}
+                                    <option value="{$examclass.examclass_id}">{if $examclass.examclass_parent_id > 0}&nbsp&nbsp{/if}{$examclass.examclass_name}</option>
+                                    {/foreach}
+                                </select>
+                                <select name="exambank_level" style="width:90px">
+                                    <option value="" selected>试题难度</option>
+                                    {foreach name="exambank_level_list" item="exambank_level_item" key="exambank_level_key"}
+                                    <option value="{$exambank_level_key}">{$exambank_level_item}</option>
+                                    {/foreach}
+                                </select>
+                                <input type="text" class="tm_txt" name="exambank_question" size="20" style="width:80px" value='关键词' />
+                                <input type="button" onclick="tmPaper.searchQuestions(1)" value="搜索" class="btn" style="vertical-align:middle" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <!-- list -->
+                                <ul class="tm_adm_questionlist ui-sortable" id="question_list">
+                                </ul>
+                                <!-- list -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center"><div id="listnav"></div></td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- /tm_question_pannel -->
+            </td>
+            <!--  /right-->
+        </tr>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

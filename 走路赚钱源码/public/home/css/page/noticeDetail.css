@@ -1,0 +1,48 @@
+
+.notice-header {
+	padding: 10px 4px;
+}
+
+.mui-bar-nav {
+	padding-top: 20px;
+	height: 64px;
+}
+
+.notice-header .tit {
+	font-size: .3rem;
+	font-weight: bold;
+	color: #212C68;
+}
+
+.notice-header .time {
+	font-size: .26rem;
+	color: #8E8E93;
+}
+
+.mui-bar-nav.mui-bar .mui-icon.ico-close {
+	padding-right: 22px;
+}
+
+.notice-wraper {height: 100%;}
+
+.mui-content>.mui-card {
+	position: relative;
+	margin: 20px 10px 20px;
+	padding: .1rem .2rem;
+	background: rgba(255,255,255,0.96);
+	box-shadow: 0 2px 14px 0 rgba(39,52,125,0.05);
+	border-radius: 13px;
+}
+
+
+
+.mui-content>.mui-card:first-child.notice-detail {
+	margin: 40px 10px 20px;
+}
+
+.notice-content {
+	color: rgba(33,44,103,0.29);
+	word-break:break-all;
+	white-space:pre-warp;
+	word-wrapL:break-word;	
+}

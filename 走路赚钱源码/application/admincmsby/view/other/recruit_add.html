@@ -1,0 +1,137 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/lang/zh-cn/zh-cn.js"></script>
+    <style type="text/css">
+        div#content{
+			text-align: right;
+			margin-left:120px; 	
+			width:80%;
+        }
+		.textbox_640{
+			width:640px;
+		}
+		.ulColumn2{
+			margin-bottom:50px;
+		}
+		#edui1_imagescale_cover{
+			position:static !important;
+		}
+		#edui1_imagescale{
+			display:none !important;
+		}
+    </style>
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">添加人才招聘</h2>
+      </div>
+     <section>
+      <ul class="ulColumn2">
+	<!--   <form enctype="multipart/form-data" id="uploadForm"> -->
+
+       <li>
+        <span class="item_name" style="width:120px;">标题：</span>
+        <input type="text" class="textbox textbox_295" name="title" value="" placeholder="标题..."/>
+        <span class="errorTips">一般不超过80个字符</span>
+       </li>
+
+       <li>
+        <span class="item_name texlong" style="width:120px;">内容：</span>
+       <script id="content" type="text/plain" style="height:500px; margin-top: 0px;"></script>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" id="submit" class="link_btn" value="确定"/>
+       </li>
+	  <!--  </form> -->
+      </ul>
+     </section>
+	 
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+//建立一個可存取到該file的url
+function getObjectURL(file) {
+	var url = null ;
+	if (window.createObjectURL!=undefined) { // basic
+		url = window.createObjectURL(file) ;
+	} else if (window.URL!=undefined) { // mozilla(firefox)
+		url = window.URL.createObjectURL(file) ;
+	} else if (window.webkitURL!=undefined) { // webkit or chrome
+		url = window.webkitURL.createObjectURL(file) ;
+	}
+	return url ;
+}
+</script>
+<script>
+var ue = UE.getEditor('content');
+$(document).ready(function() {
+$(".uploadImg").on("change",function(){
+	//获取图片的路径，该路径不是图片在本地的路径
+	var objUrl = getObjectURL($('input[name="logo"]')[0].files[0]) ; 
+	if (objUrl) {
+		//将图片路径存入src中，显示出图片
+		$("#logo").attr("src", objUrl) ; 
+	}
+});
+
+	$('#submit').click(function(event){
+		
+		var title = $('input[name="title"]').val();	
+		var content = UE.getEditor('content').getContent();		
+		   
+        var formData = new FormData(); 
+		//加入对象
+		if(title){
+			formData.append('title',title);  
+		}else{
+			myAlert('标题不能为空');
+		}
+		if(content){
+			formData.append('content',content);   
+		}else{
+			myAlert('内容不能为空');
+		}
+
+		formData.append('op','recruit/add');
+			   
+		console.log(formData.get("op"));
+		
+		$.ajax({
+			url:"{:url('other/recruit_add_do')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			processData: false,//用于对data参数进行序列化处理 这里必须false
+            contentType: false, //必须
+			data:formData,
+			success: function(data) {
+				console.log(data);
+				if (data.s=='ok') {
+					myAlert('新增成功');
+					setTimeout(function(){
+						//页面刷新  
+						location.href= "{:url('other/recruit')}";
+					},1000);
+					
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+	
+});
+</script>
+{/block}	

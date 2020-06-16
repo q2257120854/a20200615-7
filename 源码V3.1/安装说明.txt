@@ -1,0 +1,14 @@
+
+PHP5.6以上版本（如还有不明白的可以加我QQ问我 41122836如不在可以自己加群交流讨论 258847429）
+
+需要开启伪静态 伪静态规则在根目录
+伪静态规则
+<IfModule mod_rewrite.c>
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php  
+</IfModule>

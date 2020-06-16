@@ -1,0 +1,53 @@
+{include file="public/header" /}
+
+
+
+<div class="page">
+    <div class="fixed-bar">
+        <div class="item-title">
+            <div class="subject">
+                <h3>{$Think.lang.ds_exampaper}</h3>
+                <h5></h5>
+            </div>
+            {include file="public/admin_items" /}
+        </div>
+    </div>
+    
+    
+    <table class="ds-default-table">
+        <thead>
+            <tr>
+                <th>{$Think.lang.ds_member_name}</th>
+                <th>{$Think.lang.exampaperlog_begintime}</th>
+                <th>{$Think.lang.exampaperlog_endtime}</th>
+                <th>{$Think.lang.exampaperlog_score}</th>
+                <th>{$Think.lang.exampaperlog_state}</th>
+                <th>{$Think.lang.exampaperlog_ip}</th>
+                <th>{$Think.lang.ds_handle}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {notempty name="exampaperlog_list"}
+            {foreach name="exampaperlog_list" item="exampaperlog"}
+            <tr>
+                <td>{$exampaperlog.member_name}</td>
+                <td>{$exampaperlog.exampaperlog_begintime|date='Y-m-d H:i:s',###}</td>
+                <td>{$exampaperlog.exampaperlog_endtime|date='Y-m-d H:i:s',###}</td>
+                <td>{$exampaperlog.exampaperlog_score}</td>
+                <td>{if $exampaperlog.exampaperlog_state eq '0'}未交卷{elseif $exampaperlog.exampaperlog_state eq '1'}待批改{elseif $exampaperlog.exampaperlog_state eq '2'}已批改{/if}</td>
+                <td>{$exampaperlog.exampaperlog_ip}</td>
+                <td>
+                    <a href="javascript:dsLayerOpen('{:url('Exampaper/exampaperlog_check',['exampaperlog_id'=>$exampaperlog.exampaperlog_id])}','{$Think.lang.ds_edit}','1200px','600px')" class="dsui-btn-edit"><i class="iconfont"></i>批阅试卷</a>
+                    <a href="javascript:dsLayerConfirm('{:url('Exampaper/exampaperlog_drop',['exampaperlog_id'=>$exampaperlog.exampaperlog_id])}','{$Think.lang.ds_ensure_del}')"  class="dsui-btn-del"><i class="iconfont"></i>{$Think.lang.ds_del}</a>
+                </td>
+            </tr>
+            {/foreach}
+            {else /}
+            <tr class="no_data">
+                <td colspan="10">{$Think.lang.ds_no_record}</td>
+            </tr>
+            {/notempty}
+        </tbody>
+    </table>
+    {$show_page}
+</div>

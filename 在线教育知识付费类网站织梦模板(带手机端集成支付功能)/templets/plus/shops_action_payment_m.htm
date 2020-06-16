@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>确认付款 - 订单号:{dede:var.carts.orders_id/} - {dede:global.cfg_webname/}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="apple-touch-icon-precomposed" href="http://m.duoweizi.net/images/57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://m.duoweizi.net/images/72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://m.duoweizi.net/images/144x144.png" />
+<link href="http://m.duoweizi.net/m-css/m-index.css" rel="stylesheet" type="text/css">
+<link href="http://m.duoweizi.net/m-css/m-cart.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://www.duoweizi.net/js/jquery.js"></script>
+<script type="text/javascript" src="/m-js/common_new.js"></script>
+<script type="text/javascript" src="/m-js/fastclick.min.js"></script>
+<!--<script type="text/javascript" src="/m-js/lazyload.min.js"></script>-->
+<script src="/m-js/header.mini.js"></script>
+<script type="text/javascript" src="/m-js/mall-top-bar2.js"></script>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="gd_topbar_bbs">
+<h1>确认付款</h1>
+<a href="http://m.duoweizi.net/car.php" class="back"></a>
+<a href="http://m.duoweizi.net/member/" class="tjdd-guanbi"></a>
+</div>
+<!-- TOP End -->
+
+<div class="wrapper_doc_vip">
+
+<!-- 商品订单信息 -->
+<div class="gd_info">
+<p class="des-m">订单编号：<span style="color:#ff6700;">{dede:var.carts.orders_id/}</span></p>
+<p class="des-m">商品价格：{dede:var.carts.price_count/}元</p>
+<p class="des-m">商品总数：{dede:var.carts.cart_count/}件</p>
+<p class="des-m">商品运费：0.00元</p>
+<p class="des-m">支付方式：{dede:var.pay_way/}</p>
+</div>
+<!-- 商品订单信息 End -->
+
+<!-- 收货地址 -->
+<div class="qrdd_addressw">
+<a href="javascript:void(0)" class="addr_btn">
+<img src="../m-images/20161012132407_977.png" class="addr_barimg">
+<div class="qrdd_addressshow">
+<p>收货人：<?php echo $postname; ?></p>
+<p><span class="addr">收货地址：<?php echo $address; ?></span></p>
+<span class="tel"><?php echo $tel; ?></span>
+</div>
+<img src="../m-images/20161012132407_977.png" class="addr_barimg">
+</a>
+</div>
+<!-- 收货地址 End -->
+
+<!-- 在线支付 -->
+<div class="cart_bottom_c">{dede:var.button/}</div>
+<!-- 在线支付 End -->
+
+</div>
+</body>
+</html>

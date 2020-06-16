@@ -1,0 +1,3340 @@
+[ 2019-11-07T16:21:15+08:00 ] 111.67.206.59 58.16.79.178 GET /Index.php
+[ log ] leetao.cn/Index.php [运行时间：0.129044s][吞吐率：7.75req/s] [内存消耗：4,391.66kb] [文件加载：67]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => '__guid=244967448.4253821219560671000.1566724535682.0437; UM_distinctid=16d0612431d2d9-08c6a792dbd479-3c604504-1fa400-16d0612431e7d9; BJYADMIN=dvtt90pl15kvig4pandj6ms0p0; 304d___session=0f53L4h64R9aEtRiS6p%2FijJaKfX1hFvH3HSYwQ23SubR%2FYRxb4eB3HXjvlcm25eHzilRBOc3mE81oikDjUM%2FSWqUG1340fETti88YGvWKrY6QQbauwJTNYIAihTptZIpI%2BrHpZpjJtJXi94Qyw; action=cloud; PHPSESSID=0sfvojl47hchtco9eomgc7vse2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001362s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.003428s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.001553s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.002825s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000697s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:22:21+08:00 ] 111.67.206.59 58.16.79.178 GET /
+[ log ] leetao.cn/ [运行时间：0.096797s][吞吐率：10.33req/s] [内存消耗：3,454.07kb] [文件加载：60]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => '__guid=244967448.4253821219560671000.1566724535682.0437; UM_distinctid=16d0612431d2d9-08c6a792dbd479-3c604504-1fa400-16d0612431e7d9; BJYADMIN=dvtt90pl15kvig4pandj6ms0p0; 304d___session=0f53L4h64R9aEtRiS6p%2FijJaKfX1hFvH3HSYwQ23SubR%2FYRxb4eB3HXjvlcm25eHzilRBOc3mE81oikDjUM%2FSWqUG1340fETti88YGvWKrY6QQbauwJTNYIAihTptZIpI%2BrHpZpjJtJXi94Qyw; action=cloud; PHPSESSID=0sfvojl47hchtco9eomgc7vse2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:22:21+08:00 ] 111.67.206.59 58.16.79.178 GET /login
+[ log ] leetao.cn/login [运行时间：0.057337s][吞吐率：17.44req/s] [内存消耗：2,763.83kb] [文件加载：53]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => '__guid=244967448.4253821219560671000.1566724535682.0437; UM_distinctid=16d0612431d2d9-08c6a792dbd479-3c604504-1fa400-16d0612431e7d9; BJYADMIN=dvtt90pl15kvig4pandj6ms0p0; 304d___session=0f53L4h64R9aEtRiS6p%2FijJaKfX1hFvH3HSYwQ23SubR%2FYRxb4eB3HXjvlcm25eHzilRBOc3mE81oikDjUM%2FSWqUG1340fETti88YGvWKrY6QQbauwJTNYIAihTptZIpI%2BrHpZpjJtJXi94Qyw; action=cloud; PHPSESSID=0sfvojl47hchtco9eomgc7vse2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ /www/wwwroot/leetao.cn/application/index/controller/Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/login/login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:22:23+08:00 ] 111.67.206.59 58.16.79.178 GET /login
+[ log ] leetao.cn/login [运行时间：0.087483s][吞吐率：11.43req/s] [内存消耗：2,570.52kb] [文件加载：51]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => '__guid=244967448.4253821219560671000.1566724535682.0437; UM_distinctid=16d0612431d2d9-08c6a792dbd479-3c604504-1fa400-16d0612431e7d9; BJYADMIN=dvtt90pl15kvig4pandj6ms0p0; 304d___session=0f53L4h64R9aEtRiS6p%2FijJaKfX1hFvH3HSYwQ23SubR%2FYRxb4eB3HXjvlcm25eHzilRBOc3mE81oikDjUM%2FSWqUG1340fETti88YGvWKrY6QQbauwJTNYIAihTptZIpI%2BrHpZpjJtJXi94Qyw; action=cloud; PHPSESSID=0sfvojl47hchtco9eomgc7vse2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ /www/wwwroot/leetao.cn/application/index/controller/Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/login/login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:24:12+08:00 ] 111.67.206.59 114.135.213.166 GET /
+[ log ] leetao.cn/ [运行时间：0.112571s][吞吐率：8.88req/s] [内存消耗：4,392.20kb] [文件加载：67]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKyK5dxqGK1KraoRO4k6Sy/l',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000598s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.002306s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000529s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.003986s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000667s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:24:12+08:00 ] 111.67.206.59 114.135.213.166 GET /login
+[ log ] leetao.cn/login [运行时间：0.105369s][吞吐率：9.49req/s] [内存消耗：2,571.30kb] [文件加载：51]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKyK5dxqGK1KraoRO4k6Sy/l',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ /www/wwwroot/leetao.cn/application/index/controller/Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/login/login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:24:30+08:00 ] 111.67.206.59 114.135.213.166 POST /userland.html
+[ log ] leetao.cn/userland.html [运行时间：0.107079s][吞吐率：9.34req/s] [内存消耗：4,333.21kb] [文件加载：66]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login_do_cmm',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'accept' => 'application/json',
+  'origin' => 'http://leetao.cn',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'referer' => 'http://leetao.cn/login',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'content-length' => '36',
+)
+[ info ] [ PARAM ] array (
+  'username' => '14714714712',
+  'password' => '123456',
+)
+[ info ] [ RUN ] app\index\controller\Login->login_do_cmm[ /www/wwwroot/leetao.cn/application/index/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001020s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.002058s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000463s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002322s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`myphone`,`money_wallet`,`fry_data`,`refereeid`,`login_ip`,`logintime`,`status`,`rank`,`last_ip`,`logincount`,`forepart_money`,`forepart_time` FROM `cmm_users` WHERE  `account` = '14714714712'  AND `password` = 'f122db007ed655921f98184e4302bba84990ff68' LIMIT 1 [ RunTime:0.002801s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `login_ip`='114.135.213.166',`logintime`=1573115070,`last_ip`='112.236.147.39'  WHERE  (  id = 4018 ) [ RunTime:0.000872s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `logincount`=logincount+1  WHERE  (  id = 4018 ) [ RunTime:0.001108s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:24:32+08:00 ] 111.67.206.59 114.135.213.166 GET /index.html
+[ log ] leetao.cn/index.html [运行时间：0.163833s][吞吐率：6.10req/s] [内存消耗：5,300.54kb] [文件加载：80]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/login',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001007s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.002302s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000639s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.003227s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000505s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.003474s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.001230s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.001637s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000380s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.001983s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001389s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000517s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.003430s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000855s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.002439s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.002966s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000612s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000371s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000537s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:25:37+08:00 ] 111.67.206.59 58.16.79.178 GET /admincmsby
+[ log ] leetao.cn/admincmsby [运行时间：0.059156s][吞吐率：16.90req/s] [内存消耗：2,723.95kb] [文件加载：51]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => '__guid=244967448.4253821219560671000.1566724535682.0437; UM_distinctid=16d0612431d2d9-08c6a792dbd479-3c604504-1fa400-16d0612431e7d9; BJYADMIN=dvtt90pl15kvig4pandj6ms0p0; 304d___session=0f53L4h64R9aEtRiS6p%2FijJaKfX1hFvH3HSYwQ23SubR%2FYRxb4eB3HXjvlcm25eHzilRBOc3mE81oikDjUM%2FSWqUG1340fETti88YGvWKrY6QQbauwJTNYIAihTptZIpI%2BrHpZpjJtJXi94Qyw; action=cloud; PHPSESSID=0sfvojl47hchtco9eomgc7vse2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admincmsby\controller\Index->index[ /www/wwwroot/leetao.cn/application/admincmsby/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/admincmsby/view/index/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:25:38+08:00 ] 111.67.206.59 58.16.79.178 GET /captcha.html
+[ log ] leetao.cn/captcha.html [运行时间：0.069505s][吞吐率：14.39req/s] [内存消耗：2,129.20kb] [文件加载：42]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/admincmsby',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => '__guid=244967448.4253821219560671000.1566724535682.0437; UM_distinctid=16d0612431d2d9-08c6a792dbd479-3c604504-1fa400-16d0612431e7d9; BJYADMIN=dvtt90pl15kvig4pandj6ms0p0; 304d___session=0f53L4h64R9aEtRiS6p%2FijJaKfX1hFvH3HSYwQ23SubR%2FYRxb4eB3HXjvlcm25eHzilRBOc3mE81oikDjUM%2FSWqUG1340fETti88YGvWKrY6QQbauwJTNYIAihTptZIpI%2BrHpZpjJtJXi94Qyw; action=cloud; PHPSESSID=0sfvojl47hchtco9eomgc7vse2',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ /www/wwwroot/leetao.cn/vendor/topthink/think-captcha/src/CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:25:49+08:00 ] 111.67.206.59 58.16.79.178 GET /captcha.html?0.9409121090736825
+[ log ] leetao.cn/captcha.html?0.9409121090736825 [运行时间：0.050815s][吞吐率：19.68req/s] [内存消耗：2,129.45kb] [文件加载：42]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/admincmsby',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => '__guid=244967448.4253821219560671000.1566724535682.0437; UM_distinctid=16d0612431d2d9-08c6a792dbd479-3c604504-1fa400-16d0612431e7d9; BJYADMIN=dvtt90pl15kvig4pandj6ms0p0; 304d___session=0f53L4h64R9aEtRiS6p%2FijJaKfX1hFvH3HSYwQ23SubR%2FYRxb4eB3HXjvlcm25eHzilRBOc3mE81oikDjUM%2FSWqUG1340fETti88YGvWKrY6QQbauwJTNYIAihTptZIpI%2BrHpZpjJtJXi94Qyw; action=cloud; PHPSESSID=0sfvojl47hchtco9eomgc7vse2',
+)
+[ info ] [ PARAM ] array (
+  '0_9409121090736825' => '',
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ /www/wwwroot/leetao.cn/vendor/topthink/think-captcha/src/CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:25:57+08:00 ] 111.67.206.59 58.16.79.178 POST /admincmsby/index/login.html
+[ log ] leetao.cn/admincmsby/index/login.html [运行时间：0.104498s][吞吐率：9.57req/s] [内存消耗：4,373.23kb] [文件加载：69]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://leetao.cn',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'referer' => 'http://leetao.cn/admincmsby',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => '__guid=244967448.4253821219560671000.1566724535682.0437; UM_distinctid=16d0612431d2d9-08c6a792dbd479-3c604504-1fa400-16d0612431e7d9; BJYADMIN=dvtt90pl15kvig4pandj6ms0p0; 304d___session=0f53L4h64R9aEtRiS6p%2FijJaKfX1hFvH3HSYwQ23SubR%2FYRxb4eB3HXjvlcm25eHzilRBOc3mE81oikDjUM%2FSWqUG1340fETti88YGvWKrY6QQbauwJTNYIAihTptZIpI%2BrHpZpjJtJXi94Qyw; action=cloud; PHPSESSID=0sfvojl47hchtco9eomgc7vse2',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'content-length' => '40',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => '123456',
+  'code' => 'N8jX',
+)
+[ info ] [ RUN ] app\admincmsby\controller\Index->login[ /www/wwwroot/leetao.cn/application/admincmsby/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000586s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_admin` [ RunTime:0.002801s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`loginarea`,`loginip`,`logintime`,`email`,`status`,`power`,`lastip`,`group`,`addtime`,`logincount` FROM `cmm_admin` WHERE  `account` = 'admin'  AND `password` = '10470c3b4b1fed12c3baac014be15fac67c6e815' LIMIT 1 [ RunTime:0.000769s ]
+[ sql ] [ SQL ] UPDATE `cmm_admin`  SET `loginarea`='贵州省贵阳市.联通',`loginip`='58.16.79.178',`logintime`=1573115157  WHERE  (  id = 12 ) [ RunTime:0.001018s ]
+[ sql ] [ SQL ] UPDATE `cmm_admin`  SET `logincount`=logincount+1  WHERE  (  id = 12 ) [ RunTime:0.000744s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_group` [ RunTime:0.001293s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_group` WHERE  `id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.000658s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.002317s ]
+[ sql ] [ SQL ] INSERT INTO `cmm_loginlog` (`uid` , `user` , `description` , `area` , `loginip` , `addtime`) VALUES (12 , 'admin' , '<div style=\"color:green;\">登录成功</div>' , '贵州省贵阳市.联通' , '58.16.79.178' , 1573115157) [ RunTime:0.000577s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:25:58+08:00 ] 111.67.206.59 58.16.79.178 GET /admincmsby/index/main.html
+[ log ] leetao.cn/admincmsby/index/main.html [运行时间：0.118239s][吞吐率：8.46req/s] [内存消耗：4,910.59kb] [文件加载：75]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'index',
+    2 => 'main',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/admincmsby',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => '__guid=244967448.4253821219560671000.1566724535682.0437; UM_distinctid=16d0612431d2d9-08c6a792dbd479-3c604504-1fa400-16d0612431e7d9; BJYADMIN=dvtt90pl15kvig4pandj6ms0p0; 304d___session=0f53L4h64R9aEtRiS6p%2FijJaKfX1hFvH3HSYwQ23SubR%2FYRxb4eB3HXjvlcm25eHzilRBOc3mE81oikDjUM%2FSWqUG1340fETti88YGvWKrY6QQbauwJTNYIAihTptZIpI%2BrHpZpjJtJXi94Qyw; action=cloud; PHPSESSID=0sfvojl47hchtco9eomgc7vse2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admincmsby\controller\Index->main[ /www/wwwroot/leetao.cn/application/admincmsby/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/admincmsby/view/index/main.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001043s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] select version() AS version [ RunTime:0.000328s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.001937s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000445s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_market` [ RunTime:0.003197s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_market` WHERE  `id` > 0  AND `status` > 1 ORDER BY id desc [ RunTime:0.000730s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:26:26+08:00 ] 111.67.206.59 58.16.79.178 GET /admincmsby/index/main.html
+[ log ] leetao.cn/admincmsby/index/main.html [运行时间：0.108930s][吞吐率：9.18req/s] [内存消耗：4,693.71kb] [文件加载：73]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'index',
+    2 => 'main',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/admincmsby/index/main.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => '__guid=244967448.4253821219560671000.1566724535682.0437; UM_distinctid=16d0612431d2d9-08c6a792dbd479-3c604504-1fa400-16d0612431e7d9; BJYADMIN=dvtt90pl15kvig4pandj6ms0p0; 304d___session=0f53L4h64R9aEtRiS6p%2FijJaKfX1hFvH3HSYwQ23SubR%2FYRxb4eB3HXjvlcm25eHzilRBOc3mE81oikDjUM%2FSWqUG1340fETti88YGvWKrY6QQbauwJTNYIAihTptZIpI%2BrHpZpjJtJXi94Qyw; action=cloud; PHPSESSID=0sfvojl47hchtco9eomgc7vse2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admincmsby\controller\Index->main[ /www/wwwroot/leetao.cn/application/admincmsby/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/admincmsby/view/index/main.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000816s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] select version() AS version [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_market` [ RunTime:0.002241s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_market` WHERE  `id` > 0  AND `status` > 1 ORDER BY id desc [ RunTime:0.001583s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:26:28+08:00 ] 111.67.206.59 58.16.79.178 GET /admincmsby/adminbrother/edit.html?id=12
+[ log ] leetao.cn/admincmsby/adminbrother/edit.html?id=12 [运行时间：0.100369s][吞吐率：9.96req/s] [内存消耗：4,615.02kb] [文件加载：69]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'adminbrother',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/admincmsby/index/main.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => '__guid=244967448.4253821219560671000.1566724535682.0437; UM_distinctid=16d0612431d2d9-08c6a792dbd479-3c604504-1fa400-16d0612431e7d9; BJYADMIN=dvtt90pl15kvig4pandj6ms0p0; 304d___session=0f53L4h64R9aEtRiS6p%2FijJaKfX1hFvH3HSYwQ23SubR%2FYRxb4eB3HXjvlcm25eHzilRBOc3mE81oikDjUM%2FSWqUG1340fETti88YGvWKrY6QQbauwJTNYIAihTptZIpI%2BrHpZpjJtJXi94Qyw; action=cloud; PHPSESSID=0sfvojl47hchtco9eomgc7vse2',
+)
+[ info ] [ PARAM ] array (
+  'id' => '12',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\Adminbrother->edit[ /www/wwwroot/leetao.cn/application/admincmsby/controller/Adminbrother.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/admincmsby/view/adminbrother/edit.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'result',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001242s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_admin` [ RunTime:0.002639s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_admin` WHERE  `id` = 12 LIMIT 1 [ RunTime:0.000874s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_group` [ RunTime:0.002499s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_group` WHERE  `id` > 0 ORDER BY id asc [ RunTime:0.000783s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:26:32+08:00 ] 111.67.206.59 58.16.79.178 GET /admincmsby/system/loginlog.html
+[ log ] leetao.cn/admincmsby/system/loginlog.html [运行时间：0.100432s][吞吐率：9.96req/s] [内存消耗：4,643.52kb] [文件加载：67]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'loginlog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/admincmsby/adminbrother/edit.html?id=12',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => '__guid=244967448.4253821219560671000.1566724535682.0437; UM_distinctid=16d0612431d2d9-08c6a792dbd479-3c604504-1fa400-16d0612431e7d9; BJYADMIN=dvtt90pl15kvig4pandj6ms0p0; 304d___session=0f53L4h64R9aEtRiS6p%2FijJaKfX1hFvH3HSYwQ23SubR%2FYRxb4eB3HXjvlcm25eHzilRBOc3mE81oikDjUM%2FSWqUG1340fETti88YGvWKrY6QQbauwJTNYIAihTptZIpI%2BrHpZpjJtJXi94Qyw; action=cloud; PHPSESSID=0sfvojl47hchtco9eomgc7vse2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->loginlog[ /www/wwwroot/leetao.cn/application/admincmsby/controller/System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/admincmsby/view/system/loginlog.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'volist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000530s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.002352s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_loginlog` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000726s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_loginlog` WHERE  `id` > 0 ORDER BY id desc LIMIT 0,15 [ RunTime:0.000551s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:26:35+08:00 ] 111.67.206.59 58.16.79.178 GET /admincmsby/system/operatelog.html
+[ log ] leetao.cn/admincmsby/system/operatelog.html [运行时间：0.108856s][吞吐率：9.19req/s] [内存消耗：4,626.33kb] [文件加载：67]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'system',
+    2 => 'operatelog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/admincmsby/system/loginlog.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => '__guid=244967448.4253821219560671000.1566724535682.0437; UM_distinctid=16d0612431d2d9-08c6a792dbd479-3c604504-1fa400-16d0612431e7d9; BJYADMIN=dvtt90pl15kvig4pandj6ms0p0; 304d___session=0f53L4h64R9aEtRiS6p%2FijJaKfX1hFvH3HSYwQ23SubR%2FYRxb4eB3HXjvlcm25eHzilRBOc3mE81oikDjUM%2FSWqUG1340fETti88YGvWKrY6QQbauwJTNYIAihTptZIpI%2BrHpZpjJtJXi94Qyw; action=cloud; PHPSESSID=0sfvojl47hchtco9eomgc7vse2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admincmsby\controller\System->operatelog[ /www/wwwroot/leetao.cn/application/admincmsby/controller/System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/admincmsby/view/system/operatelog.html [ array (
+  0 => 'menu',
+  1 => 'account',
+  2 => 'adminid',
+  3 => 'admin_l',
+  4 => 'group_l',
+  5 => 'power_l',
+  6 => 'operate_l',
+  7 => 'loginlog_l',
+  8 => 'web_l',
+  9 => 'trade_l',
+  10 => 'backup_l',
+  11 => 'restore_l',
+  12 => 'code_l',
+  13 => 'makec_l',
+  14 => 'contact_l',
+  15 => 'msg_l',
+  16 => 'notice_l',
+  17 => 'user_l',
+  18 => 'recharge_l',
+  19 => 'rec_log_l',
+  20 => 'set_l',
+  21 => 'bonus_l',
+  22 => 'buyo_l',
+  23 => 'sello_l',
+  24 => 'market_l',
+  25 => 'ad_l',
+  26 => 'partner_l',
+  27 => 'recruit_l',
+  28 => 'ore_l',
+  29 => 'oreadd_l',
+  30 => 'oreset_l',
+  31 => 'oreo_l',
+  32 => 'orep_l',
+  33 => 'gift_l',
+  34 => 'release_l',
+  35 => 'list',
+  36 => 'volist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000717s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_opratelog` [ RunTime:0.002296s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmm_opratelog` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000770s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_opratelog` WHERE  `id` > 0 ORDER BY id desc LIMIT 0,15 [ RunTime:0.000950s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:27:02+08:00 ] 111.67.206.59 114.135.213.166 GET /orderlist.html
+[ log ] leetao.cn/orderlist.html [运行时间：0.115159s][吞吐率：8.68req/s] [内存消耗：4,848.52kb] [文件加载：74]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'member',
+    2 => 'order_cmm_list',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKzY3l1eBJ8tklezYkjfi1th',
+  'referer' => 'http://leetao.cn/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Member->order_cmm_list[ /www/wwwroot/leetao.cn/application/index/controller/Member.php ]
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/member/order_cmm_list.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'selllog',
+  4 => 'buylog',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000425s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.001743s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000430s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.002931s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `uid` = 4018  AND `status` < 4 ORDER BY id desc [ RunTime:0.001823s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.001436s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_sellorder` WHERE  `uid` = 4018  AND `status` < 4 ORDER BY id desc [ RunTime:0.000541s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:27:04+08:00 ] 111.67.206.59 114.135.213.166 GET /index.html
+[ log ] leetao.cn/index.html [运行时间：0.171180s][吞吐率：5.84req/s] [内存消耗：5,049.41kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKytqkJ4TQOE9OEYo1oXjDOQ',
+  'referer' => 'http://leetao.cn/orderlist.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004536s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.003160s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.001289s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.001770s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000954s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.001896s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001207s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000520s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.005395s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.003164s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000778s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.006814s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000686s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000209s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000710s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:28:14+08:00 ] 111.67.206.59 114.135.213.166 GET /shezhi.html
+[ log ] leetao.cn/shezhi.html [运行时间：0.120097s][吞吐率：8.33req/s] [内存消耗：4,749.51kb] [文件加载：70]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'member',
+    2 => 'my_uset',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKxidDJO8Z3p+G2VXD2n8i+r',
+  'referer' => 'http://leetao.cn/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Member->my_uset[ /www/wwwroot/leetao.cn/application/index/controller/Member.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/member/my_uset.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000750s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002796s ]
+[ sql ] [ SQL ] SELECT `account`,`myphone`,`money_wallet`,`reward_wallet`,`fry_data`,`ping_id`,`fullname`,`weixin`,`aiplay`,`eth_purse`,`refereeid`,`status`,`ore_wallet`,`release_wallet`,`rank` FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000943s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:28:22+08:00 ] 111.67.206.59 114.135.213.166 POST /sellit_do.html
+[ log ] leetao.cn/sellit_do.html [运行时间：0.091172s][吞吐率：10.97req/s] [内存消耗：4,555.81kb] [文件加载：68]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'sellOrderDooCmm',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'accept' => 'application/json',
+  'origin' => 'http://leetao.cn',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'referer' => 'http://leetao.cn/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'content-length' => '22',
+)
+[ info ] [ PARAM ] array (
+  'op' => '588cmmphp',
+  'gid' => '21669',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->sellOrderDooCmm[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000827s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002787s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`myphone`,`fullname`,`weixin`,`aiplay`,`eth_purse` FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000854s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:28:24+08:00 ] 111.67.206.59 114.135.213.166 GET /index.html
+[ log ] leetao.cn/index.html [运行时间：0.127891s][吞吐率：7.82req/s] [内存消耗：5,049.23kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003067s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002340s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000756s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.003438s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.001005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.005015s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001635s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000702s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.002516s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000566s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.003034s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000555s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.002962s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000708s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000906s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:28:26+08:00 ] 111.67.206.59 114.135.213.166 GET /index.html
+[ log ] leetao.cn/index.html [运行时间：0.158276s][吞吐率：6.32req/s] [内存消耗：5,049.15kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/orderlist.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000590s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002487s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.001171s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.001463s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000534s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.002825s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000937s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000389s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.001730s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000559s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.006672s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000693s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.003004s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.006261s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000210s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000721s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:28:29+08:00 ] 111.67.206.59 114.135.213.166 GET /index.html
+[ log ] leetao.cn/index.html [运行时间：0.135324s][吞吐率：7.39req/s] [内存消耗：5,049.16kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/orderlist.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001737s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002703s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.001249s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.002605s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.001169s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.002842s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000654s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.001312s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000489s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.002239s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.001082s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.005252s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.001203s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000672s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000990s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:30:14+08:00 ] 111.67.206.59 114.135.213.166 GET /tmc/css/app.css
+[ log ] leetao.cn/tmc/css/app.css [运行时间：0.049692s][吞吐率：20.12req/s] [内存消耗：2,122.48kb] [文件加载：43]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'tmc',
+    1 => 'css',
+    2 => 'app.css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/css,*/*;q=0.1',
+  'referer' => 'http://leetao.cn/my.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:30:14+08:00 ] 111.67.206.59 114.135.213.166 GET /tmc/css/app.css
+[ log ] leetao.cn/tmc/css/app.css [运行时间：0.046531s][吞吐率：21.49req/s] [内存消耗：2,122.48kb] [文件加载：43]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'tmc',
+    1 => 'css',
+    2 => 'app.css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/css,*/*;q=0.1',
+  'referer' => 'http://leetao.cn/my.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:30:19+08:00 ] 111.67.206.59 114.135.213.166 GET /index.html
+[ log ] leetao.cn/index.html [运行时间：0.125326s][吞吐率：7.98req/s] [内存消耗：5,049.63kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKwGF6NNGIjA3Lo+n91stMor',
+  'referer' => 'http://leetao.cn/my.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000476s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.006955s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000888s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.003745s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.001458s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001546s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000360s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.001734s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000442s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.001594s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000602s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.001472s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000418s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000644s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:30:43+08:00 ] 111.67.206.59 114.135.213.166 GET /tmc/css/app.css
+[ log ] leetao.cn/tmc/css/app.css [运行时间：0.049163s][吞吐率：20.34req/s] [内存消耗：2,122.48kb] [文件加载：43]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'tmc',
+    1 => 'css',
+    2 => 'app.css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/css,*/*;q=0.1',
+  'referer' => 'http://leetao.cn/my.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:30:45+08:00 ] 111.67.206.59 114.135.213.166 GET /tmc/css/app.css
+[ log ] leetao.cn/tmc/css/app.css [运行时间：0.046848s][吞吐率：21.35req/s] [内存消耗：2,122.48kb] [文件加载：43]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'tmc',
+    1 => 'css',
+    2 => 'app.css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/css,*/*;q=0.1',
+  'referer' => 'http://leetao.cn/my.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:30:46+08:00 ] 111.67.206.59 114.135.213.166 GET /tmc/css/app.css
+[ log ] leetao.cn/tmc/css/app.css [运行时间：0.038520s][吞吐率：25.96req/s] [内存消耗：2,122.48kb] [文件加载：43]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'tmc',
+    1 => 'css',
+    2 => 'app.css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/css,*/*;q=0.1',
+  'referer' => 'http://leetao.cn/my.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:30:47+08:00 ] 111.67.206.59 114.135.213.166 GET /tmc/css/app.css
+[ log ] leetao.cn/tmc/css/app.css [运行时间：0.040862s][吞吐率：24.47req/s] [内存消耗：2,122.48kb] [文件加载：43]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'tmc',
+    1 => 'css',
+    2 => 'app.css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/css,*/*;q=0.1',
+  'referer' => 'http://leetao.cn/my.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:30:54+08:00 ] 111.67.206.59 114.135.213.166 GET /chongzhi
+[ log ] leetao.cn/chongzhi [运行时间：0.053418s][吞吐率：18.72req/s] [内存消耗：3,633.58kb] [文件加载：61]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'chongzhi',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKwdclf/fOhOS6zbHt2nQuHn',
+  'referer' => 'http://leetao.cn/zichan.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->chongzhi[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ VIEW ] ./chongzhi.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'userid',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:30:58+08:00 ] 111.67.206.59 114.135.213.166 GET /chongzhi
+[ log ] leetao.cn/chongzhi [运行时间：0.075863s][吞吐率：13.18req/s] [内存消耗：3,438.60kb] [文件加载：59]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'chongzhi',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKzUh7ckY8I1snyYmW2qHsfb',
+  'referer' => 'http://leetao.cn/zichan.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->chongzhi[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ VIEW ] ./chongzhi.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'userid',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:31:01+08:00 ] 111.67.206.59 114.135.213.166 GET /tixian
+[ log ] leetao.cn/tixian [运行时间：0.081071s][吞吐率：12.33req/s] [内存消耗：3,639.97kb] [文件加载：61]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'tixian',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKyto51yHzvBHFOc36uoEc31',
+  'referer' => 'http://leetao.cn/zichan.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->tixian[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ VIEW ] ./tixian.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'userid',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:31:11+08:00 ] 111.67.206.59 114.135.213.166 GET /xinxi.html
+[ log ] leetao.cn/xinxi.html [运行时间：0.073524s][吞吐率：13.60req/s] [内存消耗：2,123.38kb] [文件加载：43]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'xinxi',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKwv8vGz3S2TIhwFSPSlklIS',
+  'referer' => 'http://leetao.cn/my.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:31:15+08:00 ] 111.67.206.59 114.135.213.166 GET /shezhi.html
+[ log ] leetao.cn/shezhi.html [运行时间：0.107345s][吞吐率：9.32req/s] [内存消耗：4,560.13kb] [文件加载：68]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'member',
+    2 => 'my_uset',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKxsvf1epGUULo758r8DwyZ1',
+  'referer' => 'http://leetao.cn/my.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Member->my_uset[ /www/wwwroot/leetao.cn/application/index/controller/Member.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/member/my_uset.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000512s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.003523s ]
+[ sql ] [ SQL ] SELECT `account`,`myphone`,`money_wallet`,`reward_wallet`,`fry_data`,`ping_id`,`fullname`,`weixin`,`aiplay`,`eth_purse`,`refereeid`,`status`,`ore_wallet`,`release_wallet`,`rank` FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000854s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:31:18+08:00 ] 111.67.206.59 114.135.213.166 GET /tmc/css/app.css
+[ log ] leetao.cn/tmc/css/app.css [运行时间：0.041646s][吞吐率：24.01req/s] [内存消耗：2,122.48kb] [文件加载：43]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'tmc',
+    1 => 'css',
+    2 => 'app.css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/css,*/*;q=0.1',
+  'referer' => 'http://leetao.cn/my.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:31:18+08:00 ] 111.67.206.59 114.135.213.166 GET /tmc/css/app.css
+[ log ] leetao.cn/tmc/css/app.css [运行时间：0.053718s][吞吐率：18.62req/s] [内存消耗：2,122.48kb] [文件加载：43]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'tmc',
+    1 => 'css',
+    2 => 'app.css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/css,*/*;q=0.1',
+  'referer' => 'http://leetao.cn/my.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:31:21+08:00 ] 111.67.206.59 114.135.213.166 GET /tmc/css/app.css
+[ log ] leetao.cn/tmc/css/app.css [运行时间：0.051260s][吞吐率：19.51req/s] [内存消耗：2,122.48kb] [文件加载：43]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'tmc',
+    1 => 'css',
+    2 => 'app.css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/css,*/*;q=0.1',
+  'referer' => 'http://leetao.cn/my.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:40:34+08:00 ] 111.67.206.59 114.135.213.166 GET /index.html
+[ log ] leetao.cn/index.html [运行时间：0.121008s][吞吐率：8.26req/s] [内存消耗：5,291.84kb] [文件加载：80]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKx/bVEV+lXohBeX+an/gyRM',
+  'referer' => 'http://leetao.cn/orderlist.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000828s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.003314s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000778s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.002145s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000525s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.002733s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001432s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000627s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.001917s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000451s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.001614s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000450s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.002166s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000524s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.001568s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:40:37+08:00 ] 111.67.206.59 114.135.213.166 GET /index.html
+[ log ] leetao.cn/index.html [运行时间：0.134982s][吞吐率：7.41req/s] [内存消耗：5,049.64kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKx/bVEV+lXohBeX+an/gyRM',
+  'referer' => 'http://leetao.cn/orderlist.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000667s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002674s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000924s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.002400s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000557s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.002579s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001220s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000775s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.002069s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000689s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.003172s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000514s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.002084s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000600s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000691s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.001038s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:40:41+08:00 ] 111.67.206.59 114.135.213.166 GET /
+[ log ] leetao.cn/ [运行时间：0.111932s][吞吐率：8.93req/s] [内存消耗：5,043.97kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKzFNAxHckue79ICNWSDycSk',
+  'referer' => 'http://leetao.cn/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000638s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.004355s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.001323s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.004172s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000433s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.001683s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000840s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.002277s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.001554s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000463s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.001940s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000434s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.001780s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000644s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000107s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000347s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:40:44+08:00 ] 111.67.206.59 114.135.213.166 GET /
+[ log ] leetao.cn/ [运行时间：0.117278s][吞吐率：8.53req/s] [内存消耗：5,043.73kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000719s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002256s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.002583s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.001892s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.002827s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001185s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000431s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.001904s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000483s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.001734s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000365s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.001622s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000651s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000398s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.001008s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:41:09+08:00 ] 111.67.206.59 114.135.213.166 GET /
+[ log ] leetao.cn/ [运行时间：0.156825s][吞吐率：6.38req/s] [内存消耗：5,286.27kb] [文件加载：80]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKzFNAxHckue79ICNWSDycSk',
+  'referer' => 'http://leetao.cn/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001125s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.004079s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.001373s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.002537s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000523s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.002447s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000793s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000358s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.002779s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000490s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.001852s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000633s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.003733s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000544s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000163s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000689s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:41:11+08:00 ] 111.67.206.59 114.135.213.166 GET /
+[ log ] leetao.cn/ [运行时间：0.163043s][吞吐率：6.13req/s] [内存消耗：5,043.73kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000836s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002339s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000761s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.002138s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.003271s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.003879s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.003341s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000577s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.001664s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000533s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.002013s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.001207s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.002441s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000587s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000163s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000552s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:41:12+08:00 ] 111.67.206.59 114.135.213.166 GET /
+[ log ] leetao.cn/ [运行时间：0.162459s][吞吐率：6.16req/s] [内存消耗：5,043.73kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001536s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.004282s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.001108s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.001876s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000554s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.002132s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001017s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000716s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.002358s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000850s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.002123s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000448s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.002743s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000683s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000154s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000990s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:41:14+08:00 ] 111.67.206.59 114.135.213.166 GET /
+[ log ] leetao.cn/ [运行时间：0.159756s][吞吐率：6.26req/s] [内存消耗：5,043.80kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKzFNAxHckue79ICNWSDycSk',
+  'referer' => 'http://leetao.cn/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001040s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002402s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000915s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.003307s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000390s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.004467s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001513s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000852s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.003746s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.001058s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.002225s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000818s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.002112s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.001295s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.001215s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000886s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:41:14+08:00 ] 111.67.206.59 114.135.213.166 GET /
+[ log ] leetao.cn/ [运行时间：0.124202s][吞吐率：8.05req/s] [内存消耗：5,043.80kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKzFNAxHckue79ICNWSDycSk',
+  'referer' => 'http://leetao.cn/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000896s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002628s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.001172s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.002578s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000838s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.001640s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000880s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000587s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.002829s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.002996s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000701s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.002196s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000558s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000325s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.001225s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:41:14+08:00 ] 111.67.206.59 114.135.213.166 GET /
+[ log ] leetao.cn/ [运行时间：0.118353s][吞吐率：8.45req/s] [内存消耗：5,043.80kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'sogouidcrypt' => 'AKJn18VTqDi80g1/tNY3WBKihgw77Dn+1ClA4NoPxKzFNAxHckue79ICNWSDycSk',
+  'referer' => 'http://leetao.cn/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000797s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002405s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.002188s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.002297s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000482s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.001614s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000725s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000383s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.001922s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000404s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.002260s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000401s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.001643s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000348s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000100s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000918s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:41:15+08:00 ] 111.67.206.59 114.135.213.166 GET /
+[ log ] leetao.cn/ [运行时间：0.102661s][吞吐率：9.74req/s] [内存消耗：5,043.73kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000774s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002960s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000873s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.001770s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000511s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.002120s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000610s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000313s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.001714s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000472s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.001567s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000325s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.001580s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000412s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000486s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:41:16+08:00 ] 111.67.206.59 114.135.213.166 GET /
+[ log ] leetao.cn/ [运行时间：0.128127s][吞吐率：7.80req/s] [内存消耗：5,043.73kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000856s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002950s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.001072s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.003985s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000661s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.003388s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000947s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000725s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.002305s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.001641s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000392s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.002827s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000594s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000359s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000761s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:41:16+08:00 ] 111.67.206.59 114.135.213.166 GET /
+[ log ] leetao.cn/ [运行时间：0.127259s][吞吐率：7.86req/s] [内存消耗：5,043.73kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.106 Mobile Safari/537.36 AWP/2.0 SogouMSE,SogouMobileBrowser/5.23.18',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,en-US;q=0.9',
+  'cookie' => 'PHPSESSID=47ru6r89ld8habiti8bfvghdq3; timezone=8; flow-mode=image; c1bb___session=910fUN3NotatMnUpCOOrhP1XbC3rfK3swdaizaNIF%2F5zuL4LwQjx%2BjgVDDCwibFW3H%2BSaD3VhMpynHZ5aR8Q68gKHKVEioC0WIJ3tJyYeyOBKMe3lsRy5tcxYZTr7CZjFgmHVF6hPXVW9n1wojXVMLCWOx7kHNb8xO4g3jEjPmQcH1E; c1bb_module_status:ewei_shopv2=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_jsMenuLock=1; c1bb_module_status:store=%7B%22upgrade%22%3A%7B%22has_upgrade%22%3Afalse%7D%2C%22ban%22%3Afalse%7D; c1bb_menu_fold_tag:platform_module_menu=0; c1bb_jsMenuScroll=; foldpanel=1; c1bb_menu_fold_tag:platform_module=0; 2acb_jsMenuScroll=; action=db; BJYADMIN=kh8sp184q47ite7dmnop4hfhu1',
+  'x-requested-with' => 'sogou.mobile.explorer',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000661s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.003773s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000816s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.001398s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000376s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.002481s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000770s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000519s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.002655s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000456s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.001843s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000512s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.001523s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000475s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000158s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000682s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:41:32+08:00 ] 111.67.206.59 211.94.109.142 GET /
+[ log ] leetao.cn/ [运行时间：0.086308s][吞吐率：11.59req/s] [内存消耗：3,454.28kb] [文件加载：60]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-Hans-CN,en-US;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
+  'clientip' => '114.135.213.166',
+  'cookie' => 'BJYADMIN=f0phrf4p8vorcl3kmjfo22j9p1',
+  'x-forwarded-for' => '114.135.213.166',
+  'host' => 'leetao.cn',
+  'cache-control' => 'max-age=259200',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:41:32+08:00 ] 111.67.206.59 211.94.109.142 GET /login
+[ log ] leetao.cn/login [运行时间：0.053666s][吞吐率：18.63req/s] [内存消耗：2,571.16kb] [文件加载：51]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-Hans-CN,en-US;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
+  'referer' => 'http://leetao.cn/',
+  'cookie' => 'PHPSESSID=3jq5lqbua13aso664dhsptl783; BJYADMIN=f0phrf4p8vorcl3kmjfo22j9p1',
+  'clientip' => '114.135.213.166',
+  'x-forwarded-for' => '114.135.213.166',
+  'host' => 'leetao.cn',
+  'cache-control' => 'max-age=259200',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ /www/wwwroot/leetao.cn/application/index/controller/Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/login/login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:41:40+08:00 ] 111.67.206.59 211.94.109.142 POST /userland.html
+[ log ] leetao.cn/userland.html [运行时间：0.094531s][吞吐率：10.58req/s] [内存消耗：4,333.49kb] [文件加载：66]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login_do_cmm',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'application/json',
+  'origin' => 'http://leetao.cn',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-Hans-CN,en-US;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
+  'referer' => 'http://leetao.cn/login',
+  'clientip' => '114.135.213.166',
+  'cookie' => 'BJYADMIN=f0phrf4p8vorcl3kmjfo22j9p1; PHPSESSID=3jq5lqbua13aso664dhsptl783;',
+  'x-forwarded-for' => '114.135.213.166',
+  'host' => 'leetao.cn',
+  'cache-control' => 'max-age=259200',
+  'connection' => 'keep-alive',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'content-length' => '36',
+)
+[ info ] [ PARAM ] array (
+  'username' => '14714714712',
+  'password' => '123456',
+)
+[ info ] [ RUN ] app\index\controller\Login->login_do_cmm[ /www/wwwroot/leetao.cn/application/index/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000667s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.001706s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000497s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.001611s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`myphone`,`money_wallet`,`fry_data`,`refereeid`,`login_ip`,`logintime`,`status`,`rank`,`last_ip`,`logincount`,`forepart_money`,`forepart_time` FROM `cmm_users` WHERE  `account` = '14714714712'  AND `password` = 'f122db007ed655921f98184e4302bba84990ff68' LIMIT 1 [ RunTime:0.000558s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `login_ip`='114.135.213.166',`logintime`=1573116100,`last_ip`='114.135.213.166'  WHERE  (  id = 4018 ) [ RunTime:0.000698s ]
+[ sql ] [ SQL ] UPDATE `cmm_users`  SET `logincount`=logincount+1  WHERE  (  id = 4018 ) [ RunTime:0.000700s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:41:42+08:00 ] 111.67.206.59 114.135.213.166 GET /index.html
+[ log ] leetao.cn/index.html [运行时间：0.110444s][吞吐率：9.05req/s] [内存消耗：5,056.91kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/login',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-Hans-CN,en-US;q=0.8',
+  'cookie' => 'BJYADMIN=f0phrf4p8vorcl3kmjfo22j9p1; PHPSESSID=3jq5lqbua13aso664dhsptl783',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000500s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.002558s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.004062s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.001214s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000352s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002032s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000865s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.001297s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000299s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.001436s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000677s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.003218s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000454s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.001857s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000386s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.001643s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000372s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000200s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000385s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:41:44+08:00 ] 111.67.206.59 114.135.213.166 GET /index.html
+[ log ] leetao.cn/index.html [运行时间：0.132528s][吞吐率：7.55req/s] [内存消耗：5,047.74kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-Hans-CN,en-US;q=0.8',
+  'cookie' => 'BJYADMIN=f0phrf4p8vorcl3kmjfo22j9p1; PHPSESSID=3jq5lqbua13aso664dhsptl783',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000845s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002720s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.001243s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.003163s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000492s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.003105s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001303s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000456s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.002300s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000411s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.002194s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000430s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.002948s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000750s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000573s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:41:46+08:00 ] 111.67.206.59 114.135.213.166 GET /index.html
+[ log ] leetao.cn/index.html [运行时间：0.115819s][吞吐率：8.63req/s] [内存消耗：5,047.74kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-Hans-CN,en-US;q=0.8',
+  'cookie' => 'BJYADMIN=f0phrf4p8vorcl3kmjfo22j9p1; PHPSESSID=3jq5lqbua13aso664dhsptl783',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000585s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.002560s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000935s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.001230s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.002340s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.001028s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.001031s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.001530s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.001644s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000587s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.001573s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000157s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000580s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:41:51+08:00 ] 111.67.206.59 114.135.213.166 GET /index.html
+[ log ] leetao.cn/index.html [运行时间：0.108326s][吞吐率：9.23req/s] [内存消耗：5,047.74kb] [文件加载：78]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-Hans-CN,en-US;q=0.8',
+  'cookie' => 'BJYADMIN=f0phrf4p8vorcl3kmjfo22j9p1; PHPSESSID=3jq5lqbua13aso664dhsptl783',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/index/index.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+  3 => 'b_sum',
+  4 => 'sellsum',
+  5 => 'buylog',
+  6 => 'sf_money',
+  7 => 'oreList',
+  8 => 'notice_list',
+  9 => 'JZ',
+  10 => 'coin',
+  11 => 'eth_purse',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001341s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.003398s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.001045s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_notice` [ RunTime:0.001874s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_notice` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000512s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_buyorder` [ RunTime:0.001933s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 ORDER BY rand() [ RunTime:0.000885s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_buyorder` WHERE  `id` > 0  AND `status` = 2 LIMIT 1 [ RunTime:0.000413s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_sellorder` [ RunTime:0.001617s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `cmm_sellorder` WHERE  `uid` = 4018 LIMIT 1 [ RunTime:0.000408s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_kuang_shop` [ RunTime:0.001693s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_kuang_shop` WHERE  `id` > 0 ORDER BY grade asc [ RunTime:0.000543s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_lucre_log` [ RunTime:0.002473s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 2 LIMIT 1 [ RunTime:0.000482s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `cmm_lucre_log` WHERE  `id` > 0  AND `type` = 1 LIMIT 1 [ RunTime:0.000122s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.000437s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:42:15+08:00 ] 111.67.206.59 114.135.213.166 GET /shezhi.html
+[ log ] leetao.cn/shezhi.html [运行时间：0.111216s][吞吐率：8.99req/s] [内存消耗：4,558.10kb] [文件加载：68]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'member',
+    2 => 'my_uset',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-Hans-CN,en-US;q=0.8',
+  'cookie' => 'BJYADMIN=f0phrf4p8vorcl3kmjfo22j9p1; PHPSESSID=3jq5lqbua13aso664dhsptl783',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Member->my_uset[ /www/wwwroot/leetao.cn/application/index/controller/Member.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/member/my_uset.html [ array (
+  0 => 'price',
+  1 => 'result',
+  2 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004810s ] mysql:dbname=leetao1;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_users` [ RunTime:0.004442s ]
+[ sql ] [ SQL ] SELECT `account`,`myphone`,`money_wallet`,`reward_wallet`,`fry_data`,`ping_id`,`fullname`,`weixin`,`aiplay`,`eth_purse`,`refereeid`,`status`,`ore_wallet`,`release_wallet`,`rank` FROM `cmm_users` WHERE  `id` = 4018 LIMIT 1 [ RunTime:0.001041s ]
+
+---------------------------------------------------------------
+[ 2019-11-07T16:42:16+08:00 ] 111.67.206.59 114.135.213.166 GET /quit.html
+[ log ] leetao.cn/quit.html [运行时间：0.095704s][吞吐率：10.45req/s] [内存消耗：3,463.92kb] [文件加载：60]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'quit',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/shezhi.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-Hans-CN,en-US;q=0.8',
+  'cookie' => 'BJYADMIN=f0phrf4p8vorcl3kmjfo22j9p1; PHPSESSID=3jq5lqbua13aso664dhsptl783',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->quit[ /www/wwwroot/leetao.cn/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:42:16+08:00 ] 111.67.206.59 114.135.213.166 GET /login
+[ log ] leetao.cn/login [运行时间：0.061106s][吞吐率：16.36req/s] [内存消耗：2,570.45kb] [文件加载：51]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/shezhi.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-Hans-CN,en-US;q=0.8',
+  'cookie' => 'BJYADMIN=f0phrf4p8vorcl3kmjfo22j9p1; PHPSESSID=3jq5lqbua13aso664dhsptl783',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ /www/wwwroot/leetao.cn/application/index/controller/Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/login/login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-11-07T16:42:19+08:00 ] 111.67.206.59 114.135.213.166 GET /reg.html
+[ log ] leetao.cn/reg.html [运行时间：0.048142s][吞吐率：20.77req/s] [内存消耗：2,780.62kb] [文件加载：53]
+[ info ] [ LANG ] /www/wwwroot/leetao.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'reg',
+    2 => 'reg',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'leetao.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 9; COL-AL10 Build/HUAWEICOL-AL10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://leetao.cn/login',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-Hans-CN,en-US;q=0.8',
+  'cookie' => 'BJYADMIN=f0phrf4p8vorcl3kmjfo22j9p1; PHPSESSID=3jq5lqbua13aso664dhsptl783',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Reg->reg[ /www/wwwroot/leetao.cn/application/index/controller/Reg.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /www/wwwroot/leetao.cn/public/../application/index/view/reg/reg.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------

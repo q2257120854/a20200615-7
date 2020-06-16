@@ -1,0 +1,55 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+
+{/block}
+
+{block name="body"}
+<style>
+.dataStatistic{width:400px;height:200px;border:1px solid #ccc;margin:0 auto;margin:10px;overflow:hidden}
+#cylindrical{width:400px;height:200px;margin-top:-15px}
+#line{width:400px;height:200px;margin-top:-15px}
+#pie{width:400px;height:200px;margin-top:-15px}
+</style>
+
+<section class="rt_wrap content mCustomScrollbar">
+
+ <div class="rt_content">
+     <!--开始：以下内容则可删除，仅为素材引用参考-->
+     <h1 style="color:red;font-size:20px;font-weight:bold;text-align:center;">相关版块涉及样式示例文档（文档说明）</h1>
+     <p style="color:red;font-size:16px;font-weight:bold;text-align:center;margin:8px 0;background:#FFC;padding:8px;">如何您使用过程中遇到程序问题（即bug）,欢迎向我公司反馈，我公司将对其进行修改，并将修改测试后的程序免费发给您，感谢您的使用和反馈！<br/>此页面仅为样式参考，程序对接可移除，具体布局根据项目内容而定，如需要后台HTML页面，请联系我们！
+	 </p>
+	<section>
+      <div class="page_title">
+       <h2 class="fl">系统信息</h2>
+      </div>
+      <table class="table">
+       <tr>
+        <td>ThinkPHP框架版本：</td>
+        <td>{$info['THINK_VERSION']}</td>
+        <td>服务器操作系统：</td>
+        <td>{$info['PHP_OS']}</td>
+       </tr>
+       <tr>
+        <td>运行环境：</td>
+        <td>{$info['SERVER_SOFTWARE']}</td>
+        <td>Mysql版本：</td>
+        <td>{$info['mysql']['version']}</td>
+       </tr>
+       <tr>
+        <td>系统设计和维护：</td>
+        <td colspan="3"><mark><a href="http://www.yunziyuan.com.cn" target="_blank">5G云资源网</a></mark></td>
+        </tr>
+      </table>
+	  </section>
+	  
+
+</div>
+
+</section>
+
+
+{/block}
+{block name="script"}
+{/block}	

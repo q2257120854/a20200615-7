@@ -1,0 +1,1 @@
+INSERT INTO `dede_member_operation` VALUES('2','M1T1581660458RN151','1个月会员','member','299','1581660458','7','1','0','VIP会员','0');

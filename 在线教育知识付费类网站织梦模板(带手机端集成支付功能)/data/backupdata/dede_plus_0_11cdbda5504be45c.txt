@@ -1,0 +1,3 @@
+INSERT INTO `dede_plus` VALUES('24','文件管理器','<m:item name=\'文件管理器\' link=\'file_manage_main.php\' rank=\'plus_文件管理器\' target=\'main\' />','','织梦团队','1','');
+INSERT INTO `dede_plus` VALUES('3667','织梦安全助手','<m:item name=\'织梦安全助手\' link=\'dedesafe.php\' rank=\'plus_starget=\'main\' />','','织梦猫','1','dedesafe.php');
+INSERT INTO `dede_plus` VALUES('3668','伪静态助手','<m:item name=\'伪静态助手\' link=\'rewrite.php\' rank=\'plus_starget=\'main\' />','','织梦猫','1','rewrite.php');

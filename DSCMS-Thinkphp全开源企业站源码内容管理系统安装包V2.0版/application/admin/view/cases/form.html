@@ -1,0 +1,193 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form" method="post" enctype="multipart/form-data" >
+    <div class="layui-tab layui-tab-card">
+        {include file="layout/admin_items" /}
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                
+                
+                <div class="layui-collapse">
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">基本设置</h2>
+                        <div class="layui-colla-content layui-show">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.cases_parent}</label>
+                                <div class="layui-input-inline">
+                                    <select name="column_id" id="column_id">
+                                        <option value="">{:lang('ds_please_choose')}...</option>
+                                        {notempty name="column_list"}
+                                        {volist name="column_list" id="v"}
+                                        <option {if $cases.column_id == $v.column_id}selected='selected'{/if} value="{$v.column_id}">{$v.column_name}</option>
+                                        {/volist}
+                                        {/notempty}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.cases_title}</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" class="layui-input field-name" name="cases_title" id="cases_title" value="{$cases.cases_title|default=''}" lay-verify="cases_title" autocomplete="off" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.cases_title}" required />
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.cases_order}</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" class="layui-input field-name" name="cases_order" id="cases_order" value="{$cases.cases_order|default='255'}" lay-verify="cases_order" autocomplete="off" required />
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.cases_addtime}</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" class="layui-input field-name" name="cases_addtime" id="cases_addtime" value="{$cases.cases_addtime|date='Y-m-d',###}"/>
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">{$Think.lang.ds_empty_current_time}</div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.cases_imgurl}</label>
+                                <div class="layui-input-inline">
+                                    {notempty name="$cases.cases_imgurl"}
+                                    <img src="{:get_cases_img($cases['cases_imgurl'],'cases')}" height="80"/>
+                                    {/notempty}
+                                    <input type="file" name="cases_imgurl"/>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.cases_displaytype}</label>
+                                <div class="layui-input-inline">
+                                    <input type="checkbox" name="cases_displaytype" lay-skin="switch" lay-text="{$Think.lang.ds_yes}|{$Think.lang.ds_no}" value="1" {if condition="$cases.cases_displaytype eq '1'"}checked{/if}>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.cases_wap_ok}</label>
+                                <div class="layui-input-inline">
+                                    <input type="checkbox" name="cases_wap_ok" lay-skin="switch" lay-text="{$Think.lang.ds_yes}|{$Think.lang.ds_no}" value="1" {if condition="$cases.cases_wap_ok eq '1'"}checked{/if}>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">详情内容</h2>
+                        <div class="layui-colla-content">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.cases_content}</label>
+                                <div class="layui-input-block">
+                                    {:build_editor(['name'=>'cases_content','content'=>isset($cases.cases_content)?htmlspecialchars_decode($cases.cases_content):''])}
+                                    <textarea name="cases_content" id="cases_content" style="min-height:400px;"></textarea>
+                                </div>
+                            </div>
+                            <button type="button" class="layui-btn" id="upload_casespic"><i class="layui-icon"></i>上传文件</button>
+                            <div class="selected_pic clearfix">
+                                <ul>
+                                    {foreach name="pic_list" id="casespic"}
+                                    <li id="{$casespic.pic_id}">
+                                        <img src="{:get_cases_img($casespic['pic_cover'])}"/>
+                                        <i class="delect layui-icon" title="插入编辑器" onclick="insert_editor('{:get_cases_img($casespic['pic_cover'])}')">&#xe654;</i>
+                                        <i class="insert layui-icon" title="删除图片" onclick="del_casespic({$casespic.pic_id})">&#xe640;</i>
+                                    </li>
+                                    {/foreach}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">SEO设置</h2>
+                        <div class="layui-colla-content">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.seo_title}</label>
+                                <div class="layui-input-block">
+                                    <input type="text" class="layui-input field-name" name="seo_title" id="seo_title" value="{$cases.seo_title|default=''}" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.seo_title}" />
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.seo_keywords}</label>
+                                <div class="layui-input-block">
+                                    <input type="text" class="layui-input field-name" name="seo_keywords" id="seo_keywords" value="{$cases.seo_keywords|default=''}" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.seo_keywords}" />
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.seo_description}</label>
+                                <div class="layui-input-block">
+                                    <textarea class="layui-textarea field-name" name="seo_description">{$cases.seo_description|default=''}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item mt20">
+                    <div class="layui-input-inline">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+    });
+    layui.use('element', function () {
+        var element = layui.element;
+    });
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#cases_addtime'
+        });
+    });
+    /**
+     * 图片异步上传
+     */
+    layui.use('upload', function () {
+        var $ = layui.jquery, upload = layui.upload;
+        //指定允许上传的文件类型
+        upload.render({
+            elem: '#upload_casespic'
+            , url: "{:url('pic/upload',['pic_type_id'=>$Request.param.cases_id,'pic_type'=>$cases_pic_type.pic_type])}"
+            , accept: 'file' //普通文件
+            , done: function (res) {
+                add_uploadedfile(res);
+//                console.log(res)
+            }
+        });
+    });
+    function add_uploadedfile(file_data)
+    {
+        var newImg = '<li id="' + file_data.file_id + '"><img src="' + file_data.file_url + '"/><i class="delect layui-icon" title="插入编辑器" onclick="insert_editor(\''+file_data.file_url+'\')">&#xe654;</i><i class="insert layui-icon" title="删除图片" onclick="del_casespic(' + file_data.file_id + ')">&#xe640;</i></li>'
+        $('.selected_pic ul').prepend(newImg);
+    }
+
+
+    /**
+     * 插入编辑器
+     */
+    function insert_editor(file_path){
+        ue.execCommand('insertimage', {src:file_path});
+    }
+
+    function del_casespic(file_id)
+    {
+        layer.open({
+            content: '确定要删除吗？',
+            yes: function(index, layero){
+                $.getJSON("{:url('pic/del')}",{file_id: + file_id,pic_type:'cases'}, function(result){
+                    if(result){
+                        $('#' + file_id).remove();
+                        layer.msg('删除成功');
+                        layer.close(index);
+                        return;
+                    }else{
+                        layer.msg('删除失败');
+                        layer.close(index);
+                        return;
+                    }
+                });
+            }
+        });
+    }
+</script>
+{/block}
+
+

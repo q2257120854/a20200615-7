@@ -1,0 +1,77 @@
+.mui-bar {background: #fff;}
+#swpper1 #conts {
+	width: 78%;
+	transform: translateY(-31%);
+	font-size: 0.4rem;
+	margin: auto;
+	padding: 10px;
+	background-color: #fff;
+	text-align: center;
+	border-radius: 20px;
+}
+.mui-bar-nav {
+    padding-top: 20px;
+    box-sizing: content-box;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+#swpper1 {
+	text-align: center;
+	width: 100%;
+	padding-bottom: 0.3rem;
+	position: relative;
+	
+}
+#swpper1 img{
+	width: 100%;
+	/* background: linear-gradient(to top right, #CDDC39 0%, #8BC34A 25%, #FFEB3B 100%); */
+}
+.copyUrl {
+	letter-spacing: 1px;
+	/*margin-top:0.2rem;*/
+	width: 48%;
+	color: #fff;
+	border-radius: 1rem;
+	background: linear-gradient(to right, #5ec0fe 0%, #346cff 100%);
+}
+#nullYuan {
+	position: relative;
+	overflow: hidden;
+	height: 0.5rem;
+	margin-left: -4%;
+	width: 108%;
+	margin-top: 0.2rem;
+}
+#nullYuan .yuanRight {
+	display: inline-block;
+	height: 0.5rem;width: 0.5rem;
+	border-radius: 0.5rem;
+	background-color: #f4f8ff;
+}
+#nullYuan .yuanCenter {
+	display: inline-block;
+	border: 1px dashed #aaa;
+	top: 50%;left: 0;right: 0;margin: -1px auto 0;
+	position: absolute;
+	width: 80%;
+}
+#yqZiti {
+	line-height:1rem;
+	text-align: center;
+	font-size: 0.75rem;
+	color: #3c7fff;
+}
+#saveImg {
+	width: 60%;
+	border: #2AC845;
+	background-color: #3c7fff;
+	border-radius: 1rem;
+	color: #fff;
+	letter-spacing: 2px;
+	font-size: 0.4rem;
+}
+#footCoat {
+	position: absolute;
+	right: 0;left: 0;margin: auto;
+	bottom: 0.4rem;
+}

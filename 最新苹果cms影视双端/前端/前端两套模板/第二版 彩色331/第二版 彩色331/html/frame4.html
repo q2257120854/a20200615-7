@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>个人中心</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="./frame/css/e.css" />
+</head>
+<body>
+  <div class="vip_bg" onclick="vip()"></div>
+  <div class="jifen_bg" onclick="points()"></div>
+  <div class="user_bg" >
+    <div class="empty" onclick="setting()">
+      <i class=" icon-cog"></i>
+    </div>
+    <div class="user_img" id="user_img"></div>
+    <div class="vip_bs" onclick="login()">
+      <span id="user_nick_name"></span>
+      <i class="icon-chevron-right"></i>
+      <div id="vip_type" class="">会员</div>
+    </div>
+  </div>
+  <div class="system">
+    <ul>
+      <li onclick="history_vod()" style="margin: 1px;">
+        <img src="../image/lishi.png" alt=""> 播放历史
+        <i class="icon-chevron-right"></i>
+      </li>
+    </ul>
+      <div class="box" id="his_list">
+        
+      </div>
+    <ul>
+      <li onclick="collection()"><img src="../image/shoucang.png" alt=""> 我的收藏<i class="icon-chevron-right"></i></li>
+      <li><img src="../image/huancun.png" alt="">我的下载<i class="icon-chevron-right"></i></li>
+      <li onclick="message()"><img src="../image/zixun.png" alt="">求片留言<i class="icon-chevron-right"></i></li>
+      <li><img src="../image/default3.png" alt="">关于我们<i class="icon-chevron-right"></i></li>
+      <li onclick="help()"><img src="../image/bangzhu.png" alt="">使用帮助<i class="icon-chevron-right"></i></li>
+    </ul>
+  </div>
+</body>
+<script type="text/x-dot-template" id="navcattpl">
+  {{~ it : value : index }}
+    <div class="box1" tapmode onclick="vod_play('{{= value. vod_id }}','{{= value. vod_name }}','{{= value. type_id }}','{{= value. vod_area }}','{{= value. ulog_nid }}')">
+      <img src="{{= value. vod_pic }}" alt="">
+      <p>{{= value. vod_name }}</p>
+    </div>
+  {{~}}
+</script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery.js"></script>
+<script type="text/javascript" src="../script/doT.js"></script>
+<script src="./public/public_b.js"></script>
+<script src="./frame/js/e.js"></script>
+</html>

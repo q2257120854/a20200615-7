@@ -1,0 +1,213 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+margin:0;
+padding:0;
+}
+.logo-title-news{font-size:16px;font-weight:normal;font-family:"Microsoft YaHei",Î¢ÈíÑÅºÚ,"ËÎÌå";color:#676d70;height:20px;float:left;margin-top:15px;margin-left:10px;padding-top:10px;padding-left:10px;}
+
+.inputxt {
+	height:25px;
+	line-height:24px;
+	background:#FFFFFF;
+	border:1px solid #C8D6FD;
+	border-radius:5px;
+	padding:5px;
+	width:100px;
+	float:left;
+	}
+#test {
+	margin:0 auto;
+   border:1px solid #C8D6FD;
+   background:#fff;
+   padding:10px;
+   -moz-border-radius: 10px;
+   -webkit-border-radius: 10px;
+   border-radius: 10px;
+   
+}
+div.fenlei{
+float:left;
+padding:1px;
+margin:5px 5px 0px 0px ;
+width:105px;
+border:1px solid #80C5FF;
+
+background:url(aliewm.png);
+color: #0061F3;
+font-size: 13px;
+padding: 6px;
+margin-left:0px;
+float:left;
+padding-left: 10px;
+padding-right: 10px;
+
+}
+div.fenleicf{
+float:left;
+padding:1px;
+margin:5px 5px 0px 0px ;
+width:105px;
+border:1px solid #80C5FF;
+
+background:url(cft.png);
+color: #0061F3;
+font-size: 13px;
+padding: 6px;
+margin-left:0px;
+float:left;
+padding-left: 10px;
+padding-right: 10px;
+}
+div.fenleiwx{
+float:left;
+padding:1px;
+margin:5px 5px 0px 0px ;
+width:105px;
+border:1px solid #80C5FF;
+
+background:url(wxzf.png);
+color: #0061F3;
+font-size: 13px;
+padding: 6px;
+margin-left:0px;
+float:left;
+padding-left: 10px;
+padding-right: 10px;
+}
+div.moneyfl{
+float:left;
+padding:1px;
+margin:4px 4px 0px 0px ;
+width:65px;
+border:1px solid #80C5FF;
+background:url(cft.png);
+color: #000000;
+font-size: 13px;
+padding: 6px;
+margin-left:0px;
+float:left;
+padding-left: 3px;
+padding-right: 3px;
+
+}
+.payment-icon-qq, .payment-icon-vs, .payment-icon-wx {
+    display: inline-block;
+    vertical-align: top;
+    width: 90px;
+    height: 34px;
+}
+.payment-icon-list ul, .payment-list ul {
+    padding: 10px 0;
+}
+
+body, button, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, hr, input, li, ol, p, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+user agent stylesheet
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+.payment-icon-list li.curr:after, .payment-list li.curr:after {
+    content: '';
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    background-image: url(zf.png);
+    bottom: 0;
+    right: 0;
+    background-position: 17px -119px;
+}
+.payment-list li {
+    padding: 3px 25px;
+    font-size: 14px;
+    border: 1px solid #b4b7bf;
+    border-radius: 2px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.payment-icon-list li.curr, .payment-list li.curr {
+    border: 1px solid #0071ce;
+	    border: 2px solid #db5b5a;
+    color: #0071ce;
+	   
+}
+.payment-icon-list li i, .payment-list li i {
+    text-indent: -10000px;
+    overflow: hidden;
+    outline: 0;
+}
+.payment-icon-cft {
+    background-image: url(zf.png);
+    background-position: 0px 136px;
+}
+.payment-icon-wx {
+    background-image: url(zf.png);
+    background-position: 0px -34px;
+}
+.payment-icon-qq {
+    background-image: url(zf.png);
+    background-position: 0px 68px;
+}
+
+
+.payment-icon-cft, .payment-icon-jcb, .payment-icon-ms, .payment-icon-qq, .payment-icon-vs, .payment-icon-wx {
+    display: inline-block;
+    vertical-align: top;
+    width: 90px;
+    height: 34px;
+}
+
+em, i {
+    font-style: normal;
+    font-weight: 400;
+}
+
+.skl_moneyBox{
+	height: auto;
+	float: left;
+	width: auto;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.skl_moneyBox a{
+  list-style:none; 
+	font-family: "Î¢ÈíÑÅºÚ";
+	font-size: 14px;
+	float: left;
+	height: auto;
+	width: 70px;
+	margin-right: 10px;
+	border: 1px double #C4DEFF;
+	border-radius: 5px;
+	text-align: center;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	cursor: pointer;
+	color: #333;
+}
+
+.skl_moneyBox a:hover{ text-decoration:none;}
+
+.skl_selectli{
+	background-image: url(select.png);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-color: #E1F5FF;
+}
+
+.skl_gediv{
+    height:20px;width: 820px;float: left;
+}

@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+    <title>织梦缓存助手</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.serializeJSON/2.8.1/jquery.serializejson.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+    <style>
+        #myTab li{
+            width:25%;
+            float:left;
+            height:40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #myTab li img{
+            float:left;
+            height: 40px;
+        }
+
+        #myTab li a{
+            color:white;
+            text-align: center;
+            position: relative;
+            display: block;
+            padding: 10px 15px;
+        }
+
+        .blue{
+            background:#0f9af2;
+        }
+        .gray{
+            background: #dfdfdf;
+        }
+        li.gray a{
+            color:#252525 !important;
+        }
+        .tabPaneUl{
+            width: 700px;
+            margin: 0 auto;
+            list-style: none;
+        }
+
+        .tabPaneUl li{
+            height: 40px;
+            line-height: 40px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <h2>织梦缓存助手 V<?php echo $ver;?></h2>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="basic">
+
+            <h3>基本设置</h3>
+            <form id="form1" action="" method="post" name="form1">
+                <input type="hidden" name="dopost" value="save">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>缓存类型</th>
+                        <td>
+                            <select class="form-control" name="basic[cache_type]" id="cache_type">
+                                <option value="file" <?php echo (isset($data['cache_type']) && $data['cache_type']=='file') ? 'selected' : ''?>>文件缓存</option>
+                                <option value="redis" <?php echo (isset($data['cache_type']) && $data['cache_type']=='redis') ? 'selected' : ''?>>Redis缓存（推荐）</option>
+                            </select>
+                            <input type="hidden" name="info[cache_type]" value="缓存类型" style="width:80%">
+                        </td>
+                        <td style="width: 50%">如使用Redis缓存，需要服务器安装Redis，且PHP也需安装Redis扩展。</td>
+                    </tr>
+                    <tr>
+                        <th>缓存有效期</th>
+                        <td>
+                            <input class="form-control" type="number" name="basic[cache_expire]" id="cache_expire" value="<?php echo isset($data['cache_expire'])?intval($data['cache_expire']):'120'?>">
+                            <input type="hidden" name="info[cache_expire]" value="缓存有效期（分钟）" style="width:80%">
+                        </td>
+                        <td>单位：分钟。设置为0，则永久有效。</td>
+                    </tr>
+                    <tr>
+                        <th>发布文章后</th>
+                        <td>
+                            <select class="form-control" name="basic[cache_pub]" id="cache_pub">
+                                <option value="1" <?php echo (isset($data['cache_pub']) && $data['cache_open']=='1') ? 'selected' : ''?>>更新栏目缓存</option>
+                                <option value="2" <?php echo (isset($data['cache_pub']) && $data['cache_open']=='2') ? 'selected' : ''?>>更新栏目及首页缓存</option>
+                                <option value="0" <?php echo (isset($data['cache_pub']) && $data['cache_open']=='0') ? 'selected' : ''?>>不更新缓存</option>
+                            </select>
+                            <input type="hidden" name="info[cache_pub]" value="发布文章后更新缓存" style="width:80%">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>编辑文章后</th>
+                        <td>
+                            <select class="form-control" name="basic[cache_edit]" id="cache_edit">
+                                <option value="1" <?php echo (isset($data['cache_edit']) && $data['cache_edit']=='1') ? 'selected' : ''?>>更新栏目缓存</option>
+                                <option value="2" <?php echo (isset($data['cache_edit']) && $data['cache_edit']=='2') ? 'selected' : ''?>>更新栏目及首页缓存</option>
+                                <option value="0" <?php echo (isset($data['cache_edit']) && $data['cache_edit']=='0') ? 'selected' : ''?>>不更新缓存</option>
+                            </select>
+                            <input type="hidden" name="info[cache_edit]" value="编辑文章后更新缓存" style="width:80%">
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+                <div id="redis" style="<?php echo $data['cache_type']=='redis' ? 'display:block' : 'display:none'?>">
+                <h3>Redis配置信息</h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Redis服务器地址</th>
+                        <td>
+                            <input class="form-control" type="text" name="basic[redis_host]" id="redis_host" value="<?php echo $data['redis_host']?$data['redis_host']:'127.0.0.1'?>">
+                            <input type="hidden" name="info[redis_host]" value="Redis服务器地址" style="width:80%">
+                        </td>
+                        <td>默认为127.0.0.1</td>
+                    </tr>
+                    <tr>
+                        <th>Redis服务器端口</th>
+                        <td>
+                            <input class="form-control" type="number" name="basic[redis_port]" id="redis_port" value="<?php echo $data['redis_port']?$data['redis_port']:'6379'?>">
+                            <input type="hidden" name="info[redis_port]" value="Redis服务器端口" style="width:80%">
+                        </td>
+                        <td>默认为6379</td>
+                    </tr>
+                    <tr>
+                        <th>Redis服务器密码</th>
+                        <td>
+                            <input class="form-control" type="text" name="basic[redis_pass]" id="redis_pass" value="<?php echo $data['redis_pass']?>">
+                            <input type="hidden" name="info[redis_pass]" value="Redis服务器密码" style="width:80%">
+                        </td>
+                        <td>默认为空</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <a class="btn btn-danger" href="javascript:;" id="redis-test">测试Redis是否可用</a>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+                <h3>缓存开关</h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>首页缓存</th>
+                        <td>
+                            <select class="form-control" name="basic[cache_index]" id="cache_index" >
+                                <option value="on" <?php echo (isset($data['cache_index']) && $data['cache_index']=='on') ? 'selected' : ''?>>开启</option>
+                                <option value="off" <?php echo (isset($data['cache_index']) && $data['cache_index']=='off') ? 'selected' : ''?>>关闭</option>
+                            </select>
+                            <input type="hidden" name="info[cache_index]" value="首页缓存" style="width:80%">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>栏目缓存</th>
+                        <td>
+                            <select class="form-control" name="basic[cache_list]" id="cache_list" >
+                                <option value="on" <?php echo (isset($data['cache_list']) && $data['cache_list']=='on') ? 'selected' : ''?>>开启</option>
+                                <option value="off" <?php echo (isset($data['cache_list']) && $data['cache_list']=='off') ? 'selected' : ''?>>关闭</option>
+                            </select>
+                            <input type="hidden" name="info[cache_list]" value="栏目缓存" style="width:80%">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>内容页缓存</th>
+                        <td>
+                            <select class="form-control" name="basic[cache_arc]" id="cache_arc" >
+                                <option value="on" <?php echo (isset($data['cache_arc']) && $data['cache_arc']=='on') ? 'selected' : ''?>>开启</option>
+                                <option value="off" <?php echo (isset($data['cache_arc']) && $data['cache_arc']=='off') ? 'selected' : ''?>>关闭</option>
+                            </select>
+                            <input type="hidden" name="info[cache_arc]" value="内容页缓存" style="width:80%">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>TAG缓存</th>
+                        <td>
+                            <select class="form-control" name="basic[cache_tag]" id="cache_tag" >
+                                <option value="on" <?php echo (isset($data['cache_tag']) && $data['cache_tag']=='on') ? 'selected' : ''?>>开启</option>
+                                <option value="off" <?php echo (isset($data['cache_tag']) && $data['cache_tag']=='off') ? 'selected' : ''?>>关闭</option>
+                            </select>
+                            <input type="hidden" name="info[cache_tag]" value="TAG缓存" style="width:80%">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>搜索缓存</th>
+                        <td>
+                            <select class="form-control" name="basic[cache_so]" id="cache_so" >
+                                <option value="on" <?php echo (isset($data['cache_so']) && $data['cache_so']=='on') ? 'selected' : ''?>>开启</option>
+                                <option value="off" <?php echo (isset($data['cache_so']) && $data['cache_so']=='off') ? 'selected' : ''?>>关闭</option>
+                            </select>
+                            <input type="hidden" name="info[cache_so]" value="搜索缓存" style="width:80%">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <a class="btn btn-danger" href="caches.php?dopost=clear">清空缓存</a>
+                            <button class="btn btn-primary center-block">保存</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <br>
+</div>
+</body>
+</html>
+<script>
+    $(function () {
+        $("#redis-test").click(function () {
+            var redis_host = $("#redis_host").val();
+            var redis_port = $("#redis_port").val();
+            var redis_pass = $("#redis_pass").val();
+            var url = 'caches.php?dopost=testRedis';
+            $.getJSON(url,{host:redis_host,port:redis_port,password:redis_pass},function (data) {
+                if(data.code==0){
+                    layer.msg('Redis可以使用！',{icon: 1});
+                }else{
+                    layer.msg('Redis无法使用！请检查！'+data.msg,{icon: 2,anim:6});
+                }
+            })
+        });
+        $("#cache_type").change(function () {
+            if($(this).val()=='redis'){
+                $("#redis").show();
+            }else{
+                $("#redis").hide();
+            }
+        });
+    });
+</script>

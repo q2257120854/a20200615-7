@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title><?php echo $cfg_webname; ?>VIP会员</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="<?php echo $mcfg_basehost; ?>/m-css/m-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/jquery.js"></script>
+<style type="text/css">
+.wrapper{padding-bottom:0;}
+.meTitle{color:#333;line-height:30px;font-size:14px;padding:10px 15px;background-color:#fff;margin-bottom:10px;}
+.m-dwz-viptc{color:#666;line-height:30px;font-size:14px;padding:12px 15px;background-color:#fff;}
+.post-form{padding:0 15px 20px;background-color:#fff;}
+
+/*头部信息*/
+.my_top{padding:25px 0;background:#ffd19d;}
+.my_top_c_b{overflow:hidden;padding:0 15px;}
+.my_top_c_b .user-tx{width:60px;height:60px;margin:0 auto;position:relative;}
+.my_top_c_b img{width:60px;height:60px;border-radius:50%;display:block;}
+.m-user-title{font-weight:700;padding:8px 0 5px 0;color:#824a1b;font-size:24px;text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.user-yxw-vip-2{color:#824a1b;font-size:14px;text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+
+/*会员标识*/
+.yxw-user-list-vip1{width:15px;height:15px;position:absolute;bottom:0;right:6px;background:url(<?php echo $mcfg_basehost; ?>/m-images/yxw-vip-list1.png) no-repeat;background-size:15px 15px;border-radius:50%;}
+.yxw-user-list-vip2{width:15px;height:15px;position:absolute;bottom:0;right:6px;background:url(<?php echo $mcfg_basehost; ?>/m-images/yxw-vip-list2.png) no-repeat;background-size:15px 15px;border-radius:50%;}
+
+/*VIP适用*/
+.m-vip-shiyong{color:#999;font-size:12px;padding-left:5px;}
+
+/*VIP会员套餐*/
+.yxw-yincang-vip{display:none !important;}
+.recharge .pc-vip-list{height:80px;position:relative;padding:0 20px;background-color:#fff;border:#eee 1px solid;margin-bottom:10px;border-radius:5px;}
+.recharge .pc-vip-list2{float:left;height:80px;}
+.recharge .pc-vip-list.active{border:#00bca1 1px solid;background-color:#f1f5f4;}
+.recharge .pc-vip-list .icon-recomd{padding:0 5px;display:block;height:20px;line-height:20px;background:#00bca1;position:absolute;right:20px;top:-10px;color:#fff;font-size:12px;text-align:center;border-top-right-radius:5px;border-bottom-left-radius:5px;}
+.recharge .pc-vip-list .pc-vip-name{font-weight:700;font-size:18px;color:#00bca1;padding-top:17px;padding-bottom:5px;line-height:22px;}
+.recharge .pc-vip-list .money{font-size:28px;color:#00bca1;font-weight:700;float:right;height:80px;line-height:80px;}
+.recharge .pc-vip-list .money em{font-size:12px;color:#00bca1;font-weight:700;}
+.recharge .pc-vip-list .money-nd-yj{font-size:14px;color:#999;line-height:20px;text-decoration:line-through;}
+.recharge .pc-vip-list .money .money-nd-yj,.recharge .pc-vip-list .money .money-bn-yj,.recharge .pc-vip-list .money .money-yd-yj{text-decoration:line-through;}
+.button2{width:100%;line-height:46px;background:#00bca1;color:#fff;font-size:18px;padding:0;border:0;border-radius:3px;margin-top:20px;}
+
+/*会员服务说明*/
+.vip-zyxs-box{background-color:#fff;padding:0 15px 10px;}
+.vip-zyxs-box h3{font-size:16px;color:#333;padding:0 0 10px;font-weight:700;}
+.vip-zyxs-box p{line-height:20px;padding-bottom:10px;color:#666;font-size:12px;text-align:justify;}
+.vip-zyxs-box p strong{padding-right:5px;}
+.vip-zyxs-box p span{color:#f30;}
+
+/*会员特权*/
+.yxw-nav-viptq{background:#fff;overflow:hidden;padding:0 15px 50px;margin-top:10px;}
+.yxw-nav-viptq h3{color:#333;font-size:16px;font-weight:700;padding:20px 0 20px;}
+.yxw-nav-viptq li{width:33.33333%;padding-bottom:20px;float:left;}
+.yxw-nav-viptq img{width:50px;height:50px;margin:0 auto;display:block;}
+.yxw-nav-viptq li span{display:block;height:20px;line-height:20px;font-size:12px;text-align:center;padding-top:5px;}
+.yxw-nav-viptq p{padding-top:20px;color:#047bc3;font-size:14px;text-align:center;}
+</style>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar"><div class="searchbar_index"><a href="javascript:history.go(-1);" class="top_nav_left"></a><h1><?php echo $cfg_webname; ?>VIP会员</h1></div></div>
+<!-- TOP End -->
+
+<div class="wrapper">
+
+
+<!-- 用户信息 -->
+<div class="my_top">
+<div class="my_top_c_b">
+<div class="user-tx">
+<img src="<?php echo $cfg_ml->fields['face']=mstrone($cfg_ml->fields['face']); ?>"><?php if ($cfg_ml->M_Rank > 10){echo '<span class="yxw-user-list-vip2"></span>';} else{echo '<span class="yxw-user-list-vip1"></span>';}?></div>
+<div class="m-user-title"><?php echo $cfg_ml->M_UserName; ?></div>
+<div class="user-yxw-vip-2"><?php if ($cfg_ml->M_Rank > 10){echo '您的会员将于'.$mhasDay.'</span>天后到期';} else{echo '您目前还不是会员哦~';}?></div>
+</div>
+</div>
+<!-- 用户信息 End -->
+
+<div class="m-dwz-viptc">一次开通，全站课程免费学习<span class="m-vip-shiyong"></span></div>
+
+
+<!-- 购买VIP会员 -->
+<div class="post-form" <?php // echo $yikai; ?>>
+<form name="f1" action="buy_action.php" method="post">
+<input type="hidden" name="product" value="member" />
+<?php pasterTempletDiy("d1w2z3/VIP-jiage-m.htm");?>
+<button class="button2" type="submit"><?php if ($cfg_ml->M_Rank > 10){echo '续费会员';} else{echo '购买会员';}?></button>
+</form>
+</div>
+<!-- 购买VIP会员 End -->
+
+
+<!-- 会员服务说明 -->
+<div class="vip-zyxs-box">
+<h3>会员服务声明</h3>
+<p><strong>1.</strong>会员服务为虚拟商品，购买后不支持退款，请您理解。</p>
+<p><strong>2.</strong>在会员有效期内，用户可以免费学习本站的所有课程。</p>
+<p><strong>3.</strong>重复购买会员服务，会员有效期将在原有基础上顺延。</p>
+<p><strong>4.</strong>禁止用户使用任何方式，利用本站资源，为他人提供有偿服务，一经发现，本站有权查封该账号，并追究法律责任。</p>
+</div>
+<!-- 会员服务说明 End -->
+
+</div>
+
+
+<script type="text/javascript">
+        $(function(){
+            //Base_CheckUid();
+            imgload();
+            $(".sel-vip .pc-vip-list").click(function(){
+                var active = $(this).is('.active');
+                if (active == false) {
+                    $(this).children('input[name="pid"]').prop('checked',true);
+                    $(this).addClass("active").siblings().removeClass("active");
+                    var money = $(this).attr('data-money');
+                    $('.pay-money em').text(money+'元');
+                    pay_type = $(this).children('input[name="pid"]').val();
+                }
+            });
+            function imgload(){
+                var pay_type = '';
+                var vip_type = parseInt($("#payform").attr("data-type"));
+
+                if (vip_type) {
+                    pay_type = 'vip_month';
+                }else{
+                    pay_type = 'vip_year';
+                }
+                getWxPayImg(pay_type);
+            }
+            function getWxPayImg(pay_type){
+                var s = null;
+                clearInterval(s);
+                $.ajax({
+                    
+                    success:function(msg){
+                        if (msg.code_img_url) {
+                            var s=setTimeout(st(msg.order_no,3000),5000);
+                        }
+                    }
+                })
+            }
+}) 
+</script>
+</body>
+</html>

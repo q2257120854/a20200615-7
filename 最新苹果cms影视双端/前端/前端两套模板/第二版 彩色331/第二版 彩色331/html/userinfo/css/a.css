@@ -1,0 +1,43 @@
+body{
+    background-color:#fff ;
+}
+section {
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 0 4px;
+    margin-top: 20px;
+    color: #99a2bc;
+}
+.vod_list{
+    margin: 14px;
+    font-size: 16px;
+}
+.vod_list li {
+    padding-bottom: 20px;
+}
+.vod_list li .icon-angle-right {
+    float: right;
+    line-height: inherit;
+
+}
+.right_span{
+   float: left;
+}
+.active {
+    opacity: 0.7;
+}
+.icon-angle-right img{
+    height: 100%;
+    width: 34px;
+    float: left;
+    border-radius: 30px;
+    margin-top: -6px;
+    margin-right: 6px;
+}
+.user_nick{
+    float: left;
+    margin-right: 6px;
+    color: #14b7ff;
+}

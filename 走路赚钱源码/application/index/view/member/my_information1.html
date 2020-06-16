@@ -1,0 +1,198 @@
+{extend name="index:base" /}
+{block name="title"}<title>财富天下</title>{/block}
+
+{block name="style"}
+<link rel="stylesheet" type="text/css" href="__HOME_CSS__/app.css" />
+		<style>
+			h5 {
+				margin: 5px 7px;
+			}
+		</style>
+		<style type="text/css">
+			.mui-bar {background: #fff;}
+			.mui-input-row label {
+				font-size: .32rem;
+				color: #444;
+			}
+			.mui-input-group .mui-input-row:after {
+				left: 0;
+				background-color: #E6E6E6;
+			}
+			.mui-bar-nav {
+			    padding-top: 20px;
+			    box-sizing: content-box;
+			    background-color: #fff;
+			    border-bottom: 1px solid #eee;
+			}			
+			.mui-input-group .mui-input-row,
+			.mui-input-row label~input {
+				height: 60px;
+			}
+			.mui-input-row label {
+				line-height: 40px;
+			}
+			.app-btn {
+				padding: 15px;
+				background: #3C7FFF;
+				border: 1px solid #3C7FFF;
+			}
+		</style>
+{/block}
+
+{block name="body"}
+
+		<header class="mui-bar mui-bar-nav" style="background:#3c7fff;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:#fff;"></a>
+			<h1 class="mui-title" style="color:#fff; font-family:'微软雅黑';">完善资料</h1>
+		</header>
+		<br><br><br>
+		<form class="mui-input-group" style="">
+					<div class="mui-input-row">
+						<span style="position:absolute;margin-left:5%; margin-top:5%; font-family:'微软雅黑';">推荐码</span>
+						<input type="text" style="margin-left: 20%; margin-top:3%; color:#0062CC;" placeholder="请输入推荐码" value="{if condition="$pid neq '0'"}{$pid}{/if}" disabled="true" >
+					</div>
+					
+					<div class="mui-input-row">		
+						<span style="position:absolute;margin-left:5%; margin-top:5%;font-family:'微软雅黑';">手机号</span>
+						<input type="text" style=" margin-left: 20%; margin-top:3%;  color:#0062CC;" class="mui-input-clear" placeholder="请输入手机号" name="mobile" disabled="true" value="{$result.myphone}">
+					</div>
+					<div class="mui-input-row">
+						<span style="position:absolute;margin-left:5%; margin-top:5%;font-family:'微软雅黑';">姓名</span>
+						<input type="text" style="margin-left: 20%; margin-top:3%;  color:#0062CC;" class="mui-input-clear" placeholder="请输入姓名" value="{$result.fullname}" name="truename">
+					</div>
+					<div class="mui-input-row">
+						<span style="position:absolute;margin-left:5%; margin-top:5%;font-family:'微软雅黑';">用户名</span>
+						<input type="text" style="margin-left: 20%; margin-top:3%;  color:#0062CC;" class="mui-input-clear" placeholder="请输入用户名"  value="{if condition="$result.account neq '0'"}{$result.account}{/if}" name="username">
+					</div><div class="mui-input-row">
+						<span style="position:absolute;margin-left:5%; margin-top:5%;font-family:'微软雅黑';">微信</span>
+						<input type="text" style="margin-left: 20%; margin-top:3%;  color:#0062CC;" class="mui-input-clear" placeholder="请输入微信" value="{if condition="$result.weixin neq '0'"}{$result.weixin}{/if}"  {if condition="$result.weixin neq '0'"}readonly="readonly"{else /}class="mui-input-clear"{/if}  name="weixin">
+					</div>
+					
+					<div class="mui-input-row">
+						<span style="position:absolute;margin-left:5%; margin-top:5%;font-family:'微软雅黑';">支付宝</span>
+						<input type="text" style="margin-left: 20%; margin-top:3%;  color:#0062CC;" class="mui-input-clear" placeholder="请输入支付宝" value="{if condition="$result.aiplay neq '0'"}{$result.aiplay}{/if}"  {if condition="$result.aiplay neq '0'"}readonly="readonly"{else /}class="mui-input-clear"{/if} name="zhifubao">
+					</div>
+					
+					<div class="mui-input-row" hidden>
+					
+						<input type="text" style="padding-left: 20%; margin-top:3%;  color:#0062CC;" class="mui-input-clear" placeholder="ETH钱包"  value="{if condition="$result.eth_purse neq '0'"}{$result.eth_purse}{/if}" name="eth_url">
+					</div>
+					
+					{if condition="$result.safe_key eq '0'"}
+					<div class="mui-input-row">
+					
+						<input type="password" style="padding-left: 5%; color:#0062CC;" class="mui-input-clear" placeholder="设置支付密码"  value="" name="password">
+					</div>					
+					{else /}
+					<div class="mui-input-row" hidden>
+					
+						<input type="hidden" style="padding-left: 5%; color:#0062CC;" class="mui-input-clear" placeholder="设置支付密码"  value="" name="password">
+					</div>
+					{/if}
+					
+					<div class="mui-input-row">
+						<input type="text" style="margin-left: 20%; color:#0062CC; margin-top:3%;" class="mui-input-clear" placeholder="短信验证码" name="sms_code">
+						
+					</div>
+					<input type="button" style="position: absolute; background: #007AFF; color: #fff; margin-top: -45px; right: 47px;  font-size: 0.7em; border-radius: 5px; width: 20%;" id="code"  value="获取验证码">
+					
+					<div class="mui-button-row">
+						<button type="button" class="mui-btn mui-btn-danger" style="border-radius:5px; border:0px solid; margin-bottom:30px; line-height:2; width: 80%; background-color: #007AFF"  id="submit">保存</button>
+					</div>
+					
+				</form>
+				
+{/block}
+
+
+{block name="script"}
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			(function($) {
+				//监听点击事件
+				document.getElementById("code").addEventListener('tap',function(){
+					console.log(11111);
+					var mobile = $("input[name=mobile]")[0].value;
+					var code = "";
+					if(!mobile){
+						alert('请输入手机号码！');return false;
+					}
+					var reg=/^\d{11}$/;
+					if(reg.test(mobile) == false){
+						alert('手机号格式不正确');
+						return false;
+					}	
+					
+					$.ajax('/msm_send.html',{
+						data:{mobile:mobile,code:code},
+						dataType:'json',//服务器返回json格式数据
+						type:'post',//HTTP请求类型
+						timeout:50000,//超时时间设置为50秒；
+						success:function(data){
+							//服务器返回响应，根据响应结果，分析是否登录成功；
+							alert(data.s);
+							
+							//锁定样式 【获取验证码】按钮禁止操作
+								
+							event.stopPropagation();
+						}
+					});
+					event.stopPropagation();
+				
+				});
+				//监听点击事件
+				document.getElementById("submit").addEventListener('tap',function(){
+					var truename = $("input[name=truename]")[0].value;
+					var username = $("input[name=username]")[0].value;
+					
+					var weixin = $("input[name=weixin]")[0].value;
+					var zhifubao = $("input[name=zhifubao]")[0].value;
+					var eth_url = $("input[name=eth_url]")[0].value;
+					
+					var mobile = $("input[name=mobile]")[0].value;
+					var sms_code = $("input[name=sms_code]")[0].value;
+					
+					var password = $("input[name=password]")[0].value;
+
+					//console.log(mobile);return false;
+					if(!username){
+						alert('请输入用户名！');return false;
+					}
+
+					if(!mobile){
+						alert('请输入手机号码！');return false;
+					}
+					if(!sms_code){
+						alert('请输入验证码！');return false;
+					}
+						
+					$.ajax('/edit_info.html',{
+						data:{truename:truename,username:username,weixin:weixin,zhifubao:zhifubao,mobile:mobile,sms_code:sms_code,password:password},
+						dataType:'json',//服务器返回json格式数据
+						type:'post',//HTTP请求类型
+						timeout:50000,//超时时间设置为50秒；
+						/*headers:{'Content-Type':'application/json'},*/	              
+						success:function(data){
+							if(data.s=='ok'){
+								alert('修改成功');
+								window.location.href = "/myziliao.html";
+							}else{
+								alert(data.s);
+							}
+							//console.log(data);
+							event.stopPropagation();
+						}
+					});
+					event.stopPropagation();
+				
+				});
+			})(mui);			
+			
+			 //语音识别完成事件
+			document.getElementById("search").addEventListener('recognized', function(e) {
+				console.log(e.detail.value);
+			});
+		</script>
+{/block}

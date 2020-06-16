@@ -1,0 +1,82 @@
+table{border-collapse:collapse;border-spacing:0;}
+.w600{height:44px !important;line-height:44px !important;border-radius:3px !important;background:#ff700a !important;font-size:16px !important;padding:0;}
+
+/*会员中心*/
+.my_top{width:100%;background:#ff700a;padding-top:20px;padding-bottom:15px;}
+.my_top_c,.my_top_d,.my_top_e,.my_top_e2,.jinbi-czrk{text-align:center;}
+.my_top_c .user-tx{display:block;}
+.my_top_c img{height:80px;width:80px;border:3px solid rgba(255,255,255,0.5);border-radius:100%;}
+.m-user-title{line-height:22px;color:#fff;font-size:24px;padding:0 20px;margin-top:10px;}
+.my_top_d{width:80%;margin: 0px auto;padding:10px 0;}
+.my_top_e{line-height:18px;font-size:12px;color:#fff;padding:0 20px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+.my_top_e2{line-height:18px;font-size:12px;color:#fff;padding:0 20px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+.user-dj{height:24px;line-height:22px;border-radius:16px;color:#fff;border:1px solid rgba(255,255,255,0.5);background:rgba(255,255,255,0.2);box-sizing:border-box;display:inline-block;vertical-align:top;padding:0px 12px;font-size:12px;}
+.user-dj2{height:24px;line-height:22px;border-radius:16px;color:#e01105;border:1px solid #fff;background:#fff;box-sizing:border-box;display:inline-block;vertical-align:top;padding:0px 12px;font-size:12px;}
+
+/*个人中心*/
+.my-watch{width:100%;height:58px;position:relative;display:-webkit-box;}
+.my-watch a{display:block;-webkit-box-flex:1;width:1%;}
+.my-watch li{height:49px;padding-top:9px;background:#fff;margin-left:1px;}
+.my-watch li span{display:block;text-align:center;}
+.my-watch a:first-child li{margin-left:0;}
+.watch-goods{font-size:14px;margin-bottom:5px;color:#F50505;line-height:14px;}
+.watch-shop{font-size:11px;line-height:18px;}
+
+/*订单中心*/
+.my_itemw,.my_itemw2{margin:10px 0;width:100%;}
+.my_item,.my_item2{height:44px;border-bottom:1px solid #f5f5f5;display:block;line-height:44px;font-size:16px;color:#333;background:#fefefe url(../m-images/ms_publis_recipe.png) 96% center no-repeat;background-size:6px 10px;position:relative;padding-left:15px;}
+.my_item img,.my_item2 img{display:block;height:20px;width:20px;margin:12px 10px 12px 15px;float:left;}
+
+/*我收藏的课程*/
+.m-kc-shoucang,.m-kc-shoucang2{background:#fff;border-bottom:1px solid #eee;}
+.m-kc-shoucang a,.m-kc-shoucang2 a{display:block;padding:10px;}
+.m-kc-shoucang img{width:100px;height:55px;float:left;}
+.m-kc-min-m{padding-left:110px;height:55px;}
+.m-kc-shoucang .m-kc-sc-title,.m-kc-shoucang2 .m-kc-sc-title2{padding-top:5px;line-height:18px;font-size:14px;padding-bottom:10px;color:#333;text-overflow: ellipsis;white-space:nowrap;overflow:hidden;}
+.m-kc-shoucang .m-miaosu,.m-kc-shoucang2 .m-miaosu2{line-height:16px;font-size:12px;color:#666;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+
+/*退出登录*/
+.m-user-tuichu{padding:20px 0;text-align:center;}
+.m-user-tuichu .m-tuichu{width:100%;height:45px;line-height:45px;font-size:14px;display:inline-block;cursor:pointer;color:#ff700a;background:#fff;}
+
+.content-message-grade{position:relative;line-height:18px;background:#feffe5;margin-top:20px;border:1px solid #efe68b;padding:6px 8px 6px 10px;margin-bottom:7px;font-size:12px;}
+tr{line-height:45px;height:45px;border-bottom:1px solid #ddd;}
+.input_container-m{margin:30px 0;}
+.input_container-m label{float:left;line-height:30px;color:#666;padding-top:2px;font-size:14px;margin-left:10px;margin-right:5px;}
+#password,#password_confirm,.intxt {width:220px;border:1px solid #ccc;font-size:12px;padding:5px;line-height:18px;height:18px;}
+.newbtn{width:100px;border:1px solid #ccc;font-size:12px;padding:5px;line-height:18px;height:18px;border-radius:0px;}
+input,button{vertical-align:middle;font-size:100%;list-style:none;outline:none;border:0;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-appearance:none;}
+.btn_grey{width:100px;line-height:28px;background:#35B558;color:#fff;cursor:pointer;border:1px solid transparent;font-size:14px;padding:0;}
+.contentShow{margin-bottom:10px;}
+.postForm{background:#fff;text-align:center;}
+.meTitle{text-align:left;color:#ff273a;line-height:30px;font-size:16px;margin-top:10px;padding:10px 0 0 10px;}
+.list{margin-top:10px;font-size:12px;}
+tr.row0, tr.row1{line-height:40px;height:40px;border-bottom-width:1px;border-bottom-style:dotted;border-bottom-color:#ccc;}
+th{font-weight:400;}
+table.list tbody .row0 td, table.list tbody .row1 td{background:#f9f9f9;}
+.button2{width:100px;line-height:28px;margin:20px 0;background:#ff700a;color:#fff;cursor:pointer;border:1px solid transparent;font-size:14px;padding:0;}
+b,strong{font-style:normal;font-weight:400;}
+input.newbtn{-webkit-appearance:none;}
+
+.gdb_buybtn2{width:100%;display:inline-block;vertical-align:top;height:50px;background:#ff700a;text-align:center;color:#fff;font-size:16px;padding:0;}
+.gd_bottom2{height:50px;width:100%;padding-left:100px;position:fixed;left:0px;bottom:0px;background:#fff;z-index:500;box-sizing:border-box;font-size:0px;border-top:1px solid #f5f5f5;}
+.gd_bottom2 .vip-kc-hover{background:url(../m-images/kc-shoucang2.png) center 5px /26px 26px no-repeat;}
+.gdb_shoucang{width:55px;height:50px;position:absolute;left:115px;top:0px;line-height:24px;padding-top:26px;box-sizing:border-box;color:#333;font-size:10px;text-align:center;background:url(../m-images/kc-shoucang1.png) center 5px /26px 26px no-repeat;}
+.m-telephone{width:50px;height:50px;position:absolute;border-top:1px solid #eee;left:50px;top:0px;line-height:24px;padding-top:26px;box-sizing:border-box;color:#333;font-size:10px;text-align:center;background:url(../m-images/tle.png) center 5px /26px 26px no-repeat;}
+
+.qrdditem{padding-top:10px !important;}
+.qrdditem .a{padding:0 10px;}
+.qrdditem .b{padding:10px;}
+.qrdditem .a{height:26px;line-height:26px;font-size:14px;}
+.qrdditem .b input{width:100%;line-height:18px;font-size:14px;color:#333;background-color:#f3f7fa;padding:16px 12px;box-sizing:border-box;border-radius:3px;}
+.des-m{line-height:18px;font-size:14px;color:#999;padding:15px;border-bottom:1px solid #eee;}
+
+.gdb_buybtn_pay{width:100%;line-height:44px;background:#ff700a;color:#fff;font-size:16px;padding:0;}
+.gd_bottom_pay{width:100%;bottom:0;position:fixed;left:0;}
+
+.cart_bottom_pay{color:#fff;font-size:16px;padding:0;margin-top:20px;border-radius:3px;}
+.cart_bottom_pay_cc{margin:0 15px;}
+.gd_info{background:#fff;}
+
+/*更换手机号码*/
+#safequestion,#newsafequestion{width:50%;border-radius:2px;border:1px solid #ccc;font-size:12px;padding:5px;line-height:18px;height:38px;}

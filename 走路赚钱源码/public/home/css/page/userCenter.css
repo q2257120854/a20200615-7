@@ -1,0 +1,289 @@
+html,.mui-content {
+	background: #fff url(../../images/userCenter/bg_curve-down@2x.png) no-repeat right bottom;
+	
+}
+.bg-img {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.mui-content {
+	padding-top: 0;
+	background: #fff url(../../images/userCenter/bg_curve_up@2x.png) no-repeat left top;
+	background-size: 50%;
+}
+
+.mui-bar-nav {top: 20px;}
+
+.mui-bar {
+	background-color: transparent;
+}
+
+.user-info-wrap {
+	position: relative;
+	margin: .2rem;
+	overflow: hidden;
+}
+
+.user-info-bg {
+	position: absolute;
+	opacity: 0.1;
+	transform: rotate(-30deg);
+	-webkit-transform: rotate(-30deg);
+	font-family: DINAlternate-Bold,"microsoft yahei";
+	font-size: 9rem;
+	font-weight: bold;
+	color: #FAFBFF;
+	bottom: 45px;
+	right: -25px;
+}
+
+.user-info-content {
+	display: -webkit-flex; /* Safari */
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 2.4rem;
+	padding: .6rem .4rem;
+	border-radius: 6px;
+	background-color: #3c7fff;
+}
+
+.avatar-box>img {
+	width: 1rem;
+}
+
+.user-center-tag {
+	position: absolute;
+	box-sizing: content-box;
+	height: 0.64rem;
+	line-height: 0.72rem;
+	margin-top: -0.32rem;
+	padding: .04rem .12rem .04rem .2rem;
+	font-size: .26rem;
+	color: #3C7FFF;
+	border-top-left-radius: .36rem;
+	border-bottom-left-radius: .36rem;
+	background-color: #fff;
+	right: 0;
+	top: 50%;
+	z-index: 2;
+}
+
+.user-center-tag>img {
+	width: .36rem;
+}
+
+.user-name {
+	color: #fff;
+	font-size: .32rem;
+}
+
+.invite-code-wrap {
+	font-size: .24rem;
+	color: #fff;
+}
+
+.user-infomation-box {
+	padding-left: .28rem;
+}
+
+.invite-code-wrap>button {
+	padding: .02rem .06rem 0;
+	color: #fff;
+	background: rgba(255,255,255,0.40);
+	border: 0;
+	border-radius: 2px;
+}
+
+.member-info {
+	display: -webkit-flex; /* Safari */
+	display: flex;
+	margin-bottom: .1rem;
+	align-items: center;
+}
+
+.member-info .member-level {
+	margin-left: .1rem;
+}
+
+.member-level>img {
+	width: .4rem;
+}
+
+.operate-options>ul {
+	padding-left: 0;
+}
+
+.operate-options>ul>li {
+	position: relative;
+	height: .88rem;
+	line-height: .88rem;
+	padding-left: .3rem;
+	font-size: .32rem;
+	color: #333333;
+	overflow: visible;
+	list-style: none;
+}
+
+.operate-options>ul>li::after {
+	content: '';
+	position: absolute;
+	right: .3rem;
+	margin-top: -0.09rem;
+	width:0;
+    height:0;
+    border-top: .12rem solid transparent;
+    border-bottom: .12rem solid transparent;
+    border-left: .18rem solid #838FB2;
+    top: 50%;
+}
+
+.nav-list>img {
+	width: .32rem;
+	margin-right: .1rem;
+	vertical-align: sub;
+}
+
+.nav-list-subtext {
+	margin-right: .62rem;
+	font-size: .24rem;
+	color: #838FB2;
+}
+
+li.with-line {
+	border-bottom: 1px solid #eee;
+}
+
+.user-center-header {
+	box-sizing: content-box;
+	height: 50px;
+	line-height: 50px;
+	padding-top: 20px;
+	overflow: inherit;
+	background: transparent;
+}
+
+.mui-btn-link {
+	padding-top: 0;
+	padding-bottom: 0;
+	line-height: 50px;
+}
+
+/* 首页迁移 */
+#headIcon {
+	height: 0.6rem;
+	margin: 0.1rem;
+	margin-top: 0.15rem;
+	line-height: 0.6rem;
+	position: relative;
+}
+#headCenter {
+	position: absolute;
+	top: 0;margin: 0;
+	line-height: 0.6rem;
+}
+#headIcon b {
+	line-height: 0.6rem;
+	margin-left: 0.1rem;
+}
+#headIcon>div {
+	display: inline-block;
+	z-index: 999;
+    position: relative;
+}
+#headIcon img{
+	height: 0.45rem;
+	margin-top: 0.1rem;
+	margin-left: 0.2rem;
+	vertical-align: top;
+}
+#headIcon>img{
+	height: 0.4rem;
+	vertical-align: top;
+	margin: 0.2rem;
+	margin-top: 0.13rem;
+	
+}
+.iconRight {
+	position: relative;
+	z-index: 900;
+	overflow: hidden;
+	float:right;
+	margin-right: 0.1rem;
+}
+/* 二维码蒙版 */
+#mengban {
+	position: fixed;
+	top: 0;
+	display: none;
+	width: 100%;
+	text-align: center;
+	height: 100%;
+	background-color: rgba(0,0,0,.7);
+	z-index: 999;
+}
+#mbCoat {
+	width: 90%;
+	height: 400px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	margin: auto;
+}
+#mbCont {
+	background-color: #fff;
+	border-radius: 15px;
+	text-align: center;
+	padding-bottom: 0.4rem;
+}
+#mbLogo {
+	height: 1.8rem;
+	width: 1.8rem;
+	margin: auto;
+	font-size: 0;
+	border-radius: 100%;
+	border: 5px solid #fff;
+	transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	overflow: hidden;
+}
+#mbLogo img {
+	width: 100%;
+}
+#mbCont h4 {
+	font-size: .36rem;
+	margin-top: -0.6rem;
+}
+#mbCont p {
+	font-size: .28rem;
+	line-height: 0.6rem;
+	margin-bottom: 0.28rem;
+}
+#mbErweima {
+	width: 200px;
+	height: 200px;
+	margin: auto;
+	line-height: 200px;
+	font-size: 0.5rem;color: #efefef;
+}
+.mui-icon-close	{
+	font-size: 1rem;
+	color: #fff;
+	font-weight: 0;
+	margin-top: 0.8rem;
+}
+.bg-wallet {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+}
+#setting {
+	width: 0.5rem;
+}

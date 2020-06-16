@@ -1,0 +1,169 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">添加广告</h2>
+      </div>
+      <ul class="ulColumn2">
+
+       <li>
+        <span class="item_name" style="width:120px;">广告标题：</span>
+        <input type="text" class="textbox textbox_295" value="" name="title" placeholder="标题..."/>
+		<span style="color:red;">*</span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">广告图：</span>
+        <label class="uploadImg">
+         <input type="file"  name="pic" />
+		 <img id="pic" src="" >
+		 <input type="hidden" name="primary_pic" value="">
+         <span>上传图片</span>
+        </label>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">广告分类：</span>
+        <select class="select" name="pid">
+		 <option value="1" >&nbsp;首页广告&nbsp;</option>
+		 <option value="2" >&nbsp;新闻动态广告&nbsp;</option>
+		 <option value="3" >&nbsp;商品案例广告&nbsp;</option>
+		 <option value="4" >&nbsp;联系我们广告&nbsp;</option>
+		 <option value="5" >&nbsp;公司简介广告&nbsp;</option>
+		 <option value="6" >&nbsp;团队广告&nbsp;</option>
+		 <option value="7" >&nbsp;留言广告&nbsp;</option>
+		 <option value="8" >&nbsp;人才招聘广告&nbsp;</option>
+		 <option value="9" >&nbsp;合作伙伴广告&nbsp;</option>
+        </select>
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;">链接地址：</span>
+         <input type="text" class="textbox textbox_295" value="" name="link" placeholder="链接地址..."/>
+       </li>
+
+       <li>
+        <span class="item_name" style="width:120px;">说明：</span>
+        <input type="text" class="textbox textbox_295" value="" name="des" placeholder="说明..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">排序：</span>
+        <input type="text" class="textbox textbox_295" value="255" name="sort" placeholder="说明..."/>
+		</br>
+		</br>
+		<span style="margin-left:120px;color:#828181;">
+			最高排序255，由小到大进行排序，0为最前
+		</span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">状态：</span>
+        <label class="single_selection"><input type="radio" name="status" value="1" checked />正常</label>
+        <label class="single_selection"><input type="radio" name="status" value="0" />禁止</label>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" id="submit" class="link_btn" value="确定"/>
+       </li>
+      </ul>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+//建立一個可存取到該file的url
+function getObjectURL(file) {
+	var url = null ;
+	if (window.createObjectURL!=undefined) { // basic
+		url = window.createObjectURL(file) ;
+	} else if (window.URL!=undefined) { // mozilla(firefox)
+		url = window.URL.createObjectURL(file) ;
+	} else if (window.webkitURL!=undefined) { // webkit or chrome
+		url = window.webkitURL.createObjectURL(file) ;
+	}
+	return url ;
+}
+</script>
+<script>
+$(document).ready(function() {
+	$(".uploadImg").on("change",function(){
+		//获取图片的路径，该路径不是图片在本地的路径
+		var objUrl = getObjectURL($('input[name="pic"]')[0].files[0]) ; 
+		console.log(objUrl);
+		if (objUrl) {
+			//将图片路径存入src中，显示出图片
+			$("#pic").attr("src", objUrl) ; 
+		}
+	});
+	
+  //提交
+	$('#submit').click(function(event){
+		var title = $('input[name="title"]').val();
+		var pid = $("option:selected").val();
+		var sort = $('input[name="sort"]').val();
+		var des = $('input[name="des"]').val();
+		var status = $('input[name="status"]:checked').val();
+		var link = $('input[name="link"]').val();
+		//上传图片
+        var fileObj = $('input[name="pic"]')[0].files[0]; 			   
+        var formData = new FormData(); 
+		
+		//加入对象
+		if(title){
+			formData.append('title',title);  
+		}		
+		if(pid){
+			formData.append('pid',pid);   
+		}
+		if(sort){
+			formData.append('sort',sort);   
+		}
+		if(des){
+			formData.append('des',des);   
+		}
+		if(status){
+			formData.append('status',status);   
+		}
+		if(link){
+			formData.append('link',link);   
+		}
+		if(fileObj){
+			formData.append('pic',fileObj); 
+		}else{
+			myAlert('广告图不能为空');
+		}
+		
+		formData.append('op','ad/add');
+		
+		console.log(fileObj);
+		
+		$.ajax({
+			url:"{:url('other/ad_add_do')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			processData: false,//用于对data参数进行序列化处理 这里必须false
+            contentType: false, //必须
+			data:formData,
+			success: function(data) {
+				console.log(data.s);
+				if (data.s=='ok') {
+					myAlert('添加成功');
+					setTimeout(function(){
+						//页面刷新  
+						location.href= "{:url('other/adlist')}";
+					},1000);
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+	
+});
+</script>
+{/block}	

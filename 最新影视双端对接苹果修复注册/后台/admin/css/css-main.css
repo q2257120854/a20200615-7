@@ -1,0 +1,61 @@
+html {overflow-y:scroll;}
+fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {
+	margin:0;
+	padding:0;
+	border:0;
+}
+th {text-align:left;}
+td {word-break:break-all;}
+a {text-decoration: none;color:#222;}
+body {
+	font-size:12px;
+	color:#000;
+	line-height:1.6;
+	font-family:"微软雅黑",Arial,Helvetica,sans-serif;
+	padding:0;
+	margin:0;
+}
+#header {
+	background:#2c97f3;
+	height:60px;
+	position:fixed;
+	top:0;
+	width:100%;
+}
+#header_logo{float:left;display:none;}
+#header_title{font-size:32px;padding-left:210px;line-height:60px;color:#fff;}
+#header_title em{font-size:22px;}
+#header_menu{position:fixed;right: 10px;top: 35px;}
+#side{width:200px;float:left;background:#ccc;position: fixed;top:60px;height:100%;font-size:18px;}
+#side a{color:#000;line-height: 40px;}
+#log_mg{margin-top:10px;font-size:24px;}
+#log_mg li{float:left;list-style:none;margin-left:10px;}
+#log_mg li a{padding:0 10px;color:#fff;}
+#log_mg li.show{background:#fff;}
+#log_mg li.show a{color:#2c97f3;}
+#container {
+	/*margin-left: 220px;*/
+	margin-left: 20px;
+    margin-top: 70px;
+	font-family: "宋体",simsong,sans-serif;
+}
+#footer{
+	clear: both;
+    margin: 0px auto;
+    padding: 18px 0px 12px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background: #ccc;
+}
+#footer a{color:#000;}
+#post div{margin-bottom:10px;}
+#post_button{padding-left:65px;}
+.avatar{
+	border-radius: 100%;
+}
+td .avatar{
+	width: 30px;
+	height: 30px;
+}

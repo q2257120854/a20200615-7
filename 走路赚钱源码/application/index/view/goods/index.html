@@ -1,0 +1,105 @@
+﻿
+{extend name="index:base" /}
+{block name="title"}<title>{$result.name}</title>{/block}
+{block name="keywords"}<meta name="keywords" content="{if condition="$keywords neq ''"}{else /}{$config.WEB_KEYWORD}{/if}" />{/block}
+{block name="description"}<meta name="description" content="{if condition="$description neq ''"}{else /}{$config.WEB_DESCRIPTION}{/if}" />{/block}
+{block name="style"}
+	<link type="text/css" rel="stylesheet" href="__INDEX_CSS__/css.css">
+	<script src="__INDEX_JS__/index.js"></script>
+{/block}
+
+ <!--广告开始-->
+{block name="ad"}
+<div class="banner"> 
+	{foreach name="banner" id="vo"}
+	  <img src="{$vo.pic}" alt="{$vo.title}"/> 
+	{/foreach}
+</div> 
+{/block}
+ <!--广告结束-->
+ 
+{block name="body"}
+  <div class="main"> 
+	<!-- 左侧部分 --> 
+	   <div id="contentLeft"> 
+		<!-- nav --> 
+		<div class="con1-left"> 
+		 <p class="left-title1">案例展示</p> 
+		 <div class="con1_class"> 
+		  <ul id="left-type"> 
+		    <li><a href="/case.html">案例展示</a></li> 
+		  </ul> 
+		 </div> 
+		</div> 
+		<!-- nav end--> 
+		<!-- 联系我们 --> 
+				<div class="sub_content"> 
+				 <div class="sub_common_title"> 
+				  <h2> <p>联系我们</p> <font>CONTACT US___</font></h2> 
+				 </div> 
+				 <div class="sub_content_list"> 
+				  <p class="ltel">电话：{$config.WEB_TEL} </p> 
+				  <p class="lemail">邮箱：{$config.WEB_EMAIL} </p> 
+				  <p class="ladd"> 地址：{$config.WEB_ADDRESS} </p> 
+				 </div> 
+				</div> 
+		<!-- 联系我们 end--> 
+	   </div> 
+	<!-- 左侧部分 end--> 
+	
+	   <!-- 内容部分 --> 
+	   <div id="contentRight"> 
+			<div class="content_com_title"> 
+				 <h2>案例展示</h2> 
+				 <div class="bread">
+				   当前位置：
+				  <a href="/" title="首页">首页</a>-案例展示
+				 </div> 
+			</div> 
+			<div class="content"> 
+				 <div class="view"> 
+					<h1 class="view-title">{$result.name}</h1> 
+					<div class="view-date">
+						<span>来源：{$config.WEB_TITLE}</span> &nbsp;&nbsp;&nbsp;&nbsp; 
+						<span>发布时间：{$result.addtime|date="Y-m-d",###}</span> 
+					</div>
+					<div class="box">
+						<!-- 存放大图的容器-->
+						<div class="all">
+							<div class="top-img">
+								<div class="activeimg">
+									{foreach name="photo" id="vo"}
+									<img src="{$vo}">
+									{/foreach}
+								</div>
+								<div class="left"><img src="__INDEX_IMG__/left.png"> </div>
+								<div class="right"><img src="__INDEX_IMG__/right.png"></div>
+							</div>
+							<!-- 存放缩略图的容器-->
+							<div class="bot-img">
+								<ul>
+									{foreach name="thumb" id="vo"}
+									<li class="{if condition='$key eq 0'}active{/if}"><img src="{$vo}"> </li>
+									{/foreach}
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="boxcen">
+						{$result.content|htmlspecialchars_decode}
+					</div> 
+				 </div> 
+			</div>
+			<div class="page"> 
+				<a href="javascript:void(0);" class="back" onclick="javascript:history.back(-1);">返回</a> 
+			</div>			
+	   </div> 
+
+	   <!-- 内容部分 end--> 
+  </div> 
+
+
+{/block}
+
+{block name="script"}
+{/block}	

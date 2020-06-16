@@ -1,0 +1,88 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">管理员详情</h2>
+      </div>
+      <ul class="ulColumn2">
+
+       <li>
+        <span class="item_name" style="width:120px;">账户名称：</span>
+        <input type="text" class="textbox textbox_225" value="{$result.account}" name="account" placeholder="账号..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">密码：</span>
+        <input type="password" class="textbox textbox_225" name="password" placeholder="密码..."/>
+		<span class="errorTips">不修改为不填...</span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">管理组：</span>
+        <select class="select" name="group">
+		 {foreach name="list" id="vo"}
+         <option value="{$vo.id}" data-power="{$vo.power}" {if condition="$vo.id eq $result.group"}selected{/if}>&nbsp;{$vo.name}&nbsp;</option>
+		 {/foreach}
+        </select>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">电子邮箱：</span>
+        <input type="email" class="textbox textbox_225" value="{$result.email}" name="email" placeholder="电子邮件地址..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">状态：</span>
+        <label class="single_selection"><input type="radio" name="status" value="1" {if condition="$result.status eq 1"} checked {/if}/>正常</label>
+        <label class="single_selection"><input type="radio" name="status" value="0" {if condition="$result.status eq 0"} checked {/if}/>冻结</label>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+		<input type="hidden" value="{$result.id}" name="id" />
+        <input type="submit" id="submit" class="link_btn" value="更新/保存"/>
+       </li>
+      </ul>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+$(document).ready(function() {
+  //测试提交，对接程序删除即可
+	$('#submit').click(function(event){
+		var account = $('input[name="account"]').val();
+		var password = $('input[name="password"]').val();
+		var group = $('option:selected').val();
+		var email = $('input[name="email"]').val();
+		var status = $('input[name="status"]:checked').val();
+		var id = $('input[name="id"]').val();
+		var power = $('option:selected').attr('data-power');
+		console.log(power);
+		
+		$.ajax({
+			url:"{:url('admin/edit_do')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			data:{op:'adminedit',account:account,password:password,group:group,email:email,status:status,id:id,power:power},
+			success: function(data) {
+				console.log(data.s);
+				if (data.s=='ok') {
+					myAlert('更新成功');
+					setTimeout(function(){
+						//页面刷新  
+						window.location.reload();
+					},1000);
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+	
+});
+</script>
+{/block}	

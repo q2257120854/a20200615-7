@@ -1,0 +1,218 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+    <style type="text/css">
+
+		.textbox_640{
+			width:340px;
+		}
+    </style>	
+	
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+		<h2 class="fl">修改钻箱</h2>
+		<a href="javascript:;" class="fr top_rt_btn submit" style="background: #302931;color: white;border-radius: 2px;border: 1px #139667 solid;">确认提交</a>
+      </div>
+
+      <ul class="ulColumn2">
+
+       <li>
+        <span class="item_name" style="width:120px;">产品类型：</span>
+        <input type="text" class="textbox textbox_640" value="{$result.name}" name="name" placeholder="产品类型..."/>
+		<span style="color:red;">*必填</span>
+       </li>
+	   
+	   
+       <li>
+        <span class="item_name" style="width:120px;">缩略图：</span>
+        <label class="uploadImg">
+         <input type="file"  name="pic" />
+		 <img id="pic" src="{if condition="$result.pic neq '0'"} {$result.pic}{/if}" >
+		 <input type="hidden" name="primary_pic" value="{$result.pic}">
+         <span>上传封面图</span>
+        </label>
+       </li>
+
+       <li>
+        <span class="item_name"style="width:120px;">钻箱等级：</span>
+        <select class="select" name="grade"  data-class="yes" >
+		<option value="0" >&nbsp;请选择分类&nbsp;</option>
+		 <option value="1" {if condition="$result.grade eq 1"}selected {/if}>&nbsp;微型钻箱&nbsp;</option>
+		 <option value="2" {if condition="$result.grade eq 2"}selected {/if}>&nbsp;小型钻箱&nbsp;</option>
+		 <option value="3" {if condition="$result.grade eq 3"}selected {/if}>&nbsp;中型钻箱&nbsp;</option>
+		 <option value="4" {if condition="$result.grade eq 4"}selected {/if}>&nbsp;大型钻箱&nbsp;</option>
+        </select>
+		<span style="color:red;">*必填 [请选择分类]</span>
+       </li>
+	   <div id="attr"></div>
+
+       <li>
+        <span class="item_name" style="width:120px;">价格 ：</span>
+        <input type="text" class="textbox" value="{$result.price}" name="price" placeholder="价格/ZJ..."/>
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;">总产量 ：</span>
+        <input type="text" class="textbox" value="{$result.output}" name="output" placeholder="总产量..."/>
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;">总收益 ：</span>
+        <input type="text" class="textbox" value="{$result.profit}" name="profit" placeholder="总收益..."/>
+		<span style="color:red;">%</span>
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;">日收 ：</span>
+        <input type="text" class="textbox" value="{$result.day_gain}" name="day_gain" placeholder="日收/乐豆..."/>
+       </li>
+	   	   
+       <li>
+        <span class="item_name" style="width:120px;">乐豆 ：</span>
+        <input type="text" class="textbox" value="{$result.ore_coin}" name="ore_coin" placeholder="乐豆/日收益..."/>
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;">周期 ：</span>
+        <input type="text" class="textbox" value="{$result.cyc}" name="cyc" placeholder="周期..."/>
+       </li>
+	   
+       <li>
+        <span class="item_name" style="width:120px;">状态：</span>
+        <label class="single_selection"><input type="radio" name="status" value="1" {if condition="$result.status eq 1"}checked {/if}/>上架</label>
+        <label class="single_selection"><input type="radio" name="status" value="0" {if condition="$result.status eq 0"}checked {/if}/>下架</label>
+       </li>
+		   
+       <li>
+	    <input type="hidden" name="id" value="{$result.id}"/>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" id="submit" class="link_btn submit" value="确认提交"/>
+		
+       </li>
+      </ul>
+	  
+		
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+//建立一個可存取到該file的url
+function getObjectURL(file) {
+	var url = null ;
+	if (window.createObjectURL!=undefined) { // basic
+		url = window.createObjectURL(file) ;
+	} else if (window.URL!=undefined) { // mozilla(firefox)
+		url = window.URL.createObjectURL(file) ;
+	} else if (window.webkitURL!=undefined) { // webkit or chrome
+		url = window.webkitURL.createObjectURL(file) ;
+	}
+	return url ;
+}
+</script>
+
+<script>
+
+$(document).ready(function() {
+
+	
+	$(".uploadImg").on("change",function(){
+		//获取图片的路径，该路径不是图片在本地的路径
+		var objUrl = getObjectURL($('input[name="pic"]')[0].files[0]) ; 
+		console.log(objUrl);
+		if (objUrl) {
+			//将图片路径存入src中，显示出图片
+			$("#pic").attr("src", objUrl) ; 
+		}
+	});
+
+	$('.submit').click(function(event){
+		var formData = new FormData(); 
+		var name = $('input[name="name"]').val();//名称
+		var grade = $("select[name='grade'] option:selected").val();
+		var status = $('input[name="status"]:checked').val();//状态
+		//缩略图
+        var pic = $('input[name="pic"]')[0].files[0];
+		var price = $('input[name="price"]').val();//单价	
+		var output = $('input[name="output"]').val();//产量		
+		var profit = $('input[name="profit"]').val();
+		var day_gain = $('input[name="day_gain"]').val();
+		var ore_coin = $('input[name="ore_coin"]').val();	
+		var cyc = $('input[name="cyc"]').val();
+		var id = $('input[name="id"]').val();
+
+		
+		//加入对象
+		formData.append('id',id);
+		if(name){
+			formData.append('name',name);   
+		}else{
+			myAlert('名称不能为空');
+		}
+		if(grade){
+			formData.append('grade',grade);  
+		}else{
+			myAlert('请选择分类');
+		}
+		formData.append('status',status);  
+		if(pic){
+			formData.append('pic',pic); 
+		}
+		if(price){
+			formData.append('price',price);   
+		}
+		if(output){
+			formData.append('output',output);   
+		}
+		if(profit){
+			formData.append('profit',profit);   
+		}	
+		if(day_gain){
+			formData.append('day_gain',day_gain);   
+		}
+		if(ore_coin){
+			formData.append('ore_coin',ore_coin);   
+		}
+		if(cyc){
+			formData.append('cyc',cyc);
+		}	
+		
+		formData.append('op','ore/edit');
+		
+		$.ajax({
+			url:"{:url('ore/edit_do')}",
+			dataType:"json",
+			type:'POST',
+			cache:false,
+			processData: false,//用于对data参数进行序列化处理 这里必须false
+            contentType: false, //必须
+			data:formData,
+			success: function(data) {
+				console.log(data.s);
+				if (data.s=='ok') {
+					myAlert('修改成功');
+					setTimeout(function(){
+					//页面刷新  
+					//window.history.back(-1); 
+					location.href= "{:url('ore/lists')}";
+					},1000);				
+				}else {
+					myAlert(data.s);
+				}
+			}
+		});
+	});  
+	
+});
+
+</script>
+
+
+{/block}	

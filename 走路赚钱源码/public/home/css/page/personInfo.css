@@ -1,0 +1,33 @@
+.card-pix-contain {
+	height: 3.6rem;
+	padding: .4rem;
+	background-size: 2rem;
+	text-align: center;
+	background-color: #FFFFFF;
+}
+
+.mui-bar-nav {
+    padding-top: 20px;
+    box-sizing: content-box;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.mui-table-view-cell,.mui-badge {
+	color: #444;
+	font-size: .32rem;
+}
+
+.mui-bar.mui-bar-nav {
+	background: #fff;
+}
+
+.mui-table-view-cell:after {
+	left: 0;
+}
+
+.mui-content {
+	padding-bottom: 50px;
+}
+
+

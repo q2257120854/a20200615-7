@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+
+<title>{dede:field name='typename'/}_{dede:global.cfg_webname/}</title>
+
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+<meta content="yes" name="apple-mobile-web-app-capable" />
+
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+
+<meta content="telephone=no" name="format-detection" />
+
+<link href="{dede:global.mcfg_basehost/}/m-css/m-index.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="{dede:global.mcfg_basehost/}/m-js/jquery.js" ></script>
+
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_basehost/}/include/dedeajax2.js"></script>
+
+<script language="javascript" type="text/javascript">
+
+<!--
+
+	$(function(){
+
+		$("a[_for]").mouseover(function(){
+
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+
+			$(this).addClass("thisclass").blur();
+
+			$("#"+$(this).attr("_for")).show();
+
+		});
+
+		$("a[_for=uc_member]").mouseover();
+
+		$("a[_for=flink_1]").mouseover();
+
+	});
+
+	
+
+	function CheckLogintop(){
+
+	  var taget_obj = document.getElementById('_userlogin');
+
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+
+	  DedeXHTTP = null;
+
+	}
+
+-->
+
+</script>
+
+<style type="text/css">
+
+/*重置头部*/
+
+.wrapper{padding-bottom:0;}
+
+.showYin{display:block !important;}
+
+.yin{display:none !important;}
+
+.swiper-slide img{display:block;}
+
+
+
+/*重写头部右边图标位置*/
+
+.yxw-header .member-box{overflow:hidden;}
+
+.yxw-header .m-link{display:block;height:30px;}
+
+.yxw-header .m-link img{width:30px;height:30px;border-radius:50%;}
+
+
+
+/*课程简介*/
+
+.yxw-kc-jianjie{padding:20px 15px 20px;background-color:#fff;margin-top:10px;}
+
+.yxw-kc-jianjie h3{font-size:18px;color:#333;padding-bottom:10px;}
+
+.yxw-kc-jianjie p{color:#333;font-size:16px;padding-bottom:10px;line-height:24px;text-align:justify;}
+
+.yxw-kc-jianjie p img{margin:0 auto;display:block;width:100% !important;height:100% !important;margin-bottom:-10px;}
+
+
+
+/*课程目录*/
+
+.yxw-kcml-box{background:#fff;padding:15px;margin-top:10px;}
+
+.yxw-kcml-box .yxw-list-kcml{padding-bottom:10px;font-size:18px;}
+
+.yxw-kcml-box .content-list{overflow-x:scroll;-webkit-overflow-scrolling:touch;white-space:nowrap;}
+
+.yxw-kcml-box .content-list .task-task-item{position:relative;width:150px;display:inline-block;margin-right:10px;}
+
+.yxw-kcml-box .content-list img{width:150px;height:84px;display:block;}
+
+.yxw-kcml-box .content-list p{color:#999;font-size:12px;line-height:16px;padding:13px 0 3px;}
+
+.yxw-kcml-box .content-list .task-tt-text{color:#333;font-size:14px;line-height:18px;display:block;padding-bottom:10px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+
+.yxw-kcml-box .content-list .task-tt-text:hover{color:#00bca1;}
+
+.yxw-kcml-box .content-list .yxw-kc-s{position:absolute;top:0;right:0;padding:5px 10px 0 0;width:20px;height:20px;background:url({dede:global.mcfg_basehost/}/m-images/yxw-kc-s.png) center no-repeat;background-size:20px 20px;}
+
+.yxw-kcml-box .content-list .keshikan{font-size:10px;color:#fff;padding:3px 5px 3px 5px;position:absolute;top:0;right:0;background:#393;}
+
+
+
+/*课程标题*/
+
+.gzs-title-box{padding:20px 15px 10px;background:#fff;}
+
+.gzs-title-box h1{line-height:26px;font-size:20px;color:#333;font-weight:700;padding-bottom:15px;}
+
+.gzs-title-box .iofx{overflow:hidden;padding-bottom:15px;height:22px;line-height:22px;}
+
+.gzs-title-box .iofx .times{float:left;font-size:14px;color:#999;display:inline-block;}
+
+
+
+/*课程收藏*/
+
+.gzs-title-box .shoucang1{float:right;font-size:12px;color:#fff;display:inline-block;padding:0 12px;background-color:#999;border-radius:2px;cursor:pointer;}
+
+.gzs-title-box .shoucang2{float:right;font-size:12px;color:#fff;display:inline-block;padding:0 8px;background-color:#ce2525;border-radius:2px;cursor:pointer;}
+
+.mui-toast-container{position:fixed;z-index:9999;bottom:200px;width:100%;-webkit-transition:opacity .8s;transition:opacity .8s;opacity:0;}
+
+.mui-toast-container.mui-active{opacity:1;}
+
+.mui-toast-message{width:120px;margin:5px auto;padding:10px 5px;text-align:center;color:#fff;border-radius:5px;background-color:#606060;font-size:12px;}
+
+
+
+/*课程购买*/
+
+.list-bottom-goumai{position:fixed;width:100%;left:0;bottom:0;padding:10px 15px;box-sizing:border-box;background:#fff;box-shadow:0 -1px 10px 0 rgba(0,0,0,0.05);}
+
+.list-bottom-goumai .kc-goumai{width:100%;float:left;text-align:center;height:44px;line-height:44px;background:#ed7e30;display:block;font-size:16px;color:#fff;border-radius:22px;}
+
+.list-bottom-goumai .kc-goumai .kc-yuanjia{padding:0 5px;color:#dedede;font-size:14px;text-decoration:line-through;}
+
+
+
+/*购买须知*/
+
+.gzs-k-faq{background:#fff;padding:20px 15px 64px;margin-top:10px;}
+
+.gzs-k-faq h3{font-size:18px;color:#333;padding-bottom:10px;font-weight:700;}
+
+.gzs-k-faq h4{line-height:20px;font-size:14px;color:#999;padding-bottom:15px;}
+
+.gzs-k-faq p{line-height:20px;font-size:14px;color:#999;padding-bottom:10px;}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+{dede:include filename="head_m.htm"/}
+
+
+
+<div class="wrapper">
+
+
+
+
+
+<div class="swiper-slide"><img src="{dede:field.ico function='mstrone(@me)'/}"></div>
+
+
+
+
+
+<!-- 课程标题 -->
+
+<div class="gzs-title-box">
+
+<h1>{dede:field.typename/}</h1>
+
+<div class="iofx">
+
+<span class="times">{dede:field.id function="JJgetCliak(@me)"/}次学习</span>
+
+<span class="shoucang1" id="toastBtn"></span>
+
+</div>
+
+</div>
+
+<!-- 课程标题 End -->
+
+
+
+
+
+
+
+<!-- 课程目录 -->
+
+<div class="yxw-kcml-box">
+
+<h2 class="yxw-list-kcml">课程目录<span class="list-kczj" style="float:right;color:#999;font-size:14px;">{dede:type}[field:ID function='GetTotalArc(@me)'/] {/dede:type}集全</span></h2>
+
+<div class="content-list">
+
+{dede:list orderby='id' orderway='asc'}
+
+<a href="[field:arcurl/]" class="task-task-item needBuy_kelist" rank="[field:arcrank/]">
+
+<img src="http://www.test.com/images/yxw-sc-bg.gif" load="[field:litpic function='mstrone(@me)'/]">
+
+<p>第[field:global.autoindex/]节</p>
+
+<span class="task-tt-text">[field:fulltitle/]</span>
+
+<span class="yxw-kc-s needBuy yin"></span>
+
+</a>
+
+{/dede:list}
+
+</div>
+
+</div>
+
+<!-- 课程目录 End -->
+
+
+
+
+
+<!-- 课程简介 -->
+
+<div class="yxw-kc-jianjie">
+
+<h3>课程简介</h3>
+
+{dede:field.content function='mstrup(@me)'/}
+
+</div>
+
+<!-- 课程简介 End -->
+
+
+
+
+
+<!-- 购买须知 -->
+
+<div class="gzs-k-faq">
+
+<h3>购买须知</h3>
+
+<h4>1. 课程是虚拟商品，购买后不支持退款，请您理解。</h4>
+
+<h4>2. 课程自购买之日起永久有效，可无限次观看视频学习。</h4>
+
+<h4>3. 成功购买课程后，在首页底部 →「已购」中进行点击观看。</h4>
+
+<h4>4. 遇到不懂的问题，请至「客服」进行沟通交流。</h4>
+
+</div>
+
+<!-- 购买须知 End -->
+
+
+
+
+
+<!-- 课程购买 -->
+
+<div class="list-bottom-goumai needBuy yin">
+
+<a href="{dede:global.mcfg_basehost/}/member/buyke.php?tid={dede:field.typeid/}" class="kc-goumai">
+
+{dede:field.array runphp='yes'}
+
+global $cfg_dazhe,$kc_miaosha,$cfg_zhekou;
+
+if($cfg_dazhe == 'Y'){
+
+@me = '￥'.@me['price'] / 100 * $cfg_zhekou.'<em class="kc-yuanjia">￥'.@me['price'].'</em>购买课程';
+
+}else{
+
+@me = '￥'.@me['price'].' 购买课程';
+
+}
+
+{/dede:field.array}
+
+</a>
+
+</div>
+
+<!-- 课程购买 End -->
+
+
+
+
+
+
+
+</div>
+
+<!-- wrapper End -->
+
+
+
+
+
+
+
+<script src="{dede:global.mcfg_basehost/}/m-js/mui.min.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+mui.init({
+
+swipeBack: true
+
+});
+
+document.getElementById("toastBtn").addEventListener('tap', function() {
+
+});
+
+</script>
+
+
+
+
+
+<script>
+
+//获取会员权限
+
+function GetMemRank(){
+
+	$.post("{dede:global.mcfg_basehost/}/member/jjajax.php",{a:"GetRank",tid:"{dede:field.typeid/}"},function(result){
+
+ 		if(result == 'ok'){
+
+			$(".vipxian").removeClass("yin");
+
+		}else{
+
+			
+
+if('{dede:field.shikan/}' != ''){
+
+	$(".list-shikan").show();
+
+}
+
+			
+
+			$(".needBuy").removeClass("yin");
+
+			$(".needBuy_kelist").each(function(index, element) {
+
+                if($(element).attr("rank") == '0' ){
+
+					$(element).find(".needBuy").removeClass("yxw-kc-s");
+
+					$(element).find(".needBuy").html('<em class="keshikan">可试看</em>');	
+
+				 
+
+					if(result == 'notlogin'){
+
+						$(element).attr("href","{dede:global.mcfg_basehost/}/member/");
+
+					}
+
+					 
+
+				}else{
+
+					$(element).attr("href","javascript:;");
+
+				}
+
+            });			 						
+
+		} 
+
+	});	
+
+ 
+
+}
+
+GetMemRank();
+
+
+
+function GetTypeStow(){
+
+	$.post("{dede:global.mcfg_basehost/}/member/jjajax.php",{a:"GetTypeStow",tid:"{dede:field.typeid/}"},function(result){
+
+ 		if(result == 'ok'){
+
+			$("#toastBtn").html('已收藏');	
+
+			$("#toastBtn").addClass("shoucang2");
+
+		}else{
+
+			$("#toastBtn").html('收藏');
+
+		}
+
+	});	
+
+}
+
+$("#toastBtn").click(function(){
+
+	$.post("{dede:global.mcfg_basehost/}/member/jjajax.php",{a:"typestow",tid:"{dede:field.typeid/}"},function(result){
+
+			if(result == 'notlogin'){
+
+			window.location.href = "{dede:global.mcfg_basehost/}/member/";
+
+			}else if(result == 'ok'){
+
+				$("#toastBtn").html('已收藏');
+
+				$("#toastBtn").removeClass("shoucang1");
+
+				$("#toastBtn").addClass("shoucang2");
+
+				mui.toast('可在"我的收藏"查看');
+
+			}else{
+
+				$("#toastBtn").html('收藏');
+
+				$("#toastBtn").addClass("shoucang1");
+
+				$("#toastBtn").removeClass("shoucang2");	
+
+				mui.toast('您已取消收藏');
+
+			}
+
+	});	
+
+
+
+})
+
+GetTypeStow();
+
+</script>
+
+
+
+
+
+
+
+<!-- 课程目录 -->
+
+<script>
+
+function yourFunction(idx){
+
+	$(".content-list").eq(idx).find("img").each(function(index, element) {		
+
+        if($(element).attr("load") != undefined && $(element).attr("load") != ''){
+
+			$(element).attr("src",$(element).attr("load"));	
+
+			$(element).attr("load",'');
+
+		}
+
+    });
+
+}
+
+
+
+$(function(){
+
+	function yourFunction(idx){
+
+		$(".content-list").eq(idx).find("img").each(function(index, element) {		
+
+			if($(element).attr("load") != undefined && $(element).attr("load") != ''){
+
+				$(element).attr("src",$(element).attr("load"));	
+
+				$(element).attr("load",'');
+
+			}
+
+		});
+
+	}
+
+var ii = setTimeout('yourFunction(0)',300); 
+
+})
+
+</script>
+
+
+
+
+
+
+
+<!-- 课程搜索 -->
+
+<div id="JwapSearch" class="m-search-pnl">
+
+<div id="JwsClose" class="top_nav_left"></div>
+
+<div class="ysearch-box">
+
+<form method="post" name="f1" action="{dede:global.mcfg_basehost/}/search.php" onsubmit="return checkSearchForm()">
+
+<input type="hidden" name="kwtype" value="0" />
+
+<input type="hidden" id="driverId" name="channeltype" value="17" />  
+
+<input type="text" class="yfixtext" id="keyword" name="keyword" placeholder="搜索您感兴趣的课程" autocomplete="off">
+
+<input type="submit" class="fixsbmt" value="">
+
+</form>
+
+</div>
+
+</div>
+
+<!-- 课程搜索 End -->
+
+<script type="text/javascript">
+
+  function checkSearchForm(){
+
+  if(document.getElementById('keyword').value){
+
+    return true;
+
+    }else{
+
+   alert("请输入课程关键字哦");
+
+    return false;
+
+    }
+
+    }
+
+</script>
+
+<script>
+
+(function(){var searchWrapObj=document.getElementById("JwapSearch");searchWrapObj&&document.body.appendChild(searchWrapObj);var sentFlag=false;var submitFlag=false;if(-1==window.location.pathname.indexOf("bbs")){showSeriesViewed()}function showSeriesViewed(){var COOKIE_NAME="LAST_VIEW_CHEXIS";var cookieValue=decodeURI(decodeURIComponent(document.cookie.replace(new RegExp(".*(?:^|; )"+COOKIE_NAME+"=([^;]*).*|.*"),"$1")));var historyObj=document.getElementById("JviewHistory");if(!cookieValue||!historyObj){return}var valueArr=cookieValue.split(",");var html="";for(var i=0;i<valueArr.length&&i<3;i++){var data=valueArr[i].split("-");if(data.length<2){continue}html+=''+data[0]+'/">'+data[1]+"</a>"}if(""!=html){historyObj.innerHTML=""+html;historyObj.style.display="block"}}var SHOW_PANNEL_CLASS="m-full-pnl";var DISABLE_SCROLL_CLASS="m-disb-scroll";var htmlObj=document.documentElement;function hasClass(el,className){if(el.classList){return el.classList.contains(className)}return !!el.className.match(new RegExp("(\\s|^)"+className+"(\\s|$)"))}function addClass(el,className){if(el.classList){el.classList.add(className)}else{!hasClass(el,className)&&(el.className+=" "+className)}}function rmvClass(el,className){if(el.classList){el.classList.remove(className)}else{hasClass(el,className)&&(el.className=el.className.replace(new RegExp("(\\s|^)"+className+"(\\s|$)")," "))}}var enIptObj=document.getElementById("JenIpt");var iptObj=document.getElementById("JwsIpt");enIptObj&&enIptObj.addEventListener("click",function(){if(-1==window.location.pathname.indexOf("bbs")){getHotSeries()}loadSearchJS();htmlObj.setAttribute("data-y",document.body.scrollTop);addClass(htmlObj,SHOW_PANNEL_CLASS);searchWrapObj&&(searchWrapObj.scrollIntoView());addClass(htmlObj,DISABLE_SCROLL_CLASS);var tmpIptObj=document.search&&document.search.q;if(tmpIptObj){tmpIptObj.value="";tmpIptObj.focus()}loadLike()});var closeObj=document.getElementById("JwsClose");closeObj&&closeObj.addEventListener("click",function(){iptObj&&enIptObj&&(enIptObj.value=iptObj.value);rmvClass(htmlObj,DISABLE_SCROLL_CLASS);var setY=htmlObj.getAttribute("data-y");setY&&(document.body.scrollTop=setY);rmvClass(htmlObj,SHOW_PANNEL_CLASS)});var enSubmitObj=document.getElementById("JenSubmit");enSubmitObj&&enSubmitObj.addEventListener("click",clickBtnSubmit);var submitObj=document.getElementById("JwsSubmit");submitObj&&submitObj.addEventListener("click",clickBtnSubmit);function clickBtnSubmit(){submitFlag=true;if("function"!=typeof wapSearchSubmit){loadSearchJS();return false}wapSearchSubmit()}function loadSearchJS(){if(sentFlag){return}sentFlag=true;var scriptObj=document.createElement("script");scriptObj.src="";scriptObj.charset="utf-8";var headObj=document.getElementsByTagName("head")[0];headObj.appendChild(scriptObj);scriptObj.onload=scriptObj.onreadystatechange=function(){var f=scriptObj.readyState;if(f&&f!="loaded"&&f!="complete"){return}scriptObj.onload=scriptObj.onreadystatechange=null;ks_search();if(submitFlag){wapSearchSubmit()}}}function getHotSeries(){var hotSeriesObj=document.getElementById("JhotSeries");var record=localStorage.getItem("wapSearchRecord");if(record!=null||!hotSeriesObj){return}loadScript(location.protocol+"",function(data){var html="";var seriesArr=data.data;if(seriesArr.length<0){return}for(var i=0,len=seriesArr.length;i<len;i++){var result=seriesArr[i];html+=''+result.id+'/" title="'+result.title+'">'+result.title+"</a>"}if(""!=html){hotSeriesObj.innerHTML=""+''+html+"";hotSeriesObj.style.display="block"}},"showHotseries")}function getParam(url,name){if(!url||!name){return}var name=name.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");var regex=new RegExp("[\\?&]"+name+"=([^&#]*)");var results=regex.exec(url);return(null==results?null:results[1])}function loadScript(url,fn,callbackName,charset){var cbName=getParam(url,"jsCallBack");var callbackName=cbName||callbackName;var cb=cbName||!callbackName?"":"jsCallBack="+callbackName;var pos=url.indexOf("?")+1;if(cb){url=0==pos?(url+"?"+cb):(url.substring(pos,-1)+cb+"&"+url.substring(pos))}if("function"==typeof fn&&callbackName){window[callbackName]=fn}var headElm=document.getElementsByTagName("head")[0];var scriptElm=document.createElement("script");scriptElm.src=url;if(charset){scriptElm.charset=charset}headElm.appendChild(scriptElm);scriptElm.onload=scriptElm.onreadystatechange=function(){var f=scriptElm.readyState;if(f&&f!="loaded"&&f!="complete"){return}if("function"==typeof fn&&!cb){fn()}if(!cbName&&window[callbackName]){delete window[callbackName]}scriptElm.onload=scriptElm.onreadystatechange=null;headElm.removeChild(scriptElm)}}function getCookie(d){var b=d+"=";var a=document.cookie.split(";");for(var e=0;e<a.length;e++){var f=a[e];while(f.charAt(0)==" "){f=f.substring(1)
+
+}if(f.indexOf(b)!=-1){return f.substring(b.length,f.length)}}return""}var allPage=1;var changePage=1;var likeSerials=[];function loadLike(){var uValue=getCookie("u");var html="";loadJS("",function(){loadJS("",function(){Locate.defaultData={};LocateAuto.defaultData={proId:5,cityId:1,url:""};LocateAuto.init({callback:function(data){var cityId=data.cityId;$.ajax({url:"",data:{uid:uValue,cityId:cityId},dataType:"jsonp",success:function(res){likeSerials=res;allPage=Math.ceil(res.length/8);for(var i=0;i<8;i++)document.getElementById("JwsLike").innerHTML=html}})}})},"utf-8")},"utf-8")}document.getElementById("JwsChange").onclick=function(){var html="";{var len=changePage*8;for(var i=(changePage-1)*8;i<len;i++){if(likeSerials[i]){html+=''}}document.getElementById("JwsLike").innerHTML=html}};iptObj.addEventListener("blur",function(e){!iptObj.value&&(iptObj.value=quotes[Math.floor(Math.random()*quotes.length)])})})();</script>
+
+<!-- 课程搜索 End -->
+
+</body>
+
+</html>

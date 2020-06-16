@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    {block name="title"}<title></title>{/block}
+	<meta name="author" content="5G云资源网" /> 
+	{block name="keywords"}<meta name="keywords" content="" />{/block}
+	{block name="description"}<meta name="description" content="" />{/block}
+    <script src="__HOME_JS__/mui.min.js"></script> 
+    <link href="__HOME_CSS__/mui.min.css" rel="stylesheet"/>
+    <link href="__HOME_CSS__/style.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+	
+	{block name="style"}<link rel="stylesheet" href="__HOME_CSS__/iconfont.css" />{/block}
+    
+</head>
+
+
+
+<body>
+	{include file="public/header" /}	
+	<!-- 导航 -->
+	{include file="public/nav" /}
+	
+	{block name="body"}{/block}
+	
+	{include file="public/footer" /}
+
+	{block name="script"}{/block}	
+  
+ </body>
+</html>

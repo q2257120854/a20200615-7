@@ -1,0 +1,441 @@
+{include file="default/base/seller_top" /} 
+<div class="seller_main">
+    {include file="default/base/seller_left" /}
+    <div class="seller_right">
+        
+
+
+        
+        
+        
+<style type="text/css">
+#fixedNavBar { filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#CCFFFFFF', endColorstr='#CCFFFFFF');background:rgba(255,255,255,0.8); width: 90px; margin-left:600px; border-radius: 4px; position: fixed; z-index: 999; top: 172px; left: 50%;}
+#fixedNavBar h3 { font-size: 12px; line-height: 24px; text-align: center; margin-top: 4px;}
+#fixedNavBar ul { width: 80px; margin: 0 auto 5px auto;}
+#fixedNavBar li { margin-top: 5px;}
+#fixedNavBar li a { font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 20px; background-color: #F5F5F5; color: #999; text-align: center; display: block;  height: 20px; border-radius: 10px;}
+#fixedNavBar li a:hover { color: #FFF; text-decoration: none; background-color: #27a9e3;}
+</style>
+
+<div id="fixedNavBar">
+<h3>{$Think.lang.page_navigation}</h3>
+  <ul>
+    <li><a id="demo1Btn" href="#demo1" class="demoBtn">{$Think.lang.basic_information}</a></li>
+    <li><a id="demo2Btn" href="#demo2" class="demoBtn">{$Think.lang.detailed_description}</a></li>
+    <li><a id="demo3Btn" href="#demo3" class="demoBtn">{$Think.lang.special_goods}</a></li>
+    <li><a id="demo5Btn" href="#demo5" class="demoBtn">{$Think.lang.invoice_information}</a></li>
+    <li><a id="demo6Btn" href="#demo6" class="demoBtn">{$Think.lang.store_goods_index_goods_other_info}</a></li>
+  </ul>
+</div>
+<div class="seller_items">
+    {include file="default/base/seller_items" /}
+</div>
+{if isset($edit_goods_sign)}
+{else /}
+<ul class="add-goods-step">
+    <li><i class="icon iconfont">&#xe600;</i>
+        <h6>STEP.1</h6>
+        <h2>{$Think.lang.select_category}</h2>
+        <i class="arrow iconfont">&#xe687;</i> </li>
+    <li class="current"><i class="icon iconfont">&#xe731;</i>
+        <h6>STEP.2</h6>
+        <h2>{$Think.lang.fill_item_details}</h2>
+        <i class="arrow iconfont">&#xe687;</i> </li>
+    <li><i class="icon iconfont">&#xe64d;</i>
+        <h6>STEP.3</h6>
+        <h2>{$Think.lang.store_goods_index_flow_chart_step3}</h2>
+    </li>
+</ul>
+{/if}
+<div class="item-publish p20">
+  <form method="post" id="goods_form" action="{if isset($edit_goods_sign)}{:url('Sellergoodsonline/edit_save_goods')}{else/}{:url('Sellergoodsadd/save_goods')}{/if}">
+    <input type="hidden" name="goods_id" value="{$goods.goods_id|default=''}" />
+    <div class="dssc-form-goods">
+      <h3 id="demo1">{$Think.lang.store_goods_index_goods_base_info}</h3>
+      <dl>
+        <dt>{$Think.lang.store_goods_index_goods_class}{$Think.lang.ds_colon}</dt>
+        <dd id="gcategory"> {$goods_class.gctag_name|default=''}
+            <a class="dssc-btn" href="{if isset($edit_goods_sign)}{:url('Sellergoodsonline/edit_class',['goods_id'=>$goods['goods_id']])}{else/}{:url('Sellergoodsadd/add_step_one')}{/if}">{$Think.lang.ds_edit}</a>
+          <input type="hidden" id="cate_id" name="cate_id" value="{$goods_class.gc_id|default=''}" class="text" />
+          <input type="hidden" name="cate_name" value="{$goods_class.gctag_name|default=''}" class="text"/>
+        </dd>
+      </dl>
+      <dl>
+        <dt><i class="required">*</i>{$Think.lang.store_goods_index_goods_name}{$Think.lang.ds_colon}</dt>
+        <dd>
+          <input name="g_name" type="text" class="text w400" value="{$goods.goods_name|default=''}" />
+          <span></span>
+          <p class="hint">{$Think.lang.store_goods_index_goods_name_help}</p>
+        </dd>
+      </dl>
+      <dl>
+        <dt>{$Think.lang.selling_point_}{$Think.lang.ds_colon}</dt>
+        <dd>
+          <textarea name="g_jingle" class="textarea h60 w400">{$goods.goods_advword|default=''}</textarea>
+          <span></span>
+          <p class="hint">{$Think.lang.price_instructions1}</p>
+        </dd>
+      </dl>
+      <dl>
+        <dt ds_type="no_spec"><i class="required">*</i>{$Think.lang.store_goods_index_store_price}{$Think.lang.ds_colon}</dt>
+        <dd ds_type="no_spec">
+          <input name="g_price" value="{$goods.goods_price|default=''}" type="text"  class="text w60" /><em class="add-on"><i class="iconfont">&#xe65c;</i></em> <span></span>
+          <p class="hint">{$Think.lang.store_goods_index_store_price_help}，{$Think.lang.price_instructions2}</p>
+        </dd>
+      </dl>
+      <dl>
+        <dt ds_type="no_spec">{$Think.lang.store_goods_index_goods_no}{$Think.lang.ds_colon}</dt>
+        <dd ds_type="no_spec">
+          <p>
+            <input name="g_serial" value="{$goods.goods_serial|default=''}" type="text"  class="text"  />
+          </p>
+          <p class="hint">{$Think.lang.store_goods_index_goods_no_help}</p>
+        </dd>
+      </dl>
+      <dl>
+        <dt><i class="required">*</i>{$Think.lang.store_goods_album_goods_pic}{$Think.lang.ds_colon}</dt>
+        <dd>
+          <div class="dssc-goods-default-pic">
+            <div class="goodspic-uplaod">
+              <div class="upload-thumb"> <img dstype="goods_image" src="{:goods_thumb($goods, 270)}"/> </div>
+              <input type="hidden" name="image_path" id="image_path" dstype="goods_image" value="{$goods.goods_image|default=''}" />
+              <span></span>
+              <p class="hint">{$Think.lang.store_goods_step2_description_one}<?php printf(lang('store_goods_step2_description_two'),intval(config('image_max_filesize'))/1024);?></p>
+              <div class="handle">
+                <div class="dssc-upload-btn"> <a href="javascript:void(0);"><span>
+                  <input type="file" hidefocus="true" size="1" class="input-file" name="goods_image" id="goods_image">
+                  </span>
+                  <p><i class="iconfont">&#xe733;</i>{$Think.lang.store_goods_img_upload}</p>
+                  </a> </div>
+                <a class="dssc-btn" dstype="show_image" href="{:url('Selleralbum/pic_list',['item'=>'goods'])}"><i class="iconfont">&#xe72a;</i>{$Think.lang.image_space_selection}</a> <a href="javascript:void(0);" dstype="del_goods_demo" class="dssc-btn" style="display: none;"><i class="iconfont">&#xe67a;</i>{$Think.lang.close_album}</a></div>
+            </div>
+          </div>
+          <div id="demo"></div>
+        </dd>
+      </dl>
+      <dl>
+        <dt><i class="required">*</i>{$Think.lang.store_goods_album_goods_bg_pic}{$Think.lang.ds_colon}</dt>
+        <dd>
+          <div class="dssc-goods-default-bgpic">
+            <div class="goodspic-uplaod">
+              <div class="upload-thumb"> <img dstype="goods_bg_image" src="{:goods_bgthumb($goods.goods_bg_image,'default',session('store_id'))}"/> </div>
+              <input type="hidden" name="bg_image_path" id="bg_image_path" dstype="goods_bg_image" value="{$goods.goods_bg_image|default=''}" />
+              <span></span>
+              <p class="hint">{$Think.lang.store_goods_step2_description_four}</p>
+              <div class="handle">
+                  <div class="dssc-upload-btn"> 
+                      <a href="javascript:void(0);"><span>
+                              <input type="file" hidefocus="true" size="1" class="input-file" name="goods_bg_image" id="goods_bg_image">
+                          </span>
+                          <p><i class="iconfont">&#xe733;</i>{$Think.lang.store_goods_img_upload}</p>
+                      </a> 
+                  </div>
+                   <a class="dssc-btn" dstype="show_bg_image" href="{:url('Selleralbum/pic_list',['item'=>'goods_bg'])}"><i class="iconfont">&#xe72a;</i>{$Think.lang.store_goods_album_insert_users_photo}</a> <a href="javascript:void(0);" dstype="del_bg_image" class="dssc-btn" style="display: none;"><i class="iconfont">&#xe67a;</i>{$Think.lang.close_album}</a>
+            </div>
+          </div>
+           <p id="bg_image_demo"></p>
+        </dd>
+      </dl>
+      <dl>
+        <dt>{$Think.lang.store_goods_index_goods_desc}{$Think.lang.ds_colon}</dt>
+        <dd id="dsProductDetails">
+          <div class="tabs">
+            <ul class="ui-tabs-nav">
+              <li class="ui-tabs-selected"><a href="#panel-1"><i class="iconfont">&#xe60c;</i> {$Think.lang.computer_side}</a></li>
+              <li class="selected"><a href="#panel-2"><i class="iconfont">&#xe60e;</i>{$Think.lang.mobile_side}</a></li>
+            </ul>
+            <div id="panel-1" class="ui-tabs-panel">
+                {:build_editor(['name'=>'goods_body','content'=>htmlspecialchars_decode($goods.goods_body)])}
+                <textarea name="goods_body" id="goods_body"></textarea>
+              <div class="hr8">
+                
+                <a class="dssc-btn mt5" dstype="show_desc" href="{:url('Selleralbum/pic_list',['item'=>'des'])}"><i class="iconfont">&#xe72a;</i>{$Think.lang.store_goods_album_insert_users_photo}</a> <a href="javascript:void(0);" dstype="del_desc" class="dssc-btn mt5" style="display: none;"><i class="iconfont">&#xe67a;</i>{$Think.lang.close_album}</a>
+              </div>
+              <p id="des_demo"></p>
+            </div>
+            <div id="panel-2" class="ui-tabs-panel ui-tabs-hide">
+              <div class="dssc-mobile-editor">
+                <div class="pannel">
+                  <div class="size-tip"><span dstype="img_count_tip">{$Think.lang.picture_number_than}<em>20</em>{$Think.lang.sellergoodsadd_sheet}</span><i>|</i><span dstype="txt_count_tip">{$Think.lang.words_must_not_exceed}<em>5000</em>{$Think.lang.sellergoodsadd_words}</span></div>
+                  <div class="control-panel" dstype="mobile_pannel">
+                    {notempty name="$goods.mb_body"}
+                    {foreach name="$goods.mb_body" item="val" }
+                    {if $val.type == 'text'}
+                    <div class="module m-text">
+                      <div class="tools"><a dstype="mp_up" href="javascript:void(0);">{$Think.lang.sellergoodsadd_up}</a><a dstype="mp_down" href="javascript:void(0);">{$Think.lang.sellergoodsadd_down}</a><a dstype="mp_edit" href="javascript:void(0);">{$Think.lang.ds_edit}</a><a dstype="mp_del" href="javascript:void(0);">{$Think.lang.ds_del}</a></div>
+                      <div class="content">
+                        <div class="text-div">{$val.value}</div>
+                      </div>
+                      <div class="cover"></div>
+                    </div>
+                    {/if}
+                    {if $val.type == 'image'}
+                    <div class="module m-image">
+                      <div class="tools"><a dstype="mp_up" href="javascript:void(0);">{$Think.lang.sellergoodsadd_up}</a><a dstype="mp_down" href="javascript:void(0);">{$Think.lang.sellergoodsadd_down}</a><a dstype="mp_rpl" href="javascript:void(0);">{$Think.lang.sellergoodsadd_replace}</a><a dstype="mp_del" href="javascript:void(0);">{$Think.lang.ds_del}</a></div>
+                      <div class="content">
+                        <div class="image-div"><img src="{$val.value}"></div>
+                      </div>
+                      <div class="cover"></div>
+                    </div>
+                    {/if}
+                    {/foreach}
+                    {/notempty}
+                  </div>
+                  <div class="add-btn">
+                    <ul class="btn-wrap">
+                      <li><a href="javascript:void(0);" dstype="mb_add_img"><i class="iconfont">&#xe72a;</i>
+                        <p>{$Think.lang.sellergoodsadd_picture}</p>
+                        </a></li>
+                      <li><a href="javascript:void(0);" dstype="mb_add_txt"><i class="iconfont">&#xe8ed;</i>
+                        <p>{$Think.lang.sellergoodsadd_text}</p>
+                        </a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="explain">
+                  <dl>
+                    <dt>{$Think.lang.request_information1}</dt>
+                    <dd>{$Think.lang.request_information2}</dd>
+                    <dd>{$Think.lang.request_information3}</dd>
+                  </dl><dl>
+                    <dt>{$Think.lang.request_information4}</dt>
+                    <dd>{$Think.lang.request_information5}</dd>
+                    <dd>{$Think.lang.request_information6}</dd>
+                    <dd>{$Think.lang.request_information7}</dd>
+                  </dl><dl>
+                    <dt>{$Think.lang.request_information8}</dt>
+                    <dd>{$Think.lang.request_information9}</dd>
+                    <dd>{$Think.lang.request_information10}</dd>
+                    <dd>{$Think.lang.request_information11}</dd>
+                    <dd>{$Think.lang.request_information12}</dd>
+                  </dl>
+                </div>
+              </div>
+              <div class="dssc-mobile-edit-area" dstype="mobile_editor_area">
+                <div dstype="mea_img" class="dssc-mea-img" style="display: none;"></div>
+                <div class="dssc-mea-text" dstype="mea_txt" style="display: none;">
+                  <p id="meat_content_count" class="text-tip"></p>
+                  <textarea class="textarea valid" dstype="meat_content"></textarea>
+                  <div class="button"><a class="dssc-btn dssc-btn-blue" dstype="meat_submit" href="javascript:void(0);">{$Think.lang.ds_common_button_confirm}</a><a class="dssc-btn ml10" dstype="meat_cancel" href="javascript:void(0);">{$Think.lang.ds_cancel}</a></div>
+                  <a class="text-close" dstype="meat_cancel" href="javascript:void(0);">X</a>
+                </div>
+              </div>
+              <input name="m_body" autocomplete="off" type="hidden" value='{$goods.mobile_body|default=''}'>
+            </div>
+              <div class="dssc-upload-btn"> <a href="javascript:void(0);"><span>
+                  <input type="file" hidefocus="true" size="1" class="input-file" name="add_album" id="add_album" multiple="multiple">
+                  </span>
+                  <p><i class="iconfont" data_type="0" dstype="add_album_i">&#xe733;</i>{$Think.lang.store_goods_img_upload}</p>
+                  </a>
+                </div>
+          </div>
+        </dd>
+      </dl>
+      <dl>
+        <dt>{$Think.lang.associated_layout}：</dt>
+        <dd> <span class="mr50">
+          <label>{$Think.lang.top_layout}</label>
+          <select name="plate_top">
+            <option>{$Think.lang.ds_please_choose}</option>
+            <?php if (!empty($plate_list[1])) {?>
+            <?php foreach ($plate_list[1] as $val) {?>
+            <option value="{$val.storeplate_id}" <?php if ($goods['plateid_top'] == $val['storeplate_id']) {?>selected="selected"<?php }?>>{$val.storeplate_name}</option>
+            <?php }?>
+            <?php }?>
+          </select>
+          </span> <span class="mr50">
+          <label>{$Think.lang.bottom_layout}</label>
+          <select name="plate_bottom">
+            <option>{$Think.lang.ds_please_choose}</option>
+            <?php if (!empty($plate_list[0])) {?>
+            <?php foreach ($plate_list[0] as $val) {?>
+            <option value="{$val.storeplate_id}" <?php if ($goods['plateid_bottom'] == $val['storeplate_id']) {?>selected="selected"<?php }?>>{$val.storeplate_name}</option>
+            <?php }?>
+            <?php }?>
+          </select>
+          </span> </dd>
+      </dl>
+      <!-- 商品物流信息 E -->
+      <h3 id="demo5" dstype="virtual_null" >{$Think.lang.invoice_information}</h3>
+      <dl dstype="virtual_null">
+        <dt>{$Think.lang.whether_add_tax_invoice}：</dt>
+        <dd>
+          <ul class="dssc-form-radio-list">
+            <li>
+              <label>
+                <input name="g_vat" value="1" <?php if (!empty($goods) && $goods['goods_vat'] == 1) { ?>checked="checked" <?php } ?> type="radio" />
+                {$Think.lang.ds_yes}</label>
+            </li>
+            <li>
+              <label>
+                <input name="g_vat" value="0" <?php if (empty($goods) || $goods['goods_vat'] == 0) { ?>checked="checked" <?php } ?> type="radio"/>
+                {$Think.lang.ds_no}</label>
+            </li>
+          </ul>
+          <p class="hint"></p>
+        </dd>
+      </dl>
+      <h3 id="demo6">{$Think.lang.store_goods_index_goods_other_info}</h3>
+      <dl>
+        <dt>{$Think.lang.store_goods_index_store_goods_class}{$Think.lang.ds_colon}</dt>
+        <dd><span class="new_add"><a href="javascript:void(0)" id="add_sgcategory" class="dssc-btn">{$Think.lang.store_goods_index_new_class}</a> </span>
+          {notempty name="store_class_goods"}
+          {foreach name="store_class_goods" item="v" }
+          <select name="sgcate_id[]" class="sgcategory">
+            <option value="0">{$Think.lang.ds_please_choose}</option>
+            {foreach name="store_goods_class" item="val" }
+            <option value="{$val.storegc_id}" <?php if ($v==$val['storegc_id']) { ?>selected="selected"<?php } ?>>{$val.storegc_name}</option>
+            <?php if (isset($val['child']) && count($val['child'])>0){?>
+            {foreach name="$val.child" item="child_val" }
+            <option value="{$child_val.storegc_id}" <?php if ($v==$child_val['storegc_id']) { ?>selected="selected"<?php } ?>>&nbsp;&nbsp;&nbsp;&nbsp;{$child_val.storegc_name}</option>
+            {/foreach}
+            <?php }?>
+            {/foreach}
+          </select>
+          {/foreach}
+          {else /}
+          <select name="sgcate_id[]" class="sgcategory">
+            <option value="0">{$Think.lang.ds_please_choose}</option>
+            {notempty name="store_goods_class"}
+            {foreach name="store_goods_class" item="val"}
+            <option value="{$val.storegc_id}">{$val.storegc_name}</option>
+            <?php if (isset($val['child']) && count($val['child'])>0){?>
+            {foreach name="$val.child" item="child_val" }
+            <option value="{$child_val.storegc_id}">&nbsp;&nbsp;&nbsp;&nbsp;{$child_val.storegc_name}</option>
+            {/foreach}
+            <?php }?>
+            {/foreach}
+            {/notempty}
+          </select>
+          {/notempty}
+          <p class="hint">{$Think.lang.store_goods_index_belong_multiple_store_class}</p>
+        </dd>
+      </dl>
+      <dl>
+        <dt>{$Think.lang.store_goods_index_goods_show}{$Think.lang.ds_colon}</dt>
+        <dd>
+          <ul class="dssc-form-radio-list">
+            <li>
+              <label>
+                <input name="g_state" value="1" type="radio" <?php if (empty($goods) || $goods['goods_state'] == 1 || $goods['goods_state'] == 10) {?>checked="checked"<?php }?> />
+                 {$Think.lang.store_goods_index_immediately_sales}</label>
+            </li>
+            <li>
+              <label>
+                <input name="g_state" value="0" type="radio" <?php if (!empty($goods) && $goods['goods_state'] == 0) {?>checked="checked"<?php }?> />
+                {$Think.lang.store_goods_index_in_warehouse} </label>
+            </li>
+          </ul>
+        </dd>
+      </dl>
+      <dl>
+        <dt>{$Think.lang.store_goods_index_goods_recommend}{$Think.lang.ds_colon}</dt>
+        <dd>
+          <ul class="dssc-form-radio-list">
+            <li>
+              <label>
+                <input name="g_commend" value="1" <?php if (empty($goods) || $goods['goods_commend'] == 1) { ?>checked="checked" <?php } ?> type="radio" />
+                {$Think.lang.ds_yes}</label>
+            </li>
+            <li>
+              <label>
+                <input name="g_commend" value="0" <?php if (!empty($goods) && $goods['goods_commend'] == 0) { ?>checked="checked" <?php } ?> type="radio"/>
+                {$Think.lang.ds_no}</label>
+            </li>
+          </ul>
+          <p class="hint">{$Think.lang.store_goods_index_recommend_tip}</p>
+        </dd>
+      </dl>
+    </div>
+    <div class="bottom tc hr32">
+        <input type="submit" class="submit" value="<?php if (isset($edit_goods_sign)) {echo lang('ds_submit');} else {?>{$Think.lang.store_goods_add_next}，{$Think.lang.store_goods_index_upload_goods_pic}<?php }?>" />
+    </div>
+  </form>
+</div>
+
+
+<script src="{$Think.PLUGINS_SITE_ROOT}/jquery.ajaxContent.pack.js"></script>
+<script src="{$Think.PLUGINS_SITE_ROOT}/mlselection.js"></script>
+<script type="text/javascript" src="{$Think.PLUGINS_SITE_ROOT}/js/fileupload/jquery.iframe-transport.js" charset="utf-8"></script>
+<script type="text/javascript" src="{$Think.PLUGINS_SITE_ROOT}/js/fileupload/jquery.ui.widget.js" charset="utf-8"></script>
+<script type="text/javascript" src="{$Think.PLUGINS_SITE_ROOT}/js/fileupload/jquery.fileupload.js" charset="utf-8"></script>
+
+<script src="{$Think.PLUGINS_SITE_ROOT}/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="{$Think.PLUGINS_SITE_ROOT}/jquery.charCount.js"></script>
+
+
+<!--[if lt IE 8]>
+  <script src="{$Think.BASE_SITE_ROOT}/js/json2.js"></script>
+<![endif]-->
+<script src="{$Think.HOME_SITE_ROOT}/js/sellergoods_add_step2.js"></script>
+
+
+<script type="text/javascript">
+var DEFAULT_GOODS_IMAGE = "{:goods_thumb(array(), 60)}";
+
+$(function(){
+    $("#region").ds_region({show_deep:2,tip_type:1});
+	//电脑端手机端tab切换
+	$(".tabs").tabs();
+    $('#goods_form').validate({
+        errorPlacement: function(error, element){
+            $(element).nextAll('span').append(error);
+        },
+        //方便测试一下可进行删除
+        <?php if (isset($edit_goods_sign)) {?>
+        submitHandler:function(form){
+            ds_ajaxpost('goods_form', 'default', "{:url('Sellergoodsonline/edit_save_goods')}");
+        },
+        <?php }?>
+        rules : {
+            g_name : {
+                required    : true,
+                minlength   : 3,
+                maxlength   : 50
+            },
+            g_jingle : {
+                maxlength   : 140
+            },
+            g_price : {
+                required    : true,
+                number      : true,
+                min         : 0,
+                max         : 9999999,
+            },
+            image_path : {
+                required    : true
+            }
+        },
+        messages : {
+            g_name  : {
+                required    : '<i class="iconfont">&#xe64c;</i>{$Think.lang.store_goods_index_goods_name_null}',
+                minlength   : '<i class="iconfont">&#xe64c;</i>{$Think.lang.store_goods_index_goods_name_help}',
+                maxlength   : '<i class="iconfont">&#xe64c;</i>{$Think.lang.store_goods_index_goods_name_help}'
+            },
+            g_jingle : {
+                maxlength   : '<i class="iconfont">&#xe64c;</i>{$Think.lang.prompt_information2}'
+            },
+            g_price : {
+                required    : '<i class="iconfont">&#xe64c;</i>{$Think.lang.store_goods_index_store_price_null}',
+                number      : '<i class="iconfont">&#xe64c;</i>{$Think.lang.store_goods_index_store_price_error}',
+                min         : '<i class="iconfont">&#xe64c;</i>{$Think.lang.store_goods_index_store_price_interval}',
+                max         : '<i class="iconfont">&#xe64c;</i>{$Think.lang.store_goods_index_store_price_interval}'
+            },
+            image_path : {
+                required    : '<i class="iconfont">&#xe64c;</i>{$Think.lang.prompt_information8}'
+            }
+        }
+    });
+});
+</script> 
+
+
+
+
+
+
+
+
+    </div>
+</div>
+{include file="default/base/mall_footer" /}

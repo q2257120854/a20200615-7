@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>课程搜索_{dede:global.cfg_webname/}</title>
+<link href="{dede:global.cfg_basehost/}/css/v2_index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{dede:global.cfg_basehost/}/js/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_basehost/}/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<style type="text/css">
+.sub_title{height:20px;line-height:20px;color:#999;font-size:12px;padding:0 15px 15px;}
+</style>
+</head>
+<body>
+
+{dede:include filename="head.htm"/}
+
+<!-- 搜索结果 -->
+<div class="search_filter"><div class="search_count">找到{dede:itemcount listsize='4'/}个相关内容</div></div>
+<!-- 搜索结果 End -->
+
+
+<!-- 搜索列表页 -->
+<div class="figures_list container">
+<ul class="content_list clearfix">
+{dede:list pagesize='8' titlelen='80'}
+<li class="content_item">
+<a href="[field:array function='GetTypeDeurlformarr(@me)'/]" class="link" title="[field:typename/]" target="_blank">
+<img class="course-img-bg lazy-img" data-original="[field:ico function='mstrone(@me)'/]">
+<em class="jishu">[field:ID function='GetTotalArc(@me)'/]集全</em>
+<div class="main_title">[field:typename/]</div>
+<p class="price" style="display:none">￥[field:price/]</p>
+<div class="sub_title">[field:id function="JJgetCliak(@me)"/]次学习</div>
+</a>
+</li>
+{/dede:list}
+</ul>
+
+<!-- 分页 -->
+<div id="showpage_min">
+{dede:pagelist listitem="pre,next,pageno" listsize="4"/}
+</div>
+<!-- 分页 End -->
+
+</div>
+<!-- 搜索列表页 End -->
+
+{dede:include filename="footer.htm"/}
+
+<script type="text/javascript" src="{dede:global.cfg_basehost/}/js/jquery.lazyload.js"></script>
+<script type="text/javascript">
+!function(){var n,f={};f.curr=1,n=20;var a=function(){},c=function(){$(".lazy-img").lazyload({effect:"fadeIn"})},i=function(){a(),c()};i()}();
+</script>
+
+</body>
+</html>

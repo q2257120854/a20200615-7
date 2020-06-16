@@ -1,0 +1,122 @@
+header{
+    background:linear-gradient(to right,#f370af 0,#5515ee 100%);
+}
+.aui-bar-nav{
+    font-size: 14px;
+    position: fixed;
+}
+.aui-bar-nav .search_input {
+    height: 30px;
+    margin: 7px auto;
+    position: absolute;
+    text-align: center;
+    white-space: nowrap;
+    right: 3rem;
+    left: 3rem;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 2;
+    background-color: rgba(255,255,255,0.4);
+    border-radius: 20px;
+}
+.aui-bar-nav .search_input input{
+    height: 30px;
+    margin-left: 20px;
+    font-size: 15px;
+    color: #fff;
+}
+.search_butt{
+    position: absolute;
+    right: 8px;
+    font-size: 15px;
+}
+section{
+    margin: 48px 10px 0px 10px;
+    color: #9aa0b7;
+    font-size: 15px;
+}
+.clear{
+    float: right;
+}
+.search_his{
+    float: left;
+    padding: 2px 4px;
+    height: 26px;
+    color: #fff;
+    border-radius: 8px;
+    background: linear-gradient(to right,#f370af 0,#5515ee 100%);
+    margin: 2px 4px;
+}
+.his_box{
+    margin-top: 4px;
+}
+.search_his_s{
+    float: left;
+    margin: 20px 10px 0px 10px;
+}
+.vod_box{
+    height: 170px;
+}
+.vod_box .bg_img{
+    height: 150px;
+    width: 100px;
+    border-radius: 8px;
+    float: left;
+    box-shadow: 0.04rem 0.4rem 0.4rem rgba(99, 99, 99, 0.29);
+}
+.vod_box .bg_img span{
+    position: relative;
+    top: 116px;
+    font-size: 12px;
+    color: #fff;
+}
+.hot_div{
+    margin: 10px;
+}
+.hot_div .vod_box .vod_score{
+    font-size: 13px;
+    color: #fff;
+    background: linear-gradient(to right,#f370af 0,#5515ee 100%);
+    position: absolute;
+    border-radius: 2px;
+    margin-left: 4px;
+}
+.hot_div .vod_box .vod_remarks{
+    font-size: 13px;
+    color: #fff;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 4px;
+}
+.vod_title{
+    background-image: linear-gradient(to right,#f370af 0,#5515ee 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 16px;
+}
+.vod_actar{
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.vod_right{
+    position: relative;
+    left: 10px;
+}
+.c-icon-noRecord{
+    text-align: center;
+    margin-top: 30%;
+}
+.message{
+    text-align: center;
+    margin-top: 20px;
+    color: #03a9f4;
+}
+.c-icon-noRecord img{
+    width: 50%;
+    margin: 0px auto;
+}

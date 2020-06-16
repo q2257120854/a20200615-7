@@ -1,0 +1,89 @@
+.logo-title-news{font-size:16px;font-weight:normal;font-family:"Microsoft YaHei",Î¢ÈíÑÅºÚ,"ËÎÌå";color:#676d70;height:20px;float:left;margin-top:15px;margin-left:10px;padding-top:10px;padding-left:10px;}
+
+.inputxt {
+	height:25px;
+	line-height:24px;
+	background:#FFFFFF;
+	border:1px solid #C8D6FD;
+	border-radius:5px;
+	padding:5px;
+	width:100px;
+	float:left;
+}
+#test {
+	margin:0 auto;
+   border:1px solid #C8D6FD;
+   background:#fff;
+   padding:10px;
+   -moz-border-radius: 10px;
+   -webkit-border-radius: 10px;
+   border-radius: 10px;
+   
+}
+div.fenlei{
+float:left;
+padding:1px;
+margin:5px 5px 0px 0px ;
+width:105px;
+border:1px solid #80C5FF;
+
+background:url(aliewm.png);
+color: #0061F3;
+font-size: 13px;
+padding: 6px;
+margin-left:0px;
+float:left;
+padding-left: 10px;
+padding-right: 10px;
+
+}
+div.fenleicf{
+float:left;
+padding:1px;
+margin:5px 5px 0px 0px ;
+width:105px;
+border:1px solid #80C5FF;
+
+background:url(cft.png);
+color: #0061F3;
+font-size: 13px;
+padding: 6px;
+margin-left:0px;
+float:left;
+padding-left: 10px;
+padding-right: 10px;
+
+}
+div.fenleiwx{
+float:left;
+padding:1px;
+margin:5px 5px 0px 0px ;
+width:105px;
+border:1px solid #80C5FF;
+
+background:url(wxzf.png);
+color: #0061F3;
+font-size: 13px;
+padding: 6px;
+margin-left:0px;
+float:left;
+padding-left: 10px;
+padding-right: 10px;
+
+}
+div.moneyfl{
+float:left;
+padding:1px;
+margin:4px 4px 0px 0px ;
+width:55px;
+border:1px solid #80C5FF;
+background:url(cft.png);
+color: #000000;
+font-size: 13px;
+padding: 6px;
+margin-left:0px;
+float:left;
+padding-left: 3px;
+padding-right: 3px;
+
+}

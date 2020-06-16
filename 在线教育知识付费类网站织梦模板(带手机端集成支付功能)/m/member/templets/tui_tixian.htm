@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>提现</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="<?php echo $mcfg_basehost; ?>/m-css/tg-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/jquery.js"></script>
+<style type="text/css">
+body{background:#fff;}
+.wrapper{padding-bottom:0;}
+.earningsheight .top-earnings{padding:57px 0;}
+</style>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar"><h2 class="logo-tg">提现</h2><a href="javascript:history.go(-1);" class="top_nav_left"></a></div>
+<!-- TOP End -->
+
+<div class="wrapper">
+
+<!-- 金额 -->
+<div class="earningsheight">
+<div class="top-earnings">
+<p class="earnings">可提现金额(元)</p>
+<h2 class="money"><?php echo $M['shouyi'];?></h2>   
+</div>
+</div>
+<!-- 金额 End -->
+
+
+<!-- 提现 -->
+<div class="yxw-tixian-box">
+<form action="tui.php" method="post">
+<input type="hidden" name="b" value="tixianla" />
+<div class="yxw-tixian2">
+<input type="text" name="name" value="" class="tx-input" placeholder="姓名">
+<input type="text" name="alipay" value="" class="tx-input" placeholder="支付宝账户">
+</div>
+<button type="submit" class="m-tx-tj">确认提交</button>
+</form>
+</div>
+<!-- 提现 End -->
+
+
+<!-- 注意事项 -->
+<div class="yxw-txsx">
+<h2 style="font-weight:700;display:block;padding-bottom:10px;">注意事项</h2>
+<p class="tip">1.每个月只能提现2次。</p>
+<p class="tip">2.金额满￥50才能申请提现。</p>
+<p class="tip">3.请仔细填写支付宝姓名和账户，如因账户填错造成的资金损失由个人承担。</p>
+<p class="tip">注：提现金额是人工审核，正常72小时内可以到账。如果超过了这个时间还没有到帐，请及时联系我们处理！</p>
+</div>
+<!-- 注意事项 End -->
+
+
+</div>
+
+</body>
+</html>

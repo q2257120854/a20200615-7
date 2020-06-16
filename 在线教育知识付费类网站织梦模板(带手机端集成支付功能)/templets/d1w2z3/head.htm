@@ -1,0 +1,59 @@
+<!-- top头部 -->
+<div class="dwz-box"></div>
+
+<div class="head-container">
+<div class="wrap">
+
+<!-- logo -->
+<a class="logo" href="{dede:global.cfg_basehost/}/" rel="nofollow"></a>
+<!-- logo End -->
+
+<!-- 网站导航 -->
+<div class="nav-item-box">
+<a href="{dede:global.cfg_basehost/}/" class="pc-yxw-nav">首页</a>
+<a href="{dede:global.cfg_basehost/}/courses/" class="pc-yxw-nav">视频课程</a>
+<a href="{dede:global.cfg_basehost/}/tequan/" class="pc-yxw-nav" rel="nofollow">会员特权</a>
+<a href="{dede:global.cfg_basehost/}/article/" class="pc-yxw-nav">干货分享</a>
+<a class="pc-yxw-nav btn1" style="cursor:pointer;">手机学课</a>
+</div>
+<!-- 网站导航 End -->
+
+<!-- 课程搜索 -->
+<div class="ysearch-box">
+<form method="post" name="f1" action="{dede:global.cfg_basehost/}/plus/search.php" onsubmit="return checkSearchForm()">
+<input type="hidden" name="kwtype" value="0" />
+<input type="hidden" id="driverId" name="channeltype" value="17" />  
+<input type="text" class="yfixtext" id="keyword" name="keyword" placeholder="搜索课程" autocomplete="off">
+<input type="submit" class="fixsbmt" value="">
+</form>
+</div>
+<script type="text/javascript">
+  function checkSearchForm(){
+  if(document.getElementById('keyword').value){
+    return true;
+    }else{
+   alert("请输入课程关键词！");
+    return false;
+    }
+ }
+</script>
+<!-- 课程搜索 End -->
+
+
+<!-- 登录/注册 -->
+<div class="topRight">
+<div class="sign-box" id="_userlogin">
+<a class="a globalLoginBtn" href="{dede:global.cfg_basehost/}/member/" rel="nofollow">登录</a>
+<a class="a register" href="{dede:global.cfg_basehost/}/member/index_do.php?fmdo=user&dopost=regnew" rel="nofollow">注册</a>
+</div>
+</div>
+<script language="javascript" type="text/javascript">CheckLogintop();</script>
+<!-- 登录/注册 End -->
+
+
+</div>
+</div>
+<!-- top头部 End -->
+
+
+<div class="top-yxw-pc-gl"></div>

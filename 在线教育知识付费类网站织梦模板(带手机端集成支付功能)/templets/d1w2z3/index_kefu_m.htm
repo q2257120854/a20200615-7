@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>咨询</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="{dede:global.mcfg_basehost/}/m-css/m-index.css" rel="stylesheet" type="text/css">
+<script src="{dede:global.mcfg_basehost/}/m-js/clipboard.min.js"></script>
+<script type="text/javascript" src="{dede:global.mcfg_basehost/}/m-js/jquery.js" ></script>
+<style type="text/css">
+.m-header .kf{width:70%;height:44px;line-height:44px;margin:0 auto;display:block;color:#333;font-size:18px;text-align:center;}
+.my-item-box{margin:10px;background:#fff;border-radius:5px;}
+.my-item-box img{float:left;display:block;width:40px;height:40px;margin:10px 10px 10px 0;border-radius:5px;}
+.my-item{position:relative;height:60px;line-height:60px;font-size:14px;color:#333;background:#fff url({dede:global.mcfg_basehost/}/m-images/ms_publis_recipe.png) 98% center no-repeat;background-size:6px 10px;margin:0 10px;display:block;}
+
+/*客服未读消息*/
+.meiqia-kefu{position:relative;padding:12px 10px;margin-top:10px;background:#fff;border-radius:5px;}
+.meiqia-kefu img{float:left;width:40px;height:40px;border-radius:5px;}
+.meiqia-kefu .xxsl{padding-left:50px;height:40px;}
+.meiqia-kefu .xxsl .y{line-height:20px;color:#333;font-size:14px;padding-bottom:3px;}
+.meiqia-kefu .xxsl .r{line-height:18px;color:#999;font-size:12px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+em#unreadNum{position:absolute;left:40px;top:7px;font-size:10px;background:#f30;color:#fff;border-radius:50%;padding:1px 1px;display:inline-block;min-width:11px;line-height:11px;text-align:center;}
+
+/*客服*/
+.iMenu{overflow:hidden;padding-top:20px;background:#fff;}
+.iMenu li{width:100%;padding-bottom:20px;}
+.iMenu li a{display:block;}
+.iMenu li a i{width:80px;height:80px;display:block;margin:0 auto;border-radius:50%;}
+.iMenu li a i img{display:block;border-radius:50%;}
+.iMenu li a span{display:block;height:30px;line-height:30px;font-size:14px;text-align:center;}
+</style>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="m-header"><h1 class="kf">咨询</h1></div>
+<!-- TOP End -->
+
+<div class="wrapper">
+
+<!-- 在线客服 -->
+<div class="my-item-box">
+<a href="javascript:void(0)" onclick="_MEIQIA('showPanel')" class="my-item" style="border-bottom:1px solid #f5f5f5;"><img src="{dede:global.mcfg_basehost/}/m-images/kefu-png.png">在线客服</a>
+<a href="javascript:void(0)" data-clipboard-target="#foo" aria-label="复制成功，去微信-通讯录-添加好友" class="btn2018 my-item"><img src="{dede:global.mcfg_basehost/}/m-images/weixin-png.png">微信客服<input id="foo" value="{dede:field name='description' function='html2text(@me)'/}" style="opacity:0;border:none;"></a>
+</div>
+<!-- 在线客服 End -->
+
+
+<a href="javascript:void(0)" onclick="_MEIQIA('showPanel')" class="gzs-kefu" style="display:block;margin:10px;">
+<div class="meiqia-kefu">
+<img src="{dede:global.mcfg_basehost/}/m-images/weiduxinxi.jpg">
+<div class="xxsl">
+<div class="y">未读客服消息<em id="unreadNum">0</em></div>
+<div class="r"><em id="unreadMsg"></em></div>
+</div>
+</div>
+</a>
+
+
+</div>
+
+<script>
+    function yourFunction(msg) {
+        var text = '',
+            num = 0;
+        if (msg === 'hasBeenRead') { // 消息已被阅读
+            num = 0;
+        } else if (typeof(msg) === 'object') {
+            var unreadNum = document.getElementById('unreadNum').innerHTML,
+                lastMsg = msg[msg.length - 1];
+            num = isNaN(+unreadNum) ? msg.length : +unreadNum + msg.length;
+            // content_type 是消息的类型：
+            // text（文字）、photo（图片）、file（文件）
+            // content 是消息的内容
+            if (lastMsg.content_type === 'text') {
+                // 文字消息中可能会存在表情图片，由于路径问题
+                // 将文字消息中的图片处理为文字'[表情]'
+                text = lastMsg.content.replace(
+                    /<img [^>]*src=['"]([^'"]+)[^>]*>/gi, '[表情]'
+                );
+            } else if (lastMsg.content_type === 'photo') {
+                text = '[图片]';
+            } else if (lastMsg.content_type === 'file') {
+                text = '[文件]';
+            } else {
+                text = '[新消息]';
+            }
+        }
+        // 未读消息数量
+        document.getElementById('unreadNum').innerHTML = num;
+        // 最后一条消息的内容
+        document.getElementById('unreadMsg').innerHTML = text;
+    }
+</script>
+
+<!-- 美洽客服 -->
+<script type='text/javascript'>
+    (function(m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function() {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        j = ei.createElement(q),
+            s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    _MEIQIA('entId', {dede:field name='keywords'/});
+    // 获取未读消息
+    _MEIQIA('getUnreadMsg', yourFunction);
+     // 在这里开启无按钮模式（常规情况下，需要紧跟在美洽嵌入代码之后）
+    _MEIQIA('withoutBtn');  
+</script>
+<!-- 美洽客服 End -->
+
+<!-- 最底部导航 -->
+<div class="gzs-bottombar">
+<a href="{dede:global.mcfg_basehost/}/" class="gzs-bo"><img src="{dede:global.mcfg_basehost/}/m-images/index.png">首页</a>
+<a href="{dede:global.mcfg_basehost/}/member/operation_ke.php" class="gzs-bo"><img src="{dede:global.mcfg_basehost/}/m-images/index-yg.png">已购</a>
+<a href="{dede:global.mcfg_basehost/}/kefu/" class="gzs-bo gzs-on"><img src="{dede:global.mcfg_basehost/}/m-images/index-kf2.png">客服</a>
+<a href="{dede:global.mcfg_basehost/}/member/" class="gzs-bo"><img src="{dede:global.mcfg_basehost/}/m-images/index-admin.png">我的</a>
+</div>
+<!-- 最底部导航 End -->
+
+<script>
+var clipboard = new Clipboard('.btn2018');
+clipboard.on('success', function(e) {
+    var msg = e.trigger.getAttribute('aria-label');
+    alert(msg);
+    console.info('Action:', e.action);
+    console.info('Text:', e.text);
+    console.info('Trigger:', e.trigger);
+    e.clearSelection();
+});
+</script>
+</body>
+</html>

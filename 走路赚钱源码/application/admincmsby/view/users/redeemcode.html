@@ -1,0 +1,181 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+<style>
+.paging{
+   margin-top:30px;
+}
+.home{
+	color:#fff;border: 1px #b6b6b6 solid;background: #b6b6b6; padding: 15px;height: 38px;line-height: 38px;
+}
+.all{
+	color:#fff;border: 1px #999 solid;background: #999; padding: 15px;height: 38px;line-height: 38px;
+}
+</style>
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">兑换码管理</h2>
+       <a href="{:url('users/makecode')}" class="fr top_rt_btn add_icon">生成兑换码</a>
+      </div>
+      <section class="mtb">
+	   <form action="" method="get" >
+		&nbsp;&nbsp;状态	
+	   <select class="select" name="status">
+			<option value="0">&nbsp;&nbsp;&nbsp;选择&nbsp;&nbsp;&nbsp;</option>
+			<option value="1" {if condition="$status eq '1'"}selected{/if}>&nbsp;&nbsp;&nbsp;已使用&nbsp;&nbsp;&nbsp;</option>
+			<option value="2" {if condition="$status eq '2'"}selected{/if}>&nbsp;&nbsp;&nbsp;未使用&nbsp;&nbsp;&nbsp;</option>
+			<option value="3" {if condition="$status eq '3'"}selected{/if}>&nbsp;&nbsp;&nbsp;使用中&nbsp;&nbsp;&nbsp;</option>
+       </select>
+	   &nbsp;&nbsp;会员账号
+       <input type="text" class="textbox textbox_225" placeholder="输入会员账号..." name="keyword" value="{$keyword}" />
+	   &nbsp;&nbsp;兑换码
+	    <input type="text" class="textbox textbox_225" placeholder="输入兑换码..." name="code" value="{$code}" />
+       <input type="submit" value="查询" class="group_btn"/>
+	   <a href="{:url('users/redeemcode')}?status=1" class="home"/>已使用</a>
+	   <a href="{:url('users/redeemcode')}?status=3" class="home"/>使用中</a>
+	   <a href="{:url('users/redeemcode')}?status=2" class="home"/>未用中</a>
+	   <a href="{:url('users/redeemcode')}" class="all"/>全部</a> 
+	   </form>
+      </section>
+      <table class="table">
+       <tr>
+        <th style="width:80px;">ID</th>		
+		<th>会员账号</th>
+		<th>兑换码</th>
+		<th>状态</th>
+		<th>使用期限</th>
+		<th>添加时间</th>
+        <th>操作</th>
+       </tr>
+       </tr>
+	   {foreach name="volist.data" id="vo"}
+       <tr class="id_{$vo.id}">
+        <td class="center"><input type="checkbox" value="{$vo.id}" name="id" />{$vo.id}</td>
+		<td class="center">{$vo.username}</td>
+        <td class="center">
+			{$vo.code}
+		</td>
+		<td class="center">
+			{if condition="$vo.status eq '1'"}
+				<span style="color:green">未使用</span>
+			{/if}
+			
+			{if condition="$vo.status eq '2'"}
+				<span style="color:#3c7fff">使用中</span>
+			{/if}
+			
+			{if condition="$vo.status eq '0'"}
+				<span style="color:red">已使用</span>
+			{/if}
+		</td>
+			
+		<td class="center">{$vo.term}天</td>
+		<td class="center">{$vo.addtime|date="Y-m-d H:i:s",###}</td>	
+        <td class="center">
+        
+         <a href="#" title="删除" class="link_icon del" data-id="{$vo.id}">&#100;</a>
+        </td>
+       </tr>
+		{/foreach}
+      </table>
+	  <div>
+		<aside class="paging_left">
+		   <a id="all">全选</a>
+		   <a id="nocheck">取消</a>
+		   <a id="reverse">反选</a>
+		   <a id="delid">删除</a>
+		</aside>
+	  {$list->render()}
+	 </div>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+$(document).ready(function() {
+	//全选
+	$("#all").on('click', function() {
+		//全选选中为true，否则为false
+		$("input[type=checkbox]").each(function(){ 
+		//循环checkbox选择或取消
+			$(this).prop("checked",true);
+		});
+	});
+	//取消
+	$("#nocheck").on('click', function() {
+		$("input[type=checkbox]").each(function(){ 
+			$(this).prop("checked",false);
+		});
+	});
+	//反选
+	$("#reverse").click(function () { 
+		$("table :checkbox").each(function () {  
+			$(this).prop("checked", !$(this).prop("checked"));  
+		});
+	});
+	//删除
+	$('.del').click(function(event){
+		var id = $(this).attr('data-id');
+		if (confirm("确定要删除吗？")) {
+			$.ajax({
+				url:"{:url('users/redeemcode_del')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'code/del_nucm',id:id},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('删除成功');
+						setTimeout(function(){
+							//页面刷新  
+							window.location.reload();
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});		
+		}
+	}); 
+    //批量删除
+	$('#delid').click(function(event){
+		var id=new Array();  
+		$('input[name="id"]:checked').each(function(){  
+			id.push($(this).val());//向数组中添加元素  
+		});  
+		var id_str = id.join(',');//将数组元素连接起来以构建一个字符串 
+		if (confirm("确定要删除吗？")) {
+			$.ajax({
+				url:"{:url('users/redeemcode_delmost')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'code/DelAll_nucm',delid:id_str,pid:0},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('删除成功');
+						setTimeout(function(){
+						//页面刷新  
+						window.location.reload();
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});
+		}
+	});  
+	
+	
+});
+</script>
+{/block}	

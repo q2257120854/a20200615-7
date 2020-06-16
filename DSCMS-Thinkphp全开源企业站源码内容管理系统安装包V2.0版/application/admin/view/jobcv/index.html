@@ -1,0 +1,40 @@
+{extend name="layout:home" /}
+{block name="container"}
+<div class="layui-tab layui-tab-card">
+    {include file="layout/admin_items" /}
+    <div class="layui-tab-content page-tab-content">
+        <table class="layui-table lay-even">
+            <colgroup>
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>{$Think.lang.jobcv_customer}</th>
+                    <th>{$Think.lang.jobcv_job_id}</th>
+                    <th>{$Think.lang.jobcv_readok}</th>
+                    <th>{$Think.lang.jobcv_addtime}</th>
+                    <th>{$Think.lang.jobcv_ip}</th>
+                    <th>{$Think.lang.ds_operation}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {volist name="jobcv_list" id="jobcv"}
+            <tr>
+                <td>{$jobcv.jobcv_customer}</td>
+                <td>{$jobcv.jobcv_job_id}</td>
+                <td>{if condition="$jobcv.jobcv_readok eq 0"}未查看{else}已查看{/if}</td>
+                <td>{$jobcv.jobcv_addtime|date='Y-m-d H:i:s',###}</td>
+                <td>{$jobcv.jobcv_ip}</td>
+                <td>
+                    <a href="javascript:dsLayerOpen('{:url('jobcv/detail',['jobcv_id'=>$jobcv.jobcv_id,'job_name'=>$jobcv.jobcv_job_id])}','投递人-{$jobcv.jobcv_customer}')" class="layui-btn layui-btn-xs"><i class="layui-icon layui-icon-edit"></i>{$Think.lang.ds_show}</a>
+                    <a href="javascript:dsLayerConfirm('{:url('jobcv/del',['jobcv_id'=>$jobcv.jobcv_id])}','{$Think.lang.ds_confirm_cancel}')" class="layui-btn layui-btn-danger layui-btn-xs"><i class="layui-icon layui-icon-delete"></i>{$Think.lang.ds_del}</a>
+                </td>
+            </tr>
+            {/volist}
+        </tbody>
+        </table>
+        {$show_page}
+    </div>
+</div>
+<script type="text/javascript" src="{$Think.ADMIN_SITE_ROOT}/js/jquery.edit.js"></script>
+{/block}

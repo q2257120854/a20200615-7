@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>免费短视频分享大全 - 大中国</title>
+    <link href="/static/css/home.css" rel="stylesheet" type="text/css" />
+<link href="/template/default_pc/css/style.css" rel="stylesheet" type="text/css" />
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/jquery.lazyload.js"></script>
+<script src="/static/js/jquery.autocomplete.js"></script>
+<script src="/template/default_pc/js/jquery.superslide.js"></script>
+<script src="/template/default_pc/js/jquery.lazyload.js"></script>
+<script src="/template/default_pc/js/jquery.base.js"></script>
+<script>var maccms={"path":"","mid":"","aid":"2","url":"qy.redlk.com","wapurl":"qy.redlk.com","mob_status":"0"};</script>
+<script src="/static/js/home.js"></script>
+<script></script>
+
+</head>
+<body>
+<!-- 页头 -->
+<div class="header">
+    <div id="logo"><a href="/" title="免费短视频分享大全 - 大中国"><img src="/static/images/logo.jpg" alt="免费短视频分享大全 - 大中国" /></a></div>
+    <div id="searchbar">
+        <div class="ui-search">
+            <form id="search" name="search" method="get" action="/index.php/vod/search.html" onSubmit="return qrsearch();">
+                <input type="text" name="wd" class="search-input mac_wd" value="" placeholder="请在此处输入影片名或演员名称" />
+                <input type="submit" id="searchbutton"  class="search-button mac_search" value="搜索影片" />
+            </form>
+        </div>
+        <div class="hotkeys">热搜：
+                        <a href="/index.php/vod/search/wd/%E5%8F%98%E5%BD%A2%E9%87%91%E5%88%9A.html">变形金刚</a>
+                        <a href="/index.php/vod/search/wd/%E7%81%AB%E5%BD%B1%E5%BF%8D%E8%80%85.html">火影忍者</a>
+                        <a href="/index.php/vod/search/wd/%E5%A4%8D%E4%BB%87%E8%80%85%E8%81%94%E7%9B%9F.html">复仇者联盟</a>
+                        <a href="/index.php/vod/search/wd/%E6%88%98%E7%8B%BC.html">战狼</a>
+                        <a href="/index.php/vod/search/wd/%E7%BA%A2%E6%B5%B7%E8%A1%8C%E5%8A%A8.html">红海行动</a>
+                    </div>
+    </div>
+    <ul id="qire-plus">
+        <li><a href="/index.php/label/rank.html" class=""><i class="ui-icon top-icon"></i>排行</a></li>
+        <li><a href="/index.php/gbook/index.html"><i class="ui-icon gb-icon"></i>留言</a></li>
+        <li><a href="javascript:void(0);" style="cursor:hand; background:none;" onclick="MAC.Fav(location.href,document.title);"><i class="ui-icon fav-icon"></i>收藏</a></li>
+    </ul>
+</div>
+<!-- 导航菜单 -->
+<div id="navbar">
+    <div class="layout fn-clear">
+        <ul id="nav" class="ui-nav">
+            <li class="nav-item "><a class="nav-link" href="/">网站首页</a></li>
+                        <li class="nav-item 1=0"><a class="nav-link" href="/index.php/vod/type/id/1.html">电影</a></li>
+                        <li class="nav-item 2=0"><a class="nav-link" href="/index.php/vod/type/id/2.html">连续剧</a></li>
+                        <li class="nav-item 3=0"><a class="nav-link" href="/index.php/vod/type/id/3.html">综艺</a></li>
+                        <li class="nav-item 4=0"><a class="nav-link" href="/index.php/vod/type/id/4.html">动漫</a></li>
+                        <li class="nav-item 5=0"><a class="nav-link" href="/index.php/art/type/id/5.html">资讯</a></li>
+                        <li class="nav-item "><a class="nav-link" href="/index.php/topic/index.html">专题</a></li>
+            <li class="nav-item mac_user"><a class="nav-link" href="javascript:;">会员</a></li>
+            <li class="nav-item"><a class="nav-link" href="/index.php/map/index.html" style=" margin-left:102px; padding:0 0 0 30px; background:url(/template/default_pc/images/ico.png) no-repeat left center;">最近更新</a></li>
+        </ul>
+    </div>
+</div>
+<!--当前位置-->
+<div class="bread-crumb-nav fn-clear">
+    <ul class="bread-crumbs">
+        <li class="home"><a href="index.html">首页</a></li>
+        <li>最近100个更新</li>
+        <li class="back"><a href="javascript:MAC.GoBack()">返回上一页</a></li>
+    </ul>
+</div>
+<!--列表部分-->
+<div class="ui-box ui-qire fn-clear" id="qire-lasted">
+    <div class="ui-title fn-clear">
+        <h2>最近100个更新</h2>
+        <div class="lasted-time fn-right">更新时间</div>
+        <div class="lasted-tags fn-right">标签</div>
+        <div class="lasted-type fn-right">类型</div>
+    </div>
+    <div class="ui-cnt">
+        <ul class="lasted-list fn-clear">
+                        </ul>
+    </div>
+</div>
+
+<!-- 页脚 -->
+<div class="footer">
+    <div class="foot-nav">
+                <a class="color" href="/index.php/vod/type/id/1.html" title="电影">电影</a>-
+                <a class="color" href="/index.php/vod/type/id/2.html" title="连续剧">连续剧</a>-
+                <a class="color" href="/index.php/vod/type/id/3.html" title="综艺">综艺</a>-
+                <a class="color" href="/index.php/vod/type/id/4.html" title="动漫">动漫</a>-
+                <a class="color" href="/index.php/art/type/id/5.html" title="资讯">资讯</a>-
+        
+        <a href="/index.php/map/index.html" title="最近更新">最近更新</a>-
+        <a href="/index.php/gbook/index.html" title="反馈留言">反馈留言</a>-
+        <a href="/index.php/rss/index.xml" title="rss">RSS</a>-
+        <a href="/index.php/rss/baidu.xml" target="_blank" title="网站地图">Sitemap</a>
+    </div>
+    <div class="copyright">
+        <p>免责声明：若本站收录的资源侵犯了您的权益，请发邮件至：123456@test.cn，我们会及时删除侵权内容，谢谢合作！</p>
+        <p>Copyright &#169; 2012-2018 qy.redlk.com. All Rights Reserved. 统计代码 </p>
+    </div>
+</div>
+</body>
+</html>

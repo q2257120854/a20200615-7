@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>会员购买记录 - <?php echo $cfg_webname; ?></title>
+<link href="/css/v2_index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<style type="text/css">
+.uc-main-box{min-height:423px;}
+
+.box-operation{margin-top:15px;}
+.box-operation table{background: #f7f7f7;}
+.box-operation table thead tr th{height:65px;background-color:#00bca1;color:#fff;font-size:16px;border:1px solid #eee;}
+.box-operation table tbody tr td{font-size: 14px;text-align:center;height:60px;border:1px solid #eee;}
+.tblStyle .col01{width:233px;}
+.tblStyle .col02{width:184px;}
+.tblStyle .col03{width:114px;}
+.tblStyle .col04{width:157px;}
+.tblStyle .col05{width:157px;}
+</style>
+</head>
+<body>
+
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+<?php include(DEDEMEMBER."/templets/left.htm"); ?>
+
+<!-- 右侧功能定位 -->
+<div class="user-right">
+<div class="uc-box uc-main-box">
+<div class="uc-content-box order-list-box">
+<div class="box-hd"><h1 class="title">会员购买记录</h1></div>
+
+
+<!-- 订单 -->
+<div class="box-operation">
+<table class="tblStyle">
+
+<thead>
+<tr>
+<th class="col01">订单编号</th>
+<th class="col02">商品名称</th>
+<th class="col03">订单金额</th>
+<th class="col04">购买日期</th>
+<th class="col05">交易状态</th>
+</tr>
+</thead>
+
+<tbody>
+{dede:datalist}
+<tr>
+<td>{dede:field.buyid/}</td>
+<td><?php echo $fields['pname']; ?></td>
+<td><?php echo $fields['money']; ?>元</td>
+<td>{dede:field.mtime function="GetDateMk(@me)" /}</td>
+<td>
+<span>{dede:field.sta function="GetSta(@me)" /}</span>
+</td>
+</tr>
+{/dede:datalist}
+</tbody>
+
+</table>
+</div>
+<!-- 订单 End -->
+
+
+<!-- 列表分页 -->
+<div id="showpage_min">
+{dede:pagelist listsize=5 /}
+</div>
+<!-- 列表分页 Ending -->
+
+
+</div>
+</div>
+</div>
+<!-- 右侧功能定位 End -->
+
+</div>
+
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+
+</body>
+</html>

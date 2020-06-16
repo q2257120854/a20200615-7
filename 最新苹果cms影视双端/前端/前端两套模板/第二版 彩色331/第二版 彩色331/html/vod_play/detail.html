@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+    <link rel="stylesheet" href="../../css/font-awesome.css">
+    <style>
+       
+        section{
+            height: 150vh;
+            background-color: #fff;
+            padding: 4px 8px;
+            line-height: 30px;
+            margin:0 auto;
+        }
+        .vod_name{
+            color: #444444;
+        }
+        .vod_type{
+            color: #666666;
+            font-size: 14px;
+        }
+        .close{
+            float: right;
+            height: 40px;
+            width: 60px;
+        }
+        .icon-chevron-down{
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="close" tapmode onclick="closeFrame()"><i class=" icon-chevron-down" ></i></div>
+        
+        <div class="vod_name" id="vod_name"> </div>
+        <div class="vod_type"><span style="color: #fe2650;" id="vod_score"></span>·<span id="vod_type"></span> </div>
+        <div class="vod_type">导演：<span id="vod_director"></span></div>
+        <div class="vod_type"> 主演：<span id="vod_actor"></span></div>
+        <div class="vod_name"> 简介：</div>
+        <div class="vod_type" id="vod_content"> </div>
+    </section>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+        api.parseTapmode();
+        $api.byId('vod_name').innerHTML =api.pageParam.vod_name;
+        $api.byId('vod_type').innerHTML =api.pageParam.vod_remarks+'·'+api.pageParam.vod_year+'·'+api.pageParam.vod_area+'·'+api.pageParam.vod_class+'·'+api.pageParam.vod_hits+'万次播放';
+        $api.byId('vod_score').innerHTML =api.pageParam.vod_score+'分';;
+        $api.byId('vod_director').innerHTML =api.pageParam.vod_director;
+        $api.byId('vod_actor').innerHTML =api.pageParam.vod_actor;
+        $api.byId('vod_content').innerHTML =api.pageParam.vod_content;
+    }
+    function closeFrame() {
+    setTimeout(function(){
+        api.closeFrame({
+        name: 'detail',
+        url: 'detail.html',
+        opaque: true,
+        vScrollBarEnabled: false,
+        animation:{
+            type:"fade",             
+            subType:"from_top",   
+            duration:200         
+        }
+    });
+    },200);
+  }
+</script>
+</html>

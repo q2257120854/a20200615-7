@@ -1,0 +1,31 @@
+{extend name="default/base/base_home" /}
+{block name="mall_main"}
+<div class="common-banner mb20">
+    {dstaglib:adv ap_id='2' limit='1' item='v'}
+    <img class="lazy" data-original="{:get_adv_img($v.adv_code)}">
+    {/dstaglib:adv}
+</div>
+<div class="cases-search w1200">
+    <div class="mt mb20">
+        <div class="location">
+            <a href="/home/index/index.html" target="_blank" class="ml30">德尚网络</a>&gt;
+            <a href="/home/article/search/ac_id/3.html">用户中心</a>&gt;
+        </div>
+        <div class="nav mt10">
+            <a href="{:url('member/index')}">基本资料</a>
+            <a href="{:url('member/change_info')}">修改资料</a>
+            <a href="{:url('member/change_password')}">修改密码</a>
+            <a href="{:url('member/change_portrait')}">修改头像</a>
+        </div>
+    </div>
+    <div class="mc clearfix">
+        <p><img width="120" height="120" src="{:get_member_avatar($member_info.member_avatar)}"/></p>
+        <p>用户名：{$member_info.member_name}</p>
+        <p>真实姓名：{$member_info.member_truename ?? '暂未填写'}</p>
+        <p>性别：{$member_info.member_sex ? '男' : '女'}</p>
+        <p>邮箱：{$member_info.member_email!=null ?? '暂未填写'}</p>
+        <p>电话：{$member_info.member_mobile}</p>
+        <p>地址：{$member_info.member_privacy ?? '暂未填写'}</p>
+    </div>
+</div>
+{/block}

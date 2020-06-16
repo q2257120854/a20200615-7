@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{dede:field name="typename"/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="{dede:global.mcfg_basehost/}/m-css/m-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{dede:global.mcfg_basehost/}/m-js/jquery.js"></script>
+<style type="text/css">
+body{background:#fff;}
+</style>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar"><div class="searchbar_index"><a href="javascript:history.go(-1);" class="top_nav_left"></a><h1>{dede:field.typename /}</h1></div></div>
+<!-- TOP End -->
+
+<div class="wrapper">
+<div class="m-m-about">
+{dede:field.content function='mstrup(@me)'/}
+</div>
+</div>
+
+</body>
+</html>

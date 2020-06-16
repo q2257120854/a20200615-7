@@ -1,0 +1,49 @@
+*{margin:0;padding:0;}
+body{background:#fff;font-size:14px;color:#333;font-family:"Microsoft Yahei","微软雅黑","MicrosoftJhengHei","华文细黑","Hiragino Sans GB","sans-serif";}
+em{font-style:normal;font-weight:normal;}
+dl,ul,li{list-style:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+input,button{vertical-align:middle;font-size:100%;list-style:none;outline:none;border:0;}
+table{border-collapse:collapse;border-spacing:0;}
+i,em,q{font-style:normal;}
+img{border:0;}
+a{text-decoration:none;color:#333;}
+a:hover{text-decoration:none;color:#ff700a;}
+.fl{float:left;}
+.fr{float:right;}
+.clearfix:after{content:"\200b";display:block;height:0;clear:both;}
+.container{width:1200px;margin:0 auto;}
+.container:before,.container:after{content:" ";display:table;clear:both;}
+.phone-icon{position:absolute;top:14px;left:14px;width:22px;height:22px;background:url(../images/yxw-sj.png) no-repeat;background-size:22px 22px;}
+.mima-icon{position:absolute;top:14px;left:14px;width:22px;height:22px;background:url(../images/yxw-mm.png) no-repeat;background-size:22px 22px;}
+
+/*头部通用*/
+.passport-header .logo{padding:25px 0 25px;}
+.passport-header .logo-link{width:124px;height:61px;display:block;float:left;}
+.passport-header .logo-link img{display:block;}
+.passport-header .logo-title{float:left;height:34px;line-height:34px;font-size:24px;color:#333;margin-top:15px;padding-left:30px;}
+
+/*电脑/移动端通用*/
+.passport-wrapper{width:100%;height:500px;position:relative;background:url(../images/yxw-login.jpg) no-repeat;}
+.passport-sign{width:346px;min-height:300px;padding:40px 40px 30px;border-radius:5px;background-color:#fff;margin-top:50px;-webkit-box-shadow:0 4px 6px 0 rgba(0,0,0,.2);box-shadow:0 4px 6px 0 rgba(0,0,0,.2);}
+.passport-sign .active{color:#666;font-size:24px;margin-bottom:30px;}
+.passport-form .form-item{margin-bottom:20px;position:relative;}
+.passport-form .form-item .passport-txt{width:100%;height:50px;line-height:50px;font-size:14px;color:#999;padding:0 45px;border:solid 1px #ddd;box-sizing:border-box;border-radius:5px;}
+.passport-form .form-item .passport-txt:focus{border:solid 1px #ff700a;}
+.passport-form .form-sevenday{overflow:hidden;}
+.passport-form .form-item .passport-btn{width:100%;height:50px;margin-top:20px;font-size:20px;color:#fff;background:#ff700a;cursor:pointer;border-radius:5px;}
+
+/*QQ登录*/
+.other-way{padding:12px 25px 12px 0;border-top:1px solid #eee;margin-top:20px;overflow:hidden;}
+.other-way .yxw-qtdlfs{display:inline-block;height:26px;line-height:26px;font-size:14px;float:left;}
+.other-way .yxw-icon-qq{display:block;width:26px;height:26px;background:url(../images/icons_6305647d.png) no-repeat;background-position:0 -179px;float:left;}
+.other-way .yxw-icon-qq:hover{display:block;width:26px;height:26px;background:url(../images/icons_6305647d.png) no-repeat;background-position:0 -205px;float:left;}
+
+/*网站底部*/
+.footer-link .w1200{width:1200px;margin:0 auto;padding:40px 0 50px;text-align:center;}
+.footer-link .link{line-height:20px;}
+.footer-link .link a{font-size:14px;color:#666;}
+.footer-link .link a:hover{color:#333;}
+.footer-link span.sep{padding:0 10px;font-family:sans-serif;color:#666;}
+.footer-link p{margin-top:20px;color:#666;font-size:14px;}
+.footer-link .footer-yxw-gxb{color:#666;padding:0 5px;}

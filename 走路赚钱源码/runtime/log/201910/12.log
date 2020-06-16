@@ -1,0 +1,796 @@
+[ 2019-10-12T20:20:03+08:00 ] 154.91.3.46 116.252.234.183 GET /
+[ log ] yoopay.xiangxin.me/ [运行时间：0.265625s][吞吐率：3.76req/s] [内存消耗：4,135.52kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=yoopay_xiangxin_;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_setting` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_setting` WHERE  `id` > 0 ORDER BY id desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_usersetting` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `cmm_usersetting` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.015625s ]
+
+---------------------------------------------------------------
+[ 2019-10-12T20:20:04+08:00 ] 154.91.3.46 116.252.234.183 GET /login
+[ log ] yoopay.xiangxin.me/login [运行时间：0.095704s][吞吐率：10.45req/s] [内存消耗：2,431.37kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->login[ D:\wwwroot\yoopay.xiangxin.me\application\index\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\wwwroot\yoopay.xiangxin.me\public/../application/index\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-10-12T20:20:11+08:00 ] 154.91.3.46 116.252.234.183 GET /admin
+[ log ] yoopay.xiangxin.me/admin [运行时间：0.062500s][吞吐率：16.00req/s] [内存消耗：1,996.13kb] [文件加载：43]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-10-12T20:20:58+08:00 ] 154.91.3.46 116.252.234.183 GET /admincmsby
+[ log ] yoopay.xiangxin.me/admincmsby [运行时间：0.078125s][吞吐率：12.80req/s] [内存消耗：2,575.13kb] [文件加载：51]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admincmsby\controller\Index->index[ D:\wwwroot\yoopay.xiangxin.me\application\admincmsby\controller\Index.php ]
+[ info ] [ VIEW ] D:\wwwroot\yoopay.xiangxin.me\public/../application/admincmsby\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-10-12T20:20:59+08:00 ] 154.91.3.46 116.252.234.183 GET /captcha.html
+[ log ] yoopay.xiangxin.me/captcha.html [运行时间：0.140625s][吞吐率：7.11req/s] [内存消耗：2,019.26kb] [文件加载：42]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.xiangxin.me/admincmsby',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\wwwroot\yoopay.xiangxin.me\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-10-12T20:21:14+08:00 ] 154.91.3.46 116.252.234.183 POST /admincmsby/index/login.html
+[ log ] yoopay.xiangxin.me/admincmsby/index/login.html [运行时间：0.171875s][吞吐率：5.82req/s] [内存消耗：4,039.32kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.xiangxin.me/admincmsby',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.xiangxin.me',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '40',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => '123456',
+  'code' => '67md',
+)
+[ info ] [ RUN ] app\admincmsby\controller\Index->login[ D:\wwwroot\yoopay.xiangxin.me\application\admincmsby\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=yoopay_xiangxin_;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_admin` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`loginarea`,`loginip`,`logintime`,`email`,`status`,`power`,`lastip`,`group`,`addtime`,`logincount` FROM `cmm_admin` WHERE  `account` = 'admin'  AND `password` = '10470c3b4b1fed12c3baac014be15fac67c6e815' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `cmm_loginlog` (`uid` , `user` , `description` , `area` , `loginip` , `addtime`) VALUES (0 , 'admin' , '<div style=\"color:red;\">用户不存在或者登录密码错误</div>' , '广西南宁市.电信' , '116.252.234.183' , 1570882874) [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-10-12T20:21:15+08:00 ] 154.91.3.46 116.252.234.183 GET /captcha.html?0.882764996247194
+[ log ] yoopay.xiangxin.me/captcha.html?0.882764996247194 [运行时间：0.062500s][吞吐率：16.00req/s] [内存消耗：2,019.67kb] [文件加载：42]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.xiangxin.me/admincmsby',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+  '0_882764996247194' => '',
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\wwwroot\yoopay.xiangxin.me\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-10-12T20:24:28+08:00 ] 154.91.3.46 116.252.234.183 GET /captcha.html?0.7157572167210258
+[ log ] yoopay.xiangxin.me/captcha.html?0.7157572167210258 [运行时间：0.062500s][吞吐率：16.00req/s] [内存消耗：2,019.72kb] [文件加载：42]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.xiangxin.me/admincmsby',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+  '0_7157572167210258' => '',
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\wwwroot\yoopay.xiangxin.me\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-10-12T20:24:33+08:00 ] 154.91.3.46 116.252.234.183 POST /admincmsby/index/login.html
+[ log ] yoopay.xiangxin.me/admincmsby/index/login.html [运行时间：0.109375s][吞吐率：9.14req/s] [内存消耗：4,039.32kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.xiangxin.me/admincmsby',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.xiangxin.me',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '40',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => '123456',
+  'code' => 'pujm',
+)
+[ info ] [ RUN ] app\admincmsby\controller\Index->login[ D:\wwwroot\yoopay.xiangxin.me\application\admincmsby\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:dbname=yoopay_xiangxin_;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_admin` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`loginarea`,`loginip`,`logintime`,`email`,`status`,`power`,`lastip`,`group`,`addtime`,`logincount` FROM `cmm_admin` WHERE  `account` = 'admin'  AND `password` = '10470c3b4b1fed12c3baac014be15fac67c6e815' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `cmm_loginlog` (`uid` , `user` , `description` , `area` , `loginip` , `addtime`) VALUES (0 , 'admin' , '<div style=\"color:red;\">用户不存在或者登录密码错误</div>' , '广西南宁市.电信' , '116.252.234.183' , 1570883073) [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-10-12T20:24:33+08:00 ] 154.91.3.46 116.252.234.183 GET /captcha.html?0.06039790515417254
+[ log ] yoopay.xiangxin.me/captcha.html?0.06039790515417254 [运行时间：0.062500s][吞吐率：16.00req/s] [内存消耗：2,019.72kb] [文件加载：42]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.xiangxin.me/admincmsby',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+  '0_06039790515417254' => '',
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\wwwroot\yoopay.xiangxin.me\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-10-12T20:24:35+08:00 ] 154.91.3.46 116.252.234.183 POST /admincmsby/index/login.html
+[ log ] yoopay.xiangxin.me/admincmsby/index/login.html [运行时间：0.046875s][吞吐率：21.33req/s] [内存消耗：2,402.06kb] [文件加载：49]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.xiangxin.me/admincmsby',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.xiangxin.me',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '40',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => '123456',
+  'code' => 'pujm',
+)
+[ info ] [ RUN ] app\admincmsby\controller\Index->login[ D:\wwwroot\yoopay.xiangxin.me\application\admincmsby\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-10-12T20:24:35+08:00 ] 154.91.3.46 116.252.234.183 GET /captcha.html?0.5741539200362074
+[ log ] yoopay.xiangxin.me/captcha.html?0.5741539200362074 [运行时间：0.062500s][吞吐率：16.00req/s] [内存消耗：2,019.66kb] [文件加载：42]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.xiangxin.me/admincmsby',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+  '0_5741539200362074' => '',
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\wwwroot\yoopay.xiangxin.me\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-10-12T20:28:58+08:00 ] 154.91.3.46 116.252.234.183 GET /captcha.html?0.041608761609361666
+[ log ] yoopay.xiangxin.me/captcha.html?0.041608761609361666 [运行时间：0.065430s][吞吐率：15.28req/s] [内存消耗：2,019.66kb] [文件加载：42]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.xiangxin.me/admincmsby',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+  '0_041608761609361666' => '',
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\wwwroot\yoopay.xiangxin.me\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-10-12T20:28:59+08:00 ] 154.91.3.46 116.252.234.183 GET /captcha.html?0.39115989044943444
+[ log ] yoopay.xiangxin.me/captcha.html?0.39115989044943444 [运行时间：0.031250s][吞吐率：32.00req/s] [内存消耗：2,019.66kb] [文件加载：42]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.xiangxin.me/admincmsby',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+  '0_39115989044943444' => '',
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\wwwroot\yoopay.xiangxin.me\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-10-12T20:29:02+08:00 ] 154.91.3.46 116.252.234.183 GET /captcha.html?0.12235765989897662
+[ log ] yoopay.xiangxin.me/captcha.html?0.12235765989897662 [运行时间：0.046875s][吞吐率：21.33req/s] [内存消耗：2,019.65kb] [文件加载：42]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.xiangxin.me/admincmsby',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+  '0_12235765989897662' => '',
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\wwwroot\yoopay.xiangxin.me\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-10-12T20:29:09+08:00 ] 154.91.3.46 116.252.234.183 POST /admincmsby/index/login.html
+[ log ] yoopay.xiangxin.me/admincmsby/index/login.html [运行时间：0.188477s][吞吐率：5.31req/s] [内存消耗：4,039.49kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.xiangxin.me/admincmsby',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.xiangxin.me',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '42',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => 'admin888',
+  'code' => 'vubv',
+)
+[ info ] [ RUN ] app\admincmsby\controller\Index->login[ D:\wwwroot\yoopay.xiangxin.me\application\admincmsby\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.031250s ] mysql:dbname=yoopay_xiangxin_;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_admin` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`loginarea`,`loginip`,`logintime`,`email`,`status`,`power`,`lastip`,`group`,`addtime`,`logincount` FROM `cmm_admin` WHERE  `account` = 'admin'  AND `password` = 'cf177465f57f771b0fd033e7022103d17d8bc2f9' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `cmm_loginlog` (`uid` , `user` , `description` , `area` , `loginip` , `addtime`) VALUES (0 , 'admin' , '<div style=\"color:red;\">用户不存在或者登录密码错误</div>' , '广西南宁市.电信' , '116.252.234.183' , 1570883349) [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-10-12T20:29:09+08:00 ] 154.91.3.46 116.252.234.183 GET /captcha.html?0.03678088733360774
+[ log ] yoopay.xiangxin.me/captcha.html?0.03678088733360774 [运行时间：0.062500s][吞吐率：16.00req/s] [内存消耗：2,019.65kb] [文件加载：42]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.xiangxin.me/admincmsby',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+  '0_03678088733360774' => '',
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\wwwroot\yoopay.xiangxin.me\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-10-12T20:44:26+08:00 ] 154.91.3.46 116.252.234.183 GET /captcha.html?0.6948892659800401
+[ log ] yoopay.xiangxin.me/captcha.html?0.6948892659800401 [运行时间：0.062500s][吞吐率：16.00req/s] [内存消耗：2,019.71kb] [文件加载：42]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.xiangxin.me/admincmsby',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+  '0_6948892659800401' => '',
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\wwwroot\yoopay.xiangxin.me\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-10-12T20:44:32+08:00 ] 154.91.3.46 116.252.234.183 POST /admincmsby/index/login.html
+[ log ] yoopay.xiangxin.me/admincmsby/index/login.html [运行时间：0.093750s][吞吐率：10.67req/s] [内存消耗：4,039.49kb] [文件加载：67]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admincmsby',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.xiangxin.me/admincmsby',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://yoopay.xiangxin.me',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '42',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => 'admin888',
+  'code' => 'qkhe',
+)
+[ info ] [ RUN ] app\admincmsby\controller\Index->login[ D:\wwwroot\yoopay.xiangxin.me\application\admincmsby\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=yoopay_xiangxin_;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_admin` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`account`,`loginarea`,`loginip`,`logintime`,`email`,`status`,`power`,`lastip`,`group`,`addtime`,`logincount` FROM `cmm_admin` WHERE  `account` = 'admin'  AND `password` = 'cf177465f57f771b0fd033e7022103d17d8bc2f9' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmm_loginlog` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `cmm_loginlog` (`uid` , `user` , `description` , `area` , `loginip` , `addtime`) VALUES (0 , 'admin' , '<div style=\"color:red;\">用户不存在或者登录密码错误</div>' , '广西南宁市.电信' , '116.252.234.183' , 1570884272) [ RunTime:0.015625s ]
+
+---------------------------------------------------------------
+[ 2019-10-12T20:44:32+08:00 ] 154.91.3.46 116.252.234.183 GET /captcha.html?0.49857566094715566
+[ log ] yoopay.xiangxin.me/captcha.html?0.49857566094715566 [运行时间：0.046875s][吞吐率：21.33req/s] [内存消耗：2,019.66kb] [文件加载：42]
+[ info ] [ LANG ] D:\wwwroot\yoopay.xiangxin.me\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'UM_distinctid=16d5e18daa415-003d07874a3f1c-2d604637-3d10d-16d5e18daa621a; PHPSESSID=ci6hbmn367sdspbskt23kbqdq6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://yoopay.xiangxin.me/admincmsby',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'yoopay.xiangxin.me',
+)
+[ info ] [ PARAM ] array (
+  '0_49857566094715566' => '',
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\wwwroot\yoopay.xiangxin.me\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------

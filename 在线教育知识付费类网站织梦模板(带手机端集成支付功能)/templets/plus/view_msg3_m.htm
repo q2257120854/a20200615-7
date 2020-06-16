@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title><?php echo $arctitle; ?> - <?php echo $cfg_webname; ?></title>
+<meta name="keywords" content="<?php echo $keywords; ?>" />
+<meta name="description" content="<?php echo $description; ?>" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="apple-touch-icon-precomposed" href="http://m.duoweizi.net/images/57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://m.duoweizi.net/images/72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://m.duoweizi.net/images/144x144.png" />
+<link href="/m-css/m-index.css" rel="stylesheet" type="text/css">
+<link href="/m-css/m-video.css" rel="stylesheet" type="text/css">
+<script src="/m-js/TouchSlide.1.1.js"></script>
+<script src="/m-js/header.mini.js"></script>
+<script type="text/javascript" src="/m-js/mall-top-bar2.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.duoweizi.net/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+function CheckLogin(){
+	  var taget_obj = document.getElementById('_ajax_feedback');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_feedback.php");
+	  DedeXHTTP = null;
+}
+function postBadGood(ftype,fid)
+{
+	var taget_obj = document.getElementById(ftype+fid);
+	var saveid = GetCookie('badgoodid');
+	if(saveid != null)
+	{
+		var saveids = saveid.split(',');
+		var hasid = false;
+		saveid = '';
+		j = 1;
+		for(i=saveids.length-1;i>=0;i--)
+		{
+			if(saveids[i]==fid && hasid) continue;
+			else {
+				if(saveids[i]==fid && !hasid) hasid = true;
+				saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+				j++;
+				if(j==10 && hasid) break;
+				if(j==9 && !hasid) break;
+			}
+		}
+		if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+		else saveid += ','+fid;
+		SetCookie('badgoodid',saveid,1);
+	}
+	else
+	{
+		SetCookie('badgoodid',fid,1);
+	}
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	myajax.SendGet2("/shoppingpp.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+}
+function postDigg(ftype,aid)
+{
+	var taget_obj = document.getElementById('newdigg');
+	var saveid = GetCookie('diggid');
+	if(saveid != null)
+	{
+		var saveids = saveid.split(',');
+		var hasid = false;
+		saveid = '';
+		j = 1;
+		for(i=saveids.length-1;i>=0;i--)
+		{
+			if(saveids[i]==aid && hasid) continue;
+			else {
+				if(saveids[i]==aid && !hasid) hasid = true;
+				saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+				j++;
+				if(j==20 && hasid) break;
+				if(j==19 && !hasid) break;
+			}
+		}
+		if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+		else saveid += ','+aid;
+		SetCookie('diggid',saveid,1);
+	}
+	else
+	{
+		SetCookie('diggid',aid,1);
+	}
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	var url = "/digg_ajax.php?action="+ftype+"&id="+aid;
+	myajax.SendGet2(url);
+}
+function getDigg(aid)
+{
+	var taget_obj = document.getElementById('newdigg');
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	myajax.SendGet2("/digg_ajax.php?id="+aid);
+	DedeXHTTP = null;
+}
+-->
+</script>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="gd_topbar_bbs">
+<h1>图文教材</h1>
+<a href="http://m.duoweizi.net/doc/" class="back"></a>
+<div id="mall-nav2"><a href="javascript:void(0);" class="mall-nav2"  id="mall-nav2a"></a>
+<div class="top_nav_box" id="top_nav_box" style="display:none;">  
+<span class="arrow"></span>
+<ul>
+<li><a href="http://m.duoweizi.net/"><img src="/m-images/mall-index.png">首页</a></li>
+<li><a href="http://m.duoweizi.net/search.html"><img src="/m-images/mall-search.png">搜索</a></li>
+<li><a href="/member/mystow.php"><img src="/m-images/nav06.png">我的收藏</a></li>
+<li><a href="http://m.duoweizi.net/member/"><img src="/m-images/nav08.png">个人中心</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- TOP End -->
+
+<!-- 购买教材 -->
+<div class="gd_bottom2">
+<a href="http://m.duoweizi.net/" class="gdb_kfbtn">首页</a>
+<a href="tel:13925792088" class="m-telephone">电话</a>
+<a onclick="alert('此课程资料需要购买后才能下载');" class="m-doc-download">下载</a>
+<a href="<?php echo $gmurl; ?>" class="gdb_buybtn2">立即购买</a>
+</div>
+<!-- 购买教材 End -->
+
+<div class="wrapper_doc_vip">
+
+<!-- 课程简介 start -->
+<div class="m-video-title m-doc-vip-title">
+<h1><?php echo $arctitle; ?></h1>
+<div class="topbar-nav">
+<script src="/plus/count.php?view=yes&aid=<?php echo $arcID; ?>&mid=<?php echo $arcID; ?>" type='text/javascript' language="javascript"></script>人下载
+<span class="sep">|</span>
+<span style="color:#fe4921;">￥<?php echo $arc->Fields['money']; ?>.00</span>
+</div>
+</div>
+
+<div class="m-video-cotainer-jc m-doc-vip-box">
+<h2 class="m-video-gaishu">课程信息</h2>
+<p><img src="http://www.duoweizi.net/images/jcfx.jpg" /></p>
+<p><img src="http://www.duoweizi.net/images/twgm.jpg" /></p>
+<?php $v1['body']= mstrup($v1['body']); echo $v1['body'] ?>
+</div>
+<!-- 课程详情 End -->
+
+<!-- 返回顶部 -->
+<div class="mall-totop" title="返回顶部" onclick="window.scrollTo(0,0);"></div>
+<script src="/m-js/mall-top.js"></script>
+<!-- 返回顶部 End -->
+
+</div>
+<!-- wrapper_doc_vip End -->
+
+</body>
+</html>

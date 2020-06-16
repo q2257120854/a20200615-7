@@ -1,0 +1,125 @@
+<!-- 我是没有数据显示的样式 -->
+<div class="m-yxw-pl-wushuju"><img src="{dede:global.mcfg_basehost/}/m-images/kc-wu-pl.png"><p class="wu-pl-title">暂时无人提问</p></div>
+<!-- 我是没有数据显示的样式 End -->
+
+
+<!-- 评论内容区 -->
+<div class="course-discuss">
+<dd id='commetcontent'></dd>
+</div>
+
+
+<div class="yxw-list-loading" page="1"></div>
+
+
+<script language='javascript'>
+var f = true; 
+function LoadCommets(page)
+{
+$(".yxw-list-loading").html('没有更多了');	
+$.post("/shopping_ajaxpp.php?dopost=getlist&aid={dede:field.id/}&page="+page,{a:""},function(result){
+	if(result.indexOf("参数错误！") > -1 )
+	{
+		$(".yxw-list-loading").html('没有更多了');
+	}
+	else
+	{
+		$("#commetcontent").append(result);	
+		
+			if($(".pl-list").length < 1){
+				$(".m-yxw-pl-wushuju").show();
+				$(".yxw-list-loading").addClass("yin");
+			}
+
+		
+		f = true; 
+	}		
+});	
+ 
+
+}
+function PostComment()
+{
+var f = document.feedback;
+var nface = '6';
+var nfeedbacktype = 'good';
+var nvalidate = '';
+var nnotuser = '';
+var nusername = '';
+var npwd = '';
+var taget_obj = $DE('commetcontentNew');
+var waithtml = "<div style='line-height:30px'><img src='/m-images/loadinglit.gif' />发送中...</div>";
+if(f.username.value=='') {
+window.location.href = '/member/';
+return;
+}
+if(f.msg.value=='')
+{
+alert("您还没有写内容哦");
+return;
+}
+
+if(f.msg.value.length > 100)
+{
+alert("请填写100字以内的内容");
+return;
+}
+if(f.feedbacktype) {
+for(var i=0; i < f.feedbacktype.length; i++)
+if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+}
+if(f.face) {
+for(var j=0; j < f.face.length; j++)
+if(f.face[j].checked) nface = f.face[j].value;
+}
+if(f.notuser.checked) nnotuser = '1';
+if(f.username) nusername = f.username.value;
+if(f.pwd) npwd = f.pwd.value;
+
+var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+myajax.sendlang = 'utf-8';
+myajax.AddKeyN('dopost', 'send');
+myajax.AddKeyN('aid', '{dede:field.id/}');
+myajax.AddKeyN('fid', f.fid.value);
+myajax.AddKeyN('face', nface);
+myajax.AddKeyN('feedbacktype', nfeedbacktype);
+myajax.AddKeyN('validate', nvalidate);
+myajax.AddKeyN('notuser', nnotuser);
+myajax.AddKeyN('username', nusername);
+myajax.AddKeyN('pwd', npwd);
+myajax.AddKeyN('msg', f.msg.value);
+myajax.SendPost2('/shopping_ajaxpp.php');
+f.msg.value = '';
+f.fid.value = 0;
+if(f.validate)
+{
+if($DE('validateimg')) $DE('validateimg').src = "/include/vdimgck.php?"+f.validate.value;
+f.validate.value = '';
+}
+}
+function quoteCommet(fid)
+{
+document.feedback.fid.value = fid;
+}
+LoadCommets(1);
+
+$(document).scroll(function(){
+            //滚动条滑动的时候获取滚动条距离顶部的距离
+            var scroll=$(document).scrollTop();
+            //屏幕的高度
+            var client=$(window).height();
+            var h=$(document).height();
+            var flag=true;
+			var bih = scroll+client+100 ;		
+            if (h<= bih) { // 到达底部时,加载新内容	 
+					if(f){
+						f  = false;
+						var page = parseInt($(".yxw-list-loading").attr("page")) + 1;
+						$(".yxw-list-loading").attr("page",page);
+						LoadCommets(page);	
+					}
+					  
+			}
+});
+</script>
+<!-- 评论内容区 End -->

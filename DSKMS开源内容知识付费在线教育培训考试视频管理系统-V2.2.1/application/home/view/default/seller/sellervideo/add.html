@@ -1,0 +1,126 @@
+<style>
+.upload-panel{display: table;width: 100%;padding: 30px 20px;min-height: 150px;text-align: center;border: 1px dashed #ddd;box-sizing: border-box;position: relative;margin-bottom:20px;}
+.upload-panel .upload-wrap{height:80px;}
+.upload-panel .help-txt{color: #bbb;}
+.upload-panel .upload-img{display: inline-block;width: 32px;height: 32px;margin-bottom: 10px;background-image: url({$Think.HOME_SITE_ROOT}/images/videoupload-upload-img.svg);background-repeat: no-repeat;background-size: 100% auto;background-position: center;}
+.progress-wrap{display:none;}
+/*http://sc.chinaz.com/jiaobendemo.aspx?downloadid=12126172031612*/
+.progress-wrap .progress-bar{background-color: #1a1a1a;height: 25px;padding: 5px;width: 100%;margin: 20px 0 20px 0;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;-moz-box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;-webkit-box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;}
+.progress-wrap .progress-bar span{float:left;display: inline-block;height: 100%;background-color: #777;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;-webkit-transition: width .4s ease-in-out;-moz-transition: width .4s ease-in-out;-ms-transition: width .4s ease-in-out;-o-transition: width .4s ease-in-out;transition: width .4s ease-in-out;}
+.progress-wrap .orange span{background-color: #fecf23;background-image: -webkit-gradient(linear, left top, left bottom, from(#fecf23), to(#fd9215));background-image: -webkit-linear-gradient(top, #fecf23, #fd9215);background-image: -moz-linear-gradient(top, #fecf23, #fd9215);background-image: -ms-linear-gradient(top, #fecf23, #fd9215);background-image: -o-linear-gradient(top, #fecf23, #fd9215);background-image: linear-gradient(top, #fecf23, #fd9215);}
+.progress-wrap .shine span{position: relative;}
+.progress-wrap .shine span::after{content: '';opacity: 0;position: absolute;top: 0;right: 0;bottom: 0;left: 0;background: #fff;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;-webkit-animation: animate-shine 2s ease-out infinite;-moz-animation: animate-shine 2s ease-out infinite;}
+.progress-wrap .video_progress{text-align: center;color:red;}
+.sellervideo_table{width:800px;table-layout: fixed;border-collapse: collapse;border-spacing: 0;}
+.sellervideo_table tr td, .table tr th{text-align:center;word-wrap:break-word;word-break:break-all;white-space:normal;max-width:100px;}
+#fileUpload{width:100%;height:80px;position:absolute;top:0;left: 0;opacity:0;}
+</style>
+<script src="{$Think.PLUGINS_SITE_ROOT}/jquery-2.1.4.min.js"></script>
+<script src="//cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+<script src="//unpkg.com/vod-js-sdk-v6"></script>
+<div class="sellervideo_add">
+    <div class="upload-panel">
+        <div class="upload-wrap">
+            <i class="upload-img"></i>
+            <p class="help-txt">选择文件上传</p>
+            <input type="file" id="fileUpload">
+        </div>
+        <div class="progress-wrap">
+            <div class="progress-bar orange shine">
+                <span style="width:1%;"></span>
+            </div>
+            <p class="video_progress">0%</p>
+        </div>
+        
+
+        
+    </div>
+    <table class="sellervideo_table">
+        <colgroup>
+            <col width="200px">
+            <col>
+            <col width="100px">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>fileId</th>
+                <th>文件地址</th>
+                <th>状态</th>
+            </tr>
+        </thead>
+        <tbody id="uploadList">
+        </tbody>
+    </table>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        function getSignature() {
+            return axios.post("{:url('Sellervideo/getTencentSign')}", JSON.stringify({
+            })).then(function (response) {
+                console.log(response.data.result);
+                return response.data.result
+            })
+        }
+//        function getSignature() {
+//            $.ajax({
+//                type: 'GET',
+//                url: "{:url('Sellervideo/getTencentSign')}",
+//                dataType: 'json',
+//                error: function () {
+//                    alert("粗巍峨");
+//                },
+//                success: function (result) {
+//                    console.log(result.result);
+//                    return result.result;
+//                }
+//            });
+//        }
+        $('#fileUpload').on('change', function (e) {
+            var videoFile = e.target.files[0];
+//            console.log(videoFile);
+            if (!videoFile) {
+                alert("请先选择需要上传的文件!")
+                return
+            }
+            const tcVod = new TcVod.default({
+                getSignature: getSignature
+            })
+            const uploader = tcVod.upload({
+                videoFile: videoFile,
+            })
+            uploader.on('video_progress', function (info) {
+                $(".upload-wrap").hide();
+                $(".progress-wrap").show();
+                var percent = parseInt(info.percent * 100)+"%";
+                $(".progress-bar span").css("width",percent);
+                $(".video_progress").html(percent);
+            })
+            uploader.on('video_upload', function (info) {
+                $(".upload-wrap").show();
+                $(".progress-wrap").hide();
+//                uploaderInfo.isVideoUploadSuccess = true;
+            })
+
+            uploader.done().then(function (doneResult) {
+                console.log('doneResult', doneResult);
+                //上传成功更新数据库
+                $.post("{:url('Sellervideo/saveVideo')}", {'file_id': doneResult.fileId, url: doneResult.video.url,type:"{$Request.param.type}",item_id:"{$Request.param.item_id}"}, function (data) {
+                    if (data.code == '10000') {
+                        
+                    }else{
+                        
+                    }
+                }, 'json');
+                var str = "<tr><td>" + doneResult.fileId + "</td><td>" + doneResult.video.url + "</td><td>完成</td></tr>";
+                $('#uploadList').append(str);
+            })
+        })
+    })
+</script>
+
+
+
+

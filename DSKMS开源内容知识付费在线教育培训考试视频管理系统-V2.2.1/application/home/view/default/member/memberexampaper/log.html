@@ -1,0 +1,54 @@
+{extend name="default/base/base_member" /}
+{block name="member_main"}
+
+
+
+
+<table class="dsm-default-table">
+    <thead>
+        <tr>
+            <th class="w100">{$Think.lang.exampaperlog_begintime}</th>
+            <th class="w100">{$Think.lang.exampaperlog_endtime}</th>
+            <th class="w100">{$Think.lang.exampaperlog_score}</th>
+            <th class="w100">{$Think.lang.exampaperlog_state}</th>
+            <th class="w110">{$Think.lang.ds_handle}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {notempty name="exampaperlog_list"}
+        {foreach name="exampaperlog_list" item="exampaperlog"}
+        <tr class="bd-line">
+            <td class="tc">{$exampaperlog.exampaperlog_begintime|date='Y-m-d H:i:s',###}</td>
+            <td class="tc">{$exampaperlog.exampaperlog_endtime|date='Y-m-d H:i:s',###}</td>
+            <td class="tc">{$exampaperlog.exampaperlog_score}</td>
+            <td>{if $exampaperlog.exampaperlog_state eq '0'}未交卷{elseif $exampaperlog.exampaperlog_state eq '1'}待批改{elseif $exampaperlog.exampaperlog_state eq '2'}已批改{/if}</td>
+            <td class="dsm-table-handle">
+                <span>
+                    <a href="{:url('memberexampaper/check',['exampaperlog_id'=>$exampaperlog.exampaperlog_id])}" class="btn-blue" target="_blank"><i class="iconfont">&#xe731;</i><p>{$Think.lang.ds_view}</p></a>
+                </span>
+            </td>
+        </tr>
+        {/foreach}
+        {else /}
+        <tr>
+            <td colspan="20" class="norecord"><div class="warning-option"><i>&nbsp;</i><span>{$Think.lang.no_record}</span></div></td>
+        </tr>
+        {/notempty}
+    </tbody>
+    <tfoot>
+        {notempty name="exampaperlog_list"}
+        <tr>
+            <td colspan="20"><div class="pagination">{$show_page}</div></td>
+        </tr>
+        {/notempty}
+    </tfoot>
+</table>
+
+
+
+
+
+
+
+{/block}
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+<title>提现管理</title>
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="/js/jquery.js"></script>
+
+<style>
+#time{    background: url(./images/calendar.gif) 3px no-repeat;    padding-left: 23px;}
+.calendar{ position:absolute; left:-9999px; top:-9999px;}
+</style>
+</head>
+<body background='images/allbg.gif' leftmargin='8' topmargin='8'>
+ 
+<table width="98%" border="0" cellpadding="1" cellspacing="1" align="center" class="tbtitle" style="background:#cfcfcf;">
+
+ <tr bgcolor="#CFCFCF"> 
+      <td height="28" colspan="20" bgcolor="#EDF9D5" background="images/tbg.gif" style="padding-left:10px;">
+          <b> 提现管理 </b>
+       
+      </td>
+    </tr>
+  <tr bgcolor="#FBFCE2">
+    <td align="center">编号</td>
+    <td align="center">订单号</td>
+    <td align="center">金额</td>
+    <td align="center">会员</td>
+    <td align="center">姓名</td>
+    <td align="center">支付宝</td>
+    <td align="center">提交时间</td>
+    <td align="center">状态</td>
+    <td align="center">操作</td>
+  </tr>
+  <form name="form1">
+{dede:datalist}
+    <tr aid="{dede:field.id/}" bgcolor="#FFFFFF" height="26" align="center" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';">
+    <td align="center">{dede:field.id/}</td>
+    <td align="center">{dede:field.ddh/}</td>
+    <td align="center">{dede:field.jine/}</td>
+    <td align="center">{dede:field.uname/}</td>
+    <td align="center">{dede:field.name/}</td>
+    <td align="center">{dede:field.alipay/}</td>
+    <td align="center">{dede:field.time function="date('Y-m-d H:i',@me)"/}</td>
+   <td align="center" class="zt">
+    <?php
+    if($fields['zt'] == 1){
+    	echo '待处理';
+    }else {
+    	echo '<b color="green">已完成</b>';
+    } 
+     ?>
+     </td>
+<td>
+<b class="btn yiwancheng">已完成</b>
+<b class="btn shanchu">删除</b>
+</td>      
+{/dede:datalist}
+  </form>
+<style>
+.shanchu{ border:1px solid #CCC;}
+.btn{  padding:5px; margin:0 5px; border-radius:5px; cursor:pointer;}
+.yiwancheng{ background-color:#51ACF9; color:#fff;}
+.hui{ background-color:#CCCCCC; color:#f0f0f0;}
+</style>
+<script>
+//已完成
+$(".yiwancheng").click(function(){
+	var aidV = $(this).parents("tr").attr("aid");
+	var t = $(this);
+	$.post("jjtixian.php",{a:"yiwancheng",aid:aidV},function(result){
+		$(t).parents("tr").find(".zt").html('<b color="green">已完成</b>');
+	});
+})
+//已删除
+$(".shanchu").click(function(){
+	var aidV = $(this).parents("tr").attr("aid");
+	var t = $(this);
+	$.post("jjtixian.php",{a:"shanchu",aid:aidV},function(result){
+		$(t).parents("tr").find(".zt").html('<b color="red">已删除</b>');
+		$(t).parents("tr").addClass("hui");
+		$(t).parents("tr").find(".yiwancheng").remove();
+	});
+})
+</script> 
+  <tr>
+    <td height="36" colspan="20" bgcolor="#F9FCEF" align="center">
+     {dede:pagelist listitem="info,index,end,pre,next,pageno" listsize="5"/}
+    </td>
+  </tr>
+</table>
+</body>
+</html>

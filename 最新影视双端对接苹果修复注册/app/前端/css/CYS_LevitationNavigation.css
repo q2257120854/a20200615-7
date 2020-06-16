@@ -1,0 +1,40 @@
+.cys-nav-table-view-fiexd{
+	position: fixed;
+	top: 44px;
+	z-index: 100;
+	box-shadow: 0px 3px 6px #ccc;
+}
+.cys-nav-table-view{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 80px;
+	background: #ffffff;
+	
+}
+.cys-nav-table-view .mui-scroll-wrapper{
+    top:9px;
+    height: 70px;
+}
+.cys-nav-table-view .cys-nav-group{
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+.cys-nav-table-view .cys-nav-group .cys-nav-item{
+	list-style: none;
+	width: 70px;
+	height: 80px;
+	/*background: #fff;*/
+	position: absolute;
+	text-align: center;
+	overflow: hidden;
+}
+.cys-nav-table-view .cys-nav-group .cys-nav-item:active{
+	background: #ddd;
+}
+.cys-nav-table-view .cys-nav-group .cys-nav-item img{
+	width: 15px;
+	height: 15px;
+	margin-top: 3px;
+}

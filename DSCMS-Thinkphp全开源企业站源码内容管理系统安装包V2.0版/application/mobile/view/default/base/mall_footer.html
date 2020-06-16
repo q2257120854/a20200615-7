@@ -1,0 +1,22 @@
+<dl class="friend-link">
+    <dt>友情链接</dt>
+    <dd>
+        {volist name="link_list" id="link"}
+        <a target="_blank" href="{$link.link_weburl}">{$link.link_webname}</a>
+        {/volist}
+    </dd>
+</dl>
+<div class="copyright">
+    <p>我的网站 版权所有 2008-2014 湘ICP备8888888</p>
+    <p>本页面内容为网站演示数据，前台页面内容都可以在后台修改。</p>
+    <p>Powered by <a href="http://www.csdeshang.com">DSCMS</a> 1.1.0</p>
+</div>
+
+<div class="footer-nav">
+    <ul>
+        <li class="current"><a href="{:url('index/index')}"><i class="iconfont">&#xe6ca;</i><span>首页</span></a></li>
+        <li class="current"><a href="{:url('cases/search')}"><i class="iconfont">&#xe6d2;</i><span>案例</span></a></li>
+        <li class="current"><a href="{:url('product/search')}"><i class="iconfont">&#xe6d7;</i><span>产品</span></a></li>
+        <li class="current"><a href="{:url('news/search')}"><i class="iconfont">&#xe72e;</i><span>新闻</span></a></li>
+    </ul>
+</div>

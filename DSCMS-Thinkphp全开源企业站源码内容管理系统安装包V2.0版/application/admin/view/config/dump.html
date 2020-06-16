@@ -1,0 +1,60 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form layui-form-pane" method="post">
+    <div class="layui-tab layui-tab-card">
+        {include file="layout/admin_items" /}
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.cache_open}</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="cache_open" lay-skin="switch" lay-text="是|否" value="1" {if
+                               condition="$list_config.cache_open eq '1'" }checked{/if}>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.allowed_visitors_consult}</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="guest_comment" lay-skin="switch" lay-text="是|否" value="1" {if
+                               condition="$list_config.guest_comment eq '1'" }checked{/if}>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label"> {$Think.lang.open_checkname}</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="captcha_status_login" value="1" title="{$Think.lang.front_login}" {if condition="$list_config.captcha_status_login eq 1" }checked="checked" {/if}>
+                        <input type="checkbox" name="captcha_status_register" value="1" title="{$Think.lang.front_regist}" {if condition="$list_config.captcha_status_register eq 1" }checked="checked" {/if}>
+                        <input type="checkbox" name="captcha_status_feedback" value="1" title="{$Think.lang.front_feedback}" {if condition="$list_config.captcha_status_feedback eq 1" }checked="checked" {/if}>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+    });
+</script>
+<script>
+    //Demo
+    layui.use('form', function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
+
+{/block}
+

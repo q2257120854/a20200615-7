@@ -1,0 +1,56 @@
+.income-table {
+	margin: 150px 10px 10px;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+.table-inner {
+	/*padding: 10px 4px;*/
+}
+.table-head {
+	margin-bottom: 0px;
+	padding: 10px 0;
+	background: rgba(255,255,255,0.96);
+	color: rgba(33,44,103,0.44);
+	font-size: .24rem;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+.income-time {
+	color: rgba(33,44,103,0.44);
+	font-size: .24rem;
+}
+
+.income-count {
+	font-size: .28rem;
+	color: #212C68;
+}
+
+.table-content {
+	margin-bottom: 2px;
+	background: rgba(255,255,255,0.96);
+}
+
+.table-content:last-child {
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	/*background-color: lightsky#3c7fff;*/
+}
+
+.table-content .table-inner {
+	/*padding: 0 4px;*/
+	border-top: 2px solid #efefef;
+	height: 0.8rem;
+	line-height: 0.8rem;
+}
+.mui-show-loading {
+	text-align: center;
+}
+.mui-col-sm-4 {
+	overflow: hidden;
+}
+.table-head p {
+	margin: 0;
+}

@@ -1,0 +1,65 @@
+html body
+{
+	background-color: #ededed;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+}
+#main
+{
+	background-color: #fff;
+	width: 100%;
+	height: 23.5%;
+	position:relative;
+}
+#headimg
+{
+	width: 17%;
+	height: 0px;
+	border-radius: 10%;
+	margin-left:0%;
+	margin-top: 8%;
+}
+#title
+{
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin-top: 2.5%;
+	font-size: 110%;
+}
+#people
+{
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin-top: 2.5%;
+	font-size: 80%;
+	color:#989898;
+}
+#invite
+{
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin-top: 10%;
+	font-size: 110%;
+}
+#add
+{
+	display: block;
+	width: 50%;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 8%;
+	font-size: 100%;
+	background-color:#04BE02;
+	border-radius: 4%;
+	color: #fff;
+	border: 0;
+	outline: none;
+	padding: 2.5%;
+
+}

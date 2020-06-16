@@ -1,0 +1,86 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>{$config.WEB_TITLE}-{$title}</title>{/block}
+{block name="keywords"}<meta name="keywords" content="{$config.WEB_KEYWORD}" />{/block}
+{block name="description"}<meta name="description" content="{$config.WEB_DESCRIPTION}" />{/block}
+{block name="style"}
+
+{/block}
+
+ <!--广告开始-->
+{block name="ad"}
+<div class="banner"> 
+	{foreach name="banner_news" id="vo"}
+	  <img src="{$vo.pic}" alt="{$vo.title}"/> 
+	{/foreach}
+</div> 
+{/block}
+ <!--广告结束-->
+ 
+{block name="body"}
+<!--中间隔断-->
+  <div class="main"> 
+		<!-- 左侧部分 --> 
+		<div id="contentLeft"> 
+			<!-- nav --> 
+			<div class="con1-left"> 
+				<p class="left-title1">新闻中心</p> 
+				<div class="con1_class"> 
+					<ul id="left-type">
+						{foreach name="class_list" id="vo"}
+						<li class="{if condition='$vo.classname eq $title'}active{/if}"><a href="{$vo.url}.html">{$vo.classname}</a></li>
+						{/foreach}
+					</ul> 
+				</div> 
+			</div> 
+			<!-- nav end--> 
+			<!-- 联系我们 --> 
+			<div class="sub_content"> 
+			 <div class="sub_common_title"> 
+			  <h2> <p>联系我们</p> <font>CONTACT US___</font></h2> 
+			 </div> 
+			 <div class="sub_content_list"> 
+			  <p class="ltel">电话：{$config.WEB_TEL} </p> 
+			  <p class="lemail">邮箱：{$config.WEB_EMAIL} </p> 
+			  <p class="ladd"> 地址：{$config.WEB_ADDRESS} </p> 
+			 </div> 
+			</div> 
+			<!-- 联系我们 end--> 
+		</div> 
+		<!-- 左侧部分 end--> 
+   <!-- 内容部分 --> 
+   <div id="contentRight"> 
+    <div class="content_com_title"> 
+     <h2>{$title}</h2> 
+     <div class="bread">
+       当前位置：
+      <a href="/" title="首页">首页</a>-{$title} 
+     </div> 
+    </div> 
+    <div class="content"> 
+     <ul class="news1"> 
+		{foreach name="volist.data" id="vo"}
+		<li> <a href="/news_show.html?nid={$vo.id}">{$vo.title}</a><span>{$vo.addtime|date='Y-m-d',###}</span> </li> 
+		{/foreach}
+     </ul> 
+    </div> 
+   
+	{$list->render()}
+	 <!--<div class="Page c">
+      <span>46 条记录 1/6 页</span> 
+     <a href="">下一页</a> 
+     <a href="" class="current">1 </a>
+     <a href="">&nbsp;2&nbsp;</a> 
+     <a href="">下5页</a> 
+     <a href="">末页</a> 
+    </div> --> 
+	
+   </div> 
+   <!-- 内容部分 end--> 
+  </div> 
+  
+
+{/block}
+
+{block name="script"}
+{/block}	

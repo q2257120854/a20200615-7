@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title><?php if ($fuping['product'] =='video') {echo "课程评价";} else if ($fuping['product'] =='archive'){echo "教材评价";}?> - <?php echo $cfg_webname; ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="apple-touch-icon-precomposed" href="http://m.duoweizi.net/images/57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://m.duoweizi.net/images/72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://m.duoweizi.net/images/144x144.png" />
+<link href="/m-css/m-index.css" rel="stylesheet" type="text/css">
+<link href="/m-css/m-user-index.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+label{line-height:45px;color:#333;display:block;float:left;width:33.333333%;text-align:center;font-size:14px;}
+.f-rc-text{display:inline-block;}
+.icon-radio{height:18px;width:18px;margin-right:5px;margin-bottom:2px;}
+</style>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar" id="topbar">
+<div class="searchbar_index">
+<a href="javascript:history.go(-1);" title="返回上一页" class="top_nav_left"></a>
+<h1><?php if ($fuping['product'] =='video') {echo "课程评价";} else if ($fuping['product'] =='archive'){echo "教材评价";}?></h1>
+</div>
+</div>
+<!-- TOP End -->
+
+<div class="wrapper">
+
+<!-- 课程图片 -->
+<div class="m-user-img-m<?php if ($fuping['product'] =='video') {echo "";} else if ($fuping['product'] =='archive'){echo "2";}?>"><img src="<?php echo $lll['litpic']=mstrone($lll['litpic']); ?>"><br>
+<?php echo $lll['title'];?>
+</div>
+<!-- 课程图片 End -->
+
+<form action="fuping.php" method="post" name="feedback">
+<input type="hidden" name="comtype" value="comments">
+<input type="hidden" name="buyid" value="<?php echo $buyid; ?>">
+
+<!-- 评价内容 -->
+<div class="m-user-kc-pl-content"><textarea name="msg" class="area" placeholder="写下学习体会和感受来帮助其他小伙伴~"></textarea></div>
+<!-- 评价内容 End -->
+
+<!-- 满意度 -->
+<div class="m-user-pingjia">
+<label class="f-radio checked"><input type="radio" class="icon-radio" name="feedbacktype" checked="1" value="good"><span class="f-rc-text">好评</span></label>
+<label class="f-radio"><input type="radio" class="icon-radio" name="feedbacktype" value="feedback"><span class="f-rc-text">中评</span></label>
+<label class="f-radio"><input type="radio" class="icon-radio" name="feedbacktype" value="bad"><span class="f-rc-text">差评</span></label>
+</div>
+<!-- 满意度 End -->
+
+
+</div>
+<!-- wrapper End -->
+
+<!-- 发表评价 -->
+<button type="button" class="m-user-fabiao-pl" onClick='javascript:if(document.feedback.msg.value!="") document.feedback.submit(); else alert("评论内容不能为空！");' >发表评价</button>
+<!-- 发表评价 End -->
+</form>
+
+</body>
+</html>

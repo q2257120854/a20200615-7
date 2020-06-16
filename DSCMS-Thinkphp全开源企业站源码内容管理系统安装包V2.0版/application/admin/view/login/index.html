@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DSCMS 后台管理系统</title>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.7 -->
+        <link rel="stylesheet" href="{$Think.PLUGINS_SITE_ROOT}/layui/css/layui.css">
+        <link rel="stylesheet" href="{$Think.ADMIN_SITE_ROOT}/css/admin.css">
+        <script src="{$Think.PLUGINS_SITE_ROOT}/jquery-2.1.4.min.js"></script>
+        <script src="{$Think.ADMIN_SITE_ROOT}/js/admin.js"></script>
+        <script type="text/javascript" src="{$Think.PLUGINS_SITE_ROOT}/layui/layui.js"></script>
+        <script type="text/javascript">
+            var BASESITEROOT = "{$Think.BASE_SITE_ROOT}";
+            var ADMINSITEROOT = "{$Think.ADMIN_SITE_ROOT}";
+            var BASESITEURL = "{$Think.BASE_SITE_URL}";
+            var HOMESITEURL = "{$Think.HOME_SITE_URL}";
+            var ADMINSITEURL = "{$Think.ADMIN_SITE_URL}";
+        </script>
+    </head>
+    <body style="background-image:url({$Think.ADMIN_SITE_ROOT}/wallpage/bg_<?php echo rand(1,8)?>.jpg);background-size: cover;">
+        <div class="login">
+            <div class="login_body">
+                <div class="login_header">
+                    <img src="{$Think.ADMIN_SITE_ROOT}/images/logo.png"/>
+                </div>
+                <div class="login_content">
+                    <form method="post"  id="login_form">
+                        <div class="form-group">
+                            <input type="text" name="admin_name" placeholder="{:lang('login_admin_name')}" required class="text">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="admin_password" placeholder="{:lang('login_admin_password')}" required class="text">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="captcha" placeholder="{:lang('login_captcha')}" required class="text" style="width:60%;float:left;">
+                            <img src="{:captcha_src()}" style="width:30%;height:38px;" id="change_captcha"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="layui-btn" id="login_btn" value="{$Think.lang.login_sumbit}" style="width:100%"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            layui.use('layer', function () {
+                var layer = layui.layer;
+            });
+            $(document).keyup(function (event) {
+                if (event.keyCode == 13) {
+                    login_form();
+                }
+            });
+            $('#login_btn').on('click', function () {
+                login_form();
+            });
+            function login_form()
+            {
+                var _form = $('#login_form');
+                $.ajax({
+                    type: "POST",
+                    url: "{:url('Login/index')}",
+                    data: _form.serialize(),
+                    dataType: 'json',
+                    success: function (res) {
+                        layer.msg(res.message, {time: 1500}, function () {
+                            if (res.code == 10000) {
+                                location.href = "{:url('Index/index')}";
+                            } else {
+                                $('#change_captcha').attr('src', '{:captcha_src()}?' + (new Date().getTime()));
+                            }
+                        });
+                    }
+                });
+            }
+            $('#change_captcha').click(function () {
+                $(this).attr('src', '{:captcha_src()}?' + (new Date().getTime()));
+            });
+        </script>
+    </body>
+</html>

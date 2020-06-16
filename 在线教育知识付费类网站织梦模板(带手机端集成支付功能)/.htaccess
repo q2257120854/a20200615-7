@@ -1,0 +1,9 @@
+#dedecms电脑端目录结构apache伪静态
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /plus/rewrite.php?s=$1 [L]
+
+RewriteRule ^$ /plus/rewrite.php?s=$1 [L]

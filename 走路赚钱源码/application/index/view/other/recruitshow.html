@@ -1,0 +1,58 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>人才招聘-{$result.title}</title>{/block}
+{block name="keywords"}<meta name="keywords" content="{$config.WEB_KEYWORD}" />{/block}
+{block name="description"}<meta name="description" content="{$config.WEB_DESCRIPTION}" />{/block}
+{block name="style"}
+{/block}
+ <!--广告开始-->
+{block name="ad"}
+<div class="banner"> 
+	{foreach name="banner" id="vo"}
+	  <img src="{$vo.pic}" alt="{$vo.title}"/> 
+	{/foreach}
+</div> 
+{/block}
+ <!--广告结束-->
+ 
+{block name="body"}
+<!--中间隔断-->
+  <div class="main"> 
+	<!-- 左侧部分 --> 
+	{include file="public/other_left_nav" /}
+	<!-- 左侧部分 end--> 
+	
+	   <!-- 内容部分 --> 
+	   <div id="contentRight"> 
+			<div class="content_com_title"> 
+				 <h2>人才招聘</h2> 
+				 <div class="bread">
+				   当前位置：
+				  <a href="/" title="首页">首页</a>-人才招聘
+				 </div> 
+			</div> 
+			<div class="content"> 
+				 <div class="view"> 
+					  <h1 class="view-title">{$result.title}</h1> 
+					  <div class="view-date">
+						<span>来源：{$config.WEB_TITLE}</span> &nbsp;&nbsp;&nbsp;&nbsp; 
+						<span>发布时间：{$result.addtime|date="Y-m-d",###}</span> 
+					  </div>
+					  <div class="boxcen">
+						{$result.content|htmlspecialchars_decode}
+					  </div> 
+				 </div> 
+			</div>
+			<div class="page"> 
+				<a href="javascript:void(0);" class="back" onclick="javascript:history.back(-1);">返回</a> 
+			</div>			
+	   </div> 
+
+	   <!-- 内容部分 end--> 
+  </div> 
+
+
+{/block}
+</div>
+{block name="script"}
+{/block}	

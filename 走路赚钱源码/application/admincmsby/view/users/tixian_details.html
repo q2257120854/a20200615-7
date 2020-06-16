@@ -1,0 +1,145 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+<style>
+.paging{
+   margin-top:30px;
+}
+.home{
+	color:#fff;border: 1px #b6b6b6 solid;background: #b6b6b6; padding: 15px;height: 38px;line-height: 38px;
+}
+.all{
+	color:#fff;border: 1px #999 solid;background: #999; padding: 15px;height: 38px;line-height: 38px;
+}
+</style>
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">提现详情</h2>
+      </div>
+      <section class="mtb">
+	    
+      </section>
+      <table class="table">
+       <tr>
+        <th style="width:80px;">ID</th>
+        <th>用户ID</th>
+		<th>提现数量</th>
+		<th>钱包地址</th>
+		<th>提交时间</th>
+		<th>凭证</th>
+		<th>操作</th>
+       </tr>
+       </tr>
+	   {foreach name="volist" id="vo"}
+       <tr class="id_{$vo.Id}">
+        <td class="center"><input type="checkbox" value="{$vo.Id}" name="id" />{$vo.Id}</td>
+		<td class="center">
+			{$vo.user_id}
+		</td>
+        <td class="center">
+			{$vo.recharge_quantity}
+		</td>
+		<td class="center">
+			{$vo.wallet_address}
+		</td>
+        <td class="center">
+			{if condition="$vo.addtime neq '0'"}
+			{$vo.addtime|date="Y-m-d H:i:s",###}
+			{else /}
+			--
+			{/if}	
+		</td>
+		<td class="center">
+			<image style='height:50px;width:50px' src="{$vo.image_url}">
+		</td>
+		<td class="center">
+         <a href="#" onclick="youxiao({$vo.Id})" title="通过" class="link_icon">&#101;</a>
+         <a href="#" title="无效" class="link_icon del" onclick="wuxiao({$vo.Id})">&#100;</a>
+        </td>
+		
+       </tr>
+		{/foreach}
+     </table> 
+	  <div>
+		
+	 </div>
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+	
+	
+	function youxiao(id){
+				
+				$.ajax({
+    url : 'http://45.127.96.224/admincmsby/users/tixian_details_edit.html',
+    type : 'post', 
+    timeout:3000,   
+    data : {  
+        id:id,
+    }, 
+    success : function(data){
+        alert(data);
+       
+    },
+     error : function(xhr, erroType, error, msg) {
+    }
+});
+	}
+	
+	
+		function wuxiao(id){
+				$.ajax({
+    url : 'http://45.127.96.224/admincmsby/users/tixian_details_del.html',
+    type : 'post',
+    timeout:3000,
+    data : {  
+        id:id,
+    }, 
+    success : function(data){
+        alert(data);
+       
+    },
+     error : function(xhr, erroType, error, msg) {
+    }
+});
+	}
+	
+	
+	
+$(document).ready(function() {
+	//全选
+	$("#all").on('click', function() {
+		//全选选中为true，否则为false
+		$("input[type=checkbox]").each(function(){ 
+		//循环checkbox选择或取消
+			$(this).prop("checked",true);
+		});
+	});
+	//取消
+	$("#nocheck").on('click', function() {
+		$("input[type=checkbox]").each(function(){ 
+			$(this).prop("checked",false);
+		});
+	});
+	//反选
+	$("#reverse").click(function () { 
+		$("table :checkbox").each(function () {  
+			$(this).prop("checked", !$(this).prop("checked"));  
+		});
+	});
+	
+  
+	
+	
+});
+</script>
+{/block}	

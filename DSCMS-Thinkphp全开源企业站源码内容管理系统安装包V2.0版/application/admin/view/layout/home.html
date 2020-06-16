@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DSCMS(php)企业站系统后台</title>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.7 -->
+        <link rel="stylesheet" href="{$Think.PLUGINS_SITE_ROOT}/layui/css/layui.css">
+        <link rel="stylesheet" href="{$Think.ADMIN_SITE_ROOT}/css/admin.css">
+        <script src="{$Think.PLUGINS_SITE_ROOT}/jquery-2.1.4.min.js"></script>
+        <script src="{$Think.ADMIN_SITE_ROOT}/js/admin.js"></script>
+        <script type="text/javascript" src="{$Think.PLUGINS_SITE_ROOT}/layui/layui.js"></script>
+        <script type="text/javascript">
+            var BASESITEROOT = "{$Think.BASE_SITE_ROOT}";
+            var ADMINSITEROOT = "{$Think.ADMIN_SITE_ROOT}";
+            var BASESITEURL = "{$Think.BASE_SITE_URL}";
+            var HOMESITEURL = "{$Think.HOME_SITE_URL}";
+            var ADMINSITEURL = "{$Think.ADMIN_SITE_URL}";
+            layui.use('layer', function () {
+                var layer = layui.layer;
+            });
+        </script>
+    </head>
+    <body>
+        {block name="container"}{/block}
+    </body>
+</html>
+
+
+

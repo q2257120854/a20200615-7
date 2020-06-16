@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+
+<title>订单管理</title>
+
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.coolbg{width:100px !important;}
+</style>
+<script language="javascript">
+
+//获得选中项
+
+function getCheckboxItem()
+
+{
+
+	var allSel="";
+
+	if(document.form1.aids.value) return document.form1.aids.value;
+
+	for(i=0;i<document.form1.aids.length;i++)
+
+	{
+
+		if(document.form1.aids[i].checked)
+
+		{
+
+			if(allSel=="")
+
+			allSel=document.form1.aids[i].value;
+
+			else
+
+			allSel=allSel+"`"+document.form1.aids[i].value;
+
+		}
+
+	}
+
+	return allSel;
+
+}
+
+function ReSel()
+
+{
+
+	for(i=0;i<document.form1.aids.length;i++)
+
+	{
+
+		if(document.form1.aids[i].checked) document.form1.aids[i].checked = false;
+
+		else document.form1.aids[i].checked = true;
+
+	}
+
+}
+
+function DelSel()
+
+{
+
+	var nid = getCheckboxItem();
+
+	if(nid==""){
+
+		alert("请选择要删除的业务记录!\r\n");
+
+		return ;
+
+	}
+
+	location.href = "shops_operations.php?dopost=delete&nid="+nid;
+
+}
+
+function UpSel()
+
+{
+
+	var nid = getCheckboxItem();
+
+	if(nid==""){
+
+		alert("请选择要更改的订单记录!\r\n");
+
+		return ;
+
+	}
+
+	location.href = "shops_operations.php?dopost=up&nid="+nid;
+
+}
+
+function OkSel()
+
+{
+
+	var nid = getCheckboxItem();
+
+	if(nid==""){
+
+		alert("请选择要更改的订单记录!\r\n");
+
+		return ;
+
+	}
+
+	location.href = "shops_operations.php?dopost=ok&nid="+nid;
+
+}
+
+function PushSel(){
+
+	var nid = getCheckboxItem();
+
+	if(nid==""){
+
+		alert("请选择要更改的订单记录!\r\n");
+
+		return ;
+
+	}
+
+	location.href = "shops_operations.php?dopost=push&nid="+nid;
+
+}
+
+function OpenMyWinN(surl,w,h){
+
+	window.open(surl, "popUpMyWinN", "scrollbars=yes,resizable=yes,statebar=no,width="+w+",height="+h+",left=200, top=100");
+
+}
+
+</script>
+
+</head>
+
+<body background='images/allbg.gif' leftmargin='8' topmargin='8'>
+
+ 
+<table width="98%" border="0" cellpadding="1" cellspacing="1" align="center" class="tbtitle" style="background:#cfcfcf;">
+
+  <tr>
+
+    <td height="28" colspan="11" bgcolor="#EDF9D5" background='images/tbg.gif'>
+
+    	<table width="98%" border="0" cellspacing="0" cellpadding="0">
+
+        <tr>
+
+          <td width="30%"  style="padding-left:10px;"><strong>课程订单管理：</strong> </td>
+
+          <td width="45%" align="right" style="padding-top:4px">
+
+          	<input type="button" name="ss13" value="未付款" style="width:50px;margin-right:6px" onClick="location='shops_operations.php?sta=0';"  class='np coolbg'/>
+
+            <input type="button" name="ss14" value="已付款" style="width:50px;margin-right:6px" onClick="location='shops_operations.php?sta=1';"  class='np coolbg'/>
+
+      
+            <input type="button" name="ss16" value="全部订单" style="width:40px;margin-right:6px" onClick="location='shops_operations.php';"  class='np coolbg'/>
+
+          </td>
+
+          <td width="25%" align="right" style="padding-top:4px">
+
+          
+          </td>
+
+        </tr>
+
+      </table></td>
+
+  </tr>
+
+  <tr bgcolor="#FBFCE2">
+
+    <td  align="center">选择</td>
+
+    <td  align="center">订单编号</td>
+ 
+
+    <td  align="center">购买时间</td>
+
+    <td align="center">订单价格</td>
+
+
+   <td align="center">课程名称</td>
+    <td align="center">支付方式</td>
+
+    <td align="center">状态</td>
+
+    <td align="center">用户</td>
+
+  </tr>
+
+  <form name="form1">
+
+{dede:datalist}
+
+    <tr bgcolor="#FFFFFF" height="26" align="center" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';">
+
+      <td align="center">
+
+<input type='checkbox' name='aids' value='<?php echo $fields['oid']?>' class='np'></td>
+
+      <td align="center">
+
+        <?php echo $fields['oid'];?>
+
+      </td>
+
+ 
+
+      <td align="center">
+
+        <?php echo GetDateTimeMk($fields['stime'])?>
+
+        (<font color="#FF0000">{dede:field.stime function="floorTime(time()-@me,@me)"/}</font>)
+
+      </td>
+
+      <td align="center">
+
+        <?php echo $fields['price']?>
+
+      </td>
+
+      <td align="center">
+
+        <?php echo jjGetTypename($fields['pid'])?>
+
+      </td>
+
+      <td align="center">
+
+        <?php echo GetsType($fields['paytype'])?>
+
+      </td>
+
+      <td align="center">
+
+        <?php echo GetSta($fields['state'])?>
+
+      </td>
+
+
+
+      <td align="center">
+
+        <?php echo GetMemberID($fields['userid'])?>
+
+      </td>
+
+    </tr>
+
+{/dede:datalist}
+
+  </form>
+
+  <tr>
+
+    <td height="28" colspan="11" bgcolor="#FCFDF7" style="padding-top:4px;">&nbsp;
+
+      <input type="button" name="b7" value="反选" class='np coolbg' style="width:40" onClick="ReSel();">
+
+      <input type="button" name="b" value="删除" style="width:40" onClick="DelSel();" class='np coolbg' />
+
+   
+
+    </td>
+
+  </tr>
+
+  <tr>
+
+<td height="36" colspan="11" bgcolor="#F9FCEF" align="center">
+<div class="pagelistbox">
+{dede:pagelist listitem="info,index,end,pre,next,pageno" listsize="5"/}
+</div>
+</td>
+
+</tr>
+</table>
+</body>
+</html>

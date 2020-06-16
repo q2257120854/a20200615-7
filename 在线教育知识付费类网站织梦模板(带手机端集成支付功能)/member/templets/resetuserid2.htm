@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>绑定新手机号 - <?php echo $cfg_webname; ?></title>
+<link href="/css/v2_index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="templets/js/j.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<script type="text/javascript">
+function checkSubmit()
+{
+if(document.form2.txtUsername.value=='')
+	{
+		document.form2.txtUsername.focus();
+		alert("手机号不能为空");
+		return false;
+	}	
+	if (!/^(13[0-9]|14[0-9]|15[0-9]|16[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$/i.test($("#txtUsername").val())) {
+		alert("手机号码不对,请正确填写");return false;}
+		if(document.form2.mobilecode.value=='')
+	{
+		document.form2.mobilecode.focus();
+		alert("手机验证码不能为空");
+		return false;
+	}		
+}
+</script>
+<style type="text/css">
+.mima-content{margin-top:15px;}
+.input_container{margin-bottom:20px;}
+.input_container label{line-height:26px;height:26px;font-size:14px;display:block;padding-bottom:10px;}
+.intxt{width:60%;font-size:14px;color:#333;height:30px;line-height:30px;border:1px solid #eee;padding:5px 5px 5px 10px;}
+.newbtn{width:60%;font-size:14px;color:#333;height:30px;line-height:30px;border:1px solid #eee;padding:5px 5px 5px 10px;}
+.login_from{width:378px;font-size:14px;color:#333;height:30px;line-height:30px;border:1px solid #eee;padding:5px 10px;border-radius:5px;}
+.w200{width:178px;font-size:14px;color:#333;height:30px;line-height:30px;border:1px solid #eee;padding:5px 10px;border-radius:5px;}
+.w300{width:188px;height:42px;line-height:42px;font-size:14px;border:1px solid #eee;background:#fbfbfb;margin-left:10px;cursor:pointer;color:#333;border-radius:5px;}
+input,textarea{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-appearance:none;border:0;border-radius:0;}
+.mima-act{padding-top:10px;}
+#safequestion,#newsafequestion{width:220px;border-radius:2px;border:1px solid #ccc;font-size:12px;padding:5px;line-height:30px;height:30px;vertical-align:middle;list-style:none;outline:none;}
+.w200:focus{border-color:#ff8420;}
+
+/*修改手机号注意事项*/
+.foot-notice{background-color:#fffbee;padding:24px 48px;}
+.foot-notice h3{color:#333;font-size:14px;font-weight:700;}
+.foot-notice p{padding-top:10px;color:#333;font-size:12px;}
+</style>
+</head>
+<body>
+
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+<?php include(DEDEMEMBER."/templets/left.htm"); ?>
+
+<!-- 右侧功能定位 -->
+<div class="user-right">
+<div class="uc-box uc-main-box">
+<div class="uc-content-box order-list-box">
+<div class="box-hd"><h1 class="title">绑定新号码</h1></div>
+
+
+<!-- 更换手机号 -->
+<div class="mima-content">
+<form name='form2' method='POST' action='resetuserid.php' onsubmit="return checkSubmit();">
+<input type="hidden" name="dopost" value="getpasswd">
+<input type="hidden" name="setp" value="2">
+
+<div class="input_container">
+<label>新手机号</label>
+<input id="txtUsername" class="login_from" type="text" name="userid" placeholder="请输入新手机号" /> 
+</div>
+
+<div class="input_container">
+<label>验证码</label>
+<input type="text" class="w200" size="10" placeholder="请输入验证码" id="mobilecode" name="mobilecode"/>
+<input id="zphone" type="button" value="获取验证码" class="w300">
+</div>
+
+<div class="mima-act"><button class="formbutton" type="submit">提交更换</button></div>
+
+<script type="text/javascript">
+$("#zphone").click(function(){
+				if($("#txtUsername").val() == ""){
+				 alert("手机号不能为空");return false;
+				}
+				if (!/^(13[0-9]|14[0-9]|15[0-9]|16[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$/i.test($("#txtUsername").val())) {
+					 alert("手机号码不对,请正确填写");return false;
+				}	
+				sendMobileCode($("#txtUsername"), $("#mobilecode"), $(this));
+				});
+			function sendMobileCode(mobileObj, mobileCodeObj, sendButton) {
+						// 发送邮件
+						var url = 'reg_news.php';
+						$.post(url, {
+							XDEBUG_SESSION_START: 'ECLIPSE_DBGP',
+							txtUsername: mobileObj.val()
+						}, function(result) {
+							if (result == 'ok') {
+								// 倒计时
+								countdown(sendButton);
+							} else {
+								alert(result);
+							}
+						}, 'text');
+			}	
+			var wait = 60;
+			function countdown(obj, msg) {
+				obj = $(obj);
+
+				if (wait == 0) {
+					obj.removeAttr("disabled");
+					obj.val(msg);
+					wait = 60;
+				} else {
+					if (msg == undefined || msg == null) {
+						msg = obj.val();
+					}
+					obj.attr("disabled", "disabled");
+					obj.val(wait + "秒后重发");
+					wait--;
+					setTimeout(function() {
+						countdown(obj, msg)
+					}, 1000) 
+				}
+			}
+			
+
+		function checkMobilePhone(mobile, callback) {
+			var submit_disabled = false;
+
+			var mobileObj = null;
+
+			if (typeof (mobile) == 'object') {
+				mobileObj = $(mobile);
+				mobile = mobileObj.val();
+			}
+
+			if (mobile == '') {
+                alert("手机号不能为空");return false;
+				submit_disabled = true;
+
+				if (mobileObj != null) {
+					mobileObj.focus();
+				}
+
+			} 
+			if (!/^(13[0-9]|14[0-9]|15[0-9]|16[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$/i.test(mobile)) {
+                 alert("手机号码不对,请正确填写");return false;
+			}
+			return true;
+		}			
+</script>
+</form>
+</div>
+</div>
+</div>
+<!-- 更换手机号 End -->
+
+
+
+<!-- 修改手机号注意事项 -->
+<div class="foot-notice">
+<h3>注意事项：</h3>
+<p>更换手机号成功后，原号码将无法登录，您可使用新号码进行登录和找回密码，请勿随意泄露手机号，以免造成个人损失。</p>
+</div>
+<!-- 修改手机号注意事项 End -->
+
+
+
+
+</div>
+<!-- 右侧功能定位 End -->
+
+
+</div>
+
+
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的推荐人</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="<?php echo $mcfg_basehost; ?>/m-css/tg-index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo $mcfg_basehost; ?>/m-js/jquery.js"></script>
+<style type="text/css">
+body{background:#fff;}
+
+/*无内容时显示*/
+.m-yxw-cs-wushuju{padding:30px 0;}
+.m-yxw-cs-wushuju img{width:100px;height:100%;margin:0 auto;display:block;}
+.m-yxw-cs-wushuju .wu-sc-title{text-align:center;font-size:14px;color:#757575;padding-top:10px;}
+</style>
+</head>
+<body>
+
+<!-- TOP -->
+<div class="topbar"><h2 class="logo-tg">我的推荐人</h2><a href="javascript:history.go(-1);" class="top_nav_left"></a></div>
+<!-- TOP End -->
+
+<div class="wrapper">
+<?php
+	if($cfg_ml->fields['tjrmid'] > 0){
+    $tjr = $dsql->GetOne("select face,uname from #@__member where mid = '".$cfg_ml->fields['tjrmid']."'");
+?>
+<!-- 我的推荐人 -->
+<div class="yxw-wd-tjr">
+<img src="<?php echo $cfg_basehost; ?><?php echo $tjr['face'];?>">
+<p><?php echo $tjr['uname'];?></p>
+</div>
+<!-- 我的推荐人 End -->
+<?php    
+    }else{
+?>
+<!-- 无内容时显示 -->
+<div class="m-yxw-cs-wushuju">
+<img src="<?php echo $mcfg_basehost; ?>/m-images/kc-wu-sc.png">
+<p class="wu-sc-title">您没有推荐人</p>
+</div>
+<!-- 无内容时显示 End -->
+<?php 
+}
+?>
+</div>
+
+<script>
+if($(".m-kc-shoucang").length < 1 ){ 
+$(".yxw-wd-tjr").show();
+}
+</script>
+</body>
+</html>

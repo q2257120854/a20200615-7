@@ -1,0 +1,50 @@
+body{
+    background-color: #fff;
+}
+.shaixuan{
+           
+    left: 0;
+    right: 0;
+    overflow-x: scroll;
+    z-index: 1;
+    position: fixed;
+    background:linear-gradient(to right,#f370af 0,#5515ee 100%);
+}
+.title{
+    color: #fff;
+    text-align: center;
+}
+#list {
+    
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 72px 4px 0px 4px;
+    
+}
+.hot_div{
+    color: #e1e1e3;
+}
+
+.hot_div ul{
+   
+    margin-bottom: 0px;
+}
+.hot_div ul li{
+    margin: auto 1%;
+    float: left;
+    height: 160px;
+    width: 98%;
+}
+.hot_div ul li .bg_img{
+    height: 150px;
+    border-radius: 8px;
+    text-align: center;
+    padding-top: 73px;
+    box-shadow: 0.04rem 0.4rem 0.4rem rgba(99, 99, 99, 0.29);
+}
+
+.active {
+    opacity: 0.7;
+}

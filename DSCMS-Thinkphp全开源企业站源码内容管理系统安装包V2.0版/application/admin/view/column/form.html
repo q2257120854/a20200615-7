@@ -1,0 +1,122 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form" method="post">
+    <div class="layui-tab layui-tab-card">
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                
+                
+                <div class="layui-collapse">
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">基本设置</h2>
+                        <div class="layui-colla-content layui-show">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.column_position}</label>
+                                <div class="layui-input-inline">
+                                    <select name="parent_id" id="parent_id" disabled>
+                                        <option value="0">{:lang('ds_please_choose')}</option>
+                                        {notempty name="parent_list"}
+                                        {volist name="parent_list" id="v"}
+                                        <option {if $parent_id== $v.column_id}selected='selected' {/if} value="{$v.column_id}">{$v.column_name}</option>
+                                        {/volist}
+                                        {/notempty}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.column_name}</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" class="layui-input field-name" name="column_name" id="column_place" value="{$column.column_name|default=''}" placeholder="{$Think.lang.ds_please_enter}{:lang('column_name')}"/>
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.ds_no_order}</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" class="layui-input field-name" name="column_order" id="order" value="{$column.column_order|default=255}"
+                                           placeholder="{$Think.lang.please_enter}{:lang('order')}"/>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.column_display}</label>
+                                <div class="layui-input-block">
+                                    <input type="checkbox" name="column_display" lay-skin="switch" lay-text="是|否" value="1" {if condition="$column.column_display eq '1'" }checked{/if}>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.column_module}</label>
+                                <div class="layui-input-block">
+                                    <input type="radio" name="column_module" value="{:COLUMN_NEWS}" title="{:lang('column_news')}" {if $column.column_module== 1}checked {/if}/>
+                                           <input type="radio" name="column_module" value="{:COLUMN_PRODUCT}" title="{:lang('column_product')}" {if $column.column_module== 2}checked {/if}/>
+                                           <input type="radio" name="column_module" value="{:COLUMN_CASES}" title="{:lang('column_cases')}" {if $column.column_module== 3}checked {/if}/>
+                                           <input type="radio" name="column_module" value="{:COLUMN_JOB}" title="{:lang('column_job')}" {if $column.column_module== 4}checked {/if}/>
+                                           <input type="radio" name="column_module" value="{:COLUMN_LINK}" title="{:lang('column_link')}" {if $column.column_module== 5}checked {/if}/>
+                                           <input type="radio" name="column_module" value="{:COLUMN_MEMBER}" title="{:lang('column_member')}" {if $column.column_module== 6}checked {/if}/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">SEO设置</h2>
+                        <div class="layui-colla-content">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.seo_title}</label>
+                                <div class="layui-input-block">
+                                    <input type="text" class="layui-input field-name" name="seo_title" id="seo_title" value="{$column.seo_title|default=''}" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.seo_title}" />
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.seo_keywords}</label>
+                                <div class="layui-input-block">
+                                    <input type="text" class="layui-input field-name" name="seo_keywords" id="seo_keywords" value="{$column.seo_keywords|default=''}" placeholder="{$Think.lang.ds_please_enter}{$Think.lang.seo_keywords}"  />
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{$Think.lang.seo_description}</label>
+                                <div class="layui-input-block">
+                                    <textarea class="layui-textarea field-name" name="seo_description">{$column.seo_description|default=''}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item mt20">
+                    <div class="layui-input-block">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use('element', function () {
+        var element = layui.element;
+    });
+    //Demo
+    layui.use('form', function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
+<script>
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#column_addtime' //指定元素
+        });
+    });
+</script>
+{/block}
+
+
+

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>我的<?php echo $cfg_webname; ?></title>
+<link href="/css/v2_index.css" rel="stylesheet" type="text/css" />
+<script src="/js/uaredirect.js" type="text/javascript"></script>
+<script type="text/javascript">uaredirect("<?php echo $mcfg_basehost ?>/member/");</script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.superslide.2.1.1.js"></script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	
+	function CheckLogintop(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+<style type="text/css">
+.user-right-box{height:489px;background:#fff;position:relative;border-radius:5px;}
+
+/*头像*/
+.content-img2{width:150px;height:150px;margin:0 auto;padding-top:40px;}
+.content-img2 a{display:block;}
+.content-img2 a img{display:block;width:150px;height:150px;border-radius:50%;}
+
+/*昵称*/
+.user-info{text-align:center;padding-top:20px;}
+.user-info .user-name{display:inline-block;line-height:21px;}
+.user-info p{color:#999;font-size:14px;padding-top:5px;}
+
+/*会员*/
+.user-info-vip{overflow:hidden;background:#f5f5f5;height:120px;margin:15px 300px 0;border-radius:5px;text-align:center;}
+.user-info-vip p{color:#333;font-size:14px;line-height:20px;padding-top:20px;}
+.user-info-vip span{display:inline-block;padding-top:15px;}
+.user-info-vip span a{display:block;background:#00bca1;font-size:14px;color:#fff;height:40px;line-height:40px;padding:0 47px;border-radius:20px;font-weight:700;}
+.user-name-hyqx1{width:21px;height:21px;background:url(../images/person-vip1.png) no-repeat;display:inline-block;vertical-align:top;}
+.user-name-hyqx2{width:21px;height:21px;background:url(../images/person-vip2.png) no-repeat;display:inline-block;vertical-align:top;}
+
+/*更换手机号*/
+.user-info-phone{position:absolute;width:100%;bottom:0;background:#fffbee;border-bottom-right-radius:5px;border-bottom-left-radius:5px;}
+.user-info-phone .info-phone{height:36px;padding:10px 50px;}
+.user-info-phone .info-text{float:left;color:#ff700a;}
+.user-info-phone .info-text div{line-height:36px;font-size:14px;display:block;color:#999;}
+.user-info-phone .link{float:right;padding:0 15px;margin-top:5px;height:26px;line-height:26px;border-radius:14px;background-color:#fff;color:#333;font-weight:700;text-align:center;}
+.user-info-phone .link:hover{background-color:#ff700a;color:#fff;}
+</style>
+</head>
+<body>
+<?php pasterTempletDiy("d1w2z3/head.htm");?>
+<?php include(DEDEMEMBER."/templets/left.htm"); ?>
+
+
+<!-- 右侧功能定位 -->
+<div class="user-right">
+<div class="user-right-box">
+
+<!-- 用户头像 -->
+<div class="content-img2"><a href="edit_face.php" title="更换头像"><img src="<?php echo $cfg_ml->fields['face']; ?>"></a></div>
+<!-- 用户头像 End -->
+
+<!-- 用户昵称 -->
+<div class="user-info">
+<div class="user-name">
+<a href="edit_user.php" style="font-size:16px;color:#333;display:inline-block;" title="修改昵称"><?php echo $cfg_ml->M_UserName; ?></a>
+<?php if ($cfg_ml->M_Rank > 10){echo '<i class="user-name-hyqx2"></i>';} else{echo '<i class="user-name-hyqx1"></i>';}?></a>
+</div>
+<p>ID:<?php echo $cfg_ml->M_ID; ?></p>
+</div>
+<!-- 用户昵称 End -->
+
+<!-- 开通会员 -->
+<div class="user-info-vip">
+<?php if ($cfg_ml->M_Rank > 10){echo '<p>您的会员剩余 '.$mhasDay.' 天</p>';} else{echo '<p>开通VIP会员，全站课程免费学习</p>';}?>
+<span><a href="buyhui.php"><?php if ($cfg_ml->M_Rank > 10){echo '续费会员';} else{echo '立即开通';}?></a></span>
+</div>
+<!-- 开通会员 End -->
+
+<!-- 手机号修改 -->
+<div class="user-info-phone">
+<div class="info-phone">
+<div class="info-text"><div>您已绑定手机号：<span style="color:#666;font-weight:700;"><?php echo $cfg_ml->M_LoginID; ?></span><span style="padding-left:10px;">此号码可用于网站登录/找回密码哦~</span></div></div>
+<a href="resetuserid.php" class="link">更换手机号</a>
+</div>
+</div>
+<!-- 手机号修改 End -->
+
+</div>
+</div>
+<!-- 右侧功能定位 End -->
+
+
+</div>
+</div>
+
+
+<?php pasterTempletDiy("d1w2z3/footer.htm");?>
+
+
+</body>
+</html>

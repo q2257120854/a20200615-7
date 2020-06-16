@@ -1,0 +1,71 @@
+{extend name="index:base" /}
+{block name="title"}<title>财富天下-释放记录</title>{/block}
+
+{block name="style"}
+
+<style>
+
+</style>
+<style type="text/css">
+			.mui-bar {background: #fff;}
+			.mui-input-row label {
+				font-size: .32rem;
+				color: #444;
+			}
+			.mui-input-group .mui-input-row:after {
+				left: 0;
+				background-color: #E6E6E6;
+			}
+			.mui-bar-nav {
+			    padding-top: 20px;
+			    box-sizing: content-box;
+			    background-color: #fff;
+			    border-bottom: 1px solid #eee;
+			}			
+			.mui-input-group .mui-input-row,
+			.mui-input-row label~input {
+				height: 60px;
+			}
+			.mui-input-row label {
+				line-height: 40px;
+			}
+			.app-btn {
+				padding: 15px;
+				background: #3C7FFF;
+				border: 1px solid #3C7FFF;
+			}
+		</style>
+{/block}
+{block name="body"}
+		<header class="mui-bar mui-bar-nav" style="background:#3c7fff;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:#fff;"></a>
+			<h1 class="mui-title" style="color:#fff; font-family:'微软雅黑';">释放记录</h1>
+		</header>
+		<br /><br /><br />
+		<ul class="mui-table-view" style="">
+				{foreach name="relList" id="vo"}
+				 <li class="mui-table-view-cell">
+				 	<span style=" color:#666; font-family: '微软雅黑'; ">每日释放可售额度 <font style=" font-size:0.5em;" hidden></font></span>
+				 	<span style=" margin-left:75% ; top: 10px; font-size: 1.4em; color: #2AC845;">+{$vo.money}
+					<font style=" font-size: 11px;">
+					</font>
+					</span>
+				 	<span style="position: absolute; right: 61%; ">{$vo.addtime|date='Y-m-d H:i',###}</span>
+				 </li>
+				 <li class="mui-table-view-cell">
+				 	<span style=" color:#666; font-family: '微软雅黑'; ">乐豆种子  	<font style=" font-size:0.5em;" hidden></font></span>
+				 	<span style=" margin-left:75% ; top: 10px; font-size: 1.4em; color: #dd524d;">-{$vo.money}
+					<font style=" font-size: 11px;">
+					</font>
+					</span>
+				 	<span style="position: absolute; right: 61%; ">{$vo.addtime|date='Y-m-d H:i',###}</span>
+				 </li>
+				 {/foreach}
+		         
+			</ul>
+			
+			
+		<script type="text/javascript">
+			mui.init()
+		</script>
+{/block}

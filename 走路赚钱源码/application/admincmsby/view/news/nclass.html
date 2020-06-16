@@ -1,0 +1,389 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+<style>
+.pop_cont .pop_cont_input li{
+	margin: 13px 0;
+}
+.pop_cont {
+    border-radius: 5px 5px;
+}
+.pop_cont .pop_cont_input li .textbox{
+	width:218px;
+}
+.rt_content {
+    margin-bottom: 150px;
+}
+</style>
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+       <h1 style="color:red;font-size:20px;font-weight:bold;text-align:center;">操作说明</h1>
+		<p style="color:red;font-size:16px;font-weight:bold;text-align:center;margin:8px 0;background:#FFC;padding:8px;">新闻分类状态为禁止时，前台该分类将被隐藏！"关于我们"默认url为about,"企业文化"默认url为culture,</p>
+ 
+      <div class="page_title">
+       <h2 class="fl">新闻分类</h2>
+       <a href="#" class="fr top_rt_btn add_icon showPopTxt" id="showPopTxt"  data-id="0" >添加分类</a>
+      </div>
+     <section>
+      <!--tabCont-->
+      <div class="admin_tab_cont" style="display:block;">
+      <!--左右分栏：左侧栏目-->
+       <div class="cont_col_rt" style="margin-left: 0px;margin-right: 20%;">
+           <table class="table fl">
+            <tr>
+             <th style="width:200px;">分类</th>
+             <th style="width:50px;">排序</th>
+			 <th style="width:80px;">URL优化</th>
+             <th style="width:50px;">状态</th>
+			 <th style="width:150px;">操作</th>
+            </tr>
+			 {foreach name="list" id="vo"}
+            <tr class="" pid="{$vo.pid}" id="{$vo.id}">
+             <td class="">			 
+				 <a href="javascript:;" class="link_icon show" id="{$vo.id}" >
+					{$vo.nbsp}{if condition="$vo.html neq ''"}└<!-- &#3; -->{/if}{$vo.html}
+					<font icon-id="{$vo.id}">&#43;<font>
+				 </a>
+				<span style="font-size:12px;font-weight:100;">[{$vo.id}]</span>
+				{$vo.classname}			 
+			 </td>			 
+             <td  class="center">{$vo.sort}</td>
+			 <td  class="center">{$vo.url}</td>
+             <td class="center">
+				{if condition="$vo.status eq 1"}<a href="javascript:;" title="开启" class="link_icon" >&#89;</a>{else/}<a href="javascript:;" title="关闭" class="link_icon" style="color:red;">&#88;</a>{/if}			 
+			 </td>
+			 <td class="center">   
+				<a href="{:url('news/add')}?class_id={$vo.id}" class="link_icon" style="font-size:15px;">添加新闻</a>
+				<a href="javascript:;" data-id="{$vo.id}" class="link_icon showPopTxt" style="font-size:15px;">添加子分类</a>
+				<a href="javascript:;" title="编辑" class="link_icon edit" data-id="{$vo.id}">&#101;</a>
+				<a href="javascript:;" title="删除" class="link_icon del" data-id="{$vo.id}" data-name="{$vo.classname}">&#100;</a>
+			 </td>
+            </tr>
+			{/foreach}
+	
+           </table>
+       </div>
+      </div>
+     </section>	
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+	<script type="text/javascript">
+	function foreach(id){
+		//遍历所有后代
+		$("tr[pid="+id+"]").each(function(i){	
+			var sid = $(this).attr('id');//son的ID
+			//隐藏
+			$(this).removeClass("hide");//son
+			$(this).addClass("show");//son		
+			
+			var pid =  $("tr[pid="+sid+"]").attr('id');//son的son
+			$("a font[icon-id="+sid+"]").html("&#43;");//son			
+			//console.log(sid);
+			if(pid){
+				$("tr[pid="+sid+"]").hide();//隐藏son的son
+				foreach(sid);
+			}		
+			
+		});		
+	}	
+	
+	$(document).ready(function(){
+		//遍历所有pid<>0的
+		$("tr").each(function(){
+			var pid = $(this).attr('pid');
+			if(pid>0){
+				//隐藏
+				$(this).hide();
+			}
+		});
+		 //点击 
+		$("tr .show").on('click',function(){
+			var id = $(this).attr('id');
+			var css = $(this).attr('class');			
+			//console.log(css);	
+			if(css=="link_icon hide"){
+				//隐藏
+				$(this).removeClass("hide");
+				$(this).addClass("show");
+				$("a font[icon-id="+id+"]").html("&#43;");				
+				$("tr[pid="+id+"]").hide();//隐藏son
+				foreach(id);			
+			}else{
+				//显示
+				$(this).removeClass("show");
+				$(this).addClass("hide");
+				$("a font[icon-id="+id+"]").html("&#45;");
+				$("tr[pid="+id+"]").show();				
+			}
+			
+		});	
+	});
+	</script>
+<script>
+$(document).ready(function() {		 
+  //删除
+	$('.del').click(function(event){
+		var id = $(this).attr('data-id');
+		var name = $(this).attr('data-name');
+		if (confirm("确定要删除<"+name+">吗？")) {
+			$.ajax({
+				url:"{:url('news/nclass_del')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'nclassdel',id:id,all:"all"},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('删除成功');
+						setTimeout(function(){
+						//页面刷新  
+						window.location.reload();
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});
+		}
+	});  
+	
+	//确认按钮
+	$(".trueBtn").click(function(){
+		var id = $("input[name=id]").val();
+		var classname = $("input[name=classname]").val();
+		var sort = $("input[name=sort]").val();
+		var status = $('input[name="status"]:checked').val();
+		var pid = $("option:selected").val();
+		var url = $("input[name=url]").val();
+		var formData = new FormData(); 
+		if(classname){
+			formData.append('classname',classname);  
+		}else{
+			myAlert('分类名不能为空');
+		}	
+		if(url){
+			formData.append('url',url);  
+		}else{
+			myAlert('URL不能为空');
+		}	
+		if(id){
+			formData.append('id',id);   
+		}
+		if(sort){
+			formData.append('sort',sort);   
+		}
+		if(status){
+			formData.append('status',status);   
+		}
+		if(pid){
+			formData.append('pid',pid);   
+		}
+		formData.append('all',"all");
+		
+		console.log(url);
+		if(!id){
+			formData.append('op',"nclassadd"); 
+			//添加分类
+			$.ajax({
+				url:"{:url('news/nclass_add_do')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				processData: false,//用于对data参数进行序列化处理 这里必须false
+				contentType: false, //必须
+				data:formData,
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('添加成功');
+						setTimeout(function(){
+						//页面刷新  
+						location.href= "{:url('news/nclass')}";
+						},1000);
+						
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});			
+		
+		}else{
+			formData.append('op',"nclassedit");
+			//修改分类
+			$.ajax({
+				url:"{:url('news/nclass_edit_do')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				processData: false,//用于对data参数进行序列化处理 这里必须false
+				contentType: false, //必须
+				data:formData,
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('修改成功');
+						setTimeout(function(){
+						//页面刷新  
+						location.href= "{:url('news/nclass')}";
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});				
+		}
+		$(".pop_bg").fadeOut();
+	});
+	//弹出：取消或关闭按钮
+	$(".falseBtn").click(function(){
+		$(".pop_bg").fadeOut();
+	});	
+	//添加分类
+	$(".showPopTxt").click(function(){
+		$("#title").html('添加分类');
+		$("input[name=classname]").val('');
+		$('select').find("option[value='0']").attr("selected",true);
+		$("input[name=sort]").val('255');
+		$("input[name=url]").val('');
+		$(":radio[value=1]").prop("checked",true);
+		var pid = $(this).attr('data-id');
+		
+			$.ajax({
+				url:"{:url('news/nclass_add')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:''},
+				success: function(data) {					
+					var list  = data.s;
+					var htm = '<option value="0">&nbsp;顶级&nbsp;</option>';
+					
+					//console.log(list);		
+					if(list){
+						for(var i=0;i<list.length;i++){
+							var select = '';
+							if(pid == list[i].id){
+								select = 'selected';
+							}
+							var t = '';
+							if(list[i].html){
+								t = '└';
+							}
+							list[i].html = t+list[i].html;
+							htm += '<option value="'+list[i].id+'" '+select+'>'+list[i].html+'&nbsp;'+list[i].classname+'&nbsp;</option>';
+							$("select").html(htm);
+						}									
+					}
+				}
+			});
+			
+		$(".pop_bg").fadeIn();
+	 });
+	//修改分类
+	$(".edit").click(function(){
+		$("#title").html('修改分类');
+		var htm = '<option value="0">&nbsp;顶级&nbsp;</option>';
+		var id = $(this).attr('data-id');
+		$("select").html(htm);
+		
+			$.ajax({
+				url:"{:url('news/nclass_edit')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{id:id},
+				success: function(data) {					
+					var list  = data.s;				
+					//console.log(list);		
+					if(list){
+						for(var i=0;i<list.length;i++){
+							var t = '';
+							if(list[i].html){
+								t = '└';
+							}
+							list[i].html = t+list[i].html;
+							
+							htm += '<option value="'+list[i].id+'" >'+list[i].html+'&nbsp;'+list[i].classname+'&nbsp;</option>';
+							$("select").html(htm);
+						}									
+					}					
+					var value  = data.v;
+					$("input[name=classname]").val(value.classname);
+					$('select').find("option[value='"+value.pid+"']").attr("selected",true);
+					$("input[name=sort]").val(value.sort);
+					$(":radio[value="+value.status+"]").prop("checked",true);
+					$("input[name=url]").val(value.url);
+				}
+			});
+			
+		/*$('select').find("option[value='0']").attr("selected",true);
+		$("input[name=sort]").val('');
+		$(":radio[value=1]").prop("checked",true);*/
+		$("input[name=id]").val(id);
+		$(".pop_bg").fadeIn();
+	 });
+	 
+
+	
+});
+</script>
+     <section class="pop_bg">
+	  <!-- <form action="{:url('news/nclass_edit_do')}" method="post" > -->
+      <div class="pop_cont">
+       <!--title-->
+       <h3 id="title">添加分类</h3>
+       <!--content-->
+       <div class="pop_cont_input">
+        <ul>
+         <li>
+          <span>分类名&nbsp;&nbsp;&nbsp;&nbsp; </span>
+          <input type="text" name="classname" value="" placeholder="分类名..." class="textbox"/>
+		  <span style="color:red;">*</span>
+         </li>
+         <li>
+          <span class="ttl">上级&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <select class="select" name="pid">
+		   <option value="0">&nbsp;顶级&nbsp;</option>
+          </select>
+         </li>
+         <li>
+          <span> URL优化&nbsp;</span>
+          <input type="text" name="url" value="" placeholder="URL优化，如新闻为“news”..." class="textbox"/>
+		  <span style="color:red;">*</span>
+         </li>
+         <li>
+          <span> 排序&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <input type="text" name="sort" value="255" placeholder="排序..." class="textbox"/>
+         </li>
+		<li>
+			<span class="item_name" style="width:120px;">状态：&nbsp;&nbsp;&nbsp;</span>
+			<label class="single_selection"><input type="radio" name="status" value="1" checked />开启</label>
+			<label class="single_selection"><input type="radio" name="status" value="0" />关闭</label>
+		</li>
+	   
+        </ul>
+       </div>
+       <!--以pop_cont_text分界-->
+       <div class="pop_cont_text">
+        这里是文字性提示信息！
+       </div>
+       <!--bottom:operate->button-->
+       <div class="btm_btn">
+	    <input type="hidden" value="" name="id"/>
+        <input type="button" value="确认" class="input_btn trueBtn"/>
+        <input type="button" value="关闭" class="input_btn falseBtn"/>
+       </div>
+      </div>
+	   <!-- </form> -->
+     </section>
+     <!--结束：弹出框效果-->
+{/block}	

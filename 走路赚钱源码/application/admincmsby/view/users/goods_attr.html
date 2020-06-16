@@ -1,0 +1,407 @@
+
+{extend name="index:base" /}
+{block name="title"}<title>后台管理系统</title>{/block}
+{block name="style"}
+<style>
+.pop_cont .pop_cont_input li{
+	margin: 13px 0;
+}
+.pop_cont {
+    border-radius: 5px 5px;
+}
+.pop_cont .pop_cont_input li .textbox{
+	width:218px;
+}
+.rt_content {
+    margin-bottom: 150px;
+}
+</style>
+{/block}
+{block name="body"}
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+       <h1 style="color:red;font-size:20px;font-weight:bold;text-align:center;">操作说明</h1>
+		<p style="color:red;font-size:16px;font-weight:bold;text-align:center;margin:8px 0;background:#FFC;padding:8px;">商品属性最高等级只能是二级属性！</p>
+ 
+      <div class="page_title">
+       <h2 class="fl">商品属性</h2>
+       <a href="#" class="fr top_rt_btn add_icon" id="showPopTxt">添加属性</a>
+      </div>
+     <section>
+      <!--tabCont-->
+      <div class="admin_tab_cont" style="display:block;">
+      <!--左右分栏：左侧栏目-->
+       <div class="cont_col_rt" style="margin-left: 0px;margin-right: 330px;">
+           <table class="table fl">
+            <tr>
+             <th style="width:300px;">属性名</th>
+             <th style="width:100px;">排序</th>
+			 <th style="width:100px;">操作</th>
+            </tr>
+			 {foreach name="list" id="vo"}
+            <tr class="" id="{$vo.id}" pid="{$vo.pid}" >
+             <td class="">			 
+			 <a href="javascript:;" class="link_icon show" id="{$vo.id}">
+				{$vo.nbsp}{if condition="$vo.html neq ''"}└<!-- &#3; -->{/if}{$vo.html}
+				<font icon-id="{$vo.id}">&#43;<font>
+			 </a>
+				<span style="font-size:12px;font-weight:100;">[{$vo.id}]</span>
+				{if condition="$vo.ico neq '0'"}<img class="ico" src="{$vo.ico}" >{/if}
+				{$vo.classname}			 
+			 </td>
+             <td  class="center">{$vo.sort}</td>
+<!--              <td class="center">
+				{if condition="$vo.status eq 1"}<a title="开启" class="link_icon" >&#89;</a>{else/}<a title="关闭" class="link_icon" style="color:red;">&#88;</a>{/if}			 
+			 </td> -->
+			 <td class="center">         
+				<a href="javascript:;" title="编辑" class="link_icon edit" data-id="{$vo.id}" data-pid="{$vo.pid}" data-pidedit="{$vo.pid}">&#101;</a>
+				<a href="javascript:;" title="删除" class="link_icon del" data-id="{$vo.id}" data-pid="{$vo.pid}">&#100;</a>
+			 </td>
+            </tr>
+			{/foreach}
+	
+           </table>
+       </div>
+      </div>
+     </section>	
+ </div>
+</section>
+
+
+{/block}
+{block name="script"}
+<script>
+//建立一個可存取到該file的url
+function getObjectURL(file) {
+	var url = null ;
+	if (window.createObjectURL!=undefined) { // basic
+		url = window.createObjectURL(file) ;
+	} else if (window.URL!=undefined) { // mozilla(firefox)
+		url = window.URL.createObjectURL(file) ;
+	} else if (window.webkitURL!=undefined) { // webkit or chrome
+		url = window.webkitURL.createObjectURL(file) ;
+	}
+	return url ;
+}
+</script>
+	<script type="text/javascript">
+	function foreach(id){
+		//遍历所有后代
+		$("tr[pid="+id+"]").each(function(i){	
+			var sid = $(this).attr('id');//son的ID
+			//隐藏
+			$(this).removeClass("hide");//son
+			$(this).addClass("show");//son		
+			
+			var pid =  $("tr[pid="+sid+"]").attr('id');//son的son
+			$("a font[icon-id="+sid+"]").html("&#43;");//son			
+			console.log(sid);
+			if(pid){
+				$("tr[pid="+sid+"]").hide();//隐藏son的son
+				foreach(sid);
+			}		
+			
+		});		
+	}	
+	
+	$(document).ready(function(){
+		//遍历所有pid<>0的
+		$("tr").each(function(){
+			var pid = $(this).attr('pid');
+			if(pid>0){
+				//隐藏
+				$(this).hide();
+			}
+		});
+		 //点击 
+		$("tr .show").on('click',function(){
+			var id = $(this).attr('id');
+			var css = $(this).attr('class');			
+			//console.log(css);	
+			if(css=="link_icon hide"){
+				//隐藏
+				$(this).removeClass("hide");
+				$(this).addClass("show");
+				$("a font[icon-id="+id+"]").html("&#43;");				
+				$("tr[pid="+id+"]").hide();//隐藏son
+				foreach(id);			
+			}else{
+				//显示
+				$(this).removeClass("show");
+				$(this).addClass("hide");
+				$("a font[icon-id="+id+"]").html("&#45;");
+				$("tr[pid="+id+"]").show();				
+			}
+			
+		});	
+	});
+	</script>
+<script>
+$(document).ready(function() {
+	$(".uploadImg").on("change",function(){
+		//获取图片的路径，该路径不是图片在本地的路径
+		var objUrl = getObjectURL($('input[name="ico"]')[0].files[0]) ; 
+		//console.log(objUrl);
+		if (objUrl) {
+			//将图片路径存入src中，显示出图片
+			$(".ico").attr("src", objUrl) ; 
+		}
+	});		 
+  //删除
+	$('.del').click(function(event){
+		var id = $(this).attr('data-id');
+		var pid = $(this).attr('data-pid');
+		if (confirm("确定要删除吗？")) {
+			$.ajax({
+				url:"{:url('goods/attr_del')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:'attrdel',id:id,pid:pid,all:'all'},
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('删除成功');
+						setTimeout(function(){
+						//页面刷新  
+						window.location.reload();
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});
+		}
+	});  
+	
+	//确认按钮
+	$(".trueBtn").click(function(){
+		var id = $("input[name=id]").val();
+		var classname = $("input[name=classname]").val();
+		var sort = $("input[name=sort]").val();
+		//var status = $('input[name="status"]:checked').val();
+		var pid = $("option:selected").val();
+		var pidEdit = $("input[name=pidEdit]").val();
+		//旧图片
+		var primary_ico = $('input[name="primary_ico"]').val();
+		//上传图片
+        var fileObj = $('input[name="ico"]')[0].files[0]; 			   
+        var formData = new FormData(); 
+		if(classname){
+			formData.append('classname',classname);  
+		}else{
+			myAlert('标题不能为空');
+		}
+		
+		formData.append('pid',pid); 
+		if(id){
+			formData.append('id',id);   
+		}
+		if(sort){
+			formData.append('sort',sort);   
+		}
+		if(primary_ico){
+			formData.append('primary_ico',primary_ico);   
+		}
+		if(fileObj){
+			formData.append('ico',fileObj);   
+		}
+		formData.append('all','all'); 
+		
+		if(!id){
+			formData.append('op','attradd');
+			//添加属性
+			$.ajax({
+				url:"{:url('goods/attr_add')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				processData: false,//用于对data参数进行序列化处理 这里必须false
+				contentType: false, //必须
+				data:formData,
+				success: function(data) {
+					console.log(111);
+					if (data.s=='ok') {				
+						myAlert('添加成功');
+						setTimeout(function(){
+						//页面刷新  
+						location.href= "{:url('goods/goods_attr')}";
+						},1000);
+						
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});			
+		
+		}else{
+			console.log(id);
+			formData.append('pidEdit',pidEdit);
+			formData.append('op','attredit');
+			//修改属性
+			$.ajax({
+				url:"{:url('goods/attr_edit')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				processData: false,//用于对data参数进行序列化处理 这里必须false
+				contentType: false, //必须
+				data:formData,
+				success: function(data) {
+					console.log(data.s);
+					if (data.s=='ok') {				
+						myAlert('修改成功');
+						setTimeout(function(){
+						//页面刷新  
+						location.href= "{:url('goods/goods_attr')}";
+						},1000);
+					}else {
+						myAlert(data.s);
+					}
+				}
+			});				
+		}
+		$(".pop_bg").fadeOut();
+	});
+	//弹出：取消或关闭按钮
+	$(".falseBtn").click(function(){
+		$(".pop_bg").fadeOut();
+	});	
+	//添加属性
+	$("#showPopTxt").click(function(){
+		$("#title").html('添加属性');
+		$("input[name=classname]").val('');
+		$('select').find("option[value='0']").attr("selected",true);
+		$("input[name=sort]").val(255);
+		$(":radio[value=1]").prop("checked",true);
+			$.ajax({
+				url:"{:url('goods/classpid')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{op:''},
+				success: function(data) {					
+					var list  = data.s;
+					var htm = '<option value="0">&nbsp;顶级&nbsp;</option>';
+					
+					console.log(list);		
+					if(list){
+						for(var i=0;i<list.length;i++){
+							var t = '';
+							if(list[i].html){
+								t = '└';
+							}
+							list[i].html = t+list[i].html;
+							htm += '<option value="'+list[i].id+'">'+list[i].html+'&nbsp;'+list[i].classname+'&nbsp;</option>';
+							$("select").html(htm);
+						}									
+					}
+				}
+			});
+			
+		$(".pop_bg").fadeIn();
+	 });
+	//修改属性
+	$(".edit").click(function(){
+		$("#title").html('修改属性');
+		var id = $(this).attr('data-id');
+			$.ajax({
+				url:"{:url('goods/classpid')}",
+				dataType:"json",
+				type:'POST',
+				cache:false,
+				data:{id:id},
+				success: function(data) {					
+					var list  = data.s;
+					var htm = '<option value="0">&nbsp;顶级&nbsp;</option>';
+					
+					console.log(list);		
+					if(list){
+						for(var i=0;i<list.length;i++){
+							var t = '';
+							if(list[i].html){
+								t = '└';
+							}
+							list[i].html = t+list[i].html;
+							
+							htm += '<option value="'+list[i].id+'" >'+list[i].html+'&nbsp;'+list[i].classname+'&nbsp;</option>';
+							$("select").html(htm);
+						}									
+					}					
+					var value  = data.v;
+					$("input[name=classname]").val(value.classname);
+					$('select').find("option[value='"+value.pid+"']").attr("selected",true);
+					$("input[name=pidEdit]").val(value.pid);
+					$("input[name=sort]").val(value.sort);
+					if(value.ico!=0){
+						$("#ico").attr('src',value.ico);
+					}else{
+						$("#ico").attr('src','');
+					}
+					
+					//$(":radio[value="+value.status+"]").prop("checked",true);
+				}
+			});
+		$("input[name=id]").val(id);
+		$(".pop_bg").fadeIn();
+	 });
+	 
+
+	
+});
+</script>
+     <section class="pop_bg">
+      <div class="pop_cont">
+       <!--title-->
+       <h3 id="title">添加属性</h3>
+       <!--content-->
+       <div class="pop_cont_input">
+        <ul>
+         <li>
+          <span>属性名 </span>
+          <input type="text" name="classname" value="" placeholder="属性名..." class="textbox"/>
+		  <span style="color:red;">*</span>
+         </li>
+       <li>
+        <span class="item_name" style="width:120px;">封面图：</span>
+        <label class="uploadImg">
+         <input type="file"  name="ico" />
+		 <img id="ico" src="" >
+		 <input type="hidden" name="primary_ico" value="">
+         <span>上传封面图</span>
+        </label>
+       </li>
+         <li>
+          <span class="ttl">上级&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <select class="select" name="pid">
+		   <option value="0">&nbsp;顶级&nbsp;</option>
+          </select>
+         </li>
+         <li>
+          <span> 排序&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <input type="text" name="sort" value="" placeholder="排序..." class="textbox"/>
+         </li>
+<!-- 		<li>
+			<span class="item_name" style="width:120px;">状态：</span>
+			<label class="single_selection"><input type="radio" name="status" value="1" checked />开启</label>
+			<label class="single_selection"><input type="radio" name="status" value="0" />关闭</label>
+		</li> -->
+	   
+        </ul>
+       </div>
+       <!--以pop_cont_text分界-->
+       <div class="pop_cont_text">
+        这里是文字性提示信息！
+       </div>
+       <!--bottom:operate->button-->
+       <div class="btm_btn">
+	    <input type="hidden" value="" name="id"/>
+		<input type="hidden" value="" name="pidEdit"/>
+        <input type="button" value="确认" class="input_btn trueBtn"/>
+        <input type="button" value="关闭" class="input_btn falseBtn"/>
+       </div>
+      </div>
+     </section>
+     <!--结束：弹出框效果-->
+{/block}	

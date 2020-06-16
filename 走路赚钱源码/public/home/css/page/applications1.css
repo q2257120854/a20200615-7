@@ -1,0 +1,38 @@
+.mui-bar-nav~.mui-content {
+	padding-top: 70px;
+}
+
+.mui-bar-nav {
+	height: 70px;
+	padding-top: 20px;
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+}
+
+.app-banner,.search-box {
+	margin: .2rem;
+}
+
+.app-banner>img {width: 100%;}
+
+.search-box>input {
+	padding-left: .8rem;
+	border: 1px solid #EEEEEE;
+	border-radius: 4px;
+}
+
+.search-box {
+	position: relative;
+}
+
+.search-box>input {
+	font-size: .24rem;
+}
+
+.search-box .mui-icon-search {
+	position: absolute;
+	left: .1rem;
+	top: 12%;
+	color: #ccc;
+}
+

@@ -1,0 +1,55 @@
+-- 管理员权限
+INSERT INTO `#__admingroup` VALUES ('1', '超级管理员', 'C48qI6rnxvVd_0hx3RqzPQ7FzMtkk-DCg5yxjP7HMRrtqXuY3Bi6SBDlMHT63bP8ZKY9kn-SSWASFZV5HdRcxcTtYWBzCg7z9YPLDlLMxmXd4aBjm2BSNpRaLlKL9rYOwjAS6SASRZV5TbSL9dYNgZEA6WFCZXR6PMRrtqXuY2BjGNAylZV4LYOc9kUNgpEAuFFiZbOLLSRbhzLN4rEAmNDihwJr7OSLtrVNkjEBOWBz9jTL7LT8NzLN0p_TONFDZwK7DYR7lrVNkjDCaF4DjBcQLr5SLlkWu4eAyuRAStnRqzQ', 'zh-cn');
+INSERT INTO `#__admingroup` VALUES ('2', '普通管理员', 'l35b0g8P5M_c1rlt0aeOCD_1U9fkXCt1mqaiXB0l7HvsbFIdZs1KqWB0JrJvkaC9tZ92qiaBD1KE_4NIr1e0buNAjJ5Ig0k8dxOy7uk9UhHIP4NFNZ8y6-dDTpUAP8cG9xY06qWAD19LuAaFM9Q26eMHxdKJvMLEs9N0qqbEkJZIQ4RBcZP4o2XAktFF_gcIqhL2KKPAEpBHfgk585g4oWRDTFU_goNFMtez6iWHyxKFgwXG9pM27Kk4DlMGAARGtNmtruXDDVMG_kWHsNL0LyQCEJoIPkVEd5T0aeVADRLHfgP', 'zh-cn');
+INSERT INTO `#__admingroup` VALUES ('3', '网站管理员', '-bb8W236CoZ2AuveKRrwYidmFEpFlO8kRwaoElPO-_riPOmP_n3Rq53LOn2TZZwh_kYgsmWgrWuXN-rMeU1iKkMRrC5PfH1T8oAgeiyMpNqPLBio2MaSejUhfCe', 'zh-cn');
+
+-- 职位
+INSERT INTO `#__job` VALUES ('1', 'PHP开发', '10', '北京', '5k-6k',       '1534694400', '1537804800', '<p><span style=\"color: rgb(97, 104, 124); font-family: arial, verdana, helvetica, &quot;PingFang SC&quot;, &quot;HanHei SC&quot;, STHeitiSC-Light, &quot;Microsoft Yahei&quot;, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\">1、 参与新平台的搭建及系统平台的搭建和维护；</span><br/><span style=\"color: rgb(97, 104, 124); font-family: arial, verdana, helvetica, &quot;PingFang SC&quot;, &quot;HanHei SC&quot;, STHeitiSC-Light, &quot;Microsoft Yahei&quot;, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\">2、 根据需求进行php网站建设、可视化后台架构；</span><br/><span style=\"color: rgb(97, 104, 124); font-family: arial, verdana, helvetica, &quot;PingFang SC&quot;, &quot;HanHei SC&quot;, STHeitiSC-Light, &quot;Microsoft Yahei&quot;, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\">3、对接脚本工程师完成API的对接；</span><br/><span style=\"color: rgb(97, 104, 124); font-family: arial, verdana, helvetica, &quot;PingFang SC&quot;, &quot;HanHei SC&quot;, STHeitiSC-Light, &quot;Microsoft Yahei&quot;, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\">4、 良好的需求沟通能力,学习能力强，具备良好的问题分析和解决能力；</span></p>', '0', '5', '1',  'chagnshang@qq.com', '1', 'zh-cn');
+INSERT INTO `#__job` VALUES ('2', 'JAVA开发', '6', '长沙', '10000-15000', '1534348800', '1536940800', '<p><span style=\"color: rgb(97, 104, 124); font-family: arial, verdana, helvetica, &quot;PingFang SC&quot;, &quot;HanHei SC&quot;, STHeitiSC-Light, &quot;Microsoft Yahei&quot;, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\">-计算机或相关专业，本科以上学历；</span><br/>          <span style=\"color: rgb(97, 104, 124); font-family: arial, verdana, helvetica, &quot;PingFang SC&quot;, &quot;HanHei SC&quot;, STHeitiSC-Light, &quot;Microsoft Yahei&quot;, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\">-Java基础扎实，熟练掌握Java编程技能及算法；</span><br/><span style=\"color: rgb(97, 104, 124); font-family: arial, verdana, helvetica, &quot;PingFang SC&quot;, &quot;HanHei SC&quot;, STHeitiSC-Light, &quot;Microsoft Yahei&quot;, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\">-熟悉Spring MVC、Spring、Hibernate、Mybatis等框架技术；</span></p>', '0', '1', '1', '12345678@qq.com', '1', 'zh-cn');
+INSERT INTO `#__job` VALUES ('3', '平面设计', '3',  '深圳', '2k-3k',      '1534348800', '1536940800', '<p><span style=\"color: rgb(97, 104, 124); font-family: arial, verdana, helvetica, &quot;PingFang SC&quot;, &quot;HanHei SC&quot;, STHeitiSC-Light, &quot;Microsoft Yahei&quot;, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\">1、负责课程的活动图片设计；</span><br/>                <span style=\"color: rgb(97, 104, 124); font-family: arial, verdana, helvetica, &quot;PingFang SC&quot;, &quot;HanHei SC&quot;, STHeitiSC-Light, &quot;Microsoft Yahei&quot;, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\">2、负责课程详情内容的设计；</span><br/><span style=\"color: rgb(97, 104, 124); font-family: arial, verdana, helvetica, &quot;PingFang SC&quot;, &quot;HanHei SC&quot;, STHeitiSC-Light, &quot;Microsoft Yahei&quot;, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\">3、配合协助运营设计课程宣传图；</span></p>', '0', '1', '1', '888888@qq.com',  '1', 'zh-cn');
+
+
+-- 案例
+INSERT INTO `#__cases` VALUES ('1', '中国酒类批发网', '中国酒类批发网', '8', '255', '1', '0', 'cases/cases001.jpg', '', '0', '0', '1535558400', '1535558400', 'demo1', '0', '0', '0',  '1', '0', '', '', '','zh-cn');
+INSERT INTO `#__cases` VALUES ('2', '健十商城',  '健十商城', '8',  '255',  '0', '0', 'cases/cases002.jpg', 'cases/cases001.jpg', '0', '0', '1535558400', '1535558400', 'demo1', '0', '0', '0',  '1', '0', '', '', '','zh-cn');
+INSERT INTO `#__cases` VALUES ('3', '好品绣', '好品绣', '8', '255', '1', '0', 'cases/cases003.jpg', '', '0', '0', '1535558400', '1535558400', 'demo1', '0', '0', '0',  '1', '0', '', '', '','zh-cn');
+INSERT INTO `#__cases` VALUES ('4', '晓安图书','晓安图书', '8', '255', '1', '0', 'cases/cases004.jpg',  '', '0', '0', '1535558400', '1535558400', 'demo1', '0', '0', '0',  '1', '0', '', '', '','zh-cn');
+INSERT INTO `#__cases` VALUES ('5', '租赁链',  '租赁链', '8', '255', '1', '0', 'cases/cases005.jpg',  '', '0', '0', '1535558400', '1535558400', 'demo1', '0', '0', '0',  '1', '0', '', '', '','zh-cn');
+INSERT INTO `#__cases` VALUES ('6', '花园集', '花园集 ',  '8', '255', '1', '0', 'cases/cases006.jpg', '', '0', '0', '1535558400', '1535558400', 'demo1', '0', '0', '0',  '1', '0', '', '', '','zh-cn');
+INSERT INTO `#__cases` VALUES ('7', '3721找厂家','3721找厂家',  '8', '255', '1', '0', 'cases/cases007.jpg', '', '0', '0', '1535558400', '1535558400', 'demo1', '0', '0', '0',  '1', '0', '', '', '','zh-cn');
+INSERT INTO `#__cases` VALUES ('8', '代购之家', '代购之家', '8', '255', '1', '0', 'cases/cases008.jpg', '',  '0', '0', '1535558400', '1535558400', 'demo1', '0', '0', '0',  '1', '0', '', '', '','zh-cn');
+INSERT INTO `#__cases` VALUES ('9', '蚂蚁快送', '蚂蚁快送', '9', '255', '1', '0', 'cases/cases009.jpg', '',  '0', '0', '1535558400', '1535558400', 'demo1', '0', '0', '0',  '1', '0', '', '', '','zh-cn');
+INSERT INTO `#__cases` VALUES ('10', '非遗商城', '非遗商城', '', '', '0',  '1', 'cases/cases010.jpg', '', '1', '0',  '1535558400', '1535558400', 'demo1', '0', '0', '0', '1',  '0', '', '', '','zh-cn');
+
+-- 新闻
+INSERT INTO `#__news` VALUES ('1', 'DSMall IM客服系统安装','Windows安装\r\n Linux安装', '4', '255', '1', '1', 'news/news001.png', '', '0', 'demo1', '0', '0', '1535615900', '0', '0', '0',  '1',  '0', '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('2', '操作日志', '操作日志', '3', '255', '0', '0', 'news/news002.png', '0', '0', 'demo1', '0', '0', '1535615934', '0', '0', '0', '1',  '0',  '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('3', '开店首页', '开店首页', '3', '255', '0', '0', 'news/news003.png', '0', '0', 'demo1', '0', '0', '1535616030', '0', '0', '0', '1',  '0',  '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('4', 'Centos防火墙设置与端口开放的方法','Centos防火墙', '3', '255', '1', '1', 'news/news004.png', '', '0', 'demo1', '0', '0', '1535615900', '0', '0', '0',  '1',  '0', '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('5', 'DSCMS广告管理', 'DSCMS广告管理', '3', '255', '0', '0', 'news/news005.png', '0', '0', 'demo1', '0', '0', '0', '0', '0', '0', '1',  '0',  '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('6', 'DSCMS页面导航', 'DSCMS页面导航', '3', '255', '0', '0', 'news/news006.png', '', '0', 'demo1', '0', '', '', '0', '0', '0', '1',  '',  '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('7', 'DSCMS友情链接', 'DSCMS友情链接', '3', '255', '0', '0', 'news/news007.png', '', '0', 'demo1', '0', '', '', '0', '0', '0', '1',  '',  '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('8', '德尚客服', '德尚客服', '2', '255', '0', '0', 'news/news008.png', '', '0', 'demo1', '0', '', '', '0', '0', '0', '1',  '',  '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('9', '德尚新闻', '德尚新闻', '2', '255', '0', '0', 'news/news009.png', '', '0', 'demo1', '0', '', '', '0', '0', '0', '1',  '',  '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('10', '德尚股票', '德尚股票', '2', '255', '0', '0', 'news/news010.jpg', '', '0', 'demo1', '0', '', '', '0', '0', '0', '1',  '',  '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('11', '德尚系统', '德尚系统', '2', '255', '0', '0', 'news/news011.jpg', '', '0', 'demo1', '0', '', '', '0', '0', '0', '1',  '',  '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('12', '德尚商城', '德尚商城', '2', '255', '0', '0', 'news/news012.jpg', '', '0', 'demo1', '0', '', '', '0', '0', '0', '1',  '',  '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('13', '德尚长沙快讯', '德尚长沙快讯', '1', '255', '0', '0', 'news/news013.jpg', '', '0', 'demo1', '0', '', '', '0', '0', '0', '1',  '',  '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('14', '德尚北京快讯', '德尚长沙快讯', '1', '255', '0', '0', 'news/news014.jpg', '', '0', 'demo1', '0', '', '', '0', '0', '0', '1',  '',  '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('15', '德尚天津快讯', '德尚长沙快讯', '1', '255', '0', '0', 'news/news015.jpg', '', '0', 'demo1', '0', '', '', '0', '0', '0', '1',  '',  '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('16', '德尚上海快讯', '德尚长沙快讯', '1', '255', '0', '0', 'news/news016.jpg', '', '0', 'demo1', '0', '', '', '0', '0', '0', '1',  '',  '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('17', '德尚重庆快讯', '德尚长沙快讯', '1', '255', '0', '0', 'news/news017.jpg', '', '0', 'demo1', '0', '', '', '0', '0', '0', '1',  '',  '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('18', '德尚苏州快讯', '德尚长沙快讯', '1', '255', '0', '0', 'news/news018.jpg', '', '0', 'demo1', '0', '', '', '0', '0', '0', '1',  '',  '', '', '', 'zh-cn');
+INSERT INTO `#__news` VALUES ('19', '德尚杭州快讯', '德尚长沙快讯', '1', '255', '0', '0', 'news/news019.jpg', '', '0', 'demo1', '0', '', '', '0', '0', '0', '1',  '',  '', '', '', 'zh-cn');
+
+
+-- 产品
+INSERT INTO `#__product` VALUES ('1', '小米8 青春版','小米8 青春版', '7', '255', '0', '0', 'product/product001.png', '', '0', '0', '0', '0', 'demo1', '0', '0', '0', '1',  '',  '', '', 'zh-cn');
+INSERT INTO `#__product` VALUES ('2', '小米8 屏幕指纹版', '小米8 屏幕指纹版', '0', '255', '0', '0', 'product/product002.png', '', '0', '0', '0', '0', 'demo1', '0', '0', '0', '1',  '',  '', '', 'zh-cn');
+INSERT INTO `#__product` VALUES ('3', '小米8 SE', '小米8 SE', '0', '255', '0', '0', 'product/product003.png', '', '0', '0', '0', '0', 'demo1', '0', '0', '0', '1',  '',  '', '', 'zh-cn');
+INSERT INTO `#__product` VALUES ('4', '小米MIX 2S','小米MIX 2S', '6', '255', '0', '0', 'product/product004.png', '', '0', '0', '0', '0', 'demo1', '0', '0', '0', '1',  '',  '', '', 'zh-cn');
+INSERT INTO `#__product` VALUES ('5', '小米6X', '小米6X', '6', '255', '0', '0', 'product/product005.png', '', '0', '0', '0', '0', 'demo1', '0', '0', '0', '1',  '',  '', '', 'zh-cn');
+INSERT INTO `#__product` VALUES ('6', '小米Max 2', '小米Max 2', '6', '255', '0', '0', 'product/product006.png', '', '0', '0', '0', '0', 'demo1', '0', '0', '0', '1',  '',  '', '', 'zh-cn');
+INSERT INTO `#__product` VALUES ('7', '小米MIX 2', '小米MIX 2', '0', '255', '0', '0', 'product/product007.png', '', '0', '0', '0', '0', 'demo1', '0', '0', '0', '1',  '',  '', '', 'zh-cn');
+INSERT INTO `#__product` VALUES ('8', '红米自拍手机S2', '红米自拍手机S2', '0', '255', '0', '0', 'product/product008.png', '', '0', '0', '0', '0', 'demo1', '0', '0', '0', '1',  '',  '', '', 'zh-cn');
+

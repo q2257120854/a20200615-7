@@ -1,0 +1,127 @@
+{extend name="layout:home" /}
+
+{block name="container"}
+<form class="layui-form layui-form-pane" method="post" enctype="multipart/form-data">
+    <div class="layui-tab layui-tab-card">
+        {include file="layout/admin_items" /}
+        <div class="layui-tab-content page-tab-content">
+            <div class="layui-tab-item layui-show ">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.site_name}</label>
+                    <div class="layui-input-block">
+                         <input class="layui-input field-name" id="site_name" name="site_name" value="{$list_config.site_name}"  type="text">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.site_logo}</label>
+                    <div class="layui-input-block">
+                        <input type="file" class="layui-input field-name" name="site_logo" id="site_logo" value="" />
+                        <img height="80" src="{$Think.UPLOAD_SITE_URL}/{$Think.ATTACH_COMMON}/{$list_config.site_logo}">
+                    </div>
+                     
+                </div>
+                 <div class="layui-form-item">
+                   
+                    <label class="layui-form-label">{$Think.lang.member_logo}</label>
+                    
+                    <div class="layui-input-block">
+                        <input type="file" class="layui-input field-name" name="member_logo" id="member_logo" value=""   />
+                        <img height="80" src="{$Think.UPLOAD_SITE_URL}/{$Think.ATTACH_COMMON}/{$list_config.member_logo}">
+                    </div>
+                     
+                </div>
+                 <div class="layui-form-item">
+                   
+                    <label class="layui-form-label">{$Think.lang.site_mobile_logo}</label>
+                    
+                    <div class="layui-input-block">
+                        <input type="file" class="layui-input field-name" name="site_mobile_logo" id="site_mobile_logo" value=""   />
+                        <img height="80" src="{$Think.UPLOAD_SITE_URL}/{$Think.ATTACH_COMMON}/{$list_config.site_mobile_logo}">
+                    </div>
+                     
+                </div>
+                   <div class="layui-form-item">
+                   
+                    <label class="layui-form-label">{$Think.lang.site_logowx}</label>
+                    
+                    <div class="layui-input-block">
+                        <input class="layui-input field-name" name="site_logowx" type="file" id="site_logowx" value=""   />
+                        <img height="80" src="{$Think.UPLOAD_SITE_URL}/{$Think.ATTACH_COMMON}/{$list_config.site_logowx}">
+                    </div>
+                     
+                </div>
+              <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.icp_number}</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input field-name" name="icp_number" id="icp_number" value="{$list_config.icp_number}"  placeholder="{$Think.lang.ds_please_enter}{:lang('icp_number')}" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.site_phone}</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input field-name" name="site_phone" id="site_phone" value="{$list_config.site_phone}"  placeholder="{$Think.lang.ds_please_enter}{:lang('site_phone')}" />
+                    </div>
+                </div>
+                      <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.site_tel400}</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input field-name" name="site_tel400" id="site_tel400" value="{$list_config.site_tel400}"  placeholder="{$Think.lang.ds_please_enter}{:lang('site_tel400')}" />
+                    </div>
+                </div>
+             <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.site_email}</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input field-name" name="site_email" id="site_email" value="{$list_config.site_email}"  placeholder="{$Think.lang.ds_please_enter}{:lang('site_email')}" />
+                    </div>
+                </div>
+            <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.flow_static_code}<</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input field-name" name="flow_static_code" id="flow_static_code" value="{$list_config.flow_static_code}"  placeholder="{$Think.lang.ds_please_enter}{:lang('flow_static_code')}" />
+                    </div>
+                </div>
+             <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.site_state}</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="site_state" lay-skin="switch" lay-text="{$Think.lang.ds_yes}|{$Think.lang.ds_no}" value="1" {if condition="$list_config.site_state eq 1"}checked{/if}>
+                    </div>
+                </div> 
+                 <div class="layui-form-item">
+                    <label class="layui-form-label">{$Think.lang.closed_reason}</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input field-name" id="closed_reason" name="closed_reason" value="{$list_config.closed_reason}"/>
+                    </div>
+                </div> 
+                 
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <input type="submit" class="layui-btn layui-btn-normal" lay-submit value="{:lang('ds_submit')}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</form>
+<script>
+    layui.use('form', function() {
+        var form = layui.form;
+    });
+</script>
+<script>
+//Demo
+    layui.use('form', function() {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function(data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
+
+{/block}
+
+
+
